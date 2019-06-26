@@ -39,7 +39,7 @@ bool verify(const void *object,
 
 
     // Construct outline
-    const std::array<cv::Point2f, 4> expectedOutline{
+    const std::array<cv::Point2f, 4> expectedOutline {
         {
             {horizontalMargin, verticalMargin},
             {1.f - horizontalMargin, verticalMargin},
@@ -55,11 +55,20 @@ bool verify(const void *object,
     printf("[DEBUG-DOCUMENT-VERIFY] documentRole: %i, pageCode: %i, country: %i", (int) documentRole, (int) pageCode, (int) country);
 
     // Construct image
+
     printf("[DEBUG-DOCUMENT-CONVERT] starts");
-    const cv::Mat &image = *(cv::Mat *) _mat;
+    const CVImageBufferRef &cvBuffer = CMSampleBufferGetImageBuffer(_mat);
+    CVPixelBufferLockBaseAddress( cvBuffer, 0 );
+    const Size widht = CVPixelBufferGetWidth(cvBuffer);
+    const Size height = CVPixelBufferGetHeight(cvBuffer);
+    cv::Mat image(widht, height, CV_8UC4, CVPixelBufferGetBaseAddress(cvBuffer));
+    CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
     printf("[DEBUG-DOCUMENT-CONVERT] ends");
 
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
+    delete &image;
+    delete &cvBuffer;
+
     const auto state = verifier->GetState();
 
     printf("[DEBUG-DOCUMENT-VERIFY] verifier state: %i", state);
