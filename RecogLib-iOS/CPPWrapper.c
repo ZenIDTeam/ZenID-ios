@@ -11,7 +11,7 @@
 
 CDocumentPictureVerifier * CreateCDocumentPictureVerifier(void) {
 //    return new DocumentPictureVerifier();
-    return DocumentPictureVerifier();
+    return new DocumentPictureVerifier("./models");
 }
 
 void ReleaseCppClass(CDocumentPictureVerifier * c) {

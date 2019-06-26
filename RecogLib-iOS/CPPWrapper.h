@@ -9,8 +9,6 @@
 #ifndef CPPWrapper_h
 #define CPPWrapper_h
 
-#include <stdio.h>
-
 typedef struct DocumentPictureVerifier CDocumentPictureVerifier;
 
 #ifdef __cplusplus

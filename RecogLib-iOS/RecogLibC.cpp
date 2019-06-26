@@ -6,8 +6,6 @@
 //  Copyright © 2019 Marek Stana. All rights reserved.
 //
 
-#include "main.hpp"
-
 #include "FaceLivenessDetector.h"
 #include "DocumentPictureVerifier.h"
 
