@@ -11,9 +11,12 @@
 
 #include <string>
 
-const void * initializeListWrapper(void *object) {
-    std::string &a = *reinterpret_cast<std::string*>(object);
-    RecogLibC::DocumentPictureVerifier *list = new RecogLibC::DocumentPictureVerifier(a);
+const void * initializeListWrapper(const char * path) {
+    printf("[DEBUG] - start");
+    printf("%s", path);
+    printf("[DEBUG] - end");
+
+    RecogLibC::DocumentPictureVerifier *list = new RecogLibC::DocumentPictureVerifier(path);
     return (void *)list;
 }
 

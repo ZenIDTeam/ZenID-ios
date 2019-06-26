@@ -18,18 +18,12 @@ public class DocumentVerifier {
     }
 
     public func load() {
-
         if !isLoaded {
             let modelsPath = Bundle.main.bundlePath + "/Frameworks/RecogLib_iOS.framework/models"
-            let cs = (modelsPath as NSString).utf8String
-            let pointer = UnsafeMutableRawPointer(mutating: cs)
-            self.cppObject = initializeListWrapper(pointer)
+            self.cppObject = initializeListWrapper((modelsPath as NSString).utf8String)
         }
-
         // load documents
         isLoaded = true
-        assert(RecogLib_iOS.load(cppObject) == true)
-
         print("loaded")
     }
 

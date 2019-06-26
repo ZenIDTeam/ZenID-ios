@@ -16,7 +16,7 @@
 extern "C" {
 #endif
 
-    const void * initializeListWrapper(void *object);
+    const void * initializeListWrapper(const char * path);
     bool load(const void *object);
     bool verify(const void *object);
 

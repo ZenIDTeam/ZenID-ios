@@ -14,7 +14,6 @@
 		D261289322C3708600942D8A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262122C3633E007B934C /* CoreImage.framework */; };
 		D261289522C370C200942D8A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */; };
-		D26128CE22C3988100942D8A /* models in Resources */ = {isa = PBXBuildFile; fileRef = D26128CD22C3988100942D8A /* models */; };
 		D26128E222C39AFC00942D8A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26128E122C39AFC00942D8A /* opencv2.framework */; };
 		D26128E722C39B3E00942D8A /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D264245D22C11E7E00735B99 /* RecogLib_iOS.framework */; };
 		D26128EE22C3A99300942D8A /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +43,7 @@
 		D296261F22C3631F007B934C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296261E22C3631F007B934C /* AVFoundation.framework */; };
 		D296262522C36359007B934C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262422C36359007B934C /* CoreMedia.framework */; };
 		D296262822C36C07007B934C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
+		D2991D8D22C3B53A00CF40F4 /* models in Resources */ = {isa = PBXBuildFile; fileRef = D2991D8C22C3B53A00CF40F4 /* models */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +85,7 @@
 		D296262122C3633E007B934C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		D296262422C36359007B934C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D2991D8C22C3B53A00CF40F4 /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = models; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +130,7 @@
 		D264245F22C11E7E00735B99 /* RecogLib-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2991D8C22C3B53A00CF40F4 /* models */,
 				D264298E22C127AE00735B99 /* samples */,
 				D264271822C124CD00735B99 /* thirdparty */,
 				D264249722C121ED00735B99 /* include */,
@@ -305,7 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D26128CE22C3988100942D8A /* models in Resources */,
+				D2991D8D22C3B53A00CF40F4 /* models in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
