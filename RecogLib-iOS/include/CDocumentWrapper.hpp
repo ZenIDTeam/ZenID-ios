@@ -16,9 +16,8 @@
 extern "C" {
 #endif
 
-    const void * initializeListWrapper(const char * path);
-    bool load(const void *object);
-    bool verify(const void *object);
+    const void * loadWrapper(const char * path);
+    bool verify(const void *object, long _mat, int _documentRole, int _pageCode, int _country);
 
 #ifdef __cplusplus
 }
