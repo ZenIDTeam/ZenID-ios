@@ -1,7 +1,11 @@
 #pragma once
 
+
 // This file is generated automatically. Any change will be overwritten.
 
+#ifdef __cplusplus
+
+#include <stdint.h>
 namespace RecogLibC
 {
 
@@ -56,3 +60,4 @@ enum class DocumentRole : uint8_t
 };
 
 }
+#endif

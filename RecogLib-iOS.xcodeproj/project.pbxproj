@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D261288D22C3701F00942D8A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261288C22C3701F00942D8A /* CoreVideo.framework */; };
+		D261288F22C3702500942D8A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261288E22C3702500942D8A /* QuartzCore.framework */; };
+		D261289122C3707600942D8A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289022C3707600942D8A /* Accelerate.framework */; };
+		D261289222C3707E00942D8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262022C3633E007B934C /* CoreGraphics.framework */; };
+		D261289322C3708600942D8A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262122C3633E007B934C /* CoreImage.framework */; };
+		D261289522C370C200942D8A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
+		D261289822C372CC00942D8A /* CPPWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D261289622C372CC00942D8A /* CPPWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D261289922C372CC00942D8A /* CPPWrapper.c in Sources */ = {isa = PBXBuildFile; fileRef = D261289722C372CC00942D8A /* CPPWrapper.c */; };
 		D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D264246022C11E7E00735B99 /* RecogLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D264246A22C11EC100735B99 /* RecogLibC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264246822C11EC100735B99 /* RecogLibC.cpp */; };
-		D264246B22C11EC100735B99 /* main.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D264246922C11EC100735B99 /* main.hpp */; };
-		D264249222C1210000735B99 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D264249122C1210000735B99 /* opencv2.framework */; };
 		D26425EE22C121ED00735B99 /* ModelLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249822C121ED00735B99 /* ModelLoader.h */; };
 		D26425EF22C121ED00735B99 /* SpecularImageValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249922C121ED00735B99 /* SpecularImageValidator.h */; };
-		D26425F022C121ED00735B99 /* DocumentPictureVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */; };
 		D26425F122C121ED00735B99 /* Matcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249B22C121ED00735B99 /* Matcher.h */; };
 		D26425F222C121ED00735B99 /* ScopedTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249C22C121ED00735B99 /* ScopedTimer.h */; };
 		D26425F322C121ED00735B99 /* ZenidEnums.generated.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249D22C121ED00735B99 /* ZenidEnums.generated.h */; };
@@ -25,7 +30,7 @@
 		D26425F922C121ED00735B99 /* HomohgraphyRank.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A322C121ED00735B99 /* HomohgraphyRank.h */; };
 		D26425FA22C121ED00735B99 /* ProcModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A422C121ED00735B99 /* ProcModel.h */; };
 		D26425FB22C121ED00735B99 /* facemarkLBFBinary.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A522C121ED00735B99 /* facemarkLBFBinary.h */; };
-		D26425FC22C121ED00735B99 /* FaceLivenessDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A622C121ED00735B99 /* FaceLivenessDetector.h */; };
+		D26425FC22C121ED00735B99 /* FaceLivenessDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A622C121ED00735B99 /* FaceLivenessDetector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D264286A22C124CD00735B99 /* format.h in Headers */ = {isa = PBXBuildFile; fileRef = D264272622C124CD00735B99 /* format.h */; };
 		D264299322C127AE00735B99 /* FaceLivenessSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264298F22C127AE00735B99 /* FaceLivenessSample.cpp */; };
 		D264299422C127AE00735B99 /* MatcherSample.h in Headers */ = {isa = PBXBuildFile; fileRef = D264299022C127AE00735B99 /* MatcherSample.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,19 +58,29 @@
 		D296260622C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625F022C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin */; };
 		D296260722C25751007B934C /* recoglibc_SK_DRV_1993_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625F122C25751007B934C /* recoglibc_SK_DRV_1993_F.bin */; };
 		D296260822C25751007B934C /* recoglibc_PAS_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625F222C25751007B934C /* recoglibc_PAS_F.bin */; };
+		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
+		D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		D296261322C2670C007B934C /* DocumentPictureVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */; };
+		D296261F22C3631F007B934C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296261E22C3631F007B934C /* AVFoundation.framework */; };
+		D296262522C36359007B934C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262422C36359007B934C /* CoreMedia.framework */; };
+		D296262822C36C07007B934C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D261288C22C3701F00942D8A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		D261288E22C3702500942D8A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D261289022C3707600942D8A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D261289422C370C200942D8A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		D261289622C372CC00942D8A /* CPPWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPWrapper.h; sourceTree = "<group>"; };
+		D261289722C372CC00942D8A /* CPPWrapper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CPPWrapper.c; sourceTree = "<group>"; };
 		D264245D22C11E7E00735B99 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RecogLib_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D264246022C11E7E00735B99 /* RecogLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecogLib_iOS.h; sourceTree = "<group>"; };
 		D264246122C11E7E00735B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D264246822C11EC100735B99 /* RecogLibC.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RecogLibC.cpp; sourceTree = "<group>"; };
-		D264246922C11EC100735B99 /* main.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = main.hpp; sourceTree = "<group>"; };
-		D264249122C1210000735B99 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		D264249822C121ED00735B99 /* ModelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLoader.h; sourceTree = "<group>"; };
 		D264249922C121ED00735B99 /* SpecularImageValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecularImageValidator.h; sourceTree = "<group>"; };
 		D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentPictureVerifier.h; sourceTree = "<group>"; };
-		D264249B22C121ED00735B99 /* Matcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matcher.h; sourceTree = "<group>"; };
+		D264249B22C121ED00735B99 /* Matcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Matcher.h; sourceTree = "<group>"; };
 		D264249C22C121ED00735B99 /* ScopedTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScopedTimer.h; sourceTree = "<group>"; };
 		D264249D22C121ED00735B99 /* ZenidEnums.generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenidEnums.generated.h; sourceTree = "<group>"; };
 		D264249E22C121ED00735B99 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -104,6 +119,13 @@
 		D29625F022C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_DRV_2004_08_09_F.bin; sourceTree = "<group>"; };
 		D29625F122C25751007B934C /* recoglibc_SK_DRV_1993_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_DRV_1993_F.bin; sourceTree = "<group>"; };
 		D29625F222C25751007B934C /* recoglibc_PAS_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_PAS_F.bin; sourceTree = "<group>"; };
+		D296261022C265E0007B934C /* DocumentVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifier.swift; sourceTree = "<group>"; };
+		D296261A22C362A5007B934C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../Dropbox/opencv2/iOS/opencv2.framework; sourceTree = "<group>"; };
+		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D296262022C3633E007B934C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D296262122C3633E007B934C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D296262422C36359007B934C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +133,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D264249222C1210000735B99 /* opencv2.framework in Frameworks */,
+				D261289522C370C200942D8A /* libc++.tbd in Frameworks */,
+				D261289322C3708600942D8A /* CoreImage.framework in Frameworks */,
+				D261289222C3707E00942D8A /* CoreGraphics.framework in Frameworks */,
+				D261289122C3707600942D8A /* Accelerate.framework in Frameworks */,
+				D296261F22C3631F007B934C /* AVFoundation.framework in Frameworks */,
+				D296262822C36C07007B934C /* AssetsLibrary.framework in Frameworks */,
+				D261288F22C3702500942D8A /* QuartzCore.framework in Frameworks */,
+				D261288D22C3701F00942D8A /* CoreVideo.framework in Frameworks */,
+				D296262522C36359007B934C /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +175,9 @@
 				D264246022C11E7E00735B99 /* RecogLib_iOS.h */,
 				D264246122C11E7E00735B99 /* Info.plist */,
 				D264246822C11EC100735B99 /* RecogLibC.cpp */,
-				D264246922C11EC100735B99 /* main.hpp */,
+				D296261022C265E0007B934C /* DocumentVerifier.swift */,
+				D261289722C372CC00942D8A /* CPPWrapper.c */,
+				D261289622C372CC00942D8A /* CPPWrapper.h */,
 			);
 			path = "RecogLib-iOS";
 			sourceTree = "<group>";
@@ -153,7 +185,16 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D264249122C1210000735B99 /* opencv2.framework */,
+				D261289422C370C200942D8A /* libc++.tbd */,
+				D261289022C3707600942D8A /* Accelerate.framework */,
+				D261288E22C3702500942D8A /* QuartzCore.framework */,
+				D261288C22C3701F00942D8A /* CoreVideo.framework */,
+				D296262622C36B81007B934C /* AssetsLibrary.framework */,
+				D296262422C36359007B934C /* CoreMedia.framework */,
+				D296262022C3633E007B934C /* CoreGraphics.framework */,
+				D296262122C3633E007B934C /* CoreImage.framework */,
+				D296261E22C3631F007B934C /* AVFoundation.framework */,
+				D296261A22C362A5007B934C /* opencv2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,26 +292,27 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D26425F422C121ED00735B99 /* Utilities.h in Headers */,
-				D264286A22C124CD00735B99 /* format.h in Headers */,
-				D26425F222C121ED00735B99 /* ScopedTimer.h in Headers */,
+				D261289822C372CC00942D8A /* CPPWrapper.h in Headers */,
+				D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */,
+				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
 				D26425FC22C121ED00735B99 /* FaceLivenessDetector.h in Headers */,
-				D26425F022C121ED00735B99 /* DocumentPictureVerifier.h in Headers */,
+				D264299622C127AE00735B99 /* FaceLivenessSample.h in Headers */,
 				D264299422C127AE00735B99 /* MatcherSample.h in Headers */,
 				D26425F722C121ED00735B99 /* faceidentification.h in Headers */,
 				D26425F122C121ED00735B99 /* Matcher.h in Headers */,
 				D26425FA22C121ED00735B99 /* ProcModel.h in Headers */,
 				D26425F622C121ED00735B99 /* RecogLibCException.h in Headers */,
 				D26425F322C121ED00735B99 /* ZenidEnums.generated.h in Headers */,
+				D296261322C2670C007B934C /* DocumentPictureVerifier.h in Headers */,
+				D264286A22C124CD00735B99 /* format.h in Headers */,
+				D26425F422C121ED00735B99 /* Utilities.h in Headers */,
 				D26425F922C121ED00735B99 /* HomohgraphyRank.h in Headers */,
 				D26425F822C121ED00735B99 /* Transform.h in Headers */,
-				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
+				D26425F222C121ED00735B99 /* ScopedTimer.h in Headers */,
 				D26425F522C121ED00735B99 /* BlurValidator.h in Headers */,
 				D26425FB22C121ED00735B99 /* facemarkLBFBinary.h in Headers */,
-				D264299622C127AE00735B99 /* FaceLivenessSample.h in Headers */,
 				D26425EE22C121ED00735B99 /* ModelLoader.h in Headers */,
 				D26425EF22C121ED00735B99 /* SpecularImageValidator.h in Headers */,
-				D264246B22C11EC100735B99 /* main.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +348,7 @@
 				TargetAttributes = {
 					D264245C22C11E7E00735B99 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -364,7 +407,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D264246A22C11EC100735B99 /* RecogLibC.cpp in Sources */,
+				D261289922C372CC00942D8A /* CPPWrapper.c in Sources */,
 				D264299522C127AE00735B99 /* MatcherSample.cpp in Sources */,
+				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
 				D264299322C127AE00735B99 /* FaceLivenessSample.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +423,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -387,6 +432,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = NO;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -408,9 +454,10 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -442,7 +489,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -451,6 +498,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = NO;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -472,9 +520,10 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -498,6 +547,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -505,13 +556,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/RecogLib-iOS",
 				);
+				GCC_CW_ASM_SYNTAX = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,6 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -533,6 +590,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -540,13 +599,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/RecogLib-iOS",
 				);
+				GCC_CW_ASM_SYNTAX = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
