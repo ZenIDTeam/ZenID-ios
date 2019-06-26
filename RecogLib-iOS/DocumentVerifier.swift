@@ -30,7 +30,7 @@ public class DocumentVerifier {
 
     public func verify() {
         print("[DEBUG] verifying: ")
-//        print(RecogLib_iOS.verify(cppObject))
+        print(RecogLib_iOS.verify(cppObject, 0, 0, 0, 0, 0, 0))
         print("[DEBUG] verifying ended")
     }
 

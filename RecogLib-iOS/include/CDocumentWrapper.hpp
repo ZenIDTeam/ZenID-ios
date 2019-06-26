@@ -17,8 +17,7 @@ extern "C" {
 #endif
 
     const void * loadWrapper(const char * path);
-    bool verify(const void *object, long _mat, int _documentRole, int _pageCode, int _country);
-
+    bool verify(const void *object, long _mat, float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
 #ifdef __cplusplus
 }
 #endif
