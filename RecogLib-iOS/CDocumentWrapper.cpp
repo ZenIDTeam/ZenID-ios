@@ -57,18 +57,18 @@ bool verify(const void *object,
     // Construct image
 
     printf("[DEBUG-DOCUMENT-CONVERT] starts");
-    const CVImageBufferRef &cvBuffer = CMSampleBufferGetImageBuffer(_mat);
+    const CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
     CVPixelBufferLockBaseAddress( cvBuffer, 0 );
     const Size widht = CVPixelBufferGetWidth(cvBuffer);
     const Size height = CVPixelBufferGetHeight(cvBuffer);
-    cv::Mat image(widht, height, CV_8UC4, CVPixelBufferGetBaseAddress(cvBuffer));
+    void * pixel = CVPixelBufferGetBaseAddress(cvBuffer);
+    cv::Mat image((int)height, (int)widht, CV_8UC4, pixel);
     CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
     printf("[DEBUG-DOCUMENT-CONVERT] ends");
 
+    printf("[DEBUG-DOCUMENT-VERIFY] start");
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
-    delete &image;
-    delete &cvBuffer;
-
+    
     const auto state = verifier->GetState();
 
     printf("[DEBUG-DOCUMENT-VERIFY] verifier state: %i", state);

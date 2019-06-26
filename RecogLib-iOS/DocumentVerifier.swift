@@ -25,12 +25,9 @@ public class DocumentVerifier {
         }
         // load documents
         isLoaded = true
-        print("loaded")
     }
 
     public func verify(buffer: CMSampleBuffer) {
-        print("[DEBUG] verifying: ")
-        print(RecogLib_iOS.verify(cppObject, buffer, 0, 0, 0, 0, 0))
-        print("[DEBUG] verifying ended")
+        RecogLib_iOS.verify(cppObject, buffer, 0, 0, 0, 0, 0)
     }
 }

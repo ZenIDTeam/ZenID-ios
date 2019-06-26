@@ -35,13 +35,12 @@
 		D296261322C2670C007B934C /* DocumentPictureVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */; };
 		D2991D8D22C3B53A00CF40F4 /* models in Resources */ = {isa = PBXBuildFile; fileRef = D2991D8C22C3B53A00CF40F4 /* models */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
-		D2991DAB22C3C75900CF40F4 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2991DAA22C3C75800CF40F4 /* opencv2.framework */; };
+		D2BD77E722C41A8C006D7974 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD77E622C41A8B006D7974 /* opencv2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D261288C22C3701F00942D8A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D261288E22C3702500942D8A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D261289022C3707600942D8A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D261289422C370C200942D8A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentWrapper.cpp; sourceTree = "<group>"; };
 		D26128CD22C3988100942D8A /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = models; sourceTree = "<group>"; };
@@ -77,7 +76,7 @@
 		D296262422C36359007B934C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D2991D8C22C3B53A00CF40F4 /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = models; sourceTree = "<group>"; };
-		D2991DAA22C3C75800CF40F4 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D2BD77E622C41A8B006D7974 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +87,8 @@
 				D23D193F22C3C7DF004860F9 /* AVFoundation.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
 				D23D193D22C3C7D3004860F9 /* CoreVideo.framework in Frameworks */,
+				D2BD77E722C41A8C006D7974 /* opencv2.framework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
-				D2991DAB22C3C75900CF40F4 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,9 +131,8 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2991DAA22C3C75800CF40F4 /* opencv2.framework */,
+				D2BD77E622C41A8B006D7974 /* opencv2.framework */,
 				D261289422C370C200942D8A /* libc++.tbd */,
-				D261289022C3707600942D8A /* Accelerate.framework */,
 				D261288E22C3702500942D8A /* QuartzCore.framework */,
 				D261288C22C3701F00942D8A /* CoreVideo.framework */,
 				D296262622C36B81007B934C /* AssetsLibrary.framework */,
@@ -475,6 +473,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RecogLib-iOS/thirdparty/lib",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
