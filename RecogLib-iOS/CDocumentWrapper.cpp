@@ -12,6 +12,8 @@
 
 #include "opencv2/opencv.hpp"
 
+#include <CoreMedia/CoreMedia.h>
+
 #include <string>
 
 const void * loadWrapper(const char *path)
@@ -22,7 +24,7 @@ const void * loadWrapper(const char *path)
 }
 
 bool verify(const void *object,
-            long _mat,
+            CMSampleBufferRef _mat,
             float _horizontalMargin,
             float _verticalMargin,
             int _documentRole,
@@ -53,7 +55,9 @@ bool verify(const void *object,
     printf("[DEBUG-DOCUMENT-VERIFY] documentRole: %i, pageCode: %i, country: %i", (int) documentRole, (int) pageCode, (int) country);
 
     // Construct image
+    printf("[DEBUG-DOCUMENT-CONVERT] starts");
     const cv::Mat &image = *(cv::Mat *) _mat;
+    printf("[DEBUG-DOCUMENT-CONVERT] ends");
 
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
     const auto state = verifier->GetState();
@@ -62,7 +66,3 @@ bool verify(const void *object,
 
     return true;
 }
-
-
-
-

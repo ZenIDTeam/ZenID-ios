@@ -28,36 +28,9 @@ public class DocumentVerifier {
         print("loaded")
     }
 
-    public func verify() {
+    public func verify(buffer: CMSampleBuffer) {
         print("[DEBUG] verifying: ")
-        print(RecogLib_iOS.verify(cppObject, 0, 0, 0, 0, 0, 0))
+        print(RecogLib_iOS.verify(cppObject, buffer, 0, 0, 0, 0, 0))
         print("[DEBUG] verifying ended")
-    }
-
-    func parseBuffer(buffer: CMSampleBuffer) {
-        guard let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) else {
-            return
-        }
-
-        CVPixelBufferLockBaseAddress(pixelBuffer, [])
-        let width = CVPixelBufferGetWidth(pixelBuffer)
-        let height = CVPixelBufferGetHeight(pixelBuffer)
-
-
-        let mat =
-        CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
-//        - (void) parseBuffer:(CMSampleBufferRef) sampleBuffer
-//        {
-//            CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-//            CVPixelBufferLockBaseAddress( pixelBuffer, 0 );
-//            //Processing here
-//            int bufferWidth = CVPixelBufferGetWidth(pixelBuffer);
-//            int bufferHeight = CVPixelBufferGetHeight(pixelBuffer);
-//            unsigned char *pixel = (unsigned char *)CVPixelBufferGetBaseAddress(pixelBuffer);
-//            // put buffer in open cv, no memory copied
-//            cv::Mat mat = cv::Mat(bufferHeight,bufferWidth,CV_8UC4,pixel);
-//            //End processing
-//            CVPixelBufferUnlockBaseAddress( pixelBuffer, 0 );
-//        }
     }
 }
