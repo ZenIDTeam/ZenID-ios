@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RecogLib_iOS/MatcherSample.h>
 #import <RecogLib_iOS/FaceLivenessSample.h>
-#import <RecogLib_iOS/CPPWrapper.h>
+#import <RecogLib_iOS/CDocumentWrapper.hpp>
 
 //! Project version number for RecogLib_iOS.
 FOUNDATION_EXPORT double RecogLib_iOSVersionNumber;

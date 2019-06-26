@@ -20,11 +20,11 @@ class ModelLoader
 
 	static std::shared_ptr<ModelList> LoadModels(const std::string& resourcesRootPath)
 	{
-		auto models = std::make_shared<std::vector<std::unique_ptr<const ProcModel>>>();
+        auto models = std::make_shared<std::vector<std::unique_ptr<const ProcModel>>>();
 		for (const auto& fileName : modelFileNames)
 		{
 			std::ifstream fileStream{resourcesRootPath + "/" + fileName, std::fstream::binary};
-			models->emplace_back(LoadModel(fileStream));
+            models->emplace_back(LoadModel(fileStream));
 		}
 		return models;
 	}

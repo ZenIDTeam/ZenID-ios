@@ -13,8 +13,11 @@
 		D261289222C3707E00942D8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262022C3633E007B934C /* CoreGraphics.framework */; };
 		D261289322C3708600942D8A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262122C3633E007B934C /* CoreImage.framework */; };
 		D261289522C370C200942D8A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
-		D261289822C372CC00942D8A /* CPPWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D261289622C372CC00942D8A /* CPPWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D261289922C372CC00942D8A /* CPPWrapper.c in Sources */ = {isa = PBXBuildFile; fileRef = D261289722C372CC00942D8A /* CPPWrapper.c */; };
+		D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */; };
+		D26128CE22C3988100942D8A /* models in Resources */ = {isa = PBXBuildFile; fileRef = D26128CD22C3988100942D8A /* models */; };
+		D26128E222C39AFC00942D8A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D26128E122C39AFC00942D8A /* opencv2.framework */; };
+		D26128E722C39B3E00942D8A /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D264245D22C11E7E00735B99 /* RecogLib_iOS.framework */; };
+		D26128EE22C3A99300942D8A /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D264246022C11E7E00735B99 /* RecogLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D264246A22C11EC100735B99 /* RecogLibC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264246822C11EC100735B99 /* RecogLibC.cpp */; };
 		D26425EE22C121ED00735B99 /* ModelLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249822C121ED00735B99 /* ModelLoader.h */; };
@@ -33,31 +36,8 @@
 		D26425FC22C121ED00735B99 /* FaceLivenessDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A622C121ED00735B99 /* FaceLivenessDetector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D264286A22C124CD00735B99 /* format.h in Headers */ = {isa = PBXBuildFile; fileRef = D264272622C124CD00735B99 /* format.h */; };
 		D264299322C127AE00735B99 /* FaceLivenessSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264298F22C127AE00735B99 /* FaceLivenessSample.cpp */; };
-		D264299422C127AE00735B99 /* MatcherSample.h in Headers */ = {isa = PBXBuildFile; fileRef = D264299022C127AE00735B99 /* MatcherSample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D264299522C127AE00735B99 /* MatcherSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264299122C127AE00735B99 /* MatcherSample.cpp */; };
 		D264299622C127AE00735B99 /* FaceLivenessSample.h in Headers */ = {isa = PBXBuildFile; fileRef = D264299222C127AE00735B99 /* FaceLivenessSample.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D29625F322C25751007B934C /* recoglibc_SK_DRV_2015_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625DD22C25751007B934C /* recoglibc_SK_DRV_2015_F.bin */; };
-		D29625F422C25751007B934C /* lbfmodel.yaml.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625DE22C25751007B934C /* lbfmodel.yaml.bin */; };
-		D29625F522C25751007B934C /* recoglibc_IDC2_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625DF22C25751007B934C /* recoglibc_IDC2_F.bin */; };
-		D29625F622C25751007B934C /* recoglibc_SK_DRV_2013_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625E022C25751007B934C /* recoglibc_SK_DRV_2013_F.bin */; };
-		D29625F722C25751007B934C /* recoglibc_IDC2_B.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625E122C25751007B934C /* recoglibc_IDC2_B.bin */; };
-		D29625F822C25751007B934C /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = D29625E222C25751007B934C /* lbpcascade_frontalface.xml */; };
-		D29625F922C25751007B934C /* opencv_face_detector_uint8.pb in Resources */ = {isa = PBXBuildFile; fileRef = D29625E322C25751007B934C /* opencv_face_detector_uint8.pb */; };
-		D29625FA22C25751007B934C /* recoglibc_IDC1_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625E422C25751007B934C /* recoglibc_IDC1_F.bin */; };
-		D29625FB22C25751007B934C /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = D29625E522C25751007B934C /* haarcascade_frontalface_alt2.xml */; };
-		D29625FC22C25751007B934C /* recoglibc_SK_PAS_2008_14_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625E622C25751007B934C /* recoglibc_SK_PAS_2008_14_F.bin */; };
-		D29625FD22C25751007B934C /* recoglibc_DRV_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625E722C25751007B934C /* recoglibc_DRV_F.bin */; };
-		D29625FE22C25751007B934C /* recoglibc_IDC1_B.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625E822C25751007B934C /* recoglibc_IDC1_B.bin */; };
-		D29625FF22C25751007B934C /* deploy.prototxt in Resources */ = {isa = PBXBuildFile; fileRef = D29625E922C25751007B934C /* deploy.prototxt */; };
-		D296260022C25751007B934C /* res10_300x300_ssd_iter_140000_fp16.caffemodel in Resources */ = {isa = PBXBuildFile; fileRef = D29625EA22C25751007B934C /* res10_300x300_ssd_iter_140000_fp16.caffemodel */; };
-		D296260122C25751007B934C /* recoglibc_SK_IDC_2008plus_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625EB22C25751007B934C /* recoglibc_SK_IDC_2008plus_F.bin */; };
-		D296260222C25751007B934C /* recoglibc_SK_IDC_2008plus_B.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625EC22C25751007B934C /* recoglibc_SK_IDC_2008plus_B.bin */; };
-		D296260322C25751007B934C /* lbfmodel-5.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D29625ED22C25751007B934C /* lbfmodel-5.yaml */; };
-		D296260422C25751007B934C /* opencv_face_detector.pbtxt in Resources */ = {isa = PBXBuildFile; fileRef = D29625EE22C25751007B934C /* opencv_face_detector.pbtxt */; };
-		D296260522C25751007B934C /* lbfmodel.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D29625EF22C25751007B934C /* lbfmodel.yaml */; };
-		D296260622C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625F022C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin */; };
-		D296260722C25751007B934C /* recoglibc_SK_DRV_1993_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625F122C25751007B934C /* recoglibc_SK_DRV_1993_F.bin */; };
-		D296260822C25751007B934C /* recoglibc_PAS_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D29625F222C25751007B934C /* recoglibc_PAS_F.bin */; };
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		D296261322C2670C007B934C /* DocumentPictureVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */; };
@@ -71,8 +51,10 @@
 		D261288E22C3702500942D8A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D261289022C3707600942D8A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D261289422C370C200942D8A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		D261289622C372CC00942D8A /* CPPWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPWrapper.h; sourceTree = "<group>"; };
-		D261289722C372CC00942D8A /* CPPWrapper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CPPWrapper.c; sourceTree = "<group>"; };
+		D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentWrapper.cpp; sourceTree = "<group>"; };
+		D26128CD22C3988100942D8A /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = models; sourceTree = "<group>"; };
+		D26128E122C39AFC00942D8A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CDocumentWrapper.hpp; sourceTree = "<group>"; };
 		D264245D22C11E7E00735B99 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RecogLib_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D264246022C11E7E00735B99 /* RecogLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecogLib_iOS.h; sourceTree = "<group>"; };
 		D264246122C11E7E00735B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,30 +79,7 @@
 		D264299022C127AE00735B99 /* MatcherSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatcherSample.h; sourceTree = "<group>"; };
 		D264299122C127AE00735B99 /* MatcherSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatcherSample.cpp; sourceTree = "<group>"; };
 		D264299222C127AE00735B99 /* FaceLivenessSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceLivenessSample.h; sourceTree = "<group>"; };
-		D29625DD22C25751007B934C /* recoglibc_SK_DRV_2015_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_DRV_2015_F.bin; sourceTree = "<group>"; };
-		D29625DE22C25751007B934C /* lbfmodel.yaml.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = lbfmodel.yaml.bin; sourceTree = "<group>"; };
-		D29625DF22C25751007B934C /* recoglibc_IDC2_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC2_F.bin; sourceTree = "<group>"; };
-		D29625E022C25751007B934C /* recoglibc_SK_DRV_2013_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_DRV_2013_F.bin; sourceTree = "<group>"; };
-		D29625E122C25751007B934C /* recoglibc_IDC2_B.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC2_B.bin; sourceTree = "<group>"; };
-		D29625E222C25751007B934C /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
-		D29625E322C25751007B934C /* opencv_face_detector_uint8.pb */ = {isa = PBXFileReference; lastKnownFileType = file; path = opencv_face_detector_uint8.pb; sourceTree = "<group>"; };
-		D29625E422C25751007B934C /* recoglibc_IDC1_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC1_F.bin; sourceTree = "<group>"; };
-		D29625E522C25751007B934C /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
-		D29625E622C25751007B934C /* recoglibc_SK_PAS_2008_14_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_PAS_2008_14_F.bin; sourceTree = "<group>"; };
-		D29625E722C25751007B934C /* recoglibc_DRV_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_DRV_F.bin; sourceTree = "<group>"; };
-		D29625E822C25751007B934C /* recoglibc_IDC1_B.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC1_B.bin; sourceTree = "<group>"; };
-		D29625E922C25751007B934C /* deploy.prototxt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deploy.prototxt; sourceTree = "<group>"; };
-		D29625EA22C25751007B934C /* res10_300x300_ssd_iter_140000_fp16.caffemodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = res10_300x300_ssd_iter_140000_fp16.caffemodel; sourceTree = "<group>"; };
-		D29625EB22C25751007B934C /* recoglibc_SK_IDC_2008plus_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_IDC_2008plus_F.bin; sourceTree = "<group>"; };
-		D29625EC22C25751007B934C /* recoglibc_SK_IDC_2008plus_B.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_IDC_2008plus_B.bin; sourceTree = "<group>"; };
-		D29625ED22C25751007B934C /* lbfmodel-5.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lbfmodel-5.yaml"; sourceTree = "<group>"; };
-		D29625EE22C25751007B934C /* opencv_face_detector.pbtxt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = opencv_face_detector.pbtxt; sourceTree = "<group>"; };
-		D29625EF22C25751007B934C /* lbfmodel.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lbfmodel.yaml; sourceTree = "<group>"; };
-		D29625F022C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_DRV_2004_08_09_F.bin; sourceTree = "<group>"; };
-		D29625F122C25751007B934C /* recoglibc_SK_DRV_1993_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_SK_DRV_1993_F.bin; sourceTree = "<group>"; };
-		D29625F222C25751007B934C /* recoglibc_PAS_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_PAS_F.bin; sourceTree = "<group>"; };
 		D296261022C265E0007B934C /* DocumentVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifier.swift; sourceTree = "<group>"; };
-		D296261A22C362A5007B934C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../Dropbox/opencv2/iOS/opencv2.framework; sourceTree = "<group>"; };
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262022C3633E007B934C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D296262122C3633E007B934C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -138,9 +97,11 @@
 				D261289222C3707E00942D8A /* CoreGraphics.framework in Frameworks */,
 				D261289122C3707600942D8A /* Accelerate.framework in Frameworks */,
 				D296261F22C3631F007B934C /* AVFoundation.framework in Frameworks */,
+				D26128E722C39B3E00942D8A /* RecogLib_iOS.framework in Frameworks */,
 				D296262822C36C07007B934C /* AssetsLibrary.framework in Frameworks */,
 				D261288F22C3702500942D8A /* QuartzCore.framework in Frameworks */,
 				D261288D22C3701F00942D8A /* CoreVideo.framework in Frameworks */,
+				D26128E222C39AFC00942D8A /* opencv2.framework in Frameworks */,
 				D296262522C36359007B934C /* CoreMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +129,6 @@
 		D264245F22C11E7E00735B99 /* RecogLib-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D29625DC22C25751007B934C /* models */,
 				D264298E22C127AE00735B99 /* samples */,
 				D264271822C124CD00735B99 /* thirdparty */,
 				D264249722C121ED00735B99 /* include */,
@@ -176,8 +136,7 @@
 				D264246122C11E7E00735B99 /* Info.plist */,
 				D264246822C11EC100735B99 /* RecogLibC.cpp */,
 				D296261022C265E0007B934C /* DocumentVerifier.swift */,
-				D261289722C372CC00942D8A /* CPPWrapper.c */,
-				D261289622C372CC00942D8A /* CPPWrapper.h */,
+				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
 			);
 			path = "RecogLib-iOS";
 			sourceTree = "<group>";
@@ -185,6 +144,7 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D26128E122C39AFC00942D8A /* opencv2.framework */,
 				D261289422C370C200942D8A /* libc++.tbd */,
 				D261289022C3707600942D8A /* Accelerate.framework */,
 				D261288E22C3702500942D8A /* QuartzCore.framework */,
@@ -194,7 +154,6 @@
 				D296262022C3633E007B934C /* CoreGraphics.framework */,
 				D296262122C3633E007B934C /* CoreImage.framework */,
 				D296261E22C3631F007B934C /* AVFoundation.framework */,
-				D296261A22C362A5007B934C /* opencv2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,6 +161,8 @@
 		D264249722C121ED00735B99 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */,
+				D26128CD22C3988100942D8A /* models */,
 				D264249822C121ED00735B99 /* ModelLoader.h */,
 				D264249922C121ED00735B99 /* SpecularImageValidator.h */,
 				D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */,
@@ -256,35 +217,6 @@
 			path = samples;
 			sourceTree = "<group>";
 		};
-		D29625DC22C25751007B934C /* models */ = {
-			isa = PBXGroup;
-			children = (
-				D29625DD22C25751007B934C /* recoglibc_SK_DRV_2015_F.bin */,
-				D29625DE22C25751007B934C /* lbfmodel.yaml.bin */,
-				D29625DF22C25751007B934C /* recoglibc_IDC2_F.bin */,
-				D29625E022C25751007B934C /* recoglibc_SK_DRV_2013_F.bin */,
-				D29625E122C25751007B934C /* recoglibc_IDC2_B.bin */,
-				D29625E222C25751007B934C /* lbpcascade_frontalface.xml */,
-				D29625E322C25751007B934C /* opencv_face_detector_uint8.pb */,
-				D29625E422C25751007B934C /* recoglibc_IDC1_F.bin */,
-				D29625E522C25751007B934C /* haarcascade_frontalface_alt2.xml */,
-				D29625E622C25751007B934C /* recoglibc_SK_PAS_2008_14_F.bin */,
-				D29625E722C25751007B934C /* recoglibc_DRV_F.bin */,
-				D29625E822C25751007B934C /* recoglibc_IDC1_B.bin */,
-				D29625E922C25751007B934C /* deploy.prototxt */,
-				D29625EA22C25751007B934C /* res10_300x300_ssd_iter_140000_fp16.caffemodel */,
-				D29625EB22C25751007B934C /* recoglibc_SK_IDC_2008plus_F.bin */,
-				D29625EC22C25751007B934C /* recoglibc_SK_IDC_2008plus_B.bin */,
-				D29625ED22C25751007B934C /* lbfmodel-5.yaml */,
-				D29625EE22C25751007B934C /* opencv_face_detector.pbtxt */,
-				D29625EF22C25751007B934C /* lbfmodel.yaml */,
-				D29625F022C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin */,
-				D29625F122C25751007B934C /* recoglibc_SK_DRV_1993_F.bin */,
-				D29625F222C25751007B934C /* recoglibc_PAS_F.bin */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -292,12 +224,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D261289822C372CC00942D8A /* CPPWrapper.h in Headers */,
 				D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */,
 				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
 				D26425FC22C121ED00735B99 /* FaceLivenessDetector.h in Headers */,
 				D264299622C127AE00735B99 /* FaceLivenessSample.h in Headers */,
-				D264299422C127AE00735B99 /* MatcherSample.h in Headers */,
+				D26128EE22C3A99300942D8A /* CDocumentWrapper.hpp in Headers */,
 				D26425F722C121ED00735B99 /* faceidentification.h in Headers */,
 				D26425F122C121ED00735B99 /* Matcher.h in Headers */,
 				D26425FA22C121ED00735B99 /* ProcModel.h in Headers */,
@@ -374,28 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D29625F922C25751007B934C /* opencv_face_detector_uint8.pb in Resources */,
-				D29625F522C25751007B934C /* recoglibc_IDC2_F.bin in Resources */,
-				D29625FA22C25751007B934C /* recoglibc_IDC1_F.bin in Resources */,
-				D296260322C25751007B934C /* lbfmodel-5.yaml in Resources */,
-				D29625F722C25751007B934C /* recoglibc_IDC2_B.bin in Resources */,
-				D296260622C25751007B934C /* recoglibc_SK_DRV_2004_08_09_F.bin in Resources */,
-				D29625F422C25751007B934C /* lbfmodel.yaml.bin in Resources */,
-				D29625FD22C25751007B934C /* recoglibc_DRV_F.bin in Resources */,
-				D29625FE22C25751007B934C /* recoglibc_IDC1_B.bin in Resources */,
-				D296260422C25751007B934C /* opencv_face_detector.pbtxt in Resources */,
-				D296260722C25751007B934C /* recoglibc_SK_DRV_1993_F.bin in Resources */,
-				D29625FC22C25751007B934C /* recoglibc_SK_PAS_2008_14_F.bin in Resources */,
-				D29625FF22C25751007B934C /* deploy.prototxt in Resources */,
-				D29625F622C25751007B934C /* recoglibc_SK_DRV_2013_F.bin in Resources */,
-				D296260822C25751007B934C /* recoglibc_PAS_F.bin in Resources */,
-				D296260522C25751007B934C /* lbfmodel.yaml in Resources */,
-				D296260222C25751007B934C /* recoglibc_SK_IDC_2008plus_B.bin in Resources */,
-				D29625FB22C25751007B934C /* haarcascade_frontalface_alt2.xml in Resources */,
-				D29625F322C25751007B934C /* recoglibc_SK_DRV_2015_F.bin in Resources */,
-				D296260122C25751007B934C /* recoglibc_SK_IDC_2008plus_F.bin in Resources */,
-				D29625F822C25751007B934C /* lbpcascade_frontalface.xml in Resources */,
-				D296260022C25751007B934C /* res10_300x300_ssd_iter_140000_fp16.caffemodel in Resources */,
+				D26128CE22C3988100942D8A /* models in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,9 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D264246A22C11EC100735B99 /* RecogLibC.cpp in Sources */,
-				D261289922C372CC00942D8A /* CPPWrapper.c in Sources */,
 				D264299522C127AE00735B99 /* MatcherSample.cpp in Sources */,
 				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
+				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
 				D264299322C127AE00735B99 /* FaceLivenessSample.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

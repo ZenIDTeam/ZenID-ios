@@ -8,30 +8,32 @@
 
 import Foundation
 
+
 public class DocumentVerifier {
 
     private var isLoaded = false
+    fileprivate var cppObject: UnsafeRawPointer?
 
     public init() {
-
-//        var myCppClass:OpaquePointer? = nil;
-//
-//        myCppClass = CreateCppClass();
-//        CallHelloWorld(myCppClass);
-//        ReleaseCppClass(myCppClass);
-
-        load()
     }
 
-    func load() {
+    public func load() {
+
+        if !isLoaded {
+            let modelsPath = Bundle.main.bundlePath + "/Frameworks/RecogLib_iOS.framework/models"
+            let cs = (modelsPath as NSString).utf8String
+            let pointer = UnsafeMutableRawPointer(mutating: cs)
+            self.cppObject = initializeListWrapper(pointer)
+        }
+
         // load documents
         isLoaded = true
-        
+        assert(RecogLib_iOS.load(cppObject) == true)
+
+        print("loaded")
     }
 
     public func verify() {
-        
-        VerifyDocumentFromVideo()
-        // logic behind verifing
+        print("verified")
     }
 }
