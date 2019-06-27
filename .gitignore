@@ -1,0 +1,8 @@
+## OS X Finder
+.DS_Store
+
+## Libraries
+opencv2.framework
+
+# Carthage
+Carthage/Build
