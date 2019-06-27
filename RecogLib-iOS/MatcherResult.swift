@@ -21,35 +21,24 @@ public enum DocumentRole: Int { case Idc, Pas, Drv }
 public enum DocumentState: Int { case NoMatchFound, AlignCard, HoldSteady, Blurry, ReflectionPresent, Ok }
 
 public struct MatcherResult {
-    var documentRole: DocumentRole
-    var documentCountry: Country
-    var documentCode: DocumentCodes
-    var documentPage: PageCodes
+    var role: DocumentRole
+    var country: Country
+    var code: DocumentCodes
+    var page: PageCodes
     var state: DocumentState
-}
-
-class CMatcherResultWrapper {
-    private var pointer: UnsafeMutablePointer<CMatcherResult>
     
-    var result: MatcherResult? {
-        guard let documentRole = DocumentRole(rawValue: Int(getDocumentRole(pointer))),
-            let documentCountry = Country(rawValue: Int(getDocumentCountry(pointer))),
-            let documentCode = DocumentCodes(rawValue: Int(getDocumentCode(pointer))),
-            let documentPage = PageCodes(rawValue: Int(getDocumentPage(pointer))),
-            let state = DocumentState(rawValue: Int(getDocumentState(pointer))) else {
+    init?(result: CMatcherResult) {
+        guard let role = DocumentRole(rawValue: Int(result.documentRole)),
+            let country = Country(rawValue: Int(result.documentCountry)),
+            let code = DocumentCodes(rawValue: Int(result.documentCode)),
+            let page = PageCodes(rawValue: Int(result.documentPage)),
+            let state = DocumentState(rawValue: Int(result.state)) else {
             return nil
         }
-        return MatcherResult(documentRole: documentRole, documentCountry: documentCountry, documentCode: documentCode, documentPage: documentPage, state: state)
-    }
-    
-    init?(matcherResultPointer: UnsafeMutablePointer<CMatcherResult>?) {
-        guard let pointer = matcherResultPointer else {
-            return nil
-        }
-        self.pointer = pointer
-    }
-    
-    deinit {
-        freeMatcherResult(pointer)
+        self.page = page
+        self.role = role
+        self.code = code
+        self.country = country
+        self.state = state
     }
 }

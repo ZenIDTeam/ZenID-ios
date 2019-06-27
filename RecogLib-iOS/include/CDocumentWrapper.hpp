@@ -12,14 +12,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <CoreMedia/CoreMedia.h>
-#include "MatcherResult.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+struct CMatcherResult {
+    int documentRole, documentCountry, documentCode, documentPage, state;
+};
+typedef struct CMatcherResult CMatcherResult;
 
 const void * loadWrapper(const char * path);
-CMatcherResult* verify(const void *object, CMSampleBufferRef _mat, float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
+bool verify(const void *object, CMSampleBufferRef _mat, CMatcherResult* result,float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
 
 #ifdef __cplusplus
 }

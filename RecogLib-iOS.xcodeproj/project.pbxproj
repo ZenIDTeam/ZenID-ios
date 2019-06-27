@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* MatcherResult.swift */; };
-		B009CF5722C4B1BA00AA568C /* MatcherResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B009CF5522C4B1BA00AA568C /* MatcherResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B009CF5822C4B1BA00AA568C /* MatcherResult.c in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5622C4B1BA00AA568C /* MatcherResult.c */; };
 		D23D193D22C3C7D3004860F9 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261288C22C3701F00942D8A /* CoreVideo.framework */; };
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
 		D23D193F22C3C7DF004860F9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296261E22C3631F007B934C /* AVFoundation.framework */; };
@@ -43,8 +41,6 @@
 
 /* Begin PBXFileReference section */
 		B009CF5322C4B01C00AA568C /* MatcherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherResult.swift; sourceTree = "<group>"; };
-		B009CF5522C4B1BA00AA568C /* MatcherResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatcherResult.h; sourceTree = "<group>"; };
-		B009CF5622C4B1BA00AA568C /* MatcherResult.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MatcherResult.c; sourceTree = "<group>"; };
 		D261288C22C3701F00942D8A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D261288E22C3702500942D8A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D261289422C370C200942D8A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -130,7 +126,6 @@
 				D264246822C11EC100735B99 /* RecogLibC.cpp */,
 				D296261022C265E0007B934C /* DocumentVerifier.swift */,
 				B009CF5322C4B01C00AA568C /* MatcherResult.swift */,
-				B009CF5622C4B1BA00AA568C /* MatcherResult.c */,
 				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
 			);
 			path = "RecogLib-iOS";
@@ -156,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */,
-				B009CF5522C4B1BA00AA568C /* MatcherResult.h */,
 				D26128CD22C3988100942D8A /* models */,
 				D264249822C121ED00735B99 /* ModelLoader.h */,
 				D264249922C121ED00735B99 /* SpecularImageValidator.h */,
@@ -229,7 +223,6 @@
 				D26425F322C121ED00735B99 /* ZenidEnums.generated.h in Headers */,
 				D296261322C2670C007B934C /* DocumentPictureVerifier.h in Headers */,
 				D264286A22C124CD00735B99 /* format.h in Headers */,
-				B009CF5722C4B1BA00AA568C /* MatcherResult.h in Headers */,
 				D26425F422C121ED00735B99 /* Utilities.h in Headers */,
 				D26425F922C121ED00735B99 /* HomohgraphyRank.h in Headers */,
 				D26425F822C121ED00735B99 /* Transform.h in Headers */,
@@ -311,7 +304,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D264246A22C11EC100735B99 /* RecogLibC.cpp in Sources */,
-				B009CF5822C4B1BA00AA568C /* MatcherResult.c in Sources */,
 				D264299522C127AE00735B99 /* MatcherSample.cpp in Sources */,
 				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
