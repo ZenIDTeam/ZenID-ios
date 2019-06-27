@@ -12,8 +12,11 @@ import CoreMedia
 public class DocumentVerifier {
     fileprivate var cppObject: UnsafeRawPointer?
 
+    // TODO: improve framework path
+    private let frameworkPath = "/Frameworks/RecogLib_iOS.framework/models"
+
     public init() {
-        let modelsPath = Bundle.main.bundlePath + "/Frameworks/RecogLib_iOS.framework/models"
+        let modelsPath = Bundle.main.bundlePath + frameworkPath
         self.cppObject = loadWrapper((modelsPath as NSString).utf8String)
     }
 
@@ -27,7 +30,6 @@ public class DocumentVerifier {
     }
 
     private func margins(from displayWidth: Double, displayHeight: Double, frameHeight: Double) -> (horizontal: Float, vertical: Float) {
-
         let frameWidth = frameHeight * 1.585 // ID size is (85,6 x 54), it means 1.585:1.0
         let framePercentageWidth = (frameWidth * 100) / displayWidth
         let framePercentageHeight = (frameHeight * 100) / displayHeight
