@@ -28,6 +28,6 @@ public class DocumentVerifier {
     }
 
     public func verify(buffer: CMSampleBuffer) {
-        RecogLib_iOS.verify(cppObject, buffer, 0, 0, 0, 0, 0)
+        RecogLib_iOS.verify(cppObject, buffer, 0.5, 0.5, 0, 0, 0)
     }
 }
