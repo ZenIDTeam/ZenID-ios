@@ -19,10 +19,9 @@ extern "C" {
 
     const void * loadWrapper(const char * path);
     bool verify(const void *object, CMSampleBufferRef _mat, float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
+    
 #ifdef __cplusplus
 }
 #endif
-
-
 
 #endif /* CDocumentWrapper_hpp */
