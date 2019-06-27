@@ -464,7 +464,7 @@
 				);
 				GCC_CW_ASM_SYNTAX = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -508,7 +508,7 @@
 				);
 				GCC_CW_ASM_SYNTAX = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

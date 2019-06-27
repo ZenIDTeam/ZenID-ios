@@ -36,8 +36,6 @@ bool verify(const void *object,
 
     float verticalMargin = _verticalMargin;
     float horizontalMargin = _horizontalMargin;
-    printf("[DEBUG-DOCUMENT-VERIFY] horizontalMargin: %f, verticalMargin: %f\n", horizontalMargin, verticalMargin);
-
 
     // Construct outline
     const std::array<cv::Point2f, 4> expectedOutline {
@@ -53,22 +51,35 @@ bool verify(const void *object,
     auto documentRole = static_cast<RecogLibC::DocumentRole>(_documentRole);
     auto country = static_cast<RecogLibC::Country>(_country);
     auto pageCode = static_cast<RecogLibC::PageCodes>(_pageCode);
-    printf("[DEBUG-DOCUMENT-VERIFY] documentRole: %i, pageCode: %i, country: %i\n", (int) documentRole, (int) pageCode, (int) country);
 
-    // Construct image
+//    printf("[DEBUG-DOCUMENT-CONVERT] starts");
 
-    printf("[DEBUG-DOCUMENT-CONVERT] starts");
     CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
     CVPixelBufferLockBaseAddress( cvBuffer, 0 );
     int widht = (int)CVPixelBufferGetWidth(cvBuffer);
     int height = (int)CVPixelBufferGetHeight(cvBuffer);
     int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(cvBuffer);
-    cv::Mat image(height, widht, CV_8UC4, CVPixelBufferGetBaseAddress(cvBuffer), bytesPerRow);
-    CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
     printf("[DEBUG-DOCUMENT-CONVERT] ends\n");
 
     printf("[DEBUG-DOCUMENT-VERIFY] start\n");
+
+    OSType format = CVPixelBufferGetPixelFormatType(cvBuffer);
+
+    cv::Mat image;
+    if (format == kCVPixelFormatType_32BGRA) {
+        image = cv::Mat(height, widht, CV_8UC4, CVPixelBufferGetBaseAddress(cvBuffer), 0);
+//    } else if (format == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
+//        image = cv::Mat(height, widht, CV_8UC1, CVPixelBufferGetBaseAddress(cvBuffer), bytesPerRow);
+    } else {
+        assert(false);
+        printf("Unsupported format for CVPixelBufferGetPixelFormatType");
+    }
+    //    printf("[DEBUG-DOCUMENT-CONVERT] ends");
+
+    //    printf("[DEBUG-DOCUMENT-VERIFY] start");
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
+
+    CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
 
     const auto state = verifier->GetState();
     auto _state = static_cast<int>(state);
