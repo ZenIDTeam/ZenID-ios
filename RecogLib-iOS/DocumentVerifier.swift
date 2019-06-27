@@ -15,18 +15,29 @@ public class DocumentVerifier {
     // TODO: improve framework path
     private let frameworkPath = "/Frameworks/RecogLib_iOS.framework/models"
 
+    public var document: DocumentRole!
+    private var country: Country!
+    private var page: PageCode!
+
     public init() {
         let modelsPath = Bundle.main.bundlePath + frameworkPath
         self.cppObject = loadWrapper((modelsPath as NSString).utf8String)
     }
 
+    public func configure(document: DocumentRole, country: Country, page: PageCode) {
+        self.document = document
+        self.country = country
+        self.page = page
+    }
+
     public func verify(buffer: CMSampleBuffer) -> MatcherResult? {
-        return MatcherResult(result: RecogLib_iOS.verify(cppObject, buffer, 0, 0, Int32(DocumentRole.Idc.rawValue), Int32(Country.Cz.rawValue), Int32(PageCode.F.rawValue)))
+        let result = RecogLib_iOS.verify(cppObject, buffer, 0, 0, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue))
+        return MatcherResult(result: result)
     }
 
     public func verify(buffer: CMSampleBuffer, displayWidth: Double, displayHeight: Double, frameHeight: Double) -> MatcherResult? {
         let aligments = margins(from: displayWidth, displayHeight: displayHeight, frameHeight: frameHeight);
-        return MatcherResult(result: RecogLib_iOS.verify(cppObject, buffer, aligments.horizontal, aligments.vertical, Int32(DocumentRole.Idc.rawValue), Int32(Country.Cz.rawValue), Int32(PageCode.F.rawValue)))
+        return MatcherResult(result: RecogLib_iOS.verify(cppObject, buffer, aligments.horizontal, aligments.vertical, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue)))
     }
 
     private func margins(from displayWidth: Double, displayHeight: Double, frameHeight: Double) -> (horizontal: Float, vertical: Float) {
