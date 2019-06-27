@@ -18,7 +18,9 @@ public class DocumentVerifier {
         self.cppObject = loadWrapper((modelsPath as NSString).utf8String)
     }
 
-    public func verify(buffer: CMSampleBuffer) {
-        RecogLib_iOS.verify(cppObject, buffer, 0.5, 0.5, 0, 0, 0)
+    public func verify(buffer: CMSampleBuffer) -> MatcherResult? {
+        let resultPointer = RecogLib_iOS.verify(cppObject, buffer, 0.5, 0.5, 0, 0, 0)
+        let resultWrapper = CMatcherResultWrapper(matcherResultPointer: resultPointer)
+        return resultWrapper?.result
     }
 }

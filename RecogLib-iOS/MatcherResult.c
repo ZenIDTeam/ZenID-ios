@@ -7,11 +7,39 @@
 //
 
 #include "include/MatcherResult.h"
+#include <stdlib.h>
 
-struct MatcherResult* initMatcherResult() {
-    return NULL;
+CMatcherResult* initMatcherResult(int documentRole, int documentCountry, int documentPage, int documentCode, int state) {
+    CMatcherResult* result = (CMatcherResult*) malloc(sizeof(CMatcherResult));
+    result->documentRole = documentRole;
+    result->documentCountry = documentCode;
+    result->documentPage = documentPage;
+    result->documentCode = documentCode;
+    result->state = state;
+    return result;
 }
 
-void freeMatcherResult(struct MatcherResult* result) {
-    
+void freeMatcherResult(CMatcherResult* result) {
+    free(result);
 }
+
+int getDocumentRole(CMatcherResult* result){
+    return result->documentRole;
+}
+
+int getDocumentCountry(CMatcherResult* result){
+    return result->documentCountry;
+}
+
+int getDocumentPage(CMatcherResult* result){
+    return result->documentPage;
+}
+
+int getDocumentCode(CMatcherResult* result){
+    return result->documentCode;
+}
+
+int getDocumentState(CMatcherResult* result){
+    return result->state;
+}
+

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* MatcherResult.swift */; };
-		B009CF5722C4B1BA00AA568C /* MatcherResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B009CF5522C4B1BA00AA568C /* MatcherResult.h */; };
+		B009CF5722C4B1BA00AA568C /* MatcherResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B009CF5522C4B1BA00AA568C /* MatcherResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B009CF5822C4B1BA00AA568C /* MatcherResult.c in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5622C4B1BA00AA568C /* MatcherResult.c */; };
 		D23D193D22C3C7D3004860F9 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D261288C22C3701F00942D8A /* CoreVideo.framework */; };
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };

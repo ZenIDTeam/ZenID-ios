@@ -23,7 +23,7 @@ const void * loadWrapper(const char *path)
     return (void *)verifier;
 }
 
-bool verify(const void *object,
+CMatcherResult* verify(const void *object,
             CMSampleBufferRef _mat,
             float _horizontalMargin,
             float _verticalMargin,
@@ -72,6 +72,9 @@ bool verify(const void *object,
     const auto state = verifier->GetState();
 
     printf("[DEBUG-DOCUMENT-VERIFY] verifier state: %i", state);
-
-    return true;
+    
+    const auto documentCode = static_cast<int>(verifier->GetDocumentCode());
+    auto _state = static_cast<int>(state);
+    
+    return initMatcherResult(_documentRole, _country, _pageCode, documentCode, _state);
 }

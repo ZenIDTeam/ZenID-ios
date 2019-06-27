@@ -12,14 +12,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <CoreMedia/CoreMedia.h>
+#include "MatcherResult.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-    const void * loadWrapper(const char * path);
-    bool verify(const void *object, CMSampleBufferRef _mat, float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
-    
+const void * loadWrapper(const char * path);
+CMatcherResult* verify(const void *object, CMSampleBufferRef _mat, float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
+
 #ifdef __cplusplus
 }
 #endif

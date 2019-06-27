@@ -11,11 +11,26 @@
 
 #include <stdio.h>
 
-struct MatcherResult {
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+struct CMatcherResult {
     int documentRole, documentCountry, documentCode, documentPage, state;
 };
+typedef struct CMatcherResult CMatcherResult;
 
-struct MatcherResult* initMatcherResult();
-void freeMatcherResult(struct MatcherResult* result);
+CMatcherResult* initMatcherResult(int documentRole, int documentCountry, int documentPage, int documentCode, int state);
+void freeMatcherResult(CMatcherResult* result);
+int getDocumentRole(CMatcherResult* result);
+int getDocumentCountry(CMatcherResult* result);
+int getDocumentPage(CMatcherResult* result);
+int getDocumentCode(CMatcherResult* result);
+int getDocumentState(CMatcherResult* result);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* MatcherResult_h */
