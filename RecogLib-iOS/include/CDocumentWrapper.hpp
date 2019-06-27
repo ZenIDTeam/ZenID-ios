@@ -22,7 +22,7 @@ struct CMatcherResult {
 typedef struct CMatcherResult CMatcherResult;
 
 const void * loadWrapper(const char * path);
-bool verify(const void *object, CMSampleBufferRef _mat, CMatcherResult* result,float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
+CMatcherResult verify(const void *object, CMSampleBufferRef _mat, float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
 
 #ifdef __cplusplus
 }

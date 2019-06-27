@@ -23,14 +23,15 @@ const void * loadWrapper(const char *path)
     return (void *)verifier;
 }
 
-bool verify(const void *object,
-            CMSampleBufferRef _mat,
-            CMatcherResult* result,
-            float _horizontalMargin,
-            float _verticalMargin,
-            int _documentRole,
-            int _country,
-            int _pageCode)
+CMatcherResult verify(
+    const void *object,
+    CMSampleBufferRef _mat,
+    float _horizontalMargin,
+    float _verticalMargin,
+    int _documentRole,
+    int _country,
+    int _pageCode
+)
 {
     RecogLibC::DocumentPictureVerifier *verifier = (RecogLibC::DocumentPictureVerifier *)object;
 
@@ -84,25 +85,25 @@ bool verify(const void *object,
     const auto state = verifier->GetState();
     auto _state = static_cast<int>(state);
 
-    printf("[DEBUG-DOCUMENT-VERIFY] verifier state: %i\n", state);
-    
+    CMatcherResult result;
+
     if (state == RecogLibC::DocumentPictureVerifier::State::NoMatchFound) {
-        result->documentRole = 0;
-        result->documentCode = 0;
-        result->documentCountry = 0;
-        result->documentCode = 0;
-        result->state = _state;
-        return false;
+        result.documentRole = 0;
+        result.documentCode = 0;
+        result.documentCountry = 0;
+        result.documentCode = 0;
+        result.state = _state;
+        return result;
     }
     
     const auto documentCode = verifier->GetDocumentCode();
     auto _documentCode = static_cast<int>(documentCode);
     
-    result->documentRole = _documentRole;
-    result->documentCode = _documentCode;
-    result->documentCountry = _country;
-    result->documentCode = _pageCode;
-    result->state = _state;
+    result.documentRole = _documentRole;
+    result.documentCode = _documentCode;
+    result.documentCountry = _country;
+    result.documentCode = _pageCode;
+    result.state = _state;
     
-    return true;
+    return result;
 }

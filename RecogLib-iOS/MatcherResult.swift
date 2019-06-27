@@ -21,11 +21,11 @@ public enum DocumentRole: Int { case Idc, Pas, Drv }
 public enum DocumentState: Int { case NoMatchFound, AlignCard, HoldSteady, Blurry, ReflectionPresent, Ok }
 
 public struct MatcherResult {
-    var role: DocumentRole
-    var country: Country
-    var code: DocumentCodes
-    var page: PageCodes
-    var state: DocumentState
+    public var role: DocumentRole
+    public var country: Country
+    public var code: DocumentCodes
+    public var page: PageCodes
+    public var state: DocumentState
     
     init?(result: CMatcherResult) {
         guard let role = DocumentRole(rawValue: Int(result.documentRole)),
