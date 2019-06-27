@@ -36,7 +36,7 @@ bool verify(const void *object,
 
     float verticalMargin = _verticalMargin;
     float horizontalMargin = _horizontalMargin;
-    printf("[DEBUG-DOCUMENT-VERIFY] horizontalMargin: %f, verticalMargin: %f", horizontalMargin, verticalMargin);
+    printf("[DEBUG-DOCUMENT-VERIFY] horizontalMargin: %f, verticalMargin: %f\n", horizontalMargin, verticalMargin);
 
 
     // Construct outline
@@ -53,7 +53,7 @@ bool verify(const void *object,
     auto documentRole = static_cast<RecogLibC::DocumentRole>(_documentRole);
     auto country = static_cast<RecogLibC::Country>(_country);
     auto pageCode = static_cast<RecogLibC::PageCodes>(_pageCode);
-    printf("[DEBUG-DOCUMENT-VERIFY] documentRole: %i, pageCode: %i, country: %i", (int) documentRole, (int) pageCode, (int) country);
+    printf("[DEBUG-DOCUMENT-VERIFY] documentRole: %i, pageCode: %i, country: %i\n", (int) documentRole, (int) pageCode, (int) country);
 
     // Construct image
 
@@ -65,9 +65,9 @@ bool verify(const void *object,
     int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(cvBuffer);
     cv::Mat image(height, widht, CV_8UC4, CVPixelBufferGetBaseAddress(cvBuffer), bytesPerRow);
     CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
-    printf("[DEBUG-DOCUMENT-CONVERT] ends");
+    printf("[DEBUG-DOCUMENT-CONVERT] ends\n");
 
-    printf("[DEBUG-DOCUMENT-VERIFY] start");
+    printf("[DEBUG-DOCUMENT-VERIFY] start\n");
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
 
     const auto state = verifier->GetState();
