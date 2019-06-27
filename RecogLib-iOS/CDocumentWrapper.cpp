@@ -71,17 +71,27 @@ bool verify(const void *object,
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
 
     const auto state = verifier->GetState();
-
-    printf("[DEBUG-DOCUMENT-VERIFY] verifier state: %i", state);
-
-    const auto documentCode = static_cast<int>(verifier->GetDocumentCode());
     auto _state = static_cast<int>(state);
+
+    printf("[DEBUG-DOCUMENT-VERIFY] verifier state: %i\n", state);
+    
+    if (state == RecogLibC::DocumentPictureVerifier::State::NoMatchFound) {
+        result->documentRole = 0;
+        result->documentCode = 0;
+        result->documentCountry = 0;
+        result->documentCode = 0;
+        result->state = _state;
+        return false;
+    }
+    
+    const auto documentCode = verifier->GetDocumentCode();
+    auto _documentCode = static_cast<int>(documentCode);
     
     result->documentRole = _documentRole;
+    result->documentCode = _documentCode;
     result->documentCountry = _country;
     result->documentCode = _pageCode;
     result->state = _state;
-    result->documentCode = documentCode;
     
     return true;
 }
