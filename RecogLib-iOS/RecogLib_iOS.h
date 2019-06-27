@@ -16,6 +16,3 @@ FOUNDATION_EXPORT double RecogLib_iOSVersionNumber;
 FOUNDATION_EXPORT const unsigned char RecogLib_iOSVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <RecogLib_iOS/PublicHeader.h>
-
-
-

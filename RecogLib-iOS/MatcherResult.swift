@@ -42,3 +42,22 @@ public struct MatcherResult {
         self.state = state
     }
 }
+
+extension DocumentState: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .NoMatchFound:
+            return "No match found"
+        case .AlignCard:
+            return "Align card"
+        case .HoldSteady:
+            return "Hold steady"
+        case .Blurry:
+            return "Blurry"
+        case .ReflectionPresent:
+            return "Reflection present"
+        case .Ok:
+            return "Ok"
+        }
+    }
+}
