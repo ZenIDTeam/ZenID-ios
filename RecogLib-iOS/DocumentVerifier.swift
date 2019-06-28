@@ -15,29 +15,29 @@ public class DocumentVerifier {
     // TODO: improve framework path
     private let frameworkPath = "/Frameworks/RecogLib_iOS.framework/models"
 
-    public var document: DocumentRole!
-    private var country: Country!
-    public var page: PageCode!
+    public var document: DocumentRole
+    public var country: Country
+    public var page: PageCode
 
-    public init() {
+    public init(document: DocumentRole, country: Country, page: PageCode) {
         let modelsPath = Bundle.main.bundlePath + frameworkPath
         self.cppObject = loadWrapper((modelsPath as NSString).utf8String)
-    }
-
-    public func configure(document: DocumentRole, country: Country, page: PageCode) {
         self.document = document
         self.country = country
         self.page = page
     }
 
     public func verify(buffer: CMSampleBuffer) -> MatcherResult? {
-        let result = RecogLib_iOS.verify(cppObject, buffer, 0, 0, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue))
-        return MatcherResult(result: result)
+        var cresult = CMatcherResult(documentRole: -1, documentCountry: -1, documentCode: -1, documentPage: -1, state: -1)
+        RecogLib_iOS.verify(cppObject, buffer, &cresult, 0, 0, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue))
+        return MatcherResult(result: cresult)
     }
 
     public func verify(buffer: CMSampleBuffer, displayWidth: Double, displayHeight: Double, frameHeight: Double) -> MatcherResult? {
+        var cresult = CMatcherResult(documentRole: -1, documentCountry: -1, documentCode: -1, documentPage: -1, state: -1)
         let aligments = margins(from: displayWidth, displayHeight: displayHeight, frameHeight: frameHeight);
-        return MatcherResult(result: RecogLib_iOS.verify(cppObject, buffer, aligments.horizontal, aligments.vertical, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue)))
+        RecogLib_iOS.verify(cppObject, buffer, &cresult, aligments.horizontal, aligments.vertical, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue))
+        return MatcherResult(result: cresult)
     }
 
     private func margins(from displayWidth: Double, displayHeight: Double, frameHeight: Double) -> (horizontal: Float, vertical: Float) {

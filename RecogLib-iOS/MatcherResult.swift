@@ -23,21 +23,20 @@ public enum DocumentState: Int { case NoMatchFound, AlignCard, HoldSteady, Blurr
 public struct MatcherResult {
     public var role: DocumentRole
     public var country: Country
-    public var code: DocumentCode
+    public var code: DocumentCode?
     public var page: PageCode
     public var state: DocumentState
     
     init?(result: CMatcherResult) {
         guard let role = DocumentRole(rawValue: Int(result.documentRole)),
             let country = Country(rawValue: Int(result.documentCountry)),
-            let code = DocumentCode(rawValue: Int(result.documentCode)),
             let page = PageCode(rawValue: Int(result.documentPage)),
             let state = DocumentState(rawValue: Int(result.state)) else {
             return nil
         }
         self.page = page
         self.role = role
-        self.code = code
+        self.code = DocumentCode(rawValue: Int(result.documentCode))
         self.country = country
         self.state = state
     }

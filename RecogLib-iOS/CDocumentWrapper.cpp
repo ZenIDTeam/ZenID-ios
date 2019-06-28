@@ -26,6 +26,7 @@ const void * loadWrapper(const char *path)
 CMatcherResult verify(
     const void *object,
     CMSampleBufferRef _mat,
+    CMatcherResult *result,
     float _horizontalMargin,
     float _verticalMargin,
     int _documentRole,
@@ -85,25 +86,23 @@ CMatcherResult verify(
     const auto state = verifier->GetState();
     auto _state = static_cast<int>(state);
 
-    CMatcherResult result;
-
     if (state == RecogLibC::DocumentPictureVerifier::State::NoMatchFound) {
-        result.documentRole = 0;
-        result.documentCode = 0;
-        result.documentCountry = 0;
-        result.documentCode = 0;
-        result.state = _state;
-        return result;
+        result->documentRole = _documentRole;
+        result->documentCode = -1;
+        result->documentCountry = _country;
+        result->documentPage = _pageCode;
+        result->state = _state;
+        return *result;
     }
     
     const auto documentCode = verifier->GetDocumentCode();
     auto _documentCode = static_cast<int>(documentCode);
     
-    result.documentRole = _documentRole;
-    result.documentCode = _documentCode;
-    result.documentCountry = _country;
-    result.documentCode = _pageCode;
-    result.state = _state;
+    result->documentRole = _documentRole;
+    result->documentCode = _documentCode;
+    result->documentCountry = _country;
+    result->documentPage = _pageCode;
+    result->state = _state;
     
-    return result;
+    return *result;
 }
