@@ -23,15 +23,12 @@ const void * loadWrapper(const char *path)
     return (void *)verifier;
 }
 
-CMatcherResult verify(
+bool verify(
     const void *object,
     CMSampleBufferRef _mat,
-    CMatcherResult *result,
+    CDocumentInfo *document,
     float _horizontalMargin,
-    float _verticalMargin,
-    int _documentRole,
-    int _country,
-    int _pageCode
+    float _verticalMargin
 )
 {
     RecogLibC::DocumentPictureVerifier *verifier = (RecogLibC::DocumentPictureVerifier *)object;
@@ -50,9 +47,9 @@ CMatcherResult verify(
     };
 
     // Construct optional data
-    auto documentRole = static_cast<RecogLibC::DocumentRole>(_documentRole);
-    auto country = static_cast<RecogLibC::Country>(_country);
-    auto pageCode = static_cast<RecogLibC::PageCodes>(_pageCode);
+    auto documentRole = static_cast<RecogLibC::DocumentRole>(document->role);
+    auto country = static_cast<RecogLibC::Country>(document->country);
+    auto pageCode = static_cast<RecogLibC::PageCodes>(document->page);
 
 //    printf("[DEBUG-DOCUMENT-CONVERT] starts");
 
@@ -84,25 +81,15 @@ CMatcherResult verify(
     CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
 
     const auto state = verifier->GetState();
-    auto _state = static_cast<int>(state);
 
     if (state == RecogLibC::DocumentPictureVerifier::State::NoMatchFound) {
-        result->documentRole = _documentRole;
-        result->documentCode = -1;
-        result->documentCountry = _country;
-        result->documentPage = _pageCode;
-        result->state = _state;
-        return *result;
+        document->code = -1;
+        document->state = static_cast<int>(state);
+        return false;
     }
     
-    const auto documentCode = verifier->GetDocumentCode();
-    auto _documentCode = static_cast<int>(documentCode);
+    document->code = static_cast<int>(verifier->GetDocumentCode());
+    document->state = static_cast<int>(state);
     
-    result->documentRole = _documentRole;
-    result->documentCode = _documentCode;
-    result->documentCountry = _country;
-    result->documentPage = _pageCode;
-    result->state = _state;
-    
-    return *result;
+    return true;
 }

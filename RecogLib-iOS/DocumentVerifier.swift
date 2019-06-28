@@ -13,31 +13,43 @@ public class DocumentVerifier {
     fileprivate var cppObject: UnsafeRawPointer?
 
     // TODO: improve framework path
-    private let frameworkPath = "/Frameworks/RecogLib_iOS.framework/models"
+    private let modelsRelativePath = "/Frameworks/RecogLib_iOS.framework/models"
 
-    public var document: DocumentRole
+    public var documentRole: DocumentRole
     public var country: Country
     public var page: PageCode
 
-    public init(document: DocumentRole, country: Country, page: PageCode) {
-        let modelsPath = Bundle.main.bundlePath + frameworkPath
-        self.cppObject = loadWrapper((modelsPath as NSString).utf8String)
-        self.document = document
+    public init(role: DocumentRole, country: Country, page: PageCode) {
+        let modelsPath = Bundle.main.bundlePath + modelsRelativePath
+        self.cppObject = loadWrapper(modelsPath.cString(using: .utf8))
+        self.documentRole = role
         self.country = country
         self.page = page
     }
 
     public func verify(buffer: CMSampleBuffer) -> MatcherResult? {
-        var cresult = CMatcherResult(documentRole: -1, documentCountry: -1, documentCode: -1, documentPage: -1, state: -1)
-        RecogLib_iOS.verify(cppObject, buffer, &cresult, 0, 0, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue))
-        return MatcherResult(result: cresult)
+        var document = CDocumentInfo(
+            role: Int32(documentRole.rawValue),
+            country: Int32(country.rawValue),
+            code: -1,
+            page: Int32(page.rawValue),
+            state: -1
+        )
+        RecogLib_iOS.verify(cppObject, buffer, &document, 0, 0)
+        return MatcherResult(document: document)
     }
 
     public func verify(buffer: CMSampleBuffer, displayWidth: Double, displayHeight: Double, frameHeight: Double) -> MatcherResult? {
-        var cresult = CMatcherResult(documentRole: -1, documentCountry: -1, documentCode: -1, documentPage: -1, state: -1)
+        var document = CDocumentInfo(
+            role: Int32(documentRole.rawValue),
+            country: Int32(country.rawValue),
+            code: -1,
+            page: Int32(page.rawValue),
+            state: -1
+        )
         let aligments = margins(from: displayWidth, displayHeight: displayHeight, frameHeight: frameHeight);
-        RecogLib_iOS.verify(cppObject, buffer, &cresult, aligments.horizontal, aligments.vertical, Int32(document.rawValue), Int32(country.rawValue), Int32(page.rawValue))
-        return MatcherResult(result: cresult)
+        RecogLib_iOS.verify(cppObject, buffer, &document, aligments.horizontal, aligments.vertical)
+        return MatcherResult(document: document)
     }
 
     private func margins(from displayWidth: Double, displayHeight: Double, frameHeight: Double) -> (horizontal: Float, vertical: Float) {

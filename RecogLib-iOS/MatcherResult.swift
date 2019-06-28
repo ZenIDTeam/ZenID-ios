@@ -27,16 +27,16 @@ public struct MatcherResult {
     public var page: PageCode
     public var state: DocumentState
     
-    init?(result: CMatcherResult) {
-        guard let role = DocumentRole(rawValue: Int(result.documentRole)),
-            let country = Country(rawValue: Int(result.documentCountry)),
-            let page = PageCode(rawValue: Int(result.documentPage)),
-            let state = DocumentState(rawValue: Int(result.state)) else {
+    init?(document: CDocumentInfo) {
+        guard let role = DocumentRole(rawValue: Int(document.role)),
+            let country = Country(rawValue: Int(document.country)),
+            let page = PageCode(rawValue: Int(document.page)),
+            let state = DocumentState(rawValue: Int(document.state)) else {
             return nil
         }
         self.page = page
         self.role = role
-        self.code = DocumentCode(rawValue: Int(result.documentCode))
+        self.code = DocumentCode(rawValue: Int(document.code))
         self.country = country
         self.state = state
     }

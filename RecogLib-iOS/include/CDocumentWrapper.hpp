@@ -16,13 +16,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-struct CMatcherResult {
-    int documentRole, documentCountry, documentCode, documentPage, state;
+struct CDocumentInfo {
+    int role, country, code, page, state;
 };
-typedef struct CMatcherResult CMatcherResult;
+typedef struct CDocumentInfo CDocumentInfo;
 
 const void * loadWrapper(const char * path);
-CMatcherResult verify(const void *object, CMSampleBufferRef _mat, CMatcherResult *result, float _horizontalMargin, float _verticalMargin, int _documentRole, int _country, int _pageCode);
+bool verify(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document, float _horizontalMargin, float _verticalMargin);
 
 #ifdef __cplusplus
 }
