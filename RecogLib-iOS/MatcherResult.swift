@@ -61,3 +61,27 @@ extension DocumentState: CustomStringConvertible {
         }
     }
 }
+
+extension DocumentRole: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .Idc:
+            return "Idc"
+        case .Drv:
+            return "Drv"
+        case .Pas:
+            return "Pas"
+        }
+    }
+}
+
+extension PageCode: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .F:
+            return "F"
+        case .B:
+            return "B"
+        }
+    }
+}

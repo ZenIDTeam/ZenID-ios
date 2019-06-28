@@ -17,7 +17,7 @@ public class DocumentVerifier {
 
     public var document: DocumentRole!
     private var country: Country!
-    private var page: PageCode!
+    public var page: PageCode!
 
     public init() {
         let modelsPath = Bundle.main.bundlePath + frameworkPath
