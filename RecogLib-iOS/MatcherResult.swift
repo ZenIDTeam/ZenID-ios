@@ -95,3 +95,20 @@ extension PageCode: CustomStringConvertible {
         }
     }
 }
+
+extension DocumentCode: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .IDC1:
+            return "IDC1"
+        case .IDC2:
+            return "IDC2"
+        case .DRV:
+            return "DRV"
+        case .PAS:
+            return "PAS"
+        default:
+            return self.rawValue.description
+        }
+    }
+}
