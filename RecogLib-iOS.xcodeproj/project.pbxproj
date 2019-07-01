@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* MatcherResult.swift */; };
+		B051AFDB22CA48AA007AF46E /* DocumentEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* DocumentEnums.swift */; };
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
 		D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */; };
 		D26128EE22C3A99300942D8A /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		B009CF5322C4B01C00AA568C /* MatcherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherResult.swift; sourceTree = "<group>"; };
+		B051AFDA22CA48AA007AF46E /* DocumentEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEnums.swift; sourceTree = "<group>"; };
 		D261288C22C3701F00942D8A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D261289422C370C200942D8A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentWrapper.cpp; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				D264246822C11EC100735B99 /* RecogLibC.cpp */,
 				D296261022C265E0007B934C /* DocumentVerifier.swift */,
 				B009CF5322C4B01C00AA568C /* MatcherResult.swift */,
+				B051AFDA22CA48AA007AF46E /* DocumentEnums.swift */,
 				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
 			);
 			path = "RecogLib-iOS";
@@ -299,6 +302,7 @@
 				D264299522C127AE00735B99 /* MatcherSample.cpp in Sources */,
 				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
+				B051AFDB22CA48AA007AF46E /* DocumentEnums.swift in Sources */,
 				D264299322C127AE00735B99 /* FaceLivenessSample.cpp in Sources */,
 				B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */,
 			);
