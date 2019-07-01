@@ -11,12 +11,12 @@ Recoglib is capable of recognizing types that include:
 Recoglib is built to be used with `AVCaptureSession`.
 
 ### 1) Configure `AVCaptureSession`
-Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and begin bacth configuration by calling `beginConfiguration` method.
+Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and start batch configuration by calling `beginConfiguration` method.
 ```
 let session = AVCaptureSession()
 session.beginConfiguration()
 ```
-Set up the input device that you would want to receive video stream from. Please note that you'd want mark `mediaType` as `.video` since Recoglib can't deal with any other types of media. Using the mediaType of `.video` **is mandatory**.
+Set up the input device that you'd want to receive video stream from. Please note that you'd want mark `mediaType` as `.video` since Recoglib can't deal with any other types of media. Using the mediaType of `.video` **is mandatory**.
 ```
 let input = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back)
 guard let device = input.devices.first, let deviceInput = try? AVCaptureDeviceInput(device: device) else {
@@ -25,9 +25,9 @@ guard let device = input.devices.first, let deviceInput = try? AVCaptureDeviceIn
 }
 session.addInput(deviceInput)
 ```
-Next you need to specify a `AVCaptureVideoDataOutputSampleBufferDelegate` which will receive the video stream from the input specified above. To do that, you need to instanciate `AVCaptureVideoDataOutput` and it's setting as shown below.
+Next you need to specify a `AVCaptureVideoDataOutputSampleBufferDelegate` which will receive the video stream from the input specified above. To do that, you need to instanciate `AVCaptureVideoDataOutput` and its settings as shown below.
 
-Please note that the whole video stream will be capture **on a background thread** that you need to specify explicitly.
+Please note that the whole video stream will be capture **on a background thread** that needs to be specified explicitly.
 ```
 let output = AVCaptureVideoDataOutput()
 output.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
