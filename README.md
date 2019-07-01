@@ -7,11 +7,27 @@ Recoglib is capable of recognizing types that include:
 - Driving license
 - Passport
 
-## Usage
-Recoglib is built to be used with `AVCaptureSession`.
+## Configuration management
+For compilation, running and deployment of the application following tools are required. Newer versions of the tools should work, these were tested to work and used during the development:
 
+- Hardware:
+    - iOS device with camera for testing
+    - macOS device for development
+- Software (required for development and deployment):
+    - macOS 10.14
+    - Xcode 10.2
+    - Swift 5.0
+    - iOS 11.0
+
+## Installation
+### Link your project against RecogLib and OpenCV frameworks 
+Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` (which should be shown under RecogLib-iOS project) and `opencv2.framework` (which is located at `/[Path to this project]/RecogLib-iOS/opencv2.framework`). Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libreries` section and your Xcode project settings should look like this.
+
+![](images/xcode_settings.png)
+
+## Usage
 ### 1) Configure `AVCaptureSession`
-Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and start batch configuration by calling `beginConfiguration` method.
+Recoglib is built to be used with AVCaptureSession. Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and start batch configuration by calling `beginConfiguration` method.
 ```
 let session = AVCaptureSession()
 session.beginConfiguration()
@@ -44,6 +60,8 @@ session.startRunning()
 ### 2) Configure `DocumentVerifier`
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
 First you initialize `DocumentVerifier` with expected role, country and page.
+
+Note that properties `role`, `country` and `page` are public and can be changed whenever you like.
 ```
 let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front)
 ```
@@ -82,9 +100,9 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 The returning value of the `verify()` methods is a struct of type `MatcherResult`. It contains all the information found describing currently analysed document.
 
 It contains following values:
-- `role` - represents the type of a document (e.g. whether it is identity card, driving licence or a passport)
-- `country` - origin country of a document
-- `code` - version of a document (e.g. new or old version of slovakia identity card)
-- `page` - whether it is a front or back of a document
-- `state` - state is the analysed image (e.g. `NoMatchFound`, `Blurry` or `ReflectionPresent` etc.)
+- `state` - state of currently analysed image (e.g. `NoMatchFound`, `Blurry` or `ReflectionPresent` etc.)
+- `code` - version of a document (e.g. new or old version of slovakia identity card). This attribute can be `nil` when state is equal to `NoMatchFound`
+- `role` - specified type of a document
+- `country` - specified origin country of a document
+- `page` - specified page
 
