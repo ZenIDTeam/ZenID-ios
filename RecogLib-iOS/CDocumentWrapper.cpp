@@ -89,6 +89,7 @@ bool verify(
     }
     
     document->code = static_cast<int>(verifier->GetDocumentCode());
+    document->page = static_cast<int>(verifier->GetPageCode());
     document->state = static_cast<int>(state);
     
     return true;
