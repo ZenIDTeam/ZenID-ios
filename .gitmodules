@@ -1,0 +1,3 @@
+[submodule "ZenID-RecogLibC"]
+	path = ZenID-RecogLibC
+	url = git@github.com:Licho1/ZenID-RecogLibC.git
