@@ -6,9 +6,9 @@
 //  Copyright © 2019 Marek Stana. All rights reserved.
 //
 
-#include "include/CDocumentWrapper.hpp"
-#include "./include/ZenidEnums.generated.h"
-#include "./include/DocumentPictureVerifier.h"
+#include "CDocumentWrapper.hpp"
+#include "ZenidEnums.generated.h"
+#include "DocumentPictureVerifier.h"
 
 #include "opencv2/opencv.hpp"
 

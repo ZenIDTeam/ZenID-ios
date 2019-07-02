@@ -9,30 +9,28 @@
 /* Begin PBXBuildFile section */
 		B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* MatcherResult.swift */; };
 		B051AFDB22CA48AA007AF46E /* DocumentEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* DocumentEnums.swift */; };
+		D2057E6122CB8ACA00EE9EE2 /* ModelLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0622CB8ACA00EE9EE2 /* ModelLoader.h */; };
+		D2057E6222CB8ACA00EE9EE2 /* SpecularImageValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0722CB8ACA00EE9EE2 /* SpecularImageValidator.h */; };
+		D2057E6322CB8ACA00EE9EE2 /* DocumentPictureVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0822CB8ACA00EE9EE2 /* DocumentPictureVerifier.h */; };
+		D2057E6422CB8ACA00EE9EE2 /* Matcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0922CB8ACA00EE9EE2 /* Matcher.h */; };
+		D2057E6522CB8ACA00EE9EE2 /* ScopedTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0A22CB8ACA00EE9EE2 /* ScopedTimer.h */; };
+		D2057E6622CB8ACA00EE9EE2 /* ZenidEnums.generated.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0B22CB8ACA00EE9EE2 /* ZenidEnums.generated.h */; };
+		D2057E6722CB8ACA00EE9EE2 /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0C22CB8ACA00EE9EE2 /* Utilities.h */; };
+		D2057E6822CB8ACA00EE9EE2 /* BlurValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0D22CB8ACA00EE9EE2 /* BlurValidator.h */; };
+		D2057E6922CB8ACA00EE9EE2 /* RecogLibCException.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0E22CB8ACA00EE9EE2 /* RecogLibCException.h */; };
+		D2057E6A22CB8ACA00EE9EE2 /* faceidentification.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D0F22CB8ACA00EE9EE2 /* faceidentification.h */; };
+		D2057E6B22CB8ACA00EE9EE2 /* Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D1022CB8ACA00EE9EE2 /* Transform.h */; };
+		D2057E6C22CB8ACA00EE9EE2 /* HomohgraphyRank.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D1122CB8ACA00EE9EE2 /* HomohgraphyRank.h */; };
+		D2057E6D22CB8ACA00EE9EE2 /* ProcModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D1222CB8ACA00EE9EE2 /* ProcModel.h */; };
+		D2057E6E22CB8ACA00EE9EE2 /* facemarkLBFBinary.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D1322CB8ACA00EE9EE2 /* facemarkLBFBinary.h */; };
+		D2057E6F22CB8ACA00EE9EE2 /* FaceLivenessDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D1422CB8ACA00EE9EE2 /* FaceLivenessDetector.h */; };
+		D2057E7F22CB8ACA00EE9EE2 /* format.h in Headers */ = {isa = PBXBuildFile; fileRef = D2057D2822CB8ACA00EE9EE2 /* format.h */; };
+		D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
 		D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */; };
-		D26128EE22C3A99300942D8A /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D264246022C11E7E00735B99 /* RecogLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D264246A22C11EC100735B99 /* RecogLibC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264246822C11EC100735B99 /* RecogLibC.cpp */; };
-		D26425EE22C121ED00735B99 /* ModelLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249822C121ED00735B99 /* ModelLoader.h */; };
-		D26425EF22C121ED00735B99 /* SpecularImageValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249922C121ED00735B99 /* SpecularImageValidator.h */; };
-		D26425F122C121ED00735B99 /* Matcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249B22C121ED00735B99 /* Matcher.h */; };
-		D26425F222C121ED00735B99 /* ScopedTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249C22C121ED00735B99 /* ScopedTimer.h */; };
-		D26425F322C121ED00735B99 /* ZenidEnums.generated.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249D22C121ED00735B99 /* ZenidEnums.generated.h */; };
-		D26425F422C121ED00735B99 /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249E22C121ED00735B99 /* Utilities.h */; };
-		D26425F522C121ED00735B99 /* BlurValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249F22C121ED00735B99 /* BlurValidator.h */; };
-		D26425F622C121ED00735B99 /* RecogLibCException.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A022C121ED00735B99 /* RecogLibCException.h */; };
-		D26425F722C121ED00735B99 /* faceidentification.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A122C121ED00735B99 /* faceidentification.h */; };
-		D26425F822C121ED00735B99 /* Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A222C121ED00735B99 /* Transform.h */; };
-		D26425F922C121ED00735B99 /* HomohgraphyRank.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A322C121ED00735B99 /* HomohgraphyRank.h */; };
-		D26425FA22C121ED00735B99 /* ProcModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A422C121ED00735B99 /* ProcModel.h */; };
-		D26425FB22C121ED00735B99 /* facemarkLBFBinary.h in Headers */ = {isa = PBXBuildFile; fileRef = D26424A522C121ED00735B99 /* facemarkLBFBinary.h */; };
-		D264286A22C124CD00735B99 /* format.h in Headers */ = {isa = PBXBuildFile; fileRef = D264272622C124CD00735B99 /* format.h */; };
-		D264299322C127AE00735B99 /* FaceLivenessSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264298F22C127AE00735B99 /* FaceLivenessSample.cpp */; };
-		D264299522C127AE00735B99 /* MatcherSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D264299122C127AE00735B99 /* MatcherSample.cpp */; };
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		D296261322C2670C007B934C /* DocumentPictureVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */; };
 		D2991D8D22C3B53A00CF40F4 /* models in Resources */ = {isa = PBXBuildFile; fileRef = D2991D8C22C3B53A00CF40F4 /* models */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780522C4E9C2006D7974 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780422C4E9C2006D7974 /* opencv2.framework */; };
@@ -42,35 +40,29 @@
 /* Begin PBXFileReference section */
 		B009CF5322C4B01C00AA568C /* MatcherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherResult.swift; sourceTree = "<group>"; };
 		B051AFDA22CA48AA007AF46E /* DocumentEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentEnums.swift; sourceTree = "<group>"; };
+		D2057D0622CB8ACA00EE9EE2 /* ModelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLoader.h; sourceTree = "<group>"; };
+		D2057D0722CB8ACA00EE9EE2 /* SpecularImageValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecularImageValidator.h; sourceTree = "<group>"; };
+		D2057D0822CB8ACA00EE9EE2 /* DocumentPictureVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentPictureVerifier.h; sourceTree = "<group>"; };
+		D2057D0922CB8ACA00EE9EE2 /* Matcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matcher.h; sourceTree = "<group>"; };
+		D2057D0A22CB8ACA00EE9EE2 /* ScopedTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScopedTimer.h; sourceTree = "<group>"; };
+		D2057D0B22CB8ACA00EE9EE2 /* ZenidEnums.generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenidEnums.generated.h; sourceTree = "<group>"; };
+		D2057D0C22CB8ACA00EE9EE2 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		D2057D0D22CB8ACA00EE9EE2 /* BlurValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurValidator.h; sourceTree = "<group>"; };
+		D2057D0E22CB8ACA00EE9EE2 /* RecogLibCException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecogLibCException.h; sourceTree = "<group>"; };
+		D2057D0F22CB8ACA00EE9EE2 /* faceidentification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = faceidentification.h; sourceTree = "<group>"; };
+		D2057D1022CB8ACA00EE9EE2 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		D2057D1122CB8ACA00EE9EE2 /* HomohgraphyRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomohgraphyRank.h; sourceTree = "<group>"; };
+		D2057D1222CB8ACA00EE9EE2 /* ProcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcModel.h; sourceTree = "<group>"; };
+		D2057D1322CB8ACA00EE9EE2 /* facemarkLBFBinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facemarkLBFBinary.h; sourceTree = "<group>"; };
+		D2057D1422CB8ACA00EE9EE2 /* FaceLivenessDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceLivenessDetector.h; sourceTree = "<group>"; };
+		D2057D2822CB8ACA00EE9EE2 /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format.h; sourceTree = "<group>"; };
+		D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CDocumentWrapper.hpp; sourceTree = "<group>"; };
 		D261288C22C3701F00942D8A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D261289422C370C200942D8A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentWrapper.cpp; sourceTree = "<group>"; };
-		D26128CD22C3988100942D8A /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = models; sourceTree = "<group>"; };
-		D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CDocumentWrapper.hpp; sourceTree = "<group>"; };
 		D264245D22C11E7E00735B99 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RecogLib_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D264246022C11E7E00735B99 /* RecogLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecogLib_iOS.h; sourceTree = "<group>"; };
 		D264246122C11E7E00735B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D264246822C11EC100735B99 /* RecogLibC.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RecogLibC.cpp; sourceTree = "<group>"; };
-		D264249822C121ED00735B99 /* ModelLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLoader.h; sourceTree = "<group>"; };
-		D264249922C121ED00735B99 /* SpecularImageValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecularImageValidator.h; sourceTree = "<group>"; };
-		D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentPictureVerifier.h; sourceTree = "<group>"; };
-		D264249B22C121ED00735B99 /* Matcher.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Matcher.h; sourceTree = "<group>"; };
-		D264249C22C121ED00735B99 /* ScopedTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScopedTimer.h; sourceTree = "<group>"; };
-		D264249D22C121ED00735B99 /* ZenidEnums.generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenidEnums.generated.h; sourceTree = "<group>"; };
-		D264249E22C121ED00735B99 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
-		D264249F22C121ED00735B99 /* BlurValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurValidator.h; sourceTree = "<group>"; };
-		D26424A022C121ED00735B99 /* RecogLibCException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecogLibCException.h; sourceTree = "<group>"; };
-		D26424A122C121ED00735B99 /* faceidentification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = faceidentification.h; sourceTree = "<group>"; };
-		D26424A222C121ED00735B99 /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
-		D26424A322C121ED00735B99 /* HomohgraphyRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomohgraphyRank.h; sourceTree = "<group>"; };
-		D26424A422C121ED00735B99 /* ProcModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcModel.h; sourceTree = "<group>"; };
-		D26424A522C121ED00735B99 /* facemarkLBFBinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = facemarkLBFBinary.h; sourceTree = "<group>"; };
-		D26424A622C121ED00735B99 /* FaceLivenessDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceLivenessDetector.h; sourceTree = "<group>"; };
-		D264272622C124CD00735B99 /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format.h; sourceTree = "<group>"; };
-		D264298F22C127AE00735B99 /* FaceLivenessSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceLivenessSample.cpp; sourceTree = "<group>"; };
-		D264299022C127AE00735B99 /* MatcherSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatcherSample.h; sourceTree = "<group>"; };
-		D264299122C127AE00735B99 /* MatcherSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatcherSample.cpp; sourceTree = "<group>"; };
-		D264299222C127AE00735B99 /* FaceLivenessSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceLivenessSample.h; sourceTree = "<group>"; };
 		D296261022C265E0007B934C /* DocumentVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifier.swift; sourceTree = "<group>"; };
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -94,6 +86,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2057D0522CB8ACA00EE9EE2 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				D2057D0622CB8ACA00EE9EE2 /* ModelLoader.h */,
+				D2057D0722CB8ACA00EE9EE2 /* SpecularImageValidator.h */,
+				D2057D0822CB8ACA00EE9EE2 /* DocumentPictureVerifier.h */,
+				D2057D0922CB8ACA00EE9EE2 /* Matcher.h */,
+				D2057D0A22CB8ACA00EE9EE2 /* ScopedTimer.h */,
+				D2057D0B22CB8ACA00EE9EE2 /* ZenidEnums.generated.h */,
+				D2057D0C22CB8ACA00EE9EE2 /* Utilities.h */,
+				D2057D0D22CB8ACA00EE9EE2 /* BlurValidator.h */,
+				D2057D0E22CB8ACA00EE9EE2 /* RecogLibCException.h */,
+				D2057D0F22CB8ACA00EE9EE2 /* faceidentification.h */,
+				D2057D1022CB8ACA00EE9EE2 /* Transform.h */,
+				D2057D1122CB8ACA00EE9EE2 /* HomohgraphyRank.h */,
+				D2057D1222CB8ACA00EE9EE2 /* ProcModel.h */,
+				D2057D1322CB8ACA00EE9EE2 /* facemarkLBFBinary.h */,
+				D2057D1422CB8ACA00EE9EE2 /* FaceLivenessDetector.h */,
+			);
+			name = include;
+			path = "ZenID-RecogLibC/include";
+			sourceTree = SOURCE_ROOT;
+		};
+		D2057D1A22CB8ACA00EE9EE2 /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				D2057D1C22CB8ACA00EE9EE2 /* include */,
+			);
+			name = thirdparty;
+			path = "ZenID-RecogLibC/thirdparty";
+			sourceTree = SOURCE_ROOT;
+		};
+		D2057D1C22CB8ACA00EE9EE2 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				D2057D1D22CB8ACA00EE9EE2 /* fmt */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		D2057D1D22CB8ACA00EE9EE2 /* fmt */ = {
+			isa = PBXGroup;
+			children = (
+				D2057D2822CB8ACA00EE9EE2 /* format.h */,
+			);
+			path = fmt;
+			sourceTree = "<group>";
+		};
+		D2057F9122CB8B8C00EE9EE2 /* wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */,
+				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
+			);
+			path = wrapper;
+			sourceTree = "<group>";
+		};
 		D264245322C11E7E00735B99 = {
 			isa = PBXGroup;
 			children = (
@@ -115,16 +164,14 @@
 			isa = PBXGroup;
 			children = (
 				D2991D8C22C3B53A00CF40F4 /* models */,
-				D264298E22C127AE00735B99 /* samples */,
-				D264271822C124CD00735B99 /* thirdparty */,
-				D264249722C121ED00735B99 /* include */,
+				D2057F9122CB8B8C00EE9EE2 /* wrapper */,
+				D2057D0522CB8ACA00EE9EE2 /* include */,
+				D2057D1A22CB8ACA00EE9EE2 /* thirdparty */,
 				D264246022C11E7E00735B99 /* RecogLib_iOS.h */,
 				D264246122C11E7E00735B99 /* Info.plist */,
-				D264246822C11EC100735B99 /* RecogLibC.cpp */,
 				D296261022C265E0007B934C /* DocumentVerifier.swift */,
 				B009CF5322C4B01C00AA568C /* MatcherResult.swift */,
 				B051AFDA22CA48AA007AF46E /* DocumentEnums.swift */,
-				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
 			);
 			path = "RecogLib-iOS";
 			sourceTree = "<group>";
@@ -142,65 +189,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D264249722C121ED00735B99 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				D26128ED22C3A99300942D8A /* CDocumentWrapper.hpp */,
-				D26128CD22C3988100942D8A /* models */,
-				D264249822C121ED00735B99 /* ModelLoader.h */,
-				D264249922C121ED00735B99 /* SpecularImageValidator.h */,
-				D264249A22C121ED00735B99 /* DocumentPictureVerifier.h */,
-				D264249B22C121ED00735B99 /* Matcher.h */,
-				D264249C22C121ED00735B99 /* ScopedTimer.h */,
-				D264249D22C121ED00735B99 /* ZenidEnums.generated.h */,
-				D264249E22C121ED00735B99 /* Utilities.h */,
-				D264249F22C121ED00735B99 /* BlurValidator.h */,
-				D26424A022C121ED00735B99 /* RecogLibCException.h */,
-				D26424A122C121ED00735B99 /* faceidentification.h */,
-				D26424A222C121ED00735B99 /* Transform.h */,
-				D26424A322C121ED00735B99 /* HomohgraphyRank.h */,
-				D26424A422C121ED00735B99 /* ProcModel.h */,
-				D26424A522C121ED00735B99 /* facemarkLBFBinary.h */,
-				D26424A622C121ED00735B99 /* FaceLivenessDetector.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		D264271822C124CD00735B99 /* thirdparty */ = {
-			isa = PBXGroup;
-			children = (
-				D264271A22C124CD00735B99 /* include */,
-			);
-			path = thirdparty;
-			sourceTree = "<group>";
-		};
-		D264271A22C124CD00735B99 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				D264271B22C124CD00735B99 /* fmt */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		D264271B22C124CD00735B99 /* fmt */ = {
-			isa = PBXGroup;
-			children = (
-				D264272622C124CD00735B99 /* format.h */,
-			);
-			path = fmt;
-			sourceTree = "<group>";
-		};
-		D264298E22C127AE00735B99 /* samples */ = {
-			isa = PBXGroup;
-			children = (
-				D264299022C127AE00735B99 /* MatcherSample.h */,
-				D264299122C127AE00735B99 /* MatcherSample.cpp */,
-				D264298F22C127AE00735B99 /* FaceLivenessSample.cpp */,
-				D264299222C127AE00735B99 /* FaceLivenessSample.h */,
-			);
-			path = samples;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -208,24 +196,25 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */,
+				D2057E6722CB8ACA00EE9EE2 /* Utilities.h in Headers */,
+				D2057E6522CB8ACA00EE9EE2 /* ScopedTimer.h in Headers */,
+				D2057E6F22CB8ACA00EE9EE2 /* FaceLivenessDetector.h in Headers */,
+				D2057E6322CB8ACA00EE9EE2 /* DocumentPictureVerifier.h in Headers */,
+				D2057E7F22CB8ACA00EE9EE2 /* format.h in Headers */,
+				D2057E6A22CB8ACA00EE9EE2 /* faceidentification.h in Headers */,
+				D2057E6422CB8ACA00EE9EE2 /* Matcher.h in Headers */,
+				D2057E6D22CB8ACA00EE9EE2 /* ProcModel.h in Headers */,
+				D2057E6922CB8ACA00EE9EE2 /* RecogLibCException.h in Headers */,
+				D2057E6622CB8ACA00EE9EE2 /* ZenidEnums.generated.h in Headers */,
+				D2057E6C22CB8ACA00EE9EE2 /* HomohgraphyRank.h in Headers */,
+				D2057E6B22CB8ACA00EE9EE2 /* Transform.h in Headers */,
 				D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */,
-				D26128EE22C3A99300942D8A /* CDocumentWrapper.hpp in Headers */,
+				D2057E6822CB8ACA00EE9EE2 /* BlurValidator.h in Headers */,
+				D2057E6E22CB8ACA00EE9EE2 /* facemarkLBFBinary.h in Headers */,
+				D2057E6122CB8ACA00EE9EE2 /* ModelLoader.h in Headers */,
+				D2057E6222CB8ACA00EE9EE2 /* SpecularImageValidator.h in Headers */,
 				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
-				D26425F722C121ED00735B99 /* faceidentification.h in Headers */,
-				D26425F122C121ED00735B99 /* Matcher.h in Headers */,
-				D26425FA22C121ED00735B99 /* ProcModel.h in Headers */,
-				D26425F622C121ED00735B99 /* RecogLibCException.h in Headers */,
-				D26425F322C121ED00735B99 /* ZenidEnums.generated.h in Headers */,
-				D296261322C2670C007B934C /* DocumentPictureVerifier.h in Headers */,
-				D264286A22C124CD00735B99 /* format.h in Headers */,
-				D26425F422C121ED00735B99 /* Utilities.h in Headers */,
-				D26425F922C121ED00735B99 /* HomohgraphyRank.h in Headers */,
-				D26425F822C121ED00735B99 /* Transform.h in Headers */,
-				D26425F222C121ED00735B99 /* ScopedTimer.h in Headers */,
-				D26425F522C121ED00735B99 /* BlurValidator.h in Headers */,
-				D26425FB22C121ED00735B99 /* facemarkLBFBinary.h in Headers */,
-				D26425EE22C121ED00735B99 /* ModelLoader.h in Headers */,
-				D26425EF22C121ED00735B99 /* SpecularImageValidator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,12 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D264246A22C11EC100735B99 /* RecogLibC.cpp in Sources */,
-				D264299522C127AE00735B99 /* MatcherSample.cpp in Sources */,
 				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
 				B051AFDB22CA48AA007AF46E /* DocumentEnums.swift in Sources */,
-				D264299322C127AE00735B99 /* FaceLivenessSample.cpp in Sources */,
 				B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +458,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RecogLib-iOS/thirdparty/lib",
+					"$(PROJECT_DIR)/ZenID-RecogLibC/thirdparty/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
@@ -516,6 +503,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RecogLib-iOS/thirdparty/lib",
+					"$(PROJECT_DIR)/ZenID-RecogLibC/thirdparty/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
