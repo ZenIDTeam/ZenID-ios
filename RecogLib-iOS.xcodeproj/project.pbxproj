@@ -17,7 +17,7 @@
 		D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D264246022C11E7E00735B99 /* RecogLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2991D8D22C3B53A00CF40F4 /* models in Resources */ = {isa = PBXBuildFile; fileRef = D2991D8C22C3B53A00CF40F4 /* models */; };
+		D2977FA522CB9DEA00D2F84F /* models in Resources */ = {isa = PBXBuildFile; fileRef = D2977FA422CB9DEA00D2F84F /* models */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780522C4E9C2006D7974 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780422C4E9C2006D7974 /* opencv2.framework */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
@@ -38,7 +38,7 @@
 		D296261022C265E0007B934C /* DocumentVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifier.swift; sourceTree = "<group>"; };
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		D2991D8C22C3B53A00CF40F4 /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = models; sourceTree = "<group>"; };
+		D2977FA422CB9DEA00D2F84F /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = models; path = "ZenID-RecogLibC/models"; sourceTree = SOURCE_ROOT; };
 		D2BD780422C4E9C2006D7974 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		D2BD780622C4EA24006D7974 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -78,11 +78,11 @@
 		D264245F22C11E7E00735B99 /* RecogLib-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */,
-				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
+				D2977FA422CB9DEA00D2F84F /* models */,
 				D2057F9322CB92BD00EE9EE2 /* include */,
 				D2057F9222CB92BD00EE9EE2 /* thirdparty */,
-				D2991D8C22C3B53A00CF40F4 /* models */,
+				D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */,
+				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
 				D264246022C11E7E00735B99 /* RecogLib_iOS.h */,
 				D264246122C11E7E00735B99 /* Info.plist */,
 				D296261022C265E0007B934C /* DocumentVerifier.swift */,
@@ -177,8 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2057F9522CB92BD00EE9EE2 /* include in Resources */,
-				D2991D8D22C3B53A00CF40F4 /* models in Resources */,
 				D2057F9422CB92BD00EE9EE2 /* thirdparty in Resources */,
+				D2977FA522CB9DEA00D2F84F /* models in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
