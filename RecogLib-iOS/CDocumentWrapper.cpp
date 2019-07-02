@@ -16,10 +16,12 @@
 
 #include <string>
 
+#define DEBUG_PRINT_ENABLED 0 // set to 1 to enable logging
+
 const void * loadWrapper(const char *path)
 {
     RecogLibC::DocumentPictureVerifier *verifier = new RecogLibC::DocumentPictureVerifier(path);
-    printf("[DEBUG-DOCUMENT] created!");
+    printf("[Recoglib] loaded!");
     return (void *)verifier;
 }
 
@@ -51,31 +53,37 @@ bool verify(
     auto country = static_cast<RecogLibC::Country>(document->country);
     auto pageCode = static_cast<RecogLibC::PageCodes>(document->page);
 
-//    printf("[DEBUG-DOCUMENT-CONVERT] starts");
-
+#if DEBUG_PRINT_ENABLED
+    printf("[DEBUG-Recoglib-CONVERT] starts");
+#endif
     CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
     CVPixelBufferLockBaseAddress( cvBuffer, 0 );
     int widht = (int)CVPixelBufferGetWidth(cvBuffer);
     int height = (int)CVPixelBufferGetHeight(cvBuffer);
-    int bytesPerRow = (int)CVPixelBufferGetBytesPerRow(cvBuffer);
-    printf("[DEBUG-DOCUMENT-CONVERT] ends\n");
 
-    printf("[DEBUG-DOCUMENT-VERIFY] start\n");
+#if DEBUG_PRINT_ENABLED
+    printf("[DEBUG-Recoglib-CONVERT] ends\n");
+#endif
+
+#if DEBUG_PRINT_ENABLED
+    printf("[DEBUG-Recoglib-VERIFY] start\n");
+#endif
 
     OSType format = CVPixelBufferGetPixelFormatType(cvBuffer);
 
     cv::Mat image;
     if (format == kCVPixelFormatType_32BGRA) {
         image = cv::Mat(height, widht, CV_8UC4, CVPixelBufferGetBaseAddress(cvBuffer), 0);
-//    } else if (format == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
-//        image = cv::Mat(height, widht, CV_8UC1, CVPixelBufferGetBaseAddress(cvBuffer), bytesPerRow);
     } else {
         assert(false);
         printf("Unsupported format for CVPixelBufferGetPixelFormatType");
     }
-    //    printf("[DEBUG-DOCUMENT-CONVERT] ends");
-
-    //    printf("[DEBUG-DOCUMENT-VERIFY] start");
+#if DEBUG_PRINT_ENABLED
+    printf("[DEBUG-Recoglib-CONVERT] ends");
+#endif
+#if DEBUG_PRINT_ENABLED
+    printf("[DEBUG-Recoglib-VERIFY] start");
+#endif
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
 
     CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
