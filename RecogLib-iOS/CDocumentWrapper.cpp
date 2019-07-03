@@ -7,8 +7,7 @@
 //
 
 #include "CDocumentWrapper.hpp"
-#include "ZenidEnums.generated.h"
-#include "DocumentPictureVerifier.h"
+#include "RecogLibC.h"
 
 #include "opencv2/opencv.hpp"
 
