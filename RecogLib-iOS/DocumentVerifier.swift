@@ -13,7 +13,7 @@ public class DocumentVerifier {
     fileprivate var cppObject: UnsafeRawPointer?
 
     // TODO: improve framework path
-    private let modelsRelativePath = "/Frameworks/RecogLib_iOS.framework/models"
+    private let modelsRelativePath = "/Frameworks/RecogLib_iOS.framework"
 
     public var documentRole: DocumentRole
     public var country: Country

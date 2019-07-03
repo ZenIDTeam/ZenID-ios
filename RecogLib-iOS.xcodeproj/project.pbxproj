@@ -46,9 +46,15 @@
 		D26BB8D322CCD482004AE4AC /* FaceLivenessDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = D26BB79922CCD481004AE4AC /* FaceLivenessDetector.h */; };
 		D26BB8D422CCD482004AE4AC /* HologramFeedback.h in Headers */ = {isa = PBXBuildFile; fileRef = D26BB79A22CCD481004AE4AC /* HologramFeedback.h */; };
 		D275FF3B22CCD677002194C7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D275FF3A22CCD677002194C7 /* opencv2.framework */; };
+		D275FF4622CCDCFD002194C7 /* recoglibc_IDC2_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D275FF3E22CCDCFD002194C7 /* recoglibc_IDC2_F.bin */; };
+		D275FF4722CCDCFD002194C7 /* recoglibc_IDC2_B.bin in Resources */ = {isa = PBXBuildFile; fileRef = D275FF3F22CCDCFD002194C7 /* recoglibc_IDC2_B.bin */; };
+		D275FF4822CCDCFD002194C7 /* recoglibc_IDC1_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D275FF4022CCDCFD002194C7 /* recoglibc_IDC1_F.bin */; };
+		D275FF4922CCDCFD002194C7 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = D275FF4122CCDCFD002194C7 /* haarcascade_frontalface_alt2.xml */; };
+		D275FF4A22CCDCFD002194C7 /* recoglibc_DRV_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D275FF4222CCDCFD002194C7 /* recoglibc_DRV_F.bin */; };
+		D275FF4B22CCDCFD002194C7 /* recoglibc_IDC1_B.bin in Resources */ = {isa = PBXBuildFile; fileRef = D275FF4322CCDCFD002194C7 /* recoglibc_IDC1_B.bin */; };
+		D275FF4C22CCDCFD002194C7 /* recoglibc_PAS_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D275FF4422CCDCFD002194C7 /* recoglibc_PAS_F.bin */; };
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2977FA522CB9DEA00D2F84F /* models in Resources */ = {isa = PBXBuildFile; fileRef = D2977FA422CB9DEA00D2F84F /* models */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
@@ -96,10 +102,16 @@
 		D26BB79922CCD481004AE4AC /* FaceLivenessDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceLivenessDetector.h; sourceTree = "<group>"; };
 		D26BB79A22CCD481004AE4AC /* HologramFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HologramFeedback.h; sourceTree = "<group>"; };
 		D275FF3A22CCD677002194C7 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D275FF3E22CCDCFD002194C7 /* recoglibc_IDC2_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC2_F.bin; sourceTree = "<group>"; };
+		D275FF3F22CCDCFD002194C7 /* recoglibc_IDC2_B.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC2_B.bin; sourceTree = "<group>"; };
+		D275FF4022CCDCFD002194C7 /* recoglibc_IDC1_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC1_F.bin; sourceTree = "<group>"; };
+		D275FF4122CCDCFD002194C7 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
+		D275FF4222CCDCFD002194C7 /* recoglibc_DRV_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_DRV_F.bin; sourceTree = "<group>"; };
+		D275FF4322CCDCFD002194C7 /* recoglibc_IDC1_B.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_IDC1_B.bin; sourceTree = "<group>"; };
+		D275FF4422CCDCFD002194C7 /* recoglibc_PAS_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = recoglibc_PAS_F.bin; sourceTree = "<group>"; };
 		D296261022C265E0007B934C /* DocumentVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifier.swift; sourceTree = "<group>"; };
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		D2977FA422CB9DEA00D2F84F /* models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = models; path = "ZenID-RecogLibC/models"; sourceTree = SOURCE_ROOT; };
 		D2BD780622C4EA24006D7974 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -138,9 +150,9 @@
 		D264245F22C11E7E00735B99 /* RecogLib-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D275FF3C22CCDCFD002194C7 /* models */,
 				D26BB77B22CCD481004AE4AC /* include */,
 				D26BB63422CCD481004AE4AC /* thirdparty */,
-				D2977FA422CB9DEA00D2F84F /* models */,
 				D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */,
 				D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */,
 				D264246022C11E7E00735B99 /* RecogLib_iOS.h */,
@@ -227,6 +239,21 @@
 			);
 			name = include;
 			path = "ZenID-RecogLibC/include";
+			sourceTree = SOURCE_ROOT;
+		};
+		D275FF3C22CCDCFD002194C7 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D275FF3E22CCDCFD002194C7 /* recoglibc_IDC2_F.bin */,
+				D275FF3F22CCDCFD002194C7 /* recoglibc_IDC2_B.bin */,
+				D275FF4022CCDCFD002194C7 /* recoglibc_IDC1_F.bin */,
+				D275FF4122CCDCFD002194C7 /* haarcascade_frontalface_alt2.xml */,
+				D275FF4222CCDCFD002194C7 /* recoglibc_DRV_F.bin */,
+				D275FF4322CCDCFD002194C7 /* recoglibc_IDC1_B.bin */,
+				D275FF4422CCDCFD002194C7 /* recoglibc_PAS_F.bin */,
+			);
+			name = models;
+			path = "ZenID-RecogLibC/models";
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -321,18 +348,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2977FA522CB9DEA00D2F84F /* models in Resources */,
+				D275FF4B22CCDCFD002194C7 /* recoglibc_IDC1_B.bin in Resources */,
 				D26BB8BE22CCD482004AE4AC /* HomographyRank.inl in Resources */,
 				D26BB8B622CCD482004AE4AC /* FaceLivenessDetector.inl in Resources */,
+				D275FF4C22CCDCFD002194C7 /* recoglibc_PAS_F.bin in Resources */,
+				D275FF4622CCDCFD002194C7 /* recoglibc_IDC2_F.bin in Resources */,
+				D275FF4A22CCDCFD002194C7 /* recoglibc_DRV_F.bin in Resources */,
 				D26BB8C522CCD482004AE4AC /* DocumentPictureVerifier.inl in Resources */,
 				D26BB8C422CCD482004AE4AC /* ModelLoader.inl in Resources */,
 				D26BB8C822CCD482004AE4AC /* SpecularImageValidator.inl in Resources */,
+				D275FF4822CCDCFD002194C7 /* recoglibc_IDC1_F.bin in Resources */,
 				D26BB8BF22CCD482004AE4AC /* Transform.inl in Resources */,
 				D26BB8D122CCD482004AE4AC /* Matcher.inl in Resources */,
+				D275FF4922CCDCFD002194C7 /* haarcascade_frontalface_alt2.xml in Resources */,
 				D26BB8CA22CCD482004AE4AC /* FaceIdentification.inl in Resources */,
 				D26BB8CF22CCD482004AE4AC /* Utilities.inl in Resources */,
 				D26BB8C222CCD482004AE4AC /* HologramValidator.inl in Resources */,
 				D26BB8D222CCD482004AE4AC /* BlurValidator.inl in Resources */,
+				D275FF4722CCDCFD002194C7 /* recoglibc_IDC2_B.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
