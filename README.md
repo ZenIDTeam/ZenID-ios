@@ -20,13 +20,22 @@ For compilation, running and deployment of the application following tools are r
     - iOS 11.0
 
 ## Installation
-### Link your project against RecogLib and OpenCV frameworks 
+### 1. Load submodules
+You can load all submodules using following commands ran at the root of this repository.
+```
+git submodule init
+git submodule update
+```
+
+### 2. Link your project against RecogLib and OpenCV frameworks 
+You can use our pre-compiled version of OpenCV provided in our repositor at location `/[Path to this project]/RecogLib-iOS/opencv2.framework` or you can build one yourself. We summarized the setup [here](OPENCV.md). 
+
 Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` (which should be shown under RecogLib-iOS project) and `opencv2.framework` (which is located at `/[Path to this project]/RecogLib-iOS/opencv2.framework`). Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libreries` section and your Xcode project settings should look like this.
 
 ![](images/xcode_settings.png)
 
 ## Usage
-### 1) Configure `AVCaptureSession`
+### 1. Configure `AVCaptureSession`
 Recoglib is built to be used with AVCaptureSession. Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and start batch configuration by calling `beginConfiguration` method.
 ```
 let session = AVCaptureSession()
@@ -57,7 +66,7 @@ session.commitConfiguration()
 session.startRunning()
 ```
 
-### 2) Configure `DocumentVerifier`
+### 2. Configure `DocumentVerifier`
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
 First you initialize `DocumentVerifier` with expected role, country and page.
 
@@ -96,7 +105,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 ```
-### 3) Result
+### 3. Result
 The returning value of the `verify()` methods is a struct of type `MatcherResult`. It contains all the information found describing currently analysed document.
 
 It contains following values:
