@@ -20,17 +20,10 @@ For compilation, running and deployment of the application following tools are r
     - iOS 11.0
 
 ## Installation
-### 1. Load submodules
-You can load all submodules using following commands ran at the root of this repository.
-```
-git submodule init
-git submodule update
-```
-
-### 2. Link your project against RecogLib and OpenCV frameworks 
+### Link your project against RecogLib and OpenCV frameworks 
 You can use our pre-compiled version of OpenCV provided in our repositor at location `/[Path to this project]/RecogLib-iOS/opencv2.framework` or you can build one yourself. We summarized the setup [here](OPENCV.md). 
 
-Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` (which should be shown under RecogLib-iOS project) and `opencv2.framework` (which is located at `/[Path to this project]/RecogLib-iOS/opencv2.framework`). Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libreries` section and your Xcode project settings should look like this.
+Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` and `opencv2.framework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libreries` section and your Xcode project settings should look like this.
 
 ![](images/xcode_settings.png)
 
