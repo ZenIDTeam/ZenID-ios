@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01EDB2B6231D2938009B0859 /* recoglibc_IDC2_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D271184322CDE966001F80DB /* recoglibc_IDC2_F.bin */; };
+		01EDB2B7231D2938009B0859 /* recoglibc_IDC2_B.bin in Resources */ = {isa = PBXBuildFile; fileRef = D271184422CDE966001F80DB /* recoglibc_IDC2_B.bin */; };
+		01EDB2B8231D2938009B0859 /* recoglibc_IDC1_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D271184522CDE966001F80DB /* recoglibc_IDC1_F.bin */; };
+		01EDB2B9231D2938009B0859 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = D271184622CDE966001F80DB /* haarcascade_frontalface_alt2.xml */; };
+		01EDB2BA231D2938009B0859 /* recoglibc_DRV_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D271184722CDE966001F80DB /* recoglibc_DRV_F.bin */; };
+		01EDB2BB231D2938009B0859 /* recoglibc_IDC1_B.bin in Resources */ = {isa = PBXBuildFile; fileRef = D271184822CDE966001F80DB /* recoglibc_IDC1_B.bin */; };
+		01EDB2BC231D2938009B0859 /* recoglibc_PAS_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = D271184922CDE966001F80DB /* recoglibc_PAS_F.bin */; };
 		B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* MatcherResult.swift */; };
 		B051AFDB22CA48AA007AF46E /* DocumentEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* DocumentEnums.swift */; };
 		D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -330,6 +337,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EDB2B6231D2938009B0859 /* recoglibc_IDC2_F.bin in Resources */,
+				01EDB2B7231D2938009B0859 /* recoglibc_IDC2_B.bin in Resources */,
+				01EDB2B8231D2938009B0859 /* recoglibc_IDC1_F.bin in Resources */,
+				01EDB2B9231D2938009B0859 /* haarcascade_frontalface_alt2.xml in Resources */,
+				01EDB2BA231D2938009B0859 /* recoglibc_DRV_F.bin in Resources */,
+				01EDB2BB231D2938009B0859 /* recoglibc_IDC1_B.bin in Resources */,
+				01EDB2BC231D2938009B0859 /* recoglibc_PAS_F.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

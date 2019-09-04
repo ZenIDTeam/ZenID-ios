@@ -38,8 +38,8 @@ public class DocumentVerifier {
         RecogLib_iOS.verify(cppObject, buffer, &document, 0, 0)
         return MatcherResult(document: document)
     }
-
-    public func verify(buffer: CMSampleBuffer, displayWidth: Double, displayHeight: Double, frameHeight: Double) -> MatcherResult? {
+    
+    public func verifyImage(imageBuffer: CVPixelBuffer, displayWidth: Double, displayHeight: Double, frameWidth: Double, frameHeight: Double) -> MatcherResult? {
         var document = CDocumentInfo(
             role: Int32(documentRole.rawValue),
             country: Int32(country.rawValue),
@@ -47,19 +47,29 @@ public class DocumentVerifier {
             page: Int32(page.rawValue),
             state: -1
         )
-        let aligments = margins(from: displayWidth, displayHeight: displayHeight, frameHeight: frameHeight);
-        RecogLib_iOS.verify(cppObject, buffer, &document, aligments.horizontal, aligments.vertical)
+        let alignments = margins(from: displayWidth, displayHeight: displayHeight, frameWidth: frameWidth, frameHeight: frameHeight);
+        RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document, alignments.horizontal, alignments.vertical)
         return MatcherResult(document: document)
     }
 
-    private func margins(from displayWidth: Double, displayHeight: Double, frameHeight: Double) -> (horizontal: Float, vertical: Float) {
-        let frameWidth = frameHeight * 1.585 // ID size is (85,6 x 54), it means 1.585:1.0
-        let framePercentageWidth = (frameWidth * 100) / displayWidth
-        let framePercentageHeight = (frameHeight * 100) / displayHeight
+    public func verify(buffer: CMSampleBuffer, displayWidth: Double, displayHeight: Double, frameWidth: Double, frameHeight: Double) -> MatcherResult? {
+        var document = CDocumentInfo(
+            role: Int32(documentRole.rawValue),
+            country: Int32(country.rawValue),
+            code: -1,
+            page: Int32(page.rawValue),
+            state: -1
+        )
+        let alignments = margins(from: displayWidth, displayHeight: displayHeight, frameWidth: frameWidth, frameHeight: frameHeight);
+        RecogLib_iOS.verify(cppObject, buffer, &document, alignments.horizontal, alignments.vertical)
+        return MatcherResult(document: document)
+    }
 
-        let horizontal = (100 - framePercentageWidth) / 2 / 100
-        let vertical = (100 - framePercentageHeight) / 2 / 100
-
+    func margins(from displayWidth: Double, displayHeight: Double, frameWidth: Double, frameHeight: Double) -> (horizontal: Float, vertical: Float) {
+        
+        let horizontal = (1 - frameWidth / displayWidth) / 2
+        let vertical = (1 - frameHeight / displayHeight) / 2
+        
         return (Float(horizontal), Float(vertical))
     }
 }

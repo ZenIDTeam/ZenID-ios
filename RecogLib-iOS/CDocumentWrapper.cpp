@@ -32,11 +32,23 @@ bool verify(
     float _verticalMargin
 )
 {
-    RecogLibC::DocumentPictureVerifier *verifier = (RecogLibC::DocumentPictureVerifier *)object;
+    CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
+    return verifyImage(object, cvBuffer, document, _horizontalMargin, _verticalMargin);
+}
 
+bool verifyImage(
+            const void *object,
+            CVPixelBufferRef _cvBuffer,
+            CDocumentInfo *document,
+            float _horizontalMargin,
+            float _verticalMargin
+            )
+{
+    RecogLibC::DocumentPictureVerifier *verifier = (RecogLibC::DocumentPictureVerifier *)object;
+    
     float verticalMargin = _verticalMargin;
     float horizontalMargin = _horizontalMargin;
-
+    
     // Construct outline
     const std::array<cv::Point2f, 4> expectedOutline {
         {
@@ -46,33 +58,32 @@ bool verify(
             {horizontalMargin, 1.f - verticalMargin},
         }
     };
-
+    
     // Construct optional data
     auto documentRole = static_cast<RecogLibC::DocumentRole>(document->role);
     auto country = static_cast<RecogLibC::Country>(document->country);
     auto pageCode = static_cast<RecogLibC::PageCodes>(document->page);
-
+    
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-CONVERT] starts");
 #endif
-    CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
-    CVPixelBufferLockBaseAddress( cvBuffer, 0 );
-    int widht = (int)CVPixelBufferGetWidth(cvBuffer);
-    int height = (int)CVPixelBufferGetHeight(cvBuffer);
-
+    CVPixelBufferLockBaseAddress( _cvBuffer, 0 );
+    int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
+    int height = (int)CVPixelBufferGetHeight(_cvBuffer);
+    
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-CONVERT] ends\n");
 #endif
-
+    
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-VERIFY] start\n");
 #endif
-
-    OSType format = CVPixelBufferGetPixelFormatType(cvBuffer);
-
+    
+    OSType format = CVPixelBufferGetPixelFormatType(_cvBuffer);
+    
     cv::Mat image;
     if (format == kCVPixelFormatType_32BGRA) {
-        image = cv::Mat(height, widht, CV_8UC4, CVPixelBufferGetBaseAddress(cvBuffer), 0);
+        image = cv::Mat(height, widht, CV_8UC4, CVPixelBufferGetBaseAddress(_cvBuffer), 0);
     } else {
         assert(false);
         printf("Unsupported format for CVPixelBufferGetPixelFormatType");
@@ -84,11 +95,11 @@ bool verify(
     printf("[DEBUG-Recoglib-VERIFY] start");
 #endif
     verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
-
-    CVPixelBufferUnlockBaseAddress( cvBuffer, 0 );
-
+    
+    CVPixelBufferUnlockBaseAddress( _cvBuffer, 0 );
+    
     const auto state = verifier->GetState();
-
+    
     if (state == RecogLibC::DocumentPictureVerifier::State::NoMatchFound) {
         document->code = -1;
         document->state = static_cast<int>(state);

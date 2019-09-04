@@ -23,7 +23,9 @@ typedef struct CDocumentInfo CDocumentInfo;
 
 const void * loadWrapper(const char * path);
 bool verify(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document, float _horizontalMargin, float _verticalMargin);
+bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, float _horizontalMargin, float _verticalMargin);
 
+    
 #ifdef __cplusplus
 }
 #endif
