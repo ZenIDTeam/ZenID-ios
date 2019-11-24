@@ -45,20 +45,7 @@ bool verifyImage(
             )
 {
     RecogLibC::DocumentPictureVerifier *verifier = (RecogLibC::DocumentPictureVerifier *)object;
-    
-    float verticalMargin = _verticalMargin;
-    float horizontalMargin = _horizontalMargin;
-    
-    // Construct outline
-    const std::array<cv::Point2f, 4> expectedOutline {
-        {
-            {horizontalMargin, verticalMargin},
-            {1.f - horizontalMargin, verticalMargin},
-            {1.f - horizontalMargin, 1.f - verticalMargin},
-            {horizontalMargin, 1.f - verticalMargin},
-        }
-    };
-    
+
     // Construct optional data
     auto documentRole = static_cast<RecogLibC::DocumentRole>(document->role);
     auto country = static_cast<RecogLibC::Country>(document->country);
@@ -94,7 +81,7 @@ bool verifyImage(
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-VERIFY] start");
 #endif
-    verifier->ProcessFrame(image, expectedOutline, documentRole, country, pageCode);
+    verifier->ProcessFrame(image, RecogLibC::Orientation::Up, documentRole, country, pageCode);
     
     CVPixelBufferUnlockBaseAddress( _cvBuffer, 0 );
     
