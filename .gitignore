@@ -3,3 +3,4 @@
 
 # Carthage
 Carthage/Build
+*.xcuserstate
