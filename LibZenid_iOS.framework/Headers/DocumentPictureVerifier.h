@@ -30,8 +30,6 @@ class DocumentPictureVerifier
 		Dark
 	};
 
-	using OutlineType = std::array<cv::Point2f, 4>;
-
 	// Load all models from the given path.
 	explicit DocumentPictureVerifier(const std::string& resourcePath);
 
@@ -45,6 +43,8 @@ class DocumentPictureVerifier
 	                  const PageCodes* page = nullptr,
 	                  const DocumentCodes* documentCode = nullptr);
 
+#ifndef NO_OPENCV
+
 	[[deprecated(
 	    "cv::Mat and OpenCV will be removed from the public interface. Use the overload taking Image instead.")]] void
 	ProcessFrame(const cv::Mat& frame,
@@ -53,6 +53,7 @@ class DocumentPictureVerifier
 	             const std::optional<Country> country = {},
 	             const std::optional<PageCodes> page = {},
 	             const std::optional<DocumentCodes> documentCode = {});
+#endif
 
 	State GetState() const;
 
@@ -71,9 +72,11 @@ class DocumentPictureVerifier
 	void BeginHologramVerification();
 
 	void EndHologramVerification();
-
+#ifndef NO_OPENCV
 	std::string GetRenderCommands(const cv::Size& canvasSize, Orientation orientation, SupportedLanguages language);
-
+#endif
+	std::string GetRenderCommands(int canvasWidth, int canvasHeight, Orientation orientation, SupportedLanguages language);
+	
 	void SetDebugVisualization(bool isEnabled);
 
 	~DocumentPictureVerifier();

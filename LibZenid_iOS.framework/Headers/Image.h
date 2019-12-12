@@ -9,7 +9,8 @@ enum class ImageFormat
 	RGB,
 	BGR,
 	YUV,
-	YUV_NV21 // Standard picture format for the Android camera.
+	YUV_NV21, // Standard picture format for the Android camera.
+	BGRA
 };
 
 enum class ImageDataType
@@ -42,7 +43,6 @@ class Image
 	int Height;
 	size_t Stride = 0; // Length of a row of pixels, including the padding. If no padding is used, this can be left as
 	                   // 0. Also known as scanline or step.
-	int Channels = 3;
 	ImageFormat Format;
 	ImageDataType DataType;
 };
