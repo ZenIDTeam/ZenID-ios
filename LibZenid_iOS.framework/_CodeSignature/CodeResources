@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/DocumentPictureVerifier.h</key>
 		<data>
-		dLK3azOfYN0Cnx7pmMyOGVrpQaw=
+		Kp5v5MIsrfKKlXYi9ho/Vhaf12w=
 		</data>
 		<key>Headers/FaceLivenessDetector.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
-		v0qZp0LC7R9LGDKo3X4O4mQf+Z4=
+		X9mx0vutKAquxcFfCQ5V3JqXYy4=
 		</data>
 		<key>Headers/LibZenid_iOS.h</key>
 		<data>
@@ -80,6 +80,34 @@
 		<data>
 		NDXfw++KQzjiQrB1kIllMwRVjVo=
 		</data>
+		<key>models/recoglibc_sk_drv_1993_f.bin</key>
+		<data>
+		o/bPAvaClh4IqxS6rYydQZVCrJ0=
+		</data>
+		<key>models/recoglibc_sk_drv_2004_08_09_f.bin</key>
+		<data>
+		ua36W+ed9AeV/Oa06f7tkJAO0q4=
+		</data>
+		<key>models/recoglibc_sk_drv_2013_f.bin</key>
+		<data>
+		ooo89Ii5+/Z9QGnzqXlMnyZ8FG8=
+		</data>
+		<key>models/recoglibc_sk_drv_2015_f.bin</key>
+		<data>
+		sBT6pjgrOdM1Q6ANIyE4tbV7Nj8=
+		</data>
+		<key>models/recoglibc_sk_idc_2008plus_b.bin</key>
+		<data>
+		mfb359R0KxBvK1VITQNU7LH0EtQ=
+		</data>
+		<key>models/recoglibc_sk_idc_2008plus_f.bin</key>
+		<data>
+		wQDjD+xpQRK2XDqrZrM+POfeVCM=
+		</data>
+		<key>models/recoglibc_sk_pas_2008_14_f.bin</key>
+		<data>
+		9jS0zevbuY+F0m0a9J6IQOmgVo0=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -87,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wHL6Qm52bJv1xlcZ2jl2PSNncw6LgobuY2e2fyY/sEg=
+			dlB7KBWV2NCCeTQjo5M/8/SH77HBK94zvW5p5/bmF0U=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessDetector.h</key>
@@ -108,7 +136,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wBYse8APen+TEoNT1m2ysjC8hzasxyQcZKMktGq2f1I=
+			w/mcI3Et5HfzqC0XBke9/1UZSzpuUpyZbGMzulqhFhc=
 			</data>
 		</dict>
 		<key>Headers/LibZenid_iOS.h</key>
@@ -207,6 +235,55 @@
 			<key>hash2</key>
 			<data>
 			KzJ+eHvcBLvm2mRISG8pNZdAHbDUEvSNLkpuN3CfyLo=
+			</data>
+		</dict>
+		<key>models/recoglibc_sk_drv_1993_f.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			N+U1Sf/hphgGSn40KyW+EFQSpSYIR68rRuFZNrOqOXY=
+			</data>
+		</dict>
+		<key>models/recoglibc_sk_drv_2004_08_09_f.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VDQ+aapR3eDnFco1BiVN23m+RiDGYCTUkOOnF5KM47o=
+			</data>
+		</dict>
+		<key>models/recoglibc_sk_drv_2013_f.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1aMosKFQGbqfwJdfissse+cYWUgkMNhIt+phULTJzQo=
+			</data>
+		</dict>
+		<key>models/recoglibc_sk_drv_2015_f.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			9gjJniIY1mXBwJpGRLbnAk6gJ85d0+ze8QkCqP88hPg=
+			</data>
+		</dict>
+		<key>models/recoglibc_sk_idc_2008plus_b.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			3qsiHFQ4EVOF3iqTZu3wQVGPuE+NjrEd6WNC3xc7Scg=
+			</data>
+		</dict>
+		<key>models/recoglibc_sk_idc_2008plus_f.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/InZo5EBtKrj1GvLZZrRVKDbJ5kGGCQX0ltzi3iiio4=
+			</data>
+		</dict>
+		<key>models/recoglibc_sk_pas_2008_14_f.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6QU17zDDyXsIsjy/4xXcDtmz4kAZwVS5xr09af4lxRU=
 			</data>
 		</dict>
 	</dict>

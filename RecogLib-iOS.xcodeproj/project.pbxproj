@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C44D67123A282D900C536EC /* recoglibc_sk_drv_1993_f.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D66A23A282D900C536EC /* recoglibc_sk_drv_1993_f.bin */; };
+		4C44D67223A282D900C536EC /* recoglibc_sk_drv_2015_f.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D66B23A282D900C536EC /* recoglibc_sk_drv_2015_f.bin */; };
+		4C44D67323A282D900C536EC /* recoglibc_sk_idc_2008plus_b.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D66C23A282D900C536EC /* recoglibc_sk_idc_2008plus_b.bin */; };
+		4C44D67423A282D900C536EC /* recoglibc_sk_drv_2013_f.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D66D23A282D900C536EC /* recoglibc_sk_drv_2013_f.bin */; };
+		4C44D67523A282D900C536EC /* recoglibc_sk_idc_2008plus_f.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D66E23A282D900C536EC /* recoglibc_sk_idc_2008plus_f.bin */; };
+		4C44D67623A282D900C536EC /* recoglibc_sk_pas_2008_14_f.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D66F23A282D900C536EC /* recoglibc_sk_pas_2008_14_f.bin */; };
+		4C44D67723A282D900C536EC /* recoglibc_sk_drv_2004_08_09_f.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D67023A282D900C536EC /* recoglibc_sk_drv_2004_08_09_f.bin */; };
 		4C534711238AF051005297B5 /* recoglibc_PAS_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C534709238AF050005297B5 /* recoglibc_PAS_F.bin */; };
 		4C534712238AF051005297B5 /* recoglibc_IDC2_F.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4C53470A238AF050005297B5 /* recoglibc_IDC2_F.bin */; };
 		4C534713238AF051005297B5 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4C53470B238AF050005297B5 /* haarcascade_frontalface_alt2.xml */; };
@@ -30,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C44D66A23A282D900C536EC /* recoglibc_sk_drv_1993_f.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_sk_drv_1993_f.bin; path = LibZenid_iOS.framework/models/recoglibc_sk_drv_1993_f.bin; sourceTree = SOURCE_ROOT; };
+		4C44D66B23A282D900C536EC /* recoglibc_sk_drv_2015_f.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_sk_drv_2015_f.bin; path = LibZenid_iOS.framework/models/recoglibc_sk_drv_2015_f.bin; sourceTree = SOURCE_ROOT; };
+		4C44D66C23A282D900C536EC /* recoglibc_sk_idc_2008plus_b.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_sk_idc_2008plus_b.bin; path = LibZenid_iOS.framework/models/recoglibc_sk_idc_2008plus_b.bin; sourceTree = SOURCE_ROOT; };
+		4C44D66D23A282D900C536EC /* recoglibc_sk_drv_2013_f.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_sk_drv_2013_f.bin; path = LibZenid_iOS.framework/models/recoglibc_sk_drv_2013_f.bin; sourceTree = SOURCE_ROOT; };
+		4C44D66E23A282D900C536EC /* recoglibc_sk_idc_2008plus_f.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_sk_idc_2008plus_f.bin; path = LibZenid_iOS.framework/models/recoglibc_sk_idc_2008plus_f.bin; sourceTree = SOURCE_ROOT; };
+		4C44D66F23A282D900C536EC /* recoglibc_sk_pas_2008_14_f.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_sk_pas_2008_14_f.bin; path = LibZenid_iOS.framework/models/recoglibc_sk_pas_2008_14_f.bin; sourceTree = SOURCE_ROOT; };
+		4C44D67023A282D900C536EC /* recoglibc_sk_drv_2004_08_09_f.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_sk_drv_2004_08_09_f.bin; path = LibZenid_iOS.framework/models/recoglibc_sk_drv_2004_08_09_f.bin; sourceTree = SOURCE_ROOT; };
 		4C534709238AF050005297B5 /* recoglibc_PAS_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_PAS_F.bin; path = LibZenid_iOS.framework/models/recoglibc_PAS_F.bin; sourceTree = SOURCE_ROOT; };
 		4C53470A238AF050005297B5 /* recoglibc_IDC2_F.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = recoglibc_IDC2_F.bin; path = LibZenid_iOS.framework/models/recoglibc_IDC2_F.bin; sourceTree = SOURCE_ROOT; };
 		4C53470B238AF050005297B5 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = haarcascade_frontalface_alt2.xml; path = LibZenid_iOS.framework/models/haarcascade_frontalface_alt2.xml; sourceTree = SOURCE_ROOT; };
@@ -124,6 +138,13 @@
 		D271184122CDE966001F80DB /* models */ = {
 			isa = PBXGroup;
 			children = (
+				4C44D66A23A282D900C536EC /* recoglibc_sk_drv_1993_f.bin */,
+				4C44D67023A282D900C536EC /* recoglibc_sk_drv_2004_08_09_f.bin */,
+				4C44D66D23A282D900C536EC /* recoglibc_sk_drv_2013_f.bin */,
+				4C44D66B23A282D900C536EC /* recoglibc_sk_drv_2015_f.bin */,
+				4C44D66C23A282D900C536EC /* recoglibc_sk_idc_2008plus_b.bin */,
+				4C44D66E23A282D900C536EC /* recoglibc_sk_idc_2008plus_f.bin */,
+				4C44D66F23A282D900C536EC /* recoglibc_sk_pas_2008_14_f.bin */,
 				4C53470B238AF050005297B5 /* haarcascade_frontalface_alt2.xml */,
 				4C53470D238AF050005297B5 /* lbfmodel.yaml.bin */,
 				4C53470C238AF050005297B5 /* recoglibc_DRV_F.bin */,
@@ -233,13 +254,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C44D67723A282D900C536EC /* recoglibc_sk_drv_2004_08_09_f.bin in Resources */,
 				4C534716238AF051005297B5 /* recoglibc_IDC1_B.bin in Resources */,
 				4C534714238AF051005297B5 /* recoglibc_DRV_F.bin in Resources */,
 				4C534713238AF051005297B5 /* haarcascade_frontalface_alt2.xml in Resources */,
+				4C44D67523A282D900C536EC /* recoglibc_sk_idc_2008plus_f.bin in Resources */,
 				4C534711238AF051005297B5 /* recoglibc_PAS_F.bin in Resources */,
+				4C44D67323A282D900C536EC /* recoglibc_sk_idc_2008plus_b.bin in Resources */,
 				4C534715238AF051005297B5 /* lbfmodel.yaml.bin in Resources */,
 				4C534712238AF051005297B5 /* recoglibc_IDC2_F.bin in Resources */,
+				4C44D67223A282D900C536EC /* recoglibc_sk_drv_2015_f.bin in Resources */,
+				4C44D67623A282D900C536EC /* recoglibc_sk_pas_2008_14_f.bin in Resources */,
 				4C534717238AF051005297B5 /* recoglibc_IDC1_F.bin in Resources */,
+				4C44D67123A282D900C536EC /* recoglibc_sk_drv_1993_f.bin in Resources */,
+				4C44D67423A282D900C536EC /* recoglibc_sk_drv_2013_f.bin in Resources */,
 				4C534718238AF051005297B5 /* recoglibc_IDC2_B.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
