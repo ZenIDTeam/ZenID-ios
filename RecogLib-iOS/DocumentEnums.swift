@@ -66,7 +66,14 @@ extension DocumentRole: CustomStringConvertible {
 }
 
 public enum DocumentState: Int {
-    case NoMatchFound, AlignCard, HoldSteady, Blurry, ReflectionPresent, Ok
+    case NoMatchFound
+    case AlignCard
+    case HoldSteady
+    case Blurry
+    case ReflectionPresent
+    case Ok
+    case Hologram
+    case Dark
 }
 
 extension DocumentState: CustomStringConvertible {
@@ -84,6 +91,10 @@ extension DocumentState: CustomStringConvertible {
             return "Reflection present"
         case .Ok:
             return "Ok"
+        case .Hologram:
+            return "Hologram error"
+        case .Dark:
+            return "Too dark"
         }
     }
 }
