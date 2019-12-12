@@ -88,9 +88,7 @@ bool verifyImage(
     }
     
     void *data = CVPixelBufferGetBaseAddress(_cvBuffer);
-    
-    // Image format must be 32 bits, BGRA!
-    Image image(data, widht, height, ImageFormat::BGR, ImageDataType::UInt8);
+    Image image(data, widht, height, ImageFormat::BGRA, ImageDataType::UInt8);
     
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-CONVERT] ends");

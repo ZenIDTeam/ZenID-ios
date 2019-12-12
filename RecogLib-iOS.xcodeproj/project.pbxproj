@@ -29,7 +29,6 @@
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
 		D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */; };
 		D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D264246022C11E7E00735B99 /* RecogLib_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D275FF3B22CCD677002194C7 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D275FF3A22CCD677002194C7 /* opencv2.framework */; };
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D296261222C266E9007B934C /* DocumentVerifier.swift in Headers */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
@@ -64,7 +63,6 @@
 		D264246022C11E7E00735B99 /* RecogLib_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecogLib_iOS.h; sourceTree = "<group>"; };
 		D264246122C11E7E00735B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D271185822CDE966001F80DB /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format.h; sourceTree = "<group>"; };
-		D275FF3A22CCD677002194C7 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		D296261022C265E0007B934C /* DocumentVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifier.swift; sourceTree = "<group>"; };
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -78,7 +76,6 @@
 			files = (
 				D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
-				D275FF3B22CCD677002194C7 /* opencv2.framework in Frameworks */,
 				4C9F21052385C94A0021D3D9 /* LibZenid_iOS.framework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
 			);
@@ -125,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				4C9F21042385C94A0021D3D9 /* LibZenid_iOS.framework */,
-				D275FF3A22CCD677002194C7 /* opencv2.framework */,
 				D2BD780622C4EA24006D7974 /* CoreMedia.framework */,
 				D261289422C370C200942D8A /* libc++.tbd */,
 				D261288C22C3701F00942D8A /* CoreVideo.framework */,
@@ -438,6 +434,10 @@
 				GCC_CW_ASM_SYNTAX = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"NO_OPENCV=1",
+				);
 				HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/LibZenid_iOS/Headers";
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -449,6 +449,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -479,6 +480,7 @@
 				GCC_CW_ASM_SYNTAX = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_INPUT_FILETYPE = automatic;
+				GCC_PREPROCESSOR_DEFINITIONS = "NO_OPENCV=1";
 				HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/LibZenid_iOS/Headers";
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -489,6 +491,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
