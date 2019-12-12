@@ -17,6 +17,8 @@
 
 #define DEBUG_PRINT_ENABLED 0 // set to 1 to enable logging
 
+using namespace RecogLibC;
+
 const void * loadWrapper(const char *path)
 {
     RecogLibC::DocumentPictureVerifier *verifier = new RecogLibC::DocumentPictureVerifier(path);
@@ -24,39 +26,51 @@ const void * loadWrapper(const char *path)
     return (void *)verifier;
 }
 
+Orientation getOrientation(int interfaceOrientation) {
+    switch(interfaceOrientation) {
+        case 0: // .unknown
+        case 1: // .portrait
+            return Orientation::Up;
+        case 2: // .portraitUpsideDown
+            return Orientation::Down;
+        case 3: // .landscapeLeft
+            return Orientation::Left; //TODO: Check correct orientation
+        case 4: // .landscapeRight
+            return Orientation::Right; //TODO: Check correct orientation
+        default:
+            return Orientation::Up;
+    }
+}
+
 bool verify(
     const void *object,
     CMSampleBufferRef _mat,
-    CDocumentInfo *document,
-    float _horizontalMargin,
-    float _verticalMargin
+    CDocumentInfo *document
 )
 {
     CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
-    return verifyImage(object, cvBuffer, document, _horizontalMargin, _verticalMargin);
+    return verifyImage(object, cvBuffer, document);
 }
 
 bool verifyImage(
             const void *object,
             CVPixelBufferRef _cvBuffer,
-            CDocumentInfo *document,
-            float _horizontalMargin,
-            float _verticalMargin
+            CDocumentInfo *document
             )
 {
-    RecogLibC::DocumentPictureVerifier *verifier = (RecogLibC::DocumentPictureVerifier *)object;
+    DocumentPictureVerifier *verifier = (DocumentPictureVerifier *)object;
 
     // Construct optional data
-    auto documentRole = static_cast<RecogLibC::DocumentRole>(document->role);
-    auto country = static_cast<RecogLibC::Country>(document->country);
-    auto pageCode = static_cast<RecogLibC::PageCodes>(document->page);
+    auto documentRole = static_cast<DocumentRole>(document->role);
+    auto country = static_cast<Country>(document->country);
+    auto pageCode = static_cast<PageCodes>(document->page);
     
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-CONVERT] starts");
 #endif
     CVPixelBufferLockBaseAddress( _cvBuffer, 0 );
-    int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
-    int height = (int)CVPixelBufferGetHeight(_cvBuffer);
+    const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
+    const int height = (int)CVPixelBufferGetHeight(_cvBuffer);
     
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-CONVERT] ends\n");
@@ -67,21 +81,29 @@ bool verifyImage(
 #endif
     
     OSType format = CVPixelBufferGetPixelFormatType(_cvBuffer);
-    
-    cv::Mat image;
-    if (format == kCVPixelFormatType_32BGRA) {
-        image = cv::Mat(height, widht, CV_8UC4, CVPixelBufferGetBaseAddress(_cvBuffer), 0);
-    } else {
-        assert(false);
+        
+    if (format != kCVPixelFormatType_32BGRA) {
         printf("Unsupported format for CVPixelBufferGetPixelFormatType");
+        assert(false);
     }
+    
+    void *data = CVPixelBufferGetBaseAddress(_cvBuffer);
+    
+    // Image format must be 32 bits, BGRA!
+    Image image(data, widht, height, ImageFormat::BGR, ImageDataType::UInt8);
+    
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-CONVERT] ends");
 #endif
 #if DEBUG_PRINT_ENABLED
     printf("[DEBUG-Recoglib-VERIFY] start");
 #endif
-    verifier->ProcessFrame(image, RecogLibC::Orientation::Up, documentRole, country, pageCode);
+    verifier->ProcessFrame(image,
+                           getOrientation(document->orientation),
+                           &documentRole,
+                           &country,
+                           &pageCode,
+                           nullptr);
     
     CVPixelBufferUnlockBaseAddress( _cvBuffer, 0 );
     

@@ -17,13 +17,13 @@
 extern "C" {
 #endif
 struct CDocumentInfo {
-    int role, country, code, page, state;
+    int role, country, code, page, state, orientation;
 };
 typedef struct CDocumentInfo CDocumentInfo;
 
 const void * loadWrapper(const char * path);
-bool verify(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document, float _horizontalMargin, float _verticalMargin);
-bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, float _horizontalMargin, float _verticalMargin);
+bool verify(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document);
+bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document);
 
     
 #ifdef __cplusplus
