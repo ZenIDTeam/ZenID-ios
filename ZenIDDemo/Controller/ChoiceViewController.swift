@@ -159,6 +159,7 @@ final class ChoiceViewController: UIViewController {
     
     @objc private func selectAction(sender: UIButton) {
         ensureCredentials { [unowned self] in
+            Haptics.shared.select()
             switch sender {
             case self.idButton:
                 self.startProcess(.idCard)
@@ -189,9 +190,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func showResults(documentType: DocumentType, investigateResponse: InvestigateResponse) {
-        #if DEBUG
-        NSLog("Show investigation results")
-        #endif
+        debugPrint("Show investigation results")
         let model = ResultsViewModel(documentType: documentType, investigateResponse: investigateResponse)
         let resultsViewController = ResultViewController(model: model)
         navigationController?.setViewControllers([self, resultsViewController], animated: true)
@@ -252,6 +251,14 @@ extension ChoiceViewController {
     }
     
     private func zenidAuthorize(completion: @escaping (() -> Void)) {
+        let isAuthorized = ZenidSecurity.isAuthorized()
+        debugPrint("ZenidSecurity: isAuthorized: \(String(isAuthorized))")
+        
+        if isAuthorized {
+            completion()
+            return
+        }
+        
         let errorMessage: (() -> Void) = {
             DispatchQueue.main.async { [unowned self] in
                 self.alert(title: "Error", message: "ZenID authorization failed")
@@ -261,11 +268,9 @@ extension ChoiceViewController {
             Client()
                 .request(API.initSdk(token: challengeToken)) { (response, error) in
                     if let response = response, let responseToken = response.Response {
-                        let authorized = ZenidSecurity.authorize(responseToken: responseToken)
-                        #if DEBUG
-                        NSLog("ZenidSecurity.isAuthorize: %@", String(authorized))
-                        #endif
-                        if authorized {
+                        let authorize = ZenidSecurity.authorize(responseToken: responseToken)
+                        debugPrint("ZenidSecurity: authorize: \(String(authorize))")
+                        if authorize {
                             completion()
                             return
                         } else {
@@ -359,12 +364,7 @@ extension ChoiceViewController: QrScannerControllerDelegate {
             if let completion = completion {
                 zenidAuthorize(completion: completion)
             }
-            
-            #if DEBUG
-            let url = Credentials.shared.apiURL?.absoluteString ?? ""
-            let key = Credentials.shared.apiKey ?? ""
-            NSLog("Credentials updated, apiURL: %@, apiKey: %@", url, key)
-            #endif
+            debugPrint("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
         }
     }
     

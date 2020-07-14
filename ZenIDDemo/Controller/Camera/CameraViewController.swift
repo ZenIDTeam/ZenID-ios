@@ -14,9 +14,6 @@ import UIKit
 public class CameraViewController: UIViewController {
     public weak var delegate: CameraViewControllerDelegate?
     
-    // This enables / disables visualisation hints from the ZenID framework
-    public var showVisualisation: Bool = true
-    
     // This enables / disables additional debug visualisation hints from the ZenID framework
     public var showVisualisationDebugInfo: Bool = false {
         didSet {
@@ -25,13 +22,16 @@ public class CameraViewController: UIViewController {
         }
     }
     
+    // This enables / disables visualisation hints from the ZenID framework
+    public var showVisualisation: Bool = true
+    
     // Static overlay should be disabled when visualisation hints are enabled
     public var showStaticOverlay: Bool = false
     
     // This enables / disables the static text instructions
-    public var showInstructionView: Bool = true {
+    public var showInstructionView: Bool = false {
         didSet {
-            instructionView.isHidden = showInstructionView
+            instructionView.isHidden = !showInstructionView
         }
     }
     
@@ -47,7 +47,6 @@ public class CameraViewController: UIViewController {
     private let instructionView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
         let subView = UIView(frame: stack.bounds)
         subView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -131,6 +130,20 @@ public class CameraViewController: UIViewController {
 
     public override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        
+        // turn torch off
+        if let device = captureDevice {
+            useTorch(for: device, on: false)
+        }
+        
+        // stop video recorder
+        cameraVideoOutput?.setSampleBufferDelegate(nil, queue: nil)
+        videoWriter?.delegate = nil
+        videoWriter?.stop()
+        videoWriter = nil
+        
+        self.documentVerifier.endHologramVerification()
+        self.faceVerifier.reset()
     }
 
     public override func viewDidDisappear(_ animated: Bool) {
@@ -157,23 +170,33 @@ public class CameraViewController: UIViewController {
         self.documentType = type
         self.country = country
         self.captureDevicePosition = type == .face ? .front : .back
+        self.instructionView.transform = type == .face ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
         
-        self.startSession()
-
         self.title = type.title
         self.topLabel.text = photoType.message
         self.photosCount = photosCount
         self.previousResult = nil
         self.previousHologramResult = nil
         self.previousFaceResult = nil
-
-        // This hides visualisation hints, overlay and instructions
+        
+        // This will reset face verifier
+        self.faceVerifier.reset()
+        
+        // Start video capture session
+        self.startSession()
+        
+        // This hides visualisation hints, overlay and instructions for generic documents
         if type == .otherDocument {
             self.showStaticOverlay = false
             self.showVisualisation = false
             self.showInstructionView = false
+        } else {
+            self.showStaticOverlay = true
+            self.showVisualisation = true
+            self.showInstructionView = true
         }
         
+        // This starts video writer for holograms
         if type == .hologram {
             self.documentVerifier.beginHologramVerification()
             self.videoWriter.start()
@@ -184,18 +207,16 @@ public class CameraViewController: UIViewController {
         if let role = RecoglibMapper.documentRole(from: type) {
             documentVerifier.documentRole = role
         }
-
         if let documentPage = RecoglibMapper.pageCode(from: photoType) {
             documentVerifier.page = documentPage
         }
-        
         if let country = RecoglibMapper.country(from: country) {
             documentVerifier.country = country
         }
 
         documentVerifier.showDebugInfo = showVisualisationDebugInfo
         faceVerifier.showDebugInfo = showVisualisationDebugInfo
-                
+
         setupControlView()
     }
     
@@ -233,7 +254,6 @@ public class CameraViewController: UIViewController {
         view.addSubview(instructionView)
         instructionView.centerX(to: cameraView)
         instructionView.centerY(to: cameraView)
-        instructionView.isHidden = !showInstructionView
     }
     
     private func setupControlView() {
@@ -245,6 +265,7 @@ public class CameraViewController: UIViewController {
             
             // Trigger button
             controlView.addSubview(cameraTrigger)
+            cameraTrigger.isHidden = false
             cameraTrigger.addTarget(self, action: #selector(capture), for: .touchUpInside)
             cameraTrigger.anchor(top: controlView.topAnchor, left: nil, bottom: controlView.bottomAnchor, right: nil, paddingTop: 10, paddingBottom: 10)
             cameraTrigger.centerX(to: controlView)
@@ -292,6 +313,8 @@ public class CameraViewController: UIViewController {
         }
 
         previousHologramResult = unwrappedResult.hologramState
+        
+        // stop video recording
         videoWriter.stop()
     }
     
@@ -343,6 +366,7 @@ public class CameraViewController: UIViewController {
             preview.dismissAction = { [unowned self] in
                 self.previousResult = nil
                 self.previousFaceResult = nil
+                self.previousHologramResult = nil
                 self.faceVerifier.reset()
             }
             present(preview, animated: true, completion: nil)
@@ -408,7 +432,7 @@ private extension CameraViewController {
         guard let input = try? AVCaptureDeviceInput(device: device) else {
             return false
         }
-
+        
         captureSession.beginConfiguration()
         
         if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
@@ -422,17 +446,23 @@ private extension CameraViewController {
         
         cameraPhotoOutput = AVCapturePhotoOutput()
         cameraVideoOutput = AVCaptureVideoDataOutput()
+
         videoWriter = VideoWriter(cameraVideoOutput: cameraVideoOutput)
         videoWriter.delegate = self
         
         captureSession.addInput(input)
         captureSession.addOutput(cameraPhotoOutput)
         cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
-        let captureQueue = DispatchQueue(label: "Camera_capture_queue")
-        cameraVideoOutput.setSampleBufferDelegate(self, queue: captureQueue)
+        cameraVideoOutput.setSampleBufferDelegate(self,
+                                                  queue: documentType == .hologram
+                                                    ? DispatchQueue.main
+                                                    : DispatchQueue(label: "Camera_capture_queue"))
         captureSession.addOutput(cameraVideoOutput)
 
         captureSession.commitConfiguration()
+        
+        useTorch(for: device,
+                 on: documentType == .hologram)
 
         return true
     }
@@ -457,20 +487,25 @@ private extension CameraViewController {
     }
     
     func configureDrawingLayer() {
-        guard let previewLayer = previewLayer  else { return }
+        guard let previewLayer = previewLayer else { return }
         
+        let flipped = documentType != .face
         self.drawLayer?.removeFromSuperlayer()
         let drawLayer = DrawingLayer()
         self.drawLayer = drawLayer
         previewLayer.addSublayer(drawLayer)
         
-        // Rotate the draw layer landscape right
-        drawLayer.frame = previewLayer.bounds.flip()
-        let rotation = CGAffineTransform(rotationAngle: .pi / 2)
-        drawLayer.position = CGPoint(x: drawLayer.frame.height, y: 0)
-        drawLayer.anchorPoint = CGPoint(x: 0, y: 0)
-
-        drawLayer.setAffineTransform(rotation)
+        if flipped {
+            drawLayer.frame = flipped
+                ? previewLayer.bounds.flip()
+                : previewLayer.bounds
+            drawLayer.position = CGPoint(x: drawLayer.frame.height, y: 0)
+            drawLayer.anchorPoint = CGPoint(x: 0, y: 0)
+            let rotation = CGAffineTransform(rotationAngle: .pi / 2)
+            drawLayer.setAffineTransform(rotation)
+        } else {
+            drawLayer.frame = previewLayer.bounds
+        }
     }
 }
 
@@ -479,9 +514,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard error == nil else {
             returnImage(nil)
-            #if DEBUG
-            NSLog("Error capturing image")
-            #endif
+            debugPrint("Error capturing image")
             return
         }
         let imageData = photo.fileDataRepresentation()
@@ -512,25 +545,29 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     return
                 }
 
-                // Get render commands. Only up orientation is supported, so we switch height and width
+                // Get render commands
                 let width = Int(self.previewLayer?.frame.width ?? 0)
                 let height = Int(self.previewLayer?.frame.height ?? 0)
-                if let renderCommands = faceVerifier.getRenderCommands(canvasWidth: height,
-                                                                   canvasHeight: width) {
+                if let renderCommands = faceVerifier.getRenderCommands(canvasWidth: width,
+                                                                   canvasHeight: height) {
                     let renderables = RenderableFactory.createRenderables(commands: renderCommands)
                     self.drawLayer?.renderables = renderables
                 }
             }
+            
         case .hologram:
-            if self.videoWriter.isRecording {
-                self.videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
-                if let result = documentVerifier.verifyHologramImage(imageBuffer: pixelBuffer)
-                {
-                    DispatchQueue.main.async { [unowned self] in
-                        self.updateView(with: result, buffer: pixelBuffer)
+            if let videoWriter = self.videoWriter {
+                if videoWriter.isRecording {
+                    videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
+                    if let result = documentVerifier.verifyHologramImage(imageBuffer: pixelBuffer)
+                    {
+                        DispatchQueue.main.async { [unowned self] in
+                            self.updateView(with: result, buffer: pixelBuffer)
+                        }
                     }
                 }
             }
+            
         default:
             if let result = documentVerifier.verifyImage(imageBuffer: pixelBuffer)
             {
@@ -541,8 +578,8 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 if !showVisualisation {
                     return
                 }
-
-                // Get render commands. Only up orientation is supported, so we switch height and width
+                
+                // Get render commands
                 let width = Int(self.previewLayer?.frame.width ?? 0)
                 let height = Int(self.previewLayer?.frame.height ?? 0)
                 if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: height,
@@ -571,5 +608,20 @@ extension CameraViewController {
             .applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
         
         return cropRect
+    }
+    
+    private func useTorch(for device: AVCaptureDevice, on: Bool) {
+        let torchMode: AVCaptureDevice.TorchMode = on ? .auto : .off
+        guard device.torchMode != torchMode else { return }
+        
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+            } catch {
+                debugPrint("\(device.localizedName) has no torch")
+            }
+            device.torchMode = torchMode
+        }
+        device.unlockForConfiguration()
     }
 }

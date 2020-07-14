@@ -5,5 +5,8 @@
 Carthage/Build
 *.xcuserstate
 
+# xcuserdata
+*xcworkspace/xcuserdata/*
+
 # RecogLib_iOS build output (referenced framework in demo app)
 RecogLib_iOS.framework

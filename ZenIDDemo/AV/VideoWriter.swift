@@ -16,6 +16,7 @@ public class VideoWriter: NSObject {
     public weak var delegate: VideoWriterDelegate?
     public private(set) var isRecording = false
     
+    private let filePrefix = "VideoSample-"
     private var cameraVideoOutput: AVCaptureVideoDataOutput
     private var outputFileName: String
         
@@ -26,7 +27,7 @@ public class VideoWriter: NSObject {
     
     public init(cameraVideoOutput: AVCaptureVideoDataOutput) {
         self.cameraVideoOutput = cameraVideoOutput
-        self.outputFileName = "VideoSample-\(ProcessInfo.processInfo.globallyUniqueString).mov"
+        self.outputFileName = "\(filePrefix)\(ProcessInfo.processInfo.globallyUniqueString).mov"
     }
 }
 
@@ -45,10 +46,11 @@ extension VideoWriter {
         videoWriter.finishWriting { [weak self] in
             self?.sessionAtSourceTime = nil
             guard let self = self else { return }
-            
-            let url = self.videoWriter.outputURL
-            let videoAsset = AVURLAsset(url: url)
-            self.delegate?.didTakeVideo(videoAsset)
+            if let delegate = self.delegate {
+                let url = self.videoWriter.outputURL
+                let videoAsset = AVURLAsset(url: url)
+                delegate.didTakeVideo(videoAsset)
+            }
         }
     }
     
@@ -65,7 +67,10 @@ extension VideoWriter {
 extension VideoWriter {
     private func setupWriter() {
         do {
-            let url = getDocumentsDirectory().appendingPathComponent(outputFileName)
+            clearTemporaryFiles()
+            let url = getDocumentsDirectory()
+                .appendingPathComponent(outputFileName)
+            
             videoWriter = try AVAssetWriter(url: url, fileType: AVFileType.mov)
             videoWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: [
                 AVVideoCodecKey: AVVideoCodecType.hevc,
@@ -100,6 +105,16 @@ extension VideoWriter {
         return isRecording
             && videoWriter != nil
             && videoWriter.status == .writing
+    }
+    
+    private func clearTemporaryFiles() {
+        let docURL = getDocumentsDirectory()
+        let docDirectory = try? FileManager.default.contentsOfDirectory(at: docURL, includingPropertiesForKeys: nil)
+        docDirectory?
+            .filter{ $0.lastPathComponent.range(of: "^\(filePrefix)", options: [.regularExpression, .caseInsensitive, .diacriticInsensitive]) != nil }
+            .forEach { file in
+            try? FileManager.default.removeItem(at: file)
+        }
     }
 }
 
