@@ -34,6 +34,7 @@ bool verifyHologram(const void *object, CMSampleBufferRef _mat, CDocumentInfo *d
 bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document);
 
 // Hologram
+bool supportsHologram(const void *object);
 void beginHologramVerification(const void *object);
 void endHologramVerification(const void *object);
 

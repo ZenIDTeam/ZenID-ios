@@ -79,7 +79,7 @@ bool verifyImage(const void *object,
     
     const auto state = verifier->GetState();
     switch (state) {
-        case RecogLibC::DocumentVerifier::State::Hologram: // Not a valid state
+        case RecogLibC::DocumentVerifier::State::Hologram:
             throw std::runtime_error(std::string("Not a valid state 'Hologram'"));
             
         case RecogLibC::DocumentVerifier::State::NoMatchFound:
@@ -113,15 +113,19 @@ bool verifyHologramImage(const void *object,
     const auto hologramState = verifier->GetHologramState();
     switch (hologramState) {
         case RecogLibC::HologramState::NoMatchFound:
-            document->code = -1;
             document->hologramState = static_cast<int>(hologramState);
             return false;
             
         default:
-            document->code = static_cast<int>(verifier->GetDocumentCode());
             document->hologramState = static_cast<int>(hologramState);
             return true;
     }
+}
+
+bool supportsHologram(const void *object)
+{
+    DocumentVerifier *verifier = (DocumentVerifier *)object;
+    return verifier->SupportsHologram();
 }
 
 void beginHologramVerification(const void *object)

@@ -20,8 +20,8 @@ final class Manager {
         }
         
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 240
-        configuration.timeoutIntervalForResource = 240
+        configuration.timeoutIntervalForRequest = 600
+        configuration.timeoutIntervalForResource = 600
         
         if let cookie = HTTPCookie(properties: [HTTPCookiePropertyKey.name : "api_key",
                                                 HTTPCookiePropertyKey.value : apiKey,

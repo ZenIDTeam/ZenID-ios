@@ -40,16 +40,16 @@ public class DocumentVerifier {
         listModels(modelsURL).forEach(readModel(url:))
     }
 
-    public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> MatcherResult? {
+    public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
         var document = createDocumentInfo(orientation: orientation)
         RecogLib_iOS.verify(cppObject, buffer, &document)
-        return MatcherResult(document: document)
+        return DocumentResult(document: document)
     }
     
-    public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> MatcherResult? {
+    public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
         var document = createDocumentInfo(orientation: orientation)
         RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document)
-        return MatcherResult(document: document)
+        return DocumentResult(document: document)
     }
     
     public func verifyHologram(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> HologramResult? {
@@ -62,6 +62,10 @@ public class DocumentVerifier {
         var document = createDocumentInfo(orientation: orientation)
         RecogLib_iOS.verifyHologramImage(cppObject, imageBuffer, &document)
         return HologramResult(document: document)
+    }
+    
+    public func supportsHologram() -> Bool {
+        return RecogLib_iOS.supportsHologram(cppObject)
     }
     
     public func beginHologramVerification() {

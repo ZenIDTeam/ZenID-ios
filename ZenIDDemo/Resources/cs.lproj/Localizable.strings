@@ -6,9 +6,10 @@
   Copyright © 2019 Trask, a.s. All rights reserved.
 */
 
-"msg-scan-front"  = "Vyfoťte přední stranu.";
-"msg-scan-back"   = "Vyfoťte zadní stranu.";
+"msg-scan-front" = "Vyfoťte přední stranu.";
+"msg-scan-back" = "Vyfoťte zadní stranu.";
 "msg-scan-selfie" = "Vyfoťte se.";
+"msg-scan-hologram" = "Nahrajte video hologramu.";
 
 "msg-sample-success" = "Fotografie úspěšně zpracována.";
 "msg-unreadable-picture" = "Nečitelná fotografie.";
@@ -61,7 +62,7 @@
 "btn-passport" = "Cestovní pas";
 "btn-other-document" = "Obecný dokument";
 "btn-hologram" = "Hologram";
-"btn-face" = "Face";
+"btn-selfe" = "Selfie";
 "btn-country" = "Země";
 "btn-logout" = "Odhlásit";
 

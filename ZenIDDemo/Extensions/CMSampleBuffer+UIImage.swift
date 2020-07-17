@@ -16,7 +16,6 @@ extension CMSampleBuffer {
         // Lock the base address of the pixel buffer
         CVPixelBufferLockBaseAddress(imageBuffer!, CVPixelBufferLockFlags.readOnly);
 
-
         // Get the number of bytes per row for the pixel buffer
         let baseAddress = CVPixelBufferGetBaseAddress(imageBuffer!);
 

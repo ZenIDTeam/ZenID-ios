@@ -7,21 +7,39 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class Defaults {
     private static let defaults: UserDefaults = {
-        let prefs = Bundle.main.path(forResource:"Settings", ofType: "plist")
         let defaults = UserDefaults.standard
-        if let dict = NSDictionary(contentsOfFile: prefs!) as? Dictionary<String, AnyObject> {
-            defaults.setValuesForKeys(dict)
+        
+        let localDefaults = Bundle.main.path(forResource: "Settings", ofType: "plist")
+        if let localDefaultsDictionary = NSDictionary(contentsOfFile: localDefaults!) as? Dictionary<String, AnyObject> {
+            defaults.setValuesForKeys(localDefaultsDictionary)
             defaults.synchronize()
         }
+        
+        let appDefaults = [String:AnyObject]()
+        defaults.register(defaults: appDefaults)
+        defaults.synchronize()
+
         return defaults
     }()
     
     static var firstRun: Bool {
         get { return defaults[#function] ?? true }
         set { defaults[#function] = newValue }
+    }
+    
+    static var torchMode: AVCaptureDevice.TorchMode {
+        get {
+            let rawValue = defaults[#function] ?? "On"
+            switch rawValue {
+            case "On": return .on
+            case "Auto": return .auto
+            default: return .on
+            }
+        }
     }
     
     static var credentialsSettings: CredentialsSettings {

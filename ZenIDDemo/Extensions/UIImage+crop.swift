@@ -81,6 +81,6 @@ extension UIImage {
             return self
         }
 
-        return UIImage(cgImage: cgImage, scale: scale, orientation: .right)
+        return UIImage(cgImage: cgImage, scale: scale, orientation: .leftMirrored)
     }
 }

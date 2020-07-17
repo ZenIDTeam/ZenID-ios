@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct MatcherResult {
+public struct DocumentResult {
     public var role: DocumentRole
     public var country: Country
     public var code: DocumentCode?

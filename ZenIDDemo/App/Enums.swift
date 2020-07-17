@@ -29,6 +29,8 @@ public enum UploadedSampleType: String {
             return .documentPicture
         case .selfie:
             return .selfie
+        case .hologram:
+            return .documentVideo
         }
     }
 }
@@ -39,7 +41,7 @@ public enum DocumentType: String {
     case passport = "Pas"
     case otherDocument = "Cont"
     case hologram = "Holo"
-    case face = "Face"
+    case selfie = "Self"
 }
 
 extension DocumentType {
@@ -56,8 +58,8 @@ extension DocumentType {
                 return "btn-other-document".localized.uppercased()
             case .hologram:
                 return "btn-hologram".localized.uppercased()
-            case .face:
-                return "btn-face".localized.uppercased()
+            case .selfie:
+                return "btn-selfie".localized.uppercased()
             }
         }
     }
@@ -74,8 +76,8 @@ extension DocumentType {
             case .otherDocument:
                 return (0...30).map { _ in .front }
             case .hologram:
-                return [.front]
-            case .face:
+                return [.hologram]
+            case .selfie:
                 return [.selfie]
             }
         }
@@ -94,7 +96,7 @@ extension DocumentType {
                 return #imageLiteral(resourceName: "OK button@2x.png")
             case .hologram:
                 return #imageLiteral(resourceName: "Kruh-HL")
-            case .face:
+            case .selfie:
                 return #imageLiteral(resourceName: "Kruh-SF")
             }
         }
@@ -104,6 +106,7 @@ extension DocumentType {
 public enum PhotoType {
     case front
     case back
+    case hologram
     case selfie
 }
 
@@ -115,6 +118,8 @@ extension PhotoType {
                 return "F"
             case .back:
                 return "B"
+            case .hologram:
+                return "F"
             case .selfie:
                 return "F"
             }
@@ -128,6 +133,8 @@ extension PhotoType {
                 return "msg-scan-front".localized
             case .back:
                 return "msg-scan-back".localized
+            case .hologram:
+                return "msg-scan-hologram".localized
             case .selfie:
                 return "msg-scan-selfie".localized
             }

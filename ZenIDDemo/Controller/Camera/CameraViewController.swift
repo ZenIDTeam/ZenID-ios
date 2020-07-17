@@ -131,24 +131,17 @@ public class CameraViewController: UIViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
         
-        // turn torch off
-        if let device = captureDevice {
-            useTorch(for: device, on: false)
-        }
-        
         // stop video recorder
-        cameraVideoOutput?.setSampleBufferDelegate(nil, queue: nil)
         videoWriter?.delegate = nil
         videoWriter?.stop()
         videoWriter = nil
-        
-        self.documentVerifier.endHologramVerification()
-        self.faceVerifier.reset()
     }
 
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         captureSession.stopRunning()
+        setTorch(on: false)
     }
     
     public override func viewDidLayoutSubviews() {
@@ -169,8 +162,8 @@ public class CameraViewController: UIViewController {
         self.photoType = photoType
         self.documentType = type
         self.country = country
-        self.captureDevicePosition = type == .face ? .front : .back
-        self.instructionView.transform = type == .face ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        self.captureDevicePosition = type == .selfie ? .front : .back
+        self.instructionView.transform = type == .selfie ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
         
         self.title = type.title
         self.topLabel.text = photoType.message
@@ -179,11 +172,11 @@ public class CameraViewController: UIViewController {
         self.previousHologramResult = nil
         self.previousFaceResult = nil
         
+        documentVerifier.showDebugInfo = showVisualisationDebugInfo
+        faceVerifier.showDebugInfo = showVisualisationDebugInfo
+        
         // This will reset face verifier
         self.faceVerifier.reset()
-        
-        // Start video capture session
-        self.startSession()
         
         // This hides visualisation hints, overlay and instructions for generic documents
         if type == .otherDocument {
@@ -195,6 +188,9 @@ public class CameraViewController: UIViewController {
             self.showVisualisation = true
             self.showInstructionView = true
         }
+        
+        // Start video capture session
+        self.startSession()
         
         // This starts video writer for holograms
         if type == .hologram {
@@ -213,9 +209,6 @@ public class CameraViewController: UIViewController {
         if let country = RecoglibMapper.country(from: country) {
             documentVerifier.country = country
         }
-
-        documentVerifier.showDebugInfo = showVisualisationDebugInfo
-        faceVerifier.showDebugInfo = showVisualisationDebugInfo
 
         setupControlView()
     }
@@ -286,7 +279,7 @@ public class CameraViewController: UIViewController {
         }
     }
 
-    private func updateView(with result: MatcherResult?, buffer: CVPixelBuffer) {
+    private func updateView(with result: DocumentResult?, buffer: CVPixelBuffer) {
         guard let unwrappedResult = result else {
             statusButton.setTitle("nil result", for: .normal)
             return
@@ -318,13 +311,18 @@ public class CameraViewController: UIViewController {
         videoWriter.stop()
     }
     
-    private func updateView(with result: FaceStage, buffer: CVPixelBuffer) {
-        guard result == .Done, previousFaceResult != .Done else {
-            statusButton.setTitle(String(describing: result), for: .normal)
+    private func updateView(with result: FaceResult?, buffer: CVPixelBuffer) {
+        guard let unwrappedResult = result else {
+            statusButton.setTitle("nil result", for: .normal)
+            return
+        }
+        
+        guard unwrappedResult.faceStage == .Done, previousFaceResult != .Done else {
+            statusButton.setTitle(String(describing: unwrappedResult.faceStage), for: .normal)
             return
         }
     
-        previousFaceResult = result
+        previousFaceResult = unwrappedResult.faceStage
         returnImage(buffer, flipped: true)
     }
 
@@ -453,16 +451,10 @@ private extension CameraViewController {
         captureSession.addInput(input)
         captureSession.addOutput(cameraPhotoOutput)
         cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
-        cameraVideoOutput.setSampleBufferDelegate(self,
-                                                  queue: documentType == .hologram
-                                                    ? DispatchQueue.main
-                                                    : DispatchQueue(label: "Camera_capture_queue"))
+        cameraVideoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "Camera_capture_queue"))
         captureSession.addOutput(cameraVideoOutput)
 
         captureSession.commitConfiguration()
-        
-        useTorch(for: device,
-                 on: documentType == .hologram)
 
         return true
     }
@@ -489,7 +481,7 @@ private extension CameraViewController {
     func configureDrawingLayer() {
         guard let previewLayer = previewLayer else { return }
         
-        let flipped = documentType != .face
+        let flipped = documentType != .selfie
         self.drawLayer?.removeFromSuperlayer()
         let drawLayer = DrawingLayer()
         self.drawLayer = drawLayer
@@ -532,9 +524,10 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard targetFrame.width > 0 else { return }
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        self.setTorch(on: documentType == .hologram)
         
         switch self.documentType {
-        case .face:
+        case .selfie:
             if let result = faceVerifier.verifyImage(imageBuffer: pixelBuffer)
             {
                 DispatchQueue.main.async { [unowned self] in
@@ -610,18 +603,31 @@ extension CameraViewController {
         return cropRect
     }
     
-    private func useTorch(for device: AVCaptureDevice, on: Bool) {
-        let torchMode: AVCaptureDevice.TorchMode = on ? .auto : .off
-        guard device.torchMode != torchMode else { return }
-        
-        if device.hasTorch {
-            do {
-                try device.lockForConfiguration()
-            } catch {
-                debugPrint("\(device.localizedName) has no torch")
+    private func setTorch(on: Bool) {
+        guard let device = self.captureDevice, device.hasTorch else { return }
+            
+        DispatchQueue.main.async { [weak device] in
+            guard let device = device else { return }
+            guard on || device.torchMode != .off else { return }
+            
+            let torchSettingsModeOn = Defaults.torchMode
+            let torchMode: AVCaptureDevice.TorchMode = on ? torchSettingsModeOn : .off
+            guard device.torchMode != torchMode else { return }
+            
+            if device.hasTorch {
+                do {
+                    try device.lockForConfiguration()
+                } catch {
+                    debugPrint("\(device.localizedName) has no torch")
+                }
+                
+                if torchMode == .off {
+                    device.torchMode = .off
+                } else {
+                    device.torchMode = torchMode
+                }
             }
-            device.torchMode = torchMode
+            device.unlockForConfiguration()
         }
-        device.unlockForConfiguration()
     }
 }

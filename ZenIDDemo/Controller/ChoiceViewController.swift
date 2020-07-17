@@ -19,11 +19,11 @@ final class ChoiceViewController: UIViewController {
     private let passportButton = Buttons.passport
     private let otherDocumentButton = Buttons.otherDocument
     private let hologramButton = Buttons.hologram
-    private let faceButton = Buttons.face
+    private let selfieButton = Buttons.selfie
     private let countryButton = Buttons.country
     private let contactButton = Buttons.contact
     private let logoutButton = Buttons.logout
-    private lazy var documentButtons = [idButton, drivingLicenceButton, passportButton, otherDocumentButton, hologramButton, faceButton]
+    private lazy var documentButtons = [idButton, drivingLicenceButton, passportButton, otherDocumentButton, hologramButton, selfieButton]
     private var selectedCountry: Country = .cz
     
     private let titleLabel: UILabel = {
@@ -171,8 +171,8 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.otherDocument)
             case self.hologramButton:
                 self.startProcess(.hologram)
-            case self.faceButton:
-                self.startProcess(.face)
+            case self.selfieButton:
+                self.startProcess(.selfie)
             default:
                 break
             }

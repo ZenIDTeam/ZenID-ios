@@ -27,7 +27,7 @@ public class VideoWriter: NSObject {
     
     public init(cameraVideoOutput: AVCaptureVideoDataOutput) {
         self.cameraVideoOutput = cameraVideoOutput
-        self.outputFileName = "\(filePrefix)\(ProcessInfo.processInfo.globallyUniqueString).mov"
+        self.outputFileName = "\(filePrefix)\(ProcessInfo.processInfo.globallyUniqueString).mp4"
     }
 }
 
@@ -71,12 +71,12 @@ extension VideoWriter {
             let url = getDocumentsDirectory()
                 .appendingPathComponent(outputFileName)
             
-            videoWriter = try AVAssetWriter(url: url, fileType: AVFileType.mov)
+            videoWriter = try AVAssetWriter(url: url, fileType: AVFileType.mp4)
             videoWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: [
-                AVVideoCodecKey: AVVideoCodecType.hevc,
-                AVVideoWidthKey: 1280,
-                AVVideoHeightKey: 720,
-                AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 5_000_000]
+                AVVideoCodecKey: AVVideoCodecType.h264,
+                AVVideoWidthKey: 640,
+                AVVideoHeightKey: 360,
+                AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 1_000_000]
               ])
             videoWriterInput.expectsMediaDataInRealTime = true
             

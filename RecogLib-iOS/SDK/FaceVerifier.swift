@@ -30,16 +30,16 @@ public class FaceVerifier {
         createFaceVerifier()
     }
     
-    public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceStage? {
+    public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceResult? {
         var face = createFaceInfo(orientation: orientation)
         RecogLib_iOS.verifyFace(cppObject, buffer, &face)
-        return FaceStage(rawValue: Int(face.stage))
+        return FaceResult(faceStage: face.stage)
     }
     
-    public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceStage? {
+    public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceResult? {
         var face = createFaceInfo(orientation: orientation)
         RecogLib_iOS.verifyFaceImage(cppObject, imageBuffer, &face)
-        return FaceStage(rawValue: Int(face.stage))
+        return FaceResult(faceStage: face.stage)
     }
     
     public func reset() {

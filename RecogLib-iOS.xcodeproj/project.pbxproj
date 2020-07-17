@@ -10,6 +10,7 @@
 		6F2CFC86247469AE005D2FB6 /* FaceVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2CFC85247469AE005D2FB6 /* FaceVerifier.swift */; };
 		6F2CFC89247471C5005D2FB6 /* CFaceWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F2CFC87247471C5005D2FB6 /* CFaceWrapper.cpp */; };
 		6F2CFC8A247471C5005D2FB6 /* CFaceWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6F2CFC88247471C5005D2FB6 /* CFaceWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F64016224C18125004A8982 /* FaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F64016124C18125004A8982 /* FaceResult.swift */; };
 		6F6C26FB24B87F7F0073A2CA /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6C26FA24B87F7F0073A2CA /* String+Extensions.swift */; };
 		6F6C26FD24B87FD90073A2CA /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6C26FC24B87FD90073A2CA /* StringUtils.swift */; };
 		6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F6C26FE24B8805E0073A2CA /* CZenidSecurityWrapper.cpp */; };
@@ -22,7 +23,7 @@
 		6FE107B724B29B1C00610F8D /* CUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B524B29B1C00610F8D /* CUtils.cpp */; };
 		6FE107B824B29B1C00610F8D /* CUtils.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6FE107B624B29B1C00610F8D /* CUtils.hpp */; };
 		6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */; };
-		B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* MatcherResult.swift */; };
+		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
 		B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* Enums.swift */; };
 		D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
@@ -52,6 +53,7 @@
 		6F2CFC85247469AE005D2FB6 /* FaceVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceVerifier.swift; sourceTree = "<group>"; };
 		6F2CFC87247471C5005D2FB6 /* CFaceWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CFaceWrapper.cpp; sourceTree = "<group>"; };
 		6F2CFC88247471C5005D2FB6 /* CFaceWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CFaceWrapper.hpp; sourceTree = "<group>"; };
+		6F64016124C18125004A8982 /* FaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceResult.swift; sourceTree = "<group>"; };
 		6F6C26FA24B87F7F0073A2CA /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		6F6C26FC24B87FD90073A2CA /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		6F6C26FE24B8805E0073A2CA /* CZenidSecurityWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CZenidSecurityWrapper.cpp; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		6FE107B524B29B1C00610F8D /* CUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CUtils.cpp; sourceTree = "<group>"; };
 		6FE107B624B29B1C00610F8D /* CUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CUtils.hpp; sourceTree = "<group>"; };
 		6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenidSecurity.swift; sourceTree = "<group>"; };
-		B009CF5322C4B01C00AA568C /* MatcherResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherResult.swift; sourceTree = "<group>"; };
+		B009CF5322C4B01C00AA568C /* DocumentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResult.swift; sourceTree = "<group>"; };
 		B051AFDA22CA48AA007AF46E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CDocumentWrapper.hpp; sourceTree = "<group>"; };
 		D261288C22C3701F00942D8A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -99,8 +101,9 @@
 				6F6C26F824B87F5C0073A2CA /* Extensions */,
 				6F6C26F924B87F680073A2CA /* Utils */,
 				B051AFDA22CA48AA007AF46E /* Enums.swift */,
-				B009CF5322C4B01C00AA568C /* MatcherResult.swift */,
+				B009CF5322C4B01C00AA568C /* DocumentResult.swift */,
 				6FE107AE24B0FAFE00610F8D /* HologramResult.swift */,
+				6F64016124C18125004A8982 /* FaceResult.swift */,
 				D296261022C265E0007B934C /* DocumentVerifier.swift */,
 				6F2CFC85247469AE005D2FB6 /* FaceVerifier.swift */,
 				6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */,
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F64016224C18125004A8982 /* FaceResult.swift in Sources */,
 				6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */,
 				6F6C26FB24B87F7F0073A2CA /* String+Extensions.swift in Sources */,
 				6F2CFC86247469AE005D2FB6 /* FaceVerifier.swift in Sources */,
@@ -291,7 +295,7 @@
 				6F2CFC89247471C5005D2FB6 /* CFaceWrapper.cpp in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
 				B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */,
-				B009CF5422C4B01C00AA568C /* MatcherResult.swift in Sources */,
+				B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */,
 				6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */,
 				6F6C26FD24B87FD90073A2CA /* StringUtils.swift in Sources */,
 				6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */,

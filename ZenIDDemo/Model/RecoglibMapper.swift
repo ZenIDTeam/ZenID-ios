@@ -23,7 +23,7 @@ final class RecoglibMapper {
             return nil
         case .hologram:
             return nil
-        case .face:
+        case .selfie:
             return nil
         }
     }
@@ -35,6 +35,8 @@ final class RecoglibMapper {
         case .back:
             return .Back
         case .selfie:
+            return nil
+        case .hologram:
             return nil
         }
     }

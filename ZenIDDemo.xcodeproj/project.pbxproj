@@ -70,6 +70,7 @@
 		6F2D53892469D46C001C3544 /* selfie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F2D537F2469D46C001C3544 /* selfie.jpg */; };
 		6F2D538A2469D46C001C3544 /* zenid-login-qrcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2D53802469D46C001C3544 /* zenid-login-qrcode.png */; };
 		6F2D538B2469D46C001C3544 /* zenid-login-qrcode.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F2D53812469D46C001C3544 /* zenid-login-qrcode.txt */; };
+		6F64016424C19E95004A8982 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F64016324C19E95004A8982 /* Settings.bundle */; };
 		6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */; };
 		6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */; };
 		6FE107B224B260F900610F8D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B124B260F900610F8D /* VideoWriter.swift */; };
@@ -177,6 +178,7 @@
 		6F2D537F2469D46C001C3544 /* selfie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = selfie.jpg; sourceTree = "<group>"; };
 		6F2D53802469D46C001C3544 /* zenid-login-qrcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zenid-login-qrcode.png"; sourceTree = "<group>"; };
 		6F2D53812469D46C001C3544 /* zenid-login-qrcode.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "zenid-login-qrcode.txt"; sourceTree = "<group>"; };
+		6F64016324C19E95004A8982 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		6FE107B124B260F900610F8D /* VideoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				0134756021F5BF90004EE4E5 /* Defaults.swift */,
 				0134753621ECBD1F004EE4E5 /* Enums.swift */,
 				6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */,
+				D2CB351922BA784400453DB8 /* ZenConstants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -433,7 +436,7 @@
 				012F7B472285560900B0BBB6 /* Colors.xcassets */,
 				0131CE9D2204415C00DBA4C4 /* Localizable.strings */,
 				012559D822C2233400B4DEB6 /* Settings.plist */,
-				D2CB351922BA784400453DB8 /* ZenConstants.swift */,
+				6F64016324C19E95004A8982 /* Settings.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				012F7B8C2292FB4500B0BBB6 /* Apache License.txt in Resources */,
 				6F2D538A2469D46C001C3544 /* zenid-login-qrcode.png in Resources */,
 				012F7B822292FB4500B0BBB6 /* Roboto-Bold.ttf in Resources */,
+				6F64016424C19E95004A8982 /* Settings.bundle in Resources */,
 				012F7B482285560900B0BBB6 /* Colors.xcassets in Resources */,
 				6F2D53842469D46C001C3544 /* id-card-back-side.jpg in Resources */,
 				012F7B922292FB4500B0BBB6 /* Roboto-Black.ttf in Resources */,
@@ -764,6 +768,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -795,6 +800,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

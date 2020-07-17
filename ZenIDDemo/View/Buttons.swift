@@ -131,10 +131,10 @@ enum Buttons {
         }
     }
     
-    static var face: UIButton {
+    static var selfie: UIButton {
         get {
             let button = ZenButton()
-            button.setTitle("btn-face".localized.uppercased(), for: .normal)
+            button.setTitle("btn-selfie".localized.uppercased(), for: .normal)
             button.outline = true
             return button
         }
