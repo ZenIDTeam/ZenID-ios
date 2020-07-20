@@ -18,6 +18,8 @@ enum InvestigateDataRow {
     case nationality
     case address
     case authority
+    case selfie
+    case hologram
     
     var title: String {
         get {
@@ -41,6 +43,10 @@ enum InvestigateDataRow {
                 msg = "title-address"
             case .authority:
                 msg = "title-authority"
+            case .selfie:
+                msg = "title-selfie"
+            case .hologram:
+                msg = "title-hologram"
             }
             return msg.localized
         }
@@ -49,9 +55,13 @@ enum InvestigateDataRow {
 
 extension InvestigateDataRow {
     func value(from: InvestigateResponse) -> String {
+        if self == .selfie || self == .hologram {
+            return "msg-sample-success".localized
+        }
+        
         guard let data = from.MinedData else { return "" }
         var result: String?
-        
+
         switch self {
         case .firstName:
             result = data.FirstName?.Text
@@ -71,12 +81,18 @@ extension InvestigateDataRow {
             result = data.Address?.Text
         case .authority:
             result = data.Authority?.Text
+        default:
+            result = ""
         }
 
         return result ?? ""
     }
     
     func confidence(from: InvestigateResponse) -> Bool? {
+        if self == .selfie || self == .hologram {
+            return true
+        }
+        
         guard let data = from.MinedData else { return nil}
         var result: Bool?
         
@@ -99,6 +115,8 @@ extension InvestigateDataRow {
             result = data.Address?.Confidence == 100
         case .authority:
             result = data.Authority?.Confidence == 100
+        default:
+            result = false
         }
         return result
     }
@@ -151,6 +169,10 @@ class ResultsViewModel {
             return [.firstName, .lastName, .birthDate, .documentNumber, .issueDate, .expiryDate, .address, .authority]
         case .passport:
             return [.firstName, .lastName, .birthDate, .documentNumber, .issueDate, .expiryDate, .nationality, .address, .authority]
+        case .selfie:
+            return [.selfie]
+        case .hologram:
+            return [.hologram]
         default:
             return []
         }

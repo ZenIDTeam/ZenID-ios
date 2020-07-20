@@ -77,6 +77,7 @@ public class CameraViewController: UIViewController {
     private var documentType: DocumentType
     private var country: Country
 
+    private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevicePosition: AVCaptureDevice.Position = .back
     private var captureDevice: AVCaptureDevice?
     private let captureSession = AVCaptureSession()
@@ -99,7 +100,8 @@ public class CameraViewController: UIViewController {
         self.photoType = photoType
         self.documentType = documentType
         self.country = country
-        photosCount = 0
+        self.photosCount = 0
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -109,23 +111,25 @@ public class CameraViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.isHidden = false
         saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
-        previewLayer.flatMap(configureOverlay)
+        configureOverlay()
     }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         previousResult = nil
         previousHologramResult = nil
         previousFaceResult = nil
         captureSession.startRunning()
-        configureDrawingLayer()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
@@ -147,8 +151,23 @@ public class CameraViewController: UIViewController {
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if let preview = previewLayer {
-            preview.frame = cameraView.bounds
+        // set previewLayer frame
+        if let previewLayer = previewLayer {
+            previewLayer.frame = cameraView.bounds
+            
+            // set drawLayer frame
+            if let drawLayer = drawLayer {
+                let flipped = photoType != .selfie
+                drawLayer.frame = flipped
+                    ? previewLayer.bounds.flip()
+                    : previewLayer.bounds
+                if flipped {
+                    drawLayer.position = CGPoint(x: drawLayer.frame.height, y: 0)
+                    drawLayer.anchorPoint = CGPoint(x: 0, y: 0)
+                    let rotation = CGAffineTransform(rotationAngle: .pi / 2)
+                    drawLayer.setAffineTransform(rotation)
+                }
+            }
         }
 
         self.targetFrame = overlay?.frame ?? .zero
@@ -162,8 +181,8 @@ public class CameraViewController: UIViewController {
         self.photoType = photoType
         self.documentType = type
         self.country = country
-        self.captureDevicePosition = type == .selfie ? .front : .back
-        self.instructionView.transform = type == .selfie ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        self.captureDevicePosition = photoType == .selfie ? .front : .back
+        self.instructionView.transform = photoType == .selfie ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
         
         self.title = type.title
         self.topLabel.text = photoType.message
@@ -193,7 +212,7 @@ public class CameraViewController: UIViewController {
         self.startSession()
         
         // This starts video writer for holograms
-        if type == .hologram {
+        if photoType == .hologram {
             self.documentVerifier.beginHologramVerification()
             self.videoWriter.start()
         } else {
@@ -419,8 +438,9 @@ private extension CameraViewController {
             return
         }
 
-        previewLayer = configurePreviewLayer(session: captureSession)
-        previewLayer.flatMap(configureOverlay)
+        configurePreviewLayer(session: captureSession)
+        configureDrawingLayer()
+        configureOverlay()
 
         // Add message layer on top of preview layer to show messages over the image from camera
         cameraView.layer.addSublayer(messageView.layer)
@@ -451,7 +471,7 @@ private extension CameraViewController {
         captureSession.addInput(input)
         captureSession.addOutput(cameraPhotoOutput)
         cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
-        cameraVideoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "Camera_capture_queue"))
+        cameraVideoOutput.setSampleBufferDelegate(self, queue: cameraCaptureQueue)
         captureSession.addOutput(cameraVideoOutput)
 
         captureSession.commitConfiguration()
@@ -459,44 +479,28 @@ private extension CameraViewController {
         return true
     }
     
-    func configurePreviewLayer(session: AVCaptureSession) -> AVCaptureVideoPreviewLayer {
-        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        previewLayer.frame = cameraView.layer.bounds
-        cameraView.layer.addSublayer(previewLayer)
-        return previewLayer
+    func configurePreviewLayer(session: AVCaptureSession) {
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer!.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        previewLayer!.frame = cameraView.layer.bounds
+        cameraView.layer.addSublayer(previewLayer!)
+    }
+
+    func configureDrawingLayer() {
+        guard let previewLayer = previewLayer else { return }
+        drawLayer?.removeFromSuperlayer()
+        drawLayer = DrawingLayer()
+        previewLayer.addSublayer(drawLayer!)
     }
     
-    func configureOverlay(_ previewLayer: AVCaptureVideoPreviewLayer) {
+    func configureOverlay() {
         self.overlay?.removeFromSuperview()
-        self.overlay = CameraOverlayView(photoType: photoType, documentType: documentType, frame: cameraView.bounds)
+        self.overlay = CameraOverlayView(documentType: documentType, photoType: photoType, frame: cameraView.bounds)
         if let overlay = self.overlay {
             cameraView.addSubview(overlay)
             overlay.anchor(top: cameraView.topAnchor, left: cameraView.leftAnchor, bottom: cameraView.bottomAnchor, right: cameraView.rightAnchor)
             overlay.isHidden = !showStaticOverlay
             overlay.setupSafeArea(layoutGuide: view.safeAreaLayoutGuide)
-        }
-    }
-    
-    func configureDrawingLayer() {
-        guard let previewLayer = previewLayer else { return }
-        
-        let flipped = documentType != .selfie
-        self.drawLayer?.removeFromSuperlayer()
-        let drawLayer = DrawingLayer()
-        self.drawLayer = drawLayer
-        previewLayer.addSublayer(drawLayer)
-        
-        if flipped {
-            drawLayer.frame = flipped
-                ? previewLayer.bounds.flip()
-                : previewLayer.bounds
-            drawLayer.position = CGPoint(x: drawLayer.frame.height, y: 0)
-            drawLayer.anchorPoint = CGPoint(x: 0, y: 0)
-            let rotation = CGAffineTransform(rotationAngle: .pi / 2)
-            drawLayer.setAffineTransform(rotation)
-        } else {
-            drawLayer.frame = previewLayer.bounds
         }
     }
 }
@@ -524,9 +528,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard targetFrame.width > 0 else { return }
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        self.setTorch(on: documentType == .hologram)
+        self.setTorch(on: photoType == .hologram)
         
-        switch self.documentType {
+        switch self.photoType {
         case .selfie:
             if let result = faceVerifier.verifyImage(imageBuffer: pixelBuffer)
             {
@@ -604,30 +608,7 @@ extension CameraViewController {
     }
     
     private func setTorch(on: Bool) {
-        guard let device = self.captureDevice, device.hasTorch else { return }
-            
-        DispatchQueue.main.async { [weak device] in
-            guard let device = device else { return }
-            guard on || device.torchMode != .off else { return }
-            
-            let torchSettingsModeOn = Defaults.torchMode
-            let torchMode: AVCaptureDevice.TorchMode = on ? torchSettingsModeOn : .off
-            guard device.torchMode != torchMode else { return }
-            
-            if device.hasTorch {
-                do {
-                    try device.lockForConfiguration()
-                } catch {
-                    debugPrint("\(device.localizedName) has no torch")
-                }
-                
-                if torchMode == .off {
-                    device.torchMode = .off
-                } else {
-                    device.torchMode = torchMode
-                }
-            }
-            device.unlockForConfiguration()
-        }
+        guard let device = self.captureDevice else { return }
+        Torch.shared.ensureMode(for: device, on: on)
     }
 }

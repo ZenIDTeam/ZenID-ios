@@ -68,7 +68,7 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [.front, .back]
+                return [.front, .back, .selfie]
             case .drivingLicence:
                 return [.front]
             case .passport:

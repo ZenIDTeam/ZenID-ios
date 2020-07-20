@@ -72,6 +72,8 @@
 		6F2D538B2469D46C001C3544 /* zenid-login-qrcode.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F2D53812469D46C001C3544 /* zenid-login-qrcode.txt */; };
 		6F64016424C19E95004A8982 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F64016324C19E95004A8982 /* Settings.bundle */; };
 		6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */; };
+		6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EEF1E24C4E62A00208223 /* Torch.swift */; };
+		6F8EEF2124C4ECA600208223 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F8EEF2024C4ECA600208223 /* README.md */; };
 		6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */; };
 		6FE107B224B260F900610F8D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B124B260F900610F8D /* VideoWriter.swift */; };
 		6FE107B424B26FC800610F8D /* VideoWriterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */; };
@@ -180,6 +182,8 @@
 		6F2D53812469D46C001C3544 /* zenid-login-qrcode.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "zenid-login-qrcode.txt"; sourceTree = "<group>"; };
 		6F64016324C19E95004A8982 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		6F8EEF1E24C4E62A00208223 /* Torch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torch.swift; sourceTree = "<group>"; };
+		6F8EEF2024C4ECA600208223 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		6FE107B124B260F900610F8D /* VideoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
 		6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriterDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				0134751E21ECB3FB004EE4E5 /* ZenIDDemo */,
+				6F8EEF2024C4ECA600208223 /* README.md */,
 				0134751D21ECB3FB004EE4E5 /* Products */,
 				0134753121ECBC2D004EE4E5 /* Frameworks */,
 			);
@@ -308,12 +313,12 @@
 				012F7B432285539900B0BBB6 /* View */,
 				012F7B44228553AE00B0BBB6 /* Controller */,
 				0131CE9F22045ED300DBA4C4 /* Main */,
+				D2CB350F22BA730A00453DB8 /* Resources */,
+				D2CB351222BA735600453DB8 /* Extensions */,
+				6F2D53742469D201001C3544 /* Utils */,
 				0134751F21ECB3FB004EE4E5 /* AppDelegate.swift */,
 				012F7B572285A2F100B0BBB6 /* LaunchScreen.storyboard */,
 				0134752B21ECB3FD004EE4E5 /* Info.plist */,
-				D2CB351222BA735600453DB8 /* Extensions */,
-				D2CB350F22BA730A00453DB8 /* Resources */,
-				6F2D53742469D201001C3544 /* Utils */,
 			);
 			path = ZenIDDemo;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				6F2D53752469D242001C3544 /* Haptics.swift */,
+				6F8EEF1E24C4E62A00208223 /* Torch.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				6F2D53832469D46C001C3544 /* id-card-sk-back-side.jpg in Resources */,
 				6F2D53892469D46C001C3544 /* selfie.jpg in Resources */,
 				012F7B892292FB4500B0BBB6 /* Roboto-Regular.ttf in Resources */,
+				6F8EEF2124C4ECA600208223 /* README.md in Resources */,
 				0134752721ECB3FD004EE4E5 /* Assets.xcassets in Resources */,
 				6F2D53862469D46C001C3544 /* id-card-front-side.jpg in Resources */,
 				6F2D53882469D46C001C3544 /* driving_license_sk_2007.jpg in Resources */,
@@ -593,6 +600,7 @@
 				D2CB352522BB7BA900453DB8 /* Responses.swift in Sources */,
 				0134755A21EE2179004EE4E5 /* Client.swift in Sources */,
 				0134753721ECBD1F004EE4E5 /* Enums.swift in Sources */,
+				6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */,
 				0141C02823A38AAF00566078 /* SelectCountryView.swift in Sources */,
 				0141C02E23A7917B00566078 /* Line.swift in Sources */,
 				011C6A8A22BCF8A80053ABF6 /* CameraViewControllerDelegate.swift in Sources */,
@@ -768,7 +776,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -785,7 +793,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -800,7 +808,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -814,7 +822,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";

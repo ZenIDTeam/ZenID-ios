@@ -13,7 +13,6 @@ import RecogLib_iOS
 import os
 
 final class ChoiceViewController: UIViewController {
-
     private let idButton = Buttons.id
     private let drivingLicenceButton = Buttons.drivingLicence
     private let passportButton = Buttons.passport
@@ -23,7 +22,14 @@ final class ChoiceViewController: UIViewController {
     private let countryButton = Buttons.country
     private let contactButton = Buttons.contact
     private let logoutButton = Buttons.logout
-    private lazy var documentButtons = [idButton, drivingLicenceButton, passportButton, otherDocumentButton, hologramButton, selfieButton]
+    private lazy var documentButtons = [
+        idButton,
+        drivingLicenceButton,
+        passportButton,
+        otherDocumentButton,
+        hologramButton,
+        //selfieButton
+    ]
     private var selectedCountry: Country = .cz
     
     private let titleLabel: UILabel = {

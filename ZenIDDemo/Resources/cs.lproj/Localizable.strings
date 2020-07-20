@@ -11,7 +11,7 @@
 "msg-scan-selfie" = "Vyfoťte se.";
 "msg-scan-hologram" = "Nahrajte video hologramu.";
 
-"msg-sample-success" = "Fotografie úspěšně zpracována.";
+"msg-sample-success" = "Vzorek úspěšně zpracován.";
 "msg-unreadable-picture" = "Nečitelná fotografie.";
 "msg-unknown-estimated-document-type" = "Neznámý typ dokumentu.";
 "msg-document-types-dont-match" = "Na fotce není očekávaný dokument.";
@@ -33,6 +33,8 @@
 "title-nationality" = "Národnost";
 "title-address" = "Adresa";
 "title-authority" = "Autorita";
+"title-selfie" = "Selfie";
+"title-hologram" = "Hologram";
 
 "title-db-check" = "Kontrola v databázi";
 "title-ministry-check" = "Kontrola v databázi ministerstva vnitra";

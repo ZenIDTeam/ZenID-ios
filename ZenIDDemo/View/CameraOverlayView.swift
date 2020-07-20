@@ -30,9 +30,9 @@ final class CameraOverlayView: UIView {
         }
     }
     
-    init(photoType: PhotoType, documentType: DocumentType, frame: CGRect) {
-        self.photoType = photoType
+    init(documentType: DocumentType, photoType: PhotoType, frame: CGRect) {
         self.documentType = documentType
+        self.photoType = photoType
         super.init(frame: frame)
         setupView()
     }

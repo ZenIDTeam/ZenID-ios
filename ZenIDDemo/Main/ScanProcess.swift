@@ -12,16 +12,16 @@ import Foundation
 final class ScanProcess {
     
     /// Queue for thread safe access to requestsToScan array
-    private let accessQueue = DispatchQueue(label: "SynchronizedArrayAccess", attributes: .concurrent)
-    
-    /// PDF helper for sending general documents in PDF format
-    private let pdfHelper = PDFHelper()
+    private let requestsQueue = DispatchQueue(label: "cz.trask.ZenID.requestsToScan", attributes: .concurrent)
     
     /// Remaining document sides / selfies to scan for the given document. This array changes during the process
     private var requestsToScan: [PhotoType] = []
     
     /// IDs of successfully scanned document pages. These are sent in the final investigate request.
     private var finishedSampleIDs: [String] = []
+    
+    /// PDF helper for sending general documents in PDF format
+    private let pdfHelper = PDFHelper()
     
     /// Document type that the class will process
     let documentType: DocumentType
@@ -45,9 +45,7 @@ final class ScanProcess {
     }
     
     deinit {
-        #if DEBUG
-        NSLog("Scan process deinit")
-        #endif
+        debugPrint("Scan process deinit")
         cleanUpStorage()
     }
     
@@ -84,7 +82,7 @@ final class ScanProcess {
     ///
     /// - Parameter type: Type of the photo sample to take (ie. front, back or selfie)
     private func rescanSample(type: PhotoType) {
-        accessQueue.async(flags: .barrier) { [unowned self] in
+        requestsQueue.async(flags: .barrier) { [unowned self] in
             self.requestsToScan.append(type)
         }
         self.scanNextSample()
@@ -92,7 +90,7 @@ final class ScanProcess {
     
     /// Scan the next sample in row
     private func scanNextSample() {
-        accessQueue.async(flags: .barrier) { [unowned self] in
+        requestsQueue.async(flags: .barrier) { [unowned self] in
             if self.requestsToScan.count > 0 {
                 let type = self.requestsToScan.removeFirst()
                 self.delegate?.willTakePhoto(scanProcess: self, photoType: type)
@@ -173,7 +171,7 @@ private extension ScanProcess {
     /// Send the investigate request to the backend after required number of samples have been successfully processed. The IDs are received from backend when each sample is processed.
     ///
     /// - Parameter sampleIds: Array of the processed sample IDs.
-    func investigateSamples( _ sampleIds: [String] ) {
+    func investigateSamples(_ sampleIds: [String]) {
         Client()
             .request(API.investigateSamples(sampleIds: sampleIds)) { [unowned self] (response, error) in
                 if let response = response {

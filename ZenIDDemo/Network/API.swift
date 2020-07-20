@@ -17,7 +17,7 @@ extension API {
     static func testConnection() -> Endpoint<ListSamplesResponse> {
         return Endpoint<ListSamplesResponse>(method: Method.get,
                                              path: "samples",
-                                             parameters:["timestamp": (Int)(1000 * Date().timeIntervalSince1970)])
+                                             parameters: ["timestamp": (Int)(1000 * Date().timeIntervalSince1970)])
     }
     
     /// Create an endpoint for init SDK
@@ -30,7 +30,17 @@ extension API {
         }
         return Endpoint<InitSdkResponse>(method: Method.get,
                                              path: "initSdk",
-                                             parameters:["token": token])
+                                             parameters: ["token": token])
+    }
+    
+    /// Create an endpoint for sending the investigate request to the backend
+    ///
+    /// - Parameter sampleIds: Array of previously sent samples IDs
+    /// - Returns: Endpoint of the InvestigateResponse type
+    static func investigateSamples(sampleIds:[String]) -> Endpoint<InvestigateResponse> {
+        return Endpoint<InvestigateResponse>(method: Method.get,
+                                             path: "investigateSamples",
+                                             parameters: ["sampleIDs": sampleIds])
     }
     
     /// Create an upload endpoint for sending a single image sample to backend
@@ -51,8 +61,7 @@ extension API {
 
         return UploadEndpoint<UploadSampleResponse>(path: "sample", data: data, parameters: parameters)
     }
-
-
+    
     /// Create an upload endpoint for sending a PDF document to backend
     ///
     /// - Parameter data: PDF data
@@ -66,16 +75,5 @@ extension API {
                           contentType: "application/pdf"]
 
         return UploadEndpoint<UploadSampleResponse>(path: "sample", data: data, parameters: parameters)
-    }
-
-    
-    /// Create an endpoint for sending the investigate request to the backend
-    ///
-    /// - Parameter sampleIds: Array of previously sent samples IDs
-    /// - Returns: Endpoint of the InvestigateResponse type
-    static func investigateSamples(sampleIds:[String]) -> Endpoint<InvestigateResponse> {
-        return Endpoint<InvestigateResponse>(method: Method.get,
-                                             path:"investigateSamples",
-                                             parameters: ["sampleIDs":sampleIds])
     }
 }

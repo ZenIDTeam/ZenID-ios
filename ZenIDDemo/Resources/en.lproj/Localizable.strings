@@ -33,6 +33,8 @@
 "title-nationality" = "Nationality";
 "title-address" = "Address";
 "title-authority" = "Authority";
+"title-selfie" = "Selfie";
+"title-hologram" = "Hologram";
 
 "title-db-check" = "Database check";
 "title-ministry-check" = "Ministry of the Interior of the Czech Republic database check";
