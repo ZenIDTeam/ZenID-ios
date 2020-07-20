@@ -6,6 +6,8 @@ Recoglib is capable of recognizing types that include:
 - Identity card
 - Driving license
 - Passport
+- Holograms
+- Selfie (face liveness verifier)
 
 ## Configuration management
 For compilation, running and deployment of the application following tools are required. Newer versions of the tools should work, these were tested to work and used during the development:
@@ -59,7 +61,7 @@ session.startRunning()
 
 ### 2. Configure `DocumentVerifier`
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
-First you initialize `DocumentVerifier` with expected role, country and page.
+First you initialize `DocumentVerifier` with expected role, country, page and language.
 
 Note that properties `role`, `country`,  `page` and `language` are public and can be changed whenever you like.
 ```
@@ -84,24 +86,44 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 ```
-Alternatively if you have specific frame of the picture that you wish to be verified instead, you can use the `verify(buffer: , displayWidth:, displayHeight: , frameHeight: )` as shown below.
+Alternatively you can use the `verifyImage(imageBuffer: )` with CVImageBuffer of media data as shown below.
 ```
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // due to incorrect camera orientation the width has to be switched with height
-        let result = verifier.verify(buffer: sampleBuffer, displayWidth: frames.cameraHeight, displayHeight: frames.cameraWidth, frameHeight: frames.frameWidth)
+        let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+        let result = verifier.verifyImage(imageBuffer: pixelBuffer)
         DispatchQueue.main.async {
             self.updateView(with: result)
         }
     }
 }
 ```
-### 3. Result
-The returning value of the `verify()` methods is a struct of type `MatcherResult`. It contains all the information found describing currently analysed document.
 
-It contains following values:
+### 3. Holograms
+You can use  `DocumentVerifier` to detect 2D holograms on cards.
+To do that, you can use this object the same way like to detect documents and call method `beginHologramVerification`.
+
+Detection logic in `captureOutput(_: ,didOutput: ,from:)` is almost the same but in case of holograms you can easily add reconrding video with `VideoWriter` class.
+This video can be uploaded to the backend after successful detection of hologram.
+
+### 4. Face liveness verifier
+You can use  `FaceVerifier` to verify selfie liveness from short video. Human faces are to be identified in video frames.
+Interface is very similar to  `DocumentVerifier`, first you initialize `FaceVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
+ 
+### 5. Result
+The returning value of the `verify()` or `verifyImage(imageBuffer: )` methods is a struct of type `DocumentResult` for documents, `HologramResult` for holograms or `FaceResult` for face liveness.
+
+It contains all the information found describing currently analysed document/face.
+
+`DocumentResult` contains following values:
 - `state` - state of currently analysed image (e.g. `NoMatchFound`, `Blurry` or `ReflectionPresent` etc.)
 - `code` - version of a document (e.g. new or old version of slovakia identity card). This attribute can be `nil` when state is equal to `NoMatchFound`
 - `role` - specified type of a document
 - `country` - specified origin country of a document
 - `page` - specified page
+
+Hologram result contains state of currently analysed image.
+`HologramResult.state`  can be `NoMatchFound`, `TiltLeft`, `RotateClockwise` etc. and finally  `Ok`
+
+Face detection result contains stage of currently analysed image.
+`FaceResult.stage` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Done`
