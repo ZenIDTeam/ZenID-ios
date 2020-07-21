@@ -17,8 +17,8 @@ public class CameraViewController: UIViewController {
     // This enables / disables additional debug visualisation hints from the ZenID framework
     public var showVisualisationDebugInfo: Bool = false {
         didSet {
-            documentVerifier.showDebugInfo = showVisualisationDebugInfo
-            faceVerifier.showDebugInfo = showVisualisationDebugInfo
+            documentVerifier?.showDebugInfo = showVisualisationDebugInfo
+            faceVerifier?.showDebugInfo = showVisualisationDebugInfo
         }
     }
     
@@ -85,12 +85,8 @@ public class CameraViewController: UIViewController {
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
     private var videoWriter: VideoWriter!
     
-    private var documentVerifier: DocumentVerifier = DocumentVerifier(role: RecogLib_iOS.DocumentRole.Idc,
-                                                              country: RecogLib_iOS.Country.Cz,
-                                                              page: RecogLib_iOS.PageCode.Front,
-                                                              language: LanguageHelper.language)
-    
-    private var faceVerifier: FaceVerifier = FaceVerifier(language: LanguageHelper.language)
+    private var documentVerifier: DocumentVerifier!
+    private var faceVerifier: FaceVerifier!
     
     private var previousResult: DocumentState?
     private var previousHologramResult: HologramState?
@@ -191,11 +187,46 @@ public class CameraViewController: UIViewController {
         self.previousHologramResult = nil
         self.previousFaceResult = nil
         
-        documentVerifier.showDebugInfo = showVisualisationDebugInfo
-        faceVerifier.showDebugInfo = showVisualisationDebugInfo
+        // Start video capture session
+        self.startSession()
         
-        // This will reset face verifier
-        self.faceVerifier.reset()
+        // Create verify object
+        switch photoType {
+        case .selfie:
+            self.faceVerifier = FaceVerifier(language: LanguageHelper.language)
+            break
+            
+        case .hologram:
+            self.documentVerifier = DocumentVerifier(role: RecogLib_iOS.DocumentRole.Idc,
+                country: RecogLib_iOS.Country.Cz,
+                page: RecogLib_iOS.PageCode.Front,
+                language: LanguageHelper.language)
+            // This will setup document verifier to detect holograms
+            self.documentVerifier.beginHologramVerification()
+            // This starts video writer for holograms
+            self.videoWriter.start()
+            break
+            
+        default:
+            self.documentVerifier = DocumentVerifier(role: RecogLib_iOS.DocumentRole.Idc,
+                country: RecogLib_iOS.Country.Cz,
+                page: RecogLib_iOS.PageCode.Front,
+                language: LanguageHelper.language)
+            // This will setup document verifier
+            if let role = RecoglibMapper.documentRole(from: type) {
+                documentVerifier.documentRole = role
+            }
+            if let documentPage = RecoglibMapper.pageCode(from: photoType) {
+                documentVerifier.page = documentPage
+            }
+            if let country = RecoglibMapper.country(from: country) {
+                documentVerifier.country = country
+            }
+            break
+        }
+        
+        documentVerifier?.showDebugInfo = showVisualisationDebugInfo
+        faceVerifier?.showDebugInfo = showVisualisationDebugInfo
         
         // This hides visualisation hints, overlay and instructions for generic documents
         if type == .otherDocument {
@@ -208,28 +239,8 @@ public class CameraViewController: UIViewController {
             self.showInstructionView = true
         }
         
-        // Start video capture session
-        self.startSession()
-        
-        // This starts video writer for holograms
-        if photoType == .hologram {
-            self.documentVerifier.beginHologramVerification()
-            self.videoWriter.start()
-        } else {
-            self.documentVerifier.endHologramVerification()
-        }
-        
-        if let role = RecoglibMapper.documentRole(from: type) {
-            documentVerifier.documentRole = role
-        }
-        if let documentPage = RecoglibMapper.pageCode(from: photoType) {
-            documentVerifier.page = documentPage
-        }
-        if let country = RecoglibMapper.country(from: country) {
-            documentVerifier.country = country
-        }
-
-        setupControlView()
+        // Control view
+        self.setupControlView()
     }
     
     public func showErrorMessage(_ message: String) {
@@ -530,9 +541,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         self.setTorch(on: photoType == .hologram)
         
-        switch self.photoType {
+        switch photoType {
         case .selfie:
-            if let result = faceVerifier.verifyImage(imageBuffer: pixelBuffer)
+            if let result = faceVerifier?.verifyImage(imageBuffer: pixelBuffer)
             {
                 DispatchQueue.main.async { [unowned self] in
                     self.updateView(with: result, buffer: pixelBuffer)
@@ -556,7 +567,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if let videoWriter = self.videoWriter {
                 if videoWriter.isRecording {
                     videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
-                    if let result = documentVerifier.verifyHologramImage(imageBuffer: pixelBuffer)
+                    if let result = documentVerifier?.verifyHologramImage(imageBuffer: pixelBuffer)
                     {
                         DispatchQueue.main.async { [unowned self] in
                             self.updateView(with: result, buffer: pixelBuffer)
@@ -566,7 +577,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             }
             
         default:
-            if let result = documentVerifier.verifyImage(imageBuffer: pixelBuffer)
+            if let result = documentVerifier?.verifyImage(imageBuffer: pixelBuffer)
             {
                 DispatchQueue.main.async { [unowned self] in
                     self.updateView(with: result, buffer: pixelBuffer)
