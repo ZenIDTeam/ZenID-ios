@@ -87,9 +87,13 @@
 // Error
 "title-error" = "Error";
 "btn-ok" = "Ok";
+"btn-cancel" = "Cancel";
 
 // Preview
 "title-preview" = "Photo preview";
+
+// Logout
+"logout-confirm" = "Delete the login information?";
 
 // Recoglib errors
 "document.state.ok" = "Ok ";

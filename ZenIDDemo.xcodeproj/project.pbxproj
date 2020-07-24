@@ -306,9 +306,9 @@
 				012F7B432285539900B0BBB6 /* View */,
 				012F7B44228553AE00B0BBB6 /* Controller */,
 				0131CE9F22045ED300DBA4C4 /* Main */,
-				D2CB350F22BA730A00453DB8 /* Resources */,
 				D2CB351222BA735600453DB8 /* Extensions */,
 				6F2D53742469D201001C3544 /* Utils */,
+				D2CB350F22BA730A00453DB8 /* Resources */,
 				0134751F21ECB3FB004EE4E5 /* AppDelegate.swift */,
 				012F7B572285A2F100B0BBB6 /* LaunchScreen.storyboard */,
 				0134752B21ECB3FD004EE4E5 /* Info.plist */,
@@ -782,7 +782,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -811,7 +811,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.19;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";

@@ -17,8 +17,8 @@ public class CameraViewController: UIViewController {
     // This enables / disables additional debug visualisation hints from the ZenID framework
     public var showVisualisationDebugInfo: Bool = false {
         didSet {
-            documentVerifier?.showDebugInfo = showVisualisationDebugInfo
-            faceVerifier?.showDebugInfo = showVisualisationDebugInfo
+            documentVerifier.showDebugInfo = showVisualisationDebugInfo
+            faceVerifier.showDebugInfo = showVisualisationDebugInfo
         }
     }
     
@@ -85,9 +85,13 @@ public class CameraViewController: UIViewController {
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
     private var videoWriter: VideoWriter!
     
-    private var documentVerifier: DocumentVerifier!
-    private var faceVerifier: FaceVerifier!
-    
+    private var documentVerifier: DocumentVerifier = DocumentVerifier(
+                                                            role: RecogLib_iOS.DocumentRole.Idc,
+                                                            country: RecogLib_iOS.Country.Cz,
+                                                            page: RecogLib_iOS.PageCode.Front,
+                                                            language: LanguageHelper.language)
+    private var faceVerifier: FaceVerifier = FaceVerifier(language: LanguageHelper.language)
+    private var detectionRunning = false;
     private var previousResult: DocumentState?
     private var previousHologramResult: HologramState?
     private var previousFaceResult: FaceStage?
@@ -174,6 +178,7 @@ public class CameraViewController: UIViewController {
     }
 
     public func configureController(type: DocumentType, photoType: PhotoType, country: Country, photosCount: Int = 0) {
+        self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
         self.country = country
@@ -186,32 +191,34 @@ public class CameraViewController: UIViewController {
         self.previousResult = nil
         self.previousHologramResult = nil
         self.previousFaceResult = nil
-        
+
         // Start video capture session
         self.startSession()
         
         // Create verify object
         switch photoType {
         case .selfie:
-            self.faceVerifier = FaceVerifier(language: LanguageHelper.language)
+            // This will reset face verifier
+            self.faceVerifier.reset()
             break
             
         case .hologram:
-            self.documentVerifier = DocumentVerifier(role: RecogLib_iOS.DocumentRole.Idc,
-                country: RecogLib_iOS.Country.Cz,
-                page: RecogLib_iOS.PageCode.Front,
-                language: LanguageHelper.language)
+            // This will setup document verifier to Czech ID / front side
+            self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
+            self.documentVerifier.country = RecogLib_iOS.Country.Cz
+            self.documentVerifier.page = RecogLib_iOS.PageCode.Front
+            
             // This will setup document verifier to detect holograms
             self.documentVerifier.beginHologramVerification()
+            
             // This starts video writer for holograms
             self.videoWriter.start()
             break
             
         default:
-            self.documentVerifier = DocumentVerifier(role: RecogLib_iOS.DocumentRole.Idc,
-                country: RecogLib_iOS.Country.Cz,
-                page: RecogLib_iOS.PageCode.Front,
-                language: LanguageHelper.language)
+            // This will setup document verifier to stop detect holograms
+            self.documentVerifier.endHologramVerification()
+            
             // This will setup document verifier
             if let role = RecoglibMapper.documentRole(from: type) {
                 documentVerifier.documentRole = role
@@ -224,9 +231,9 @@ public class CameraViewController: UIViewController {
             }
             break
         }
-        
-        documentVerifier?.showDebugInfo = showVisualisationDebugInfo
-        faceVerifier?.showDebugInfo = showVisualisationDebugInfo
+
+        documentVerifier.showDebugInfo = showVisualisationDebugInfo
+        faceVerifier.showDebugInfo = showVisualisationDebugInfo
         
         // This hides visualisation hints, overlay and instructions for generic documents
         if type == .otherDocument {
@@ -241,6 +248,9 @@ public class CameraViewController: UIViewController {
         
         // Control view
         self.setupControlView()
+        
+        // Start detection
+        self.detectionRunning = true
     }
     
     public func showErrorMessage(_ message: String) {
@@ -319,8 +329,12 @@ public class CameraViewController: UIViewController {
             statusButton.setTitle("\(unwrappedResult.state.localizedDescription)", for: .normal)
             return
         }
-
         previousResult = unwrappedResult.state
+        
+        guard detectionRunning else { return }
+        detectionRunning = false
+        
+        // return preview image
         returnImage(buffer)
     }
     
@@ -334,8 +348,10 @@ public class CameraViewController: UIViewController {
             statusButton.setTitle(String(describing: unwrappedResult.hologramState), for: .normal)
             return
         }
-
         previousHologramResult = unwrappedResult.hologramState
+        
+        guard detectionRunning else { return }
+        detectionRunning = false
         
         // stop video recording
         videoWriter.stop()
@@ -351,8 +367,13 @@ public class CameraViewController: UIViewController {
             statusButton.setTitle(String(describing: unwrappedResult.faceStage), for: .normal)
             return
         }
-    
         previousFaceResult = unwrappedResult.faceStage
+        
+        
+        guard detectionRunning else { return }
+        detectionRunning = false
+        
+        // return preview image
         returnImage(buffer, flipped: true)
     }
 
@@ -395,6 +416,7 @@ public class CameraViewController: UIViewController {
                 self.previousResult = nil
                 self.previousFaceResult = nil
                 self.previousHologramResult = nil
+                self.detectionRunning = true
                 self.faceVerifier.reset()
             }
             present(preview, animated: true, completion: nil)
@@ -448,13 +470,15 @@ private extension CameraViewController {
             returnImage(nil)
             return
         }
-
-        configurePreviewLayer(session: captureSession)
-        configureDrawingLayer()
-        configureOverlay()
-
+        
+        // Configure layers
+        if previewLayer == nil {
+            self.configurePreviewLayer(session: self.captureSession)
+        }
+        self.configureDrawingLayer()
+        self.configureOverlay()
         // Add message layer on top of preview layer to show messages over the image from camera
-        cameraView.layer.addSublayer(messageView.layer)
+        self.cameraView.layer.addSublayer(self.messageView.layer)
     }
     
     func setupCameraSession(_ device: AVCaptureDevice) -> Bool {
@@ -537,13 +561,14 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard detectionRunning else { return }
         guard targetFrame.width > 0 else { return }
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         self.setTorch(on: photoType == .hologram)
         
         switch photoType {
         case .selfie:
-            if let result = faceVerifier?.verifyImage(imageBuffer: pixelBuffer)
+            if let result = faceVerifier.verifyImage(imageBuffer: pixelBuffer)
             {
                 DispatchQueue.main.async { [unowned self] in
                     self.updateView(with: result, buffer: pixelBuffer)
@@ -567,7 +592,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if let videoWriter = self.videoWriter {
                 if videoWriter.isRecording {
                     videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
-                    if let result = documentVerifier?.verifyHologramImage(imageBuffer: pixelBuffer)
+                    if let result = documentVerifier.verifyHologramImage(imageBuffer: pixelBuffer)
                     {
                         DispatchQueue.main.async { [unowned self] in
                             self.updateView(with: result, buffer: pixelBuffer)
@@ -577,7 +602,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             }
             
         default:
-            if let result = documentVerifier?.verifyImage(imageBuffer: pixelBuffer)
+            if let result = documentVerifier.verifyImage(imageBuffer: pixelBuffer)
             {
                 DispatchQueue.main.async { [unowned self] in
                     self.updateView(with: result, buffer: pixelBuffer)

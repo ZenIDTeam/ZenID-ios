@@ -87,9 +87,13 @@
 // Error
 "title-error" = "Chyba";
 "btn-ok" = "Ok";
+"btn-cancel" = "Zrušit";
 
 // Preview
 "title-preview" = "Náhled fotografie";
+
+// Logout
+"logout-confirm" = "Chcete smazat přihlašovací údaje?";
 
 // Recoglib errors
 "document.state.ok" = "Ok ";

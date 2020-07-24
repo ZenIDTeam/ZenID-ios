@@ -18,8 +18,7 @@ public class VideoWriter: NSObject {
     
     private let filePrefix = "VideoSample-"
     private var cameraVideoOutput: AVCaptureVideoDataOutput
-    private var outputFileName: String
-        
+
     private var videoWriter: AVAssetWriter!
     private var videoWriterInput: AVAssetWriterInput!
     private var audioWriterInput: AVAssetWriterInput!
@@ -27,7 +26,6 @@ public class VideoWriter: NSObject {
     
     public init(cameraVideoOutput: AVCaptureVideoDataOutput) {
         self.cameraVideoOutput = cameraVideoOutput
-        self.outputFileName = "\(filePrefix)\(ProcessInfo.processInfo.globallyUniqueString).mp4"
     }
 }
 
@@ -67,6 +65,7 @@ extension VideoWriter {
 extension VideoWriter {
     private func setupWriter() {
         do {
+            let outputFileName = "\(filePrefix)\(ProcessInfo.processInfo.globallyUniqueString).mp4"
             clearTemporaryFiles()
             let url = getDocumentsDirectory()
                 .appendingPathComponent(outputFileName)

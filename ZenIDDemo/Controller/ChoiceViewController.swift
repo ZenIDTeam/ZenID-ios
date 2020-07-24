@@ -84,7 +84,7 @@ final class ChoiceViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        scanProcess = nil
+        //scanProcess = nil
     }
     
     private func setupView() {
@@ -186,7 +186,9 @@ final class ChoiceViewController: UIViewController {
     }
     
     @objc private func logoutAction(sender: UIButton) {
-        clearCredentials()
+        self.confirm(title: nil, message: "Opravdu chcete smazat přihlašovací údaje?", ok: { [weak self] in
+            self?.clearCredentials()
+        })
     }
     
     private func startProcess(_ documentType: DocumentType) {
@@ -265,9 +267,9 @@ extension ChoiceViewController {
             return
         }
         
-        let errorMessage: (() -> Void) = {
-            DispatchQueue.main.async { [unowned self] in
-                self.alert(title: "Error", message: "ZenID authorization failed")
+        let errorMessage: (() -> Void) = { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.alert(title: "title-error".localized, message: "ZenID authorization failed")
             }
         }
         if let challengeToken = ZenidSecurity.getChallengeToken() {
