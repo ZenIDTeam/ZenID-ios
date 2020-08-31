@@ -100,4 +100,12 @@ enum class HologramState : int
 	Ok = 7,
 };
 
+enum class FaceLivenessVerifierStage : int
+{
+	LookAtMe = 0,
+	TurnHead = 1,
+	Smile = 2,
+	Done = 3,
+};
+
 }

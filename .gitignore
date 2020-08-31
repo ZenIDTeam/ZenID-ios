@@ -5,6 +5,10 @@
 Carthage/Build
 *.xcuserstate
 
+# AppCode
+.idea
+*xcschememanagement.plist
+
 # xcuserdata
 *xcworkspace/xcuserdata/*
 

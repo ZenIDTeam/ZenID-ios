@@ -58,7 +58,7 @@ bool verifyFaceImage(const void *object,
     
     const auto stage = verifier->GetStage();
     
-    if (stage != RecogLibC::FaceLivenessVerifier::Stage::Done) {
+    if (stage != RecogLibC::FaceLivenessVerifierStage::Done) {
         face->stage = static_cast<int>(stage);
         return false;
     }

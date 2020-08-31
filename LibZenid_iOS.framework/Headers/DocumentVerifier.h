@@ -15,13 +15,27 @@ namespace RecogLibC
 {
 class Image;
 
+class DocumentVerifierSettings
+{
+public:
+	// Height of the visible area seen by the camera, in cm.
+	// If set, the outlines will be adjusted to match the actual document sizes.
+	// Useful for taking pictures from a camera mounted at a fixed distance from a surface.
+	// If not set, the outline scale will be chosen independently for each document type.
+	std::optional<float> viewportHeightCm;
+
+	// Toggles displaying an aiming circle while searching for cards.
+	bool enableAimingCircle = false;
+};
+
 class DocumentVerifier
 {
    public:
 	using State = DocumentVerifierState;
 
 	// Don't load any models. Models will need to be loaded individually with LoadModel.
-	DocumentVerifier();
+	DocumentVerifier(
+		const std::shared_ptr<DocumentVerifierSettings>& settings = std::make_shared<DocumentVerifierSettings>());
 
 	void ProcessFrame(const Image& frame,
 	                  const DocumentRole* role = nullptr,
@@ -63,6 +77,11 @@ class DocumentVerifier
 	void SetDebugVisualization(bool isEnabled);
 
 	~DocumentVerifier();
+
+	DocumentVerifierSettings& GetSettings() const;
+
+	// Resets the state. The state will go back as though no picture was found. Models will stay loaded.
+	void Reset();
 
 	class Impl;
 

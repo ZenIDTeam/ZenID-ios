@@ -18,13 +18,7 @@ class Image;
 class FaceLivenessVerifier
 {
    public:
-	enum class Stage
-	{
-		LookAtMe,
-		TurnHead,
-		Smile,
-		Done,
-	};
+	using Stage = FaceLivenessVerifierStage;
 
 	explicit FaceLivenessVerifier(const char* resourcesPath);
 
