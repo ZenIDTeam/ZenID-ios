@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,8 @@
 		6F6C26FD24B87FD90073A2CA /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6C26FC24B87FD90073A2CA /* StringUtils.swift */; };
 		6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F6C26FE24B8805E0073A2CA /* CZenidSecurityWrapper.cpp */; };
 		6F6C270124B8805E0073A2CA /* CZenidSecurityWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6F6C26FF24B8805E0073A2CA /* CZenidSecurityWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F7EAC5424B88616001396F9 /* LibZenid_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */; platformFilter = ios; };
-		6F7EAC5524B88616001396F9 /* LibZenid_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6F7EAC5424B88616001396F9 /* LibZenid_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */; };
+		6F7EAC5524B88616001396F9 /* LibZenid_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBEFB7D24A5C01000099A38 /* haarcascades in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEFB7C24A5C01000099A38 /* haarcascades */; };
 		6FBEFB7F24A5C02600099A38 /* models in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEFB7E24A5C02600099A38 /* models */; };
 		6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107AE24B0FAFE00610F8D /* HologramResult.swift */; };
@@ -443,7 +443,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 74JP5VR8Y8;
+				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -470,11 +470,12 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -491,7 +492,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 74JP5VR8Y8;
+				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -515,10 +516,12 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
