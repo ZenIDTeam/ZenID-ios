@@ -1,5 +1,5 @@
 //
-//  FaceDetectorWrapper.cpp
+//  FaceLivenessWrapper.cpp
 //  RecogLib-iOS
 //
 //  Created by Jiri Sacha on 19/05/2020.
@@ -7,7 +7,7 @@
 //
 
 #include "CUtils.hpp"
-#include "CFaceWrapper.hpp"
+#include "CFaceLivenessWrapper.hpp"
 #include "RecogLibC.h"
 #include "opencv2/opencv.hpp"
 #include <CoreMedia/CoreMedia.h>
@@ -15,7 +15,7 @@
 
 using namespace RecogLibC;
 
-const void * getFaceVerifier(const char* resourcesPath,
+const void * getFaceLivenessVerifier(const char* resourcesPath,
                              const char* lbfModelContents,
                              size_t lbfModelSize)
 {
@@ -23,17 +23,17 @@ const void * getFaceVerifier(const char* resourcesPath,
     return (void *)verifier;
 }
 
-bool verifyFace(const void *object,
+bool verifyFaceLiveness(const void *object,
                 CMSampleBufferRef _mat,
-                CFaceInfo *face)
+                CFaceLivenessInfo *face)
 {
     CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
-    return verifyFaceImage(object, cvBuffer, face);
+    return verifyFaceLivenessImage(object, cvBuffer, face);
 }
 
-bool verifyFaceImage(const void *object,
+bool verifyFaceLivenessImage(const void *object,
                      CVPixelBufferRef _cvBuffer,
-                     CFaceInfo *face)
+                     CFaceLivenessInfo *face)
 {
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     
@@ -54,7 +54,7 @@ bool verifyFaceImage(const void *object,
     
     verifier->ProcessFrame(image);
     
-    CVPixelBufferUnlockBaseAddress( _cvBuffer, 0 );
+    CVPixelBufferUnlockBaseAddress(_cvBuffer, 0 );
     
     const auto stage = verifier->GetStage();
     
@@ -67,16 +67,16 @@ bool verifyFaceImage(const void *object,
     return true;
 }
 
-void faceVerifierReset(const void *object)
+void faceLivenessVerifierReset(const void *object)
 {
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     verifier->Reset();
 }
 
-char* getFaceRenderCommands(const void *object,
+char* getFaceLivenessRenderCommands(const void *object,
                             int canvasWidth,
                             int canvasHeight,
-                            CFaceInfo *face)
+                            CFaceLivenessInfo *face)
 {
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     
@@ -87,7 +87,7 @@ char* getFaceRenderCommands(const void *object,
     return getString(renderString);
 }
 
-void setFaceDebugInfo(const void *object,
+void setFaceLivenessDebugInfo(const void *object,
                        bool show)
 {
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;

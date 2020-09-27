@@ -12,8 +12,9 @@ enum RenderableType: String {
     case line = "line"
     case rectangle = "rectangle"
     // case point = "point" // Point is not used anymore in the framework
-    case text = "text"
     case circle = "circle"
+    case ellipse = "ellipse"
+    case text = "text"
 }
 
 class RenderableFactory {
@@ -37,6 +38,8 @@ class RenderableFactory {
             return Rectangle(strCommand)
         case .circle:
             return Circle(strCommand)
+        case .ellipse:
+            return Ellipse(strCommand)
         case .text:
             return Text(strCommand)
             

@@ -8,7 +8,7 @@
 
 "msg-scan-front" = "Vyfoťte přední stranu.";
 "msg-scan-back" = "Vyfoťte zadní stranu.";
-"msg-scan-selfie" = "Vyfoťte se.";
+"msg-scan-face" = "Vyfoťte se.";
 "msg-scan-hologram" = "Nahrajte video hologramu.";
 
 "msg-sample-success" = "Vzorek úspěšně zpracován.";
@@ -64,8 +64,9 @@
 "btn-passport" = "Cestovní pas";
 "btn-other-document" = "Obecný dokument";
 "btn-hologram" = "Hologram";
-"btn-selfe" = "Selfie";
+"btn-face" = "Selfie";
 "btn-country" = "Země";
+"btn-face-mode" = "Režim selfie";
 "btn-logout" = "Odhlásit";
 
 // Walkthrough

@@ -86,7 +86,7 @@ public class Dispatcher {
         }
         else if sampleType == .selfie {
             
-            guard image.photoType == .selfie else {
+            guard image.photoType == .face else {
                 #if DEBUG
                 NSLog("Received selfie when expected a document")
                 #endif

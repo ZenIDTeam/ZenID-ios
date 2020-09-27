@@ -11,7 +11,7 @@ import UIKit
 public enum UploadedSampleType: String {
     case documentPicture = "DocumentPicture"
     case documentVideo = "DocumentVideo"
-    case selfie = "Selfie"
+    case face = "Selfie"
     case otherDocument = "Archived"
     
     static func from(photoType: PhotoType, documentType: DocumentType) -> UploadedSampleType {
@@ -27,8 +27,8 @@ public enum UploadedSampleType: String {
             }
         case .back:
             return .documentPicture
-        case .selfie:
-            return .selfie
+        case .face:
+            return .face
         case .hologram:
             return .documentVideo
         }
@@ -41,7 +41,7 @@ public enum DocumentType: String {
     case passport = "Pas"
     case otherDocument = "Cont"
     case hologram = "Holo"
-    case selfie = "Self"
+    case face = "Self"
 }
 
 extension DocumentType {
@@ -58,8 +58,8 @@ extension DocumentType {
                 return "btn-other-document".localized.uppercased()
             case .hologram:
                 return "btn-hologram".localized.uppercased()
-            case .selfie:
-                return "btn-selfie".localized.uppercased()
+            case .face:
+                return "btn-face".localized.uppercased()
             }
         }
     }
@@ -68,7 +68,7 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [.front, .back, .selfie]
+                return [.front, .back, .face]
             case .drivingLicence:
                 return [.front]
             case .passport:
@@ -77,8 +77,8 @@ extension DocumentType {
                 return (0...30).map { _ in .front }
             case .hologram:
                 return [.hologram]
-            case .selfie:
-                return [.selfie]
+            case .face:
+                return [.face]
             }
         }
     }
@@ -96,7 +96,7 @@ extension DocumentType {
                 return #imageLiteral(resourceName: "OK button@2x.png")
             case .hologram:
                 return #imageLiteral(resourceName: "Kruh-HL")
-            case .selfie:
+            case .face:
                 return #imageLiteral(resourceName: "Kruh-SF")
             }
         }
@@ -107,7 +107,7 @@ public enum PhotoType {
     case front
     case back
     case hologram
-    case selfie
+    case face
 }
 
 extension PhotoType {
@@ -120,7 +120,7 @@ extension PhotoType {
                 return "B"
             case .hologram:
                 return "F"
-            case .selfie:
+            case .face:
                 return "F"
             }
         }
@@ -135,8 +135,8 @@ extension PhotoType {
                 return "msg-scan-back".localized
             case .hologram:
                 return "msg-scan-hologram".localized
-            case .selfie:
-                return "msg-scan-selfie".localized
+            case .face:
+                return "msg-scan-face".localized
             }
         }
     }
@@ -145,4 +145,9 @@ extension PhotoType {
 public enum Country: String {
     case cz = "Cz"
     case sk = "Sk"
+}
+
+public enum FaceMode: String {
+    case faceLiveness = "FaceLiveness"
+    case selfie = "Selfie"
 }

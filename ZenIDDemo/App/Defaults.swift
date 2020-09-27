@@ -31,6 +31,22 @@ final class Defaults {
         set { defaults[#function] = newValue }
     }
     
+    static var selectedCountry: Country {
+        get {
+            let rawValue = defaults[#function] ?? Country.cz.rawValue
+            return Country.init(rawValue:rawValue) ?? Country.cz
+        }
+        set { defaults[#function] = newValue.rawValue }
+    }
+    
+    static var selectedFaceMode: FaceMode {
+        get {
+            let rawValue = defaults[#function] ?? FaceMode.faceLiveness.rawValue
+            return FaceMode.init(rawValue:rawValue) ?? FaceMode.faceLiveness
+        }
+        set { defaults[#function] = newValue.rawValue }
+    }
+    
     static var torchMode: AVCaptureDevice.TorchMode {
         get {
             let rawValue = defaults[#function] ?? "On"

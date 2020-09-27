@@ -76,6 +76,10 @@ class CountryButton: UIButton {
     var country: Country = .cz
 }
 
+class FaceModeButton: UIButton {
+    var faceMode: FaceMode = .faceLiveness
+}
+
 enum Buttons {
     static var startUsing: UIButton {
         get {
@@ -131,10 +135,10 @@ enum Buttons {
         }
     }
     
-    static var selfie: UIButton {
+    static var face: UIButton {
         get {
             let button = ZenButton()
-            button.setTitle("btn-selfie".localized.uppercased(), for: .normal)
+            button.setTitle("btn-face".localized.uppercased(), for: .normal)
             button.outline = true
             return button
         }
@@ -193,6 +197,12 @@ enum Buttons {
     }
     
     static var country: ZenButton = {
+        let button = ZenButton()
+        button.outline = true
+        return button
+    }()
+    
+    static var faceMode: ZenButton = {
         let button = ZenButton()
         button.outline = true
         return button
@@ -268,6 +278,27 @@ enum Buttons {
             let button = CountryButton()
             button.setImage(#imageLiteral(resourceName: "flag_sk"), for: .normal)
             button.country = .sk
+            button.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            return button
+        }
+    }
+    
+    enum FaceMode {
+        static var faceLiveness: FaceModeButton {
+            let button = FaceModeButton()
+            button.titleLabel?.lineBreakMode = .byWordWrapping
+            button.setTitle("Face\nLiveness", for: .normal)
+            button.faceMode = .faceLiveness
+            button.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 100).isActive = true
+            return button
+        }
+        
+        static var selfie: FaceModeButton {
+            let button = FaceModeButton()
+            button.setTitle("Selfie", for: .normal)
+            button.faceMode = .selfie
             button.widthAnchor.constraint(equalToConstant: 100).isActive = true
             button.heightAnchor.constraint(equalToConstant: 100).isActive = true
             return button

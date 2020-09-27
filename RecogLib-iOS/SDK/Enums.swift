@@ -140,14 +140,14 @@ extension DocumentState: CustomStringConvertible {
 }
 
 public enum HologramState: Int {
-    case NoMatchFound
-    case TiltLeft
-    case TiltRight
-    case TiltUp
-    case TiltDown
-    case RotateClockwise
-    case RotateCounterClockwise
-    case Ok
+    case NoMatchFound = 0
+    case TiltLeft = 1
+    case TiltRight = 2
+    case TiltUp = 3
+    case TiltDown = 4
+    case RotateClockwise = 5
+    case RotateCounterClockwise = 6
+    case Ok = 7
 }
 
 extension HologramState: CustomStringConvertible {
@@ -173,14 +173,14 @@ extension HologramState: CustomStringConvertible {
     }
 }
 
-public enum FaceStage: Int {
-    case LookAtMe
-    case TurnHead
-    case Smile
-    case Done
+public enum FaceLivenessStage: Int {
+    case LookAtMe = 0
+    case TurnHead = 1
+    case Smile = 2
+    case Done = 3
 }
 
-extension FaceStage: CustomStringConvertible {
+extension FaceLivenessStage: CustomStringConvertible {
     public var description: String {
         switch self {
         case .LookAtMe:
@@ -191,6 +191,22 @@ extension FaceStage: CustomStringConvertible {
             return "Smile"
         case .Done:
             return "Done"
+        }
+    }
+}
+
+public enum SelfieState: Int {
+    case Ok = 0
+    case NoFaceFound = 1
+}
+
+extension SelfieState: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .NoFaceFound:
+            return "No face found"
+        case .Ok:
+            return "Ok"
         }
     }
 }

@@ -18,7 +18,8 @@ public class CameraViewController: UIViewController {
     public var showVisualisationDebugInfo: Bool = false {
         didSet {
             documentVerifier.showDebugInfo = showVisualisationDebugInfo
-            faceVerifier.showDebugInfo = showVisualisationDebugInfo
+            faceLivenessVerifier.showDebugInfo = showVisualisationDebugInfo
+            selfieVerifier.showDebugInfo = showVisualisationDebugInfo
         }
     }
     
@@ -76,6 +77,7 @@ public class CameraViewController: UIViewController {
     private var photoType: PhotoType
     private var documentType: DocumentType
     private var country: Country
+    private var faceMode: FaceMode
 
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevicePosition: AVCaptureDevice.Position = .back
@@ -90,16 +92,20 @@ public class CameraViewController: UIViewController {
                                                             country: RecogLib_iOS.Country.Cz,
                                                             page: RecogLib_iOS.PageCode.Front,
                                                             language: LanguageHelper.language)
-    private var faceVerifier: FaceVerifier = FaceVerifier(language: LanguageHelper.language)
+    private var faceLivenessVerifier: FaceLivenessVerifier = FaceLivenessVerifier(language: LanguageHelper.language)
+    private var selfieVerifier: SelfieVerifier = SelfieVerifier(language: LanguageHelper.language)
+    
     private var detectionRunning = false;
     private var previousResult: DocumentState?
     private var previousHologramResult: HologramState?
-    private var previousFaceResult: FaceStage?
+    private var previousFaceLivenessResult: FaceLivenessStage?
+    private var previousSelfieResult: SelfieState?
     
-    init(photoType: PhotoType, documentType: DocumentType, country: Country) {
+    init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
         self.photoType = photoType
         self.documentType = documentType
         self.country = country
+        self.faceMode = faceMode
         self.photosCount = 0
         
         super.init(nibName: nil, bundle: nil)
@@ -128,7 +134,8 @@ public class CameraViewController: UIViewController {
         
         previousResult = nil
         previousHologramResult = nil
-        previousFaceResult = nil
+        previousFaceLivenessResult = nil
+        previousSelfieResult = nil
         captureSession.startRunning()
     }
 
@@ -157,7 +164,7 @@ public class CameraViewController: UIViewController {
             
             // set drawLayer frame
             if let drawLayer = drawLayer {
-                let flipped = photoType != .selfie
+                let flipped = photoType != .face
                 drawLayer.frame = flipped
                     ? previewLayer.bounds.flip()
                     : previewLayer.bounds
@@ -177,29 +184,31 @@ public class CameraViewController: UIViewController {
         captureSession.stopRunning()
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, photosCount: Int = 0) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode, photosCount: Int = 0) {
         self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
         self.country = country
-        self.captureDevicePosition = photoType == .selfie ? .front : .back
-        self.instructionView.transform = photoType == .selfie ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        self.faceMode = faceMode
+        self.captureDevicePosition = photoType == .face ? .front : .back
+        self.instructionView.transform = photoType == .face ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
         
         self.title = type.title
         self.topLabel.text = photoType.message
         self.photosCount = photosCount
         self.previousResult = nil
         self.previousHologramResult = nil
-        self.previousFaceResult = nil
+        self.previousFaceLivenessResult = nil
+        self.previousSelfieResult = nil
 
         // Start video capture session
         self.startSession()
         
         // Create verify object
         switch photoType {
-        case .selfie:
-            // This will reset face verifier
-            self.faceVerifier.reset()
+        case .face:
+            // This will reset face liveness verifier
+            self.faceLivenessVerifier.reset()
             break
             
         case .hologram:
@@ -233,7 +242,8 @@ public class CameraViewController: UIViewController {
         }
 
         documentVerifier.showDebugInfo = showVisualisationDebugInfo
-        faceVerifier.showDebugInfo = showVisualisationDebugInfo
+        faceLivenessVerifier.showDebugInfo = showVisualisationDebugInfo
+        selfieVerifier.showDebugInfo = showVisualisationDebugInfo
         
         // This hides visualisation hints, overlay and instructions for generic documents
         if type == .otherDocument {
@@ -357,18 +367,36 @@ public class CameraViewController: UIViewController {
         videoWriter.stop()
     }
     
-    private func updateView(with result: FaceResult?, buffer: CVPixelBuffer) {
+    private func updateView(with result: FaceLivenessResult?, buffer: CVPixelBuffer) {
         guard let unwrappedResult = result else {
             statusButton.setTitle("nil result", for: .normal)
             return
         }
         
-        guard unwrappedResult.faceStage == .Done, previousFaceResult != .Done else {
-            statusButton.setTitle(String(describing: unwrappedResult.faceStage), for: .normal)
+        guard unwrappedResult.faceLivenessStage == .Done, previousFaceLivenessResult != .Done else {
+            statusButton.setTitle(String(describing: unwrappedResult.faceLivenessStage), for: .normal)
             return
         }
-        previousFaceResult = unwrappedResult.faceStage
+        previousFaceLivenessResult = unwrappedResult.faceLivenessStage
         
+        guard detectionRunning else { return }
+        detectionRunning = false
+        
+        // return preview image
+        returnImage(buffer, flipped: true)
+    }
+    
+    private func updateView(with result: SelfieResult?, buffer: CVPixelBuffer) {
+        guard let unwrappedResult = result else {
+            statusButton.setTitle("nil result", for: .normal)
+            return
+        }
+        
+        guard unwrappedResult.selfieState == .Ok, previousSelfieResult != .Ok else {
+            statusButton.setTitle(String(describing: unwrappedResult.selfieState), for: .normal)
+            return
+        }
+        previousSelfieResult = unwrappedResult.selfieState
         
         guard detectionRunning else { return }
         detectionRunning = false
@@ -414,10 +442,11 @@ public class CameraViewController: UIViewController {
             }
             preview.dismissAction = { [unowned self] in
                 self.previousResult = nil
-                self.previousFaceResult = nil
+                self.previousFaceLivenessResult = nil
+                self.previousSelfieResult = nil
                 self.previousHologramResult = nil
                 self.detectionRunning = true
-                self.faceVerifier.reset()
+                self.faceLivenessVerifier.reset()
             }
             present(preview, animated: true, completion: nil)
         }
@@ -567,24 +596,47 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         self.setTorch(on: photoType == .hologram)
         
         switch photoType {
-        case .selfie:
-            if let result = faceVerifier.verifyImage(imageBuffer: pixelBuffer)
-            {
-                DispatchQueue.main.async { [unowned self] in
-                    self.updateView(with: result, buffer: pixelBuffer)
-                }
+        case .face:
+            switch self.faceMode {
+            case .faceLiveness:
+                if let result = faceLivenessVerifier.verifyImage(imageBuffer: pixelBuffer)
+                {
+                    DispatchQueue.main.async { [unowned self] in
+                        self.updateView(with: result, buffer: pixelBuffer)
+                    }
 
-                if !showVisualisation {
-                    return
-                }
+                    if !showVisualisation {
+                        return
+                    }
 
-                // Get render commands
-                let width = Int(self.previewLayer?.frame.width ?? 0)
-                let height = Int(self.previewLayer?.frame.height ?? 0)
-                if let renderCommands = faceVerifier.getRenderCommands(canvasWidth: width,
-                                                                   canvasHeight: height) {
-                    let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-                    self.drawLayer?.renderables = renderables
+                    // Get render commands
+                    let width = Int(self.previewLayer?.frame.width ?? 0)
+                    let height = Int(self.previewLayer?.frame.height ?? 0)
+                    if let renderCommands = faceLivenessVerifier.getRenderCommands(canvasWidth: width,
+                                                                                   canvasHeight: height) {
+                        let renderables = RenderableFactory.createRenderables(commands: renderCommands)
+                        self.drawLayer?.renderables = renderables
+                    }
+                }
+            case .selfie:
+                if let result = selfieVerifier.verifyImage(imageBuffer: pixelBuffer)
+                {
+                    DispatchQueue.main.async { [unowned self] in
+                        self.updateView(with: result, buffer: pixelBuffer)
+                    }
+
+                    if !showVisualisation {
+                        return
+                    }
+
+                    // Get render commands
+                    let width = Int(self.previewLayer?.frame.width ?? 0)
+                    let height = Int(self.previewLayer?.frame.height ?? 0)
+                    if let renderCommands = selfieVerifier.getRenderCommands(canvasWidth: width,
+                                                                             canvasHeight: height) {
+                        let renderables = RenderableFactory.createRenderables(commands: renderCommands)
+                        self.drawLayer?.renderables = renderables
+                    }
                 }
             }
             

@@ -12,7 +12,7 @@ import CoreMedia
 public class DocumentVerifier {
     fileprivate var cppObject: UnsafeRawPointer?
 
-    private let modelsRelativePath = "models"
+    private let modelsRelativePath = "documents"
     private let modelPrefix = "recoglibc"
     private let modelSuffix = "bin"
 
@@ -109,7 +109,7 @@ public class DocumentVerifier {
             let data = handle.readDataToEndOfFile()
             data.withUnsafeBytes {
                 if let typedPtr = $0.bindMemory(to: CChar.self).baseAddress {
-                    loadModel(self.cppObject, typedPtr, data.count)
+                    RecogLib_iOS.loadModel(self.cppObject, typedPtr, data.count)
                     NSLog("Loaded model: \(url.lastPathComponent)")
                 }
             }

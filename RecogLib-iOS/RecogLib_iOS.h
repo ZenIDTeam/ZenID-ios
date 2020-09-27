@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <RecogLib_iOS/CZenidSecurityWrapper.hpp>
 #import <RecogLib_iOS/CDocumentWrapper.hpp>
-#import <RecogLib_iOS/CFaceWrapper.hpp>
+#import <RecogLib_iOS/CFaceLivenessWrapper.hpp>
+#import <RecogLib_iOS/CSelfieWrapper.hpp>
 
 //! Project version number for RecogLib_iOS.
 FOUNDATION_EXPORT double RecogLib_iOSVersionNumber;

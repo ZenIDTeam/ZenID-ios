@@ -8,7 +8,7 @@
 
 "msg-scan-front" = "Please take a photo of the front side.";
 "msg-scan-back" = "Please take a photo of the rear side.";
-"msg-scan-selfie" = "Please take a photo of yourself.";
+"msg-scan-face" = "Please take a photo of yourself.";
 "msg-scan-hologram" = "Please take a video of the hologram.";
 
 "msg-sample-success" = "Sample successfully processed.";
@@ -64,8 +64,9 @@
 "btn-passport" = "Passport";
 "btn-other-document" = "Universal document";
 "btn-hologram" = "Hologram";
-"btn-selfie" = "Selfie";
+"btn-face" = "Selfie";
 "btn-country" = "Country";
+"btn-face-mode" = "Selfie mode";
 "btn-logout" = "Logout";
 
 // Walkthrough

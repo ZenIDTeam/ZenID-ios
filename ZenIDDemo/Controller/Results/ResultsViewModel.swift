@@ -169,7 +169,7 @@ class ResultsViewModel {
             return [.firstName, .lastName, .birthDate, .documentNumber, .issueDate, .expiryDate, .address, .authority]
         case .passport:
             return [.firstName, .lastName, .birthDate, .documentNumber, .issueDate, .expiryDate, .nationality, .address, .authority]
-        case .selfie:
+        case .face:
             return [.selfie]
         case .hologram:
             return [.hologram]

@@ -17,6 +17,6 @@ extension UIViewController {
     func applyPathGradient() {
         let startHeight: CGFloat = 190 - (UIDevice.isPhoneSE ? 40 : 0)
         let endHeight: CGFloat = 190 - (UIDevice.isPhoneSE ? 40 : 0)
-        _ = self.view.setPartialGradient(colors: [UIColor.zenPurple.cgColor, UIColor.zenGreen.cgColor], angle: 29, start: startHeight, end: endHeight)
+        self.view.setPartialGradient(colors: [UIColor.zenPurple.cgColor, UIColor.zenGreen.cgColor], angle: 29, start: startHeight, end: endHeight)
     }
 }

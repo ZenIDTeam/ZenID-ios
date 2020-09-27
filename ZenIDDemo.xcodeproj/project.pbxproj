@@ -65,6 +65,8 @@
 		6F64016424C19E95004A8982 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F64016324C19E95004A8982 /* Settings.bundle */; };
 		6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */; };
 		6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EEF1E24C4E62A00208223 /* Torch.swift */; };
+		6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */; };
+		6FAE478A2520B6EE00A92876 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47892520B6EE00A92876 /* Ellipse.swift */; };
 		6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */; };
 		6FE107B224B260F900610F8D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B124B260F900610F8D /* VideoWriter.swift */; };
 		6FE107B424B26FC800610F8D /* VideoWriterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */; };
@@ -175,6 +177,8 @@
 		6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		6F8EEF1E24C4E62A00208223 /* Torch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torch.swift; sourceTree = "<group>"; };
 		6F8EEF2024C4ECA600208223 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceModeView.swift; sourceTree = "<group>"; };
+		6FAE47892520B6EE00A92876 /* Ellipse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		6FE107B124B260F900610F8D /* VideoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
 		6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriterDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 				01B8F88522B92BE100D8B75E /* MessagesView.swift */,
 				01859B0322C360CE005B7E36 /* ToastView.swift */,
 				0141C02723A38AAF00566078 /* SelectCountryView.swift */,
+				6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */,
 				6F2D536B24696A2A001C3544 /* QrSquareView.swift */,
 			);
 			path = View;
@@ -231,15 +236,15 @@
 		012F7B44228553AE00B0BBB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01859B0722C48A0B005B7E36 /* Camera */,
+				6FFC82C0247F020C00CB4979 /* Qr */,
+				D2CB352322BA829100453DB8 /* Results */,
 				012F7B5F2285E6F600B0BBB6 /* BaseInfoViewController.swift */,
 				012F7B5D2285E6BC00B0BBB6 /* BusyViewController.swift */,
 				012F7B592285C1E000B0BBB6 /* ChoiceViewController.swift */,
 				012F7B6A2292743000B0BBB6 /* ErrorViewController.swift */,
 				012F7B65228B14FF00B0BBB6 /* PreviewViewController.swift */,
 				012F7B49228557BE00B0BBB6 /* WalkthroughViewController.swift */,
-				01859B0722C48A0B005B7E36 /* Camera */,
-				6FFC82C0247F020C00CB4979 /* Qr */,
-				D2CB352322BA829100453DB8 /* Results */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				0141C02D23A7917B00566078 /* Line.swift */,
 				0141C03523A7CBFC00566078 /* Rectangle.swift */,
 				0141C03923A853EE00566078 /* Circle.swift */,
+				6FAE47892520B6EE00A92876 /* Ellipse.swift */,
 				0141C03B23A8E2D000566078 /* Text.swift */,
 				0141C02F23A791B800566078 /* RenderableFactory.swift */,
 				0141C03323A7ABE700566078 /* DrawingLayer.swift */,
@@ -502,7 +508,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Trask, a.s.";
 				TargetAttributes = {
 					0134751B21ECB3FB004EE4E5 = {
@@ -566,6 +572,7 @@
 				012F7B602285E6F600B0BBB6 /* BaseInfoViewController.swift in Sources */,
 				0141C03423A7ABE700566078 /* DrawingLayer.swift in Sources */,
 				0134756121F5BF90004EE4E5 /* Defaults.swift in Sources */,
+				6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */,
 				011C6A8622BCEF070053ABF6 /* ScanProcessDelegate.swift in Sources */,
 				01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */,
 				6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */,
@@ -613,6 +620,7 @@
 				0134754F21EE0325004EE4E5 /* Endpoint.swift in Sources */,
 				D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */,
 				D2F5A3C722CA2B8B000A293A /* CMSampleBuffer+UIImage.swift in Sources */,
+				6FAE478A2520B6EE00A92876 /* Ellipse.swift in Sources */,
 				D2CB351A22BA784400453DB8 /* ZenConstants.swift in Sources */,
 				6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */,
 				012F7B4A228557BE00B0BBB6 /* WalkthroughViewController.swift in Sources */,
@@ -668,6 +676,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -730,6 +739,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -777,12 +787,12 @@
 					"NO_OPENCV=1",
 				);
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.20;
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -806,12 +816,12 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "NO_OPENCV=1";
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.20;
+				MARKETING_VERSION = 1.22;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -849,7 +859,7 @@
 			repositoryURL = "https://github.com/microsoft/appcenter-sdk-apple.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.3.1;
+				minimumVersion = 3.3.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

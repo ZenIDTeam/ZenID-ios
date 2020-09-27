@@ -13,24 +13,34 @@ import RecogLib_iOS
 import os
 
 final class ChoiceViewController: UIViewController {
+    private let countryButton = Buttons.country
+    private let faceModeButton = Buttons.faceMode
+    private let contactButton = Buttons.contact
+    private let logoutButton = Buttons.logout
     private let idButton = Buttons.id
     private let drivingLicenceButton = Buttons.drivingLicence
     private let passportButton = Buttons.passport
     private let otherDocumentButton = Buttons.otherDocument
     private let hologramButton = Buttons.hologram
-    private let selfieButton = Buttons.selfie
-    private let countryButton = Buttons.country
-    private let contactButton = Buttons.contact
-    private let logoutButton = Buttons.logout
+    private let faceButton = Buttons.face
+    
     private lazy var documentButtons = [
         idButton,
         drivingLicenceButton,
         passportButton,
         otherDocumentButton,
         hologramButton,
-        //selfieButton
+        //faceButton
     ]
-    private var selectedCountry: Country = .cz
+    
+    private var selectedCountry: Country {
+        get { return Defaults.selectedCountry }
+        set { Defaults.selectedCountry = newValue }
+    }
+    private var selectedFaceMode: FaceMode {
+        get { return Defaults.selectedFaceMode }
+        set { Defaults.selectedFaceMode = newValue }
+    }
     
     private let titleLabel: UILabel = {
         let title = UILabel()
@@ -67,7 +77,7 @@ final class ChoiceViewController: UIViewController {
         return toastView
     }()
     
-    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz)
+    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz, faceMode: .faceLiveness)
     private var scanProcess: ScanProcess?
 
     override func viewDidLoad() {
@@ -107,9 +117,11 @@ final class ChoiceViewController: UIViewController {
         stackView.anchor(top: titleLabel.bottomAnchor, left: nil, bottom: nil, right: nil)
         stackView.centerX(to: view)
         stackView.addArrangedSubview(countryButton)
+        stackView.addArrangedSubview(faceModeButton)
         documentButtons.forEach { stackView.addArrangedSubview($0) }
         updateCountryButton()
-        
+        updateFaceModeButton()
+
         // Version
         view.addSubview(versionLabel)
         versionLabel.anchor(top: stackView.bottomAnchor, left: nil, bottom: view.layoutMarginsGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 50, paddingRight: 20)
@@ -125,6 +137,7 @@ final class ChoiceViewController: UIViewController {
     private func setupTargets() {
         contactButton.addTarget(self, action: #selector(contactAction(sender:)), for: .touchUpInside)
         countryButton.addTarget(self, action: #selector(selectCountryAction(sender:)), for: .touchUpInside)
+        faceModeButton.addTarget(self, action: #selector(faceModeAction(sender:)), for: .touchUpInside)
         documentButtons.forEach {
             $0.addTarget(self, action: #selector(selectAction(sender:)), for: .touchUpInside)
         }
@@ -132,9 +145,15 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func updateCountryButton() {
-        let countryTitle = "btn-country".localized.uppercased()
+        let title = "btn-country".localized.uppercased()
         let country = selectedCountry.rawValue.uppercased()
-        countryButton.setTitle("\(countryTitle): \(country)", for: .normal)
+        countryButton.setTitle("\(title): \(country)", for: .normal)
+    }
+    
+    private func updateFaceModeButton() {
+        let title = "btn-face-mode".localized.uppercased()
+        let value = selectedFaceMode.rawValue.uppercased()
+        faceModeButton.setTitle("\(title): \(value)", for: .normal)
     }
     
     @objc private func selectCountryAction(sender: UIButton) {
@@ -153,6 +172,26 @@ final class ChoiceViewController: UIViewController {
         countryView.completion = { [weak self] country in
             self?.selectedCountry = country
             self?.updateCountryButton()
+            popup.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @objc private func faceModeAction(sender: UIButton) {
+        let popup = UIViewController()
+        let faceModeView = SelectFaceModeView()
+        popup.view.addSubview(faceModeView)
+        faceModeView.centerX(to: popup.view)
+        faceModeView.centerY(to: popup.view)
+        popup.view.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
+        popup.modalPresentationStyle = .overCurrentContext
+        popup.modalTransitionStyle = .crossDissolve
+        popup.definesPresentationContext = true
+        
+        present(popup, animated: true, completion: nil)
+                
+        faceModeView.completion = { [weak self] faceMode in
+            self?.selectedFaceMode = faceMode
+            self?.updateFaceModeButton()
             popup.dismiss(animated: true, completion: nil)
         }
     }
@@ -177,8 +216,8 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.otherDocument)
             case self.hologramButton:
                 self.startProcess(.hologram)
-            case self.selfieButton:
-                self.startProcess(.selfie)
+            case self.faceButton:
+                self.startProcess(.face)
             default:
                 break
             }
@@ -306,6 +345,7 @@ extension ChoiceViewController: ScanProcessDelegate {
             self.cachedCameraViewController.configureController(type: scanProcess.documentType,
                                                                 photoType: photoType,
                                                                 country: scanProcess.country,
+                                                                faceMode: selectedFaceMode,
                                                                 photosCount: scanProcess.pdfImages.count
             )
         }

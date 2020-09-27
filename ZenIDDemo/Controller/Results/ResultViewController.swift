@@ -103,7 +103,7 @@ final class ResultViewController: BaseInfoViewController {
             return #imageLiteral(resourceName: "Icon-CP")
         case .hologram:
             return #imageLiteral(resourceName: "Kruh-HL")
-        case .selfie:
+        case .face:
             return #imageLiteral(resourceName: "Kruh-SF")
         }
     }
