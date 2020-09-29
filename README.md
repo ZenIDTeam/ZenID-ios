@@ -7,7 +7,8 @@ Recoglib is capable of recognizing types that include:
 - Driving license
 - Passport
 - Holograms
-- Selfie (face liveness verifier)
+- Selfie (human face picture)
+- Face liveness
 
 ## Configuration management
 For compilation, running and deployment of the application following tools are required. Newer versions of the tools should work, these were tested to work and used during the development:
@@ -16,9 +17,9 @@ For compilation, running and deployment of the application following tools are r
     - iOS device with camera for testing
     - macOS device for development
 - Software (required for development and deployment):
-    - macOS 10.14
-    - Xcode 10.2
-    - Swift 5.0
+    - macOS 10.15
+    - Xcode 12
+    - Swift 5.3
     - iOS 11.0
 
 ## Installation
@@ -106,11 +107,15 @@ To do that, you can use this object the same way like to detect documents and ca
 Detection logic in `captureOutput(_: ,didOutput: ,from:)` is almost the same but in case of holograms you can easily add reconrding video with `VideoWriter` class.
 This video can be uploaded to the backend after successful detection of hologram.
 
-### 4. Face liveness verifier
-You can use  `FaceVerifier` to verify selfie liveness from short video. Human faces are to be identified in video frames.
-Interface is very similar to  `DocumentVerifier`, first you initialize `FaceVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
+### 4. Selfie verifier
+You can use  `SelfieVerifier` to verify selfie (human face picture) from short video. Human faces are to be identified in video frames.
+Interface is very similar to  `DocumentVerifier`, first you initialize `SelfieVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
+
+### 5. Face liveness verifier
+You can use  `FaceLivenessVerifier` to verify face liveness from short video. Human faces are to be identified in video frames.
+Interface is very similar to  `DocumentVerifier`, first you initialize `FaceLivenessVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
  
-### 5. Result
+### 6. Result
 The returning value of the `verify()` or `verifyImage(imageBuffer: )` methods is a struct of type `DocumentResult` for documents, `HologramResult` for holograms or `FaceResult` for face liveness.
 
 It contains all the information found describing currently analysed document/face.
@@ -125,5 +130,8 @@ It contains all the information found describing currently analysed document/fac
 Hologram result contains state of currently analysed image.
 `HologramResult.state`  can be `NoMatchFound`, `TiltLeft`, `RotateClockwise` etc. and finally  `Ok`
 
-Face detection result contains stage of currently analysed image.
-`FaceResult.stage` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Done`
+Selfie detection result contains state of currently analysed image.
+`SelfieResult.state` can be `NoFaceFound` or `Ok`
+
+Face liveness detection result contains stage of currently analysed image.
+`FaceLivenessResult.stage` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Done`
