@@ -72,6 +72,12 @@ bool verifySelfieImage(const void *object,
     return true;
 }
 
+void selfieVerifierReset(const void *object)
+{
+    SelfieVerifier *verifier = (SelfieVerifier *)object;
+    verifier->Reset();
+}
+
 char* getSelfieRenderCommands(const void *object,
                             int canvasWidth,
                             int canvasHeight,

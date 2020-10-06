@@ -76,6 +76,10 @@ public class DocumentVerifier {
         RecogLib_iOS.endHologramVerification(cppObject)
     }
     
+    public func reset() {
+        //RecogLib_iOS.reset(cppObject)
+    }
+    
     public func getRenderCommands(canvasWidth: Int, canvasHeight: Int, orientation: UIInterfaceOrientation = .portrait) -> String? {
         var document = createDocumentInfo(orientation: orientation)
         let cString = RecogLib_iOS.getDocumentRenderCommands(cppObject, Int32(canvasWidth), Int32(canvasHeight), &document)

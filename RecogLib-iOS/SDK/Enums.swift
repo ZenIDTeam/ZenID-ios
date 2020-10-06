@@ -198,15 +198,18 @@ extension FaceLivenessStage: CustomStringConvertible {
 public enum SelfieState: Int {
     case Ok = 0
     case NoFaceFound = 1
+    case Blurry = 2
 }
 
 extension SelfieState: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .NoFaceFound:
-            return "No face found"
         case .Ok:
             return "Ok"
+        case .NoFaceFound:
+            return "No face found"
+        case .Blurry:
+            return "Blurry"
         }
     }
 }

@@ -140,6 +140,12 @@ void endHologramVerification(const void *object)
     verifier->EndHologramVerification();
 }
 
+void reset(const void *object)
+{
+    DocumentVerifier *verifier = (DocumentVerifier *)object;
+    verifier->Reset();
+}
+
 char* getDocumentRenderCommands(const void *object,
                         int canvasWidth,
                         int canvasHeight,

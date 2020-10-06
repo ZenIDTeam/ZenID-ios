@@ -31,6 +31,9 @@ void loadSelfie(const void *object, const char* modelPath);
 bool verifySelfie(const void *object, CMSampleBufferRef _mat, CSelfieInfo *selfie);
 bool verifySelfieImage(const void *object, CVPixelBufferRef _cvBuffer, CSelfieInfo *selfie);
 
+// Reset
+void selfieVerifierReset(const void *object);
+
 // Visualisation
 char* getSelfieRenderCommands(const void *object, int canvasWidth, int canvasHeight, CSelfieInfo *selfie);
 void setSelfieDebugInfo(const void *object, bool show);

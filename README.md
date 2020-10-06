@@ -131,7 +131,7 @@ Hologram result contains state of currently analysed image.
 `HologramResult.state`  can be `NoMatchFound`, `TiltLeft`, `RotateClockwise` etc. and finally  `Ok`
 
 Selfie detection result contains state of currently analysed image.
-`SelfieResult.state` can be `NoFaceFound` or `Ok`
+`SelfieResult.state` can be `NoFaceFound`, `Blurry` and finally `Ok`
 
 Face liveness detection result contains stage of currently analysed image.
 `FaceLivenessResult.stage` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Done`

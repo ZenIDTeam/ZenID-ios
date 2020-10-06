@@ -38,6 +38,9 @@ bool supportsHologram(const void *object);
 void beginHologramVerification(const void *object);
 void endHologramVerification(const void *object);
 
+// Reset
+void reset(const void *object);
+
 // Visualisation
 char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasHeight, CDocumentInfo *document);
 void setDocumentDebugInfo(const void *object, bool show);

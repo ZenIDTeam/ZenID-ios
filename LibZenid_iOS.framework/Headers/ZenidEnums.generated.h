@@ -86,6 +86,7 @@ enum class SelfieVerifierState : int
 {
 	Ok = 0,
 	NoFaceFound = 1,
+	Blurry = 2,
 };
 
 enum class HologramState : int

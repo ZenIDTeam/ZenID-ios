@@ -41,6 +41,10 @@ public class SelfieVerifier {
         return SelfieResult(selfieState: selfie.state)
     }
     
+    public func reset() {
+        RecogLib_iOS.selfieVerifierReset(cppObject)
+    }
+    
     public func getRenderCommands(canvasWidth: Int, canvasHeight: Int, orientation: UIInterfaceOrientation = .portrait) -> String? {
         var selfie = createSelfieInfo(orientation: orientation)
         let cString = RecogLib_iOS.getSelfieRenderCommands(cppObject, Int32(canvasWidth), Int32(canvasHeight), &selfie)

@@ -27,6 +27,7 @@ class SelfieVerifier
 	State GetState() const;
 	std::string GetRenderCommands(int width, int height, SupportedLanguages language) const;
 	void SetDebugVisualization(bool isEnabled);
+	void Reset();
 	~SelfieVerifier();
 	class Impl;
 

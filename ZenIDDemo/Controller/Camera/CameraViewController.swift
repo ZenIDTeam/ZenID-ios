@@ -207,11 +207,15 @@ public class CameraViewController: UIViewController {
         // Create verify object
         switch photoType {
         case .face:
-            // This will reset face liveness verifier
+            // Reset verifier
             self.faceLivenessVerifier.reset()
+            self.selfieVerifier.reset()
             break
             
         case .hologram:
+            // Reset verifier
+            self.documentVerifier.reset()
+            
             // This will setup document verifier to Czech ID / front side
             self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
             self.documentVerifier.country = RecogLib_iOS.Country.Cz
@@ -225,6 +229,9 @@ public class CameraViewController: UIViewController {
             break
             
         default:
+            // Reset verifier
+            self.documentVerifier.reset()
+            
             // This will setup document verifier to stop detect holograms
             self.documentVerifier.endHologramVerification()
             
@@ -446,7 +453,9 @@ public class CameraViewController: UIViewController {
                 self.previousSelfieResult = nil
                 self.previousHologramResult = nil
                 self.detectionRunning = true
+                self.documentVerifier.reset()
                 self.faceLivenessVerifier.reset()
+                self.selfieVerifier.reset()
             }
             present(preview, animated: true, completion: nil)
         }

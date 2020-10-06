@@ -29,6 +29,8 @@ const void * getFaceLivenessVerifier(const char* resourcesPath, const char* lbfM
 // Verifying faces
 bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector);
 bool verifyFaceLivenessImage(const void *object, CVPixelBufferRef _cvBuffer, CFaceLivenessInfo *faceDetector);
+
+// Reset
 void faceLivenessVerifierReset(const void *object);
 
 // Visualisation
