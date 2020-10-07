@@ -36,9 +36,13 @@
 		<data>
 		dzCrHAfClqJvmOOPevfw5mI+aJ4=
 		</data>
+		<key>Headers/magic_enum.hpp</key>
+		<data>
+		DXjecIth6RVb5I2g2jeNVwJWNzQ=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		l8T1kuQIEzREWQ0OegmeOJBJlH0=
+		fassEppSEcuFoWB2fHIJI07bsRA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -101,6 +105,13 @@
 			<key>hash2</key>
 			<data>
 			fD51gMk25tv82dij4Lorvn3ui0KKTtwK7Tni4ZCu5To=
+			</data>
+		</dict>
+		<key>Headers/magic_enum.hpp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EFy7GoWn9+9YC1mki/bEZvDux8cWkWvsE1l8ub93wZI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
