@@ -27,7 +27,9 @@ final class ResultCell: UITableViewCell {
     func configure(with item: InvestigateDataItem) {
         titleLabel.text = item.row.title
         valueLabel.text = item.value
-        contentView.backgroundColor = .white
+        
+        backgroundColor = .white
+        contentView.backgroundColor = .clear
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
