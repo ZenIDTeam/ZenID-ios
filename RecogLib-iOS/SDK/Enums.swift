@@ -173,14 +173,14 @@ extension HologramState: CustomStringConvertible {
     }
 }
 
-public enum FaceLivenessStage: Int {
+public enum FaceLivenessState: Int {
     case LookAtMe = 0
     case TurnHead = 1
     case Smile = 2
-    case Done = 3
+    case Ok = 3
 }
 
-extension FaceLivenessStage: CustomStringConvertible {
+extension FaceLivenessState: CustomStringConvertible {
     public var description: String {
         switch self {
         case .LookAtMe:
@@ -189,8 +189,8 @@ extension FaceLivenessStage: CustomStringConvertible {
             return "Turn head"
         case .Smile:
             return "Smile"
-        case .Done:
-            return "Done"
+        case .Ok:
+            return "Ok"
         }
     }
 }
@@ -199,6 +199,8 @@ public enum SelfieState: Int {
     case Ok = 0
     case NoFaceFound = 1
     case Blurry = 2
+    case Dark = 3
+    case ConfirmingFace = 4
 }
 
 extension SelfieState: CustomStringConvertible {
@@ -210,6 +212,10 @@ extension SelfieState: CustomStringConvertible {
             return "No face found"
         case .Blurry:
             return "Blurry"
+        case .Dark:
+            return "Dark"
+        case .ConfirmingFace:
+            return "Confirming face"
         }
     }
 }

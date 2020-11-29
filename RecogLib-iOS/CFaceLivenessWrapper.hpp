@@ -18,7 +18,7 @@ extern "C" {
 #endif
 
 struct CFaceLivenessInfo {
-    int stage, orientation, language;
+    int state, orientation, language;
 };
 
 typedef struct CFaceLivenessInfo CFaceLivenessInfo;

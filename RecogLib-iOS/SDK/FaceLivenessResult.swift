@@ -9,12 +9,12 @@
 import Foundation
 
 public struct FaceLivenessResult {
-    public var faceLivenessStage: FaceLivenessStage
+    public var faceLivenessState: FaceLivenessState
     
-    init?(faceLivenessStage: Int32) {
-        guard let faceLivenessStage = FaceLivenessStage(rawValue: Int(faceLivenessStage)) else {
+    init?(faceLivenessState: Int32) {
+        guard let faceLivenessState = FaceLivenessState(rawValue: Int(faceLivenessState)) else {
             return nil
         }
-        self.faceLivenessStage = faceLivenessStage
+        self.faceLivenessState = faceLivenessState
     }
 }

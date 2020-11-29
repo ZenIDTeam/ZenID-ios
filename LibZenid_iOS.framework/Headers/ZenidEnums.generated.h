@@ -26,7 +26,10 @@ enum class DocumentCodes : uint8_t
 	DE_IDC_2001 = 13,
 	HR_IDC_2013_15 = 14,
 	AT_IDE_2000 = 15,
+	HU_IDC_2000_01_12 = 16,
+	HU_IDC_2016 = 17,
 	AT_IDC_2002_05_10 = 18,
+	HU_ADD_2012 = 19,
 	AT_PAS_2006_14 = 20,
 	AT_DRV_2006 = 21,
 	AT_DRV_2013 = 22,
@@ -34,6 +37,8 @@ enum class DocumentCodes : uint8_t
 	CZ_RES_2006_T = 24,
 	CZ_RES_2006_07 = 25,
 	CZ_GUN_2014 = 26,
+	HU_PAS_2006_12 = 27,
+	HU_DRV_2012_13 = 28,
 };
 
 enum class PageCodes : uint8_t
@@ -87,6 +92,8 @@ enum class SelfieVerifierState : int
 	Ok = 0,
 	NoFaceFound = 1,
 	Blurry = 2,
+	Dark = 3,
+	ConfirmingFace = 4,
 };
 
 enum class HologramState : int
@@ -101,12 +108,12 @@ enum class HologramState : int
 	Ok = 7,
 };
 
-enum class FaceLivenessVerifierStage : int
+enum class FaceLivenessVerifierState : int
 {
 	LookAtMe = 0,
 	TurnHead = 1,
 	Smile = 2,
-	Done = 3,
+	Ok = 3,
 };
 
 }

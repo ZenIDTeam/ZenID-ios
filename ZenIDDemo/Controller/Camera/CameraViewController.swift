@@ -98,7 +98,7 @@ public class CameraViewController: UIViewController {
     private var detectionRunning = false;
     private var previousResult: DocumentState?
     private var previousHologramResult: HologramState?
-    private var previousFaceLivenessResult: FaceLivenessStage?
+    private var previousFaceLivenessResult: FaceLivenessState?
     private var previousSelfieResult: SelfieState?
     
     init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
@@ -380,11 +380,11 @@ public class CameraViewController: UIViewController {
             return
         }
         
-        guard unwrappedResult.faceLivenessStage == .Done, previousFaceLivenessResult != .Done else {
-            statusButton.setTitle(String(describing: unwrappedResult.faceLivenessStage), for: .normal)
+        guard unwrappedResult.faceLivenessState == .Ok, previousFaceLivenessResult != .Ok else {
+            statusButton.setTitle(String(describing: unwrappedResult.faceLivenessState), for: .normal)
             return
         }
-        previousFaceLivenessResult = unwrappedResult.faceLivenessStage
+        previousFaceLivenessResult = unwrappedResult.faceLivenessState
         
         guard detectionRunning else { return }
         detectionRunning = false

@@ -18,7 +18,7 @@ class Image;
 class FaceLivenessVerifier
 {
    public:
-	using Stage = FaceLivenessVerifierStage;
+	using State = FaceLivenessVerifierState;
 
 	explicit FaceLivenessVerifier(const char* resourcesPath);
 
@@ -26,16 +26,16 @@ class FaceLivenessVerifier
 	// lbfModelSize: Size of the lbfModelContents buffer in bytes.
 	FaceLivenessVerifier(const char* resourcesPath, const char* lbfModelContents, size_t lbfModelSize);
 
-	[[deprecated(
-	    "cv::Mat and OpenCV will be removed from the public interface. Use the overload taking Image instead.")]] void
-	ProcessFrame(const cv::Mat& frame);
+#ifndef NO_OPENCV
+	void ProcessFrame(const cv::Mat& frame);
+#endif
 
 	void ProcessFrame(const Image& frame);
 
-	Stage GetStage() const;
+	State GetStage() const;
 	void Reset();
 
-	std::string GetRenderCommands(const cv::Size& canvasSize, SupportedLanguages language);
+	std::string GetRenderCommands(int width, int height, SupportedLanguages language);
 	void SetDebugVisualization(bool isEnabled);
 
 	~FaceLivenessVerifier();

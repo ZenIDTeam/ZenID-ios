@@ -42,6 +42,15 @@ class Image
 
 	void Rotate(RotateFlags rotateFlags);
 
+	/**
+	 * \brief Crop an image using a rectangle. The origin is in the top-left.
+	 * \param x x coordinate of the top-left point in the cropped rectangle
+	 * \param y y coordinate of the top-left point in the cropped rectangle
+	 * \param width width of the cropped rectangle
+	 * \param height height of the cropped rectangle
+	 */
+	void Crop(int x, int y, int width, int height);
+
 	void* GetData() const;
 	int GetWidth() const;
 	int GetHeight() const;

@@ -32,13 +32,13 @@ public class FaceLivenessVerifier {
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
         var face = createFaceLivenessInfo(orientation: orientation)
         RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
-        return FaceLivenessResult(faceLivenessStage: face.stage)
+        return FaceLivenessResult(faceLivenessState: face.state)
     }
     
     public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
         var face = createFaceLivenessInfo(orientation: orientation)
         RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
-        return FaceLivenessResult(faceLivenessStage: face.stage)
+        return FaceLivenessResult(faceLivenessState: face.state)
     }
     
     public func reset() {
@@ -87,7 +87,7 @@ public class FaceLivenessVerifier {
     
     private func createFaceLivenessInfo(orientation: UIInterfaceOrientation) -> CFaceLivenessInfo {
         return CFaceLivenessInfo(
-            stage: -1,
+            state: -1,
             orientation: Int32(orientation.rawValue),
             language: Int32(language.rawValue)
         )

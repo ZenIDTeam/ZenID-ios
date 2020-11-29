@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
-		nIFKZyRdjS8JqhzAzTVNm7CDJLc=
+		wbJbYIEhPVoFdR+JL2J9lW1CYxw=
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
-		0cXwn12CojtVZi5NL6SIlLCTb5o=
+		1KuLk9Hx1yQG7OaZzhtgzK4Fsy8=
 		</data>
 		<key>Headers/RecogLibC.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		pv01+PhXEpb3d/YMu7Vzdkoa2lg=
+		fXcJRjwB/jvmZzfLd2Q7r4i5OZ8=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fassEppSEcuFoWB2fHIJI07bsRA=
+		6CkTXFAJHYiq9aRMF0S7u8ay0g0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -62,14 +62,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6iRuUYgkky/F9cIqzIiFu+zp/qrxVJ+Ang1HBH/ETxg=
+			rO3QaRbf8Qe2p3cJMtx3bbOzhpcY+i25YKSWbcsAEdA=
 			</data>
 		</dict>
 		<key>Headers/Image.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JeMLCN4NsVu/kh237P2rPu0kk2ZBXzU1IY5v5TKTO9A=
+			Hc4iul+2vnM9Ja6yEpCrZ2qFB+3/8/Z/QDuHtFStOrU=
 			</data>
 		</dict>
 		<key>Headers/RecogLibC.h</key>
@@ -97,7 +97,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KMEzYuJaN4xVj05/wG0KyzQRt7zCmFfViNzey4viO0Y=
+			BYW45ABwe/8wgIwxVqu/v6dwJhFZO1FtcK3bHKjEqyM=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>

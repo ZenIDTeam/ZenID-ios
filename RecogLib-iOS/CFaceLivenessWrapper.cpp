@@ -56,14 +56,14 @@ bool verifyFaceLivenessImage(const void *object,
     
     CVPixelBufferUnlockBaseAddress(_cvBuffer, 0 );
     
-    const auto stage = verifier->GetStage();
+    const auto state = verifier->GetStage();
     
-    if (stage != RecogLibC::FaceLivenessVerifierStage::Done) {
-        face->stage = static_cast<int>(stage);
+    if (state != RecogLibC::FaceLivenessVerifierState::Ok) {
+        face->state = static_cast<int>(state);
         return false;
     }
 
-    face->stage = static_cast<int>(stage);
+    face->state = static_cast<int>(state);
     return true;
 }
 
@@ -82,8 +82,7 @@ char* getFaceLivenessRenderCommands(const void *object,
     
     auto language = static_cast<SupportedLanguages>(face->language);
     
-    auto canvasSize = cv::Size(canvasWidth, canvasHeight);
-    std::string renderString = verifier->GetRenderCommands(canvasSize, language);
+    std::string renderString = verifier->GetRenderCommands(canvasWidth, canvasHeight, language);
     return getString(renderString);
 }
 
