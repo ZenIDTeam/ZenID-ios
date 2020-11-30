@@ -1,0 +1,9 @@
+## OS X Finder
+.DS_Store
+
+# Carthage
+Carthage/Build
+*.xcuserstate
+
+# RecogLib_iOS build output (referenced framework in demo app)
+RecogLib_iOS.framework

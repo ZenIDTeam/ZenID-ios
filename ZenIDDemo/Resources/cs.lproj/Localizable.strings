@@ -1,0 +1,99 @@
+/* 
+  Localizable.strings
+  ZenIDDemo
+
+  Created by František Kratochvíl on 01/02/2019.
+  Copyright © 2019 Trask, a.s. All rights reserved.
+*/
+
+"msg-scan-front"  = "Vyfoťte přední stranu.";
+"msg-scan-back"   = "Vyfoťte zadní stranu.";
+"msg-scan-selfie" = "Vyfoťte se.";
+
+"msg-sample-success" = "Fotografie úspěšně zpracována.";
+"msg-unreadable-picture" = "Nečitelná fotografie.";
+"msg-unknown-estimated-document-type" = "Neznámý typ dokumentu.";
+"msg-document-types-dont-match" = "Na fotce není očekávaný dokument.";
+"msg-incorrectly-recognized-as-front" = "Očekáváno foto přední strany.";
+"msg-incorrectly-recognized-as-back" = "Očekáváno foto zadní stranyt.";
+"msg-incorrectly-recognized-as-selfie" = "Očekáváno selfie.";
+
+"msg-network-error" = "Došlo k chybě při komunikaci se serverem.";
+"msg-connection-error" = "Nelze navázat spojení se serverem.";
+
+"title-warning" = "Varování";
+
+"title-first-name" = "Jméno";
+"title-last-name" = "Příjmení";
+"title-birth-date" = "Datum narození";
+"title-document-number" = "Číslo dokumentu";
+"title-issue-date" = "Datum vydání";
+"title-expiry-date" = "Datum expirace";
+"title-nationality" = "Národnost";
+"title-address" = "Adresa";
+"title-authority" = "Autorita";
+
+"title-db-check" = "Kontrola v databázi";
+"title-ministry-check" = "Kontrola v databázi ministerstva vnitra";
+"title-insolvency-check" = "Kontrola insolvence";
+"title-selfie-check" = "Porovnání dokumentu a selfie";
+
+"btn-register" = "Registrovat";
+"msg-registering" = "Registrace odeslána.";
+"msg-verification-in-progress" = "Probíhá zpracování...";
+
+// Login
+"login-qr-cancel" = "Zrušit";
+"login-qr-note" = "Naskenujte QR kód pro přihlášení";
+
+// Choice
+"title-select" = "Zvolte typ dokladu";
+"title-success" = "Dokument byl úspěšně odeslán";
+
+// Buttons
+"btn-save" = "Odeslat";
+"btn-skip" = "Přeskočit";
+"btn-contact" = "Kontaktujte nás";
+"btn-start-using" = "Začít používat";
+"btn-app-info" = "Výhody aplikace";
+"btn-id" = "Občanský průkaz";
+"btn-driving-licence" = "Řidičský průkaz";
+"btn-passport" = "Cestovní pas";
+"btn-other-document" = "Obecný dokument";
+"btn-hologram" = "Hologram";
+"btn-face" = "Selfie";
+"btn-country" = "Země";
+"btn-logout" = "Odhlásit";
+
+// Walkthrough
+"walkthrough-title-0" = "Údaje z dokladu";
+"walkthrough-description-0" = "Zajišťuje převod dat z obrázku na text, aby váš klient nemusel informace ručně opisovat.";
+"walkthrough-title-1" = "Detekce hologramů";
+"walkthrough-description-1" = "Kontroly neporušenosti bezpečnostních prvků předložených dokladů a ověření jejich pravosti.";
+
+// Busy
+"title-busy" = "Zpracovávám údaje";
+
+// Scanning
+"message-take-picture-selfie" = "Vyfoťte se v tomto rámečku";
+"message-take-picture" = "Vyfoťte doklad v tomto rámečku";
+"camera-access-error" = "Přístup ku kamere byl zamítnut";
+"camera-not-authorized" = "Kamera není authorizována, změňte to v nastavení";
+"camera-point-first" = "Namířte kameru na dokument";
+
+// Error
+"title-error" = "Chyba";
+"btn-ok" = "Ok";
+
+// Preview
+"title-preview" = "Náhled fotografie";
+
+// Recoglib errors
+"document.state.ok" = "Ok ";
+"document.state.align.card" = "Zarovnejte průkaz v rámečku";
+"document.state.blurry" = "Fotka je rozmazaná";
+"document.state.hold.steady" = "Držte ješte chvíli bez pohybu";
+"document.state.no.match.found" = "Žádna shoda nenalezena";
+"document.state.reflection.present" = "Příliš mnoho odlesků";
+"document.state.hologram.error" = "Chybný hologram";
+"document.state.dark" = "Fotka je příliš tmavá";
