@@ -352,7 +352,7 @@ public class CameraViewController: UIViewController {
         detectionRunning = false
         
         // return preview image
-        returnImage(buffer)
+        returnImage(buffer, ImageFlip.fromLandScape)
     }
     
     private func updateView(with result: HologramResult?, buffer: CVPixelBuffer) {
@@ -390,7 +390,7 @@ public class CameraViewController: UIViewController {
         detectionRunning = false
         
         // return preview image
-        returnImage(buffer, flipped: true)
+        returnImage(buffer, ImageFlip.fromPortrait)
     }
     
     private func updateView(with result: SelfieResult?, buffer: CVPixelBuffer) {
@@ -409,7 +409,7 @@ public class CameraViewController: UIViewController {
         detectionRunning = false
         
         // return preview image
-        returnImage(buffer, flipped: true)
+        returnImage(buffer, ImageFlip.fromPortrait)
     }
 
     @objc private func capture() {
@@ -429,14 +429,12 @@ public class CameraViewController: UIViewController {
         delegate?.didFinishPDF()
     }
     
-    private func returnImage(_ buffer: CVPixelBuffer, flipped: Bool = false) {
+    private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip) {
         // Get targetting margins
         let width = CVPixelBufferGetWidth(buffer)
         let height = CVPixelBufferGetHeight(buffer)
         let cropRect = getCropRect(width: width, height: height, targetRect: targetFrame)
-        let image = flipped ?
-            UIImage(pixelBuffer: buffer, crop: cropRect)?.flipped :
-            UIImage(pixelBuffer: buffer, crop: cropRect)
+        let image = UIImage(pixelBuffer: buffer, crop: cropRect)?.flip(flipMethod)
         let data = image?.jpegData(compressionQuality: 0.5)
         returnImage(data)
     }

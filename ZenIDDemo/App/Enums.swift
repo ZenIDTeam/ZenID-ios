@@ -151,3 +151,9 @@ public enum FaceMode: String {
     case faceLiveness = "FaceLiveness"
     case selfie = "Selfie"
 }
+
+public enum ImageFlip: Int {
+    case none
+    case fromLandScape
+    case fromPortrait
+}

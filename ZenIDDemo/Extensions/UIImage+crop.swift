@@ -76,11 +76,18 @@ extension UIImage {
                        orientation: imageOrientation)
     }
     
-    var flipped: UIImage {
+    func flip(_ flipMethod: ImageFlip) -> UIImage {
         guard let cgImage = cgImage else {
             return self
         }
-
-        return UIImage(cgImage: cgImage, scale: scale, orientation: .leftMirrored)
+        
+        switch flipMethod {
+        case .fromPortrait:
+            return UIImage(cgImage: cgImage, scale: scale, orientation: .leftMirrored)
+        case .fromLandScape:
+            return UIImage(cgImage: cgImage, scale: scale, orientation: .right)
+        default:
+            return self
+        }
     }
 }
