@@ -164,16 +164,6 @@
 		6F2D53702469A937001C3544 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		6F2D53722469B24B001C3544 /* CredentialsQrCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsQrCode.swift; sourceTree = "<group>"; };
 		6F2D53752469D242001C3544 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
-		6F2D53782469D46B001C3544 /* driving-license.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "driving-license.jpg"; sourceTree = "<group>"; };
-		6F2D53792469D46B001C3544 /* id-card-sk-back-side.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "id-card-sk-back-side.jpg"; sourceTree = "<group>"; };
-		6F2D537A2469D46B001C3544 /* id-card-back-side.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "id-card-back-side.jpg"; sourceTree = "<group>"; };
-		6F2D537B2469D46B001C3544 /* id-card-sk-front-side.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "id-card-sk-front-side.jpg"; sourceTree = "<group>"; };
-		6F2D537C2469D46C001C3544 /* id-card-front-side.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "id-card-front-side.jpg"; sourceTree = "<group>"; };
-		6F2D537D2469D46C001C3544 /* driving_license_sk_2015.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = driving_license_sk_2015.jpg; sourceTree = "<group>"; };
-		6F2D537E2469D46C001C3544 /* driving_license_sk_2007.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = driving_license_sk_2007.jpg; sourceTree = "<group>"; };
-		6F2D537F2469D46C001C3544 /* selfie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = selfie.jpg; sourceTree = "<group>"; };
-		6F2D53802469D46C001C3544 /* zenid-login-qrcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zenid-login-qrcode.png"; sourceTree = "<group>"; };
-		6F2D53812469D46C001C3544 /* zenid-login-qrcode.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "zenid-login-qrcode.txt"; sourceTree = "<group>"; };
 		6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		6F64016324C19E95004A8982 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
@@ -400,23 +390,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		6F2D53772469D444001C3544 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6F2D537E2469D46C001C3544 /* driving_license_sk_2007.jpg */,
-				6F2D537D2469D46C001C3544 /* driving_license_sk_2015.jpg */,
-				6F2D53782469D46B001C3544 /* driving-license.jpg */,
-				6F2D537A2469D46B001C3544 /* id-card-back-side.jpg */,
-				6F2D537C2469D46C001C3544 /* id-card-front-side.jpg */,
-				6F2D53792469D46B001C3544 /* id-card-sk-back-side.jpg */,
-				6F2D537B2469D46B001C3544 /* id-card-sk-front-side.jpg */,
-				6F2D537F2469D46C001C3544 /* selfie.jpg */,
-				6F2D53802469D46C001C3544 /* zenid-login-qrcode.png */,
-				6F2D53812469D46C001C3544 /* zenid-login-qrcode.txt */,
-			);
-			path = "Support Files";
-			sourceTree = "<group>";
-		};
 		6FE107B024B260CC00610F8D /* AV */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,7 +411,6 @@
 		D2CB350F22BA730A00453DB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6F2D53772469D444001C3544 /* Support Files */,
 				012F7B6C2292FB2400B0BBB6 /* Fonts */,
 				0134752621ECB3FD004EE4E5 /* Assets.xcassets */,
 				012F7B472285560900B0BBB6 /* Colors.xcassets */,
