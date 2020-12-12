@@ -51,6 +51,13 @@ class Image
 	 */
 	void Crop(int x, int y, int width, int height);
 
+	/**
+	 * \brief Crop image to the viewport aspect ratio.
+	 * \param viewportHeight 
+	 * \param viewportWidth 
+	 */
+	void CenterCrop(int viewportWidth, int viewportHeight);
+
 	void* GetData() const;
 	int GetWidth() const;
 	int GetHeight() const;

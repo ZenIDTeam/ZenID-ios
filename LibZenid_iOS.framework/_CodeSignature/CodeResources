@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
-		1KuLk9Hx1yQG7OaZzhtgzK4Fsy8=
+		YnMSBVp7eywMiIGddP/nT06mtF4=
 		</data>
 		<key>Headers/RecogLibC.h</key>
 		<data>
@@ -30,19 +30,15 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		fXcJRjwB/jvmZzfLd2Q7r4i5OZ8=
+		B8wPKsKSwbm/diFIoIN3R5DutdY=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
 		dzCrHAfClqJvmOOPevfw5mI+aJ4=
 		</data>
-		<key>Headers/magic_enum.hpp</key>
-		<data>
-		DXjecIth6RVb5I2g2jeNVwJWNzQ=
-		</data>
 		<key>Info.plist</key>
 		<data>
-		6CkTXFAJHYiq9aRMF0S7u8ay0g0=
+		MOy/75jrmtsbvtfemz9DwiSx0xY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -69,7 +65,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Hc4iul+2vnM9Ja6yEpCrZ2qFB+3/8/Z/QDuHtFStOrU=
+			Bs0snMhm4wsyJnIruPZk82iJQNior7FvogckduHvPYs=
 			</data>
 		</dict>
 		<key>Headers/RecogLibC.h</key>
@@ -97,7 +93,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BYW45ABwe/8wgIwxVqu/v6dwJhFZO1FtcK3bHKjEqyM=
+			6INIJSkpYo2N0kY5+xZJbr2IOp6Mf67/Glt4hObIFMc=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>
@@ -105,13 +101,6 @@
 			<key>hash2</key>
 			<data>
 			fD51gMk25tv82dij4Lorvn3ui0KKTtwK7Tni4ZCu5To=
-			</data>
-		</dict>
-		<key>Headers/magic_enum.hpp</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			EFy7GoWn9+9YC1mki/bEZvDux8cWkWvsE1l8ub93wZI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

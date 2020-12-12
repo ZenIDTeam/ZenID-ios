@@ -39,6 +39,7 @@ enum class DocumentCodes : uint8_t
 	CZ_GUN_2014 = 26,
 	HU_PAS_2006_12 = 27,
 	HU_DRV_2012_13 = 28,
+	HU_DRV_2012_B = 29,
 };
 
 enum class PageCodes : uint8_t
@@ -56,6 +57,10 @@ enum class Country : uint8_t
 	Pl = 4,
 	De = 5,
 	Hr = 6,
+	Ro = 7,
+	Ru = 8,
+	Ua = 9,
+	It = 10,
 };
 
 enum class DocumentRole : uint8_t
