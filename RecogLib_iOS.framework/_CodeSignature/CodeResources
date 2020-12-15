@@ -6,15 +6,15 @@
 	<dict>
 		<key>Frameworks/LibZenid_iOS.framework/Info.plist</key>
 		<data>
-		H+XDux2My7NCj+ZJUlwfxZ5gv/4=
+		MOy/75jrmtsbvtfemz9DwiSx0xY=
 		</data>
 		<key>Frameworks/LibZenid_iOS.framework/LibZenid_iOS</key>
 		<data>
-		Oa2staw7eyRX/U9yQ/OeNSHyT+I=
+		NrSo8ozIEYGpB2S2xc6LyDWeQwI=
 		</data>
 		<key>Frameworks/LibZenid_iOS.framework/_CodeSignature/CodeResources</key>
 		<data>
-		5Gbse+xVBb/YbbOtvQlmg0oOK04=
+		bMp6x7At4jBPmtH5qbe1QxXvCbM=
 		</data>
 		<key>Headers/CDocumentWrapper.hpp</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/RecogLib_iOS-Swift.h</key>
 		<data>
-		hSHuf1daN4KfQuo9/nZ5bUTT1Fk=
+		LsNQ/r9tgxVJyNzYaqb3TxiuoNU=
 		</data>
 		<key>Headers/RecogLib_iOS.h</key>
 		<data>
@@ -42,31 +42,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		P0/fxM5BArAceQsjyr4pf6/UAZ0=
+		XKR4wY5Aw9OttfgP9SeLqcSQvYw=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		nD5V8QQ/I9Hmcf+7AsN2rcqj+eo=
+		t6nYqEZKbp/1epL3FD73foDJw4Y=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		nD5V8QQ/I9Hmcf+7AsN2rcqj+eo=
+		t6nYqEZKbp/1epL3FD73foDJw4Y=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		BjbkbpwJR/BDCar3aJJQkLiLbzc=
+		BaUzQu88EBHLVdoL1MU6yyNUvSw=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		iyBUcHwV7ieHqlWLD6DKE/OA6AM=
+		FLaYrnRXxUPK9TIjPx9Kj4xRr2I=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		BjbkbpwJR/BDCar3aJJQkLiLbzc=
+		BaUzQu88EBHLVdoL1MU6yyNUvSw=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		iyBUcHwV7ieHqlWLD6DKE/OA6AM=
+		FLaYrnRXxUPK9TIjPx9Kj4xRr2I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -175,21 +175,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IGeBfCfJ69TMLUSODSgfx/leeD6QGaYelUtQSqjZjxo=
+			247yVMqqerISi8SNWpq/A6aQUIPXEE+hZPklTPPsLr8=
 			</data>
 		</dict>
 		<key>Frameworks/LibZenid_iOS.framework/LibZenid_iOS</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			R/5KmZ1xYOeE+mW86+anMUAUmeB1ssQ+zQTMu68Bo5Q=
+			ZPzixYWSWHAL8FjUwssglpdX8t1V9WEVkqO9exJK4bo=
 			</data>
 		</dict>
 		<key>Frameworks/LibZenid_iOS.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XS8SBiHCPBBLopJ8xzOpMxEH89rDc+WuLEfV4lKveME=
+			H0m/ek7NEvkQNfJmTKbwa/H2dmNeXSIVNX8gE5BZTqs=
 			</data>
 		</dict>
 		<key>Headers/CDocumentWrapper.hpp</key>
@@ -224,7 +224,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			htNnoTeEUpccB6zmjZpn8D3JCl/2HHgy25ZRfqm4Fys=
+			i5iOp5On7nGiq/z8HVl+Ol4BX9eNx3ozFZuCctknGwY=
 			</data>
 		</dict>
 		<key>Headers/RecogLib_iOS.h</key>
@@ -238,42 +238,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			apPMKFZWB+st9wPn1OFwAtt4oeUSiW2LIMVhV8/FbbU=
+			am9/SWX+GnvY6wN67cbosn4bQnDQXPZMna28wlVsHRQ=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			apPMKFZWB+st9wPn1OFwAtt4oeUSiW2LIMVhV8/FbbU=
+			am9/SWX+GnvY6wN67cbosn4bQnDQXPZMna28wlVsHRQ=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zSRsfm4B0G3+cKt4e1J2KUashw73BRttuia77acL9iA=
+			lYnjyqdnmCSY23AptzbtXFrHNzJgGIGKmB3JVeXd9Gg=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z1JNOkhBoNYgYUXPbBsCu3fCS4o/onqUxl5xjtVtnc4=
+			0iWXslAU7x/BxpAq3gUBkbsM3Aw8x8A6nf1viziuVws=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zSRsfm4B0G3+cKt4e1J2KUashw73BRttuia77acL9iA=
+			lYnjyqdnmCSY23AptzbtXFrHNzJgGIGKmB3JVeXd9Gg=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z1JNOkhBoNYgYUXPbBsCu3fCS4o/onqUxl5xjtVtnc4=
+			0iWXslAU7x/BxpAq3gUBkbsM3Aw8x8A6nf1viziuVws=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
