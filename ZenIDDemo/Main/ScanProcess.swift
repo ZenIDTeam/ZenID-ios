@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RecogLib_iOS
 
 /// ScanProcess represents the process of scanning a document. It handles the necessary network requests and validates the scanned document images.
 final class ScanProcess {

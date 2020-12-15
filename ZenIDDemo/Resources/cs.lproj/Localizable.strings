@@ -62,6 +62,7 @@
 "btn-id" = "Občanský průkaz";
 "btn-driving-licence" = "Řidičský průkaz";
 "btn-passport" = "Cestovní pas";
+"btn-unspecified-document" = "Nespecifikovaný document";
 "btn-other-document" = "Obecný dokument";
 "btn-hologram" = "Hologram";
 "btn-face" = "Selfie";

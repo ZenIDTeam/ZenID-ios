@@ -62,6 +62,7 @@
 "btn-id" = "ID";
 "btn-driving-licence" = "Driving license";
 "btn-passport" = "Passport";
+"btn-unspecified-document" = "Unspecified document";
 "btn-other-document" = "Universal document";
 "btn-hologram" = "Hologram";
 "btn-face" = "Selfie";

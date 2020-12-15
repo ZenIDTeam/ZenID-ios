@@ -9,23 +9,19 @@
 import Foundation
 
 public struct DocumentResult {
-    public var role: DocumentRole
-    public var country: Country
-    public var code: DocumentCode?
-    public var page: PageCode
     public var state: DocumentState
-    
+    public var role: DocumentRole?
+    public var country: Country?
+    public var code: DocumentCode?
+    public var page: PageCode?
+        
     init?(document: CDocumentInfo) {
-        guard let role = DocumentRole(rawValue: Int(document.role)),
-            let country = Country(rawValue: Int(document.country)),
-            let page = PageCode(rawValue: Int(document.page)),
-            let state = DocumentState(rawValue: Int(document.state)) else {
-            return nil
-        }
-        self.page = page
-        self.role = role
+        guard let state = DocumentState(rawValue: Int(document.state)) else { return nil }
+                
+        self.page = PageCode(rawValue: Int(document.page))
+        self.role = DocumentRole(rawValue: Int(document.role))
         self.code = DocumentCode(rawValue: Int(document.code))
-        self.country = country
+        self.country = Country(rawValue: Int(document.country))
         self.state = state
     }
 }

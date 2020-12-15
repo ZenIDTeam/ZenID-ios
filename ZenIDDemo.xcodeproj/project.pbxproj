@@ -40,8 +40,6 @@
 		0134756721F75C9C004EE4E5 /* ImageInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134756621F75C9C004EE4E5 /* ImageInput.swift */; };
 		0134756921FB538D004EE4E5 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134756821FB538D004EE4E5 /* Dispatcher.swift */; };
 		0140263D22B3A76300CF60AD /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140263C22B3A76300CF60AD /* ResultsViewModel.swift */; };
-		0141C02523A2A14400566078 /* LibZenid_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0141C02323A2A13200566078 /* LibZenid_iOS.framework */; };
-		0141C02623A2AE8000566078 /* LibZenid_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0141C02323A2A13200566078 /* LibZenid_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0141C02823A38AAF00566078 /* SelectCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141C02723A38AAF00566078 /* SelectCountryView.swift */; };
 		0141C02C23A78FDA00566078 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141C02B23A78FDA00566078 /* Renderable.swift */; };
 		0141C02E23A7917B00566078 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141C02D23A7917B00566078 /* Line.swift */; };
@@ -68,6 +66,10 @@
 		6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EEF1E24C4E62A00208223 /* Torch.swift */; };
 		6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */; };
 		6FAE478A2520B6EE00A92876 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47892520B6EE00A92876 /* Ellipse.swift */; };
+		6FAFA1CF2588E7A3008BD04B /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */; };
+		6FAFA1D02588E7A3008BD04B /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FAFA1D22588E7A6008BD04B /* LibZenid_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0141C02323A2A13200566078 /* LibZenid_iOS.framework */; };
+		6FAFA1D32588E7A6008BD04B /* LibZenid_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0141C02323A2A13200566078 /* LibZenid_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */; };
 		6FE107B224B260F900610F8D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B124B260F900610F8D /* VideoWriter.swift */; };
 		6FE107B424B26FC800610F8D /* VideoWriterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */; };
@@ -88,20 +90,18 @@
 		D2CB352522BB7BA900453DB8 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352422BB7BA900453DB8 /* Responses.swift */; };
 		D2CB352722BB84CA00453DB8 /* DispatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352622BB84CA00453DB8 /* DispatchError.swift */; };
 		D2CB352922BB84F700453DB8 /* DispatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352822BB84F700453DB8 /* DispatchResult.swift */; };
-		D2F5A3C422CA1264000A293A /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */; };
-		D2F5A3C522CA1264000A293A /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2F5A3C722CA2B8B000A293A /* CMSampleBuffer+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5A3C622CA2B8B000A293A /* CMSampleBuffer+UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0134753A21ECC379004EE4E5 /* Embed Frameworks */ = {
+		6FAFA1D12588E7A3008BD04B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0141C02623A2AE8000566078 /* LibZenid_iOS.framework in Embed Frameworks */,
-				D2F5A3C522CA1264000A293A /* RecogLib_iOS.framework in Embed Frameworks */,
+				6FAFA1D02588E7A3008BD04B /* RecogLib_iOS.framework in Embed Frameworks */,
+				6FAFA1D32588E7A6008BD04B /* LibZenid_iOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,9 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F01896C24C70C4400A2A2A3 /* AppCenterAnalytics in Frameworks */,
-				0141C02523A2A14400566078 /* LibZenid_iOS.framework in Frameworks */,
+				6FAFA1D22588E7A6008BD04B /* LibZenid_iOS.framework in Frameworks */,
 				6F01896A24C70C4400A2A2A3 /* AppCenterCrashes in Frameworks */,
-				D2F5A3C422CA1264000A293A /* RecogLib_iOS.framework in Frameworks */,
+				6FAFA1CF2588E7A3008BD04B /* RecogLib_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,8 +461,7 @@
 				0134751821ECB3FB004EE4E5 /* Sources */,
 				0134751921ECB3FB004EE4E5 /* Frameworks */,
 				0134751A21ECB3FB004EE4E5 /* Resources */,
-				0134753A21ECC379004EE4E5 /* Embed Frameworks */,
-				6F556FFF2573D0D400E7C0B8 /* Remove unused architectures */,
+				6FAFA1D12588E7A3008BD04B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -535,27 +534,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6F556FFF2573D0D400E7C0B8 /* Remove unused architectures */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Remove unused architectures";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\n    FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\n    FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\n    echo \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\n    EXTRACTED_ARCHS=()\n\n    for ARCH in $ARCHS\n    do\n        echo \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\n        lipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\n        EXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\n    done\n\n    echo \"Merging extracted architectures: ${ARCHS}\"\n    lipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\n    rm \"${EXTRACTED_ARCHS[@]}\"\n\n    echo \"Replacing original executable with thinned version\"\n    rm \"$FRAMEWORK_EXECUTABLE_PATH\"\n    mv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0134751821ECB3FB004EE4E5 /* Sources */ = {
@@ -790,7 +768,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.25.2;
+				MARKETING_VERSION = 1.26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -819,7 +797,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.25.2;
+				MARKETING_VERSION = 1.26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";

@@ -39,6 +39,7 @@ public enum DocumentType: String {
     case idCard = "Idc"
     case drivingLicence = "Drv"
     case passport = "Pas"
+    case unspecifiedDocument = "Unsp"
     case otherDocument = "Cont"
     case hologram = "Holo"
     case face = "Self"
@@ -54,6 +55,8 @@ extension DocumentType {
                 return "btn-driving-licence".localized.uppercased()
             case .passport:
                 return "btn-passport".localized.uppercased()
+            case .unspecifiedDocument:
+                return "btn-unspecified-document".localized.uppercased()
             case .otherDocument:
                 return "btn-other-document".localized.uppercased()
             case .hologram:
@@ -73,6 +76,8 @@ extension DocumentType {
                 return [.front]
             case .passport:
                 return [.front]
+            case .unspecifiedDocument:
+                return (0...0).map { _ in .front }
             case .otherDocument:
                 return (0...30).map { _ in .front }
             case .hologram:
@@ -92,6 +97,8 @@ extension DocumentType {
                 return #imageLiteral(resourceName: "Kruh-RP")
             case .passport:
                 return #imageLiteral(resourceName: "Kruh-CP")
+            case .unspecifiedDocument:
+                return #imageLiteral(resourceName: "OK button@2x.png")
             case .otherDocument:
                 return #imageLiteral(resourceName: "OK button@2x.png")
             case .hologram:

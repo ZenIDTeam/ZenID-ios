@@ -1,8 +1,12 @@
 # Change Log
 
 
+## 1.26.0 - 2020-12-15
+* Ability to scan an unspecified document in SDK
+* Updated for Xcpde 12.3. / Swift 5.3.2
+
 ## 1.25.2 - 2020-12-12
-* Updated LibZenid 0.25.2 -  includes an improved blur detector. No change needed for consumers of the library.
+* Updated LibZenid 0.25.2 -  includes an improved blur detector. No change needed for consumers of the library
 
 
 ## 1.25.1 - 2020-11-30

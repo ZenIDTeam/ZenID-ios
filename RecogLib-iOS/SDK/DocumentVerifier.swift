@@ -15,10 +15,11 @@ public class DocumentVerifier {
     private let modelsRelativePath = "documents"
     private let modelPrefix = "recoglibc"
     private let modelSuffix = "bin"
-
-    public var documentRole: DocumentRole
-    public var country: Country
-    public var page: PageCode
+    
+    public var documentRole: DocumentRole?
+    public var country: Country?
+    public var page: PageCode?
+    public var code: DocumentCode?
     public var language: SupportedLanguages
     
     public var showDebugInfo: Bool = false {
@@ -27,10 +28,11 @@ public class DocumentVerifier {
         }
     }
 
-    public init(role: DocumentRole, country: Country, page: PageCode, language: SupportedLanguages) {
+    public init(role: DocumentRole?, country: Country?, page: PageCode?, code: DocumentCode?, language: SupportedLanguages) {
         self.documentRole = role
         self.country = country
         self.page = page
+        self.code = code
         self.language = language
         
         self.cppObject = getDocumentVerifier()
@@ -96,10 +98,10 @@ public class DocumentVerifier {
     private func createDocumentInfo(orientation: UIInterfaceOrientation) -> CDocumentInfo {
         return CDocumentInfo(
             language: Int32(language.rawValue),
-            role: Int32(documentRole.rawValue),
-            country: Int32(country.rawValue),
-            code: -1,
-            page: Int32(page.rawValue),
+            role: documentRole == nil ? -1 : Int32(documentRole!.rawValue),
+            country: country == nil ? -1 : Int32(country!.rawValue),
+            code: code == nil ? -1 : Int32(code!.rawValue),
+            page: page == nil ? -1 : Int32(page!.rawValue),
             state: -1,
             hologramState: -1,
             orientation: Int32(orientation.rawValue)

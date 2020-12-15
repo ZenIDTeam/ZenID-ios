@@ -12,6 +12,7 @@
 #include "opencv2/opencv.hpp"
 #include <CoreMedia/CoreMedia.h>
 #include <string>
+#include <memory>
 
 using namespace RecogLibC;
 
@@ -25,7 +26,8 @@ static void processFrame(const void *object,
     auto documentRole = static_cast<DocumentRole>(document->role);
     auto country = static_cast<Country>(document->country);
     auto pageCode = static_cast<PageCodes>(document->page);
-
+    auto documentCode = static_cast<DocumentCodes>(document->code);
+    
     CVPixelBufferLockBaseAddress(_cvBuffer, 0);
     const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
     const int height = (int)CVPixelBufferGetHeight(_cvBuffer);
@@ -38,12 +40,12 @@ static void processFrame(const void *object,
     
     void *data = CVPixelBufferGetBaseAddress(_cvBuffer);
     Image image(data, widht, height, ImageFormat::BGRA);
-    
+ 
     verifier->ProcessFrame(image,
-                           &documentRole,
-                           &country,
-                           &pageCode,
-                           nullptr);
+                           document->role < 0 ? nullptr : &documentRole,
+                           document->page < 0 ? nullptr : &country,
+                           document->country < 0 ? nullptr : &pageCode,
+                           document->code < 0 ? nullptr : &documentCode);
     
     CVPixelBufferUnlockBaseAddress(_cvBuffer, 0);
 }

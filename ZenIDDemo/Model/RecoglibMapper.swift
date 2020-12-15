@@ -19,6 +19,8 @@ final class RecoglibMapper {
             return DocumentRole.Drv
         case .passport:
             return DocumentRole.Pas
+        case .unspecifiedDocument:
+            return nil
         case .otherDocument:
             return nil
         case .hologram:

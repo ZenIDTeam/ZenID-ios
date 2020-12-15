@@ -20,6 +20,7 @@ final class ChoiceViewController: UIViewController {
     private let idButton = Buttons.id
     private let drivingLicenceButton = Buttons.drivingLicence
     private let passportButton = Buttons.passport
+    private let unspecifiedDocumentButton = Buttons.unspecifiedDocument
     private let otherDocumentButton = Buttons.otherDocument
     private let hologramButton = Buttons.hologram
     private let faceButton = Buttons.face
@@ -28,6 +29,7 @@ final class ChoiceViewController: UIViewController {
         idButton,
         drivingLicenceButton,
         passportButton,
+        unspecifiedDocumentButton,
         otherDocumentButton,
         hologramButton,
         //faceButton
@@ -212,6 +214,8 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.drivingLicence)
             case self.passportButton:
                 self.startProcess(.passport)
+            case self.unspecifiedDocumentButton:
+                self.startProcess(.unspecifiedDocument)
             case self.otherDocumentButton:
                 self.startProcess(.otherDocument)
             case self.hologramButton:

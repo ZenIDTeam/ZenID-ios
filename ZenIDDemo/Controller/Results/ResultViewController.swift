@@ -101,6 +101,8 @@ final class ResultViewController: BaseInfoViewController {
             return #imageLiteral(resourceName: "Icon-RP")
         case .passport:
             return #imageLiteral(resourceName: "Icon-CP")
+        case .unspecifiedDocument:
+            return #imageLiteral(resourceName: "Icon-CP")
         case .otherDocument:
             return #imageLiteral(resourceName: "Icon-CP")
         case .hologram:

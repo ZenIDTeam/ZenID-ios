@@ -91,6 +91,7 @@ public class CameraViewController: UIViewController {
                                                             role: RecogLib_iOS.DocumentRole.Idc,
                                                             country: RecogLib_iOS.Country.Cz,
                                                             page: RecogLib_iOS.PageCode.Front,
+                                                            code: nil,
                                                             language: LanguageHelper.language)
     private var faceLivenessVerifier: FaceLivenessVerifier = FaceLivenessVerifier(language: LanguageHelper.language)
     private var selfieVerifier: SelfieVerifier = SelfieVerifier(language: LanguageHelper.language)
@@ -235,15 +236,24 @@ public class CameraViewController: UIViewController {
             // This will setup document verifier to stop detect holograms
             self.documentVerifier.endHologramVerification()
             
-            // This will setup document verifier
-            if let role = RecoglibMapper.documentRole(from: type) {
-                documentVerifier.documentRole = role
+            if type == .unspecifiedDocument {
+                documentVerifier.documentRole = nil
+                documentVerifier.page = nil
+                documentVerifier.country = nil
+                documentVerifier.code = nil
             }
-            if let documentPage = RecoglibMapper.pageCode(from: photoType) {
-                documentVerifier.page = documentPage
-            }
-            if let country = RecoglibMapper.country(from: country) {
-                documentVerifier.country = country
+            else
+            {
+                // This will setup document verifier
+                if let role = RecoglibMapper.documentRole(from: type) {
+                    documentVerifier.documentRole = role
+                }
+                if let documentPage = RecoglibMapper.pageCode(from: photoType) {
+                    documentVerifier.page = documentPage
+                }
+                if let country = RecoglibMapper.country(from: country) {
+                    documentVerifier.country = country
+                }
             }
             break
         }
@@ -439,7 +449,7 @@ public class CameraViewController: UIViewController {
         returnImage(data)
     }
     
-    private func returnImage(_ data: Data?) {
+    private func returnImage(_ data: Data?, _ result: DocumentResult? = nil) {
         if let data = data, let image = UIImage(data: data) {
             let preview = PreviewViewController(title:title ?? "", image: image)
             preview.saveAction = { [unowned self] in

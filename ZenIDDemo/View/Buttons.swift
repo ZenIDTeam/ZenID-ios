@@ -107,12 +107,21 @@ enum Buttons {
             return button
         }
     }
-    
+          
     static var passport: UIButton {
         get {
             let button = ZenButton()
             button.setTitle("btn-passport".localized.uppercased(), for: .normal)
             button.backgroundColor = .zenPurpleDark
+            return button
+        }
+    }
+    
+    static var unspecifiedDocument: UIButton {
+        get {
+            let button = ZenButton()
+            button.setTitle("btn-unspecified-document".localized.uppercased(), for: .normal)
+            button.backgroundColor = .zenPurple
             return button
         }
     }
