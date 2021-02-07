@@ -549,6 +549,9 @@ private extension CameraViewController {
         videoWriter = VideoWriter(cameraVideoOutput: cameraVideoOutput)
         videoWriter.delegate = self
         
+        //for video aspect ratio/gravity testing
+        //captureSession.sessionPreset = AVCaptureSession.Preset.vga640x480
+        
         captureSession.addInput(input)
         captureSession.addOutput(cameraPhotoOutput)
         cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
@@ -562,7 +565,7 @@ private extension CameraViewController {
     
     func configurePreviewLayer(session: AVCaptureSession) {
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer!.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        previewLayer!.videoGravity = Defaults.videoGravity
         previewLayer!.frame = cameraView.layer.bounds
         cameraView.layer.addSublayer(previewLayer!)
     }
@@ -611,7 +614,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard targetFrame.width > 0 else { return }
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         self.setTorch(on: photoType == .hologram)
-        
+
         switch photoType {
         case .face:
             switch self.faceMode {

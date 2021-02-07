@@ -47,6 +47,18 @@ final class Defaults {
         set { defaults[#function] = newValue.rawValue }
     }
     
+    static var videoGravity: AVLayerVideoGravity {
+        get {
+            let rawValue = defaults[#function] ?? "resizeAspect"
+            switch rawValue {
+            case "resizeAspect": return .resizeAspect
+            case "resizeAspectFill": return .resizeAspectFill
+            case "resize": return .resize
+            default: return .resizeAspect
+            }
+        }
+    }
+    
     static var torchMode: AVCaptureDevice.TorchMode {
         get {
             let rawValue = defaults[#function] ?? "On"

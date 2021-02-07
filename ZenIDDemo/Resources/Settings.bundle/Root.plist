@@ -10,28 +10,56 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
+			<string>Camera</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Video gravity</string>
+			<key>Titles</key>
+			<array>
+				<string>Fit (preserve aspect ratio)</string>
+				<string>Fill (preserve aspect ratio)</string>
+				<string>Stretch</string>
+			</array>
+			<key>Key</key>
+			<string>videoGravity</string>
+			<key>DefaultValue</key>
+			<string>resizeAspect</string>
+			<key>Values</key>
+			<array>
+				<string>resizeAspect</string>
+				<string>resizeAspectFill</string>
+				<string>resize</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
 			<string>Torch</string>
 		</dict>
 		<dict>
-            <key>Type</key>
-            <string>PSMultiValueSpecifier</string>
-            <key>Title</key>
-            <string>Mode</string>
-            <key>Titles</key>
-            <array>
-                <string>On</string>
-                <string>Auto</string>
-            </array>
-            <key>Key</key>
-            <string>torchMode</string>
-            <key>DefaultValue</key>
-            <string>On</string>
-            <key>Values</key>
-            <array>
-                <string>On</string>
-                <string>Auto</string>
-            </array>
-        </dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Mode</string>
+			<key>Titles</key>
+			<array>
+				<string>On</string>
+				<string>Auto</string>
+			</array>
+			<key>Key</key>
+			<string>torchMode</string>
+			<key>DefaultValue</key>
+			<string>On</string>
+			<key>Values</key>
+			<array>
+				<string>On</string>
+				<string>Auto</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>
