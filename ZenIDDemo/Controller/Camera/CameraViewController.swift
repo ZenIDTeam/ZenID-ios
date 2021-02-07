@@ -68,7 +68,6 @@ public class CameraViewController: UIViewController {
     private var controlView = UIView()
     private let cameraView = UIView()
     private let messageView = MessagesView()
-
     private var overlay: CameraOverlayView?
     private var targetFrame: CGRect = .zero
     private var previewLayer: AVCaptureVideoPreviewLayer?
@@ -440,10 +439,15 @@ public class CameraViewController: UIViewController {
     }
     
     private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip) {
-        // Get targetting margins
+        // camera frame size
         let width = CVPixelBufferGetWidth(buffer)
         let height = CVPixelBufferGetHeight(buffer)
-        let cropRect = getCropRect(width: width, height: height, targetRect: targetFrame)
+        
+        // find cropping
+        let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: targetFrame)
+        let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+        
+        // create (cropped) image
         let image = UIImage(pixelBuffer: buffer, crop: cropRect)?.flip(flipMethod)
         let data = image?.jpegData(compressionQuality: 0.5)
         returnImage(data)
@@ -471,6 +475,11 @@ public class CameraViewController: UIViewController {
             delegate?.didTakePhoto(nil, type: photoType)
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func setTorch(on: Bool) {
+        guard let device = self.captureDevice else { return }
+        Torch.shared.ensureMode(for: device, on: on)
     }
 }
 
@@ -531,6 +540,8 @@ private extension CameraViewController {
         guard let input = try? AVCaptureDeviceInput(device: device) else {
             return false
         }
+        
+        previewLayer?.videoGravity = Defaults.videoGravity
         
         captureSession.beginConfiguration()
         
@@ -701,22 +712,5 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 extension CameraViewController: VideoWriterDelegate {
     public func didTakeVideo(_ videoAsset: AVURLAsset) {
         delegate?.didTakeVideo(videoAsset, type: self.photoType)
-    }
-}
-
-// MARK: - Private
-extension CameraViewController {
-    private func getCropRect(width: Int, height: Int, targetRect: CGRect) -> CGRect {
-        guard let previewLayer = previewLayer else { return .zero }
-        
-        let cropRect: CGRect = (previewLayer.metadataOutputRectConverted(fromLayerRect: targetRect))
-            .applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-        
-        return cropRect
-    }
-    
-    private func setTorch(on: Bool) {
-        guard let device = self.captureDevice else { return }
-        Torch.shared.ensureMode(for: device, on: on)
     }
 }

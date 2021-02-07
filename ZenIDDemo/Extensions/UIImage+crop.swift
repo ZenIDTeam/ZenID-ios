@@ -27,7 +27,6 @@ extension UIImage {
     }
     
     func cropCameraImage(previewLayer: AVCaptureVideoPreviewLayer) -> UIImage? {
-
         var image = UIImage()
 
         let previewImageLayerBounds = previewLayer.bounds
@@ -59,7 +58,6 @@ extension UIImage {
     }
 
     func cropCameraImageLandscape(previewLayer: AVCaptureVideoPreviewLayer) -> UIImage? {
-
         let originalSize = CGSize(width: size.height, height: size.width)
         let visibleLayerFrame = previewLayer.bounds
 
