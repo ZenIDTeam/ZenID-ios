@@ -165,14 +165,10 @@ public class CameraViewController: UIViewController {
             // set drawLayer frame
             if let drawLayer = drawLayer {
                 let flipped = photoType != .face
-                drawLayer.frame = flipped
-                    ? previewLayer.bounds.flip()
-                    : previewLayer.bounds
+                drawLayer.frame = previewLayer.bounds
                 if flipped {
-                    drawLayer.position = CGPoint(x: drawLayer.frame.height, y: 0)
-                    drawLayer.anchorPoint = CGPoint(x: 0, y: 0)
-                    let rotation = CGAffineTransform(rotationAngle: .pi / 2)
-                    drawLayer.setAffineTransform(rotation)
+                    drawLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+                    drawLayer.setAffineTransform(CGAffineTransform(rotationAngle: .pi / 2))
                 }
             }
         }
@@ -351,7 +347,7 @@ public class CameraViewController: UIViewController {
             return
         }
 
-        guard unwrappedResult.state == .Ok, previousResult != .Ok else {
+        guard unwrappedResult.state == .Ok /*|| unwrappedResult.state == .Blurry*/, previousResult != .Ok else {
             statusButton.setTitle("\(unwrappedResult.state.localizedDescription)", for: .normal)
             return
         }
@@ -439,16 +435,7 @@ public class CameraViewController: UIViewController {
     }
     
     private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip) {
-        // camera frame size
-        let width = CVPixelBufferGetWidth(buffer)
-        let height = CVPixelBufferGetHeight(buffer)
-        
-        // find cropping
-        let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: targetFrame)
-        let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-        
-        // create (cropped) image
-        let image = UIImage(pixelBuffer: buffer, crop: cropRect)?.flip(flipMethod)
+        let image = UIImage(pixelBuffer: buffer)?.flip(flipMethod)
         let data = image?.jpegData(compressionQuality: 0.5)
         returnImage(data)
     }
@@ -616,6 +603,20 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             returnImage(resizedImageData)
         }
     }
+    
+    private func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer {
+        // camera frame size
+        let width = CVPixelBufferGetWidth(pixelBuffer)
+        let height = CVPixelBufferGetHeight(pixelBuffer)
+        
+        // find cropping
+        let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: targetFrame)
+        let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+        
+        // create (cropped) image
+        let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
+        return image?.toCVPixelBuffer() ?? pixelBuffer
+    }
 }
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
@@ -623,17 +624,22 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard detectionRunning else { return }
         guard targetFrame.width > 0 else { return }
+        
+        // crop pixel data if necessary
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer)
+        
+        // torch for holograms
         self.setTorch(on: photoType == .hologram)
 
         switch photoType {
         case .face:
             switch self.faceMode {
             case .faceLiveness:
-                if let result = faceLivenessVerifier.verifyImage(imageBuffer: pixelBuffer)
+                if let result = faceLivenessVerifier.verifyImage(imageBuffer: croppedBuffer)
                 {
                     DispatchQueue.main.async { [unowned self] in
-                        self.updateView(with: result, buffer: pixelBuffer)
+                        self.updateView(with: result, buffer: croppedBuffer)
                     }
 
                     if !showVisualisation {
@@ -650,10 +656,10 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     }
                 }
             case .selfie:
-                if let result = selfieVerifier.verifyImage(imageBuffer: pixelBuffer)
+                if let result = selfieVerifier.verifyImage(imageBuffer: croppedBuffer)
                 {
                     DispatchQueue.main.async { [unowned self] in
-                        self.updateView(with: result, buffer: pixelBuffer)
+                        self.updateView(with: result, buffer: croppedBuffer)
                     }
 
                     if !showVisualisation {
@@ -675,20 +681,20 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if let videoWriter = self.videoWriter {
                 if videoWriter.isRecording {
                     videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
-                    if let result = documentVerifier.verifyHologramImage(imageBuffer: pixelBuffer)
+                    if let result = documentVerifier.verifyHologramImage(imageBuffer: croppedBuffer)
                     {
                         DispatchQueue.main.async { [unowned self] in
-                            self.updateView(with: result, buffer: pixelBuffer)
+                            self.updateView(with: result, buffer: croppedBuffer)
                         }
                     }
                 }
             }
             
         default:
-            if let result = documentVerifier.verifyImage(imageBuffer: pixelBuffer)
+            if let result = documentVerifier.verifyImage(imageBuffer: croppedBuffer)
             {
                 DispatchQueue.main.async { [unowned self] in
-                    self.updateView(with: result, buffer: pixelBuffer)
+                    self.updateView(with: result, buffer: croppedBuffer)
                 }
 
                 if !showVisualisation {
