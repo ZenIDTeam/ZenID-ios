@@ -165,9 +165,9 @@ public class CameraViewController: UIViewController {
             // set drawLayer frame
             if let drawLayer = drawLayer {
                 let flipped = photoType != .face
-                drawLayer.frame = previewLayer.bounds
+                //drawLayer.frame = previewLayer.bounds
                 if flipped {
-                    drawLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+                    //drawLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
                     drawLayer.setAffineTransform(CGAffineTransform(rotationAngle: .pi / 2))
                 }
             }
@@ -615,7 +615,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         
         // create (cropped) image
         let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
-        return image?.toCVPixelBuffer() ?? pixelBuffer
+        return (image?.toCVPixelBuffer())!
     }
 }
 
@@ -628,6 +628,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         // crop pixel data if necessary
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer)
+        let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
+        let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
+        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight).flip()
         
         // torch for holograms
         self.setTorch(on: photoType == .hologram)
@@ -645,13 +648,13 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     if !showVisualisation {
                         return
                     }
-
-                    // Get render commands
-                    let width = Int(self.previewLayer?.frame.width ?? 0)
-                    let height = Int(self.previewLayer?.frame.height ?? 0)
-                    if let renderCommands = faceLivenessVerifier.getRenderCommands(canvasWidth: width,
-                                                                                   canvasHeight: height) {
+                    
+                    guard let previewLayer = previewLayer else { break; }
+                    let commandsRect = imageRect.rectThatFitsRect(previewLayer.frame);
+                    if let renderCommands = faceLivenessVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
+                                                                                  canvasHeight: Int(commandsRect.height)) {
                         let renderables = RenderableFactory.createRenderables(commands: renderCommands)
+                        self.drawLayer?.frame = commandsRect
                         self.drawLayer?.renderables = renderables
                     }
                 }
@@ -665,13 +668,14 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     if !showVisualisation {
                         return
                     }
-
+                    
                     // Get render commands
-                    let width = Int(self.previewLayer?.frame.width ?? 0)
-                    let height = Int(self.previewLayer?.frame.height ?? 0)
-                    if let renderCommands = selfieVerifier.getRenderCommands(canvasWidth: width,
-                                                                             canvasHeight: height) {
+                    guard let previewLayer = previewLayer else { break; }
+                    let commandsRect = imageRect.rectThatFitsRect(previewLayer.frame);
+                    if let renderCommands = selfieVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
+                                                                             canvasHeight: Int(commandsRect.height)) {
                         let renderables = RenderableFactory.createRenderables(commands: renderCommands)
+                        self.drawLayer?.frame = commandsRect
                         self.drawLayer?.renderables = renderables
                     }
                 }
@@ -702,11 +706,12 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
                 
                 // Get render commands
-                let width = Int(self.previewLayer?.frame.width ?? 0)
-                let height = Int(self.previewLayer?.frame.height ?? 0)
-                if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: height,
-                                                                   canvasHeight: width) {
+                guard let previewLayer = previewLayer else { break; }
+                let commandsRect = imageRect.rectThatFitsRect(previewLayer.frame);
+                if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: Int(commandsRect.height),
+                                                                           canvasHeight: Int(commandsRect.width)) {
                     let renderables = RenderableFactory.createRenderables(commands: renderCommands)
+                    self.drawLayer?.frame = commandsRect
                     self.drawLayer?.renderables = renderables
                 }
             }

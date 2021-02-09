@@ -31,6 +31,7 @@ static void processFrame(const void *object,
     CVPixelBufferLockBaseAddress(_cvBuffer, 0);
     const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
     const int height = (int)CVPixelBufferGetHeight(_cvBuffer);
+    const int stride = (int)CVPixelBufferGetBytesPerRow(_cvBuffer);
     
     OSType format = CVPixelBufferGetPixelFormatType(_cvBuffer);
     if (format != kCVPixelFormatType_32BGRA) {
@@ -39,7 +40,7 @@ static void processFrame(const void *object,
     }
     
     void *data = CVPixelBufferGetBaseAddress(_cvBuffer);
-    Image image(data, widht, height, ImageFormat::BGRA);
+    Image image(data, widht, height, ImageFormat::BGRA, stride);
  
     verifier->ProcessFrame(image,
                            document->role < 0 ? nullptr : &documentRole,

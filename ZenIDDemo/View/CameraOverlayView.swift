@@ -30,6 +30,19 @@ final class CameraOverlayView: UIView {
         }
     }
     
+//    private var imageContentMode: UIView.ContentMode {
+//        switch Defaults.videoGravity {
+//        case .resizeAspect:
+//            return .scaleAspectFit
+//        case .resizeAspectFill:
+//            return .scaleAspectFill
+//        case .resize:
+//            return .scaleToFill
+//        default:
+//            return .scaleAspectFit
+//        }
+//    }
+    
     init(documentType: DocumentType, photoType: PhotoType, frame: CGRect) {
         self.documentType = documentType
         self.photoType = photoType
