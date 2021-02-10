@@ -27,6 +27,14 @@ For compilation, running and deployment of the application following tools are r
 
 Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` and `LibZenid_iOS.framework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
 
+## Appication settings
+In iOS device under Settings -> ZenID is possible to set
+### Camera video gravity mode
+`Fit` - preserve aspect ratio; fit within layer bounds, this mode corresponds to CENTER_INSIDE in Android
+`Fill` - preserve aspect ratio; fill layer bounds - CENTER_CROP from Android, data will be cropped to visible part of the image preview. 
+
+### Torch mode
+Is useful for hologram detection
 
 ## Usage
 ### 1. Configure `AVCaptureSession`

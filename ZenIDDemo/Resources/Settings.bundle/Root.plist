@@ -21,7 +21,7 @@
 			<array>
 				<string>Fit (preserve aspect ratio)</string>
 				<string>Fill (preserve aspect ratio)</string>
-				<string>Stretch</string>
+				<!--string>Stretch</string-->
 			</array>
 			<key>Key</key>
 			<string>videoGravity</string>
@@ -31,7 +31,7 @@
 			<array>
 				<string>resizeAspect</string>
 				<string>resizeAspectFill</string>
-				<string>resize</string>
+				<!--string>resize</string-->
 			</array>
 		</dict>
 		<dict>
