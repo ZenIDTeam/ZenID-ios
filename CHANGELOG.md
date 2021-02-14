@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.26.2 - 2021-02-14
+* Support for document detection in portrait orientation
+
 ## 1.26.2 - 2021-02-10
 * Support for camera display modes
 * Updated for Xcode 12.4.

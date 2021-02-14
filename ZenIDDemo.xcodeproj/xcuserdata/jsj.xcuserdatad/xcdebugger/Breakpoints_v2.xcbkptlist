@@ -7,16 +7,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7EDD48FC-34A1-435E-BF24-7C7FE6F2E826"
+            uuid = "23868A51-84C4-433F-AE89-703DD151E843"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZenIDDemo/Extensions/UIImage+crop.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "flip(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8174EC84-8416-49D7-8AFA-A805DAD19639"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZenIDDemo/Controller/Camera/CameraViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636"
-            landmarkName = "captureOutput(_:didOutput:from:)"
+            startingLineNumber = "698"
+            endingLineNumber = "698"
+            landmarkName = "getCroppedPixelBuffer(pixelBuffer:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8174EC84-8416-49D7-8AFA-A805DAD19639 - 18af3aa383a15de7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ZenIDDemo.CameraViewController.(getCroppedPixelBuffer in _D3A9D5003BF91B697D993F163F849372)(pixelBuffer: __C.CVBufferRef, supportChangedOrientation: Swift.Bool) -&gt; __C.CVBufferRef"
+                  moduleName = "ZenIDDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/RAID/repos/zenid-ios/ZenIDDemo/Controller/Camera/CameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "662"
+                  endingLineNumber = "662"
+                  offsetFromSymbolStart = "1068">
+               </Location>
+               <Location
+                  uuid = "8174EC84-8416-49D7-8AFA-A805DAD19639 - 18af3aa383a15de7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ZenIDDemo.CameraViewController.(getCroppedPixelBuffer in _D3A9D5003BF91B697D993F163F849372)(pixelBuffer: __C.CVBufferRef, supportChangedOrientation: Swift.Bool) -&gt; __C.CVBufferRef"
+                  moduleName = "ZenIDDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/RAID/repos/zenid-ios/ZenIDDemo/Controller/Camera/CameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "662"
+                  endingLineNumber = "662"
+                  offsetFromSymbolStart = "1316">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "60D7AF7E-F4E0-418E-9A6F-EFA0231E7030"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZenIDDemo/Controller/Camera/CameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "613"
+            endingLineNumber = "613"
+            landmarkName = "rotateInstructionView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06248B73-1667-4385-9052-628E3080E910"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZenIDDemo/Controller/Camera/CameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
+            landmarkName = "orientationChanged()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5C1B89A-7152-4A79-9346-3B41BF7E91A1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZenIDDemo/Controller/Camera/CameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "605"
+            endingLineNumber = "605"
+            landmarkName = "rotateOverlay()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

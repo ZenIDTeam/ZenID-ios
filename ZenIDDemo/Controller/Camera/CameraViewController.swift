@@ -86,6 +86,7 @@ public class CameraViewController: UIViewController {
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
     private var videoWriter: VideoWriter!
     
+    private var deviceOrientation = UIInterfaceOrientation.landscapeLeft
     private var documentVerifier: DocumentVerifier = DocumentVerifier(
                                                             role: RecogLib_iOS.DocumentRole.Idc,
                                                             country: RecogLib_iOS.Country.Cz,
@@ -100,6 +101,14 @@ public class CameraViewController: UIViewController {
     private var previousHologramResult: HologramState?
     private var previousFaceLivenessResult: FaceLivenessState?
     private var previousSelfieResult: SelfieState?
+    
+    private var supportChangedOrientation: Bool {
+        return photoType != .face && photoType != .hologram
+    }
+    
+    private var isFaceDetection: Bool {
+        return photoType == .face
+    }
     
     init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
         self.photoType = photoType
@@ -118,6 +127,7 @@ public class CameraViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
         setupView()
     }
     
@@ -161,16 +171,6 @@ public class CameraViewController: UIViewController {
         // set previewLayer frame
         if let previewLayer = previewLayer {
             previewLayer.frame = cameraView.bounds
-            
-            // set drawLayer frame
-            if let drawLayer = drawLayer {
-                let flipped = photoType != .face
-                //drawLayer.frame = previewLayer.bounds
-                if flipped {
-                    //drawLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-                    drawLayer.setAffineTransform(CGAffineTransform(rotationAngle: .pi / 2))
-                }
-            }
         }
 
         self.targetFrame = overlay?.frame ?? .zero
@@ -178,6 +178,7 @@ public class CameraViewController: UIViewController {
     
     deinit {
         captureSession.stopRunning()
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode, photosCount: Int = 0) {
@@ -186,8 +187,8 @@ public class CameraViewController: UIViewController {
         self.documentType = type
         self.country = country
         self.faceMode = faceMode
-        self.captureDevicePosition = photoType == .face ? .front : .back
-        self.instructionView.transform = photoType == .face ? .identity : CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        self.captureDevicePosition = isFaceDetection ? .front : .back
+        self.rotateInstructionView()
         
         self.title = type.title
         self.topLabel.text = photoType.message
@@ -430,6 +431,19 @@ public class CameraViewController: UIViewController {
         cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
     
+    @objc private func orientationChanged() {
+        switch UIDevice.current.orientation {
+        case .portrait:           self.deviceOrientation = .portrait
+        case .portraitUpsideDown: self.deviceOrientation = .portraitUpsideDown
+        case .landscapeLeft:      self.deviceOrientation = .landscapeLeft
+        case .landscapeRight:     self.deviceOrientation = .landscapeRight
+        default: break;
+        }
+        
+        rotateOverlay()
+        rotateInstructionView()
+    }
+    
     @objc private func save() {
         delegate?.didFinishPDF()
     }
@@ -583,6 +597,40 @@ private extension CameraViewController {
             overlay.anchor(top: cameraView.topAnchor, left: cameraView.leftAnchor, bottom: cameraView.bottomAnchor, right: cameraView.rightAnchor)
             overlay.isHidden = !showStaticOverlay
             overlay.setupSafeArea(layoutGuide: view.safeAreaLayoutGuide)
+            rotateOverlay()
+        }
+    }
+    
+    func rotateOverlay() {
+        if !supportChangedOrientation {
+            return
+        }
+        
+        self.overlay?.setupImage(flipped: isPortraitOrientation())
+    }
+    
+    func rotateInstructionView() {
+        if isFaceDetection {
+            self.instructionView.transform = .identity
+            return
+        }
+       
+        if !supportChangedOrientation {
+            self.instructionView.transform = CGAffineTransform(rotationAngle: .pi/2)
+            return
+        }
+        
+        let flipped = isPortraitOrientation()
+        let mirrored = isUpsideDownOrientation()
+        if flipped {
+            let ty = -0.66 * self.overlay!.frameImageView.frame.height
+            self.instructionView.transform = mirrored ?
+                CGAffineTransform(rotationAngle: .pi).translatedBy(x: 0, y: ty) :
+                CGAffineTransform(translationX: 0, y: ty)
+        } else {
+            self.instructionView.transform = mirrored ?
+                CGAffineTransform(rotationAngle: -.pi/2) :
+                CGAffineTransform(rotationAngle: .pi/2)
         }
     }
 }
@@ -603,6 +651,35 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             returnImage(resizedImageData)
         }
     }
+}
+
+// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    private func getImageOrientation() -> UIInterfaceOrientation {
+        switch self.deviceOrientation {
+        case .portrait:           return .landscapeLeft
+        case .portraitUpsideDown: return .landscapeRight
+        case .landscapeLeft:      return .portrait
+        case .landscapeRight:     return .portraitUpsideDown
+        default: return .portrait
+        }
+    }
+    
+    private func isPortraitOrientation() -> Bool {
+        switch self.deviceOrientation {
+        case .portrait:  return true
+        case .portraitUpsideDown: return true
+        default: return false
+        }
+    }
+    
+    private func isUpsideDownOrientation() -> Bool {
+        switch self.deviceOrientation {
+        case .portraitUpsideDown: return true
+        case .landscapeRight: return true
+        default: return false
+        }
+    }
     
     private func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer {
         // camera frame size
@@ -610,17 +687,17 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         let height = CVPixelBufferGetHeight(pixelBuffer)
         
         // find cropping
-        let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: targetFrame)
+        let layerRect = (supportChangedOrientation && isPortraitOrientation()) ?
+                            targetFrame.flip().rectThatFitsRect(targetFrame) :
+                            targetFrame;
+        let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
         let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
         
         // create (cropped) image
         let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
         return (image?.toCVPixelBuffer())!
     }
-}
-
-// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
-extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard detectionRunning else { return }
         guard targetFrame.width > 0 else { return }
@@ -654,8 +731,10 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     if let renderCommands = faceLivenessVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
                                                                                   canvasHeight: Int(commandsRect.height)) {
                         let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-                        self.drawLayer?.frame = commandsRect
-                        self.drawLayer?.renderables = renderables
+                        if let drawLayer = drawLayer {
+                            drawLayer.frame = commandsRect
+                            drawLayer.renderables = renderables
+                        }
                     }
                 }
             case .selfie:
@@ -675,8 +754,10 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     if let renderCommands = selfieVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
                                                                              canvasHeight: Int(commandsRect.height)) {
                         let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-                        self.drawLayer?.frame = commandsRect
-                        self.drawLayer?.renderables = renderables
+                        if let drawLayer = drawLayer {
+                            drawLayer.frame = commandsRect
+                            drawLayer.renderables = renderables
+                        }
                     }
                 }
             }
@@ -695,7 +776,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             }
             
         default:
-            if let result = documentVerifier.verifyImage(imageBuffer: croppedBuffer)
+            if let result = documentVerifier.verifyImage(imageBuffer: croppedBuffer, orientation: getImageOrientation())
             {
                 DispatchQueue.main.async { [unowned self] in
                     self.updateView(with: result, buffer: croppedBuffer)
@@ -707,12 +788,25 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 
                 // Get render commands
                 guard let previewLayer = previewLayer else { break; }
-                let commandsRect = imageRect.rectThatFitsRect(previewLayer.frame);
-                if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: Int(commandsRect.height),
-                                                                           canvasHeight: Int(commandsRect.width)) {
+                let flipped = !isPortraitOrientation()
+                let commandsRect = flipped ?
+                    imageRect.rectThatFitsRect(previewLayer.frame).flip() :
+                    imageRect.rectThatFitsRect(previewLayer.frame);
+                
+                if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
+                                                                           canvasHeight: Int(commandsRect.height)) {
                     let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-                    self.drawLayer?.frame = commandsRect
-                    self.drawLayer?.renderables = renderables
+                    
+                    if let drawLayer = drawLayer {
+                        let mirrored = isUpsideDownOrientation()
+                        let transform = flipped ?
+                            (mirrored ? CGAffineTransform(rotationAngle: -.pi / 2) : CGAffineTransform(rotationAngle: .pi / 2)) :
+                            (mirrored ? CGAffineTransform(rotationAngle: .pi) : CGAffineTransform.identity)
+                        
+                        drawLayer.frame = flipped ? commandsRect.flip() : commandsRect
+                        drawLayer.setAffineTransform(transform)
+                        drawLayer.renderables = renderables
+                    }
                 }
             }
         }

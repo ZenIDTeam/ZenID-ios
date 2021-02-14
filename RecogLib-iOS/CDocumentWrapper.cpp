@@ -27,6 +27,7 @@ static void processFrame(const void *object,
     auto country = static_cast<Country>(document->country);
     auto pageCode = static_cast<PageCodes>(document->page);
     auto documentCode = static_cast<DocumentCodes>(document->code);
+    auto orientation = static_cast<int>(document->orientation);
     
     CVPixelBufferLockBaseAddress(_cvBuffer, 0);
     const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
@@ -41,6 +42,26 @@ static void processFrame(const void *object,
     
     void *data = CVPixelBufferGetBaseAddress(_cvBuffer);
     Image image(data, widht, height, ImageFormat::BGRA, stride);
+    
+    switch (orientation) {
+        case 1: // portrait
+            break;
+            
+        case 2: // portraitUpsideDown
+            image.Rotate(RotateFlags::Rotate180);
+            break;
+            
+        case 3: // landscapeRight
+            image.Rotate(RotateFlags::Rotate90CounterClockwise);
+            break;
+            
+        case 4: // landscapeLeft
+            image.Rotate(RotateFlags::Rotate90Clockwise);
+            break;
+            
+        default:
+            break;
+    }
  
     verifier->ProcessFrame(image,
                            document->role < 0 ? nullptr : &documentRole,

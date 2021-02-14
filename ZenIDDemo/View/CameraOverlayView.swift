@@ -30,19 +30,6 @@ final class CameraOverlayView: UIView {
         }
     }
     
-//    private var imageContentMode: UIView.ContentMode {
-//        switch Defaults.videoGravity {
-//        case .resizeAspect:
-//            return .scaleAspectFit
-//        case .resizeAspectFill:
-//            return .scaleAspectFill
-//        case .resize:
-//            return .scaleToFill
-//        default:
-//            return .scaleAspectFit
-//        }
-//    }
-    
     init(documentType: DocumentType, photoType: PhotoType, frame: CGRect) {
         self.documentType = documentType
         self.photoType = photoType
@@ -68,11 +55,23 @@ final class CameraOverlayView: UIView {
         ])
     }
     
-    func setupSafeArea(layoutGuide: UILayoutGuide) {
+    public func setupSafeArea(layoutGuide: UILayoutGuide) {
         let padding: CGFloat = 15
         NSLayoutConstraint.activate([
             frameImageView.leftAnchor.constraint(greaterThanOrEqualTo: layoutGuide.leftAnchor, constant: padding),
             frameImageView.topAnchor.constraint(greaterThanOrEqualTo: layoutGuide.topAnchor, constant: padding)
         ])
+    }
+    
+    public func setupImage(flipped: Bool) {
+        var transform = CGAffineTransform.identity
+        if flipped && self.frame != .zero {
+            let croppedFrame = self.frame.flip().rectThatFitsRect(self.frame);
+            let scale = (croppedFrame.height / self.frame.width) * 1.1
+            transform =
+                CGAffineTransform(rotationAngle: .pi / 2).scaledBy(x: scale, y: scale)
+        }
+        
+        frameImageView.layer.setAffineTransform(transform)
     }
 }
