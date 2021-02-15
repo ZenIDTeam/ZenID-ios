@@ -56,9 +56,12 @@ class DocumentVerifier
 
 	// Invalid if the state is NoMatchFound
 	DocumentCodes GetDocumentCode() const;
-
 	// Invalid if the state is NoMatchFound
 	PageCodes GetPageCode() const;
+	// Invalid if the state is NoMatchFound
+	DocumentRole GetDocumentRole() const;
+	// Invalid if the state is NoMatchFound
+	Country GetCountry() const;
 
 	HologramState GetHologramState() const;
 

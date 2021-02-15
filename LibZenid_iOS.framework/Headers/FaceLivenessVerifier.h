@@ -4,7 +4,9 @@
 
 #ifndef NO_FACE
 
+#ifndef NO_OPENCV
 #include "opencv2/core.hpp"
+#endif
 
 #include "ZenidEnums.generated.h"
 

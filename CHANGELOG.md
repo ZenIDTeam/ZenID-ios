@@ -1,6 +1,9 @@
 # Change Log
 
-## 1.26.2 - 2021-02-14
+## 1.27.1 - 2021-02-15
+* Updated LibZenid 1.2.3 - The blur, reflection and darkness validators are now more tolerant and reach their maximum tolerance faster. Fix: Show feedback when no card is seen in the SDK hologram validator
+
+## 1.27.0 - 2021-02-14
 * Support for document detection in portrait orientation
 
 ## 1.26.2 - 2021-02-10
@@ -14,13 +17,10 @@
 ## 1.25.2 - 2020-12-12
 * Updated LibZenid 0.25.2 -  includes an improved blur detector. No change needed for consumers of the library
 
-
 ## 1.25.1 - 2020-11-30
 * Preview photo orientation is the same as the camera orientation
 
-
 ## 1.25 - 2020-11-29
-
 * Rename `FaceLivenessVerifierStage` to `FaceLivenessVerifierState`
 * Rename `FaceLivenessVerifierState::Done` to `FaceLivenessVerifierState::Ok`
 * `FaceLivenessVerifier.GetRenderCommands` takes a width and height instead of `cv::Size`
