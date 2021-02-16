@@ -30,8 +30,8 @@
             filePath = "ZenIDDemo/Controller/Camera/CameraViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "698"
-            endingLineNumber = "698"
+            startingLineNumber = "701"
+            endingLineNumber = "701"
             landmarkName = "getCroppedPixelBuffer(pixelBuffer:)"
             landmarkType = "7">
             <Locations>

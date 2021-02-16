@@ -658,9 +658,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     private func getImageOrientation() -> UIInterfaceOrientation {
         switch self.deviceOrientation {
         case .portrait:           return .landscapeLeft
-        case .portraitUpsideDown: return .landscapeRight
+        case .portraitUpsideDown: return ZenConstants.enableUpsideDownOrientation ? .landscapeRight : .landscapeLeft
         case .landscapeLeft:      return .portrait
-        case .landscapeRight:     return .portraitUpsideDown
+        case .landscapeRight:     return ZenConstants.enableUpsideDownOrientation ? .portraitUpsideDown : .portrait
         default: return .portrait
         }
     }
@@ -674,6 +674,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     private func isUpsideDownOrientation() -> Bool {
+        if !ZenConstants.enableUpsideDownOrientation {
+            return false;
+        }
         switch self.deviceOrientation {
         case .portraitUpsideDown: return true
         case .landscapeRight: return true
