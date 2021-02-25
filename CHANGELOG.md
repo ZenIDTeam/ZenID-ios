@@ -1,5 +1,9 @@
 # Change Log
 
+
+## 1.27.2 - 2021-02-24
+* Updated LibZenid 1.2.3.1
+
 ## 1.27.1 - 2021-02-15
 * Updated LibZenid 1.2.3 - The blur, reflection and darkness validators are now more tolerant and reach their maximum tolerance faster. Fix: Show feedback when no card is seen in the SDK hologram validator
 

@@ -11,3 +11,5 @@ Carthage/Build
 
 # xcuserdata
 *xcworkspace/xcuserdata/*
+*.xcodeproj/xcuserdata/*
+
