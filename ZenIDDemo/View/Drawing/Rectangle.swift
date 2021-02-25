@@ -9,8 +9,7 @@
 import UIKit
 
 class Rectangle: Renderable {
-    
-    let rect: CGRect
+    var rect: CGRect
     let color: CGColor
     let thickness: CGFloat
     
@@ -35,6 +34,11 @@ class Rectangle: Renderable {
                              alpha: floatValues[7] / 255).cgColor
         
         self.thickness = floatValues[8]
+    }
+    
+    func mirror(in frame: CGRect) -> Renderable {
+        self.rect = self.rect.mirror(in: frame)
+        return self
     }
     
     func draw(in ctx: CGContext) {

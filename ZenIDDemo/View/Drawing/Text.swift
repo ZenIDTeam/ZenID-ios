@@ -21,8 +21,8 @@ enum TextHorizontalAlignment: String {
 }
 
 class Text: Renderable {
+    var rect: CGRect
     let attributedString: NSAttributedString
-    let rect: CGRect
     let font: UIFont = UIFont.topLabel
     
     required init?(_ renderCommand: String) {
@@ -67,7 +67,12 @@ class Text: Renderable {
             originX -= size.width
         }
         
-        rect = CGRect(origin: CGPoint(x: originX, y: originY), size: size).integral
+        self.rect = CGRect(origin: CGPoint(x: originX, y: originY), size: size).integral
+    }
+    
+    func mirror(in frame: CGRect) -> Renderable {
+        self.rect = self.rect.mirror(in: frame)
+        return self
     }
     
     func draw(in ctx: CGContext) {

@@ -11,4 +11,5 @@ import UIKit
 protocol Renderable {
     init?(_ renderCommand: String)
     func draw(in ctx: CGContext)
+    func mirror(in frame: CGRect) -> Renderable
 }

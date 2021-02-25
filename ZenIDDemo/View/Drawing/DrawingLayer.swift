@@ -9,6 +9,8 @@
 import UIKit
 
 class DrawingLayer: CALayer {
+    var mirrorX = false
+    
     var renderables: [Renderable]? {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -18,6 +20,6 @@ class DrawingLayer: CALayer {
     }
     
     override func draw(in ctx: CGContext) {
-        renderables?.forEach { $0.draw(in: ctx) }        
+        renderables?.forEach { $0.draw(in: ctx) }
     }
 }

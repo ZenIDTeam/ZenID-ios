@@ -1,5 +1,7 @@
 # Change Log
 
+## 1.27.4 - 2021-02-26
+* Mirrored face liveness arrows fixed
 
 ## 1.27.3 - 2021-02-25
 * Bitcode enabled

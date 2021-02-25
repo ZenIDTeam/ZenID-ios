@@ -9,8 +9,8 @@
 import UIKit
 
 class Line: Renderable {
-    let a: CGPoint
-    let b: CGPoint
+    var a: CGPoint
+    var b: CGPoint
     let color: CGColor
     let thickness: CGFloat
     
@@ -20,11 +20,8 @@ class Line: Renderable {
         
         guard floatValues.count == 9 else { return nil }
         
-        self.a = CGPoint(x: floatValues[0],
-                         y: floatValues[1])
-        
-        self.b = CGPoint(x: floatValues[2],
-                         y: floatValues[3])
+        self.a = CGPoint(x: floatValues[0], y: floatValues[1])
+        self.b = CGPoint(x: floatValues[2], y: floatValues[3])
                 
         self.color = UIColor(red:   floatValues[4] / 255,
                              green: floatValues[5] / 255,
@@ -34,10 +31,16 @@ class Line: Renderable {
         self.thickness = floatValues[8]
     }
     
+    func mirror(in frame: CGRect) -> Renderable {
+        self.a = self.a.mirror(in: frame)
+        self.b = self.b.mirror(in: frame)
+        return self
+    }
+    
     func draw(in ctx: CGContext) {
         ctx.setStrokeColor(color)
         ctx.setLineWidth(self.thickness)
-
+        
         ctx.beginPath()
         ctx.move(to: self.a)
         ctx.addLine(to: self.b)

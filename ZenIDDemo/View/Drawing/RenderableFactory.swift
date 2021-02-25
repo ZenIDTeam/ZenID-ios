@@ -11,7 +11,6 @@ import UIKit
 enum RenderableType: String {
     case line = "line"
     case rectangle = "rectangle"
-    // case point = "point" // Point is not used anymore in the framework
     case circle = "circle"
     case ellipse = "ellipse"
     case text = "text"
@@ -20,7 +19,7 @@ enum RenderableType: String {
 class RenderableFactory {
     static func createRenderables(commands: String) -> [Renderable] {
         #if DEBUG
-        // NSLog("Render:\n\(commands)")
+        //NSLog("Render:\n\(commands)")
         #endif
         return commands
             .split(separator: "\n")

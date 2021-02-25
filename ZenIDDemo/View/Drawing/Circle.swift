@@ -9,7 +9,7 @@
 import UIKit
 
 class Circle: Renderable {
-    let center: CGPoint
+    var center: CGPoint
     let radius: CGFloat
     let thickness: CGFloat
     let color: CGColor
@@ -29,10 +29,9 @@ class Circle: Renderable {
         
         guard floatValues.count == 8 else { return nil }
         
-        center = CGPoint(x: floatValues[0],
-                         y: floatValues[1])
+        self.center = CGPoint(x: floatValues[0], y: floatValues[1])
         
-        radius = floatValues[2];
+        self.radius = floatValues[2];
         
         self.color = UIColor(red:   floatValues[3] / 255,
                              green: floatValues[4] / 255,
@@ -40,6 +39,11 @@ class Circle: Renderable {
                              alpha: floatValues[6] / 255).cgColor
         
         self.thickness = floatValues[7]
+    }
+    
+    func mirror(in frame: CGRect) -> Renderable {
+        self.center = self.center.mirror(in: frame)
+        return self
     }
     
     func draw(in ctx: CGContext) {

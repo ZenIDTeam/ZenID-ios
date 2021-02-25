@@ -61,6 +61,7 @@
 		6F556FFE2573C92900E7C0B8 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */; };
 		6F64016424C19E95004A8982 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F64016324C19E95004A8982 /* Settings.bundle */; };
 		6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */; };
+		6F6E357825E846CB00F2C503 /* CGPoint+Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6E357725E846CB00F2C503 /* CGPoint+Mirror.swift */; };
 		6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EEF1E24C4E62A00208223 /* Torch.swift */; };
 		6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */; };
 		6FAE478A2520B6EE00A92876 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47892520B6EE00A92876 /* Ellipse.swift */; };
@@ -165,6 +166,7 @@
 		6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		6F64016324C19E95004A8982 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		6F6E357725E846CB00F2C503 /* CGPoint+Mirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Mirror.swift"; sourceTree = "<group>"; };
 		6F8EEF1E24C4E62A00208223 /* Torch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torch.swift; sourceTree = "<group>"; };
 		6F8EEF2024C4ECA600208223 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceModeView.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				0141C03723A7DB0100566078 /* CGPoint+Flip.swift */,
+				6F6E357725E846CB00F2C503 /* CGPoint+Mirror.swift */,
 				D2CB352122BA807A00453DB8 /* UIFont+Styles.swift */,
 				D2CB351322BA736500453DB8 /* UIColor+Names.swift */,
 				D2CB351722BA776600453DB8 /* UIView+Extension.swift */,
@@ -620,6 +623,7 @@
 				0140263D22B3A76300CF60AD /* ResultsViewModel.swift in Sources */,
 				0134756721F75C9C004EE4E5 /* ImageInput.swift in Sources */,
 				012F7B5A2285C1E000B0BBB6 /* ChoiceViewController.swift in Sources */,
+				6F6E357825E846CB00F2C503 /* CGPoint+Mirror.swift in Sources */,
 				0134755121EE0DBA004EE4E5 /* API.swift in Sources */,
 				012F7B64228AB1C000B0BBB6 /* CameraOverlayView.swift in Sources */,
 			);
@@ -785,7 +789,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.3;
+				MARKETING_VERSION = 1.27.4;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -815,7 +819,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.3;
+				MARKETING_VERSION = 1.27.4;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";

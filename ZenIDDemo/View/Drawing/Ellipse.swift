@@ -9,7 +9,7 @@
 import UIKit
 
 class Ellipse: Renderable {
-    let center: CGPoint
+    var center: CGPoint
     let radiusX: CGFloat
     let radiusY: CGFloat
     let rotation: CGFloat // ellipse rotation not implemented
@@ -31,8 +31,7 @@ class Ellipse: Renderable {
         
         guard floatValues.count == 10 else { return nil }
         
-        center = CGPoint(x: floatValues[0],
-                         y: floatValues[1])
+        self.center = CGPoint(x: floatValues[0], y: floatValues[1])
         
         radiusX = floatValues[2];
         radiusY = floatValues[3];
@@ -44,6 +43,11 @@ class Ellipse: Renderable {
                              alpha: floatValues[6] / 255).cgColor
         
         self.thickness = floatValues[9]
+    }
+    
+    func mirror(in frame: CGRect) -> Renderable {
+        self.center = center.mirror(in: frame)
+        return self
     }
     
     func draw(in ctx: CGContext) {
