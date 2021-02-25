@@ -1,6 +1,9 @@
 # Change Log
 
 
+## 1.27.3 - 2021-02-25
+* Bitcode enabled
+
 ## 1.27.2 - 2021-02-24
 * Updated LibZenid 1.2.3.1
 

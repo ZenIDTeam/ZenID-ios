@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import AppCenter
-import AppCenterAnalytics
-import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,12 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // App Center integration
-        MSAppCenter.start(ZenConstants.appCenterSecret, withServices:[
-          MSAnalytics.self,
-          MSCrashes.self
-        ])
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = UINavigationController(rootViewController: ChoiceViewController())
         self.window?.makeKeyAndVisible()

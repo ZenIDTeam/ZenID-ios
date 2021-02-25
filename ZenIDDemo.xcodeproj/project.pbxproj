@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,8 +53,6 @@
 		01859B0622C4863C005B7E36 /* UIDevice+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01859B0522C4863C005B7E36 /* UIDevice+Size.swift */; };
 		01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8F88522B92BE100D8B75E /* MessagesView.swift */; };
 		01EDB2C3231FAE22009B0859 /* UIImageView+Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */; };
-		6F01896A24C70C4400A2A2A3 /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 6F01896924C70C4400A2A2A3 /* AppCenterCrashes */; };
-		6F01896C24C70C4400A2A2A3 /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6F01896B24C70C4400A2A2A3 /* AppCenterAnalytics */; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
 		6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536D246970DC001C3544 /* QrScannerController.swift */; };
 		6F2D53712469A937001C3544 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D53702469A937001C3544 /* Credentials.swift */; };
@@ -200,9 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F01896C24C70C4400A2A2A3 /* AppCenterAnalytics in Frameworks */,
 				6FAFA1D22588E7A6008BD04B /* LibZenid_iOS.framework in Frameworks */,
-				6F01896A24C70C4400A2A2A3 /* AppCenterCrashes in Frameworks */,
 				6FAFA1CF2588E7A3008BD04B /* RecogLib_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,8 +466,6 @@
 			);
 			name = ZenIDDemo;
 			packageProductDependencies = (
-				6F01896924C70C4400A2A2A3 /* AppCenterCrashes */,
-				6F01896B24C70C4400A2A2A3 /* AppCenterAnalytics */,
 			);
 			productName = ZenIDDemo;
 			productReference = 0134751C21ECB3FB004EE4E5 /* ZenIDDemo.app */;
@@ -504,7 +498,6 @@
 			);
 			mainGroup = 0134751321ECB3FB004EE4E5;
 			packageReferences = (
-				6F01896824C70C4400A2A2A3 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */,
 			);
 			productRefGroup = 0134751D21ECB3FB004EE4E5 /* Products */;
 			projectDirPath = "";
@@ -553,7 +546,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\n    FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\n    FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\n    echo \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\n    EXTRACTED_ARCHS=()\n\n    for ARCH in $ARCHS\n    do\n        echo \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\n        lipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\n        EXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\n    done\n\n    echo \"Merging extracted architectures: ${ARCHS}\"\n    lipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\n    rm \"${EXTRACTED_ARCHS[@]}\"\n\n    echo \"Replacing original executable with thinned version\"\n    rm \"$FRAMEWORK_EXECUTABLE_PATH\"\n    mv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n\n";
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\n    FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\n    FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\n    echo \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\n    EXTRACTED_ARCHS=()\n\n    for ARCH in $ARCHS\n    do\n        echo \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\n        lipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\n        EXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\n    done\n\n    echo \"Merging extracted architectures: ${ARCHS}\"\n    lipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\n    rm \"${EXTRACTED_ARCHS[@]}\"\n\n    echo \"Replacing original executable with thinned version\"\n    rm \"$FRAMEWORK_EXECUTABLE_PATH\"\n    mv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -651,6 +644,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -714,6 +708,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -775,7 +770,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -790,7 +785,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.2;
+				MARKETING_VERSION = 1.27.3;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -808,7 +803,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -820,7 +815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.2;
+				MARKETING_VERSION = 1.27.3;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -852,30 +847,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		6F01896824C70C4400A2A2A3 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/microsoft/appcenter-sdk-apple.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.3.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6F01896924C70C4400A2A2A3 /* AppCenterCrashes */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6F01896824C70C4400A2A2A3 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterCrashes;
-		};
-		6F01896B24C70C4400A2A2A3 /* AppCenterAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6F01896824C70C4400A2A2A3 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
-			productName = AppCenterAnalytics;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0134751421ECB3FB004EE4E5 /* Project object */;
 }

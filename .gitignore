@@ -13,3 +13,5 @@ Carthage/Build
 *xcworkspace/xcuserdata/*
 *.xcodeproj/xcuserdata/*
 
+# bcsymbolmap files
+*.bcsymbolmap
