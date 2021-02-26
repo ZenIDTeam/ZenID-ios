@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.27.5 - 2021-02-26
+* Fixed portrait mode
+* Fit camera mode set as default (and recommended) setting
+
 ## 1.27.4 - 2021-02-26
 * Mirrored face liveness arrows fixed
 

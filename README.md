@@ -30,8 +30,8 @@ Go to your project and click on the `Project detail -> General` and under `Embed
 ## Appication settings
 In iOS device under Settings -> ZenID is possible to set
 ### Camera video gravity mode
+`Fit` - preserve aspect ratio; fit within layer bounds, this mode corresponds to CENTER_INSIDE in Android, this is default and recommended settings because it generates images with better resolution
 `Fill` - preserve aspect ratio; fill layer bounds - CENTER_CROP from Android, data will be cropped to visible part of the image preview. 
-`Fit` - preserve aspect ratio; fit within layer bounds, this mode corresponds to CENTER_INSIDE in Android
 
 ### Torch mode
 Is useful for hologram detection

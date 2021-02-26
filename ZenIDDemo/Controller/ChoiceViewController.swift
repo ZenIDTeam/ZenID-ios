@@ -32,7 +32,7 @@ final class ChoiceViewController: UIViewController {
         unspecifiedDocumentButton,
         otherDocumentButton,
         hologramButton,
-        faceButton
+        //faceButton
     ]
     
     private var selectedCountry: Country {

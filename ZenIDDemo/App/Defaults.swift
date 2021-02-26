@@ -49,12 +49,12 @@ final class Defaults {
     
     static var videoGravity: AVLayerVideoGravity {
         get {
-            let rawValue = defaults[#function] ?? "resizeAspectFill"
+            let rawValue = defaults[#function] ?? "resizeAspect"
             switch rawValue {
-            case "resizeAspectFill": return .resizeAspectFill
             case "resizeAspect": return .resizeAspect
+            case "resizeAspectFill": return .resizeAspectFill
             case "resize": return .resize
-            default: return .resizeAspectFill
+            default: return .resizeAspect
             }
         }
     }

@@ -10,5 +10,4 @@ import Foundation
 
 enum ZenConstants {
     static let contactEmail: String = "zenidapp@trask.cz"
-    static let enableUpsideDownOrientation: Bool = false
 }

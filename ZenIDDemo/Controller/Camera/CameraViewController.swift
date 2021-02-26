@@ -434,7 +434,8 @@ public class CameraViewController: UIViewController {
     @objc private func orientationChanged() {
         switch UIDevice.current.orientation {
         case .portrait:           self.deviceOrientation = .portrait
-        case .portraitUpsideDown: self.deviceOrientation = .portraitUpsideDown
+        //case .portraitUpsideDown: self.deviceOrientation = .portraitUpsideDown
+        case .portraitUpsideDown: return
         case .landscapeLeft:      self.deviceOrientation = .landscapeLeft
         case .landscapeRight:     self.deviceOrientation = .landscapeRight
         default: break;
@@ -658,9 +659,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     private func getImageOrientation() -> UIInterfaceOrientation {
         switch self.deviceOrientation {
         case .portrait:           return .landscapeLeft
-        case .portraitUpsideDown: return ZenConstants.enableUpsideDownOrientation ? .landscapeRight : .landscapeLeft
+        //case .portraitUpsideDown: return .landscapeLeft
         case .landscapeLeft:      return .portrait
-        case .landscapeRight:     return ZenConstants.enableUpsideDownOrientation ? .portraitUpsideDown : .portrait
+        case .landscapeRight:     return .portraitUpsideDown
         default: return .portrait
         }
     }
@@ -668,17 +669,14 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     private func isPortraitOrientation() -> Bool {
         switch self.deviceOrientation {
         case .portrait:  return true
-        case .portraitUpsideDown: return true
+        //case .portraitUpsideDown: return true
         default: return false
         }
     }
     
     private func isUpsideDownOrientation() -> Bool {
-        if !ZenConstants.enableUpsideDownOrientation {
-            return false;
-        }
         switch self.deviceOrientation {
-        case .portraitUpsideDown: return true
+        //case .portraitUpsideDown: return true
         case .landscapeRight: return true
         default: return false
         }

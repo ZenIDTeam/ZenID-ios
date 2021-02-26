@@ -19,18 +19,18 @@
 			<string>Video gravity</string>
 			<key>Titles</key>
 			<array>
+                <string>Fit (fit within layer bounds)</string>
                 <string>Fill (fill layer bounds)</string>
-				<string>Fit (fit within layer bounds)</string>
 				<!--string>Stretch</string-->
 			</array>
 			<key>Key</key>
 			<string>videoGravity</string>
 			<key>DefaultValue</key>
-			<string>resizeAspectFill</string>
+			<string>resizeAspect</string>
 			<key>Values</key>
 			<array>
+                <string>resizeAspect</string>
                 <string>resizeAspectFill</string>
-				<string>resizeAspect</string>
 				<!--string>resize</string-->
 			</array>
 		</dict>
