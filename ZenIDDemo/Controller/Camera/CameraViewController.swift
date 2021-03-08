@@ -441,6 +441,7 @@ public class CameraViewController: UIViewController {
         default: break;
         }
         
+        drawLayer?.renderables = []
         rotateOverlay()
         rotateInstructionView()
     }
@@ -603,11 +604,29 @@ private extension CameraViewController {
     }
     
     func rotateOverlay() {
+        guard let overlay = self.overlay else { return }
+        
         if !supportChangedOrientation {
             return
         }
         
-        self.overlay?.setupImage(flipped: isPortraitOrientation())
+        let gravity = Defaults.videoGravity
+        switch gravity {
+        case .resizeAspect:
+            let resolution = getCurrentResolution()
+            let imageRect = CGRect(x: 0, y: 0, width: resolution.width, height: resolution.height)
+            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame)
+            let layerRect = (supportChangedOrientation && isPortraitOrientation()) ?
+                croppedTargetFrame.flip().rectThatFitsRect(croppedTargetFrame) :
+                croppedTargetFrame;
+            overlay.setupImage(flipped: isPortraitOrientation(), in: layerRect)
+            
+        case .resizeAspectFill:
+            overlay.setupImage(flipped: isPortraitOrientation())
+            
+        default:
+            overlay.setupImage(flipped: isPortraitOrientation())
+        }
     }
     
     func rotateInstructionView() {
@@ -624,7 +643,7 @@ private extension CameraViewController {
         let flipped = isPortraitOrientation()
         let mirrored = isUpsideDownOrientation()
         if flipped {
-            let ty = -0.66 * self.overlay!.frameImageView.frame.height
+            let ty = -0.667 * self.overlay!.frameImageView.frame.height
             self.instructionView.transform = mirrored ?
                 CGAffineTransform(rotationAngle: .pi).translatedBy(x: 0, y: ty) :
                 CGAffineTransform(translationX: 0, y: ty)
@@ -633,6 +652,15 @@ private extension CameraViewController {
                 CGAffineTransform(rotationAngle: -.pi/2) :
                 CGAffineTransform(rotationAngle: .pi/2)
         }
+    }
+    
+    private func getCurrentResolution() -> CGSize {
+        guard let formatDescription = captureDevice?.activeFormat.formatDescription else {
+            return .zero
+        }
+        
+        let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
+        return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
     }
 }
 
@@ -682,17 +710,55 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
     
+    private func getCroppedTargetFrame(width: Int, height: Int) -> CGRect {
+        let gravity = Defaults.videoGravity
+        switch gravity {
+        case .resizeAspect:
+            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
+            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame)
+            return croppedTargetFrame
+            
+        case .resizeAspectFill:
+            return targetFrame
+            
+        default:
+            return .zero
+        }
+    }
+    
+    private func getCroppedImageRect(width: Int, height: Int) -> CGRect {
+        let gravity = Defaults.videoGravity
+        switch gravity {
+        case .resizeAspect:
+            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
+            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame)
+            let layerRect = (supportChangedOrientation && isPortraitOrientation()) ?
+                croppedTargetFrame.flip().rectThatFitsRect(croppedTargetFrame) :
+                croppedTargetFrame;
+            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect.rectThatFitsRect(imageRect)
+            
+        case .resizeAspectFill:
+            let layerRect = (supportChangedOrientation && isPortraitOrientation()) ?
+                targetFrame.flip().rectThatFitsRect(targetFrame) :
+                targetFrame;
+            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect
+            
+        default:
+            return .zero
+        }
+    }
+    
     private func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer {
         // camera frame size
         let width = CVPixelBufferGetWidth(pixelBuffer)
         let height = CVPixelBufferGetHeight(pixelBuffer)
         
         // find cropping
-        let layerRect = (supportChangedOrientation && isPortraitOrientation()) ?
-                            targetFrame.flip().rectThatFitsRect(targetFrame) :
-                            targetFrame;
-        let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
-        let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+        let cropRect = getCroppedImageRect(width: width, height: height)
         
         // create (cropped) image
         let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
@@ -788,11 +854,12 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
                 
                 // Get render commands
-                guard let previewLayer = previewLayer else { break; }
+                if targetFrame == .zero { break; }
+                let croppedPreview = getCroppedTargetFrame(width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
                 let flipped = !isPortraitOrientation()
                 let commandsRect = flipped ?
-                    imageRect.rectThatFitsRect(previewLayer.frame).flip() :
-                    imageRect.rectThatFitsRect(previewLayer.frame);
+                    croppedPreview.flip() :
+                    croppedPreview.flip().rectThatFitsRect(croppedPreview).move(croppedPreview.origin)
                 
                 if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
                                                                            canvasHeight: Int(commandsRect.height)) {
