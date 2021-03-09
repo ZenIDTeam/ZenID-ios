@@ -58,6 +58,11 @@ class Image
 	 */
 	void CenterCrop(int viewportWidth, int viewportHeight);
 
+	/**
+	 * \brief Flip an image around its y axis.
+	 */
+	void FlipHorizontally();
+
 	void* GetData() const;
 	int GetWidth() const;
 	int GetHeight() const;

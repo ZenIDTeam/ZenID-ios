@@ -41,11 +41,6 @@ class Circle: Renderable {
         self.thickness = floatValues[7]
     }
     
-    func mirror(in frame: CGRect) -> Renderable {
-        self.center = self.center.mirror(in: frame)
-        return self
-    }
-    
     func draw(in ctx: CGContext) {
         if fill {
             ctx.setFillColor(color)

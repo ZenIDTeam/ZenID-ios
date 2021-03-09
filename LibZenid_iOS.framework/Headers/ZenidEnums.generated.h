@@ -40,6 +40,8 @@ enum class DocumentCodes : uint8_t
 	HU_PAS_2006_12 = 27,
 	HU_DRV_2012_13 = 28,
 	HU_DRV_2012_B = 29,
+	EU_EHIC_2004_A = 30,
+	Unknown = 31,
 };
 
 enum class PageCodes : uint8_t
@@ -70,6 +72,7 @@ enum class DocumentRole : uint8_t
 	Drv = 2,
 	Res = 3,
 	Gun = 4,
+	Hic = 5,
 };
 
 enum class SupportedLanguages : uint8_t

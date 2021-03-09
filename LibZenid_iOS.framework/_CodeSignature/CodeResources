@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		ko8M84g/5J8rrfda3d8HDJIfcNE=
+		ul50BNKGWXpxgvoO6gPhtZnq9nc=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
@@ -14,11 +14,11 @@
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
-		YnMSBVp7eywMiIGddP/nT06mtF4=
+		sNKFo4FOYQZNtw25gVjb8DaWVSs=
 		</data>
 		<key>Headers/RecogLibC.h</key>
 		<data>
-		hq/pgjP394TxpdLMWDXh/wJ8BvA=
+		yMSzIeuVpxhgjKhitGMUWE3JzKI=
 		</data>
 		<key>Headers/RecogLibCException.h</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		B8wPKsKSwbm/diFIoIN3R5DutdY=
+		WEKiDHLGdFIkeFMieWgNfDbGqyk=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
-		dzCrHAfClqJvmOOPevfw5mI+aJ4=
+		4w2Ve2jeN4MlrZA9gjIcVtnTfTg=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NTOUakLF+9GQhF08foXif77XF+W1QNtOI9ymGoiwejg=
+			OO+c+3CkdYTx0x7dly+NWPeQuCiqs8sSPIq5QpVYF80=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
@@ -65,14 +65,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bs0snMhm4wsyJnIruPZk82iJQNior7FvogckduHvPYs=
+			4/SPz9YfCsoZTmQhMrKV5pCpClia5V45q7Vod438Iok=
 			</data>
 		</dict>
 		<key>Headers/RecogLibC.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jRex1IXR2Rq8C1gsbZcuqbLc6svedNS0muISMuCoP1E=
+			rVOJ6ReEcV4zOyfU4IwVfwqW/TiVw5XEIEiO2gIdhjg=
 			</data>
 		</dict>
 		<key>Headers/RecogLibCException.h</key>
@@ -93,14 +93,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6INIJSkpYo2N0kY5+xZJbr2IOp6Mf67/Glt4hObIFMc=
+			AJ4uqtUZHdqSH2oHfQRBXIVOLphsDK75AexYG6oU1hQ=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fD51gMk25tv82dij4Lorvn3ui0KKTtwK7Tni4ZCu5To=
+			TFKViAXt1iJI8G4rws5v6SqRpOAVlCUet9JWcDgSYvs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

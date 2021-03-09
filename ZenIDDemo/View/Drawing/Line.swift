@@ -31,12 +31,6 @@ class Line: Renderable {
         self.thickness = floatValues[8]
     }
     
-    func mirror(in frame: CGRect) -> Renderable {
-        self.a = self.a.mirror(in: frame)
-        self.b = self.b.mirror(in: frame)
-        return self
-    }
-    
     func draw(in ctx: CGContext) {
         ctx.setStrokeColor(color)
         ctx.setLineWidth(self.thickness)

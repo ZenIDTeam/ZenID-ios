@@ -57,6 +57,7 @@ bool verifySelfieImage(const void *object,
     void *data = CVPixelBufferGetBaseAddress(_cvBuffer);
     Image image(data, widht, height, ImageFormat::BGRA, stride);
     image.Rotate(RotateFlags::Rotate90Clockwise);
+    image.FlipHorizontally();
     
     verifier->ProcessFrame(image);
     

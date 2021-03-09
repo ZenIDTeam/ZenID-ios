@@ -45,11 +45,6 @@ class Ellipse: Renderable {
         self.thickness = floatValues[9]
     }
     
-    func mirror(in frame: CGRect) -> Renderable {
-        self.center = center.mirror(in: frame)
-        return self
-    }
-    
     func draw(in ctx: CGContext) {
         if fill {
             ctx.setFillColor(color)

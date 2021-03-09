@@ -36,11 +36,6 @@ class Rectangle: Renderable {
         self.thickness = floatValues[8]
     }
     
-    func mirror(in frame: CGRect) -> Renderable {
-        self.rect = self.rect.mirror(in: frame)
-        return self
-    }
-    
     func draw(in ctx: CGContext) {
         if fill {
             ctx.setFillColor(color)

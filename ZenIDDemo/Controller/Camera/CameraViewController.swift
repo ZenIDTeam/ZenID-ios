@@ -798,7 +798,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     if let renderCommands = faceLivenessVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
                                                                                   canvasHeight: Int(commandsRect.height)) {
                         if let drawLayer = drawLayer {
-                            let renderables = RenderableFactory.createRenderables(commands: renderCommands).map{ $0.mirror(in: commandsRect) }
+                            let renderables = RenderableFactory.createRenderables(commands: renderCommands)
                             drawLayer.frame = commandsRect
                             drawLayer.renderables = renderables
                         }
@@ -820,7 +820,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     let commandsRect = imageRect.rectThatFitsRect(previewLayer.frame);
                     if let renderCommands = selfieVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
                                                                              canvasHeight: Int(commandsRect.height)) {
-                        let renderables = RenderableFactory.createRenderables(commands: renderCommands).map{ $0.mirror(in: commandsRect) }
+                        let renderables = RenderableFactory.createRenderables(commands: renderCommands)
                         if let drawLayer = drawLayer {
                             drawLayer.frame = commandsRect
                             drawLayer.renderables = renderables

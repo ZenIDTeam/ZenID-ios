@@ -14,6 +14,7 @@
 namespace RecogLibC
 {
 class Image;
+class AcceptableInput;
 
 class DocumentVerifierSettings
 {
@@ -30,7 +31,7 @@ public:
 
 class DocumentVerifier
 {
-   public:
+public:
 	using State = DocumentVerifierState;
 
 	// Don't load any models. Models will need to be loaded individually with LoadModel.
@@ -42,9 +43,12 @@ class DocumentVerifier
 	                  const Country* country = nullptr,
 	                  const PageCodes* page = nullptr,
 	                  const DocumentCodes* documentCode = nullptr);
+	
+	void ProcessFrame(const Image& frame, const AcceptableInput& acceptableInput);
 
 #ifndef NO_OPENCV
-
+	void ProcessFrame(const cv::Mat& frame, const AcceptableInput& acceptableInput);
+	
 	void ProcessFrame(const cv::Mat& frame,
 	                  const std::optional<DocumentRole> role = {},
 	                  const std::optional<Country> country = {},
@@ -88,7 +92,7 @@ class DocumentVerifier
 
 	class Impl;
 
-   private:
+private:
 	std::unique_ptr<Impl> pImpl;
 };
 }

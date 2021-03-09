@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.27.7 - 2021-03-09
+* Updated LibZenid 1.3.3
+
 ## 1.27.5 - 2021-02-26
 * Fixed portrait mode
 * Fit camera mode set as default (and recommended) setting
