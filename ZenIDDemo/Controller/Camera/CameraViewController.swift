@@ -459,6 +459,9 @@ public class CameraViewController: UIViewController {
     private func returnImage(_ data: Data?, _ result: DocumentResult? = nil) {
         if let data = data, let image = UIImage(data: data) {
             let preview = PreviewViewController(title:title ?? "", image: image)
+            preview.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            preview.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            
             preview.saveAction = { [unowned self] in
                 self.delegate?.didTakePhoto(data, type: self.photoType)
             }
@@ -472,6 +475,7 @@ public class CameraViewController: UIViewController {
                 self.faceLivenessVerifier.reset()
                 self.selfieVerifier.reset()
             }
+
             present(preview, animated: true, completion: nil)
         }
         else {
@@ -643,7 +647,7 @@ private extension CameraViewController {
         let flipped = isPortraitOrientation()
         let mirrored = isUpsideDownOrientation()
         if flipped {
-            let ty = -0.667 * self.overlay!.frameImageView.frame.height
+            let ty = -0.5 * self.overlay!.frameImageView.frame.height
             self.instructionView.transform = mirrored ?
                 CGAffineTransform(rotationAngle: .pi).translatedBy(x: 0, y: ty) :
                 CGAffineTransform(translationX: 0, y: ty)
@@ -731,18 +735,13 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         switch gravity {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame)
-            let layerRect = (supportChangedOrientation && isPortraitOrientation()) ?
-                croppedTargetFrame.flip().rectThatFitsRect(croppedTargetFrame) :
-                croppedTargetFrame;
+            let layerRect = imageRect.flip().rectThatFitsRect(targetFrame)
             let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-            return cropRect.rectThatFitsRect(imageRect)
+            return cropRect
             
         case .resizeAspectFill:
-            let layerRect = (supportChangedOrientation && isPortraitOrientation()) ?
-                targetFrame.flip().rectThatFitsRect(targetFrame) :
-                targetFrame;
+            let layerRect = targetFrame
             let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
@@ -855,12 +854,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 
                 // Get render commands
                 if targetFrame == .zero { break; }
-                let croppedPreview = getCroppedTargetFrame(width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
                 let flipped = !isPortraitOrientation()
-                let commandsRect = flipped ?
-                    croppedPreview.flip() :
-                    croppedPreview.flip().rectThatFitsRect(croppedPreview).move(croppedPreview.origin)
-                
+                let croppedPreview = getCroppedTargetFrame(width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
+                let commandsRect = flipped ? croppedPreview.flip() : croppedPreview
                 if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
                                                                            canvasHeight: Int(commandsRect.height)) {
                     let renderables = RenderableFactory.createRenderables(commands: renderCommands)
