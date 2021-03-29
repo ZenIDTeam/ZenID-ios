@@ -36,8 +36,7 @@ static void processFrame(const void *object,
     
     OSType format = CVPixelBufferGetPixelFormatType(_cvBuffer);
     if (format != kCVPixelFormatType_32BGRA) {
-        printf("Unsupported format for CVPixelBufferGetPixelFormatType");
-        assert(false);
+        throw std::runtime_error(std::string("Unsupported format for CVPixelBufferGetPixelFormatType"));
     }
     
     void *data = CVPixelBufferGetBaseAddress(_cvBuffer);

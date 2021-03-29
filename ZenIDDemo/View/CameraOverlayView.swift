@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RecogLib_iOS
 
 final class CameraOverlayView: UIView {
     private let photoType: PhotoType
@@ -38,6 +39,7 @@ final class CameraOverlayView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        Log.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
     

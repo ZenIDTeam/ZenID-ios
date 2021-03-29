@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import RecogLib_iOS
 
 final class Torch {
     public static let shared = Torch()
@@ -29,7 +30,7 @@ final class Torch {
                 do {
                     try device.lockForConfiguration()
                 } catch {
-                    debugPrint("\(device.localizedName) has no torch")
+                    Log.shared.Verbose("\(device.localizedName) has no torch")
                 }
                 
                 if torchMode == .off {

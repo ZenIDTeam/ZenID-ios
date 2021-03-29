@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -71,6 +71,10 @@
 		6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */; };
 		6FE107B224B260F900610F8D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B124B260F900610F8D /* VideoWriter.swift */; };
 		6FE107B424B26FC800610F8D /* VideoWriterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */; };
+		6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */; };
+		6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */; };
+		6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FF5E9CD2468ACF20077980C /* CredentialsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */; };
 		6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */; };
 		D2192A0E22CB5071009D8808 /* UIImage+crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2192A0D22CB5071009D8808 /* UIImage+crop.swift */; };
@@ -98,7 +102,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FAFA1D02588E7A3008BD04B /* RecogLib_iOS.framework in Embed Frameworks */,
+				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
 				6FAFA1D32588E7A6008BD04B /* LibZenid_iOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -172,6 +178,8 @@
 		6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		6FE107B124B260F900610F8D /* VideoWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
 		6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriterDelegate.swift; sourceTree = "<group>"; };
+		6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjack.xcframework; path = Carthage/Build/CocoaLumberjack.xcframework; sourceTree = "<group>"; };
+		6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjackSwift.xcframework; path = Carthage/Build/CocoaLumberjackSwift.xcframework; sourceTree = "<group>"; };
 		6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSettings.swift; sourceTree = "<group>"; };
 		6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerControllerDelegate.swift; sourceTree = "<group>"; };
 		D2192A0D22CB5071009D8808 /* UIImage+crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+crop.swift"; sourceTree = "<group>"; };
@@ -198,7 +206,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FAFA1D22588E7A6008BD04B /* LibZenid_iOS.framework in Frameworks */,
+				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 				6FAFA1CF2588E7A3008BD04B /* RecogLib_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +323,8 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */,
+				6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */,
 				0141C02323A2A13200566078 /* LibZenid_iOS.framework */,
 				D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */,
 			);
@@ -774,6 +786,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -785,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.7;
+				MARKETING_VERSION = 1.27.8;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";
@@ -807,6 +820,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "NO_OPENCV=1";
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
@@ -815,7 +829,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.7;
+				MARKETING_VERSION = 1.27.8;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ZenID demo profile";

@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import RecogLib_iOS
 
 enum VideoWriterError : Error {
     case cannotWriteError
@@ -89,8 +90,8 @@ extension VideoWriter {
                 throw VideoWriterError.cannotWriteError
             }
         }
-        catch let error {
-            debugPrint(error.localizedDescription)
+        catch {
+            Log.shared.Error(error.localizedDescription)
         }
     }
     

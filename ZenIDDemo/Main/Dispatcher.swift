@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RecogLib_iOS
 
 /// The Dispatcher handles validation of sample responses from the backend.
 public class Dispatcher {
@@ -20,83 +21,61 @@ public class Dispatcher {
     /// - Returns: Result of the validation
     func dispatch(image: ImageInput, response: UploadSampleResponse ) -> DispatchResult {
 
-        #if DEBUG
-        NSLog("Dispatching document %@ image type: %@", String(describing: image.documentType), String(describing: image.photoType))
-        #endif
+        Log.shared.Verbose("Dispatching document \(String(describing: image.documentType)) image type: \(String(describing: image.photoType))")
 
         guard let sampleType = response.SampleType else {
-            #if DEBUG
-            NSLog("Response sample type missing, unrecognized estimated document type")
-            #endif
+            Log.shared.Verbose("Response sample type missing, unrecognized estimated document type")
             return rescan(image, response, .unknownEstimatedDocumentType)
         }
         
         if sampleType == .documentPicture {
         
             guard let minedData = response.MinedData else {
-                #if DEBUG
-                NSLog("Mined data missing")
-                #endif
+                Log.shared.Verbose("Mined data missing")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
             
             guard let resultDocumentCode = minedData.DocumentCode else {
-                #if DEBUG
-                NSLog("Document code missing")
-                #endif
+                Log.shared.Verbose("Document code missing")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
             
             guard resultDocumentCode.isTypeOfDocument(type: image.documentType) else {
-                #if DEBUG
-                NSLog("Document code differs from expected document")
-                #endif
+                Log.shared.Verbose("Document code differs from expected document")
                 return rescan(image, response, .documentTypesDontMatch)
             }
             
             guard let pageCode = minedData.PageCode else {
-                #if DEBUG
-                NSLog("Document page code missing")
-                #endif
+                Log.shared.Verbose("Document page code missing")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
         
-            if pageCode == .back && image.photoType != .back  {
-                #if DEBUG
-                NSLog("Document page mismatch ")
-                #endif
+            if pageCode == .back && image.photoType != .back {
+                Log.shared.Verbose("Document page mismatch")
                 return rescan(image, response, .incorrectlyRecognizedAsBack)
             }
             
-            if pageCode == .front && image.photoType != .front  {
-                #if DEBUG
-                NSLog("Document page mismatch ")
-                #endif
+            if pageCode == .front && image.photoType != .front {
+                Log.shared.Verbose("Document page mismatch")
                 return rescan(image, response, .incorrectlyRecognizedAsFront)
             }
         }
         else if sampleType == .documentVideo {
             
             guard let state = response.State, state == .done else {
-                #if DEBUG
-                NSLog("Invalid document video")
-                #endif
+                Log.shared.Verbose("Invalid document video")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
         }
         else if sampleType == .selfie {
             
             guard image.photoType == .face else {
-                #if DEBUG
-                NSLog("Received selfie when expected a document")
-                #endif
+                Log.shared.Verbose("Received selfie when expected a document")
                 return rescan(image, response, .incorrectlyRecognizedAsSelfie)
             }
         }
         else {
-            #if DEBUG
-            NSLog("Unreadable picture or unknown error")
-            #endif
+            Log.shared.Verbose("Unreadable picture or unknown error")
             return rescan(image, response, .unreadablePicture)
         }
         
@@ -110,9 +89,7 @@ public class Dispatcher {
     ///   - response: Backend response
     /// - Returns: A succesful dispatch result
     private func proceedToNext(_ image: ImageInput, _ response: UploadSampleResponse) -> DispatchResult {
-        #if DEBUG
-        NSLog("Dispatcher: Document accepted.")
-        #endif
+        Log.shared.Verbose("Dispatcher: Document accepted.")
         return .completed(sampleID: response.SampleID)
     }
     

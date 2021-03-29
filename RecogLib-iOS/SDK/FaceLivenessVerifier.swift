@@ -30,15 +30,23 @@ public class FaceLivenessVerifier {
     }
     
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
-        var face = createFaceLivenessInfo(orientation: orientation)
-        RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
-        return FaceLivenessResult(faceLivenessState: face.state)
+        do {
+            var face = createFaceLivenessInfo(orientation: orientation)
+            RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
+            return FaceLivenessResult(faceLivenessState: face.state)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
-        var face = createFaceLivenessInfo(orientation: orientation)
-        RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
-        return FaceLivenessResult(faceLivenessState: face.state)
+        do {
+            var face = createFaceLivenessInfo(orientation: orientation)
+            RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
+            return FaceLivenessResult(faceLivenessState: face.state)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func reset() {
@@ -78,7 +86,7 @@ public class FaceLivenessVerifier {
             defer { handle.closeFile() }
             
             let data = handle.readDataToEndOfFile()
-            NSLog("Loaded model: \(fileURL.lastPathComponent)")
+            Log.shared.Info("Loaded model: \(fileURL.lastPathComponent)")
             return data
         }
         

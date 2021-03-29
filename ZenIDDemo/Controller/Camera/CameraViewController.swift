@@ -121,6 +121,7 @@ public class CameraViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        Log.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -672,8 +673,8 @@ private extension CameraViewController {
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard error == nil else {
+            Log.shared.Error(error!.localizedDescription)
             returnImage(nil)
-            debugPrint("Error capturing image")
             return
         }
         let imageData = photo.fileDataRepresentation()

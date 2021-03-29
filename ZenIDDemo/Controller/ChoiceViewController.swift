@@ -241,7 +241,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func showResults(documentType: DocumentType, investigateResponse: InvestigateResponse) {
-        debugPrint("Show investigation results")
+        Log.shared.Verbose("Show investigation results")
         let model = ResultsViewModel(documentType: documentType, investigateResponse: investigateResponse)
         let resultsViewController = ResultViewController(model: model)
         navigationController?.setViewControllers([self, resultsViewController], animated: true)
@@ -303,7 +303,7 @@ extension ChoiceViewController {
     
     private func zenidAuthorize(completion: @escaping (() -> Void)) {
         let isAuthorized = ZenidSecurity.isAuthorized()
-        debugPrint("ZenidSecurity: isAuthorized: \(String(isAuthorized))")
+        Log.shared.Verbose("ZenidSecurity: isAuthorized: \(String(isAuthorized))")
         
         if isAuthorized {
             completion()
@@ -320,7 +320,7 @@ extension ChoiceViewController {
                 .request(API.initSdk(token: challengeToken)) { (response, error) in
                     if let response = response, let responseToken = response.Response {
                         let authorize = ZenidSecurity.authorize(responseToken: responseToken)
-                        debugPrint("ZenidSecurity: authorize: \(String(authorize))")
+                        Log.shared.Verbose("ZenidSecurity: authorize: \(String(authorize))")
                         if authorize {
                             completion()
                             return
@@ -416,7 +416,7 @@ extension ChoiceViewController: QrScannerControllerDelegate {
             if let completion = completion {
                 zenidAuthorize(completion: completion)
             }
-            debugPrint("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
+            Log.shared.Verbose("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
         }
     }
     

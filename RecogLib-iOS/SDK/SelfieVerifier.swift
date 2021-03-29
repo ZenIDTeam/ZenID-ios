@@ -30,15 +30,23 @@ public class SelfieVerifier {
     }
     
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> SelfieResult? {
-        var selfie = createSelfieInfo(orientation: orientation)
-        RecogLib_iOS.verifySelfie(cppObject, buffer, &selfie)
-        return SelfieResult(selfieState: selfie.state)
+        do {
+            var selfie = createSelfieInfo(orientation: orientation)
+            RecogLib_iOS.verifySelfie(cppObject, buffer, &selfie)
+            return SelfieResult(selfieState: selfie.state)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> SelfieResult? {
-        var selfie = createSelfieInfo(orientation: orientation)
-        RecogLib_iOS.verifySelfieImage(cppObject, imageBuffer, &selfie)
-        return SelfieResult(selfieState: selfie.state)
+        do {
+            var selfie = createSelfieInfo(orientation: orientation)
+            RecogLib_iOS.verifySelfieImage(cppObject, imageBuffer, &selfie)
+            return SelfieResult(selfieState: selfie.state)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func reset() {

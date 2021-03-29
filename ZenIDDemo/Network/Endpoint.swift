@@ -6,6 +6,7 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 import Foundation
+import RecogLib_iOS
 
 typealias Headers = [String: String]
 typealias Parameters = [String: Any]
@@ -43,9 +44,7 @@ extension Endpoint where T: Swift.Decodable {
         self.init(method: method,
                   path: path,
                   parameters: parameters) {
-            #if DEBUG
-            NSLog("Response body: %@", String(data: $0, encoding: String.Encoding.utf8) ?? "")
-            #endif
+            Log.shared.Verbose("Response body: \(String(data: $0, encoding: String.Encoding.utf8) ?? "")")
             return try JSONDecoder().decode(T.self, from: $0)
         }
     }
@@ -69,9 +68,7 @@ extension UploadEndpoint where T: Swift.Decodable {
         self.init(path: path,
                   data: data,
                   parameters: parameters) {
-            #if DEBUG
-            NSLog("Response body: %@", String(data: $0, encoding: String.Encoding.utf8) ?? "")
-            #endif
+            Log.shared.Verbose("Response body: \(String(data: $0, encoding: String.Encoding.utf8) ?? "")")
             return try JSONDecoder().decode(T.self, from: $0)
         }
     }

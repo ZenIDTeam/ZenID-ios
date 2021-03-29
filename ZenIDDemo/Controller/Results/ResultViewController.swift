@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RecogLib_iOS
 
 final class ResultCell: UITableViewCell {
     private let titleLabel: UILabel = {
@@ -45,6 +46,7 @@ final class ResultCell: UITableViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        Log.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -68,6 +70,7 @@ final class ResultViewController: BaseInfoViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        Log.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
 

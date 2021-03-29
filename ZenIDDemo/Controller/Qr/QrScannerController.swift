@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import RecogLib_iOS
 
 /// QrScannerController presents view with AVCaptureSession and previewLayer to scan QR codes
 public class QrScannerController: UIViewController,
@@ -90,9 +91,7 @@ public class QrScannerController: UIViewController,
     }()
     
     deinit {
-        #if DEBUG
-        NSLog("QrScanner deallocating..")
-        #endif
+        Log.shared.Info("QrScanner deallocating..")
     }
     
     override public func viewWillAppear(_ animated: Bool) {

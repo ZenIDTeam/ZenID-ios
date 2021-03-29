@@ -43,27 +43,43 @@ public class DocumentVerifier {
     }
 
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
-        var document = createDocumentInfo(orientation: orientation)
-        RecogLib_iOS.verify(cppObject, buffer, &document)
-        return DocumentResult(document: document)
+        do {
+            var document = createDocumentInfo(orientation: orientation)
+            RecogLib_iOS.verify(cppObject, buffer, &document)
+            return DocumentResult(document: document)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
-        var document = createDocumentInfo(orientation: orientation)
-        RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document)
-        return DocumentResult(document: document)
+        do {
+            var document = createDocumentInfo(orientation: orientation)
+            RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document)
+            return DocumentResult(document: document)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func verifyHologram(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> HologramResult? {
-        var document = createDocumentInfo(orientation: orientation)
-        RecogLib_iOS.verifyHologram(cppObject, buffer, &document)
-        return HologramResult(document: document)
+        do {
+            var document = createDocumentInfo(orientation: orientation)
+            RecogLib_iOS.verifyHologram(cppObject, buffer, &document)
+            return HologramResult(document: document)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func verifyHologramImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> HologramResult? {
-        var document = createDocumentInfo(orientation: orientation)
-        RecogLib_iOS.verifyHologramImage(cppObject, imageBuffer, &document)
-        return HologramResult(document: document)
+        do {
+            var document = createDocumentInfo(orientation: orientation)
+            RecogLib_iOS.verifyHologramImage(cppObject, imageBuffer, &document)
+            return HologramResult(document: document)
+        } catch {
+            Log.shared.Error(error.localizedDescription)
+        }
     }
     
     public func supportsHologram() -> Bool {
@@ -79,7 +95,7 @@ public class DocumentVerifier {
     }
     
     public func reset() {
-        //RecogLib_iOS.reset(cppObject)
+        RecogLib_iOS.reset(cppObject)
     }
     
     public func getRenderCommands(canvasWidth: Int, canvasHeight: Int, orientation: UIInterfaceOrientation = .portrait) -> String? {
@@ -116,7 +132,7 @@ public class DocumentVerifier {
             data.withUnsafeBytes {
                 if let typedPtr = $0.bindMemory(to: CChar.self).baseAddress {
                     RecogLib_iOS.loadModel(self.cppObject, typedPtr, data.count)
-                    NSLog("Loaded model: \(url.lastPathComponent)")
+                    Log.shared.Info("Loaded model: \(url.lastPathComponent)")
                 }
             }
         }

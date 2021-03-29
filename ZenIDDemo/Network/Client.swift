@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RecogLib_iOS
 
 protocol ClientProtocol {
     func request<T>(_ endpoint: Endpoint<T>, completion:((T?, Error?) -> Void)?)
@@ -23,29 +24,23 @@ final class Client: ClientProtocol {
                                          parameters: endpoint.parameters,
                                          headers: [:])
         else {
-            #if DEBUG
-            NSLog("Wrong request")
-            #endif
+            Log.shared.Verbose("Wrong request")
             return
         }
         
         self.session.dataTask(with: request) { (data, response, error) in
             var result : T? = nil
             if let error = error {
-                #if DEBUG
                 if let respAsString = String(data:data ?? Data(), encoding: .utf8) {
-                    NSLog("Response error %@: \ndata: %@", error.localizedDescription, respAsString)
+                    Log.shared.Verbose("Response error \(error.localizedDescription): \ndata: \(respAsString))")
                 }
-                #endif
             }
             else if let data = data {
                 do {
                     result = try endpoint.decode(data)
                 }
                 catch {
-                    #if DEBUG
-                    NSLog("Decoding error: %@", error.localizedDescription)
-                    #endif
+                    Log.shared.Verbose("Decoding error: \(error.localizedDescription))")
                 }
             }
             completion?(result, error)
@@ -59,29 +54,23 @@ final class Client: ClientProtocol {
                                          headers: ["Content-Type":"application/octet-stream"])
         
         else {
-            #if DEBUG
-            NSLog("Wrong request")
-            #endif
+            Log.shared.Verbose("Wrong request")
             return
         }
         
         self.session.uploadTask(with: request, from: endpoint.data) { (data, response, error) in
             var result : T? = nil
             if let error = error {
-                #if DEBUG
                 if let respAsString = String(data:data ?? Data(), encoding: .utf8) {
-                    NSLog("Response error %@: \ndata: %@", error.localizedDescription, respAsString)
+                    Log.shared.Verbose("Response error \(error.localizedDescription): \ndata: \(respAsString))")
                 }
-                #endif
             }
             if let data = data {
                 do {
                     result = try endpoint.decode(data)
                 }
                 catch {
-                    #if DEBUG
-                    NSLog("Decoding error: %@", error.localizedDescription)
-                    #endif
+                    Log.shared.Verbose("Decoding error: \(error.localizedDescription))")
                 }
             }
             completion?(result, error)

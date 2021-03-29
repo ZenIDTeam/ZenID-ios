@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RecogLib_iOS
 
 struct WalkthroughPageInfo {
     var title: String
@@ -42,6 +43,7 @@ final class WalkthroughPageViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        Log.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -114,6 +116,7 @@ final class WalkthroughViewController: UIPageViewController {
     }
     
     required init?(coder: NSCoder) {
+        Log.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
     

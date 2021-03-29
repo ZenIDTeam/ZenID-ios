@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,11 @@
 		6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107AE24B0FAFE00610F8D /* HologramResult.swift */; };
 		6FE107B724B29B1C00610F8D /* CUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B524B29B1C00610F8D /* CUtils.cpp */; };
 		6FE107B824B29B1C00610F8D /* CUtils.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6FE107B624B29B1C00610F8D /* CUtils.hpp */; };
+		6FE1D5142612741D00529241 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D5132612741D00529241 /* Log.swift */; };
+		6FE1D5172612744100529241 /* CocoaLumberjackSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D5152612744100529241 /* CocoaLumberjackSwift.xcframework */; };
+		6FE1D5182612744100529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D5152612744100529241 /* CocoaLumberjackSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FE1D5192612744100529241 /* CocoaLumberjack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */; };
+		6FE1D51A2612744100529241 /* CocoaLumberjack.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */; };
 		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
 		B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* Enums.swift */; };
@@ -45,6 +50,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6FE1D51A2612744100529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
+				6FE1D5182612744100529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
 				6F7EAC5524B88616001396F9 /* LibZenid_iOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -72,6 +79,9 @@
 		6FE107AE24B0FAFE00610F8D /* HologramResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HologramResult.swift; sourceTree = "<group>"; };
 		6FE107B524B29B1C00610F8D /* CUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CUtils.cpp; sourceTree = "<group>"; };
 		6FE107B624B29B1C00610F8D /* CUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CUtils.hpp; sourceTree = "<group>"; };
+		6FE1D5132612741D00529241 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		6FE1D5152612744100529241 /* CocoaLumberjackSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjackSwift.xcframework; path = Carthage/Build/CocoaLumberjackSwift.xcframework; sourceTree = "<group>"; };
+		6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjack.xcframework; path = Carthage/Build/CocoaLumberjack.xcframework; sourceTree = "<group>"; };
 		6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenidSecurity.swift; sourceTree = "<group>"; };
 		B009CF5322C4B01C00AA568C /* DocumentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResult.swift; sourceTree = "<group>"; };
 		B051AFDA22CA48AA007AF46E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -96,6 +106,8 @@
 				D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */,
 				6F7EAC5424B88616001396F9 /* LibZenid_iOS.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
+				6FE1D5192612744100529241 /* CocoaLumberjack.xcframework in Frameworks */,
+				6FE1D5172612744100529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +118,7 @@
 		6F6C26F724B87F410073A2CA /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				6FE1D5122612740A00529241 /* App */,
 				6F6C26F824B87F5C0073A2CA /* Extensions */,
 				6F6C26F924B87F680073A2CA /* Utils */,
 				B051AFDA22CA48AA007AF46E /* Enums.swift */,
@@ -135,6 +148,14 @@
 				6F6C26FC24B87FD90073A2CA /* StringUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		6FE1D5122612740A00529241 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6FE1D5132612741D00529241 /* Log.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		D264245322C11E7E00735B99 = {
@@ -180,6 +201,8 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */,
+				6FE1D5152612744100529241 /* CocoaLumberjackSwift.xcframework */,
 				6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */,
 				D2BD780622C4EA24006D7974 /* CoreMedia.framework */,
 				D261289422C370C200942D8A /* libc++.tbd */,
@@ -307,6 +330,7 @@
 				6F2CFC86247469AE005D2FB6 /* FaceLivenessVerifier.swift in Sources */,
 				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
 				6FE107B724B29B1C00610F8D /* CUtils.cpp in Sources */,
+				6FE1D5142612741D00529241 /* Log.swift in Sources */,
 				6F2CFC89247471C5005D2FB6 /* CFaceLivenessWrapper.cpp in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
 				B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */,
@@ -490,7 +514,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.27.7;
+				MARKETING_VERSION = 1.27.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
@@ -538,7 +562,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.27.7;
+				MARKETING_VERSION = 1.27.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";

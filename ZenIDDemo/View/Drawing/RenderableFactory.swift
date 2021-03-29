@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RecogLib_iOS
 enum RenderableType: String {
     case line = "line"
     case rectangle = "rectangle"
@@ -18,9 +18,7 @@ enum RenderableType: String {
 
 class RenderableFactory {
     static func createRenderables(commands: String) -> [Renderable] {
-        #if DEBUG
-        //NSLog("Render:\n\(commands)")
-        #endif
+        Log.shared.Debug("Render:\n\(commands)")
         return commands
             .split(separator: "\n")
             .compactMap(createRenderable(command:))
