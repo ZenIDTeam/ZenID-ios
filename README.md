@@ -36,6 +36,16 @@ In iOS device under Settings -> ZenID is possible to set
 ### Torch mode
 Is useful for hologram detection
 
+## Appication logs
+You can get log file(s) directly from device, through USB cable
+- Connect your device to your mac
+- In Xcode, go to Window -> Devices
+- On top-left in the device list, click on the connected device.
+- In the main panel, under Installed Apps section, click on the ZenID application.
+- At the bottom of the Installed Apps list, click on the gear icon and then Download Container.
+- In Finder, right click (show menu) on the saved .xcappdata file and select Show Package Contents
+- Log files are saved in /AppData/Library/Caches/Logs/
+
 ## Usage
 ### 1. Configure `AVCaptureSession`
 Recoglib is built to be used with AVCaptureSession. Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and start batch configuration by calling `beginConfiguration` method.
