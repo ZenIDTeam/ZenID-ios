@@ -245,13 +245,16 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func shareLogFile() {
-        guard let filePath = Log.shared.getLogArchivePath() else { return }
-        guard Foundation.FileManager.default.fileExists(atPath: filePath) else { return }
-        
-        let fileURL = NSURL(fileURLWithPath: filePath)
-        var filesToShare = [Any]()
-        filesToShare.append(fileURL)
-        self.shareFiles(filesToShare: filesToShare)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard let filePath = Log.shared.getLogArchivePath() else { return }
+            guard Foundation.FileManager.default.fileExists(atPath: filePath) else { return }
+            
+            let fileURL = NSURL(fileURLWithPath: filePath)
+            var filesToShare = [Any]()
+            filesToShare.append(fileURL)
+            self.shareFiles(filesToShare: filesToShare)
+        }
     }
 
     private func showResults(documentType: DocumentType, investigateResponse: InvestigateResponse) {
