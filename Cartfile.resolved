@@ -1,1 +1,2 @@
 github "CocoaLumberjack/CocoaLumberjack" "3.7.0"
+github "ZipArchive/ZipArchive" "v2.2.3"

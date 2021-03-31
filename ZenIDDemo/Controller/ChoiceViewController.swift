@@ -24,6 +24,7 @@ final class ChoiceViewController: UIViewController {
     private let otherDocumentButton = Buttons.otherDocument
     private let hologramButton = Buttons.hologram
     private let faceButton = Buttons.face
+    private let logsButton = Buttons.logs
     
     private lazy var documentButtons = [
         idButton,
@@ -32,7 +33,8 @@ final class ChoiceViewController: UIViewController {
         unspecifiedDocumentButton,
         otherDocumentButton,
         hologramButton,
-        //faceButton
+        //faceButton,
+        logsButton
     ]
     
     private var selectedCountry: Country {
@@ -60,7 +62,7 @@ final class ChoiceViewController: UIViewController {
         let stackView = UIStackView()
         stackView.distribution = .fill
         stackView.axis = .vertical
-        stackView.spacing = 20
+        stackView.spacing = 15
         return stackView
     }()
     
@@ -222,6 +224,8 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.hologram)
             case self.faceButton:
                 self.startProcess(.face)
+            case self.logsButton:
+                self.shareLogFile()
             default:
                 break
             }
@@ -240,6 +244,16 @@ final class ChoiceViewController: UIViewController {
         scanProcess?.start()
     }
     
+    private func shareLogFile() {
+        guard let filePath = Log.shared.getLogArchivePath() else { return }
+        guard Foundation.FileManager.default.fileExists(atPath: filePath) else { return }
+        
+        let fileURL = NSURL(fileURLWithPath: filePath)
+        var filesToShare = [Any]()
+        filesToShare.append(fileURL)
+        self.shareFiles(filesToShare: filesToShare)
+    }
+
     private func showResults(documentType: DocumentType, investigateResponse: InvestigateResponse) {
         Log.shared.Verbose("Show investigation results")
         let model = ResultsViewModel(documentType: documentType, investigateResponse: investigateResponse)

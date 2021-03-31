@@ -66,6 +66,7 @@
 "btn-other-document" = "Universal document";
 "btn-hologram" = "Hologram";
 "btn-face" = "Selfie";
+"btn-logs" = "Logs";
 "btn-country" = "Country";
 "btn-face-mode" = "Selfie mode";
 "btn-logout" = "Logout";

@@ -152,6 +152,15 @@ enum Buttons {
             return button
         }
     }
+    
+    static var logs: UIButton {
+        get {
+            let button = ZenButton()
+            button.setTitle("btn-logs".localized.uppercased(), for: .normal)
+            button.outline = true
+            return button
+        }
+    }
 
     static var skip: UIButton {
         get {

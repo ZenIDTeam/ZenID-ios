@@ -7,10 +7,13 @@
 //
 
 import CocoaLumberjackSwift
+import ZipArchive
 
 final public class Log {
     
     public static let shared = Log()
+    
+    private var fileLogger: DDFileLogger!
 
     private init() {}
     
@@ -21,7 +24,7 @@ final public class Log {
         DDLog.add(DDOSLogger.sharedInstance)
 
         // use file logger
-        let fileLogger: DDFileLogger = DDFileLogger()
+        self.fileLogger = DDFileLogger()
         fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 365
         DDLog.add(fileLogger)
@@ -29,6 +32,24 @@ final public class Log {
     
     public func setLogLevel(logLevel: DDLogLevel) {
         dynamicLogLevel = logLevel
+    }
+    
+    public func getLogArchivePath() -> String? {
+        let logFilePaths = fileLogger.logFileManager.sortedLogFilePaths
+        guard !logFilePaths.isEmpty else { return nil }
+        
+        guard let zipPath = URL(string: fileLogger.logFileManager.logsDirectory)?.appendingPathComponent("zenIDlog.zip") else { return nil }
+        
+        try? FileManager.default.removeItem(at: zipPath)
+        
+        let zipArch = SSZipArchive(path: zipPath.absoluteString)
+        zipArch.open()
+        for logFilePath in logFilePaths {
+            zipArch.writeFile(logFilePath, withPassword: nil)
+        }
+        zipArch.close()
+        
+        return zipPath.absoluteString
     }
     
     public func Error(_ message: String) {

@@ -75,6 +75,8 @@
 		6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */; };
 		6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */; };
+		6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FF5E9CD2468ACF20077980C /* CredentialsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */; };
 		6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */; };
 		D2192A0E22CB5071009D8808 /* UIImage+crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2192A0D22CB5071009D8808 /* UIImage+crop.swift */; };
@@ -103,6 +105,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
+				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
 				6FAFA1D02588E7A3008BD04B /* RecogLib_iOS.framework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
 				6FAFA1D32588E7A6008BD04B /* LibZenid_iOS.framework in Embed Frameworks */,
@@ -180,6 +183,7 @@
 		6FE107B324B26FC800610F8D /* VideoWriterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWriterDelegate.swift; sourceTree = "<group>"; };
 		6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjack.xcframework; path = Carthage/Build/CocoaLumberjack.xcframework; sourceTree = "<group>"; };
 		6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjackSwift.xcframework; path = Carthage/Build/CocoaLumberjackSwift.xcframework; sourceTree = "<group>"; };
+		6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZipArchive.xcframework; path = Carthage/Build/ZipArchive.xcframework; sourceTree = "<group>"; };
 		6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSettings.swift; sourceTree = "<group>"; };
 		6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerControllerDelegate.swift; sourceTree = "<group>"; };
 		D2192A0D22CB5071009D8808 /* UIImage+crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+crop.swift"; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
+				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
 				6FAFA1D22588E7A6008BD04B /* LibZenid_iOS.framework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 				6FAFA1CF2588E7A3008BD04B /* RecogLib_iOS.framework in Frameworks */,
@@ -323,6 +328,7 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */,
 				6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */,
 				6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */,
 				0141C02323A2A13200566078 /* LibZenid_iOS.framework */,

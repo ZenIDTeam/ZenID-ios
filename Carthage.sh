@@ -1,4 +1,5 @@
 carthage update --platform ios
+
 for D in ./Carthage/Checkouts/*; do
   if [ -d "${D}" ]; then
     find $D -type d -name \*.xcodeproj -print0 |
@@ -7,4 +8,5 @@ for D in ./Carthage/Checkouts/*; do
       done
     fi
 done
+
 carthage build --no-use-binaries --use-xcframeworks --platform ios

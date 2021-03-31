@@ -12,6 +12,9 @@ Carthage
 # CocoaLumberjack framework
 CocoaLumberjack*/**
 
+# ZipArchive framework
+ZipArchive*/**
+
 # xcuserdata
 *xcworkspace/xcuserdata/*
 *.xcodeproj/xcuserdata/*

@@ -39,6 +39,17 @@ extension UIViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func shareFiles(filesToShare: [Any]) {
+        // create activity
+        let activity = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
+        
+        // iPad style
+        self.addActionSheetForiPad(actionSheet: activity)
+
+        // show the activity
+        self.present(activity, animated: true, completion: nil)
+    }
 }
 
 extension UIViewController {

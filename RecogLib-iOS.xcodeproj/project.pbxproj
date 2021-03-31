@@ -31,6 +31,8 @@
 		6FE1D5182612744100529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D5152612744100529241 /* CocoaLumberjackSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FE1D5192612744100529241 /* CocoaLumberjack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */; };
 		6FE1D51A2612744100529241 /* CocoaLumberjack.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FF414DE261498100091CBEB /* ZipArchive.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF414DD261498100091CBEB /* ZipArchive.xcframework */; };
+		6FF414DF261498100091CBEB /* ZipArchive.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF414DD261498100091CBEB /* ZipArchive.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */; };
 		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
 		B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* Enums.swift */; };
@@ -52,6 +54,7 @@
 			files = (
 				6FE1D51A2612744100529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FE1D5182612744100529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
+				6FF414DF261498100091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
 				6F7EAC5524B88616001396F9 /* LibZenid_iOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -82,6 +85,7 @@
 		6FE1D5132612741D00529241 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		6FE1D5152612744100529241 /* CocoaLumberjackSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjackSwift.xcframework; path = Carthage/Build/CocoaLumberjackSwift.xcframework; sourceTree = "<group>"; };
 		6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjack.xcframework; path = Carthage/Build/CocoaLumberjack.xcframework; sourceTree = "<group>"; };
+		6FF414DD261498100091CBEB /* ZipArchive.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZipArchive.xcframework; path = Carthage/Build/ZipArchive.xcframework; sourceTree = "<group>"; };
 		6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenidSecurity.swift; sourceTree = "<group>"; };
 		B009CF5322C4B01C00AA568C /* DocumentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResult.swift; sourceTree = "<group>"; };
 		B051AFDA22CA48AA007AF46E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */,
+				6FF414DE261498100091CBEB /* ZipArchive.xcframework in Frameworks */,
 				6F7EAC5424B88616001396F9 /* LibZenid_iOS.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
 				6FE1D5192612744100529241 /* CocoaLumberjack.xcframework in Frameworks */,
@@ -201,6 +206,7 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FF414DD261498100091CBEB /* ZipArchive.xcframework */,
 				6FE1D5162612744100529241 /* CocoaLumberjack.xcframework */,
 				6FE1D5152612744100529241 /* CocoaLumberjackSwift.xcframework */,
 				6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */,
