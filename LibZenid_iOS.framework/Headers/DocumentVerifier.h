@@ -10,6 +10,7 @@
 
 #include <memory>
 #include <optional>
+#include <string>
 
 namespace RecogLibC
 {
@@ -27,6 +28,9 @@ public:
 
 	// Toggles displaying an aiming circle while searching for cards.
 	bool enableAimingCircle = false;
+
+	// Toggles displaying timer that shows seconds remaining for the validators to become max tolerant. 
+	bool showTimer = true;
 };
 
 class DocumentVerifier
@@ -45,9 +49,11 @@ public:
 	                  const DocumentCodes* documentCode = nullptr);
 	
 	void ProcessFrame(const Image& frame, const AcceptableInput& acceptableInput);
+	void ProcessFrame(const Image& frame, const std::string& acceptableInputJson);
 
 #ifndef NO_OPENCV
 	void ProcessFrame(const cv::Mat& frame, const AcceptableInput& acceptableInput);
+	void ProcessFrame(const cv::Mat& frame, const std::string& acceptableInputJson);
 	
 	void ProcessFrame(const cv::Mat& frame,
 	                  const std::optional<DocumentRole> role = {},
@@ -57,7 +63,7 @@ public:
 #endif
 
 	State GetState() const;
-
+	float GetSecondsToMaxTolerance() const;
 	// Invalid if the state is NoMatchFound
 	DocumentCodes GetDocumentCode() const;
 	// Invalid if the state is NoMatchFound

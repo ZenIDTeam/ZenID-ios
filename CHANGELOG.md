@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.27.9 - 2021-04-11
+* Updated LibZenid 1.3.3.1
+
 ## 1.27.8 - 2021-03-30
 * Exportable application log
 
