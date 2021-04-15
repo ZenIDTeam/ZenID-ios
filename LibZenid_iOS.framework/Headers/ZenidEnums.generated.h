@@ -42,6 +42,29 @@ enum class DocumentCodes : uint8_t
 	HU_DRV_2012_B = 29,
 	EU_EHIC_2004_A = 30,
 	Unknown = 31,
+	CZ_GUN_2017 = 32,
+	CZ_RES_2020 = 33,
+	PL_IDC_2019 = 34,
+	IT_PAS_2006_10 = 35,
+	INT_ISIC_2008 = 36,
+	DE_PAS = 37,
+	DK_PAS = 38,
+	ES_PAS = 39,
+	FI_PAS = 40,
+	FR_PAS = 41,
+	GB_PAS = 42,
+	IS_PAS = 43,
+	NL_PAS = 44,
+	RO_PAS = 45,
+	SE_PAS = 46,
+	PL_PAS = 47,
+	PL_DRV_2013 = 48,
+	CZ_BIRTH = 49,
+	CZ_VEHICLE_I = 50,
+	INT_ISIC_2019 = 51,
+	SI_Pas = 52,
+	SI_IDC = 53,
+	SI_DRV = 54,
 };
 
 enum class PageCodes : uint8_t
@@ -63,6 +86,15 @@ enum class Country : uint8_t
 	Ru = 8,
 	Ua = 9,
 	It = 10,
+	Dk = 11,
+	Es = 12,
+	Fi = 13,
+	Fr = 14,
+	Gb = 15,
+	Is = 16,
+	Nl = 17,
+	Se = 18,
+	Si = 19,
 };
 
 enum class DocumentRole : uint8_t
@@ -73,6 +105,9 @@ enum class DocumentRole : uint8_t
 	Res = 3,
 	Gun = 4,
 	Hic = 5,
+	Std = 6,
+	Car = 7,
+	Birth = 8,
 };
 
 enum class SupportedLanguages : uint8_t

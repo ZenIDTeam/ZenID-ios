@@ -11,6 +11,7 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <utility>
 
 namespace RecogLibC
 {
@@ -30,7 +31,7 @@ public:
 	bool enableAimingCircle = false;
 
 	// Toggles displaying timer that shows seconds remaining for the validators to become max tolerant. 
-	bool showTimer = true;
+	bool showTimer = false;
 };
 
 class DocumentVerifier
@@ -92,6 +93,9 @@ public:
 	~DocumentVerifier();
 
 	DocumentVerifierSettings& GetSettings() const;
+
+	// Returns pairs of enabled DocumentCodes/PageCodes taking into account AcceptableInput and the license. Has to be run after Authorize.
+	std::vector<std::pair<DocumentCodes, PageCodes>> GetEnabledModels(const AcceptableInput& acceptableInput) const;
 
 	// Resets the state. The state will go back as though no picture was found. Models will stay loaded.
 	void Reset();

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		kEqZHqvs18AZ4QziCYazgeha/Qw=
+		dxt2M7MtZejx58DKxZeBv6iPq/I=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/RecogLibCException.h</key>
 		<data>
-		+b3cI1rnhZoG6yYjevsnQU4Kv/E=
+		HaI8k7I87O2gXIA+/WzkZGxPSdk=
 		</data>
 		<key>Headers/SelfieVerifier.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		WEKiDHLGdFIkeFMieWgNfDbGqyk=
+		jmJDgXcpJJm2iaQbqPu5MTS9fQk=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		KTz9GRNG4DYYdsgEDxVbAiqvX0w=
+		O95Sd9zt7do1A0cDQ1/sPU9hsRM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nfXZxowLfgqcsabVq8TUxfy7XiCR9lTB2EA3XrirUFU=
+			p12w/MkNW9vn8E/SFrBxB2BZaix/IzsJ4rb1JwFwSF4=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
@@ -79,7 +79,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			v9ArqRehZfsfPICMZCtW2ecNgLB5bXrkGxC4cuwPVCw=
+			ZgH8dUhoWG8o9q4HBUDIrh/gAsO2NKayj7ieK4lpxTc=
 			</data>
 		</dict>
 		<key>Headers/SelfieVerifier.h</key>
@@ -93,7 +93,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AJ4uqtUZHdqSH2oHfQRBXIVOLphsDK75AexYG6oU1hQ=
+			MBC68H3oYP3FGgHenDgXTPHhPfJdKhPsfmX8lzCZJG0=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>

@@ -18,4 +18,12 @@ class RecogLibCException : public std::exception
    private:
 	std::string message;
 };
+
+class NoSuitableModelException: public RecogLibCException
+{
+	public:
+		explicit NoSuitableModelException() : RecogLibCException{std::move("No model matches the selected filter.")} {}
+	
+};
+
 }
