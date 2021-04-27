@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.27.11 - 2021-04-26
+* Updated for Xcode 12.5
+
 ## 1.27.10 - 2021-04-15
 * Updated LibZenid 1.4.3
 
