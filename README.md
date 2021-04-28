@@ -37,7 +37,9 @@ In iOS device under Settings -> ZenID is possible to set
 Is useful for hologram detection
 
 ## Appication logs
-You can get log file(s) directly from device, through USB cable
+Demo application uses external libraries CocoaLumberjackSwift and ZipArchive to create application logs.
+You can get log file(s) through `Logs` button from home screen,
+or alternatively directly from device, through USB cable
 - Connect your device to your mac
 - In Xcode, go to Window -> Devices
 - On top-left in the device list, click on the connected device.
