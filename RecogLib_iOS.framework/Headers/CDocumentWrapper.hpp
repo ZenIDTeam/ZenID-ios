@@ -28,12 +28,12 @@ const void * getDocumentVerifier();
 void loadModel(const void *object, const char* buffer, size_t size);
 
 // Verifying documents
-bool verify(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document);
-bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document);
+bool verify(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document, const char *acceptableInputJson);
+bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, const char *acceptableInputJson);
+
+// Verifying holograms
 bool verifyHologram(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document);
 bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document);
-
-// Hologram
 bool supportsHologram(const void *object);
 void beginHologramVerification(const void *object);
 void endHologramVerification(const void *object);

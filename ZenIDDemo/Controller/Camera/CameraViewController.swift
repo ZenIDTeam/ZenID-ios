@@ -93,6 +93,11 @@ public class CameraViewController: UIViewController {
                                                             page: RecogLib_iOS.PageCode.Front,
                                                             code: nil,
                                                             language: LanguageHelper.language)
+    
+//    private var documentVerifier: DocumentVerifier = DocumentVerifier(
+//        acceptableInputJson: "{\"PossibleDocuments\":[{\"Role\":\"Idc\",\"Country\":\"Cz\",\"Page\":\"F\"}]}",
+//        language: LanguageHelper.language)
+    
     private var faceLivenessVerifier: FaceLivenessVerifier = FaceLivenessVerifier(language: LanguageHelper.language)
     private var selfieVerifier: SelfieVerifier = SelfieVerifier(language: LanguageHelper.language)
     

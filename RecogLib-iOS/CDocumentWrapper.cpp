@@ -18,7 +18,8 @@ using namespace RecogLibC;
 
 static void processFrame(const void *object,
                   CVPixelBufferRef _cvBuffer,
-                  CDocumentInfo *document)
+                  CDocumentInfo *document,
+                  const char *acceptableInputJson)
 {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     
@@ -61,15 +62,23 @@ static void processFrame(const void *object,
         default:
             break;
     }
- 
-    verifier->ProcessFrame(image,
-                           document->role < 0 ? nullptr : &documentRole,
-                           document->page < 0 ? nullptr : &country,
-                           document->country < 0 ? nullptr : &pageCode,
-                           document->code < 0 ? nullptr : &documentCode);
+
+    if (acceptableInputJson != NULL)
+    {
+        verifier->ProcessFrame(image, acceptableInputJson);
+    }
+    else
+    {
+        verifier->ProcessFrame(image,
+                               document->role < 0 ? nullptr : &documentRole,
+                               document->page < 0 ? nullptr : &country,
+                               document->country < 0 ? nullptr : &pageCode,
+                               document->code < 0 ? nullptr : &documentCode);
+    }
     
     CVPixelBufferUnlockBaseAddress(_cvBuffer, 0);
 }
+
 
 const void * getDocumentVerifier()
 {
@@ -87,17 +96,19 @@ void loadModel(const void *object,
 
 bool verify(const void *object,
             CMSampleBufferRef _mat,
-            CDocumentInfo *document)
+            CDocumentInfo *document,
+            const char *acceptableInputJson)
 {
     CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
-    return verifyImage(object, cvBuffer, document);
+    return verifyImage(object, cvBuffer, document, acceptableInputJson);
 }
 
 bool verifyImage(const void *object,
                  CVPixelBufferRef _cvBuffer,
-                 CDocumentInfo *document)
+                 CDocumentInfo *document,
+                 const char *acceptableInputJson)
 {
-    processFrame(object, _cvBuffer, document);
+    processFrame(object, _cvBuffer, document, acceptableInputJson);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     
     const auto state = verifier->GetState();
@@ -130,7 +141,7 @@ bool verifyHologramImage(const void *object,
                  CVPixelBufferRef _cvBuffer,
                  CDocumentInfo *document)
 {
-    processFrame(object, _cvBuffer, document);
+    processFrame(object, _cvBuffer, document, NULL);
     
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     const auto hologramState = verifier->GetHologramState();

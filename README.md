@@ -83,10 +83,17 @@ session.startRunning()
 ### 2. Configure `DocumentVerifier`
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
 First you initialize `DocumentVerifier` with expected role, country, page and language.
+Alternativally you can initialize `DocumentVerifier` with acceptableInputJson string and use custom filter to detect any combination of supported documents, for example:
 
-Note that properties `role`, `country`,  `page` and `language` are public and can be changed whenever you like.
+- slovak passport: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Role\":\"Pas\",\"Country\":\"Sk\"}]}"
+- czech back Id: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Role\":\"Idc\",\"Country\":\"Cz\",\"Page\":\"B\"}]}"
+- czech back Id or slovak passport: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Role\":\"Idc\",\"Country\":\"Cz\",\"Page\":\"B\"},{\"Role\":\"Pas\",\"Country\":\"Sk\"}]}"
+- any front page: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Page\":\"F\"}]}"
+- any (supported) document: `acceptableInputJson` = "{}"
+
+Note that properties `role`, `country`,  `page` , `language` and `acceptableInputJson` are public and can be changed whenever you like.
 ```
-let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language)
+let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language) or let verifier = DocumentVerifier(acceptableInputJson: String, language: .Language)
 ```
 Than you define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate`
 ```

@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.27.12 - 2021-04-28
+* acceptable input json support for document verifier 
+
 ## 1.27.11 - 2021-04-26
 * Updated for Xcode 12.5
 

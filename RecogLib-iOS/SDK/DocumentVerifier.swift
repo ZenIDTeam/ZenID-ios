@@ -20,6 +20,9 @@ public class DocumentVerifier {
     public var country: Country?
     public var page: PageCode?
     public var code: DocumentCode?
+    
+    public var acceptableInputJson: String?
+    
     public var language: SupportedLanguages
     
     public var showDebugInfo: Bool = false {
@@ -41,11 +44,22 @@ public class DocumentVerifier {
             .appendingPathComponent(modelsRelativePath)
         listModels(modelsURL).forEach(readModel(url:))
     }
+    
+    public init(acceptableInputJson: String, language: SupportedLanguages) {
+        self.acceptableInputJson = acceptableInputJson
+        self.language = language
+        
+        self.cppObject = getDocumentVerifier()
+        let modelsURL = Bundle(for: DocumentVerifier.self)
+            .bundleURL
+            .appendingPathComponent(modelsRelativePath)
+        listModels(modelsURL).forEach(readModel(url:))
+    }
 
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
         do {
             var document = createDocumentInfo(orientation: orientation)
-            RecogLib_iOS.verify(cppObject, buffer, &document)
+            RecogLib_iOS.verify(cppObject, buffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
             return DocumentResult(document: document)
         } catch {
             Log.shared.Error(error.localizedDescription)
@@ -55,7 +69,7 @@ public class DocumentVerifier {
     public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
         do {
             var document = createDocumentInfo(orientation: orientation)
-            RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document)
+            RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
             return DocumentResult(document: document)
         } catch {
             Log.shared.Error(error.localizedDescription)
