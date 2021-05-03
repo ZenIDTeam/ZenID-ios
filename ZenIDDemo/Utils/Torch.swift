@@ -30,7 +30,7 @@ final class Torch {
                 do {
                     try device.lockForConfiguration()
                 } catch {
-                    Log.shared.Verbose("\(device.localizedName) has no torch")
+                    ApplicationLogger.shared.Verbose("\(device.localizedName) has no torch")
                 }
                 
                 if torchMode == .off {

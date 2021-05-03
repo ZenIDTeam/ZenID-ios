@@ -44,7 +44,7 @@ extension Endpoint where T: Swift.Decodable {
         self.init(method: method,
                   path: path,
                   parameters: parameters) {
-            Log.shared.Verbose("Response body: \(String(data: $0, encoding: String.Encoding.utf8) ?? "")")
+            ApplicationLogger.shared.Verbose("Response body: \(String(data: $0, encoding: String.Encoding.utf8) ?? "")")
             return try JSONDecoder().decode(T.self, from: $0)
         }
     }
@@ -68,7 +68,7 @@ extension UploadEndpoint where T: Swift.Decodable {
         self.init(path: path,
                   data: data,
                   parameters: parameters) {
-            Log.shared.Verbose("Response body: \(String(data: $0, encoding: String.Encoding.utf8) ?? "")")
+            ApplicationLogger.shared.Verbose("Response body: \(String(data: $0, encoding: String.Encoding.utf8) ?? "")")
             return try JSONDecoder().decode(T.self, from: $0)
         }
     }

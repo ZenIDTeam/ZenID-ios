@@ -1,23 +1,24 @@
 //
-//  Log.swift
-//  RecogLib-iOS
+//  Logger.swift
+//  ZenIDDemo
 //
-//  Created by Jiri Sacha on 29.03.2021.
-//  Copyright © 2021 Marek Stana. All rights reserved.
+//  Created by Jiri Sacha on 03.05.2021.
+//  Copyright © 2021 Trask, a.s. All rights reserved.
 //
 
+import Foundation
+import RecogLib_iOS
 import CocoaLumberjackSwift
 import ZipArchive
 
-final public class Log {
+final class ZenIDLogger : LoggerProtocol {
     
-    public static let shared = Log()
+    public static let shared = ZenIDLogger()
     
     private var fileLogger: DDFileLogger!
-
-    private init() {}
     
-    public func startLogging(logLevel: DDLogLevel = DDLogLevel.all) {
+    init(logLevel: DDLogLevel = DDLogLevel.all) {
+        // The log level that can dynamically limit log messages
         dynamicLogLevel = logLevel
         
         // Use os_log
@@ -30,11 +31,11 @@ final public class Log {
         DDLog.add(fileLogger)
     }
     
-    public func setLogLevel(logLevel: DDLogLevel) {
-        dynamicLogLevel = logLevel
+    func startLogging() {
+        ApplicationLogger.shared.startLogging(logger: self)
     }
     
-    public func getLogArchivePath() -> String? {
+    func getLogArchivePath() -> String? {
         let logFilePaths = fileLogger.logFileManager.sortedLogFilePaths
         guard !logFilePaths.isEmpty else { return nil }
         

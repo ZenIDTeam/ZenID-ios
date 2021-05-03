@@ -18,7 +18,7 @@ enum RenderableType: String {
 
 class RenderableFactory {
     static func createRenderables(commands: String) -> [Renderable] {
-        Log.shared.Debug("Render:\n\(commands)")
+        ApplicationLogger.shared.Debug("Render:\n\(commands)")
         return commands
             .split(separator: "\n")
             .compactMap(createRenderable(command:))

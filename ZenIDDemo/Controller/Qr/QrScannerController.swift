@@ -91,7 +91,7 @@ public class QrScannerController: UIViewController,
     }()
     
     deinit {
-        Log.shared.Info("QrScanner deallocating..")
+        ApplicationLogger.shared.Info("QrScanner deallocating..")
     }
     
     override public func viewWillAppear(_ animated: Bool) {

@@ -35,7 +35,7 @@ public class FaceLivenessVerifier {
             RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
             return FaceLivenessResult(faceLivenessState: face.state)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     
@@ -45,7 +45,7 @@ public class FaceLivenessVerifier {
             RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
             return FaceLivenessResult(faceLivenessState: face.state)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     
@@ -86,7 +86,7 @@ public class FaceLivenessVerifier {
             defer { handle.closeFile() }
             
             let data = handle.readDataToEndOfFile()
-            Log.shared.Info("Loaded model: \(fileURL.lastPathComponent)")
+            ApplicationLogger.shared.Info("Loaded model: \(fileURL.lastPathComponent)")
             return data
         }
         

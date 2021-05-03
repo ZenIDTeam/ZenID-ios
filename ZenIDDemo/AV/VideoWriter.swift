@@ -91,7 +91,7 @@ extension VideoWriter {
             }
         }
         catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     

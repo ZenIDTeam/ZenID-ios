@@ -247,7 +247,7 @@ final class ChoiceViewController: UIViewController {
     private func shareLogFile() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            guard let filePath = Log.shared.getLogArchivePath() else { return }
+            guard let filePath = ZenIDLogger.shared.getLogArchivePath() else { return }
             guard Foundation.FileManager.default.fileExists(atPath: filePath) else { return }
             
             let fileURL = NSURL(fileURLWithPath: filePath)
@@ -258,7 +258,7 @@ final class ChoiceViewController: UIViewController {
     }
 
     private func showResults(documentType: DocumentType, investigateResponse: InvestigateResponse) {
-        Log.shared.Verbose("Show investigation results")
+        ApplicationLogger.shared.Verbose("Show investigation results")
         let model = ResultsViewModel(documentType: documentType, investigateResponse: investigateResponse)
         let resultsViewController = ResultViewController(model: model)
         navigationController?.setViewControllers([self, resultsViewController], animated: true)
@@ -320,7 +320,7 @@ extension ChoiceViewController {
     
     private func zenidAuthorize(completion: @escaping (() -> Void)) {
         let isAuthorized = ZenidSecurity.isAuthorized()
-        Log.shared.Verbose("ZenidSecurity: isAuthorized: \(String(isAuthorized))")
+        ApplicationLogger.shared.Verbose("ZenidSecurity: isAuthorized: \(String(isAuthorized))")
         
         if isAuthorized {
             completion()
@@ -337,7 +337,7 @@ extension ChoiceViewController {
                 .request(API.initSdk(token: challengeToken)) { (response, error) in
                     if let response = response, let responseToken = response.Response {
                         let authorize = ZenidSecurity.authorize(responseToken: responseToken)
-                        Log.shared.Verbose("ZenidSecurity: authorize: \(String(authorize))")
+                        ApplicationLogger.shared.Verbose("ZenidSecurity: authorize: \(String(authorize))")
                         if authorize {
                             completion()
                             return
@@ -433,7 +433,7 @@ extension ChoiceViewController: QrScannerControllerDelegate {
             if let completion = completion {
                 zenidAuthorize(completion: completion)
             }
-            Log.shared.Verbose("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
+            ApplicationLogger.shared.Verbose("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
         }
     }
     

@@ -21,61 +21,61 @@ public class Dispatcher {
     /// - Returns: Result of the validation
     func dispatch(image: ImageInput, response: UploadSampleResponse ) -> DispatchResult {
 
-        Log.shared.Verbose("Dispatching document \(String(describing: image.documentType)) image type: \(String(describing: image.photoType))")
+        ApplicationLogger.shared.Verbose("Dispatching document \(String(describing: image.documentType)) image type: \(String(describing: image.photoType))")
 
         guard let sampleType = response.SampleType else {
-            Log.shared.Verbose("Response sample type missing, unrecognized estimated document type")
+            ApplicationLogger.shared.Verbose("Response sample type missing, unrecognized estimated document type")
             return rescan(image, response, .unknownEstimatedDocumentType)
         }
         
         if sampleType == .documentPicture {
         
             guard let minedData = response.MinedData else {
-                Log.shared.Verbose("Mined data missing")
+                ApplicationLogger.shared.Verbose("Mined data missing")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
             
             guard let resultDocumentCode = minedData.DocumentCode else {
-                Log.shared.Verbose("Document code missing")
+                ApplicationLogger.shared.Verbose("Document code missing")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
             
             guard resultDocumentCode.isTypeOfDocument(type: image.documentType) else {
-                Log.shared.Verbose("Document code differs from expected document")
+                ApplicationLogger.shared.Verbose("Document code differs from expected document")
                 return rescan(image, response, .documentTypesDontMatch)
             }
             
             guard let pageCode = minedData.PageCode else {
-                Log.shared.Verbose("Document page code missing")
+                ApplicationLogger.shared.Verbose("Document page code missing")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
         
             if pageCode == .back && image.photoType != .back {
-                Log.shared.Verbose("Document page mismatch")
+                ApplicationLogger.shared.Verbose("Document page mismatch")
                 return rescan(image, response, .incorrectlyRecognizedAsBack)
             }
             
             if pageCode == .front && image.photoType != .front {
-                Log.shared.Verbose("Document page mismatch")
+                ApplicationLogger.shared.Verbose("Document page mismatch")
                 return rescan(image, response, .incorrectlyRecognizedAsFront)
             }
         }
         else if sampleType == .documentVideo {
             
             guard let state = response.State, state == .done else {
-                Log.shared.Verbose("Invalid document video")
+                ApplicationLogger.shared.Verbose("Invalid document video")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
         }
         else if sampleType == .selfie {
             
             guard image.photoType == .face else {
-                Log.shared.Verbose("Received selfie when expected a document")
+                ApplicationLogger.shared.Verbose("Received selfie when expected a document")
                 return rescan(image, response, .incorrectlyRecognizedAsSelfie)
             }
         }
         else {
-            Log.shared.Verbose("Unreadable picture or unknown error")
+            ApplicationLogger.shared.Verbose("Unreadable picture or unknown error")
             return rescan(image, response, .unreadablePicture)
         }
         
@@ -89,7 +89,7 @@ public class Dispatcher {
     ///   - response: Backend response
     /// - Returns: A succesful dispatch result
     private func proceedToNext(_ image: ImageInput, _ response: UploadSampleResponse) -> DispatchResult {
-        Log.shared.Verbose("Dispatcher: Document accepted.")
+        ApplicationLogger.shared.Verbose("Dispatcher: Document accepted.")
         return .completed(sampleID: response.SampleID)
     }
     

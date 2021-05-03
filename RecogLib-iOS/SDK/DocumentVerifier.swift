@@ -62,7 +62,7 @@ public class DocumentVerifier {
             RecogLib_iOS.verify(cppObject, buffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
             return DocumentResult(document: document)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     
@@ -72,7 +72,7 @@ public class DocumentVerifier {
             RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
             return DocumentResult(document: document)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     
@@ -82,7 +82,7 @@ public class DocumentVerifier {
             RecogLib_iOS.verifyHologram(cppObject, buffer, &document)
             return HologramResult(document: document)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     
@@ -92,7 +92,7 @@ public class DocumentVerifier {
             RecogLib_iOS.verifyHologramImage(cppObject, imageBuffer, &document)
             return HologramResult(document: document)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     
@@ -146,7 +146,7 @@ public class DocumentVerifier {
             data.withUnsafeBytes {
                 if let typedPtr = $0.bindMemory(to: CChar.self).baseAddress {
                     RecogLib_iOS.loadModel(self.cppObject, typedPtr, data.count)
-                    Log.shared.Info("Loaded model: \(url.lastPathComponent)")
+                    ApplicationLogger.shared.Info("Loaded model: \(url.lastPathComponent)")
                 }
             }
         }

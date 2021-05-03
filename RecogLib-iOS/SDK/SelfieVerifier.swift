@@ -35,7 +35,7 @@ public class SelfieVerifier {
             RecogLib_iOS.verifySelfie(cppObject, buffer, &selfie)
             return SelfieResult(selfieState: selfie.state)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     
@@ -45,7 +45,7 @@ public class SelfieVerifier {
             RecogLib_iOS.verifySelfieImage(cppObject, imageBuffer, &selfie)
             return SelfieResult(selfieState: selfie.state)
         } catch {
-            Log.shared.Error(error.localizedDescription)
+            ApplicationLogger.shared.Error(error.localizedDescription)
         }
     }
     

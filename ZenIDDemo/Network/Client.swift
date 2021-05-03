@@ -24,7 +24,7 @@ final class Client: ClientProtocol {
                                          parameters: endpoint.parameters,
                                          headers: [:])
         else {
-            Log.shared.Verbose("Wrong request")
+            ApplicationLogger.shared.Verbose("Wrong request")
             return
         }
         
@@ -32,7 +32,7 @@ final class Client: ClientProtocol {
             var result : T? = nil
             if let error = error {
                 if let respAsString = String(data:data ?? Data(), encoding: .utf8) {
-                    Log.shared.Verbose("Response error \(error.localizedDescription): \ndata: \(respAsString))")
+                    ApplicationLogger.shared.Verbose("Response error \(error.localizedDescription): \ndata: \(respAsString))")
                 }
             }
             else if let data = data {
@@ -40,7 +40,7 @@ final class Client: ClientProtocol {
                     result = try endpoint.decode(data)
                 }
                 catch {
-                    Log.shared.Verbose("Decoding error: \(error.localizedDescription))")
+                    ApplicationLogger.shared.Verbose("Decoding error: \(error.localizedDescription))")
                 }
             }
             completion?(result, error)
@@ -54,7 +54,7 @@ final class Client: ClientProtocol {
                                          headers: ["Content-Type":"application/octet-stream"])
         
         else {
-            Log.shared.Verbose("Wrong request")
+            ApplicationLogger.shared.Verbose("Wrong request")
             return
         }
         
@@ -62,7 +62,7 @@ final class Client: ClientProtocol {
             var result : T? = nil
             if let error = error {
                 if let respAsString = String(data:data ?? Data(), encoding: .utf8) {
-                    Log.shared.Verbose("Response error \(error.localizedDescription): \ndata: \(respAsString))")
+                    ApplicationLogger.shared.Verbose("Response error \(error.localizedDescription): \ndata: \(respAsString))")
                 }
             }
             if let data = data {
@@ -70,7 +70,7 @@ final class Client: ClientProtocol {
                     result = try endpoint.decode(data)
                 }
                 catch {
-                    Log.shared.Verbose("Decoding error: \(error.localizedDescription))")
+                    ApplicationLogger.shared.Verbose("Decoding error: \(error.localizedDescription))")
                 }
             }
             completion?(result, error)

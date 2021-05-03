@@ -46,14 +46,14 @@ final class ScanProcess {
     }
     
     deinit {
-        Log.shared.Verbose("Scan process deinit")
+        ApplicationLogger.shared.Verbose("Scan process deinit")
         cleanUpStorage()
     }
     
     /// Starts the process. This method should only be called after the delegate is set
     func start() {
         if nil == delegate {
-            Log.shared.Error("Delegate must be set prior to calling startProcess")
+            ApplicationLogger.shared.Error("Delegate must be set prior to calling startProcess")
             fatalError("Delegate must be set prior to calling startProcess")
         }
         self.scanNextSample()

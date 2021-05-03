@@ -44,7 +44,7 @@ class SelectCountryView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        Log.shared.Error("init(coder:) has not been implemented")
+        ApplicationLogger.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
 
