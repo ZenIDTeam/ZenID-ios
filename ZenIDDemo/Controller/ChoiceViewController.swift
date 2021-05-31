@@ -233,7 +233,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     @objc private func logoutAction(sender: UIButton) {
-        self.confirm(title: nil, message: "Opravdu chcete smazat přihlašovací údaje?", ok: { [weak self] in
+        self.confirm(title: nil, message: "alert-clear-credentials".localized, ok: { [weak self] in
             self?.clearCredentials()
         })
     }
@@ -242,6 +242,14 @@ final class ChoiceViewController: UIViewController {
         scanProcess = ScanProcess(documentType: documentType, country: selectedCountry)
         scanProcess?.delegate = self
         scanProcess?.start()
+    }
+    
+    private func restartProcess(currentScanProcess: ScanProcess) {
+        currentScanProcess.delegate = nil
+        self.scanProcess = nil
+        self.scanProcess = ScanProcess(documentType: currentScanProcess.documentType, country: currentScanProcess.country)
+        self.scanProcess!.delegate = self
+        self.scanProcess!.start()
     }
     
     private func shareLogFile() {
@@ -329,7 +337,7 @@ extension ChoiceViewController {
         
         let errorMessage: (() -> Void) = { [weak self] in
             DispatchQueue.main.async { [weak self] in
-                self?.alert(title: "title-error".localized, message: "ZenID authorization failed")
+                self?.alert(title: "title-error".localized, message: "alert-authorization-failed".localized)
             }
         }
         if let challengeToken = ZenidSecurity.getChallengeToken() {
@@ -401,11 +409,16 @@ extension ChoiceViewController: ScanProcessDelegate {
     }
     
     func didReceiveSampleResponse(scanProcess: ScanProcess, result: SampleResult) {
-        DispatchQueue.main.async { [unowned self] in
-            switch result {
-            case .error(error: let error):
-                self.cachedCameraViewController.showErrorMessage(error.message)
-            case .success:
+        switch result {
+        case .error(error: let error):
+            DispatchQueue.main.async { [weak self] in
+                self?.alert(title: "title-error".localized, message: "alert-error-upload-sample".localized, ok: {
+                    self?.restartProcess(currentScanProcess: scanProcess)
+                    self?.cachedCameraViewController.showErrorMessage(error.message)
+                })
+            }
+        case .success:
+            DispatchQueue.main.async { [unowned self] in
                 self.cachedCameraViewController.showSuccess()
             }
         }
@@ -415,7 +428,6 @@ extension ChoiceViewController: ScanProcessDelegate {
         DispatchQueue.main.async { [unowned self] in
             switch result {
             case .error(error: _):
-                // TODO: Show more meaningful error messages
                 self.showError(documentType: scanProcess.documentType, message:"msg-network-error".localized)
             case .success(let data):
                 self.showResults(documentType: scanProcess.documentType, investigateResponse: data)

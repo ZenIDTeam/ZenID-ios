@@ -13,7 +13,7 @@ import ZipArchive
 
 final class ZenIDLogger : LoggerProtocol {
     
-    public static let shared = ZenIDLogger()
+    public static let shared = ZenIDLogger(logLevel: DDLogLevel.all)
     
     private var fileLogger: DDFileLogger!
     

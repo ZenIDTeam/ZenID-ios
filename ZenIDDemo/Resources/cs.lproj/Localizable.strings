@@ -107,3 +107,8 @@
 "document.state.reflection.present" = "Příliš mnoho odlesků";
 "document.state.hologram.error" = "Chybný hologram";
 "document.state.dark" = "Fotka je příliš tmavá";
+
+// Alerts
+"alert-authorization-failed" = "Chyba ZenID authorizace";
+"alert-clear-credentials" = "Opravdu chcete smazat přihlašovací údaje?";
+"alert-error-upload-sample" = "Chyba při odeslání dat, začít znovu?";

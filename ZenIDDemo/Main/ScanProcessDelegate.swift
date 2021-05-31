@@ -26,7 +26,7 @@ enum ScanProcessResult {
     case error(error: Error)
 }
 
-protocol ScanProcessDelegate: class {
+protocol ScanProcessDelegate: AnyObject {
     /// Called when the scan process requires a photo taken with the camera. When the photo is taken, the delegate should call `processPhoto` method of the `scanProcess`.
     ///
     /// - Parameters:
