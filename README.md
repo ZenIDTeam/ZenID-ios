@@ -27,6 +27,25 @@ For compilation, running and deployment of the application following tools are r
 
 Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` and `LibZenid_iOS.framework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
 
+## Authorization
+The SDK has to be authorized, otherwise it is not going to work. 
+
+1. Contact your manager and get information of initSDK API Endpoint and access to the ZenID system where you have to set your bundle ids.
+2. Fetch your challenge token from SDK:
+```swift
+import RecogLib_iOS.CZenidSecurityWrapper
+
+let challengeToken = ZenidSecurity.getChallengeToken()
+```
+3. Send the `challengeToken` to the initSDK API Endpoint mentioned earlier.
+4. Use response token, returned from initSDK API Endpoint, to initialize the SDK:
+```swift
+let responseToken = ... // backend response - initSDK API Endpoint
+let success = ZenidSecurity.authorize(responseToken: responseToken)
+```
+5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialized and is ready to be used, otherwise response token is not valid.
+
+
 ## Appication settings
 In iOS device under Settings -> ZenID is possible to set
 ### Camera video gravity mode
