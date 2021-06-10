@@ -181,3 +181,21 @@ Selfie detection result contains state of currently analysed image.
 
 Face liveness detection result contains state of currently analysed image.
 `FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Ok`
+
+### Device Orientation
+SDK supports all device orientations - landscape and portrait. 
+
+You have to pass on this information to SDK as a `orientation` parameter of `verifyImage` method that every validator has.
+However, the orientation in the SDK is not straightforward, you have to convert it first. Here is the mapping/coverting function:
+```swift
+func getImageOrientation(deviceOrientation: UIInterfaceOrientation) -> UIInterfaceOrientation {
+        switch deviceOrientation {
+        case .portrait:
+            return .landscapeLeft
+        case .landscapeRight:
+            return .portraitUpsideDown
+        default:
+            return .portrait
+        }
+}
+```
