@@ -27,6 +27,25 @@ For compilation, running and deployment of the application following tools are r
 
 Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` and `LibZenid_iOS.framework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
 
+## Authorization
+The SDK has to be authorized, otherwise it is not going to work. 
+
+1. Contact your manager and get information of initSDK API Endpoint and access to the ZenID system where you have to set your bundle ids.
+2. Fetch your challenge token from SDK:
+```swift
+import RecogLib_iOS.CZenidSecurityWrapper
+
+let challengeToken = ZenidSecurity.getChallengeToken()
+```
+3. Send the `challengeToken` to the initSDK API Endpoint mentioned earlier.
+4. Use response token, returned from initSDK API Endpoint, to initialize the SDK:
+```swift
+let responseToken = ... // backend response - initSDK API Endpoint
+let success = ZenidSecurity.authorize(responseToken: responseToken)
+```
+5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialized and is ready to be used, otherwise response token is not valid.
+
+
 ## Appication settings
 In iOS device under Settings -> ZenID is possible to set
 ### Camera video gravity mode
@@ -51,12 +70,12 @@ or alternatively directly from device, through USB cable
 ## Usage
 ### 1. Configure `AVCaptureSession`
 Recoglib is built to be used with AVCaptureSession. Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and start batch configuration by calling `beginConfiguration` method.
-```
+```swift
 let session = AVCaptureSession()
 session.beginConfiguration()
 ```
 Set up the input device that you'd want to receive video stream from. Please note that you'd want mark `mediaType` as `.video` since Recoglib can't deal with any other types of media. Using the mediaType of `.video` **is mandatory**.
-```
+```swift
 let input = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back)
 guard let device = input.devices.first, let deviceInput = try? AVCaptureDeviceInput(device: device) else {
     session.commitConfiguration()
@@ -67,7 +86,7 @@ session.addInput(deviceInput)
 Next you need to specify a `AVCaptureVideoDataOutputSampleBufferDelegate` which will receive the video stream from the input specified above. To do that, you need to instanciate `AVCaptureVideoDataOutput` and its settings as shown below.
 
 Please note that the whole video stream will be capture **on a background thread** that needs to be specified explicitly.
-```
+```swift
 let output = AVCaptureVideoDataOutput()
 output.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
 let captureQueue = DispatchQueue(label: "Camera_capture_queue")
@@ -75,7 +94,7 @@ output.setSampleBufferDelegate(self, queue: captureQueue)
 session.addOutput(output)
 ```
 Lastly you need to commit this configuration and start the capturing.
-```
+```swift
 session.commitConfiguration()
 session.startRunning()
 ```
@@ -92,11 +111,14 @@ Alternativally you can initialize `DocumentVerifier` with acceptableInputJson st
 - any (supported) document: `acceptableInputJson` = "{}"
 
 Note that properties `role`, `country`,  `page` , `language` and `acceptableInputJson` are public and can be changed whenever you like.
-```
-let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language) or let verifier = DocumentVerifier(acceptableInputJson: String, language: .Language)
+```swift
+// Domain models option (recommended)
+let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language)
+// JSON option (internal use only)
+let verifier = DocumentVerifier(acceptableInputJson: String, language: .Language)
 ```
 Than you define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate`
-```
+```swift
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // Recoglib magic happens here
@@ -104,7 +126,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 ```
 Lastly call the `verify(buffer: )` method of `DocumentVerifier`. Please note this delegate method **is called from background thread**. If you desire to update your view from this method, you **need** to do so from the main thread as shown below.
-```
+```swift
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         let result = verifier.verify(buffer: sampleBuffer)
@@ -115,7 +137,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 ```
 Alternatively you can use the `verifyImage(imageBuffer: )` with CVImageBuffer of media data as shown below.
-```
+```swift
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
@@ -162,3 +184,21 @@ Selfie detection result contains state of currently analysed image.
 
 Face liveness detection result contains state of currently analysed image.
 `FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Ok`
+
+### Device Orientation
+SDK supports all device orientations - landscape and portrait. 
+
+You have to pass on this information to SDK as a `orientation` parameter of `verifyImage` method that every validator has.
+However, the orientation in the SDK is not straightforward, you have to convert it first. Here is the mapping/coverting function:
+```swift
+func getImageOrientation(deviceOrientation: UIInterfaceOrientation) -> UIInterfaceOrientation {
+        switch deviceOrientation {
+        case .portrait:
+            return .landscapeLeft
+        case .landscapeRight:
+            return .portraitUpsideDown
+        default:
+            return .portrait
+        }
+}
+```
