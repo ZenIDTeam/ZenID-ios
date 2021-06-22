@@ -45,10 +45,8 @@ extension GroupedTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellIdentifier, for: indexPath)
         let viewModel = sections[indexPath.section].cells[indexPath.row]
-        cell.textLabel?.text = viewModel.title
-        return cell
+        return viewModel.view(in: tableView, at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

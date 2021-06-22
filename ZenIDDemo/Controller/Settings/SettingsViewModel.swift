@@ -16,7 +16,7 @@ final class SettingsViewModel {
             TableViewSectionViewModel(
                 title: nil,
                 cells: [
-                    .init(title: NSLocalizedString("settings-filter", comment: ""))
+                    BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-filter", comment: "")))
                 ]
             )
         ]

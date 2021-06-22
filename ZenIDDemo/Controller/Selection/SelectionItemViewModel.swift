@@ -1,5 +1,5 @@
 //
-//  TableViewSectionViewModel.swift
+//  SelectionItemViewModel.swift
 //  ZenIDDemo
 //
 //  Created by Libor Polehna on 22.06.2021.
@@ -9,7 +9,6 @@
 import Foundation
 
 
-struct TableViewSectionViewModel {
-    let title: String?
-    let cells: [TableCellController]
+struct SelectionItemViewModel {
+    let title: String
 }
