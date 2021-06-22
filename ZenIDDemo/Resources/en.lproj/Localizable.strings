@@ -112,3 +112,7 @@
 "alert-authorization-failed" = "ZenID authorization failed";
 "alert-clear-credentials" = "Clear saved credentials?";
 "alert-error-upload-sample" = "Error uploading sample, restarting process?";
+
+// Settings
+"settings-title" = "Settings";
+"settings-filter" = "Filter";

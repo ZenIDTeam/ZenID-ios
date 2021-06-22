@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ZenIDLogger.shared.startLogging()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = UINavigationController(rootViewController: ChoiceViewController())
+        let menuViewController = UIStoryboard(name: "Menu", bundle: nil).instantiateViewController(withIdentifier: "ChoiceViewController")
+        self.window?.rootViewController = UINavigationController(rootViewController: menuViewController)
         self.window?.makeKeyAndVisible()
         configureNavigationBar()
 

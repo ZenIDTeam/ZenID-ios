@@ -58,13 +58,9 @@ final class ChoiceViewController: UIViewController {
         return title
     }()
     
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.distribution = .fill
-        stackView.axis = .vertical
-        stackView.spacing = 15
-        return stackView
-    }()
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollContentView: UIView!
+    @IBOutlet weak var stackView: UIStackView!
     
     private let versionLabel: UILabel = {
         let versionLabel = UILabel()
@@ -103,39 +99,67 @@ final class ChoiceViewController: UIViewController {
     
     private func setupView() {
         // Contact button
-        view.addSubview(contactButton)
-        contactButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 10, paddingRight: 30)
+        //view.addSubview(contactButton)
+        //contactButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 10, paddingRight: 30)
         
         // Logout button
-        view.addSubview(logoutButton)
-        logoutButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 30)
+        //view.addSubview(logoutButton)
+        //logoutButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 30)
         
         // Title view
-        view.addSubview(titleLabel)
-        titleLabel.anchor(top: contactButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingLeft: 30, paddingRight: 30)
-        titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        titleLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
-
-        // Stack view with buttons
-        view.addSubview(stackView)
-        stackView.anchor(top: titleLabel.bottomAnchor, left: nil, bottom: nil, right: nil)
-        stackView.centerX(to: view)
+        //view.addSubview(titleLabel)
+        //titleLabel.anchor(top: contactButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingLeft: 30, paddingRight: 30)
+        //titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        //titleLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
+        
+        setupStackView()
         stackView.addArrangedSubview(countryButton)
         stackView.addArrangedSubview(faceModeButton)
-        documentButtons.forEach { stackView.addArrangedSubview($0) }
+        documentButtons.forEach { button in
+            button.heightAnchor.constraint(equalToConstant: 48.0).isActive = true
+            stackView.addArrangedSubview(button)
+        }
         updateCountryButton()
         updateFaceModeButton()
 
         // Version
-        view.addSubview(versionLabel)
-        versionLabel.anchor(top: stackView.bottomAnchor, left: nil, bottom: view.layoutMarginsGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 50, paddingRight: 20)
+        //view.addSubview(versionLabel)
+        //versionLabel.anchor(top: stackView.bottomAnchor, left: nil, bottom: view.layoutMarginsGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 50, paddingRight: 20)
 
         // Toast view
-        view.addSubview(toastView)
-        toastView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor)
+        //view.addSubview(toastView)
+        //toastView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor)
         
         cachedCameraViewController.delegate = self
-        navigationController?.navigationBar.isHidden = true
+        
+        setupScrollView()
+        setupNavigationBar()
+    }
+    
+    private func setupScrollView() {
+        scrollContentView.backgroundColor = .clear
+    }
+    
+    private func setupStackView() {
+        stackView.backgroundColor = .clear
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 15.0
+    }
+    
+    private func setupNavigationBar() {
+        let settingsBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .organize,
+            target: self,
+            action: #selector(settingsBarButtonPressed)
+        )
+        navigationItem.rightBarButtonItem = settingsBarButtonItem
+    }
+    
+    @objc
+    private func settingsBarButtonPressed() {
+        let settingsViewController = SettingsComposer.compose()
+        present(UINavigationController(rootViewController: settingsViewController), animated: true, completion: nil)
     }
     
     private func setupTargets() {

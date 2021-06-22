@@ -112,3 +112,7 @@
 "alert-authorization-failed" = "Chyba ZenID authorizace";
 "alert-clear-credentials" = "Opravdu chcete smazat přihlašovací údaje?";
 "alert-error-upload-sample" = "Chyba při odeslání dat, začít znovu?";
+
+// Settings
+"settings-title" = "Nastavení";
+"settings-filter" = "Filtr";
