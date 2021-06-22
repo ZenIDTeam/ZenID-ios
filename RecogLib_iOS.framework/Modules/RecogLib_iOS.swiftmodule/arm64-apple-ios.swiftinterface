@@ -1,0 +1,277 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecogLib_iOS
+import CoreMedia
+import Foundation
+@_exported import RecogLib_iOS
+import Swift
+public struct FaceLivenessResult {
+  public var faceLivenessState: RecogLib_iOS.FaceLivenessState
+}
+@_hasMissingDesignatedInitializers final public class ZenidSecurity {
+  public static func getChallengeToken() -> Swift.String?
+  public static func authorize(responseToken: Swift.String) -> Swift.Bool
+  public static func isAuthorized() -> Swift.Bool
+  @objc deinit
+}
+public class SelfieVerifier {
+  public var language: RecogLib_iOS.SupportedLanguages
+  public var showDebugInfo: Swift.Bool {
+    get
+    set(value)
+  }
+  public init(language: RecogLib_iOS.SupportedLanguages)
+  public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
+  public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
+  public func reset()
+  public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
+  @objc deinit
+}
+public class FaceLivenessVerifier {
+  public var language: RecogLib_iOS.SupportedLanguages
+  public var showDebugInfo: Swift.Bool {
+    get
+    set(value)
+  }
+  public init(language: RecogLib_iOS.SupportedLanguages)
+  public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
+  public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
+  public func reset()
+  public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DocumentVerifier {
+  public var documentRole: RecogLib_iOS.DocumentRole?
+  public var country: RecogLib_iOS.Country?
+  public var page: RecogLib_iOS.PageCode?
+  public var code: RecogLib_iOS.DocumentCode?
+  public var acceptableInputJson: Swift.String?
+  public var language: RecogLib_iOS.SupportedLanguages
+  public var showDebugInfo: Swift.Bool {
+    get
+    set(value)
+  }
+  public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, language: RecogLib_iOS.SupportedLanguages)
+  public init(input: RecogLib_iOS.DocumentsInput, language: RecogLib_iOS.SupportedLanguages)
+  public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
+  public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
+  public func verifyHologram(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
+  public func verifyHologramImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
+  public func supportsHologram() -> Swift.Bool
+  public func beginHologramVerification()
+  public func endHologramVerification()
+  public func reset()
+  public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
+  @objc deinit
+}
+public protocol LoggerProtocol {
+  func Error(_ message: Swift.String)
+  func Warn(_ message: Swift.String)
+  func Info(_ message: Swift.String)
+  func Debug(_ message: Swift.String)
+  func Verbose(_ message: Swift.String)
+}
+@_hasMissingDesignatedInitializers final public class ApplicationLogger {
+  public static var shared: RecogLib_iOS.ApplicationLogger
+  final public func startLogging(logger: RecogLib_iOS.LoggerProtocol)
+  final public func Error(_ message: Swift.String)
+  final public func Warn(_ message: Swift.String)
+  final public func Info(_ message: Swift.String)
+  final public func Debug(_ message: Swift.String)
+  final public func Verbose(_ message: Swift.String)
+  @objc deinit
+}
+public enum SupportedLanguages : Swift.Int {
+  case English
+  case Czech
+  case Polish
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension SupportedLanguages : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum DocumentCode : Swift.Int {
+  case IDC1
+  case IDC2
+  case DRV
+  case PAS
+  case SK_IDC_2008plus
+  case SK_DRV_2004_08_09
+  case SK_DRV_2013
+  case SK_DRV_2015
+  case SK_PAS_2008_14
+  case SK_IDC_1993
+  case SK_DRV_1993
+  case PL_IDC_2015
+  case DE_IDC_2010
+  case DE_IDC_2001
+  case HR_IDC_2013_15
+  case AT_IdentityCard_2000
+  case AT_IDC_2002
+  case AT_IDC_2005
+  case AT_IDC_2010
+  case AT_PAS_2006
+  case AT_DRV_2006
+  case AT_DRV_2013
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension DocumentCode : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum PageCode : Swift.Int {
+  case Front
+  case Back
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension PageCode : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum Country : Swift.Int {
+  case Cz
+  case Sk
+  case At
+  case Hu
+  case Pl
+  case De
+  case Hr
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Country : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum DocumentRole : Swift.Int {
+  case Idc
+  case Pas
+  case Drv
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension DocumentRole : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum DocumentState : Swift.Int {
+  case NoMatchFound
+  case AlignCard
+  case HoldSteady
+  case Blurry
+  case ReflectionPresent
+  case Ok
+  case Hologram
+  case Dark
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension DocumentState : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum HologramState : Swift.Int {
+  case NoMatchFound
+  case TiltLeft
+  case TiltRight
+  case TiltUp
+  case TiltDown
+  case RotateClockwise
+  case RotateCounterClockwise
+  case Ok
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension HologramState : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum FaceLivenessState : Swift.Int {
+  case LookAtMe
+  case TurnHead
+  case Smile
+  case Ok
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension FaceLivenessState : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public enum SelfieState : Swift.Int {
+  case Ok
+  case NoFaceFound
+  case Blurry
+  case Dark
+  case ConfirmingFace
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension SelfieState : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public class DocumentsInput {
+  public init(documents: [RecogLib_iOS.Document])
+  @objc deinit
+}
+public struct DocumentResult {
+  public var state: RecogLib_iOS.DocumentState
+  public var role: RecogLib_iOS.DocumentRole?
+  public var country: RecogLib_iOS.Country?
+  public var code: RecogLib_iOS.DocumentCode?
+  public var page: RecogLib_iOS.PageCode?
+}
+public struct Document {
+  public let role: RecogLib_iOS.DocumentRole?
+  public let country: RecogLib_iOS.Country?
+  public let page: RecogLib_iOS.PageCode?
+  public let code: RecogLib_iOS.DocumentCode?
+  public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?)
+}
+public struct SelfieResult {
+  public var selfieState: RecogLib_iOS.SelfieState
+}
+public struct HologramResult {
+  public var hologramState: RecogLib_iOS.HologramState
+}

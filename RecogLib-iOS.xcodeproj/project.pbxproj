@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18C1A3952680F4D80047FDD3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3942680F4D80047FDD3 /* Document.swift */; };
+		18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */; };
 		6F1A6A8B251B6DB40087CC0A /* CSelfieWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A6A89251B6DB40087CC0A /* CSelfieWrapper.cpp */; };
 		6F1A6A8C251B6DB40087CC0A /* CSelfieWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6F1A6A8A251B6DB40087CC0A /* CSelfieWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F1A6A8E251B98760087CC0A /* SelfieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1A6A8D251B98760087CC0A /* SelfieResult.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18C1A3942680F4D80047FDD3 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsInput.swift; sourceTree = "<group>"; };
 		4C9F21062385D6060021D3D9 /* RecogLibC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = LibZenid_iOS.framework/Headers/RecogLibC.h; sourceTree = "<group>"; };
 		6F1A6A89251B6DB40087CC0A /* CSelfieWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSelfieWrapper.cpp; sourceTree = "<group>"; };
 		6F1A6A8A251B6DB40087CC0A /* CSelfieWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CSelfieWrapper.hpp; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				6F2CFC85247469AE005D2FB6 /* FaceLivenessVerifier.swift */,
 				6F1A6A8F251B98C30087CC0A /* SelfieVerifier.swift */,
 				6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */,
+				18C1A3942680F4D80047FDD3 /* Document.swift */,
+				18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */,
 			);
 			path = SDK;
 			sourceTree = "<group>";
@@ -322,8 +328,10 @@
 				6F2CFC89247471C5005D2FB6 /* CFaceLivenessWrapper.cpp in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
 				B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */,
+				18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */,
 				B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */,
 				6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */,
+				18C1A3952680F4D80047FDD3 /* Document.swift in Sources */,
 				6F1A6A8E251B98760087CC0A /* SelfieResult.swift in Sources */,
 				6F6C26FD24B87FD90073A2CA /* StringUtils.swift in Sources */,
 				6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */,

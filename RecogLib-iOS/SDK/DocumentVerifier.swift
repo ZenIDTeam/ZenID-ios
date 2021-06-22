@@ -45,7 +45,18 @@ public class DocumentVerifier {
         listModels(modelsURL).forEach(readModel(url:))
     }
     
-    public init(acceptableInputJson: String, language: SupportedLanguages) {
+    public init(input: DocumentsInput, language: SupportedLanguages) {
+        self.acceptableInputJson = input.acceptableInputJson()
+        self.language = language
+        
+        self.cppObject = getDocumentVerifier()
+        let modelsURL = Bundle(for: DocumentVerifier.self)
+            .bundleURL
+            .appendingPathComponent(modelsRelativePath)
+        listModels(modelsURL).forEach(readModel(url:))
+    }
+    
+    private init(acceptableInputJson: String, language: SupportedLanguages) {
         self.acceptableInputJson = acceptableInputJson
         self.language = language
         
