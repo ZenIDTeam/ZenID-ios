@@ -15,8 +15,6 @@ import os
 final class ChoiceViewController: UIViewController {
     private let countryButton = Buttons.country
     private let faceModeButton = Buttons.faceMode
-    private let contactButton = Buttons.contact
-    private let logoutButton = Buttons.logout
     private let idButton = Buttons.id
     private let drivingLicenceButton = Buttons.drivingLicence
     private let passportButton = Buttons.passport
@@ -64,15 +62,6 @@ final class ChoiceViewController: UIViewController {
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     
-    private let versionLabel: UILabel = {
-        let versionLabel = UILabel()
-        versionLabel.font = .version
-        versionLabel.textColor = .zenTextLight
-        versionLabel.alpha = 0.7
-        versionLabel.text = "verze \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)"
-        return versionLabel
-    }()
-    
     private lazy var toastView: ToastView = {
         let toastView = ToastView()
         toastView.toastLabel.text = "title-success".localized
@@ -100,10 +89,6 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func setupView() {
-        // Contact button
-        //view.addSubview(contactButton)
-        //contactButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 10, paddingRight: 30)
-        
         // Logout button
         //view.addSubview(logoutButton)
         //logoutButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 30)
@@ -123,10 +108,6 @@ final class ChoiceViewController: UIViewController {
         }
         updateCountryButton()
         updateFaceModeButton()
-
-        // Version
-        //view.addSubview(versionLabel)
-        //versionLabel.anchor(top: stackView.bottomAnchor, left: nil, bottom: view.layoutMarginsGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 50, paddingRight: 20)
 
         // Toast view
         //view.addSubview(toastView)
@@ -165,13 +146,11 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func setupTargets() {
-        contactButton.addTarget(self, action: #selector(contactAction(sender:)), for: .touchUpInside)
         countryButton.addTarget(self, action: #selector(selectCountryAction(sender:)), for: .touchUpInside)
         faceModeButton.addTarget(self, action: #selector(faceModeAction(sender:)), for: .touchUpInside)
         documentButtons.forEach {
             $0.addTarget(self, action: #selector(selectAction(sender:)), for: .touchUpInside)
         }
-        logoutButton.addTarget(self, action: #selector(logoutAction(sender:)), for: .touchUpInside)
     }
     
     private func updateCountryButton() {
@@ -226,12 +205,6 @@ final class ChoiceViewController: UIViewController {
         }
     }
     
-    @objc private func contactAction(sender: UIButton) {
-        if let emailURL = URL(string: "mailto:\(ZenConstants.contactEmail)"), UIApplication.shared.canOpenURL(emailURL) {
-            UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
-        }
-    }
-    
     @objc private func selectAction(sender: UIButton) {
         ensureCredentials { [unowned self] in
             Haptics.shared.select()
@@ -256,12 +229,6 @@ final class ChoiceViewController: UIViewController {
                 break
             }
         }
-    }
-    
-    @objc private func logoutAction(sender: UIButton) {
-        self.confirm(title: nil, message: "alert-clear-credentials".localized, ok: { [weak self] in
-            self?.clearCredentials()
-        })
     }
     
     private func startProcess(_ documentType: DocumentType) {
@@ -385,11 +352,6 @@ extension ChoiceViewController {
         } else {
              errorMessage()
         }
-    }
-    
-    private func clearCredentials() {
-        Credentials.shared.clear()
-        Haptics.shared.success()
     }
 }
 

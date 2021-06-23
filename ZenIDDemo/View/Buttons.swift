@@ -170,22 +170,6 @@ enum Buttons {
         }
     }
     
-    static var contact: UIButton {
-        get {
-            let button = ZenTextButton()
-            button.setTitle("btn-contact".localized, for: .normal)
-            return button
-        }
-    }
-    
-    static var logout: UIButton {
-        get {
-            let button = ZenTextButton()
-            button.setTitle("btn-logout".localized, for: .normal)
-            return button
-        }
-    }
-    
     static var info: UIButton {
         get {
             let button = ZenButton()

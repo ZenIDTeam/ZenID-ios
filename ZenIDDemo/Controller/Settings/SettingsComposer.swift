@@ -14,11 +14,35 @@ final class SettingsComposer {
     static func compose(coordinator: SettingsCoordinable) -> SettingsViewController {
         let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         viewController.viewModel = resolve(coordinator: coordinator)
+        viewController.contentView.tableView.sections = getSections(
+            viewController: viewController,
+            coordinator: coordinator
+        )
         return viewController
     }
     
     private static func resolve(coordinator: SettingsCoordinable) -> SettingsViewModel {
         .init(coordinator: coordinator)
+    }
+    
+    private static func getSections(viewController: UIViewController, coordinator: SettingsCoordinable) -> [TableViewSectionViewModel] {
+        [
+            .init(
+                title: nil,
+                cells: [
+                    BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-filter", comment: ""), action: {
+                        coordinator.settingsOpenDocumentsFilter()
+                    }))
+                ]
+            ),
+            .init(
+                title: nil,
+                cells: [
+                    ContactTableCellController(),
+                    LogoutTableCellController(viewController: viewController)
+                ]
+            )
+        ]
     }
     
 }

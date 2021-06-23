@@ -11,19 +11,6 @@ import Foundation
 
 final class SettingsViewModel {
     
-    lazy var sections: [TableViewSectionViewModel] = {
-        [
-            TableViewSectionViewModel(
-                title: nil,
-                cells: [
-                    BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-filter", comment: ""), action: { [weak self] in
-                        self?.coordinator.settingsOpenDocumentsFilter()
-                    }))
-                ]
-            )
-        ]
-    }()
-    
     private let coordinator: SettingsCoordinable
     
     init(coordinator: SettingsCoordinable) {

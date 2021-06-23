@@ -13,7 +13,7 @@ final class SettingsViewController: UIViewController {
     
     var viewModel: SettingsViewModel!
     
-    private var contentView: SettingsView {
+    var contentView: SettingsView {
         view as! SettingsView
     }
     
@@ -22,13 +22,8 @@ final class SettingsViewController: UIViewController {
         setupNavigationBar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        title = NSLocalizedString("settings-title", comment: "")
-        contentView.tableView.sections = viewModel.sections
-    }
-    
     private func setupNavigationBar() {
+        title = NSLocalizedString("settings-title", comment: "")
         let closeBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: self,

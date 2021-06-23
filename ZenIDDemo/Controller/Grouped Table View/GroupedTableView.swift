@@ -58,5 +58,6 @@ extension GroupedTableView: UITableViewDataSource {
 extension GroupedTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         sections[indexPath.section].cells[indexPath.row].select()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

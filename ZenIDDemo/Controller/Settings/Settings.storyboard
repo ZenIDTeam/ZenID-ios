@@ -18,20 +18,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="b7i-ZI-7qI" customClass="GroupedTableView" customModule="ZenIDDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="833"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LO-Rz-Aa8">
+                                <rect key="frame" x="364" y="833" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="8LO-Rz-Aa8" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-8" id="4h3-iX-dhX"/>
+                            <constraint firstItem="8LO-Rz-Aa8" firstAttribute="top" secondItem="b7i-ZI-7qI" secondAttribute="bottom" id="Bm9-Um-B26"/>
                             <constraint firstItem="b7i-ZI-7qI" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="J4v-7v-P1K"/>
-                            <constraint firstAttribute="bottom" secondItem="b7i-ZI-7qI" secondAttribute="bottom" id="Qre-vL-GZw"/>
+                            <constraint firstItem="b7i-ZI-7qI" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="RmN-sM-EYV"/>
                             <constraint firstItem="b7i-ZI-7qI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VwI-aY-8lj"/>
                             <constraint firstItem="b7i-ZI-7qI" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="x4w-Sa-YC6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8LO-Rz-Aa8" secondAttribute="trailing" constant="8" id="yrP-ix-TVM"/>
                         </constraints>
                         <connections>
                             <outlet property="tableView" destination="b7i-ZI-7qI" id="4Pf-YM-5Jk"/>
+                            <outlet property="versionLabel" destination="8LO-Rz-Aa8" id="9sk-Zl-og3"/>
                         </connections>
                     </view>
                 </viewController>
