@@ -10,5 +10,6 @@ import Foundation
 
 
 protocol SettingsCoordinable {
+    func settingsDidFinish()
     func settingsOpenDocumentsFilter()
 }

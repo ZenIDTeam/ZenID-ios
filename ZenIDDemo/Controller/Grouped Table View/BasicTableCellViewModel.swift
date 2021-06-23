@@ -11,5 +11,12 @@ import Foundation
 
 struct BasicTableCellViewModel {
     let title: String
+    let detail: String?
     let action: (() -> Void)?
+    
+    init(title: String, detail: String? = nil, action: (() -> Void)?) {
+        self.title = title
+        self.detail = detail
+        self.action = action
+    }
 }

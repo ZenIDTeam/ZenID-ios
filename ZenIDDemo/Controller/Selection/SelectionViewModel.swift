@@ -21,8 +21,8 @@ final class SelectionViewModel {
         self.delegate = delegate
     }
     
-    func didSelect(indexPath: IndexPath) {
-        delegate.selectionDidSelect(viewModel: data[indexPath.row])
+    func didSelect(item: SelectionItemViewModel) {
+        delegate.selectionDidSelect(viewModel: item)
     }
     
 }

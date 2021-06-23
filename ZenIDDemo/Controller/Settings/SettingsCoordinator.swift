@@ -22,6 +22,7 @@ final class SettingsCoordinator {
     func start() -> UIViewController {
         let settingsViewController = SettingsComposer.compose(coordinator: self)
         rootViewController = UINavigationController(rootViewController: settingsViewController)
+        rootViewController?.modalPresentationStyle = .fullScreen
         return rootViewController
     }
     
@@ -32,6 +33,10 @@ final class SettingsCoordinator {
 }
 
 extension SettingsCoordinator: SettingsCoordinable {
+    func settingsDidFinish() {
+        rootViewController.dismiss(animated: true, completion: nil)
+    }
+    
     func settingsOpenDocumentsFilter() {
         documentsFilterCoordinator = DocumentsFilterCoordinator()
         show(viewController: documentsFilterCoordinator!.start())

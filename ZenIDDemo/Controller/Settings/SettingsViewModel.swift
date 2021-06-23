@@ -11,12 +11,6 @@ import Foundation
 
 final class SettingsViewModel {
     
-    private let coordinator: SettingsCoordinable
-    
-    init(coordinator: SettingsCoordinable) {
-        self.coordinator = coordinator
-    }
-    
     lazy var sections: [TableViewSectionViewModel] = {
         [
             TableViewSectionViewModel(
@@ -29,5 +23,15 @@ final class SettingsViewModel {
             )
         ]
     }()
+    
+    private let coordinator: SettingsCoordinable
+    
+    init(coordinator: SettingsCoordinable) {
+        self.coordinator = coordinator
+    }
+    
+    func finish() {
+        coordinator.settingsDidFinish()
+    }
     
 }

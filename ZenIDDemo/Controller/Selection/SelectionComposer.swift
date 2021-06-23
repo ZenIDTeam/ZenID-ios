@@ -12,17 +12,15 @@ import UIKit
 
 final class SelectionComposer {
     
-    static func compose(title: String, data: [SelectionItemViewModel], delegate: SelectionDelegate) -> SelectionViewController {
+    static func compose(viewModel: SelectionViewModel) -> SelectionViewController {
         let viewController = UIStoryboard(name: "Selection", bundle: nil).instantiateViewController(withIdentifier: "SelectionViewController") as! SelectionViewController
-        viewController.viewModel = resolve(title: title, data: data, delegate: delegate)
+        viewController.viewModel = viewModel
         viewController.contentView.tableView.sections = [.init(title: nil, cells: viewController.viewModel.data.map({ itemViewModel in
-            BasicTableCellController(viewModel: .init(title: itemViewModel.title, action: nil))
+            BasicTableCellController(viewModel: .init(title: itemViewModel.title, action: { [weak viewController] in
+                viewController?.viewModel.didSelect(item: itemViewModel)
+            }))
         }))]
         return viewController
-    }
-    
-    private static func resolve(title: String, data: [SelectionItemViewModel], delegate: SelectionDelegate) -> SelectionViewModel {
-        .init(title: title, data: data, delegate: delegate)
     }
     
 }

@@ -121,3 +121,6 @@
 "document-role" = "Role";
 "document-country" = "Country";
 "document-page" = "Page";
+
+// Add New Document Filter
+"document-filter-title" = "Add New Document Filter";

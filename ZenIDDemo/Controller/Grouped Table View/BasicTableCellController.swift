@@ -9,17 +9,22 @@
 import UIKit
 
 
-final class BasicTableCellController: TableCellController {
+class BasicTableCellController: TableCellController {
     
-    private let viewModel: BasicTableCellViewModel
+    private var viewModel: BasicTableCellViewModel
     
     init(viewModel: BasicTableCellViewModel) {
         self.viewModel = viewModel
     }
     
+    func update(viewModel: BasicTableCellViewModel) {
+        self.viewModel = viewModel
+    }
+    
     func view(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "SystemCell", for: indexPath)
+        let cell: UITableViewCell = UITableViewCell(style: .value1, reuseIdentifier: "SystemCell")
         cell.textLabel?.text = viewModel.title
+        cell.detailTextLabel?.text = viewModel.detail
         cell.accessoryType = viewModel.action == nil ? .none : .disclosureIndicator
         return cell
     }
