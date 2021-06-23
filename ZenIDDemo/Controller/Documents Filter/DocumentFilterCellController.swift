@@ -12,11 +12,13 @@ import UIKit
 final class DocumentFilterCellController: TableCellController {
     
     private let viewModel: DocumentViewModel
-    private let deleter: DocumentsFilterDeleter
+    private let deleter: DocumentFilterCellDeleter
+    private let onDelete: () -> Void
     
-    init(viewModel: DocumentViewModel, deleter: DocumentsFilterDeleter) {
+    init(viewModel: DocumentViewModel, deleter: DocumentFilterCellDeleter, onDelete: @escaping () -> Void) {
         self.viewModel = viewModel
         self.deleter = deleter
+        self.onDelete = onDelete
     }
     
     func view(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -28,7 +30,18 @@ final class DocumentFilterCellController: TableCellController {
     }
     
     func select() {
-        //deleter.delete(document: <#T##Document#>, completion: <#T##(Result<Void, Error>) -> Void#>)
+        deleter.execute { [weak self] result in
+            self?.handleDeleteResult(result: result)
+        }
+    }
+    
+    private func handleDeleteResult(result: DocumentsFilterDeleter.Result) {
+        switch result {
+        case .success:
+            onDelete()
+        case .failure:
+            break
+        }
     }
     
 }

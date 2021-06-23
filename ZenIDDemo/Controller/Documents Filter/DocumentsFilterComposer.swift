@@ -16,7 +16,10 @@ final class DocumentsFilterComposer {
         viewController.viewModel = resolve(loader: loader, coordinator: coordinator)
         viewController.viewModel.onChange = DocumentsFilterViewModelAdapter(
             tableView: viewController.contentView.tableView,
-            deleter: deleter
+            deleter: deleter,
+            onDelete: { [weak viewController] in
+                viewController?.viewModel.reloadData()
+            }
         ).map
         return viewController
     }

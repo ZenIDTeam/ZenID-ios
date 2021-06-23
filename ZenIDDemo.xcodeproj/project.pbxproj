@@ -99,6 +99,7 @@
 		18953DA3268328EC0077F976 /* AddDocumentFilterPageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DA2268328EC0077F976 /* AddDocumentFilterPageCellController.swift */; };
 		18953DA526833DED0077F976 /* ContactTableCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DA426833DED0077F976 /* ContactTableCellController.swift */; };
 		18953DA726833F250077F976 /* LogoutTableCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DA626833F250077F976 /* LogoutTableCellController.swift */; };
+		18953DA9268394FC0077F976 /* DocumentFilterCellDeleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DA8268394FB0077F976 /* DocumentFilterCellDeleter.swift */; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
 		6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536D246970DC001C3544 /* QrScannerController.swift */; };
 		6F2D53712469A937001C3544 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D53702469A937001C3544 /* Credentials.swift */; };
@@ -259,6 +260,7 @@
 		18953DA2268328EC0077F976 /* AddDocumentFilterPageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDocumentFilterPageCellController.swift; sourceTree = "<group>"; };
 		18953DA426833DED0077F976 /* ContactTableCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableCellController.swift; sourceTree = "<group>"; };
 		18953DA626833F250077F976 /* LogoutTableCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableCellController.swift; sourceTree = "<group>"; };
+		18953DA8268394FB0077F976 /* DocumentFilterCellDeleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFilterCellDeleter.swift; sourceTree = "<group>"; };
 		6F2D536B24696A2A001C3544 /* QrSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrSquareView.swift; sourceTree = "<group>"; };
 		6F2D536D246970DC001C3544 /* QrScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerController.swift; sourceTree = "<group>"; };
 		6F2D53702469A937001C3544 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				18953D792682E55B0077F976 /* DocumentsFilterCoordinable.swift */,
 				18953D7D2682E6110077F976 /* DocumentViewModel.swift */,
 				18953D852682EB1F0077F976 /* DocumentFilterCellController.swift */,
+				18953DA8268394FB0077F976 /* DocumentFilterCellDeleter.swift */,
 				18953D872682EBBF0077F976 /* DocumentFilterTableCell.swift */,
 				18953D892682EF940077F976 /* DocumentsFilterViewModelAdapter.swift */,
 				18953D7B2682E6000077F976 /* DocumentsFilterComposer.swift */,
@@ -781,6 +784,7 @@
 				6FE107B224B260F900610F8D /* VideoWriter.swift in Sources */,
 				01859B0622C4863C005B7E36 /* UIDevice+Size.swift in Sources */,
 				D2CB352922BB84F700453DB8 /* DispatchResult.swift in Sources */,
+				18953DA9268394FC0077F976 /* DocumentFilterCellDeleter.swift in Sources */,
 				012F7B602285E6F600B0BBB6 /* BaseInfoViewController.swift in Sources */,
 				0141C03423A7ABE700566078 /* DrawingLayer.swift in Sources */,
 				0134756121F5BF90004EE4E5 /* Defaults.swift in Sources */,

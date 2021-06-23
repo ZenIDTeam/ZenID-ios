@@ -14,17 +14,23 @@ final class DocumentsFilterViewModelAdapter {
     
     private let tableView: GroupedTableView
     private let deleter: DocumentsFilterDeleter
+    private let onDelete: () -> Void
     
-    init(tableView: GroupedTableView, deleter: DocumentsFilterDeleter) {
+    init(tableView: GroupedTableView, deleter: DocumentsFilterDeleter, onDelete: @escaping () -> Void) {
         self.tableView = tableView
         self.deleter = deleter
+        self.onDelete = onDelete
     }
     
     func map(documents: [Document]) {
         tableView.sections = [.init(title: nil, cells: documents.map { document in
             DocumentFilterCellController(
                 viewModel: map(document),
-                deleter: deleter
+                deleter: DocumentFilterCellDeleter(
+                    service: deleter,
+                    document: document
+                ),
+                onDelete: onDelete
             )
         })]
     }
