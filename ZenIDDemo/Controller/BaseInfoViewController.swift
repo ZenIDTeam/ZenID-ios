@@ -38,7 +38,7 @@ class BaseInfoViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupBackground()
-        setupNavigationBar()
+        //setupNavigationBar()
     }
     
     func setupView() {

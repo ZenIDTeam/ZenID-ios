@@ -15,8 +15,8 @@ final class InMemoryDocumentsFilter {
     private var documents: [Document] = []
     
     init() {
+        documents.append(Document(role: .Pas, country: .Cz, page: .Front, code: nil))
         documents.append(Document(role: .Drv, country: .Sk, page: .Front, code: nil))
-        documents.append(Document(role: .Idc, country: .Sk, page: .Front, code: nil))
     }
     
 }

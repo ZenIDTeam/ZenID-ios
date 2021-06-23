@@ -210,6 +210,7 @@ public class CameraViewController: UIViewController {
         // Start video capture session
         self.startSession()
         
+        documentVerifier.acceptableInputJson = nil
         // Create verify object
         switch photoType {
         case .face:

@@ -23,25 +23,25 @@ public class DocumentsInput {
         return jsonString
     }
     
-    private func map(documents: [Document]) -> [String] {
+    private func map(documents: [Document]) -> String {
         documents.map { document in
             map(document: document)
-        }
+        }.joined(separator: ",")
     }
     
     private func map(document: Document) -> String {
         var attributeStrings = [String]()
         if let role = document.role {
-            attributeStrings.append("\"Role\": \(role.description)")
+            attributeStrings.append("\"Role\": \"\(role.description)\"")
         }
         if let country = document.country {
-            attributeStrings.append("\"Country\": \(country.description)")
+            attributeStrings.append("\"Country\": \"\(country.description)\"")
         }
         if let page = document.page {
-            attributeStrings.append("\"Page\": \(page.description)")
+            attributeStrings.append("\"Page\": \"\(page.description)\"")
         }
         if let code = document.code {
-            attributeStrings.append("\"Code\": \(code.description)")
+            attributeStrings.append("\"Code\": \"\(code.description)\"")
         }
         let documentJSONString = attributeStrings.joined(separator: ",")
         return "{" + documentJSONString + "}"
