@@ -119,5 +119,5 @@
 
 // Documents Filter
 "document-role" = "Role";
-"documents-country" = "Country";
-"documents-page" = "Page";
+"document-country" = "Country";
+"document-page" = "Page";

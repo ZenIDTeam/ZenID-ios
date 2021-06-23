@@ -26,7 +26,7 @@ final class ChoiceViewController: UIViewController {
     private let faceButton = Buttons.face
     private let logsButton = Buttons.logs
     
-    private var documentsFilterCoordinator: DocumentsFilterCoordinator?
+    private var settingsCoordinator: SettingsCoordinator?
     
     private lazy var documentButtons = [
         idButton,
@@ -160,8 +160,8 @@ final class ChoiceViewController: UIViewController {
     
     @objc
     private func settingsBarButtonPressed() {
-        let settingsViewController = SettingsComposer.compose(coordinator: self)
-        present(UINavigationController(rootViewController: settingsViewController), animated: true, completion: nil)
+        settingsCoordinator = SettingsCoordinator()
+        present(settingsCoordinator!.start(), animated: true, completion: nil)
     }
     
     private func setupTargets() {
@@ -479,12 +479,5 @@ extension ChoiceViewController: QrScannerControllerDelegate {
     }
     
     func qrCancel(_ controller: UIViewController) {
-    }
-}
-
-extension ChoiceViewController: SettingsCoordinable {
-    func settingsOpenDocumentsFilter() {
-        documentsFilterCoordinator = DocumentsFilterCoordinator()
-        show(documentsFilterCoordinator!.start(), sender: self)
     }
 }
