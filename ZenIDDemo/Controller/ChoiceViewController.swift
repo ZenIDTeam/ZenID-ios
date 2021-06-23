@@ -19,6 +19,7 @@ final class ChoiceViewController: UIViewController {
     private let drivingLicenceButton = Buttons.drivingLicence
     private let passportButton = Buttons.passport
     private let unspecifiedDocumentButton = Buttons.unspecifiedDocument
+    private let documentsFilterButton = Buttons.documentsFilter
     private let otherDocumentButton = Buttons.otherDocument
     private let hologramButton = Buttons.hologram
     private let faceButton = Buttons.face
@@ -32,6 +33,7 @@ final class ChoiceViewController: UIViewController {
         passportButton,
         unspecifiedDocumentButton,
         otherDocumentButton,
+        documentsFilterButton,
         hologramButton,
         //faceButton,
         logsButton
@@ -82,10 +84,6 @@ final class ChoiceViewController: UIViewController {
         }
         
         ensureCredentials()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        //scanProcess = nil
     }
     
     private func setupView() {
@@ -225,6 +223,8 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.face)
             case self.logsButton:
                 self.shareLogFile()
+            case self.documentsFilterButton:
+                self.startProcess(.filter)
             default:
                 break
             }
@@ -359,12 +359,16 @@ extension ChoiceViewController {
 extension ChoiceViewController: ScanProcessDelegate {
     func willTakePhoto(scanProcess: ScanProcess, photoType: PhotoType) {
         DispatchQueue.main.async { [unowned self] in
-            self.cachedCameraViewController.configureController(type: scanProcess.documentType,
-                                                                photoType: photoType,
-                                                                country: scanProcess.country,
-                                                                faceMode: selectedFaceMode,
-                                                                photosCount: scanProcess.pdfImages.count
-            )
+            DocumentsFilterLoaderComposer.compose().load { [weak self] result in
+                let documents = (try? result.get()) ?? []
+                self?.cachedCameraViewController.configureController(type: scanProcess.documentType,
+                                                                    photoType: photoType,
+                                                                    country: scanProcess.country,
+                                                                    faceMode: selectedFaceMode,
+                                                                    photosCount: scanProcess.pdfImages.count,
+                                                                    documents: documents
+                )
+            }
         }
                 
         DispatchQueue.main.async { [unowned self] in

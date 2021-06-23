@@ -115,12 +115,15 @@ public class CameraViewController: UIViewController {
         return photoType == .face
     }
     
+    private var documents: [Document]
+    
     init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
         self.photoType = photoType
         self.documentType = documentType
         self.country = country
         self.faceMode = faceMode
         self.photosCount = 0
+        self.documents = []
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -156,7 +159,6 @@ public class CameraViewController: UIViewController {
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
         
         // stop video recorder
         videoWriter?.delegate = nil
@@ -187,12 +189,13 @@ public class CameraViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode, photosCount: Int = 0) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode, photosCount: Int = 0, documents: [Document]) {
         self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
         self.country = country
         self.faceMode = faceMode
+        self.documents = documents
         self.captureDevicePosition = isFaceDetection ? .front : .back
         self.rotateInstructionView()
         
@@ -230,7 +233,6 @@ public class CameraViewController: UIViewController {
             // This starts video writer for holograms
             self.videoWriter.start()
             break
-            
         default:
             // Reset verifier
             self.documentVerifier.reset()
@@ -258,6 +260,13 @@ public class CameraViewController: UIViewController {
                 }
             }
             break
+        }
+        
+        if type == .filter {
+            documentVerifier = .init(
+                input: DocumentsInput(documents: documents),
+                language: LanguageHelper.language
+            )
         }
 
         documentVerifier.showDebugInfo = showVisualisationDebugInfo

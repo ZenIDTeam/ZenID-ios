@@ -70,6 +70,7 @@
 "btn-country" = "Země";
 "btn-face-mode" = "Režim selfie";
 "btn-logout" = "Odhlásit";
+"btn-filter" = "Filter";
 
 // Walkthrough
 "walkthrough-title-0" = "Údaje z dokladu";

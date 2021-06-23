@@ -40,6 +40,7 @@ public enum DocumentType: String {
     case drivingLicence = "Drv"
     case passport = "Pas"
     case unspecifiedDocument = "Unsp"
+    case filter = "Filter"
     case otherDocument = "Cont"
     case hologram = "Holo"
     case face = "Self"
@@ -63,6 +64,8 @@ extension DocumentType {
                 return "btn-hologram".localized.uppercased()
             case .face:
                 return "btn-face".localized.uppercased()
+            case .filter:
+                return NSLocalizedString("btn-filter", comment: "").uppercased()
             }
         }
     }
@@ -84,6 +87,8 @@ extension DocumentType {
                 return [.hologram]
             case .face:
                 return [.face]
+            case .filter:
+                return [.front]
             }
         }
     }
@@ -104,6 +109,8 @@ extension DocumentType {
             case .hologram:
                 return #imageLiteral(resourceName: "Kruh-HL")
             case .face:
+                return #imageLiteral(resourceName: "Kruh-SF")
+            default:
                 return #imageLiteral(resourceName: "Kruh-SF")
             }
         }

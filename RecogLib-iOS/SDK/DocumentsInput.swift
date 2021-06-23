@@ -18,7 +18,9 @@ public class DocumentsInput {
     }
     
     internal func acceptableInputJson() -> String {
-        return "{PossibleDocuments:[\(map(documents: documents))]}"
+        let jsonString = "{\"PossibleDocuments\":[\(map(documents: documents))]}"
+        print(jsonString)
+        return jsonString
     }
     
     private func map(documents: [Document]) -> [String] {
@@ -30,16 +32,16 @@ public class DocumentsInput {
     private func map(document: Document) -> String {
         var attributeStrings = [String]()
         if let role = document.role {
-            attributeStrings.append("Role: \(role.description)")
+            attributeStrings.append("\"Role\": \(role.description)")
         }
         if let country = document.country {
-            attributeStrings.append("Country: \(country.description)")
+            attributeStrings.append("\"Country\": \(country.description)")
         }
         if let page = document.page {
-            attributeStrings.append("Page: \(page.description)")
+            attributeStrings.append("\"Page\": \(page.description)")
         }
         if let code = document.code {
-            attributeStrings.append("Code: \(code.description)")
+            attributeStrings.append("\"Code\": \(code.description)")
         }
         let documentJSONString = attributeStrings.joined(separator: ",")
         return "{" + documentJSONString + "}"

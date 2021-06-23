@@ -27,6 +27,8 @@ final class RecoglibMapper {
             return nil
         case .face:
             return nil
+        case .filter:
+            return nil
         }
     }
 

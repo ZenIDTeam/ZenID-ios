@@ -112,6 +112,8 @@ final class ResultViewController: BaseInfoViewController {
             return #imageLiteral(resourceName: "Kruh-HL")
         case .face:
             return #imageLiteral(resourceName: "Kruh-SF")
+        case .filter:
+            return #imageLiteral(resourceName: "Kruh-SF")
         }
     }
     

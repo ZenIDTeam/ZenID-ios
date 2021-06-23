@@ -135,6 +135,15 @@ enum Buttons {
         }
     }
     
+    static var documentsFilter: UIButton {
+        get {
+            let button = ZenButton()
+            button.setTitle("settings-filter".localized.uppercased(), for: .normal)
+            button.outline = true
+            return button
+        }
+    }
+    
     static var hologram: UIButton {
         get {
             let button = ZenButton()

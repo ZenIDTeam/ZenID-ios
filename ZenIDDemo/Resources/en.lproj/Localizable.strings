@@ -70,6 +70,7 @@
 "btn-country" = "Country";
 "btn-face-mode" = "Selfie mode";
 "btn-logout" = "Logout";
+"btn-filter" = "Filter";
 
 // Walkthrough
 "walkthrough-title-0" = "Document information";
