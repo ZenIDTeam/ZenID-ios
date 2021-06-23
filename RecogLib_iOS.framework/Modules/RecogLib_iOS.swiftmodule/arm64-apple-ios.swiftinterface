@@ -262,12 +262,14 @@ public struct DocumentResult {
   public var code: RecogLib_iOS.DocumentCode?
   public var page: RecogLib_iOS.PageCode?
 }
-public struct Document {
+public struct Document : Swift.Comparable {
+  public static func < (lhs: RecogLib_iOS.Document, rhs: RecogLib_iOS.Document) -> Swift.Bool
   public let role: RecogLib_iOS.DocumentRole?
   public let country: RecogLib_iOS.Country?
   public let page: RecogLib_iOS.PageCode?
   public let code: RecogLib_iOS.DocumentCode?
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?)
+  public static func == (a: RecogLib_iOS.Document, b: RecogLib_iOS.Document) -> Swift.Bool
 }
 public struct SelfieResult {
   public var selfieState: RecogLib_iOS.SelfieState

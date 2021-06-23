@@ -11,14 +11,14 @@ import UIKit
 
 final class SettingsComposer {
     
-    static func compose() -> SettingsViewController {
+    static func compose(coordinator: SettingsCoordinable) -> SettingsViewController {
         let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
-        viewController.viewModel = resolve()
+        viewController.viewModel = resolve(coordinator: coordinator)
         return viewController
     }
     
-    private static func resolve() -> SettingsViewModel {
-        .init()
+    private static func resolve(coordinator: SettingsCoordinable) -> SettingsViewModel {
+        .init(coordinator: coordinator)
     }
     
 }

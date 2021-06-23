@@ -115,4 +115,9 @@
 
 // Settings
 "settings-title" = "Nastavení";
-"settings-filter" = "Filtr";
+"settings-filter" = "Dokumenty Filtr";
+
+// Documents Filter
+"document-role" = "Role";
+"documents-country" = "Country";
+"documents-page" = "Page";

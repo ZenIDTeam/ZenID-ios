@@ -20,7 +20,12 @@ final class BasicTableCellController: TableCellController {
     func view(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "SystemCell", for: indexPath)
         cell.textLabel?.text = viewModel.title
+        cell.accessoryType = viewModel.action == nil ? .none : .disclosureIndicator
         return cell
+    }
+    
+    func select() {
+        viewModel.action?()
     }
     
 }

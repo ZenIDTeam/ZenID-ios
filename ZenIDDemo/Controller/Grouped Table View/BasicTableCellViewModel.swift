@@ -11,4 +11,5 @@ import Foundation
 
 struct BasicTableCellViewModel {
     let title: String
+    let action: (() -> Void)?
 }

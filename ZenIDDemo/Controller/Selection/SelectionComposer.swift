@@ -16,7 +16,7 @@ final class SelectionComposer {
         let viewController = UIStoryboard(name: "Selection", bundle: nil).instantiateViewController(withIdentifier: "SelectionViewController") as! SelectionViewController
         viewController.viewModel = resolve(title: title, data: data, delegate: delegate)
         viewController.contentView.tableView.sections = [.init(title: nil, cells: viewController.viewModel.data.map({ itemViewModel in
-            BasicTableCellController(viewModel: .init(title: itemViewModel.title))
+            BasicTableCellController(viewModel: .init(title: itemViewModel.title, action: nil))
         }))]
         return viewController
     }

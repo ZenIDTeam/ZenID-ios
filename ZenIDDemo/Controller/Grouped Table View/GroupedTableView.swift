@@ -27,6 +27,7 @@ final class GroupedTableView: UITableView {
     
     private func setup() {
         dataSource = self
+        delegate = self
     }
     
     private func registerCells() {
@@ -51,5 +52,11 @@ extension GroupedTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         sections[section].title
+    }
+}
+
+extension GroupedTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sections[indexPath.section].cells[indexPath.row].select()
     }
 }

@@ -12,5 +12,6 @@ import UIKit
 protocol TableCellController {
     
     func view(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
+    func select()
     
 }
