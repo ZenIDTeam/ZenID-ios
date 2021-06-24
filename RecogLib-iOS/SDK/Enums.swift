@@ -28,7 +28,35 @@ extension SupportedLanguages: CustomStringConvertible {
 }
 
 public enum DocumentCode: Int {
-    case IDC1, IDC2, DRV, PAS, SK_IDC_2008plus, SK_DRV_2004_08_09, SK_DRV_2013, SK_DRV_2015, SK_PAS_2008_14, SK_IDC_1993, SK_DRV_1993, PL_IDC_2015, DE_IDC_2010, DE_IDC_2001, HR_IDC_2013_15, AT_IdentityCard_2000, AT_IDC_2002, AT_IDC_2005, AT_IDC_2010, AT_PAS_2006, AT_DRV_2006, AT_DRV_2013
+    case IDC1 = 0
+    case IDC2 = 1
+    case DRV = 2
+    case PAS = 3
+    case SK_IDC_2008plus = 4
+    case SK_DRV_2004_08_09 = 5
+    case SK_DRV_2013 = 6
+    case SK_DRV_2015 = 7
+    case SK_PAS_2008_14 = 8
+    case SK_IDC_1993 = 9
+    case SK_DRV_1993 = 10
+    case PL_IDC_2015 = 11
+    case DE_IDC_2010 = 12
+    case DE_IDC_2001 = 13
+    case HR_IDC_2013_15 = 14
+    case AT_IDE_2000 = 15
+    case AT_IDC_2002_05_10 = 18
+    case AT_PAS_2006_14 = 20
+    case AT_DRV_2006 = 21
+    case AT_DRV_2013 = 22
+    case IT_PAS_2006_10 = 35
+    case CZ_RES_2011_14 = 23
+    case CZ_RES_2006_T = 24
+    case CZ_RES_2006_07 = 25
+    case CZ_RES_2020 = 33
+    case CZ_GUN_2014 = 26
+    case CZ_GUN_2017 = 32
+    case EU_EHIC_2004_A = 30
+    case EU_EHIC_2004_B = 55
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -64,7 +92,14 @@ extension PageCode: CustomStringConvertible {
 }
 
 public enum Country: Int {
-    case Cz, Sk, At, Hu, Pl, De, Hr
+    case Cz = 0
+    case Sk = 1
+    case At = 2
+    case Hu = 3
+    case Pl = 4
+    case De = 5
+    case Hr = 6
+    case It = 10
 }
 
 extension Country: CustomStringConvertible {
@@ -84,12 +119,19 @@ extension Country: CustomStringConvertible {
             return "De"
         case .Hr:
             return "Hr"
+        case .It:
+            return "It"
         }
     }
 }
 
 public enum DocumentRole: Int {
-    case Idc, Pas, Drv
+    case Idc = 0
+    case Pas = 1
+    case Drv = 2
+    case Res = 3
+    case Gun = 4
+    case Hic = 5
 }
 
 extension DocumentRole: CustomStringConvertible {
@@ -101,6 +143,12 @@ extension DocumentRole: CustomStringConvertible {
             return "Drv"
         case .Pas:
             return "Pas"
+        case .Res:
+            return "Res"
+        case .Gun:
+            return "Gun"
+        case .Hic:
+            return "Hic"
         }
     }
 }

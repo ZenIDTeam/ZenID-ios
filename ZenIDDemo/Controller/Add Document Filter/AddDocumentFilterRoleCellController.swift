@@ -34,7 +34,10 @@ final class AddDocumentFilterRoleCellController: BasicTableCellController {
         [
             SelectionItemViewModel(title: DocumentRole.Idc.description),
             SelectionItemViewModel(title: DocumentRole.Pas.description),
-            SelectionItemViewModel(title: DocumentRole.Drv.description)
+            SelectionItemViewModel(title: DocumentRole.Drv.description),
+            SelectionItemViewModel(title: DocumentRole.Res.description),
+            SelectionItemViewModel(title: DocumentRole.Gun.description),
+            SelectionItemViewModel(title: DocumentRole.Hic.description)
         ]
     }
     
@@ -46,6 +49,12 @@ final class AddDocumentFilterRoleCellController: BasicTableCellController {
             onSelection(.Pas)
         } else if item.title == DocumentRole.Drv.description {
             onSelection(.Drv)
+        } else if item.title == DocumentRole.Res.description {
+            onSelection(.Res)
+        } else if item.title == DocumentRole.Gun.description {
+            onSelection(.Gun)
+        } else if item.title == DocumentRole.Hic.description {
+            onSelection(.Hic)
         }
     }
     

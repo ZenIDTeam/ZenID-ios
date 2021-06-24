@@ -38,7 +38,8 @@ final class AddDocumentFilterCountryCellController: BasicTableCellController {
             SelectionItemViewModel(title: RecogLib_iOS.Country.Hu.description),
             SelectionItemViewModel(title: RecogLib_iOS.Country.Pl.description),
             SelectionItemViewModel(title: RecogLib_iOS.Country.De.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Hr.description)
+            SelectionItemViewModel(title: RecogLib_iOS.Country.Hr.description),
+            SelectionItemViewModel(title: RecogLib_iOS.Country.It.description)
         ]
     }
     
@@ -58,6 +59,8 @@ final class AddDocumentFilterCountryCellController: BasicTableCellController {
             onSelection(.De)
         } else if item.title == RecogLib_iOS.Country.Hr.description {
             onSelection(.Hr)
+        } else if item.title == RecogLib_iOS.Country.It.description {
+            onSelection(.It)
         }
     }
     

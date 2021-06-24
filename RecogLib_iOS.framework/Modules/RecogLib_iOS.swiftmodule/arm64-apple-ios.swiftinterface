@@ -120,13 +120,20 @@ public enum DocumentCode : Swift.Int {
   case DE_IDC_2010
   case DE_IDC_2001
   case HR_IDC_2013_15
-  case AT_IdentityCard_2000
-  case AT_IDC_2002
-  case AT_IDC_2005
-  case AT_IDC_2010
-  case AT_PAS_2006
+  case AT_IDE_2000
+  case AT_IDC_2002_05_10
+  case AT_PAS_2006_14
   case AT_DRV_2006
   case AT_DRV_2013
+  case IT_PAS_2006_10
+  case CZ_RES_2011_14
+  case CZ_RES_2006_T
+  case CZ_RES_2006_07
+  case CZ_RES_2020
+  case CZ_GUN_2014
+  case CZ_GUN_2017
+  case EU_EHIC_2004_A
+  case EU_EHIC_2004_B
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -160,6 +167,7 @@ public enum Country : Swift.Int {
   case Pl
   case De
   case Hr
+  case It
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -175,6 +183,9 @@ public enum DocumentRole : Swift.Int {
   case Idc
   case Pas
   case Drv
+  case Res
+  case Gun
+  case Hic
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
