@@ -117,6 +117,7 @@
 // Settings
 "settings-title" = "Nastavení";
 "settings-filter" = "Dokumenty Filtr";
+"settings-document-verifier-settings" = "Document Verifier Settings";
 
 // Documents Filter
 "document-role" = "Role";
@@ -125,3 +126,8 @@
 
 // Add New Document Filter
 "document-filter-title" = "Add New Document Filter";
+
+// Document Verifier Settings
+"document-verifier-settings-specular" = "Specular Acceptable Score";
+"document-verifier-settings-blur" = "Document Blur Acceptable Score";
+"document-verifier-settings-blur-tolerance" = "Time To Blur Max Tolerance (seconds)";

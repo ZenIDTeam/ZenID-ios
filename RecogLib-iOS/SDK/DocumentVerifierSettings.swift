@@ -10,7 +10,13 @@ import Foundation
 
 
 public struct DocumentVerifierSettings {
-    let specularAcceptableScore: Int
-    let documentBlurAcceptableScore: Int
-    let timeToBlurMaxToleranceInSeconds: Int
+    public let specularAcceptableScore: Int
+    public let documentBlurAcceptableScore: Int
+    public let timeToBlurMaxToleranceInSeconds: Int
+    
+    public init(specularAcceptableScore: Int = 50, documentBlurAcceptableScore: Int = 50, timeToBlurMaxToleranceInSeconds: Int = 10) {
+        self.specularAcceptableScore = specularAcceptableScore
+        self.documentBlurAcceptableScore = documentBlurAcceptableScore
+        self.timeToBlurMaxToleranceInSeconds = timeToBlurMaxToleranceInSeconds
+    }
 }

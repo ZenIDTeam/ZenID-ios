@@ -12,4 +12,5 @@ import Foundation
 protocol SettingsCoordinable {
     func settingsDidFinish()
     func settingsOpenDocumentsFilter()
+    func settingsOpenDocumentVerifierSettings()
 }

@@ -83,6 +83,10 @@ public protocol LoggerProtocol {
   @objc deinit
 }
 public struct DocumentVerifierSettings {
+  public let specularAcceptableScore: Swift.Int
+  public let documentBlurAcceptableScore: Swift.Int
+  public let timeToBlurMaxToleranceInSeconds: Swift.Int
+  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10)
 }
 public enum SupportedLanguages : Swift.Int {
   case English

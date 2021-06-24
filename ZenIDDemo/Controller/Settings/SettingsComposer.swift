@@ -30,6 +30,14 @@ final class SettingsComposer {
             .init(
                 title: nil,
                 cells: [
+                    BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-document-verifier-settings", comment: ""), action: {
+                        coordinator.settingsOpenDocumentVerifierSettings()
+                    }))
+                ]
+            ),
+            .init(
+                title: nil,
+                cells: [
                     BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-filter", comment: ""), action: {
                         coordinator.settingsOpenDocumentsFilter()
                     }))

@@ -41,4 +41,13 @@ extension SettingsCoordinator: SettingsCoordinable {
         documentsFilterCoordinator = DocumentsFilterCoordinator()
         show(viewController: documentsFilterCoordinator!.start())
     }
+    
+    func settingsOpenDocumentVerifierSettings() {
+        let viewController = DocumentVerifierSettingsComposer.compose(
+            loader: DocumentVerifierSettingsLoaderComposer.compose(),
+            updater: DocumentVerifierSettingsLoaderComposer.compose()
+        )
+        show(viewController: viewController)
+    }
+        
 }
