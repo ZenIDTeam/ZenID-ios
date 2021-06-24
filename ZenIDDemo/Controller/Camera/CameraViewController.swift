@@ -116,6 +116,7 @@ public class CameraViewController: UIViewController {
     }
     
     private var documents: [Document]
+    private var documentSettings: DocumentVerifierSettings?
     
     init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
         self.photoType = photoType
@@ -189,7 +190,7 @@ public class CameraViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode, photosCount: Int = 0, documents: [Document]) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings) {
         self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
@@ -206,6 +207,20 @@ public class CameraViewController: UIViewController {
         self.previousHologramResult = nil
         self.previousFaceLivenessResult = nil
         self.previousSelfieResult = nil
+        
+        if self.documentSettings != documentSettings {
+            self.documentSettings = documentSettings
+            if type != .filter {
+                documentVerifier = .init(
+                    role: .Idc,
+                    country: .Cz,
+                    page: .Front,
+                    code: nil,
+                    language: LanguageHelper.language,
+                    settings: documentSettings
+                )
+            }
+        }
 
         // Start video capture session
         self.startSession()
@@ -266,7 +281,8 @@ public class CameraViewController: UIViewController {
         if type == .filter {
             documentVerifier = .init(
                 input: DocumentsInput(documents: documents),
-                language: LanguageHelper.language
+                language: LanguageHelper.language,
+                settings: documentSettings
             )
         }
 

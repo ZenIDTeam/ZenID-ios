@@ -9,7 +9,7 @@
 import Foundation
 
 
-public struct DocumentVerifierSettings {
+public struct DocumentVerifierSettings: Equatable {
     public let specularAcceptableScore: Int
     public let documentBlurAcceptableScore: Int
     public let timeToBlurMaxToleranceInSeconds: Int

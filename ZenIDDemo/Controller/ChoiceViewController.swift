@@ -358,16 +358,22 @@ extension ChoiceViewController {
 //MARK: - Scan process delegate
 extension ChoiceViewController: ScanProcessDelegate {
     func willTakePhoto(scanProcess: ScanProcess, photoType: PhotoType) {
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [weak self] in
             DocumentsFilterLoaderComposer.compose().load { [weak self] result in
                 let documents = (try? result.get()) ?? []
-                self?.cachedCameraViewController.configureController(type: scanProcess.documentType,
-                                                                    photoType: photoType,
-                                                                    country: scanProcess.country,
-                                                                    faceMode: selectedFaceMode,
-                                                                    photosCount: scanProcess.pdfImages.count,
-                                                                    documents: documents
-                )
+                DocumentVerifierSettingsLoaderComposer.compose().load { [weak self] result in
+                    let settings = (try? result.get()) ?? .init()
+                    guard let self = self else { return }
+                    self.cachedCameraViewController.configureController(
+                        type: scanProcess.documentType,
+                        photoType: photoType,
+                        country: scanProcess.country,
+                        faceMode: self.selectedFaceMode,
+                        photosCount: scanProcess.pdfImages.count,
+                        documents: documents,
+                        documentSettings: settings
+                    )
+                }
             }
         }
                 
