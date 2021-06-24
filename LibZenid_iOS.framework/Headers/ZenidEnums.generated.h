@@ -62,9 +62,11 @@ enum class DocumentCodes : uint8_t
 	CZ_BIRTH = 49,
 	CZ_VEHICLE_I = 50,
 	INT_ISIC_2019 = 51,
-	SI_Pas = 52,
+	SI_PAS = 52,
 	SI_IDC = 53,
 	SI_DRV = 54,
+	EU_EHIC_2004_B = 55,
+	PL_IDC_2001_02_13 = 56,
 };
 
 enum class PageCodes : uint8_t
