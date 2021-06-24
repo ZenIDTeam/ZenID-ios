@@ -80,12 +80,16 @@ static void processFrame(const void *object,
 }
 
 
-const void * getDocumentVerifier()
+const void * getDocumentVerifier(CDocumentVerifierSettings *setttings)
 {
-    DocumentVerifier *verifier = new DocumentVerifier();
+    DocumentVerifierSettings verifierSettings = DocumentVerifierSettings();
+    verifierSettings.specularAcceptableScore = setttings->specularAcceptableScore;
+    verifierSettings.documentBlurAcceptableScore = setttings->documentBlurAcceptableScore;
+    verifierSettings.timeToBlurMaxToleranceInSeconds = setttings->timeToBlurMaxToleranceInSeconds;
+    DocumentVerifier *verifier = new DocumentVerifier(std::make_shared<DocumentVerifierSettings>(verifierSettings));
     return (void *)verifier;
 }
-
+                                                      
 void loadModel(const void *object,
                const char* buffer,
                size_t size)

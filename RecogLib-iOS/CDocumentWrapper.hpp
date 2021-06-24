@@ -21,10 +21,15 @@ struct CDocumentInfo {
     int language, role, country, code, page, state, hologramState, orientation;
 };
 
+struct CDocumentVerifierSettings {
+    int specularAcceptableScore, documentBlurAcceptableScore, timeToBlurMaxToleranceInSeconds;
+};
+
 typedef struct CDocumentInfo CDocumentInfo;
+typedef struct CDocumentVerifierSettings CDocumentVerifierSettings;
 
 // Initialisation and loading models
-const void * getDocumentVerifier();
+const void * getDocumentVerifier(CDocumentVerifierSettings *settings);
 void loadModel(const void *object, const char* buffer, size_t size);
 
 // Verifying documents

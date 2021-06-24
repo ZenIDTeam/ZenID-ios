@@ -20,6 +20,7 @@ public class DocumentVerifier {
     public var country: Country?
     public var page: PageCode?
     public var code: DocumentCode?
+    public let settings: DocumentVerifierSettings?
     
     public var acceptableInputJson: String?
     
@@ -31,36 +32,29 @@ public class DocumentVerifier {
         }
     }
 
-    public init(role: DocumentRole?, country: Country?, page: PageCode?, code: DocumentCode?, language: SupportedLanguages) {
+    public init(role: DocumentRole?, country: Country?, page: PageCode?, code: DocumentCode?, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
         self.documentRole = role
         self.country = country
         self.page = page
         self.code = code
         self.language = language
+        self.settings = settings
         
-        self.cppObject = getDocumentVerifier()
+        var verifierSettings = createDocumentVerifierSettings(settings: settings)
+        self.cppObject = getDocumentVerifier(&verifierSettings)
         let modelsURL = Bundle(for: DocumentVerifier.self)
             .bundleURL
             .appendingPathComponent(modelsRelativePath)
         listModels(modelsURL).forEach(readModel(url:))
     }
     
-    public init(input: DocumentsInput, language: SupportedLanguages) {
+    public init(input: DocumentsInput, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
         self.acceptableInputJson = input.acceptableInputJson()
         self.language = language
+        self.settings = settings
         
-        self.cppObject = getDocumentVerifier()
-        let modelsURL = Bundle(for: DocumentVerifier.self)
-            .bundleURL
-            .appendingPathComponent(modelsRelativePath)
-        listModels(modelsURL).forEach(readModel(url:))
-    }
-    
-    private init(acceptableInputJson: String, language: SupportedLanguages) {
-        self.acceptableInputJson = acceptableInputJson
-        self.language = language
-        
-        self.cppObject = getDocumentVerifier()
+        var verifierSettings = createDocumentVerifierSettings(settings: settings)
+        self.cppObject = getDocumentVerifier(&verifierSettings)
         let modelsURL = Bundle(for: DocumentVerifier.self)
             .bundleURL
             .appendingPathComponent(modelsRelativePath)
@@ -146,6 +140,14 @@ public class DocumentVerifier {
             state: -1,
             hologramState: -1,
             orientation: Int32(orientation.rawValue)
+        )
+    }
+    
+    private func createDocumentVerifierSettings(settings: DocumentVerifierSettings?) -> CDocumentVerifierSettings {
+        return CDocumentVerifierSettings(
+            specularAcceptableScore: Int32(settings?.specularAcceptableScore ?? 50),
+            documentBlurAcceptableScore: Int32(settings?.documentBlurAcceptableScore ?? 50),
+            timeToBlurMaxToleranceInSeconds: Int32(settings?.timeToBlurMaxToleranceInSeconds ?? 10)
         )
     }
     
