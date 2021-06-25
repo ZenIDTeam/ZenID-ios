@@ -11,6 +11,7 @@ import Foundation
 
 protocol SettingsCoordinable {
     func settingsDidFinish()
+    func settingsOpenSelfieSelection()
     func settingsOpenDocumentsFilter()
     func settingsOpenDocumentVerifierSettings()
 }

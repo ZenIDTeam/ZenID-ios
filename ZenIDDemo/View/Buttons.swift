@@ -213,12 +213,6 @@ enum Buttons {
         return button
     }()
     
-    static var faceMode: ZenButton = {
-        let button = ZenButton()
-        button.outline = true
-        return button
-    }()
-    
     enum Camera {
         static var trigger: UIButton {
             get {

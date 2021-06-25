@@ -39,12 +39,15 @@ final class Defaults {
         set { defaults[#function] = newValue.rawValue }
     }
     
-    static var selectedFaceMode: FaceMode {
+    static var selectedFaceMode: FaceMode? {
         get {
-            let rawValue = defaults[#function] ?? FaceMode.faceLiveness.rawValue
-            return FaceMode.init(rawValue:rawValue) ?? FaceMode.faceLiveness
+            let rawValue: String? = defaults[#function]
+            if let value = rawValue {
+                return FaceMode.init(rawValue: value)
+            }
+            return nil
         }
-        set { defaults[#function] = newValue.rawValue }
+        set { defaults[#function] = newValue?.rawValue }
     }
     
     static var videoGravity: AVLayerVideoGravity {

@@ -22,6 +22,11 @@ final class SettingsViewController: UIViewController {
         setupNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.reloadData()
+    }
+    
     private func setupNavigationBar() {
         title = NSLocalizedString("settings-title", comment: "")
         let closeBarButtonItem = UIBarButtonItem(

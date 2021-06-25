@@ -20,7 +20,10 @@ final class SettingsCoordinator {
     }
     
     func start() -> UIViewController {
-        let settingsViewController = SettingsComposer.compose(coordinator: self)
+        let settingsViewController = SettingsComposer.compose(
+            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose(),
+            coordinator: self
+        )
         rootViewController = UINavigationController(rootViewController: settingsViewController)
         rootViewController?.modalPresentationStyle = .fullScreen
         return rootViewController
@@ -30,11 +33,23 @@ final class SettingsCoordinator {
         rootViewController.show(viewController, sender: self)
     }
     
+    private func dismissLastViewController() {
+        rootViewController.popViewController(animated: true)
+    }
+    
 }
 
 extension SettingsCoordinator: SettingsCoordinable {
     func settingsDidFinish() {
         rootViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func settingsOpenSelfieSelection() {
+        let viewController = SelfieSelectionComposer.compose(
+            saver: SelfieSelectionLoaderComposer.compose(),
+            coordinator: self
+        )
+        show(viewController: viewController)
     }
     
     func settingsOpenDocumentsFilter() {
@@ -50,4 +65,10 @@ extension SettingsCoordinator: SettingsCoordinable {
         show(viewController: viewController)
     }
         
+}
+
+extension SettingsCoordinator: SelfieSelectionCoordinable {
+    func selfieSelectionDidFinish() {
+        dismissLastViewController()
+    }
 }

@@ -14,7 +14,6 @@ import os
 
 final class ChoiceViewController: UIViewController {
     private let countryButton = Buttons.country
-    private let faceModeButton = Buttons.faceMode
     private let idButton = Buttons.id
     private let drivingLicenceButton = Buttons.drivingLicence
     private let passportButton = Buttons.passport
@@ -42,10 +41,6 @@ final class ChoiceViewController: UIViewController {
     private var selectedCountry: Country {
         get { return Defaults.selectedCountry }
         set { Defaults.selectedCountry = newValue }
-    }
-    private var selectedFaceMode: FaceMode {
-        get { return Defaults.selectedFaceMode }
-        set { Defaults.selectedFaceMode = newValue }
     }
     
     private let titleLabel: UILabel = {
@@ -99,13 +94,11 @@ final class ChoiceViewController: UIViewController {
         
         setupStackView()
         stackView.addArrangedSubview(countryButton)
-        stackView.addArrangedSubview(faceModeButton)
         documentButtons.forEach { button in
             button.heightAnchor.constraint(equalToConstant: 48.0).isActive = true
             stackView.addArrangedSubview(button)
         }
         updateCountryButton()
-        updateFaceModeButton()
 
         // Toast view
         //view.addSubview(toastView)
@@ -145,7 +138,6 @@ final class ChoiceViewController: UIViewController {
     
     private func setupTargets() {
         countryButton.addTarget(self, action: #selector(selectCountryAction(sender:)), for: .touchUpInside)
-        faceModeButton.addTarget(self, action: #selector(faceModeAction(sender:)), for: .touchUpInside)
         documentButtons.forEach {
             $0.addTarget(self, action: #selector(selectAction(sender:)), for: .touchUpInside)
         }
@@ -155,12 +147,6 @@ final class ChoiceViewController: UIViewController {
         let title = "btn-country".localized.uppercased()
         let country = selectedCountry.rawValue.uppercased()
         countryButton.setTitle("\(title): \(country)", for: .normal)
-    }
-    
-    private func updateFaceModeButton() {
-        let title = "btn-face-mode".localized.uppercased()
-        let value = selectedFaceMode.rawValue.uppercased()
-        faceModeButton.setTitle("\(title): \(value)", for: .normal)
     }
     
     @objc private func selectCountryAction(sender: UIButton) {
@@ -179,26 +165,6 @@ final class ChoiceViewController: UIViewController {
         countryView.completion = { [weak self] country in
             self?.selectedCountry = country
             self?.updateCountryButton()
-            popup.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    @objc private func faceModeAction(sender: UIButton) {
-        let popup = UIViewController()
-        let faceModeView = SelectFaceModeView()
-        popup.view.addSubview(faceModeView)
-        faceModeView.centerX(to: popup.view)
-        faceModeView.centerY(to: popup.view)
-        popup.view.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
-        popup.modalPresentationStyle = .overCurrentContext
-        popup.modalTransitionStyle = .crossDissolve
-        popup.definesPresentationContext = true
-        
-        present(popup, animated: true, completion: nil)
-                
-        faceModeView.completion = { [weak self] faceMode in
-            self?.selectedFaceMode = faceMode
-            self?.updateFaceModeButton()
             popup.dismiss(animated: true, completion: nil)
         }
     }
@@ -363,16 +329,19 @@ extension ChoiceViewController: ScanProcessDelegate {
                 let documents = (try? result.get()) ?? []
                 DocumentVerifierSettingsLoaderComposer.compose().load { [weak self] result in
                     let settings = (try? result.get()) ?? .init()
-                    guard let self = self else { return }
-                    self.cachedCameraViewController.configureController(
-                        type: scanProcess.documentType,
-                        photoType: photoType,
-                        country: scanProcess.country,
-                        faceMode: self.selectedFaceMode,
-                        photosCount: scanProcess.pdfImages.count,
-                        documents: documents,
-                        documentSettings: settings
-                    )
+                    SelfieSelectionLoaderComposer.compose().load { [weak self] result in
+                        let faceMode = (try? result.get())
+                        guard let self = self else { return }
+                        self.cachedCameraViewController.configureController(
+                            type: scanProcess.documentType,
+                            photoType: photoType,
+                            country: scanProcess.country,
+                            faceMode: faceMode,
+                            photosCount: scanProcess.pdfImages.count,
+                            documents: documents,
+                            documentSettings: settings
+                        )
+                    }
                 }
             }
         }

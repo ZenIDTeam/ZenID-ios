@@ -164,6 +164,16 @@ public enum Country: String {
 public enum FaceMode: String {
     case faceLiveness = "FaceLiveness"
     case selfie = "Selfie"
+    
+    init?(index: Int) {
+        if index == 0 {
+            self = .selfie
+        } else if index == 1 {
+            self = .faceLiveness
+        } else {
+            return nil
+        }
+    }
 }
 
 public enum ImageFlip: Int {

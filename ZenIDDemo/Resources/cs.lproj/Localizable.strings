@@ -131,3 +131,8 @@
 "document-verifier-settings-specular" = "Specular Acceptable Score";
 "document-verifier-settings-blur" = "Document Blur Acceptable Score";
 "document-verifier-settings-blur-tolerance" = "Time To Blur Max Tolerance (seconds)";
+
+// Selfie Settings
+"settings-selfie-none" = "None";
+"settings-selfie-match" = "Selfie Match";
+"settings-selfie-liveness" = "Selfie Liveness";

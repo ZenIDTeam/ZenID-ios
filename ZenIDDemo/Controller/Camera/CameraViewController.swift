@@ -76,7 +76,7 @@ public class CameraViewController: UIViewController {
     private var photoType: PhotoType
     private var documentType: DocumentType
     private var country: Country
-    private var faceMode: FaceMode
+    private var faceMode: FaceMode?
 
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevicePosition: AVCaptureDevice.Position = .back
@@ -190,7 +190,7 @@ public class CameraViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings) {
         self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
@@ -858,6 +858,8 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                         }
                     }
                 }
+            case .none:
+                break
             }
             
         case .hologram:

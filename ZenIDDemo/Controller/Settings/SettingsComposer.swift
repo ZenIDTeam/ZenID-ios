@@ -11,13 +11,15 @@ import UIKit
 
 final class SettingsComposer {
     
-    static func compose(coordinator: SettingsCoordinable) -> SettingsViewController {
+    static func compose(selfieSelectionLoader: SelfieSelectionLoader, coordinator: SettingsCoordinable) -> SettingsViewController {
         let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         viewController.viewModel = resolve(coordinator: coordinator)
-        viewController.contentView.tableView.sections = getSections(
-            viewController: viewController,
-            coordinator: coordinator
-        )
+        viewController.viewModel.onChange = { [unowned viewController] in
+            selfieSelectionLoader.load { [unowned viewController] result in
+                let faceMode = (try? result.get())
+                viewController.contentView.tableView.sections = getSections(viewController: viewController, coordinator: coordinator, faceMode: faceMode)
+            }
+        }
         return viewController
     }
     
@@ -25,8 +27,16 @@ final class SettingsComposer {
         .init(coordinator: coordinator)
     }
     
-    private static func getSections(viewController: UIViewController, coordinator: SettingsCoordinable) -> [TableViewSectionViewModel] {
+    private static func getSections(viewController: UIViewController, coordinator: SettingsCoordinable, faceMode: FaceMode?) -> [TableViewSectionViewModel] {
         [
+            .init(
+                title: nil,
+                cells: [
+                    SelfieTableCellController(viewModel: .init(name: faceMode?.rawValue.uppercased(), action: {
+                        coordinator.settingsOpenSelfieSelection()
+                    }))
+                ]
+            ),
             .init(
                 title: nil,
                 cells: [

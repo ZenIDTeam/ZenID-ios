@@ -11,6 +11,8 @@ import Foundation
 
 final class SettingsViewModel {
     
+    var onChange: (() -> Void)?
+    
     private let coordinator: SettingsCoordinable
     
     init(coordinator: SettingsCoordinable) {
@@ -19,6 +21,10 @@ final class SettingsViewModel {
     
     func finish() {
         coordinator.settingsDidFinish()
+    }
+    
+    func reloadData() {
+        onChange?()
     }
     
 }
