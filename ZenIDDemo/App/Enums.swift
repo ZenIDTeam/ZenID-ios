@@ -76,11 +76,11 @@ extension DocumentType {
             case .idCard:
                 return [.front, .back, .face]
             case .drivingLicence:
-                return [.front]
+                return [.front, .face]
             case .passport:
-                return [.front]
+                return [.front, .face]
             case .unspecifiedDocument:
-                return (0...0).map { _ in .front }
+                return [.front, .face]
             case .otherDocument:
                 return (0...30).map { _ in .front }
             case .hologram:

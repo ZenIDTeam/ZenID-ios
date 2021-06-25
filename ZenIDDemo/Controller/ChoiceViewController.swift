@@ -198,7 +198,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func startProcess(_ documentType: DocumentType) {
-        scanProcess = ScanProcess(documentType: documentType, country: selectedCountry)
+        scanProcess = createScanProcess(documentType: documentType, country: selectedCountry)
         scanProcess?.delegate = self
         scanProcess?.start()
     }
@@ -206,9 +206,20 @@ final class ChoiceViewController: UIViewController {
     private func restartProcess(currentScanProcess: ScanProcess) {
         currentScanProcess.delegate = nil
         self.scanProcess = nil
-        self.scanProcess = ScanProcess(documentType: currentScanProcess.documentType, country: currentScanProcess.country)
+        self.scanProcess = createScanProcess(
+            documentType: currentScanProcess.documentType,
+            country: currentScanProcess.country
+        )
         self.scanProcess!.delegate = self
         self.scanProcess!.start()
+    }
+    
+    private func createScanProcess(documentType: DocumentType, country: Country) -> ScanProcess {
+        .init(
+            documentType: documentType,
+            country: country,
+            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose()
+        )
     }
     
     private func shareLogFile() {

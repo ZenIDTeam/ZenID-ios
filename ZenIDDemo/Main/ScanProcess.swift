@@ -36,13 +36,23 @@ final class ScanProcess {
     /// Delegate that handles camera requests and UI navigation on behalf of the scan process
     weak var delegate: ScanProcessDelegate?
     
+    private var requestsCount: Int
+    
     /// Initialize the scan process with a specific document type
     ///
     /// - Parameter documentType: Document type to scan
-    init(documentType: DocumentType, country: Country) {
+    init(documentType: DocumentType, country: Country, selfieSelectionLoader: SelfieSelectionLoader) {
         self.documentType = documentType
         self.country = country
         requestsToScan = documentType.scanRequests
+        requestsCount = requestsToScan.count
+        selfieSelectionLoader.load { [weak self] result in
+            let faceMode = (try? result.get())
+            if faceMode == nil {
+                self?.requestsToScan = self?.requestsToScan.filter({ $0 != .face }) ?? []
+            }
+            self?.requestsCount = self?.requestsToScan.count ?? 0
+        }
     }
     
     deinit {
@@ -105,7 +115,7 @@ final class ScanProcess {
     /// - Parameter sampleID: sample ID
     private func addSuccessfulSample(_ sampleID: String) {
         self.finishedSampleIDs.append(sampleID)
-        if self.finishedSampleIDs.count >= self.documentType.scanRequests.count {
+        if self.finishedSampleIDs.count >= self.requestsCount {
             self.delegate?.willProcessData(scanProcess: self)
             self.investigateSamples(self.finishedSampleIDs)
         }
@@ -156,7 +166,7 @@ private extension ScanProcess {
     ///
     /// - Parameter image: Uploaded image data and info
     func uploadSample(_ image: ImageInput) {
-        if self.finishedSampleIDs.count + 1 >= self.documentType.scanRequests.count {
+        if self.finishedSampleIDs.count + 1 >= self.requestsCount {
             self.delegate?.willProcessData(scanProcess: self)
         }
         Client()

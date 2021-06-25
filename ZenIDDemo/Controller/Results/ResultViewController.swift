@@ -84,10 +84,6 @@ final class ResultViewController: BaseInfoViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
-    }
-    
     override func setupBackground() {
         applyPathGradient()
     }
