@@ -81,6 +81,11 @@ public class DocumentVerifier {
         }
     }
     
+    public func update(settings: DocumentVerifierSettings) {
+        var settings = createDocumentVerifierSettings(settings: settings)
+        updateDocumentVerifierSettings(cppObject, &settings)
+    }
+    
     public func verifyHologram(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> HologramResult? {
         do {
             var document = createDocumentInfo(orientation: orientation)

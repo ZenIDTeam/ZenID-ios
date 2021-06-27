@@ -210,16 +210,7 @@ public class CameraViewController: UIViewController {
         
         if self.documentSettings != documentSettings {
             self.documentSettings = documentSettings
-            if type != .filter {
-                documentVerifier = .init(
-                    role: .Idc,
-                    country: .Cz,
-                    page: .Front,
-                    code: nil,
-                    language: LanguageHelper.language,
-                    settings: documentSettings
-                )
-            }
+            documentVerifier.update(settings: documentSettings)
         }
 
         // Start video capture session

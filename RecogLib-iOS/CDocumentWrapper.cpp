@@ -133,6 +133,13 @@ bool verifyImage(const void *object,
     }
 }
 
+void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSettings *settings) {
+    DocumentVerifier *verifier = (DocumentVerifier *)object;
+    verifier->GetSettings().specularAcceptableScore = settings->specularAcceptableScore;
+    verifier->GetSettings().documentBlurAcceptableScore = settings->documentBlurAcceptableScore;
+    verifier->GetSettings().timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
+}
+
 bool verifyHologram(const void *object,
                  CMSampleBufferRef _mat,
                  CDocumentInfo *document)
