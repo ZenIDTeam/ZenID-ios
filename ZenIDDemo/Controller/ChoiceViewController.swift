@@ -132,8 +132,11 @@ final class ChoiceViewController: UIViewController {
     
     @objc
     private func settingsBarButtonPressed() {
-        settingsCoordinator = SettingsCoordinator()
-        present(settingsCoordinator!.start(), animated: true, completion: nil)
+        ensureCredentials { [weak self] in
+            guard let self = self else { return }
+            self.settingsCoordinator = SettingsCoordinator()
+            self.present(self.settingsCoordinator!.start(), animated: true, completion: nil)
+        }
     }
     
     private func setupTargets() {
@@ -280,7 +283,11 @@ extension ChoiceViewController {
     private func ensureCredentials(completion: (() -> Void)? = nil) {
         if Credentials.shared.isValid() {
             if let completion = completion {
-                zenidAuthorize(completion: completion)
+                zenidAuthorize(completion: {
+                    DispatchQueue.main.async {
+                        completion()
+                    }
+                })
             }
             return
         }

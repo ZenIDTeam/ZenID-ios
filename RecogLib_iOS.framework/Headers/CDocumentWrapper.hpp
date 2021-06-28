@@ -47,6 +47,9 @@ void endHologramVerification(const void *object);
 // Reset
 void reset(const void *object);
 
+// Input Validation
+int validateDocumentsInput(const void *object, const char* acceptableInputJson);
+
 // Visualisation
 char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasHeight, CDocumentInfo *document);
 void setDocumentDebugInfo(const void *object, bool show);

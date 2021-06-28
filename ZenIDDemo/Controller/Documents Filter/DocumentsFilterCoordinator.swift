@@ -79,6 +79,13 @@ extension DocumentsFilterCoordinator: AddDocumentFilterCoordinable {
         selectionCompletion = completion
         show(viewController: viewController)
     }
+    
+    func showError(error: String) {
+        rootViewController.presentedViewController?.alert(
+            title: NSLocalizedString("title-error", comment: ""),
+            message: NSLocalizedString("document-filter-invalid-input", comment: "")
+        )
+    }
 }
 
 extension DocumentsFilterCoordinator: SelectionDelegate {

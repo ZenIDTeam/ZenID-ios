@@ -13,4 +13,5 @@ protocol AddDocumentFilterCoordinable {
     func addDocumentDidFinish()
     func addDocumentDidFail(error: Error)
     func addDocumentFilterOpenSelection(title: String, items: [SelectionItemViewModel], completion: @escaping (SelectionItemViewModel) -> Void)
+    func showError(error: String)
 }

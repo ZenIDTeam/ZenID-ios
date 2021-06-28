@@ -126,6 +126,7 @@
 
 // Add New Document Filter
 "document-filter-title" = "Add New Document Filter";
+"document-filter-invalid-input" = "Input is invalid.";
 
 // Document Verifier Settings
 "document-verifier-settings-specular" = "Specular Acceptable Score";

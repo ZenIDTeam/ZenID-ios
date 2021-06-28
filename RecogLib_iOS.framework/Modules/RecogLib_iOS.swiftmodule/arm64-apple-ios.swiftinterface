@@ -57,6 +57,7 @@ public class DocumentVerifier {
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func update(settings: RecogLib_iOS.DocumentVerifierSettings)
+  public func validate(input: RecogLib_iOS.DocumentsInput) -> Swift.Bool
   public func verifyHologram(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
   public func verifyHologramImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
   public func supportsHologram() -> Swift.Bool

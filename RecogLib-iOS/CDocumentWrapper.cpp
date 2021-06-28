@@ -191,6 +191,12 @@ void reset(const void *object)
     verifier->Reset();
 }
 
+int validateDocumentsInput(const void *object, const char* acceptableInputJson) {
+    DocumentVerifier *verifier = (DocumentVerifier *)object;
+    int size = verifier->GetEnabledModels(acceptableInputJson).size();
+    return size;
+}
+
 char* getDocumentRenderCommands(const void *object,
                         int canvasWidth,
                         int canvasHeight,

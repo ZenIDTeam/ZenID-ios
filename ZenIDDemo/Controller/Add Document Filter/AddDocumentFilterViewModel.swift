@@ -10,6 +10,10 @@ import Foundation
 import RecogLib_iOS
 
 
+enum AddDocumentFilterError: Error {
+    case invalidInput
+}
+
 final class AddDocumentFilterViewModel {
     
     var role: RecogLib_iOS.DocumentRole?
@@ -17,10 +21,12 @@ final class AddDocumentFilterViewModel {
     var page: RecogLib_iOS.PageCode?
     
     private let saver: DocumentsFilterSaver
+    private let validator: DocumentsFilterValidator
     private let coordinator: AddDocumentFilterCoordinable
     
-    init(saver: DocumentsFilterSaver, coordinator: AddDocumentFilterCoordinable) {
+    init(saver: DocumentsFilterSaver, validator: DocumentsFilterValidator, coordinator: AddDocumentFilterCoordinable) {
         self.saver = saver
+        self.validator = validator
         self.coordinator = coordinator
     }
     
@@ -28,10 +34,29 @@ final class AddDocumentFilterViewModel {
         coordinator.addDocumentDidFinish()
     }
     
-    func save() {
+    func save()   {
+        if validateAndShowErrorIfNecesary() {
+            return
+        }
         saver.save(document: getDocument()) { [weak self] result in
             self?.handleSaveResult(result: result)
         }
+    }
+    
+    func validate() throws {
+        if !validator.validate(input: .init(documents: [getDocument()])) {
+            throw AddDocumentFilterError.invalidInput
+        }
+    }
+    
+    private func validateAndShowErrorIfNecesary() -> Bool {
+        do {
+            try validate()
+        } catch {
+            coordinator.showError(error: NSLocalizedString("document-filter-invalid-input", comment: ""))
+            return true
+        }
+        return false
     }
     
     private func getDocument() -> Document {

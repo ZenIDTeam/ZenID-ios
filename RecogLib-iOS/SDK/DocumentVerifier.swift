@@ -86,6 +86,11 @@ public class DocumentVerifier {
         updateDocumentVerifierSettings(cppObject, &settings)
     }
     
+    public func validate(input: DocumentsInput) -> Bool {
+        let size = validateDocumentsInput(cppObject, input.acceptableInputJson().toUnsafeMutablePointer())
+        return size > 0
+    }
+    
     public func verifyHologram(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> HologramResult? {
         do {
             var document = createDocumentInfo(orientation: orientation)

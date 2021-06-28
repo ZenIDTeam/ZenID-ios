@@ -40,7 +40,15 @@ final class AddDocumentFilterComposer {
     }
     
     private static func resolve(saver: DocumentsFilterSaver, coordinator: AddDocumentFilterCoordinable) -> AddDocumentFilterViewModel {
-        .init(saver: saver, coordinator: coordinator)
+        .init(
+            saver: saver,
+            validator: resolve(),
+            coordinator: coordinator
+        )
+    }
+    
+    private static func resolve() -> DocumentsFilterValidator {
+        RecogLibDocumentsFilterValidator()
     }
     
 }
