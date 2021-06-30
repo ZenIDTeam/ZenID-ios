@@ -9,9 +9,10 @@
 import Foundation
 
 public enum SupportedLanguages: Int {
-    case English
-    case Czech
-    case Polish
+    case English = 0
+    case Czech = 1
+    case Polish = 2
+    case German = 3
 }
 
 extension SupportedLanguages: CustomStringConvertible {
@@ -23,12 +24,68 @@ extension SupportedLanguages: CustomStringConvertible {
             return "En"
         case .Polish:
             return "Pl"
+        case .German:
+            return "De"
         }
     }
 }
 
 public enum DocumentCode: Int {
-    case IDC1, IDC2, DRV, PAS, SK_IDC_2008plus, SK_DRV_2004_08_09, SK_DRV_2013, SK_DRV_2015, SK_PAS_2008_14, SK_IDC_1993, SK_DRV_1993, PL_IDC_2015, DE_IDC_2010, DE_IDC_2001, HR_IDC_2013_15, AT_IdentityCard_2000, AT_IDC_2002, AT_IDC_2005, AT_IDC_2010, AT_PAS_2006, AT_DRV_2006, AT_DRV_2013
+    case IDC1 = 0
+    case IDC2 = 1
+    case DRV = 2
+    case PAS = 3
+    case SK_IDC_2008plus = 4
+    case SK_DRV_2004_08_09 = 5
+    case SK_DRV_2013 = 6
+    case SK_DRV_2015 = 7
+    case SK_PAS_2008_14 = 8
+    case SK_IDC_1993 = 9
+    case SK_DRV_1993 = 10
+    case PL_IDC_2015 = 11
+    case DE_IDC_2010 = 12
+    case DE_IDC_2001 = 13
+    case HR_IDC_2013_15 = 14
+    case AT_IDE_2000 = 15
+    case HU_IDC_2000_01_12 = 16
+    case HU_IDC_2016 = 17
+    case AT_IDC_2002_05_10 = 18
+    case HU_ADD_2012 = 19
+    case AT_PAS_2006_14 = 20
+    case AT_DRV_2006 = 21
+    case AT_DRV_2013 = 22
+    case CZ_RES_2011_14 = 23
+    case CZ_RES_2006_T = 24
+    case CZ_RES_2006_07 = 25
+    case CZ_GUN_2014 = 26
+    case HU_PAS_2006_12 = 27
+    case HU_DRV_2012_13 = 28
+    case HU_DRV_2012_B = 29
+    case EU_EHIC_2004_A = 30
+    case Unknown = 31
+    case CZ_GUN_2017 = 32
+    case CZ_RES_2020 = 33
+    case PL_IDC_2019 = 34
+    case IT_PAS_2006_10 = 35
+    case INT_ISIC_2008 = 36
+    case DE_PAS = 37
+    case DK_PAS = 38
+    case ES_PAS = 39
+    case FI_PAS = 40
+    case FR_PAS = 41
+    case GB_PAS = 42
+    case IS_PAS = 43
+    case NL_PAS = 44
+    case RO_PAS = 45
+    case SE_PAS = 46
+    case PL_PAS = 47
+    case PL_DRV_2013 = 48
+    case CZ_BIRTH = 49
+    case CZ_VEHICLE_I = 50
+    case INT_ISIC_2019 = 51
+    case SI_Pas = 52
+    case SI_IDC = 53
+    case SI_DRV = 54
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -64,7 +121,26 @@ extension PageCode: CustomStringConvertible {
 }
 
 public enum Country: Int {
-    case Cz, Sk, At, Hu, Pl, De, Hr
+    case Cz = 0
+    case Sk = 1
+    case At = 2
+    case Hu = 3
+    case Pl = 4
+    case De = 5
+    case Hr = 6
+    case Ro = 7
+    case Ru = 8
+    case Ua = 9
+    case It = 10
+    case Dk = 11
+    case Es = 12
+    case Fi = 13
+    case Fr = 14
+    case Gb = 15
+    case Is = 16
+    case Nl = 17
+    case Se = 18
+    case Si = 19
 }
 
 extension Country: CustomStringConvertible {
@@ -84,6 +160,32 @@ extension Country: CustomStringConvertible {
             return "De"
         case .Hr:
             return "Hr"
+        case .Ro:
+            return "Ro"
+        case .Ru:
+            return "Ru"
+        case .Ua:
+            return "Ua"
+        case .It:
+            return "It"
+        case .Dk:
+            return "Dk"
+        case .Es:
+            return "Es"
+        case .Fi:
+            return "Fi"
+        case .Fr:
+            return "Fr"
+        case .Gb:
+            return "Gb"
+        case .Is:
+            return "Is"
+        case .Nl:
+            return "Nl"
+        case .Se:
+            return "Se"
+        case .Si:
+            return "Si"
         }
     }
 }
