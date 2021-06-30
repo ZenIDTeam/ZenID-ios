@@ -11,7 +11,7 @@ import RecogLib_iOS
 
 final class RecoglibMapper {
 
-    static func documentRole(from type: DocumentType) -> RecogLib_iOS.DocumentRole? {
+    static func documentRole(from type: DocumentType, role: RecogLib_iOS.DocumentRole? = nil) -> RecogLib_iOS.DocumentRole? {
         switch type {
         case .idCard:
             return DocumentRole.Idc
@@ -28,7 +28,7 @@ final class RecoglibMapper {
         case .face:
             return nil
         case .filter:
-            return nil
+            return role
         }
     }
 
@@ -51,6 +51,18 @@ final class RecoglibMapper {
             return .Cz
         case .sk:
             return .Sk
+        case .at:
+            return .At
+        case .de:
+            return .De
+        case .hr:
+            return .Hr
+        case .hu:
+            return .Hu
+        case .it:
+            return .It
+        case .pl:
+            return .Pl
         }
     }
 }

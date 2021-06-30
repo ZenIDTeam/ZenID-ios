@@ -381,7 +381,7 @@ public class CameraViewController: UIViewController {
         detectionRunning = false
         
         // return preview image
-        returnImage(buffer, ImageFlip.fromLandScape)
+        returnImage(buffer, ImageFlip.fromLandScape, result: result)
     }
     
     private func updateView(with result: HologramResult?, buffer: CVPixelBuffer) {
@@ -473,10 +473,10 @@ public class CameraViewController: UIViewController {
         delegate?.didFinishPDF()
     }
     
-    private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip) {
+    private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip, result: DocumentResult? = nil) {
         let image = UIImage(pixelBuffer: buffer)?.flip(flipMethod)
         let data = image?.jpegData(compressionQuality: 0.5)
-        returnImage(data)
+        returnImage(data, result)
     }
     
     private func returnImage(_ data: Data?, _ result: DocumentResult? = nil) {
@@ -486,7 +486,7 @@ public class CameraViewController: UIViewController {
             preview.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             
             preview.saveAction = { [unowned self] in
-                self.delegate?.didTakePhoto(data, type: self.photoType)
+                self.delegate?.didTakePhoto(data, type: self.photoType, result: result)
             }
             preview.dismissAction = { [unowned self] in
                 self.previousResult = nil
@@ -502,7 +502,7 @@ public class CameraViewController: UIViewController {
             present(preview, animated: true, completion: nil)
         }
         else {
-            delegate?.didTakePhoto(nil, type: photoType)
+            delegate?.didTakePhoto(nil, type: photoType, result: nil)
             navigationController?.popViewController(animated: true)
         }
     }

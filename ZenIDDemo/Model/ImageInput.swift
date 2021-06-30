@@ -7,10 +7,12 @@
 //
 
 import UIKit.UIImage
+import RecogLib_iOS
 
 struct ImageInput {
     var imageData: Data
     var documentType: DocumentType
+    var documentRole: RecogLib_iOS.DocumentRole?
     var photoType: PhotoType
     var country: Country
 }

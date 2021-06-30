@@ -259,16 +259,16 @@ final class ChoiceViewController: UIViewController {
 }
 
 extension ChoiceViewController: CameraViewControllerDelegate {
-    func didTakePhoto(_ imageData: Data?, type: PhotoType) {
+    func didTakePhoto(_ imageData: Data?, type: PhotoType, result: DocumentResult?) {
         if let data = imageData {
-            scanProcess?.processPhoto(imageData: data, type: type)
+            scanProcess?.processPhoto(imageData: data, type: type, result: result)
         }
     }
     
     func didTakeVideo(_ videoAsset: AVURLAsset?, type: PhotoType) {
         if let videoAsset = videoAsset {
             if let data = try? Data(contentsOf: videoAsset.url) {
-                scanProcess?.processPhoto(imageData: data, type: type)
+                scanProcess?.processPhoto(imageData: data, type: type, result: nil)
             }
         }
     }

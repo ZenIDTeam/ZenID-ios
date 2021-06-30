@@ -159,6 +159,12 @@ extension PhotoType {
 public enum Country: String {
     case cz = "Cz"
     case sk = "Sk"
+    case at = "At"
+    case hu = "Hu"
+    case pl = "Pl"
+    case de = "De"
+    case hr = "Hr"
+    case it = "It"
 }
 
 public enum FaceMode: String {
