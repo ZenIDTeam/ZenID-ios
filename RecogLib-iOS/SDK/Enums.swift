@@ -86,6 +86,8 @@ public enum DocumentCode: Int {
     case SI_Pas = 52
     case SI_IDC = 53
     case SI_DRV = 54
+    case EU_EHIC_2004_B = 55
+    case PL_IDC_2001_02_13 = 56
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -208,14 +210,14 @@ extension DocumentRole: CustomStringConvertible {
 }
 
 public enum DocumentState: Int {
-    case NoMatchFound
-    case AlignCard
-    case HoldSteady
-    case Blurry
-    case ReflectionPresent
-    case Ok
-    case Hologram
-    case Dark
+    case NoMatchFound = 0
+    case AlignCard = 1
+    case HoldSteady = 2
+    case Blurry = 3
+    case ReflectionPresent = 4
+    case Ok = 5
+    case Hologram = 6
+    case Dark = 7
 }
 
 extension DocumentState: CustomStringConvertible {

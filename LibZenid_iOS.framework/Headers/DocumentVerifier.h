@@ -32,6 +32,13 @@ public:
 
 	// Toggles displaying timer that shows seconds remaining for the validators to become max tolerant. 
 	bool showTimer = false;
+
+	//Can be used for fine tuning the sensitivity of the specular validator. Value range 0-100. Default value is 50.
+	std::optional<int> specularAcceptableScore;
+	//Can be used for fine tuning the sensitivity of the document blur validator. Value range 0-100. Default value is 50.
+	std::optional<int> documentBlurAcceptableScore;
+	//The time delay for the blur validator to become max tolerant. Default value is 10.
+	std::optional<int> timeToBlurMaxToleranceInSeconds;
 };
 
 class DocumentVerifier
@@ -96,6 +103,10 @@ public:
 
 	// Returns pairs of enabled DocumentCodes/PageCodes taking into account AcceptableInput and the license. Has to be run after Authorize.
 	std::vector<std::pair<DocumentCodes, PageCodes>> GetEnabledModels(const AcceptableInput& acceptableInput) const;
+	
+	// Returns pairs of enabled DocumentCodes/PageCodes taking into account AcceptableInput and the license. Has to be run after Authorize.
+	// acceptableInput is an AcceptableInput string in json format. 
+	std::vector<std::pair<DocumentCodes, PageCodes>> GetEnabledModels(const std::string& acceptableInputJson) const;
 
 	// Resets the state. The state will go back as though no picture was found. Models will stay loaded.
 	void Reset();

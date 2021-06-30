@@ -4,9 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/AcceptableInput.h</key>
+		<data>
+		aun0PXb0JUrfDpmnxVCWENu+Inw=
+		</data>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		dxt2M7MtZejx58DKxZeBv6iPq/I=
+		JS8o9r+f0V18bbXWE3KfIRrQcRk=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
@@ -15,6 +19,10 @@
 		<key>Headers/Image.h</key>
 		<data>
 		sNKFo4FOYQZNtw25gVjb8DaWVSs=
+		</data>
+		<key>Headers/Optional.h</key>
+		<data>
+		Gj4ymQLVIjK1byiFpBVT3c1GG18=
 		</data>
 		<key>Headers/RecogLibC.h</key>
 		<data>
@@ -30,7 +38,7 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		jmJDgXcpJJm2iaQbqPu5MTS9fQk=
+		PQkaAvHiTSK8oaa+bHXv/J4uJjg=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
@@ -38,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		O95Sd9zt7do1A0cDQ1/sPU9hsRM=
+		6wJ8kyD4qjvFAbshPhFwvH7X0go=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -47,11 +55,18 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/AcceptableInput.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QExTszCQtuP6NPlzY2eSn+ZwRnpH35nqFwNKQB07Ass=
+			</data>
+		</dict>
 		<key>Headers/DocumentVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			p12w/MkNW9vn8E/SFrBxB2BZaix/IzsJ4rb1JwFwSF4=
+			6OO/7hmrf5ovrfbOxd0nRHQiqq5yZpBU2BL9dtJ6Upk=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
@@ -66,6 +81,13 @@
 			<key>hash2</key>
 			<data>
 			4/SPz9YfCsoZTmQhMrKV5pCpClia5V45q7Vod438Iok=
+			</data>
+		</dict>
+		<key>Headers/Optional.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RUHfwS52oQmWKRSccNmNwzxLWMsjYyx+oc2W9UaPhXE=
 			</data>
 		</dict>
 		<key>Headers/RecogLibC.h</key>
@@ -93,7 +115,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MBC68H3oYP3FGgHenDgXTPHhPfJdKhPsfmX8lzCZJG0=
+			gDYP9y7GsREDeuRnbbFQa3dNfsNuF7cluS1c3e4UbLY=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>
