@@ -160,7 +160,8 @@ private extension ScanProcess {
             self.delegate?.willProcessData(scanProcess: self)
         }
         Client()
-            .upload(API.uploadSample(image: image)) { [unowned self] (response, error) in
+            .upload(API.uploadSample(image: image)) { [weak self] (response, error) in
+                guard let self = self else { return }
                 if let response = response {
                     self.processSampleResponse(input: image, response: response)
                 }
@@ -175,7 +176,8 @@ private extension ScanProcess {
     /// - Parameter sampleIds: Array of the processed sample IDs.
     func investigateSamples(_ sampleIds: [String]) {
         Client()
-            .request(API.investigateSamples(sampleIds: sampleIds)) { [unowned self] (response, error) in
+            .request(API.investigateSamples(sampleIds: sampleIds)) { [weak self] (response, error) in
+                guard let self = self else { return }
                 if let response = response {
                     if let errorCode = response.ErrorCode {
                         self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .error(error: errorCode))
@@ -203,7 +205,8 @@ private extension ScanProcess {
             self.delegate?.didUploadPDF(scanProcess: self, result: .error(error: .networkError))
             return
         }
-        Client().upload(API.uploadPDF(data: data)) { [unowned self] (response, error) in
+        Client().upload(API.uploadPDF(data: data)) { [weak self] (response, error) in
+            guard let self = self else { return }
             self.pdfHelper.cleanup()
             if let _ = response {
                 self.delegate?.didUploadPDF(scanProcess: self, result: .success)
