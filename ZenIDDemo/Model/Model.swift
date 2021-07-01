@@ -55,6 +55,9 @@ enum DocumentCode: String, Decodable {
     case drv = "DRV"
     case pas = "PAS"
     case skIdc2008plus = "SK_IDC_2008plus"
+    case skDrv2004_08_09 = "SK_DRV_2004_08_09"
+    case skDrv2013 = "SK_DRV_2013"
+    case skDrv2015 = "SK_DRV_2015"
     case skIdc1993 = "SK_IDC_1993"
     case skPas2005 = "SK_PAS_2005"
     case skPas2008 = "SK_PAS_2008"
@@ -64,9 +67,6 @@ enum DocumentCode: String, Decodable {
     case skDrv2004 = "SK_DRV_2004"
     case skDrv2008 = "SK_DRV_2008"
     case skDrv2009 = "SK_DRV_2009"
-    case skDrv2013 = "SK_DRV_2013"
-    case skDrv2015 = "SK_DRV_2015"
-    case skDrv2004_08_09 = "SK_DRV_2004_08_09"
     case atIdentityCard2000 = "AT_IdentityCard_2000"
     case atIdc2002 = "AT_IDC_2002"
     case atIdc2005 = "AT_IDC_2005"
@@ -82,9 +82,49 @@ enum DocumentCode: String, Decodable {
     case czRes2006T = "CZ_RES_2006_T"
     case czRes2006_07 = "CZ_RES_2006_07"
     case czGun2016 = "CZ_GUN_2014"
+    case atIdc2000 = "AT_IDE_2000"
+    case huIdc2000_1_12 = "HU_IDC_2000_01_12"
+    case huIdc2016 = "HU_IDC_2016"
+    case atIdc2002_5_10 = "AT_IDC_2002_05_10"
+    case huAdd2012 = "HU_ADD_2012"
+    case atPas2006_14 = "AT_PAS_2006_14"
+    case huPas2006_12 = "HU_PAS_2006_12"
+    case huDrv2012_13 = "HU_DRV_2012_13"
+    case huDrv2012_B = "HU_DRV_2012_B"
+    case euEhic2004_A = "EU_EHIC_2004_A"
+    case czGun2017 = "CZ_GUN_2017"
+    case czRes2020 = "CZ_RES_2020"
+    case plIdc2019 = "PL_IDC_2019"
+    case itPas2006_10 = "IT_PAS_2006_10"
+    case intIsic2008 = "INT_ISIC_2008"
+    case dePas = "DE_PAS"
+    case dkPas = "DK_PAS"
+    case esPas = "ES_PAS"
+    case fiPas = "FI_PAS"
+    case frPas = "FR_PAS"
+    case gbPas = "GB_PAS"
+    case isPas = "IS_PAS"
+    case nlPas = "NL_PAS"
+    case roPas = "RO_PAS"
+    case sePas = "SE_PAS"
+    case plPas = "PL_PAS"
+    case plDrv2013 = "PL_DRV_2013"
+    case czBirth = "CZ_BIRTH"
+    case czVehicleI = "CZ_VEHICLE_I"
+    case intIsic2019 = "INT_ISIC_2019"
+    case siPas = "SI_PAS"
+    case siIdc = "SI_IDC"
+    case siDrv = "SI_DRV"
+    case euEHIC2004_B = "EU_EHIC_2004_B"
+    case plIdc2001_2_13 = "PL_IDC_2001_02_13"
     
     func isTypeOfDocument(type: DocumentType) -> Bool {
         let typeUpper = type.rawValue.uppercased()
+        return self.rawValue.contains(typeUpper)
+    }
+    
+    func isTypeOfDocument(type: String) -> Bool {
+        let typeUpper = type.uppercased()
         return self.rawValue.contains(typeUpper)
     }
     

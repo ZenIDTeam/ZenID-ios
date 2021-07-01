@@ -13,6 +13,7 @@ struct ImageInput {
     var imageData: Data
     var documentType: DocumentType
     var documentRole: RecogLib_iOS.DocumentRole?
+    var documentCode: String
     var photoType: PhotoType
     var country: Country
 }

@@ -132,6 +132,7 @@ final class ScanProcess {
             imageData: imageData,
             documentType: documentType,
             documentRole: RecoglibMapper.documentRole(from: documentType, role: result?.role),
+            documentCode: result?.code == nil ? documentType.rawValue : String(describing: result!.code!),
             photoType: type,
             country: result?.country?.rawValue == nil ? country : (Country(rawValue: result!.country!.description) ?? country)
         )

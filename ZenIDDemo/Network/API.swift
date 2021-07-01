@@ -55,7 +55,7 @@ extension API {
         let pageKey = "pageCode"
         let sampleType = UploadedSampleType.from(photoType: image.photoType, documentType: image.documentType)
         let parameters = [typeKey : sampleType.rawValue,
-                          roleKey : image.documentRole?.description,
+                          roleKey : image.documentRole?.description ?? "",
                           countryKey: image.country.rawValue,
                           pageKey: image.photoType.pageCode]
 

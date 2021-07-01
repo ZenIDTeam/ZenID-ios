@@ -40,7 +40,7 @@ public class Dispatcher {
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
             
-            guard resultDocumentCode.isTypeOfDocument(type: image.documentType) else {
+            guard resultDocumentCode.isTypeOfDocument(type: image.documentCode) else {
                 ApplicationLogger.shared.Verbose("Document code differs from expected document")
                 return rescan(image, response, .documentTypesDontMatch)
             }
