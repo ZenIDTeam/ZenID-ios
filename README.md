@@ -6,6 +6,9 @@ Recoglib is capable of recognizing types that include:
 - Identity card
 - Driving license
 - Passport
+- Gun license
+- Residency permit
+- European Health Insurance Card
 - Holograms
 - Selfie (human face picture)
 - Face liveness
@@ -101,16 +104,66 @@ session.startRunning()
 
 ### 2. Configure `DocumentVerifier`
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
+
+1. Recognizing only one specific document
 First you initialize `DocumentVerifier` with expected role, country, page and language.
-Alternativally you can initialize `DocumentVerifier` with acceptableInputJson string and use custom filter to detect any combination of supported documents, for example:
+For example, Front side of Czech Identity card looks like this.
+```Swift
+let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language)
+```
 
-- slovak passport: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Role\":\"Pas\",\"Country\":\"Sk\"}]}"
-- czech back Id: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Role\":\"Idc\",\"Country\":\"Cz\",\"Page\":\"B\"}]}"
-- czech back Id or slovak passport: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Role\":\"Idc\",\"Country\":\"Cz\",\"Page\":\"B\"},{\"Role\":\"Pas\",\"Country\":\"Sk\"}]}"
-- any front page: `acceptableInputJson` = "{\"PossibleDocuments\":[{\"Page\":\"F\"}]}"
-- any (supported) document: `acceptableInputJson` = "{}"
+2. Recognizing multiple predefined documents
+Alternativally you can initialize `DocumentVerifier` with `DocumentsInput` that needs array of `Document` structures. 
+`Document` structure is a structure that consists of `role: DocumentRole`, `country: Country`, `page: PageCode`, and `DocumentCode`.
 
-Note that properties `role`, `country`,  `page` , `language` and `acceptableInputJson` are public and can be changed whenever you like.
+For example, if you want to scan Front side of Czech Identity card and Front side of Slovak driving license the setup looks like this.
+```swift
+let documentsInput = DocumentsInput(documents: [
+    Document(role: .Idc, country: .Cz, page: .Front, code: nil),
+    Document(role: .Drv, country: .Sk, page: .Front, code: nil)
+])
+let verifier = DocumentVerifier(input: documentsInput, language: .Czech)
+```
+
+3. Recognizing multiple undefined documents 
+The parameters of `DocumentVerifier` initializer are optional, you can always pass nil value. 
+
+For example, if you want to scan all documents available, just pass nil to every parameter.
+```swift
+let verifier = DocumentVerifier(role: nil, country: nil, page: nil, language: .Language)
+```
+
+For example, if you want to scan all Czech documents available, just pass nil to every parameter except `country`, that will be `Czech`.
+```swift
+let verifier = DocumentVerifier(role: nil, country: .Cz, page: nil, language: .Language)
+```
+
+#### Verifier Settings
+You can tune a couple of parameters of document verifier. Each initializer has optinal `settings` parameter.
+```swift
+DocumentVerifierSettings(
+    specularAcceptableScore: 50,
+    documentBlurAcceptableScore: 50,
+    timeToBlurMaxToleranceInSeconds: 10
+)
+```
+```swift
+specularAcceptableScore
+```
+- default: 50
+- range: <0; 100>
+```swift
+documentBlurAcceptableScore
+```
+- default: 50
+- range: <0; 100>
+```swift
+timeToBlurMaxToleranceInSeconds
+```
+- default: 10
+- range: <0; undefined)
+
+Note that properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
 ```swift
 // Domain models option (recommended)
 let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language)
