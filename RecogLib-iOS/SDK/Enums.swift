@@ -55,8 +55,35 @@ public enum DocumentCode: Int {
     case CZ_RES_2020 = 33
     case CZ_GUN_2014 = 26
     case CZ_GUN_2017 = 32
+<<<<<<< HEAD
     case EU_EHIC_2004_A = 30
     case EU_EHIC_2004_B = 55
+=======
+    case CZ_RES_2020 = 33
+    case PL_IDC_2019 = 34
+    case IT_PAS_2006_10 = 35
+    case INT_ISIC_2008 = 36
+    case DE_PAS = 37
+    case DK_PAS = 38
+    case ES_PAS = 39
+    case FI_PAS = 40
+    case FR_PAS = 41
+    case GB_PAS = 42
+    case IS_PAS = 43
+    case NL_PAS = 44
+    case RO_PAS = 45
+    case SE_PAS = 46
+    case PL_PAS = 47
+    case PL_DRV_2013 = 48
+    case CZ_BIRTH = 49
+    case CZ_VEHICLE_I = 50
+    case INT_ISIC_2019 = 51
+    case SI_Pas = 52
+    case SI_IDC = 53
+    case SI_DRV = 54
+    case EU_EHIC_2004_B = 55
+    case PL_IDC_2001_02_13 = 56
+>>>>>>> master2
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -202,14 +229,14 @@ extension DocumentRole: CustomStringConvertible {
 }
 
 public enum DocumentState: Int {
-    case NoMatchFound
-    case AlignCard
-    case HoldSteady
-    case Blurry
-    case ReflectionPresent
-    case Ok
-    case Hologram
-    case Dark
+    case NoMatchFound = 0
+    case AlignCard = 1
+    case HoldSteady = 2
+    case Blurry = 3
+    case ReflectionPresent = 4
+    case Ok = 5
+    case Hologram = 6
+    case Dark = 7
 }
 
 extension DocumentState: CustomStringConvertible {

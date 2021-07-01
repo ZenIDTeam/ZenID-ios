@@ -1,10 +1,6 @@
 // swift-interface-format-version: 1.0
-<<<<<<< HEAD
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
-=======
 // swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
->>>>>>> master2
-// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecogLib_iOS
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecogLib_iOS
 import CoreMedia
 import Foundation
 @_exported import RecogLib_iOS
@@ -49,29 +45,16 @@ public class DocumentVerifier {
   public var country: RecogLib_iOS.Country?
   public var page: RecogLib_iOS.PageCode?
   public var code: RecogLib_iOS.DocumentCode?
-<<<<<<< HEAD
-  final public let settings: RecogLib_iOS.DocumentVerifierSettings?
-=======
->>>>>>> master2
   public var acceptableInputJson: Swift.String?
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
     get
     set(value)
   }
-<<<<<<< HEAD
-  public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
-  public init(input: RecogLib_iOS.DocumentsInput, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
-  public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
-  public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
-  public func update(settings: RecogLib_iOS.DocumentVerifierSettings)
-  public func validate(input: RecogLib_iOS.DocumentsInput) -> Swift.Bool
-=======
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, language: RecogLib_iOS.SupportedLanguages)
   public init(acceptableInputJson: Swift.String, language: RecogLib_iOS.SupportedLanguages)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
->>>>>>> master2
   public func verifyHologram(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
   public func verifyHologramImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
   public func supportsHologram() -> Swift.Bool
@@ -98,24 +81,11 @@ public protocol LoggerProtocol {
   final public func Verbose(_ message: Swift.String)
   @objc deinit
 }
-<<<<<<< HEAD
-public struct DocumentVerifierSettings : Swift.Equatable {
-  public let specularAcceptableScore: Swift.Int
-  public let documentBlurAcceptableScore: Swift.Int
-  public let timeToBlurMaxToleranceInSeconds: Swift.Int
-  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10)
-  public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
-}
-=======
->>>>>>> master2
 public enum SupportedLanguages : Swift.Int {
   case English
   case Czech
   case Polish
-<<<<<<< HEAD
-=======
   case German
->>>>>>> master2
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -144,21 +114,6 @@ public enum DocumentCode : Swift.Int {
   case DE_IDC_2001
   case HR_IDC_2013_15
   case AT_IDE_2000
-<<<<<<< HEAD
-  case AT_IDC_2002_05_10
-  case AT_PAS_2006_14
-  case AT_DRV_2006
-  case AT_DRV_2013
-  case IT_PAS_2006_10
-  case CZ_RES_2011_14
-  case CZ_RES_2006_T
-  case CZ_RES_2006_07
-  case CZ_RES_2020
-  case CZ_GUN_2014
-  case CZ_GUN_2017
-  case EU_EHIC_2004_A
-  case EU_EHIC_2004_B
-=======
   case HU_IDC_2000_01_12
   case HU_IDC_2016
   case AT_IDC_2002_05_10
@@ -200,7 +155,6 @@ public enum DocumentCode : Swift.Int {
   case SI_DRV
   case EU_EHIC_2004_B
   case PL_IDC_2001_02_13
->>>>>>> master2
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -234,9 +188,6 @@ public enum Country : Swift.Int {
   case Pl
   case De
   case Hr
-<<<<<<< HEAD
-  case It
-=======
   case Ro
   case Ru
   case Ua
@@ -250,7 +201,6 @@ public enum Country : Swift.Int {
   case Nl
   case Se
   case Si
->>>>>>> master2
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -266,12 +216,6 @@ public enum DocumentRole : Swift.Int {
   case Idc
   case Pas
   case Drv
-<<<<<<< HEAD
-  case Res
-  case Gun
-  case Hic
-=======
->>>>>>> master2
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -356,13 +300,6 @@ extension SelfieState : Swift.CustomStringConvertible {
     get
   }
 }
-<<<<<<< HEAD
-public class DocumentsInput {
-  public init(documents: [RecogLib_iOS.Document])
-  @objc deinit
-}
-=======
->>>>>>> master2
 public struct DocumentResult {
   public var state: RecogLib_iOS.DocumentState
   public var role: RecogLib_iOS.DocumentRole?
@@ -370,18 +307,6 @@ public struct DocumentResult {
   public var code: RecogLib_iOS.DocumentCode?
   public var page: RecogLib_iOS.PageCode?
 }
-<<<<<<< HEAD
-public struct Document : Swift.Comparable {
-  public static func < (lhs: RecogLib_iOS.Document, rhs: RecogLib_iOS.Document) -> Swift.Bool
-  public let role: RecogLib_iOS.DocumentRole?
-  public let country: RecogLib_iOS.Country?
-  public let page: RecogLib_iOS.PageCode?
-  public let code: RecogLib_iOS.DocumentCode?
-  public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?)
-  public static func == (a: RecogLib_iOS.Document, b: RecogLib_iOS.Document) -> Swift.Bool
-}
-=======
->>>>>>> master2
 public struct SelfieResult {
   public var selfieState: RecogLib_iOS.SelfieState
 }

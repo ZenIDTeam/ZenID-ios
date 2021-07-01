@@ -46,7 +46,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
+<<<<<<< HEAD
 		7+7rk9WUIFTkXWRWoflF4zq4bzg=
+=======
+		6wJ8kyD4qjvFAbshPhFwvH7X0go=
+>>>>>>> master2
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
