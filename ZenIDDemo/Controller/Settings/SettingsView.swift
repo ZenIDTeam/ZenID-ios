@@ -20,7 +20,7 @@ final class SettingsView: UIView {
         versionLabel.font = .version
         versionLabel.textColor = .gray
         versionLabel.alpha = 0.7
-        versionLabel.text = "verze \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)"
+        versionLabel.text = "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String) (\(Bundle.main.infoDictionary?["CFBundleVersion"] as! String))"
     }
     
 }
