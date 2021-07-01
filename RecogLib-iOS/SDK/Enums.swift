@@ -55,13 +55,9 @@ public enum DocumentCode: Int {
     case CZ_RES_2020 = 33
     case CZ_GUN_2014 = 26
     case CZ_GUN_2017 = 32
-<<<<<<< HEAD
     case EU_EHIC_2004_A = 30
     case EU_EHIC_2004_B = 55
-=======
-    case CZ_RES_2020 = 33
     case PL_IDC_2019 = 34
-    case IT_PAS_2006_10 = 35
     case INT_ISIC_2008 = 36
     case DE_PAS = 37
     case DK_PAS = 38
@@ -81,9 +77,7 @@ public enum DocumentCode: Int {
     case SI_Pas = 52
     case SI_IDC = 53
     case SI_DRV = 54
-    case EU_EHIC_2004_B = 55
     case PL_IDC_2001_02_13 = 56
->>>>>>> master2
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -147,6 +141,48 @@ extension DocumentCode: CustomStringConvertible {
             return "EU_EHIC_2004_A"
         case .EU_EHIC_2004_B:
             return "EU_EHIC_2004_B"
+        case .PL_IDC_2019:
+            return "PL_IDC_2019"
+        case .INT_ISIC_2008:
+            return "INT_ISIC_2008"
+        case .DE_PAS:
+            return "DE_PAS"
+        case .DK_PAS:
+            return "DK_PAS"
+        case .ES_PAS:
+            return "ES_PAS"
+        case .FI_PAS:
+            return "FI_PAS"
+        case .FR_PAS:
+            return "FR_PAS"
+        case .GB_PAS:
+            return "GB_PAS"
+        case .IS_PAS:
+            return "IS_PAS"
+        case .NL_PAS:
+            return "NL_PAS"
+        case .RO_PAS:
+            return "RO_PAS"
+        case .SE_PAS:
+            return "SE_PAS"
+        case .PL_PAS:
+            return "PL_PAS"
+        case .PL_DRV_2013:
+            return "PL_DRV_2013"
+        case .CZ_BIRTH:
+            return "CZ_BIRTH"
+        case .CZ_VEHICLE_I:
+            return "CZ_VEHICLE_I"
+        case .INT_ISIC_2019:
+            return "INT_ISIC_2019"
+        case .SI_Pas:
+            return "SI_PAS"
+        case .SI_IDC:
+            return "SI_IDC"
+        case .SI_DRV:
+            return "SI_DRV"
+        case .PL_IDC_2001_02_13:
+            return "PL_IDC_2001_02_13"
         }
     }
 }
