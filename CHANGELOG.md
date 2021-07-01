@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.27.17 - 2021-07-01
+* Added support for scanning multiple predefined documents.
+* Added Document Verifier Settings to be able to tune the sensitivity of the verifier. 
+* Added Support for EHIC, GUN, and RES documents.
+* Updated LibZenid 1.6.3.1.
+
 ## 1.27.12 - 2021-04-28
 * acceptable input json support for document verifier 
 
