@@ -70,8 +70,56 @@ extension DocumentCode: CustomStringConvertible {
             return "DRV"
         case .PAS:
             return "PAS"
-        default:
-            return self.rawValue.description
+        case .SK_IDC_2008plus:
+            return "SK_IDC_2008plus"
+        case .SK_DRV_2004_08_09:
+            return "SK_DRV_2004_08_09"
+        case .SK_DRV_2013:
+            return "SK_DRV_2013"
+        case .SK_DRV_2015:
+            return "SK_DRV_2015"
+        case .SK_PAS_2008_14:
+            return "SK_PAS_2008_14"
+        case .SK_IDC_1993:
+            return "SK_IDC_1993"
+        case .SK_DRV_1993:
+            return "SK_DRV_1993"
+        case .PL_IDC_2015:
+            return "PL_IDC_2015"
+        case .DE_IDC_2010:
+            return "DE_IDC_2010"
+        case .DE_IDC_2001:
+            return "DE_IDC_2001"
+        case .HR_IDC_2013_15:
+            return "HR_IDC_2013_15"
+        case .AT_IDE_2000:
+            return "AT_IDE_2000"
+        case .AT_IDC_2002_05_10:
+            return "AT_IDC_2002_05_10"
+        case .AT_PAS_2006_14:
+            return "AT_PAS_2006_14"
+        case .AT_DRV_2006:
+            return "AT_DRV_2006"
+        case .AT_DRV_2013:
+            return "AT_DRV_2013"
+        case .IT_PAS_2006_10:
+            return "IT_PAS_2006_10"
+        case .CZ_RES_2011_14:
+            return "CZ_RES_2011_14"
+        case .CZ_RES_2006_T:
+            return "CZ_RES_2006_T"
+        case .CZ_RES_2006_07:
+            return "CZ_RES_2006_07"
+        case .CZ_RES_2020:
+            return "CZ_RES_2020"
+        case .CZ_GUN_2014:
+            return "CZ_GUN_2014"
+        case .CZ_GUN_2017:
+            return "CZ_GUN_2017"
+        case .EU_EHIC_2004_A:
+            return "EU_EHIC_2004_A"
+        case .EU_EHIC_2004_B:
+            return "EU_EHIC_2004_B"
         }
     }
 }
