@@ -414,8 +414,12 @@ extension ChoiceViewController: ScanProcessDelegate {
             switch result {
             case .error(error: _):
                 self.showError(documentType: scanProcess.documentType, message:"msg-network-error".localized)
-            case .success(let data):
-                self.showResults(documentType: scanProcess.documentType, investigateResponse: data)
+            case .success(let data, let type):
+                if type == .filter {
+                    self.navigationController?.popToRootViewController(animated: true)
+                } else {
+                    self.showResults(documentType: scanProcess.documentType, investigateResponse: data)
+                }
             }
         }
     }

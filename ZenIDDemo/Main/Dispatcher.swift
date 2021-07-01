@@ -19,13 +19,17 @@ public class Dispatcher {
     ///   - image: The image sample that was sent
     ///   - response: Response from the backend
     /// - Returns: Result of the validation
-    func dispatch(image: ImageInput, response: UploadSampleResponse ) -> DispatchResult {
+    func dispatch(image: ImageInput, response: UploadSampleResponse) -> DispatchResult {
 
         ApplicationLogger.shared.Verbose("Dispatching document \(String(describing: image.documentType)) image type: \(String(describing: image.photoType))")
 
         guard let sampleType = response.SampleType else {
             ApplicationLogger.shared.Verbose("Response sample type missing, unrecognized estimated document type")
             return rescan(image, response, .unknownEstimatedDocumentType)
+        }
+        
+        if image.documentType == .filter {
+            return proceedToNext(image, response)
         }
         
         if sampleType == .documentPicture {

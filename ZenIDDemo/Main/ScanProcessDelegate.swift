@@ -22,7 +22,7 @@ enum SampleResult {
 /// - success: Succesful result with response data for user feedback
 /// - error: Unsuccessful result with underlying error
 enum ScanProcessResult {
-    case success(data: InvestigateResponse)
+    case success(data: InvestigateResponse, type: DocumentType)
     case error(error: Error)
 }
 
