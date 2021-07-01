@@ -116,15 +116,6 @@ enum Buttons {
             return button
         }
     }
-    
-    static var unspecifiedDocument: UIButton {
-        get {
-            let button = ZenButton()
-            button.setTitle("btn-unspecified-document".localized.uppercased(), for: .normal)
-            button.backgroundColor = .zenPurple
-            return button
-        }
-    }
 
     static var otherDocument: UIButton {
         get {
