@@ -200,7 +200,7 @@ private extension ScanProcess {
                         self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .error(error: errorCode))
                     }
                     else {
-                        self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .success(data: response, type: documentType))
+                        self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .success(data: response, type: self.documentType))
                     }
                     return
                 }
