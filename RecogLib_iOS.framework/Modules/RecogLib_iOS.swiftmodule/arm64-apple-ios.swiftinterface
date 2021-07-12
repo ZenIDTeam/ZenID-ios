@@ -46,7 +46,10 @@ public class DocumentVerifier {
   public var page: RecogLib_iOS.PageCode?
   public var code: RecogLib_iOS.DocumentCode?
   final public let settings: RecogLib_iOS.DocumentVerifierSettings?
-  public var acceptableInputJson: Swift.String?
+  public var documentsInput: RecogLib_iOS.DocumentsInput? {
+    get
+    set(value)
+  }
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
     get
@@ -136,6 +139,27 @@ public enum DocumentCode : Swift.Int {
   case CZ_GUN_2017
   case EU_EHIC_2004_A
   case EU_EHIC_2004_B
+  case PL_IDC_2019
+  case INT_ISIC_2008
+  case DE_PAS
+  case DK_PAS
+  case ES_PAS
+  case FI_PAS
+  case FR_PAS
+  case GB_PAS
+  case IS_PAS
+  case NL_PAS
+  case RO_PAS
+  case SE_PAS
+  case PL_PAS
+  case PL_DRV_2013
+  case CZ_BIRTH
+  case CZ_VEHICLE_I
+  case INT_ISIC_2019
+  case SI_Pas
+  case SI_IDC
+  case SI_DRV
+  case PL_IDC_2001_02_13
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {

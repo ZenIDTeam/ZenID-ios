@@ -216,7 +216,7 @@ public class CameraViewController: UIViewController {
         // Start video capture session
         self.startSession()
         
-        documentVerifier.acceptableInputJson = nil
+        documentVerifier.documentsInput = nil
         // Create verify object
         switch photoType {
         case .face:
@@ -270,11 +270,7 @@ public class CameraViewController: UIViewController {
         }
         
         if type == .filter {
-            documentVerifier = .init(
-                input: DocumentsInput(documents: documents),
-                language: LanguageHelper.language,
-                settings: documentSettings
-            )
+            documentVerifier.documentsInput = .init(documents: documents)
         }
 
         documentVerifier.showDebugInfo = showVisualisationDebugInfo

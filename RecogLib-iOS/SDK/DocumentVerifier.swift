@@ -22,7 +22,11 @@ public class DocumentVerifier {
     public var code: DocumentCode?
     public let settings: DocumentVerifierSettings?
     
-    public var acceptableInputJson: String?
+    public var documentsInput: DocumentsInput? {
+        didSet {
+            acceptableInputJson = documentsInput?.acceptableInputJson()
+        }
+    }
     
     public var language: SupportedLanguages
     
@@ -31,6 +35,8 @@ public class DocumentVerifier {
             setDocumentDebugInfo(cppObject, showDebugInfo)
         }
     }
+    
+    private var acceptableInputJson: String?
 
     public init(role: DocumentRole?, country: Country?, page: PageCode?, code: DocumentCode?, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
         self.documentRole = role
