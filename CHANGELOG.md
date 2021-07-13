@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.27.18 - 2021-07-12
+* Added the ability to change documents input once the `DocumentVerifier` is initialized.
+
 ## 1.27.17 - 2021-07-01
 * Added support for scanning multiple predefined documents.
 * Added Document Verifier Settings to be able to tune the sensitivity of the verifier. 
