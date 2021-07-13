@@ -122,12 +122,17 @@ bool verifyImage(const void *object,
             
         case RecogLibC::DocumentVerifierState::NoMatchFound:
             document->code = -1;
+            document->page = -1;
+            document->role = -1;
+            document->country = -1;
             document->state = static_cast<int>(state);
             return false;
             
         default:
             document->code = static_cast<int>(verifier->GetDocumentCode());
             document->page = static_cast<int>(verifier->GetPageCode());
+            document->role = static_cast<int>(verifier->GetDocumentRole());
+            document->country = static_cast<int>(verifier->GetCountry());
             document->state = static_cast<int>(state);
             return true;
     }
