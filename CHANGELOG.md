@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.27.19 - 2021-07-13
+* Fixed Country and Role of DocumentVerifier Result object.
+
 ## 1.27.18 - 2021-07-12
 * Added the ability to change documents input once the `DocumentVerifier` is initialized.
 
