@@ -1184,7 +1184,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.17;
+				MARKETING_VERSION = 1.27.19;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
@@ -1215,7 +1215,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.27.17;
+				MARKETING_VERSION = 1.27.19;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
