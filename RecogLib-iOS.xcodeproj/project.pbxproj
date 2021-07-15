@@ -25,7 +25,6 @@
 		6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F6C26FE24B8805E0073A2CA /* CZenidSecurityWrapper.cpp */; };
 		6F6C270124B8805E0073A2CA /* CZenidSecurityWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6F6C26FF24B8805E0073A2CA /* CZenidSecurityWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F7EAC5424B88616001396F9 /* LibZenid_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */; };
-		6F7EAC5524B88616001396F9 /* LibZenid_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBEFB7D24A5C01000099A38 /* face in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEFB7C24A5C01000099A38 /* face */; };
 		6FBEFB7F24A5C02600099A38 /* documents in Resources */ = {isa = PBXBuildFile; fileRef = 6FBEFB7E24A5C02600099A38 /* documents */; };
 		6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107AE24B0FAFE00610F8D /* HologramResult.swift */; };
@@ -43,20 +42,6 @@
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		6F7EAC5624B88616001396F9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6F7EAC5524B88616001396F9 /* LibZenid_iOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentVerifierSettingsWrapper.cpp; sourceTree = "<group>"; };
@@ -245,7 +230,6 @@
 				D264245A22C11E7E00735B99 /* Frameworks */,
 				D264245B22C11E7E00735B99 /* Resources */,
 				6FBF36372452164300E2279A /* ShellScript */,
-				6F7EAC5624B88616001396F9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -525,7 +509,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.27.19;
+				MARKETING_VERSION = 1.27.20;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
@@ -574,7 +558,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.27.19;
+				MARKETING_VERSION = 1.27.20;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
