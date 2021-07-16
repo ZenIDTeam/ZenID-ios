@@ -4,6 +4,7 @@
 * Removed embedded LibZenid framework from RecogLib.
 * Fixed LibZenid versioning issue.
 * Updated LibZenid to 1.6.31.
+* Added Bitcode Support.
 
 ## 1.27.19 - 2021-07-13
 * Fixed Country and Role of DocumentVerifier Result object.
