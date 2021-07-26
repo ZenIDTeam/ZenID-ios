@@ -10,6 +10,8 @@
 
 #include <memory>
 #include <string>
+#include <vector>
+#include <cstdint>
 
 namespace RecogLibC
 {
@@ -27,6 +29,10 @@ class SelfieVerifier
 	State GetState() const;
 	std::string GetRenderCommands(int width, int height, SupportedLanguages language) const;
 	void SetDebugVisualization(bool isEnabled);
+	// Only valid if the state is OK.
+	const std::string& GetSignature() const;
+	// Only valid if the state is OK.
+	const std::vector<uint8_t>& GetSignedImage() const;
 	void Reset();
 	~SelfieVerifier();
 	class Impl;

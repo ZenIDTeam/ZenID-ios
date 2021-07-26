@@ -11,6 +11,9 @@
 #include "ZenidEnums.generated.h"
 
 #include <memory>
+#include <vector>
+#include <cstdint>
+#include <string>
 
 namespace RecogLibC
 {
@@ -35,6 +38,12 @@ class FaceLivenessVerifier
 	void ProcessFrame(const Image& frame);
 
 	State GetStage() const;
+	
+	// Only valid if the state is OK.
+	const std::string& GetSignature() const;
+	// Only valid if the state is OK.
+	const std::vector<uint8_t>& GetSignedImage() const;
+	
 	void Reset();
 
 	std::string GetRenderCommands(int width, int height, SupportedLanguages language);

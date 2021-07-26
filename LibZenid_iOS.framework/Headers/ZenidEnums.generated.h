@@ -161,4 +161,14 @@ enum class FaceLivenessVerifierState : int
 	Ok = 3,
 };
 
+enum class SdkSignatureProblem : int
+{
+	HashDiffers = 0,
+	TimeDiffers = 1,
+	HostnameNotAllowed = 2,
+	AndroidPackageNotAllowed = 3,
+	IosBundleNotAllowed = 4,
+	OfflineTokenUsed = 5,
+};
+
 }

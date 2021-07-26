@@ -80,6 +80,10 @@ public:
 	DocumentRole GetDocumentRole() const;
 	// Invalid if the state is NoMatchFound
 	Country GetCountry() const;
+	// Only valid if the state is OK.
+	const std::string& GetSignature() const;
+	// Only valid if the state is OK.
+	const std::vector<uint8_t>& GetSignedImage() const;
 
 	HologramState GetHologramState() const;
 
