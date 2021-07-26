@@ -125,7 +125,7 @@ enum DocumentCode: String, Decodable {
     
     func isTypeOfDocument(type: String) -> Bool {
         let typeUpper = type.uppercased()
-        return self.rawValue.contains(typeUpper)
+        return self.rawValue.uppercased().contains(typeUpper)
     }
     
     var documentType: DocumentType {
