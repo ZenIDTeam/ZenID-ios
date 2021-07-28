@@ -866,7 +866,8 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if let result = documentVerifier.verifyImage(imageBuffer: croppedBuffer, orientation: getImageOrientation())
             {
                 DispatchQueue.main.async { [unowned self] in
-                    self.updateView(with: result, buffer: croppedBuffer)
+                    let buffer = result.signature?.image.toCVPixelBuffer()
+                    self.updateView(with: result, buffer: buffer ?? croppedBuffer)
                 }
 
                 if !showVisualisation {
@@ -896,6 +897,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             }
         }
     }
+    
 }
 
 // MARK: - VideoWriterDelegate

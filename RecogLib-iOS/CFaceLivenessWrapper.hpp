@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <CoreMedia/CoreMedia.h>
+#include "CImageSignature.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -19,6 +20,7 @@ extern "C" {
 
 struct CFaceLivenessInfo {
     int state, orientation, language;
+    struct CImageSignature signature;
 };
 
 typedef struct CFaceLivenessInfo CFaceLivenessInfo;

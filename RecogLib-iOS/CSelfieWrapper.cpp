@@ -64,6 +64,15 @@ bool verifySelfieImage(const void *object,
     
     const auto state = verifier->GetState();
     
+    if (state == SelfieVerifierState::Ok) {
+        CImageSignature signature = CImageSignature();
+        signature.signature = verifier->GetSignature().c_str();
+        signature.signatureSize = verifier->GetSignature().size();
+        signature.image = verifier->GetSignedImage().data();
+        signature.imageSize = verifier->GetSignedImage().size();
+        selfie->signature = signature;
+    }
+    
     if (state != RecogLibC::SelfieVerifierState::Ok) {
         selfie->state = static_cast<int>(state);
         return false;

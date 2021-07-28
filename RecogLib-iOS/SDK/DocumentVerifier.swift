@@ -155,7 +155,8 @@ public class DocumentVerifier {
             page: page == nil ? -1 : Int32(page!.rawValue),
             state: -1,
             hologramState: -1,
-            orientation: Int32(orientation.rawValue)
+            orientation: Int32(orientation.rawValue),
+            signature: .init()
         )
     }
     

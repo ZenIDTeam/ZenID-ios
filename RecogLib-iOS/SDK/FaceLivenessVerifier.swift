@@ -33,7 +33,7 @@ public class FaceLivenessVerifier {
         do {
             var face = createFaceLivenessInfo(orientation: orientation)
             RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
-            return FaceLivenessResult(faceLivenessState: face.state)
+            return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
         } catch {
             ApplicationLogger.shared.Error(error.localizedDescription)
         }
@@ -43,7 +43,7 @@ public class FaceLivenessVerifier {
         do {
             var face = createFaceLivenessInfo(orientation: orientation)
             RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
-            return FaceLivenessResult(faceLivenessState: face.state)
+            return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
         } catch {
             ApplicationLogger.shared.Error(error.localizedDescription)
         }
@@ -97,7 +97,8 @@ public class FaceLivenessVerifier {
         return CFaceLivenessInfo(
             state: -1,
             orientation: Int32(orientation.rawValue),
-            language: Int32(language.rawValue)
+            language: Int32(language.rawValue),
+            signature: .init()
         )
     }
 }

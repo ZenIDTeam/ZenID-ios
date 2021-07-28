@@ -59,6 +59,15 @@ bool verifyFaceLivenessImage(const void *object,
     
     const auto state = verifier->GetStage();
     
+    if (state == FaceLivenessVerifierState::Ok) {
+        CImageSignature signature = CImageSignature();
+        signature.signature = verifier->GetSignature().c_str();
+        signature.signatureSize = verifier->GetSignature().size();
+        signature.image = verifier->GetSignedImage().data();
+        signature.imageSize = verifier->GetSignedImage().size();
+        face->signature = signature;
+    }
+    
     if (state != RecogLibC::FaceLivenessVerifierState::Ok) {
         face->state = static_cast<int>(state);
         return false;

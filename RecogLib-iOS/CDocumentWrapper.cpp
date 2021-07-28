@@ -116,6 +116,16 @@ bool verifyImage(const void *object,
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     
     const auto state = verifier->GetState();
+    
+    if (state == DocumentVerifierState::Ok) {
+        CImageSignature signature = CImageSignature();
+        signature.signature = verifier->GetSignature().c_str();
+        signature.signatureSize = verifier->GetSignature().size();
+        signature.image = verifier->GetSignedImage().data();
+        signature.imageSize = verifier->GetSignedImage().size();
+        document->signature = signature;
+    }
+    
     switch (state) {
         case RecogLibC::DocumentVerifierState::Hologram:
             throw std::runtime_error(std::string("Not a valid state 'Hologram'"));

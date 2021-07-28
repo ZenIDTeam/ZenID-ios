@@ -33,7 +33,7 @@ public class SelfieVerifier {
         do {
             var selfie = createSelfieInfo(orientation: orientation)
             RecogLib_iOS.verifySelfie(cppObject, buffer, &selfie)
-            return SelfieResult(selfieState: selfie.state)
+            return SelfieResult(selfieState: selfie.state, signature: selfie.signature)
         } catch {
             ApplicationLogger.shared.Error(error.localizedDescription)
         }
@@ -43,7 +43,7 @@ public class SelfieVerifier {
         do {
             var selfie = createSelfieInfo(orientation: orientation)
             RecogLib_iOS.verifySelfieImage(cppObject, imageBuffer, &selfie)
-            return SelfieResult(selfieState: selfie.state)
+            return SelfieResult(selfieState: selfie.state, signature: selfie.signature)
         } catch {
             ApplicationLogger.shared.Error(error.localizedDescription)
         }
@@ -80,7 +80,8 @@ public class SelfieVerifier {
         return CSelfieInfo(
             state: -1,
             orientation: Int32(orientation.rawValue),
-            language: Int32(language.rawValue)
+            language: Int32(language.rawValue),
+            signature: .init()
         )
     }
 }

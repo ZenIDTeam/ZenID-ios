@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import CoreGraphics
+import AVFoundation
+import UIKit
 
 public struct DocumentResult {
     public var state: DocumentState
@@ -14,6 +17,8 @@ public struct DocumentResult {
     public var country: Country?
     public var code: DocumentCode?
     public var page: PageCode?
+    
+    public var signature: ImageSignature?
         
     init?(document: CDocumentInfo) {
         guard let state = DocumentState(rawValue: Int(document.state)) else { return nil }
@@ -23,5 +28,6 @@ public struct DocumentResult {
         self.code = DocumentCode(rawValue: Int(document.code))
         self.country = Country(rawValue: Int(document.country))
         self.state = state
+        self.signature = DocumentSignatureMapper.map(document.signature)
     }
 }

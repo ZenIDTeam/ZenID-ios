@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <CoreMedia/CoreMedia.h>
+#include "CImageSignature.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -19,12 +20,14 @@ extern "C" {
 
 struct CDocumentInfo {
     int language, role, country, code, page, state, hologramState, orientation;
+    struct CImageSignature signature;
 };
 
 struct CDocumentVerifierSettings {
     int specularAcceptableScore, documentBlurAcceptableScore, timeToBlurMaxToleranceInSeconds;
 };
 
+typedef struct CImageSignature CImageSignature;
 typedef struct CDocumentInfo CDocumentInfo;
 typedef struct CDocumentVerifierSettings CDocumentVerifierSettings;
 
