@@ -5,7 +5,7 @@ import UIKit.UIImage
 
 public struct ImageSignature {
     
-    public let image: UIImage
+    public let image: Data
     public let signature: String
     
 }

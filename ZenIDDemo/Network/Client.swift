@@ -57,7 +57,6 @@ final class Client: ClientProtocol {
             ApplicationLogger.shared.Verbose("Wrong request")
             return
         }
-        
         self.session.uploadTask(with: request, from: endpoint.data) { (data, response, error) in
             var result : T? = nil
             if let error = error {
@@ -84,7 +83,7 @@ final class Client: ClientProtocol {
     private func request(path: String, method: Method, parameters: Parameters?, headers: Headers) -> URLRequest? {
         guard var components = URLComponents(url: self.url(path: path), resolvingAgainstBaseURL: false) else { return nil }
         
-        components.queryItems = self.formatQueryItems(parameters: parameters)
+        components.percentEncodedQueryItems = self.formatQueryItems(parameters: parameters)
         
         guard let url = components.url else { return nil}
         

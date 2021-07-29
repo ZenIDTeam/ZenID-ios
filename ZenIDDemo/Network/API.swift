@@ -53,14 +53,19 @@ extension API {
         let roleKey = "role"
         let countryKey = "country"
         let pageKey = "pageCode"
+        let signatureKey = "sdkSignature"
         let sampleType = UploadedSampleType.from(photoType: image.photoType, documentType: image.documentType)
-        let parameters = [typeKey : sampleType.rawValue,
+        var parameters = [typeKey : sampleType.rawValue,
                           roleKey : image.documentRole?.description ?? "",
                           countryKey: image.country.rawValue,
-                          pageKey: image.photoType.pageCode]
+                          pageKey: image.photoType.pageCode,
+        ]
+        if let signature = image.signature {
+            parameters[signatureKey] = signature.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+        }
 
         return UploadEndpoint<UploadSampleResponse>(path: "sample", data: data, parameters: parameters)
-    }
+    }  
     
     /// Create an upload endpoint for sending a PDF document to backend
     ///

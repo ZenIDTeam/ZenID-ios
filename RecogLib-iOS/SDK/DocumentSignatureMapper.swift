@@ -10,9 +10,8 @@ final class DocumentSignatureMapper {
         }
         if let image = cSignature.image, let signature = cSignature.signature {
             let data = Data(bytes: image, count: Int(cSignature.imageSize))
-            let uiImage = UIImage(data: data)
             return .init(
-                image: uiImage ?? UIImage(),
+                image: data,
                 signature: String(cString: UnsafePointer<CChar>(signature))
             )
         }

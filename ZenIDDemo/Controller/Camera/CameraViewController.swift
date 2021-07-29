@@ -866,8 +866,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if let result = documentVerifier.verifyImage(imageBuffer: croppedBuffer, orientation: getImageOrientation())
             {
                 DispatchQueue.main.async { [unowned self] in
-                    let buffer = result.signature?.image.toCVPixelBuffer()
-                    self.updateView(with: result, buffer: buffer ?? croppedBuffer)
+                    self.updateView(with: result, buffer: croppedBuffer)
                 }
 
                 if !showVisualisation {

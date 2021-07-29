@@ -129,12 +129,13 @@ final class ScanProcess {
     public func processPhoto(imageData: Data, type: PhotoType, result: DocumentResult?) {
         self.scanNextSample()
         let imageInput = ImageInput(
-            imageData: imageData,
+            imageData: result?.signature?.image ?? imageData,
             documentType: documentType,
             documentRole: RecoglibMapper.documentRole(from: documentType, role: result?.role),
             documentCode: result?.code == nil ? documentType.rawValue : String(describing: result!.code!),
             photoType: result?.page == nil ? type : (result!.page == .Back ? .back : .front),
-            country: result?.country?.rawValue == nil ? country : (Country(rawValue: result!.country!.description) ?? country)
+            country: result?.country?.rawValue == nil ? country : (Country(rawValue: result!.country!.description) ?? country),
+            signature: result?.signature?.signature
         )
         if self.documentType == .otherDocument {
             // in case of other documents we are uploading only the whole file in completion of this controller
