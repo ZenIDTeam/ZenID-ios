@@ -10,15 +10,19 @@
 		</data>
 		<key>Headers/CDocumentWrapper.hpp</key>
 		<data>
-		SdPahrD0waydmOdwwf+IzE+uTIs=
+		GFODEn2CVwMPlP0QIy92Z+GRoGw=
 		</data>
 		<key>Headers/CFaceLivenessWrapper.hpp</key>
 		<data>
-		Rnusl9fb0xdjSXlq61iSKy6pQpw=
+		DEpKB/29tMXIVaFDFRzdrasOoKE=
+		</data>
+		<key>Headers/CImageSignature.hpp</key>
+		<data>
+		PCD7rCPUlPqG8jgJH+LG0+Lg+/I=
 		</data>
 		<key>Headers/CSelfieWrapper.hpp</key>
 		<data>
-		YBj/Zk+J6+wLyKiZirVEvkIBXe4=
+		aRGV2SuUKLeurMz1/Wdw4J373Lo=
 		</data>
 		<key>Headers/CZenidSecurityWrapper.hpp</key>
 		<data>
@@ -38,11 +42,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		1E9It4ZwZ6Fgierg7oiVzyahuss=
+		3y+UtCVEv7sqlrcqp3Bh5UoEE+k=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		1E9It4ZwZ6Fgierg7oiVzyahuss=
+		3y+UtCVEv7sqlrcqp3Bh5UoEE+k=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,11 +54,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		4GuyMGEo2WVZV5m1mEHb8fpNlTw=
+		X7N5xFF0EHNtDcyJdCD1Lhefr0E=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BJ3xCyAF1tF4z1n4mY+cVAhyqcI=
+		KA5JdR8JhhQHQHit4vigUFdXkeE=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -62,11 +66,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		4GuyMGEo2WVZV5m1mEHb8fpNlTw=
+		X7N5xFF0EHNtDcyJdCD1Lhefr0E=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		BJ3xCyAF1tF4z1n4mY+cVAhyqcI=
+		KA5JdR8JhhQHQHit4vigUFdXkeE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -242,21 +246,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ukz9DuEZ/0P8auL93V5sbJSf+OqQOAKJPiW/he/BO8A=
+			aUerIAuPb7+2IT9NVkJsSPnY4WssrNmtDxJlsFhuX8o=
 			</data>
 		</dict>
 		<key>Headers/CFaceLivenessWrapper.hpp</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aAf/cVnEV+cv1K93QtLmawzzUEE6/a2gFpSZpU029Y4=
+			42DhDy8tK46RkyCC6sAyoVG3WinFaOT8//yIV8Fug4g=
+			</data>
+		</dict>
+		<key>Headers/CImageSignature.hpp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TQ1jEs5MhglkZ/VdEA9mOxA6rOXaYiTAgb14IWif12w=
 			</data>
 		</dict>
 		<key>Headers/CSelfieWrapper.hpp</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0CL0EJ6N/kuf0EtrwRsmW4IYXwVHcvu1THR13C4FRFA=
+			5x/Jbdt7q3I344f/m4HTTvpOETGAJSesCOhnL7tDd5k=
 			</data>
 		</dict>
 		<key>Headers/CZenidSecurityWrapper.hpp</key>
@@ -284,14 +295,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FdJjoxUQpcIMECnkeK9keoR/GZ2jTDjxEdMp8wm5esQ=
+			/A9PLXrmSW3V9uIWp0YByE/eeYe8t4JtPleurxF6vFA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FdJjoxUQpcIMECnkeK9keoR/GZ2jTDjxEdMp8wm5esQ=
+			/A9PLXrmSW3V9uIWp0YByE/eeYe8t4JtPleurxF6vFA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -305,14 +316,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0S8uYMD5rTSxszUYSnnoiZw4dy7ktykdRFPwEyylHUs=
+			P82NdXq6WWsa34HbumdseK0h6FXBByss7PGbPFjJqdU=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			l7x4WD6FrnJWDr38IzjVhSI/swpTznht2/oufOYTXxY=
+			XmDkf6yoBT7iQF3H+haKjCOe4xACIQiFSx2hicpPKPA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftdoc</key>
@@ -326,14 +337,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0S8uYMD5rTSxszUYSnnoiZw4dy7ktykdRFPwEyylHUs=
+			P82NdXq6WWsa34HbumdseK0h6FXBByss7PGbPFjJqdU=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			l7x4WD6FrnJWDr38IzjVhSI/swpTznht2/oufOYTXxY=
+			XmDkf6yoBT7iQF3H+haKjCOe4xACIQiFSx2hicpPKPA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

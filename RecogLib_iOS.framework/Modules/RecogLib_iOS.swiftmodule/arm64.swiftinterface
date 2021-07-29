@@ -1,12 +1,17 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecogLib_iOS
+import AVFoundation
+import CoreGraphics
 import CoreMedia
 import Foundation
 @_exported import RecogLib_iOS
 import Swift
+import UIKit.UIImage
+import UIKit
 public struct FaceLivenessResult {
   public var faceLivenessState: RecogLib_iOS.FaceLivenessState
+  public let signature: RecogLib_iOS.ImageSignature?
 }
 @_hasMissingDesignatedInitializers final public class ZenidSecurity {
   public static func getChallengeToken() -> Swift.String?
@@ -306,6 +311,7 @@ public struct DocumentResult {
   public var country: RecogLib_iOS.Country?
   public var code: RecogLib_iOS.DocumentCode?
   public var page: RecogLib_iOS.PageCode?
+  public var signature: RecogLib_iOS.ImageSignature?
 }
 public struct Document : Swift.Comparable {
   public static func < (lhs: RecogLib_iOS.Document, rhs: RecogLib_iOS.Document) -> Swift.Bool
@@ -316,8 +322,13 @@ public struct Document : Swift.Comparable {
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?)
   public static func == (a: RecogLib_iOS.Document, b: RecogLib_iOS.Document) -> Swift.Bool
 }
+public struct ImageSignature {
+  public let image: Foundation.Data
+  public let signature: Swift.String
+}
 public struct SelfieResult {
   public var selfieState: RecogLib_iOS.SelfieState
+  public let signature: RecogLib_iOS.ImageSignature?
 }
 public struct HologramResult {
   public var hologramState: RecogLib_iOS.HologramState
