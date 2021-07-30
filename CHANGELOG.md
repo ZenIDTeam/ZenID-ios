@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.3.0 - 2021-07-29
+* Added support for Image signature.
+* Updated LibZenid to 1.7.3.
+
 ## 1.27.20 - 2021-07-15
 * Removed embedded LibZenid framework from RecogLib.
 * Fixed LibZenid versioning issue.
