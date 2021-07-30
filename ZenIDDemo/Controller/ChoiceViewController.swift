@@ -41,27 +41,26 @@ final class ChoiceViewController: UIViewController {
         set { Defaults.selectedCountry = newValue }
     }
     
-    private let titleLabel: UILabel = {
-        let title = UILabel()
-        title.font = .bigTitle
-        title.text = "title-select".localized
-        title.numberOfLines = 0
-        title.adjustsFontSizeToFitWidth = true
-        title.minimumScaleFactor = 0.5
-        title.textAlignment = .center
-        title.textColor = .zenTextLight
-        return title
-    }()
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     private lazy var toastView: ToastView = {
         let toastView = ToastView()
         toastView.toastLabel.text = "title-success".localized
         return toastView
     }()
+    
+    private func configureTitleLabel(label: UILabel) {
+        label.font = .title
+        label.text = "title-select".localized
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
+        label.textColor = .zenTextLight
+    }
     
     private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz, faceMode: .faceLiveness)
     private var scanProcess: ScanProcess?
@@ -76,6 +75,7 @@ final class ChoiceViewController: UIViewController {
             navigationController?.pushViewController(WalkthroughViewController(), animated: false)
         }
         
+        navigationItem.title = NSLocalizedString("app_name", comment: "")
         ensureCredentials()
     }
     
@@ -90,6 +90,7 @@ final class ChoiceViewController: UIViewController {
         //titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         //titleLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
         
+        configureTitleLabel(label: titleLabel)
         setupStackView()
         stackView.addArrangedSubview(countryButton)
         documentButtons.forEach { button in

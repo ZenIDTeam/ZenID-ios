@@ -21,6 +21,7 @@ extension UIFont {
     static let darkDescription = UIFont(name: ZenFont.regular, size: 18)!
     static let buttonFont = UIFont(name: ZenFont.black, size: 14)!
     static let bigTitle = UIFont(name: ZenFont.black, size: 45)!
+    static let title = UIFont(name: ZenFont.black, size: 30)!
     static let version = UIFont(name: ZenFont.regular, size: 14)!
     static let topLabel = UIFont(name: ZenFont.bold, size: 17)!
     static let messageLabel = UIFont(name: ZenFont.regular, size: 15)!

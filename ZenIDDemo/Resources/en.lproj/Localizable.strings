@@ -6,6 +6,8 @@
   Copyright © 2019 Trask, a.s. All rights reserved.
 */
 
+"app_name" = "Trask ZenID";
+
 "msg-scan-front" = "Please take a photo of the front side.";
 "msg-scan-back" = "Please take a photo of the rear side.";
 "msg-scan-face" = "Please take a photo of yourself.";
@@ -50,7 +52,7 @@
 "login-qr-note" = "Scan QR code to login";
 
 // Choice
-"title-select" = "Choose document type";
+"title-select" = "Choose\ndocument type";
 "title-success" = "Document was uploaded successfully";
 
 // Buttons
