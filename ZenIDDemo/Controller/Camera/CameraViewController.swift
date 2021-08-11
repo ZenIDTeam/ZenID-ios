@@ -102,7 +102,7 @@ public class CameraViewController: UIViewController {
     private var selfieVerifier: SelfieVerifier = SelfieVerifier(language: LanguageHelper.language)
     
     private var detectionRunning = false;
-    private var previousResult: DocumentState?
+    private var previousResult: DocumentResult?
     private var previousHologramResult: HologramState?
     private var previousFaceLivenessResult: FaceLivenessState?
     private var previousSelfieResult: SelfieState?
@@ -203,10 +203,6 @@ public class CameraViewController: UIViewController {
         self.title = type.title
         self.topLabel.text = photoType.message
         self.photosCount = photosCount
-        self.previousResult = nil
-        self.previousHologramResult = nil
-        self.previousFaceLivenessResult = nil
-        self.previousSelfieResult = nil
         
         if self.documentSettings != documentSettings {
             self.documentSettings = documentSettings
@@ -265,6 +261,9 @@ public class CameraViewController: UIViewController {
                 if let country = RecoglibMapper.country(from: country) {
                     documentVerifier.country = country
                 }
+                if let code = previousResult?.code, photoType == .back {
+                    documentVerifier.code = code
+                }
             }
             break
         }
@@ -293,6 +292,15 @@ public class CameraViewController: UIViewController {
         
         // Start detection
         self.detectionRunning = true
+        
+        setNilAllPreviousResults()
+    }
+    
+    private func setNilAllPreviousResults() {
+        previousResult = nil
+        previousHologramResult = nil
+        previousFaceLivenessResult = nil
+        previousSelfieResult = nil
     }
     
     public func showErrorMessage(_ message: String) {
@@ -367,11 +375,11 @@ public class CameraViewController: UIViewController {
             return
         }
 
-        guard unwrappedResult.state == .Ok /*|| unwrappedResult.state == .Blurry*/, previousResult != .Ok else {
+        guard unwrappedResult.state == .Ok /*|| unwrappedResult.state == .Blurry*/, previousResult?.state != .Ok else {
             statusButton.setTitle("\(unwrappedResult.state.localizedDescription)", for: .normal)
             return
         }
-        previousResult = unwrappedResult.state
+        previousResult = unwrappedResult
         
         guard detectionRunning else { return }
         detectionRunning = false
