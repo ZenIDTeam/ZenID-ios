@@ -6,6 +6,8 @@
   Copyright © 2019 Trask, a.s. All rights reserved.
 */
 
+"app_name" = "Trask ZenID";
+
 "msg-scan-front" = "Vyfoťte přední stranu.";
 "msg-scan-back" = "Vyfoťte zadní stranu.";
 "msg-scan-face" = "Vyfoťte se.";
