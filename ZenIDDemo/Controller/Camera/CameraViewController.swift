@@ -674,10 +674,9 @@ private extension CameraViewController {
         let flipped = isPortraitOrientation()
         let mirrored = isUpsideDownOrientation()
         if flipped {
-            let ty = -0.5 * self.overlay!.frameImageView.frame.height
             self.instructionView.transform = mirrored ?
-                CGAffineTransform(rotationAngle: .pi).translatedBy(x: 0, y: ty) :
-                CGAffineTransform(translationX: 0, y: ty)
+                CGAffineTransform(rotationAngle: .pi) :
+                CGAffineTransform.identity
         } else {
             self.instructionView.transform = mirrored ?
                 CGAffineTransform(rotationAngle: -.pi/2) :
