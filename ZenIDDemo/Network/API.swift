@@ -54,11 +54,13 @@ extension API {
         let countryKey = "country"
         let pageKey = "pageCode"
         let signatureKey = "sdkSignature"
+        let documentCodeKey  = "documentCode"
         let sampleType = UploadedSampleType.from(photoType: image.photoType, documentType: image.documentType)
         var parameters = [typeKey : sampleType.rawValue,
                           roleKey : image.documentRole?.description ?? "",
                           countryKey: image.country.rawValue,
                           pageKey: image.photoType.pageCode,
+                          documentCodeKey : image.documentCode
         ]
         if let signature = image.signature {
             parameters[signatureKey] = signature.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
