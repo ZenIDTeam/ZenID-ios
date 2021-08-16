@@ -59,4 +59,6 @@ protocol ScanProcessDelegate: AnyObject {
     ///   - scanProcess: Source process
     ///   - result: Result
     func didUploadPDF(scanProcess: ScanProcess, result: SampleResult)
+    
+    func didFinishAndWaiting(scanProcess: ScanProcess)
 }

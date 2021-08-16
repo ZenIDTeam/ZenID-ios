@@ -115,7 +115,7 @@ final class ScanProcess {
     /// - Parameter sampleID: sample ID
     private func addSuccessfulSample(_ sampleID: String) {
         self.finishedSampleIDs.append(sampleID)
-        if self.finishedSampleIDs.count >= self.requestsCount {
+        if isFinished() {
             self.delegate?.willProcessData(scanProcess: self)
             self.investigateSamples(self.finishedSampleIDs)
         }
@@ -127,6 +127,7 @@ final class ScanProcess {
     ///   - imageData: the image data
     ///   - type: photo sample type
     public func processPhoto(imageData: Data, type: PhotoType, result: DocumentResult?) {
+        checkIfIsFinishedAndCallDelegate()
         self.scanNextSample()
         let imageInput = ImageInput(
             imageData: result?.signature?.image ?? imageData,
@@ -144,6 +145,20 @@ final class ScanProcess {
         } else {
             self.uploadSample(imageInput)
         }
+    }
+    
+    private func checkIfIsFinishedAndCallDelegate() {
+        if isScanningFinished() {
+            delegate?.didFinishAndWaiting(scanProcess: self)
+        }
+    }
+    
+    private func isScanningFinished() -> Bool {
+        requestsToScan.isEmpty
+    }
+    
+    private func isFinished() -> Bool {
+        finishedSampleIDs.count >= requestsCount
     }
     
     /// Upload general document PDF after all the samples have been taken

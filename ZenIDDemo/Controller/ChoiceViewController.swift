@@ -364,7 +364,7 @@ extension ChoiceViewController: ScanProcessDelegate {
         DispatchQueue.main.async { [unowned self] in
             guard self.navigationController?.topViewController != self.cachedCameraViewController else { return }
 
-            if self.navigationController?.topViewController is BusyViewController {
+            if self.isBusyViewControllerPresented() {
                 self.navigationController?.popViewController(animated: true)
             } else {
                 self.navigationController?.pushViewController(self.cachedCameraViewController, animated: true)
@@ -374,12 +374,13 @@ extension ChoiceViewController: ScanProcessDelegate {
     
     func willProcessData(scanProcess: ScanProcess) {
         DispatchQueue.main.async { [unowned self] in
-            guard !(self.navigationController?.topViewController is BusyViewController) else { return }
-            
-            let busyViewController = BusyViewController()
-            busyViewController.title = scanProcess.documentType.title
-            self.navigationController?.pushViewController(busyViewController, animated: true)
+            guard !self.isBusyViewControllerPresented() else { return }
+            showBusyViewController(title: scanProcess.documentType.title)
         }
+    }
+    
+    private func isBusyViewControllerPresented() -> Bool {
+        navigationController?.topViewController is BusyViewController
     }
     
     func didUploadPDF(scanProcess: ScanProcess, result: SampleResult) {
@@ -394,10 +395,15 @@ extension ChoiceViewController: ScanProcessDelegate {
         switch result {
         case .error(error: let error):
             DispatchQueue.main.async { [weak self] in
-                self?.alert(title: "title-error".localized, message: "alert-error-upload-sample".localized, ok: {
-                    self?.restartProcess(currentScanProcess: scanProcess)
-                    self?.cachedCameraViewController.showErrorMessage(error.message)
-                })
+                if self?.isBusyViewControllerPresented() ?? false {
+                    self?.popToCameraViewController()
+                }
+                DispatchQueue.main.async {
+                    self?.alert(title: "title-error".localized, message: "alert-error-upload-sample".localized, ok: {
+                        self?.restartProcess(currentScanProcess: scanProcess)
+                        self?.cachedCameraViewController.showErrorMessage(error.message)
+                    })
+                }
             }
         case .success:
             DispatchQueue.main.async { [unowned self] in
@@ -410,6 +416,7 @@ extension ChoiceViewController: ScanProcessDelegate {
         DispatchQueue.main.async { [unowned self] in
             switch result {
             case .error(error: _):
+                self.popToCameraViewController()
                 self.showError(documentType: scanProcess.documentType, message:"msg-network-error".localized)
             case .success(let data, let type):
                 if type == .filter {
@@ -419,6 +426,26 @@ extension ChoiceViewController: ScanProcessDelegate {
                 }
             }
         }
+    }
+    
+    private func popToCameraViewController() {
+        let cameraViewController = navigationController?.viewControllers.first(where: { $0 is CameraViewController })
+        if let cameraVC = cameraViewController {
+            navigationController?.popToViewController(cameraVC, animated: true)
+        }
+    }
+    
+    func didFinishAndWaiting(scanProcess: ScanProcess) {
+        if isBusyViewControllerPresented() {
+            return
+        }
+        showBusyViewController(title: scanProcess.documentType.title)
+    }
+    
+    private func showBusyViewController(title: String) {
+        let busyViewController = BusyViewController()
+        busyViewController.title = title
+        navigationController?.pushViewController(busyViewController, animated: true)
     }
 }
 
