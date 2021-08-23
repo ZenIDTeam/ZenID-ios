@@ -212,7 +212,7 @@ public class CameraViewController: UIViewController {
         // Start video capture session
         self.startSession()
         
-        documentVerifier.documentsInput = nil
+        resetDocumentVerifier()
         // Create verify object
         switch photoType {
         case .face:
@@ -244,10 +244,7 @@ public class CameraViewController: UIViewController {
             self.documentVerifier.endHologramVerification()
             
             if type == .unspecifiedDocument {
-                documentVerifier.documentRole = nil
-                documentVerifier.page = nil
-                documentVerifier.country = nil
-                documentVerifier.code = nil
+                resetDocumentVerifier()
             }
             else
             {
@@ -294,6 +291,14 @@ public class CameraViewController: UIViewController {
         self.detectionRunning = true
         
         setNilAllPreviousResults()
+    }
+    
+    private func resetDocumentVerifier() {
+        documentVerifier.documentsInput = nil
+        documentVerifier.documentRole = nil
+        documentVerifier.page = nil
+        documentVerifier.country = nil
+        documentVerifier.code = nil
     }
     
     private func setNilAllPreviousResults() {
