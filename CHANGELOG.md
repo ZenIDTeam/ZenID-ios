@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.3.1 - 2021-08-23
+* Updated LibZenid to 1.8.4.
+
 ## 1.3.0 - 2021-07-29
 * Added support for Image signature.
 * Updated LibZenid to 1.7.3.
