@@ -28,7 +28,6 @@ class Text: Renderable {
     required init?(_ renderCommand: String) {
         let values = RenderableFactory.split(command: renderCommand)
         let floatValues = RenderableFactory.floatsIn(splitCommand: values)
-        
         guard values.count == 10, floatValues.count == 6 else { return nil }
         
         let color = UIColor(red:   floatValues[2] / 255,
