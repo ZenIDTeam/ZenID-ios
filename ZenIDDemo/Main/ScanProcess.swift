@@ -126,7 +126,7 @@ final class ScanProcess {
     /// - Parameters:
     ///   - imageData: the image data
     ///   - type: photo sample type
-    public func processPhoto(imageData: Data, type: PhotoType, result: DocumentResult?) {
+    public func processPhoto(imageData: Data, type: PhotoType, result: UnifiedResult?) {
         checkIfIsFinishedAndCallDelegate()
         self.scanNextSample()
         let imageInput = ImageInput(

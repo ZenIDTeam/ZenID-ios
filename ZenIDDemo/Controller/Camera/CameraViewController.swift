@@ -1,18 +1,12 @@
-//
-//  CameraViewController.swift
-//  ZenIDDemo
-//
-//  Created by František Kratochvíl on 14/05/2019.
-//  Copyright © 2019 Trask, a.s. All rights reserved.
-//
 
 import AVFoundation
 import CoreGraphics
 import RecogLib_iOS
 import UIKit
 
-public class CameraViewController: UIViewController {
-    public weak var delegate: CameraViewControllerDelegate?
+
+class CameraViewController: UIViewController {
+    weak var delegate: CameraViewControllerDelegate?
     
     // This enables / disables additional debug visualisation hints from the ZenID framework
     public var showVisualisationDebugInfo: Bool = false {
@@ -389,8 +383,9 @@ public class CameraViewController: UIViewController {
         guard detectionRunning else { return }
         detectionRunning = false
         
+        let unifiedResult = result == nil ? nil : UnifiedDocumentResultAdapter(result: result!)
         // return preview image
-        returnImage(buffer, ImageFlip.fromLandScape, result: result)
+        returnImage(buffer, ImageFlip.fromLandScape, result: unifiedResult)
     }
     
     private func updateView(with result: HologramResult?, buffer: CVPixelBuffer) {
@@ -427,8 +422,9 @@ public class CameraViewController: UIViewController {
         guard detectionRunning else { return }
         detectionRunning = false
         
+        let unifiedResult = result == nil ? nil : UnifiedFacelivenessResultAdapter(result: result!)
         // return preview image
-        returnImage(buffer, ImageFlip.fromPortrait)
+        returnImage(buffer, ImageFlip.fromPortrait, result: unifiedResult)
     }
     
     private func updateView(with result: SelfieResult?, buffer: CVPixelBuffer) {
@@ -446,8 +442,9 @@ public class CameraViewController: UIViewController {
         guard detectionRunning else { return }
         detectionRunning = false
         
+        let unifiedResult = result == nil ? nil : UnifiedSelfieResultAdapter(result: result!)
         // return preview image
-        returnImage(buffer, ImageFlip.fromPortrait)
+        returnImage(buffer, ImageFlip.fromPortrait, result: unifiedResult)
     }
 
     @objc private func capture() {
@@ -482,13 +479,13 @@ public class CameraViewController: UIViewController {
         delegate?.didFinishPDF()
     }
     
-    private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip, result: DocumentResult? = nil) {
+    private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip, result: UnifiedResult? = nil) {
         let image = UIImage(pixelBuffer: buffer)?.flip(flipMethod)
         let data = image?.jpegData(compressionQuality: 0.5)
         returnImage(data, result)
     }
     
-    private func returnImage(_ data: Data?, _ result: DocumentResult? = nil) {
+    private func returnImage(_ data: Data?, _ result: UnifiedResult? = nil) {
         if let data = data, let image = UIImage(data: data) {
             let preview = PreviewViewController(title:title ?? "", image: image)
             preview.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
