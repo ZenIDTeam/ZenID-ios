@@ -31,3 +31,28 @@ extension RecogLib_iOS.DocumentState {
         }
     }
 }
+
+extension UnifiedState {
+    var localizedDescription: String {
+        switch self {
+        case .ok:
+            return "document.state.ok".localized
+        case .alignCard:
+            return "document.state.align.card".localized
+        case .blurry:
+            return "document.state.blurry".localized
+        case .holdSteady:
+            return "document.state.hold.steady".localized
+        case .notFound:
+            return "document.state.no.match.found".localized
+        case .reflectionPresent:
+            return "document.state.reflection.present".localized
+        case .hologram:
+            return "document.state.hologram.error".localized
+        case .dark:
+            return "document.state.dark".localized
+        default:
+            return String(describing: self)
+        }
+    }
+}

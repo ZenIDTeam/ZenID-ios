@@ -122,6 +122,10 @@ public enum PhotoType {
     case back
     case hologram
     case face
+    
+    var isDocument: Bool {
+        self == .face || self == .back
+    }
 }
 
 extension PhotoType {

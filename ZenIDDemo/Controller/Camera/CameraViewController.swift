@@ -96,10 +96,7 @@ class CameraViewController: UIViewController {
     private var selfieVerifier: SelfieVerifier = SelfieVerifier(language: LanguageHelper.language)
     
     private var detectionRunning = false;
-    private var previousResult: DocumentResult?
-    private var previousHologramResult: HologramState?
-    private var previousFaceLivenessResult: FaceLivenessState?
-    private var previousSelfieResult: SelfieState?
+    private var previousResult: UnifiedResult?
     
     private var supportChangedOrientation: Bool {
         return photoType != .face && photoType != .hologram
@@ -146,10 +143,7 @@ class CameraViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        previousResult = nil
-        previousHologramResult = nil
-        previousFaceLivenessResult = nil
-        previousSelfieResult = nil
+        setNilAllPreviousResults()
         captureSession.startRunning()
     }
 
@@ -297,9 +291,6 @@ class CameraViewController: UIViewController {
     
     private func setNilAllPreviousResults() {
         previousResult = nil
-        previousHologramResult = nil
-        previousFaceLivenessResult = nil
-        previousSelfieResult = nil
     }
     
     public func showErrorMessage(_ message: String) {
@@ -368,14 +359,14 @@ class CameraViewController: UIViewController {
         }
     }
 
-    private func updateView(with result: DocumentResult?, buffer: CVPixelBuffer) {
+    private func updateView(with result: UnifiedResult?, photoType: PhotoType, buffer: CVPixelBuffer) {
         guard let unwrappedResult = result else {
             statusButton.setTitle("nil result", for: .normal)
             return
         }
-
-        guard unwrappedResult.state == .Ok /*|| unwrappedResult.state == .Blurry*/, previousResult?.state != .Ok else {
-            statusButton.setTitle("\(unwrappedResult.state.localizedDescription)", for: .normal)
+        
+        guard unwrappedResult.state == .ok, previousResult?.state != .ok else {
+            statusButton.setTitle(String(describing: unwrappedResult.state.localizedDescription), for: .normal)
             return
         }
         previousResult = unwrappedResult
@@ -383,70 +374,15 @@ class CameraViewController: UIViewController {
         guard detectionRunning else { return }
         detectionRunning = false
         
-        let unifiedResult = result == nil ? nil : UnifiedDocumentResultAdapter(result: result!)
-        // return preview image
-        returnImage(buffer, ImageFlip.fromLandScape, result: unifiedResult)
+        if photoType == .hologram {
+            videoWriter.stop()
+        } else if photoType.isDocument {
+            returnImage(buffer, ImageFlip.fromLandScape, result: unwrappedResult)
+        } else {
+            returnImage(buffer, ImageFlip.fromPortrait, result: unwrappedResult)
+        }
     }
     
-    private func updateView(with result: HologramResult?, buffer: CVPixelBuffer) {
-        guard let unwrappedResult = result else {
-            statusButton.setTitle("nil result", for: .normal)
-            return
-        }
-        
-        guard unwrappedResult.hologramState == .Ok, previousHologramResult != .Ok else {
-            statusButton.setTitle(String(describing: unwrappedResult.hologramState), for: .normal)
-            return
-        }
-        previousHologramResult = unwrappedResult.hologramState
-        
-        guard detectionRunning else { return }
-        detectionRunning = false
-        
-        // stop video recording
-        videoWriter.stop()
-    }
-    
-    private func updateView(with result: FaceLivenessResult?, buffer: CVPixelBuffer) {
-        guard let unwrappedResult = result else {
-            statusButton.setTitle("nil result", for: .normal)
-            return
-        }
-        
-        guard unwrappedResult.faceLivenessState == .Ok, previousFaceLivenessResult != .Ok else {
-            statusButton.setTitle(String(describing: unwrappedResult.faceLivenessState), for: .normal)
-            return
-        }
-        previousFaceLivenessResult = unwrappedResult.faceLivenessState
-        
-        guard detectionRunning else { return }
-        detectionRunning = false
-        
-        let unifiedResult = result == nil ? nil : UnifiedFacelivenessResultAdapter(result: result!)
-        // return preview image
-        returnImage(buffer, ImageFlip.fromPortrait, result: unifiedResult)
-    }
-    
-    private func updateView(with result: SelfieResult?, buffer: CVPixelBuffer) {
-        guard let unwrappedResult = result else {
-            statusButton.setTitle("nil result", for: .normal)
-            return
-        }
-        
-        guard unwrappedResult.selfieState == .Ok, previousSelfieResult != .Ok else {
-            statusButton.setTitle(String(describing: unwrappedResult.selfieState), for: .normal)
-            return
-        }
-        previousSelfieResult = unwrappedResult.selfieState
-        
-        guard detectionRunning else { return }
-        detectionRunning = false
-        
-        let unifiedResult = result == nil ? nil : UnifiedSelfieResultAdapter(result: result!)
-        // return preview image
-        returnImage(buffer, ImageFlip.fromPortrait, result: unifiedResult)
-    }
-
     @objc private func capture() {
         guard captureDevice != nil else {
             return
@@ -495,10 +431,7 @@ class CameraViewController: UIViewController {
                 self.delegate?.didTakePhoto(data, type: self.photoType, result: result)
             }
             preview.dismissAction = { [unowned self] in
-                self.previousResult = nil
-                self.previousFaceLivenessResult = nil
-                self.previousSelfieResult = nil
-                self.previousHologramResult = nil
+                self.setNilAllPreviousResults()
                 self.detectionRunning = true
                 self.documentVerifier.reset()
                 self.faceLivenessVerifier.reset()
@@ -805,104 +738,93 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         // torch for holograms
         self.setTorch(on: photoType == .hologram)
-
+        
+        if faceMode == nil && photoType == .face {
+            return
+        }
+        if let videoWriter = self.videoWriter, photoType == .hologram, videoWriter.isRecording {
+            videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
+        }
+        let verifier = getVerifier(photoType: photoType, faceMode: faceMode ?? .selfie)
+        guard let result = verifier.verify(image: croppedBuffer) else {
+            return
+        }
+        DispatchQueue.main.async { [unowned self] in
+            self.updateView(with: result, photoType: photoType, buffer: croppedBuffer)
+        }
+        guard let renderable = getVerifierRenderable(photoType: photoType, faceMode: faceMode ?? .selfie) else {
+            return
+        }
+        renderCommands(renderable: renderable, imageRect: imageRect, pixelBuffer: pixelBuffer)
+    }
+    
+    private func renderCommands(renderable: VerifierRenderable, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
+        if !showVisualisation {
+            return
+        }
+        guard let previewLayer = previewLayer else {
+            return
+        }
+        let commandsRect: CGRect
+        if photoType.isDocument {
+            if targetFrame == .zero {
+                return
+            }
+            let flipped = !isPortraitOrientation()
+            let croppedPreview = getCroppedTargetFrame(width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
+            commandsRect = flipped ? croppedPreview.flip() : croppedPreview
+        } else {
+            commandsRect = imageRect.rectThatFitsRect(previewLayer.frame)
+        }
+        guard let renderCommands = renderable.getRenderCommands(canvasSize: commandsRect.size) else {
+            return
+        }
+        
+        if let drawLayer = drawLayer {
+            let renderables = RenderableFactory.createRenderables(commands: renderCommands)
+            if photoType.isDocument {
+                let flipped = !isPortraitOrientation()
+                let mirrored = isUpsideDownOrientation()
+                let transform = flipped ?
+                    (mirrored ? CGAffineTransform(rotationAngle: -.pi / 2) : CGAffineTransform(rotationAngle: .pi / 2)) :
+                    (mirrored ? CGAffineTransform(rotationAngle: .pi) : CGAffineTransform.identity)
+                
+                drawLayer.frame = flipped ? commandsRect.flip() : commandsRect
+                drawLayer.setAffineTransform(transform)
+            } else {
+                drawLayer.frame = commandsRect
+            }
+            drawLayer.renderables = renderables
+        }
+    }
+    
+    private func getVerifier(photoType: PhotoType, faceMode: FaceMode) -> UnifiedVerifier {
         switch photoType {
         case .face:
-            switch self.faceMode {
+            switch faceMode {
             case .faceLiveness:
-                if let result = faceLivenessVerifier.verifyImage(imageBuffer: croppedBuffer)
-                {
-                    DispatchQueue.main.async { [unowned self] in
-                        self.updateView(with: result, buffer: croppedBuffer)
-                    }
-
-                    if !showVisualisation {
-                        return
-                    }
-                    
-                    guard let previewLayer = previewLayer else { break; }
-                    let commandsRect = imageRect.rectThatFitsRect(previewLayer.frame);
-                    if let renderCommands = faceLivenessVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
-                                                                                  canvasHeight: Int(commandsRect.height)) {
-                        if let drawLayer = drawLayer {
-                            let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-                            drawLayer.frame = commandsRect
-                            drawLayer.renderables = renderables
-                        }
-                    }
-                }
+                return UnifiedFacelivenessVerifierAdapter(verifier: faceLivenessVerifier)
             case .selfie:
-                if let result = selfieVerifier.verifyImage(imageBuffer: croppedBuffer)
-                {
-                    DispatchQueue.main.async { [unowned self] in
-                        self.updateView(with: result, buffer: croppedBuffer)
-                    }
-
-                    if !showVisualisation {
-                        return
-                    }
-                    
-                    // Get render commands
-                    guard let previewLayer = previewLayer else { break; }
-                    let commandsRect = imageRect.rectThatFitsRect(previewLayer.frame);
-                    if let renderCommands = selfieVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
-                                                                             canvasHeight: Int(commandsRect.height)) {
-                        let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-                        if let drawLayer = drawLayer {
-                            drawLayer.frame = commandsRect
-                            drawLayer.renderables = renderables
-                        }
-                    }
-                }
-            case .none:
-                break
+                return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
             }
-            
-        case .hologram:
-            if let videoWriter = self.videoWriter {
-                if videoWriter.isRecording {
-                    videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
-                    if let result = documentVerifier.verifyHologramImage(imageBuffer: croppedBuffer)
-                    {
-                        DispatchQueue.main.async { [unowned self] in
-                            self.updateView(with: result, buffer: croppedBuffer)
-                        }
-                    }
-                }
-            }
-            
         default:
-            if let result = documentVerifier.verifyImage(imageBuffer: croppedBuffer, orientation: getImageOrientation())
-            {
-                DispatchQueue.main.async { [unowned self] in
-                    self.updateView(with: result, buffer: croppedBuffer)
-                }
-
-                if !showVisualisation {
-                    return
-                }
-                
-                // Get render commands
-                if targetFrame == .zero { break; }
-                let flipped = !isPortraitOrientation()
-                let croppedPreview = getCroppedTargetFrame(width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
-                let commandsRect = flipped ? croppedPreview.flip() : croppedPreview
-                if let renderCommands = documentVerifier.getRenderCommands(canvasWidth: Int(commandsRect.width),
-                                                                           canvasHeight: Int(commandsRect.height)) {
-                    let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-                    
-                    if let drawLayer = drawLayer {
-                        let mirrored = isUpsideDownOrientation()
-                        let transform = flipped ?
-                            (mirrored ? CGAffineTransform(rotationAngle: -.pi / 2) : CGAffineTransform(rotationAngle: .pi / 2)) :
-                            (mirrored ? CGAffineTransform(rotationAngle: .pi) : CGAffineTransform.identity)
-                        
-                        drawLayer.frame = flipped ? commandsRect.flip() : commandsRect
-                        drawLayer.setAffineTransform(transform)
-                        drawLayer.renderables = renderables
-                    }
-                }
+            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier)
+        }
+    }
+    
+    private func getVerifierRenderable(photoType: PhotoType, faceMode: FaceMode) -> VerifierRenderable? {
+        switch photoType {
+        case .face:
+            switch faceMode {
+            case .faceLiveness:
+                return UnifiedFacelivenessVerifierAdapter(verifier: faceLivenessVerifier)
+            case .selfie:
+                return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
             }
+        case .hologram:
+            return nil
+        default:
+            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier)
         }
     }
     
