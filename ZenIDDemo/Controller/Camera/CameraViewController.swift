@@ -40,6 +40,8 @@ class CameraViewController: UIViewController {
         view as! CameraView
     }
     
+    private var targetFrame: CGRect = .zero
+    
     private var photoType: PhotoType
     private var documentType: DocumentType
     private var country: Country
@@ -52,6 +54,7 @@ class CameraViewController: UIViewController {
     private var cameraPhotoOutput: AVCapturePhotoOutput!
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
     private var videoWriter: VideoWriter!
+    private var previewLayer: AVCaptureVideoPreviewLayer!
     
     private var documentVerifier: DocumentVerifier = DocumentVerifier(
                                                             role: RecogLib_iOS.DocumentRole.Idc,
@@ -108,16 +111,15 @@ class CameraViewController: UIViewController {
         contentView.getCurrentResolution = { [unowned self] in
             self.getCurrentResolution()
         }
+        contentView.targetFrame = { [unowned self] in
+            self.targetFrame
+        }
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            print(self.view)
-        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -153,6 +155,11 @@ class CameraViewController: UIViewController {
     deinit {
         captureSession.stopRunning()
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        targetFrame = contentView.overlay?.frame ?? .zero
     }
 
     public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings) {
@@ -404,7 +411,9 @@ private extension CameraViewController {
             returnImage(nil)
             return
         }
-        contentView.configureVideoLayers(session: captureSession, overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay)
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        contentView.previewLayer = previewLayer
+        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay)
     }
     
     func setupCameraSession(_ device: AVCaptureDevice) -> Bool {
@@ -412,7 +421,7 @@ private extension CameraViewController {
             return false
         }
         
-        contentView.previewLayer?.videoGravity = Defaults.videoGravity
+        previewLayer?.videoGravity = Defaults.videoGravity
         
         captureSession.beginConfiguration()
         
@@ -464,7 +473,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             return
         }
         let imageData = photo.fileDataRepresentation()
-        if let data = imageData, let originalImage = UIImage(data: data), let previewLayer = contentView.previewLayer, let croppedImage = originalImage.cropCameraImage(previewLayer: previewLayer) {
+        if let data = imageData, let originalImage = UIImage(data: data), let previewLayer = previewLayer, let croppedImage = originalImage.cropCameraImage(previewLayer: previewLayer) {
             returnImage(croppedImage.jpegData(compressionQuality: 0.5))
         } else {
             let resizedImageData = imageData?.resizeImage(maxResolution: 2000, compression: 0.5)
@@ -490,11 +499,11 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         switch gravity {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(contentView.targetFrame)
+            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame)
             return croppedTargetFrame
             
         case .resizeAspectFill:
-            return contentView.targetFrame
+            return targetFrame
             
         default:
             return .zero
@@ -506,14 +515,14 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         switch gravity {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let layerRect = imageRect.flip().rectThatFitsRect(contentView.targetFrame)
-            let metadataRect = contentView.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let layerRect = imageRect.flip().rectThatFitsRect(targetFrame)
+            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
             
         case .resizeAspectFill:
-            let layerRect = contentView.targetFrame
-            let metadataRect = contentView.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let layerRect = targetFrame
+            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
             
@@ -537,7 +546,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard detectionRunning else { return }
-        guard contentView.targetFrame.width > 0 else { return }
+        guard targetFrame.width > 0 else { return }
         
         // crop pixel data if necessary
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
@@ -565,19 +574,21 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let renderable = getVerifierRenderable(photoType: photoType, faceMode: faceMode ?? .selfie) else {
             return
         }
-        renderCommands(renderable: renderable, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        DispatchQueue.main.async {
+            self.renderCommands(renderable: renderable, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        }
     }
     
     private func renderCommands(renderable: VerifierRenderable, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
         if !showVisualisation {
             return
         }
-        guard let previewLayer = contentView.previewLayer else {
+        guard let previewLayer = previewLayer else {
             return
         }
         let commandsRect: CGRect
         if photoType.isDocument {
-            if contentView.targetFrame == .zero {
+            if targetFrame == .zero {
                 return
             }
             let flipped = !contentView.isPortraitOrientation()

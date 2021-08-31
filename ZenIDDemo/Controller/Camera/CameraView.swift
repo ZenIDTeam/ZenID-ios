@@ -31,9 +31,8 @@ final class CameraView: UIView {
     private var controlView = UIView()
     let cameraView = UIView()
     private let messageView = MessagesView()
-    private var overlay: CameraOverlayView?
-    private(set) var targetFrame: CGRect = .zero
-    private(set) var previewLayer: AVCaptureVideoPreviewLayer?
+    private(set) var overlay: CameraOverlayView?
+    var previewLayer: AVCaptureVideoPreviewLayer?
     private(set) var drawLayer: DrawingLayer?
     
     private(set) var deviceOrientation = UIInterfaceOrientation.landscapeLeft
@@ -41,6 +40,7 @@ final class CameraView: UIView {
     var supportChangedOrientation: (() -> Bool)!
     var isFaceDetection: (() -> Bool)!
     var getCurrentResolution: (() -> CGSize)!
+    var targetFrame: (() -> CGRect)!
     
     private func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -51,7 +51,6 @@ final class CameraView: UIView {
         if let previewLayer = previewLayer {
             previewLayer.frame = cameraView.bounds
         }
-        targetFrame = overlay?.frame ?? .zero
     }
     
     func setup(isOtherDocument: Bool) {
@@ -142,7 +141,7 @@ final class CameraView: UIView {
         case .resizeAspect:
             let resolution = getCurrentResolution()
             let imageRect = CGRect(x: 0, y: 0, width: resolution.width, height: resolution.height)
-            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame)
+            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame())
             let layerRect = (supportChangedOrientation() && isPortraitOrientation()) ?
                 croppedTargetFrame.flip().rectThatFitsRect(croppedTargetFrame) :
                 croppedTargetFrame;
@@ -196,8 +195,7 @@ final class CameraView: UIView {
         }
     }
     
-    private func configurePreviewLayer(session: AVCaptureSession) {
-        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+    private func configurePreviewLayer() {
         previewLayer!.videoGravity = Defaults.videoGravity
         previewLayer!.frame = cameraView.layer.bounds
         cameraView.layer.addSublayer(previewLayer!)
@@ -222,11 +220,8 @@ final class CameraView: UIView {
         }
     }
     
-    func configureVideoLayers(session: AVCaptureSession, overlay: CameraOverlayView, showStaticOverlay: Bool) {
-        // Configure layers
-        if previewLayer == nil {
-            configurePreviewLayer(session: session)
-        }
+    func configureVideoLayers(overlay: CameraOverlayView, showStaticOverlay: Bool) {
+        configurePreviewLayer()
         configureDrawingLayer()
         configureOverlay(overlay: overlay, showStaticOverlay: showStaticOverlay)
         cameraView.layer.addSublayer(messageView.layer)
