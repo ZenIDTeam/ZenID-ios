@@ -273,6 +273,8 @@ public enum FaceLivenessState : Swift.Int {
   case TurnHead
   case Smile
   case Ok
+  case blurry
+  case dark
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {

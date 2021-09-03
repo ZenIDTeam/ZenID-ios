@@ -337,6 +337,8 @@ public enum FaceLivenessState: Int {
     case TurnHead = 1
     case Smile = 2
     case Ok = 3
+    case blurry = 4
+    case dark = 5
 }
 
 extension FaceLivenessState: CustomStringConvertible {
@@ -350,6 +352,10 @@ extension FaceLivenessState: CustomStringConvertible {
             return "Smile"
         case .Ok:
             return "Ok"
+        case .blurry:
+            return "Blurry"
+        case .dark:
+            return "Dark"
         }
     }
 }
