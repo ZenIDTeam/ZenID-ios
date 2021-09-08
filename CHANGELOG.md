@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.4 - 2021-09-03
+* Added support for Faceliveness `dark` and `blurry` state.
+* Updated LibZenid to 1.8.5.
+
 ## 1.3.1 - 2021-08-23
 * Updated LibZenid to 1.8.4.
 

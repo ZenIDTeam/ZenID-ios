@@ -237,7 +237,7 @@ Selfie detection result contains state of currently analysed image.
 `SelfieResult.state` can be `NoFaceFound`, `Blurry`, `Dark`, `ConfirmingFace` and finally `Ok`
 
 Face liveness detection result contains state of currently analysed image.
-`FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Ok`
+`FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile`, `Blurry`, `Dark` and finally  `Ok`
 
 ### Signature
 The SDK now generates a signature for the snapshots it takes. The backend uses the signature to verify picture origin and integrity. The signature lets you upload the final frame instead of the whole video for verification. The SDK only generates a signature when the result state is OK. 
