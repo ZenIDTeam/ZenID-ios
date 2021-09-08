@@ -256,7 +256,7 @@ final class ChoiceViewController: UIViewController {
 }
 
 extension ChoiceViewController: CameraViewControllerDelegate {
-    func didTakePhoto(_ imageData: Data?, type: PhotoType, result: DocumentResult?) {
+    func didTakePhoto(_ imageData: Data?, type: PhotoType, result: UnifiedResult?) {
         if let data = imageData {
             scanProcess?.processPhoto(imageData: data, type: type, result: result)
         }
