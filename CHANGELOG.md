@@ -1,8 +1,7 @@
 # Change Log
 
 ## 1.5 - 2021-09-15
-* Added support for Faceliveness `dark` and `blurry` state.
-* Updated LibZenid to 1.8.5.
+* Updated LibZenid to 1.9.1. (Fixed blur validation for Slovak ID cards)
 
 ## 1.4 - 2021-09-03
 * Added support for Faceliveness `dark` and `blurry` state.
