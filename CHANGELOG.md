@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.6 - 2021-09-21
+* Updated RecogLib to support Swift 5.5
+
 ## 1.5 - 2021-09-15
 * Updated LibZenid to 1.9.1. (Fixed blur validation for Slovak ID cards)
 
