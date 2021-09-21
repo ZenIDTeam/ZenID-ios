@@ -9,7 +9,6 @@
 #include "CUtils.hpp"
 #include "CFaceLivenessWrapper.hpp"
 #include "RecogLibC.h"
-#include "opencv2/opencv.hpp"
 #include <CoreMedia/CoreMedia.h>
 #include <string>
 

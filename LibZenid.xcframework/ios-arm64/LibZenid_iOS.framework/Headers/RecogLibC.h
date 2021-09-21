@@ -2,12 +2,12 @@
 
 #pragma once
 
-#include "DocumentVerifier.h"
-#include "FaceLivenessVerifier.h"
-#include "RecogLibCException.h"
-#include "SelfieVerifier.h"
-#include "Image.h"
-#include "ZenidEnums.generated.h"
-#include "ZenidSecurity.h"
-#include "AcceptableInput.h"
-#include "Optional.h"
+#include <LibZenid_iOS/DocumentVerifier.h>
+#include <LibZenid_iOS/FaceLivenessVerifier.h>
+#include <LibZenid_iOS/RecogLibCException.h>
+#include <LibZenid_iOS/SelfieVerifier.h>
+#include <LibZenid_iOS/Image.h>
+#include <LibZenid_iOS/ZenidEnums.generated.h>
+#include <LibZenid_iOS/ZenidSecurity.h>
+#include <LibZenid_iOS/AcceptableInput.h>
+#include <LibZenid_iOS/Optional.h>
