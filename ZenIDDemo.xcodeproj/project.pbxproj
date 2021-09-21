@@ -129,8 +129,8 @@
 		18A7B91526D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */; };
 		18DBB21E26F9D697002FA296 /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; };
 		18DBB21F26F9D697002FA296 /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		18DBB22126F9D731002FA296 /* LibZenid.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22026F9D731002FA296 /* LibZenid.xcframework */; };
-		18DBB22226F9D731002FA296 /* LibZenid.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22026F9D731002FA296 /* LibZenid.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */; };
+		18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
 		6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536D246970DC001C3544 /* QrScannerController.swift */; };
 		6F2D53712469A937001C3544 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D53702469A937001C3544 /* Credentials.swift */; };
@@ -181,8 +181,8 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
-				18DBB22226F9D731002FA296 /* LibZenid.xcframework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
+				18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
 				18DBB21F26F9D697002FA296 /* RecogLib_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -317,6 +317,7 @@
 		18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessResultAdapter.swift; sourceTree = "<group>"; };
 		18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RecogLib_iOS.xcframework; sourceTree = "<group>"; };
 		18DBB22026F9D731002FA296 /* LibZenid.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid.xcframework; sourceTree = "<group>"; };
+		18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		6F2D536B24696A2A001C3544 /* QrSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrSquareView.swift; sourceTree = "<group>"; };
 		6F2D536D246970DC001C3544 /* QrScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerController.swift; sourceTree = "<group>"; };
 		6F2D53702469A937001C3544 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -364,8 +365,8 @@
 			files = (
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
-				18DBB22126F9D731002FA296 /* LibZenid.xcframework in Frameworks */,
 				18DBB21E26F9D697002FA296 /* RecogLib_iOS.xcframework in Frameworks */,
+				18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +491,7 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */,
 				18DBB22026F9D731002FA296 /* LibZenid.xcframework */,
 				18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */,
 				6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */,

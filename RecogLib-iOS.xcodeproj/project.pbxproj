@@ -15,8 +15,9 @@
 		18953DB126844F6B0077F976 /* DocumentVerifierSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DB026844F6B0077F976 /* DocumentVerifierSettings.swift */; };
 		18C1A3952680F4D80047FDD3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3942680F4D80047FDD3 /* Document.swift */; };
 		18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */; };
-		18DBB22426F9DAD8002FA296 /* LibZenid.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22326F9DAD8002FA296 /* LibZenid.xcframework */; };
-		18DBB22826F9DF23002FA296 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DBB22726F9DF23002FA296 /* RecogLibC.h */; };
+		18DBB22D26F9E4E8002FA296 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22C26F9E4E8002FA296 /* LibZenid_iOS.xcframework */; };
+		18DBB22E26F9E4E8002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22C26F9E4E8002FA296 /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DBB23026F9E4F6002FA296 /* RecogLibC.h */; };
 		18ED9F6726B2B46C00AFF48B /* CImageSignature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18ED9F6526B2B46C00AFF48B /* CImageSignature.cpp */; };
 		18ED9F6826B2B46C00AFF48B /* CImageSignature.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18ED9F6626B2B46C00AFF48B /* CImageSignature.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		18ED9F6A26B2B4A900AFF48B /* DocumentSignatureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED9F6926B2B4A900AFF48B /* DocumentSignatureMapper.swift */; };
@@ -49,6 +50,20 @@
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		18DBB22F26F9E4E8002FA296 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18DBB22E26F9E4E8002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		181AB22D26F9856C0081420D /* VerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierModels.swift; sourceTree = "<group>"; };
 		181AB22F26F985AB0081420D /* DocumentVerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierModels.swift; sourceTree = "<group>"; };
@@ -59,7 +74,8 @@
 		18C1A3942680F4D80047FDD3 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsInput.swift; sourceTree = "<group>"; };
 		18DBB22326F9DAD8002FA296 /* LibZenid.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid.xcframework; sourceTree = "<group>"; };
-		18DBB22726F9DF23002FA296 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "LibZenid.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
+		18DBB22C26F9E4E8002FA296 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
+		18DBB23026F9E4F6002FA296 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
 		18ED9F6526B2B46C00AFF48B /* CImageSignature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CImageSignature.cpp; sourceTree = "<group>"; };
 		18ED9F6626B2B46C00AFF48B /* CImageSignature.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CImageSignature.hpp; sourceTree = "<group>"; };
 		18ED9F6926B2B4A900AFF48B /* DocumentSignatureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSignatureMapper.swift; sourceTree = "<group>"; };
@@ -102,9 +118,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18DBB22426F9DAD8002FA296 /* LibZenid.xcframework in Frameworks */,
 				D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
+				18DBB22D26F9E4E8002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,7 +182,7 @@
 		D264245322C11E7E00735B99 = {
 			isa = PBXGroup;
 			children = (
-				18DBB22726F9DF23002FA296 /* RecogLibC.h */,
+				18DBB23026F9E4F6002FA296 /* RecogLibC.h */,
 				D264245F22C11E7E00735B99 /* RecogLib-iOS */,
 				D264245E22C11E7E00735B99 /* Products */,
 				D264249022C1210000735B99 /* Frameworks */,
@@ -208,6 +224,7 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18DBB22C26F9E4E8002FA296 /* LibZenid_iOS.xcframework */,
 				18DBB22326F9DAD8002FA296 /* LibZenid.xcframework */,
 				6F7EAC5324B88616001396F9 /* LibZenid_iOS.framework */,
 				D2BD780622C4EA24006D7974 /* CoreMedia.framework */,
@@ -232,7 +249,7 @@
 				D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */,
 				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
 				6FE107B824B29B1C00610F8D /* CUtils.hpp in Headers */,
-				18DBB22826F9DF23002FA296 /* RecogLibC.h in Headers */,
+				18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */,
 				6F6C270124B8805E0073A2CA /* CZenidSecurityWrapper.hpp in Headers */,
 				6F2CFC8A247471C5005D2FB6 /* CFaceLivenessWrapper.hpp in Headers */,
 			);
@@ -249,6 +266,7 @@
 				D264245922C11E7E00735B99 /* Sources */,
 				D264245A22C11E7E00735B99 /* Frameworks */,
 				D264245B22C11E7E00735B99 /* Resources */,
+				18DBB22F26F9E4E8002FA296 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
