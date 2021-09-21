@@ -348,8 +348,9 @@ public struct SelfieResult {
 public struct HologramResult {
   public var hologramState: RecogLib_iOS.HologramState
 }
-@_hasMissingDesignatedInitializers final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
+final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
   final public let url: Foundation.URL
+  public init?(url: Foundation.URL, fileManager: Foundation.FileManager = .default)
   final public func load(onLoad: (Foundation.Data) -> Swift.Void)
   @objc deinit
 }

@@ -6,7 +6,7 @@ public final class FaceVerifierModels: VerifierModels {
     public let url: URL
     private let fileManager: FileManager
     
-    init?(url: URL, fileManager: FileManager = .default) {
+    public init?(url: URL, fileManager: FileManager = .default) {
         let fileExists = fileManager.fileExists(atPath: url.path)
         if !fileExists {
             return nil

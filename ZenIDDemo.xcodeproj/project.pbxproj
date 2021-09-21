@@ -53,6 +53,7 @@
 		01859B0622C4863C005B7E36 /* UIDevice+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01859B0522C4863C005B7E36 /* UIDevice+Size.swift */; };
 		01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8F88522B92BE100D8B75E /* MessagesView.swift */; };
 		01EDB2C3231FAE22009B0859 /* UIImageView+Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */; };
+		181AB23426F9A2870081420D /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 181AB23326F9A2870081420D /* Models */; };
 		18237B3026D79DB800D83627 /* UnifiedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B2F26D79DB700D83627 /* UnifiedResult.swift */; };
 		18237B3226D79E0F00D83627 /* UnifiedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B3126D79E0F00D83627 /* UnifiedState.swift */; };
 		18237B3426D79E7100D83627 /* UnifiedDocumentResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B3326D79E7100D83627 /* UnifiedDocumentResultAdapter.swift */; };
@@ -240,6 +241,7 @@
 		01859B0522C4863C005B7E36 /* UIDevice+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Size.swift"; sourceTree = "<group>"; };
 		01B8F88522B92BE100D8B75E /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Clipping.swift"; sourceTree = "<group>"; };
+		181AB23326F9A2870081420D /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		18237B2F26D79DB700D83627 /* UnifiedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedResult.swift; sourceTree = "<group>"; };
 		18237B3126D79E0F00D83627 /* UnifiedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedState.swift; sourceTree = "<group>"; };
 		18237B3326D79E7100D83627 /* UnifiedDocumentResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentResultAdapter.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 		0134751321ECB3FB004EE4E5 = {
 			isa = PBXGroup;
 			children = (
+				181AB23326F9A2870081420D /* Models */,
 				0134751E21ECB3FB004EE4E5 /* ZenIDDemo */,
 				6F8EEF2024C4ECA600208223 /* README.md */,
 				6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */,
@@ -869,6 +872,7 @@
 				012F7B8C2292FB4500B0BBB6 /* Apache License.txt in Resources */,
 				012F7B822292FB4500B0BBB6 /* Roboto-Bold.ttf in Resources */,
 				6F64016424C19E95004A8982 /* Settings.bundle in Resources */,
+				181AB23426F9A2870081420D /* Models in Resources */,
 				18953D5B2682469A0077F976 /* Selection.storyboard in Resources */,
 				012F7B482285560900B0BBB6 /* Colors.xcassets in Resources */,
 				012F7B922292FB4500B0BBB6 /* Roboto-Black.ttf in Resources */,

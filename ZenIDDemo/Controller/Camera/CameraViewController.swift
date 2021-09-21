@@ -121,11 +121,24 @@ class CameraViewController: UIViewController {
         self.documents = []
         
         super.init(nibName: nil, bundle: nil)
+        loadModels()
     }
     
     required init?(coder aDecoder: NSCoder) {
         ApplicationLogger.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func loadModels() {
+        let rootUrl = Bundle.main.bundleURL.appendingPathComponent("Models")
+        let documentsUrl = rootUrl.appendingPathComponent("documents")
+        documentVerifier.loadModels(.init(url: documentsUrl)!)
+        
+        let faceUrl = rootUrl.appendingPathComponent("face/lbfmodel.yaml.bin")
+        faceLivenessVerifier.loadModels(.init(url: faceUrl)!)
+        
+        let selfieUrl = rootUrl.appendingPathComponent("face/haarcascade_frontalface_alt2.xml")
+        selfieVerifier.loadModels(.init(url: selfieUrl)!)
     }
     
     public override func viewDidLoad() {
