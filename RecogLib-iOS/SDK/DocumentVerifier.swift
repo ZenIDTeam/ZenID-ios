@@ -10,11 +10,7 @@ import Foundation
 import CoreMedia
 
 public class DocumentVerifier {
-    fileprivate var cppObject: UnsafeRawPointer?
-
-    private let modelsRelativePath = "documents"
-    private let modelPrefix = "recoglibc"
-    private let modelSuffix = "bin"
+    private var cppObject: UnsafeRawPointer?
     
     public var documentRole: DocumentRole?
     public var country: Country?
@@ -48,10 +44,6 @@ public class DocumentVerifier {
         
         var verifierSettings = createDocumentVerifierSettings(settings: settings)
         self.cppObject = getDocumentVerifier(&verifierSettings)
-        let modelsURL = Bundle(for: DocumentVerifier.self)
-            .bundleURL
-            .appendingPathComponent(modelsRelativePath)
-        listModels(modelsURL).forEach(readModel(url:))
     }
     
     public init(input: DocumentsInput, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
@@ -61,10 +53,13 @@ public class DocumentVerifier {
         
         var verifierSettings = createDocumentVerifierSettings(settings: settings)
         self.cppObject = getDocumentVerifier(&verifierSettings)
-        let modelsURL = Bundle(for: DocumentVerifier.self)
-            .bundleURL
-            .appendingPathComponent(modelsRelativePath)
-        listModels(modelsURL).forEach(readModel(url:))
+    }
+    
+    public func loadModels(_ loader: DocumentVerifierModels) {
+        loader.loadPointer { pointer, data in
+            RecogLib_iOS.loadModel(self.cppObject, pointer, data.count)
+            ApplicationLogger.shared.Info("Loaded model: \(loader.url.lastPathComponent)")
+        }
     }
 
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
@@ -166,31 +161,5 @@ public class DocumentVerifier {
             documentBlurAcceptableScore: Int32(settings?.documentBlurAcceptableScore ?? 50),
             timeToBlurMaxToleranceInSeconds: Int32(settings?.timeToBlurMaxToleranceInSeconds ?? 10)
         )
-    }
-    
-    private func readModel(url: URL) {
-        if let handle = try? FileHandle(forReadingFrom: url) {
-            defer { handle.closeFile() }
-            
-            let data = handle.readDataToEndOfFile()
-            data.withUnsafeBytes {
-                if let typedPtr = $0.bindMemory(to: CChar.self).baseAddress {
-                    RecogLib_iOS.loadModel(self.cppObject, typedPtr, data.count)
-                    ApplicationLogger.shared.Info("Loaded model: \(url.lastPathComponent)")
-                }
-            }
-        }
-    }
-    
-    private func listModels(_ folderURL: URL) -> [URL] {
-        if let contents = try? FileManager.default.contentsOfDirectory(atPath: folderURL.path) {
-            return contents
-                .filter { $0.hasSuffix(modelSuffix) && $0.hasPrefix(modelPrefix) }
-                .sorted()
-                .map(folderURL.appendingPathComponent)
-        }
-        else {
-            return []
-        }
     }
 }

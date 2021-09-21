@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecogLib_iOS
 import AVFoundation
 import CoreGraphics
@@ -26,6 +26,7 @@ public class SelfieVerifier {
     set(value)
   }
   public init(language: RecogLib_iOS.SupportedLanguages)
+  public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
   public func reset()
@@ -39,6 +40,7 @@ public class FaceLivenessVerifier {
     set(value)
   }
   public init(language: RecogLib_iOS.SupportedLanguages)
+  public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
   public func reset()
@@ -62,6 +64,7 @@ public class DocumentVerifier {
   }
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
   public init(input: RecogLib_iOS.DocumentsInput, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
+  public func loadModels(_ loader: RecogLib_iOS.DocumentVerifierModels)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func update(settings: RecogLib_iOS.DocumentVerifierSettings)
@@ -315,6 +318,16 @@ public struct DocumentResult {
   public var page: RecogLib_iOS.PageCode?
   public var signature: RecogLib_iOS.ImageSignature?
 }
+final public class DocumentVerifierModels : RecogLib_iOS.VerifierModels {
+  final public let url: Foundation.URL
+  public init?(url: Foundation.URL, fileManager: Foundation.FileManager = .default)
+  final public func load(onLoad: (Foundation.Data) -> Swift.Void)
+  @objc deinit
+}
+public protocol VerifierModels {
+  var url: Foundation.URL { get }
+  func load(onLoad: (Foundation.Data) -> Swift.Void)
+}
 public struct Document : Swift.Comparable {
   public static func < (lhs: RecogLib_iOS.Document, rhs: RecogLib_iOS.Document) -> Swift.Bool
   public let role: RecogLib_iOS.DocumentRole?
@@ -334,4 +347,9 @@ public struct SelfieResult {
 }
 public struct HologramResult {
   public var hologramState: RecogLib_iOS.HologramState
+}
+@_hasMissingDesignatedInitializers final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
+  final public let url: Foundation.URL
+  final public func load(onLoad: (Foundation.Data) -> Swift.Void)
+  @objc deinit
 }

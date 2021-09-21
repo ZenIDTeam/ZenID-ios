@@ -10,10 +10,7 @@ import Foundation
 import CoreMedia
 
 public class FaceLivenessVerifier {
-    fileprivate var cppObject: UnsafeRawPointer?
-    
-    private let modelsRelativePath = "face"
-    private let modelContentFile = "lbfmodel.yaml.bin"
+    private var cppObject: UnsafeRawPointer?
 
     public var language: SupportedLanguages
     
@@ -25,8 +22,13 @@ public class FaceLivenessVerifier {
         
     public init(language: SupportedLanguages) {
         self.language = language
-        
-        createFaceLivenessVerifier()
+    }
+    
+    public func loadModels(_ loader: FaceVerifierModels) {
+        loader.loadPointer { pointer, data in
+            let folderUrl = loader.url.deletingLastPathComponent()
+            cppObject = RecogLib_iOS.getFaceLivenessVerifier(folderUrl.path.toUnsafeMutablePointer()!, pointer, data.count)
+        }
     }
     
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
@@ -64,33 +66,6 @@ public class FaceLivenessVerifier {
         }
         
         return result
-    }
-    
-    private func createFaceLivenessVerifier() {
-        let modelFolderURL = Bundle(for: FaceLivenessVerifier.self)
-            .bundleURL
-            .appendingPathComponent(modelsRelativePath)
-        
-        let model = readModel(modelFolderURL)
-        model.withUnsafeBytes {
-            if let typedPtr = $0.bindMemory(to: CChar.self).baseAddress {
-                self.cppObject = RecogLib_iOS.getFaceLivenessVerifier(modelFolderURL.path.toUnsafeMutablePointer()!, typedPtr, model.count)
-            }
-        }
-    }
-
-    private func readModel(_ folderURL: URL) -> Data {
-        let fileURL = folderURL.appendingPathComponent(modelContentFile)
-        
-        if let handle = try? FileHandle(forReadingFrom: fileURL) {
-            defer { handle.closeFile() }
-            
-            let data = handle.readDataToEndOfFile()
-            ApplicationLogger.shared.Info("Loaded model: \(fileURL.lastPathComponent)")
-            return data
-        }
-        
-        return Data()
     }
     
     private func createFaceLivenessInfo(orientation: UIInterfaceOrientation) -> CFaceLivenessInfo {

@@ -10,10 +10,7 @@ import Foundation
 import CoreMedia
 
 public class SelfieVerifier {
-    fileprivate var cppObject: UnsafeRawPointer?
-    
-    private let modelsRelativePath = "face"
-    private let modelContentFile = "haarcascade_frontalface_alt2.xml"
+    private var cppObject: UnsafeRawPointer?
     
     public var language: SupportedLanguages
     
@@ -25,8 +22,11 @@ public class SelfieVerifier {
         
     public init(language: SupportedLanguages) {
         self.language = language
-        
-        createSelfieVerifier()
+    }
+    
+    public func loadModels(_ loader: FaceVerifierModels) {
+        cppObject = RecogLib_iOS.getSelfieVerifier()
+        RecogLib_iOS.loadSelfie(cppObject, loader.url.path.toUnsafeMutablePointer()!)
     }
     
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> SelfieResult? {
@@ -64,16 +64,6 @@ public class SelfieVerifier {
         }
         
         return result
-    }
-
-    private func createSelfieVerifier() {
-        let modelFolderURL = Bundle(for: SelfieVerifier.self)
-            .bundleURL
-            .appendingPathComponent(modelsRelativePath)
-            .appendingPathComponent(modelContentFile)
-        
-        self.cppObject = RecogLib_iOS.getSelfieVerifier()
-        RecogLib_iOS.loadSelfie(cppObject, modelFolderURL.path.toUnsafeMutablePointer()!)
     }
     
     private func createSelfieInfo(orientation: UIInterfaceOrientation) -> CSelfieInfo {
