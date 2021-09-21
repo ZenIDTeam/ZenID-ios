@@ -127,6 +127,10 @@
 		18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */; };
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
 		18A7B91526D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */; };
+		18DBB21E26F9D697002FA296 /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; };
+		18DBB21F26F9D697002FA296 /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18DBB22126F9D731002FA296 /* LibZenid.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22026F9D731002FA296 /* LibZenid.xcframework */; };
+		18DBB22226F9D731002FA296 /* LibZenid.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22026F9D731002FA296 /* LibZenid.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
 		6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536D246970DC001C3544 /* QrScannerController.swift */; };
 		6F2D53712469A937001C3544 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D53702469A937001C3544 /* Credentials.swift */; };
@@ -138,10 +142,6 @@
 		6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EEF1E24C4E62A00208223 /* Torch.swift */; };
 		6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */; };
 		6FAE478A2520B6EE00A92876 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47892520B6EE00A92876 /* Ellipse.swift */; };
-		6FAFA1CF2588E7A3008BD04B /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */; };
-		6FAFA1D02588E7A3008BD04B /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6FAFA1D22588E7A6008BD04B /* LibZenid_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0141C02323A2A13200566078 /* LibZenid_iOS.framework */; };
-		6FAFA1D32588E7A6008BD04B /* LibZenid_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0141C02323A2A13200566078 /* LibZenid_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */; };
 		6FD5BDFF26409471001943DD /* ZenIDLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5BDFE26409471001943DD /* ZenIDLogger.swift */; };
 		6FE107B224B260F900610F8D /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE107B124B260F900610F8D /* VideoWriter.swift */; };
@@ -181,9 +181,9 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
-				6FAFA1D02588E7A3008BD04B /* RecogLib_iOS.framework in Embed Frameworks */,
+				18DBB22226F9D731002FA296 /* LibZenid.xcframework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
-				6FAFA1D32588E7A6008BD04B /* LibZenid_iOS.framework in Embed Frameworks */,
+				18DBB21F26F9D697002FA296 /* RecogLib_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +315,8 @@
 		18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecogLibDocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessResultAdapter.swift; sourceTree = "<group>"; };
+		18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RecogLib_iOS.xcframework; sourceTree = "<group>"; };
+		18DBB22026F9D731002FA296 /* LibZenid.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid.xcframework; sourceTree = "<group>"; };
 		6F2D536B24696A2A001C3544 /* QrSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrSquareView.swift; sourceTree = "<group>"; };
 		6F2D536D246970DC001C3544 /* QrScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerController.swift; sourceTree = "<group>"; };
 		6F2D53702469A937001C3544 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -362,9 +364,9 @@
 			files = (
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
-				6FAFA1D22588E7A6008BD04B /* LibZenid_iOS.framework in Frameworks */,
+				18DBB22126F9D731002FA296 /* LibZenid.xcframework in Frameworks */,
+				18DBB21E26F9D697002FA296 /* RecogLib_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
-				6FAFA1CF2588E7A3008BD04B /* RecogLib_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +490,8 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18DBB22026F9D731002FA296 /* LibZenid.xcframework */,
+				18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */,
 				6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */,
 				6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */,
 				6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */,
@@ -805,7 +809,6 @@
 				0134751921ECB3FB004EE4E5 /* Frameworks */,
 				0134751A21ECB3FB004EE4E5 /* Resources */,
 				6FAFA1D12588E7A3008BD04B /* Embed Frameworks */,
-				6F4E4D61258A4B7400E00314 /* Remove unused architectures */,
 			);
 			buildRules = (
 			);
@@ -882,27 +885,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6F4E4D61258A4B7400E00314 /* Remove unused architectures */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Remove unused architectures";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\n    FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\n    FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\n    echo \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\n    EXTRACTED_ARCHS=()\n\n    for ARCH in $ARCHS\n    do\n        echo \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\n        lipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\n        EXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\n    done\n\n    echo \"Merging extracted architectures: ${ARCHS}\"\n    lipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\n    rm \"${EXTRACTED_ARCHS[@]}\"\n\n    echo \"Replacing original executable with thinned version\"\n    rm \"$FRAMEWORK_EXECUTABLE_PATH\"\n    mv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0134751821ECB3FB004EE4E5 /* Sources */ = {
@@ -1190,7 +1172,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1208,7 +1190,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 1.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
@@ -1224,7 +1206,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1239,7 +1221,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 1.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
