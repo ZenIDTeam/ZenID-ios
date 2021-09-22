@@ -16,7 +16,6 @@
 		18C1A3952680F4D80047FDD3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3942680F4D80047FDD3 /* Document.swift */; };
 		18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */; };
 		18DBB22D26F9E4E8002FA296 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22C26F9E4E8002FA296 /* LibZenid_iOS.xcframework */; };
-		18DBB22E26F9E4E8002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22C26F9E4E8002FA296 /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DBB23026F9E4F6002FA296 /* RecogLibC.h */; };
 		18ED9F6726B2B46C00AFF48B /* CImageSignature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18ED9F6526B2B46C00AFF48B /* CImageSignature.cpp */; };
 		18ED9F6826B2B46C00AFF48B /* CImageSignature.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18ED9F6626B2B46C00AFF48B /* CImageSignature.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,20 +48,6 @@
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		18DBB22F26F9E4E8002FA296 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				18DBB22E26F9E4E8002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		181AB22D26F9856C0081420D /* VerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierModels.swift; sourceTree = "<group>"; };
@@ -266,7 +251,6 @@
 				D264245922C11E7E00735B99 /* Sources */,
 				D264245A22C11E7E00735B99 /* Frameworks */,
 				D264245B22C11E7E00735B99 /* Resources */,
-				18DBB22F26F9E4E8002FA296 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

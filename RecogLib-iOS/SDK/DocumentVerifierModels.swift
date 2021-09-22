@@ -17,16 +17,37 @@ public final class DocumentVerifierModels: VerifierModels {
     }
     
     public func load(onLoad: (Data) -> Void) {
-        guard let contents = try? fileManager.contentsOfDirectory(atPath: url.path) else {
-            return
-        }
-        contents
-            .filter { $0.hasSuffix("bin") }
-            .sorted()
-            .map(url.appendingPathComponent)
-            .forEach { url in
-                onLoad(loadData(url: url))
+        load(url: url, onLoad: onLoad)
+    }
+    
+    private func load(url: URL, onLoad: (Data) -> Void) {
+        let contents = getContent(of: url)
+        for content in contents {
+            let fileUrl = url.appendingPathComponent(content)
+            if isDirectory(url: fileUrl) {
+                load(url: fileUrl, onLoad: onLoad)
+            } else if isBinFile(url: fileUrl) {
+                onLoad(loadData(url: fileUrl))
             }
+        }
+    }
+    
+    private func getContent(of url: URL) -> [String] {
+        guard let contents = try? fileManager.contentsOfDirectory(atPath: url.path) else {
+            return []
+        }
+        return contents
+    }
+    
+    @inline(__always)
+    private func isDirectory(url: URL) -> Bool {
+        var isDirectory: ObjCBool = false
+        return fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) && isDirectory.boolValue
+    }
+    
+    @inline(__always)
+    private func isBinFile(url: URL) -> Bool {
+        url.path.hasSuffix("bin")
     }
     
     private func loadData(url: URL) -> Data {
