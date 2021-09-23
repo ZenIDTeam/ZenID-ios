@@ -130,9 +130,8 @@ class CameraViewController: UIViewController {
     }
     
     private func loadModels() {
-        let rootUrl = Bundle.main.bundleURL.appendingPathComponent("Models")
-        let documentsUrl = rootUrl.appendingPathComponent("documents")
-        documentVerifier.loadModels(.init(url: documentsUrl)!)
+        let rootUrl = URL.modelsFolder
+        documentVerifier.loadModels(.init(url: URL.modelsDocuments)!)
         
         let faceUrl = rootUrl.appendingPathComponent("face/lbfmodel.yaml.bin")
         faceLivenessVerifier.loadModels(.init(url: faceUrl)!)
