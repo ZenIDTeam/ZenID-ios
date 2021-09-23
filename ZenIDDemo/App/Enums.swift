@@ -124,7 +124,7 @@ public enum PhotoType {
     case face
     
     var isDocument: Bool {
-        self == .face || self == .back
+        self == .front || self == .back
     }
 }
 
