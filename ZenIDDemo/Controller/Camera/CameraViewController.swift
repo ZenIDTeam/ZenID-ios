@@ -423,8 +423,10 @@ private extension CameraViewController {
             returnImage(nil)
             return
         }
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        contentView.previewLayer = previewLayer
+        if previewLayer == nil {
+            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            contentView.previewLayer = previewLayer
+        }
         contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay)
     }
     
