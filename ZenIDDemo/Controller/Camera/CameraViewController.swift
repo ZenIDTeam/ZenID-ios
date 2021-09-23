@@ -93,6 +93,7 @@ class CameraViewController: UIViewController {
         self.documents = []
         
         super.init(nibName: nil, bundle: nil)
+        loadModels()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -114,6 +115,17 @@ class CameraViewController: UIViewController {
         contentView.targetFrame = { [unowned self] in
             self.targetFrame
         }
+    }
+    
+    private func loadModels() {
+        let rootUrl = URL.modelsFolder
+        documentVerifier.loadModels(.init(url: URL.modelsDocuments)!)
+        
+        let faceUrl = rootUrl.appendingPathComponent("face/lbfmodel.yaml.bin")
+        faceLivenessVerifier.loadModels(.init(url: faceUrl)!)
+        
+        let selfieUrl = rootUrl.appendingPathComponent("face/haarcascade_frontalface_alt2.xml")
+        selfieVerifier.loadModels(.init(url: selfieUrl)!)
     }
     
     public override func viewDidLoad() {
