@@ -34,6 +34,10 @@ extension FaceLivenessState {
             return .smile
         case .Ok:
             return .ok
+        case .blurry:
+            return .blurry
+        case .dark:
+            return .dark
         }
     }
 }

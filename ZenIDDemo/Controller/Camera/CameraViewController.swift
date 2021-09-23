@@ -314,7 +314,7 @@ class CameraViewController: UIViewController {
             returnImage(buffer, ImageFlip.fromPortrait, result: unwrappedResult)
         }
     }
-    
+
     @objc private func capture() {
         guard captureDevice != nil else {
             return

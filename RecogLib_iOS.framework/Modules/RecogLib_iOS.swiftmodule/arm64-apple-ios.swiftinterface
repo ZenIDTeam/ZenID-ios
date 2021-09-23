@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecogLib_iOS
 import AVFoundation
 import CoreGraphics
@@ -9,6 +9,7 @@ import Foundation
 import Swift
 import UIKit.UIImage
 import UIKit
+import _Concurrency
 public struct FaceLivenessResult {
   public var faceLivenessState: RecogLib_iOS.FaceLivenessState
   public let signature: RecogLib_iOS.ImageSignature?
@@ -109,7 +110,7 @@ public enum SupportedLanguages : Swift.Int {
     get
   }
 }
-extension SupportedLanguages : Swift.CustomStringConvertible {
+extension RecogLib_iOS.SupportedLanguages : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -171,7 +172,7 @@ public enum DocumentCode : Swift.Int {
     get
   }
 }
-extension DocumentCode : Swift.CustomStringConvertible {
+extension RecogLib_iOS.DocumentCode : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -185,7 +186,7 @@ public enum PageCode : Swift.Int {
     get
   }
 }
-extension PageCode : Swift.CustomStringConvertible {
+extension RecogLib_iOS.PageCode : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -205,7 +206,7 @@ public enum Country : Swift.Int {
     get
   }
 }
-extension Country : Swift.CustomStringConvertible {
+extension RecogLib_iOS.Country : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -223,7 +224,7 @@ public enum DocumentRole : Swift.Int {
     get
   }
 }
-extension DocumentRole : Swift.CustomStringConvertible {
+extension RecogLib_iOS.DocumentRole : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -243,7 +244,7 @@ public enum DocumentState : Swift.Int {
     get
   }
 }
-extension DocumentState : Swift.CustomStringConvertible {
+extension RecogLib_iOS.DocumentState : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -263,7 +264,7 @@ public enum HologramState : Swift.Int {
     get
   }
 }
-extension HologramState : Swift.CustomStringConvertible {
+extension RecogLib_iOS.HologramState : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -273,13 +274,15 @@ public enum FaceLivenessState : Swift.Int {
   case TurnHead
   case Smile
   case Ok
+  case blurry
+  case dark
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
-extension FaceLivenessState : Swift.CustomStringConvertible {
+extension RecogLib_iOS.FaceLivenessState : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -296,7 +299,7 @@ public enum SelfieState : Swift.Int {
     get
   }
 }
-extension SelfieState : Swift.CustomStringConvertible {
+extension RecogLib_iOS.SelfieState : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }

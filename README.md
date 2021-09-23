@@ -228,6 +228,7 @@ It contains all the information found describing currently analysed document/fac
 - `role` - specified type of a document
 - `country` - specified origin country of a document
 - `page` - specified page
+- `signature` - signature when state is OK
 
 Hologram result contains state of currently analysed image.
 `HologramResult.state`  can be `NoMatchFound`, `TiltLeft`, `RotateClockwise` etc. and finally  `Ok`
@@ -236,7 +237,21 @@ Selfie detection result contains state of currently analysed image.
 `SelfieResult.state` can be `NoFaceFound`, `Blurry`, `Dark`, `ConfirmingFace` and finally `Ok`
 
 Face liveness detection result contains state of currently analysed image.
-`FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile` and finally  `Ok`
+`FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile`, `Blurry`, `Dark` and finally  `Ok`
+
+### Signature
+The SDK now generates a signature for the snapshots it takes. The backend uses the signature to verify picture origin and integrity. The signature lets you upload the final frame instead of the whole video for verification. The SDK only generates a signature when the result state is OK. 
+
+The SDK provides the signature as an attribute inside of the result objects of verifiers, such as `DocumentResult`, `FaceLivenessResult`, and `SelfieResult`. Hologram does not support the signature. 
+
+This is what `Signature` structure looks like:
+```swift
+struct Signature {
+    let image: Data
+    let signature: String
+}
+```
+Where the `image` attribute is binary data of the image that contains the SDK signature. You have to send this binary data to the backend if you want to have your signature to be validated. The `signature` attribute is a string that represents the signature itself that you should send to the backend in your investigation sample HTTP REST call. 
 
 ### Device Orientation
 SDK supports all device orientations - landscape and portrait. 

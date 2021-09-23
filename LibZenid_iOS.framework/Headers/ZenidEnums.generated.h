@@ -68,7 +68,9 @@ enum class DocumentCodes : uint8_t
 	EU_EHIC_2004_B = 55,
 	PL_IDC_2001_02_13 = 56,
 	IT_IDC_2016 = 57,
-	CZ_IDC_2021 = 58,
+	HR_PAS_2009_15 = 58,
+	HR_DRV_2013 = 59,
+	HR_IDC_2003 = 60,
 };
 
 enum class PageCodes : uint8_t
@@ -161,6 +163,8 @@ enum class FaceLivenessVerifierState : int
 	TurnHead = 1,
 	Smile = 2,
 	Ok = 3,
+	Blurry = 4,
+	Dark = 5,
 };
 
 enum class FieldID : int
