@@ -18,9 +18,7 @@ final class DocumentVerifierSettingsComposer {
             viewController?.contentView.tableView.sections = [
                 .init(
                     title: nil,
-                    cells: items.map({ viewModel in
-                        DocumentVerifierSettingsCellController(viewModel: viewModel)
-                    })
+                    cells: items.map({ map($0) })
                 )
             ]
         }
@@ -29,6 +27,15 @@ final class DocumentVerifierSettingsComposer {
     
     private static func resolve(loader: DocumentVerifierSettingsLoader, updater: DocumentVerifierSettingsUpdater) -> DocumentVerifierSettingsViewModel {
         .init(loader: loader, updater: updater)
+    }
+    
+    private static func map(_ type: DocumentVerifierSettingsType) -> TableCellController {
+        switch type {
+        case .interval(let viewModel):
+            return DocumentVerifierSettingsCellController(viewModel: viewModel)
+        case .switch(let viewModel):
+            return DocumentVerifierSettingsSwitchCellController(viewModel: viewModel)
+        }
     }
     
 }

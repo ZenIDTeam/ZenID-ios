@@ -58,6 +58,9 @@
 		18237B3226D79E0F00D83627 /* UnifiedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B3126D79E0F00D83627 /* UnifiedState.swift */; };
 		18237B3426D79E7100D83627 /* UnifiedDocumentResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B3326D79E7100D83627 /* UnifiedDocumentResultAdapter.swift */; };
 		18237B3626D7A13300D83627 /* UnifiedSelfieResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B3526D7A13300D83627 /* UnifiedSelfieResultAdapter.swift */; };
+		182D63DD26FD99BA004289A3 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DC26FD99BA004289A3 /* SwitchTableViewCell.swift */; };
+		182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */; };
+		182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
 		18953D46268233AD0077F976 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18953D45268233AD0077F976 /* Menu.storyboard */; };
 		18953D492682419A0077F976 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D482682419A0077F976 /* SettingsViewController.swift */; };
@@ -255,6 +258,9 @@
 		18237B3126D79E0F00D83627 /* UnifiedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedState.swift; sourceTree = "<group>"; };
 		18237B3326D79E7100D83627 /* UnifiedDocumentResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentResultAdapter.swift; sourceTree = "<group>"; };
 		18237B3526D7A13300D83627 /* UnifiedSelfieResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedSelfieResultAdapter.swift; sourceTree = "<group>"; };
+		182D63DC26FD99BA004289A3 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchViewModel.swift; sourceTree = "<group>"; };
+		182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchCellController.swift; sourceTree = "<group>"; };
 		1861947226FC28D500B8B395 /* URL+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Models.swift"; sourceTree = "<group>"; };
 		18953D45268233AD0077F976 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		18953D482682419A0077F976 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -692,8 +698,11 @@
 				18953DB5268467EC0077F976 /* DocumentVerifierSettingsViewController.swift */,
 				18953DB7268467F90077F976 /* DocumentVerifierSettingsView.swift */,
 				18953DBD26846F930077F976 /* IntervalTableViewCell.swift */,
+				182D63DC26FD99BA004289A3 /* SwitchTableViewCell.swift */,
 				18953DC9268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift */,
+				182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */,
 				18953DC7268482840077F976 /* DocumentVerifierSettingsCellController.swift */,
+				182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */,
 				18953DB92684680A0077F976 /* DocumentVerifierSettingsViewModel.swift */,
 				18953DBB268468180077F976 /* DocumentVerifierSettingsComposer.swift */,
 			);
@@ -952,6 +961,7 @@
 				0141C02C23A78FDA00566078 /* Renderable.swift in Sources */,
 				D2CB351C22BA78E500453DB8 /* String+localized.swift in Sources */,
 				18953DCC2684E1A50077F976 /* SelfieTableCellController.swift in Sources */,
+				182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */,
 				6FF5E9CD2468ACF20077980C /* CredentialsSettings.swift in Sources */,
 				18953DC626847F4F0077F976 /* DocumentVerifierSettingsLoaderComposer.swift in Sources */,
 				18953D582682454E0077F976 /* SettingsComposer.swift in Sources */,
@@ -996,7 +1006,9 @@
 				18237B3626D7A13300D83627 /* UnifiedSelfieResultAdapter.swift in Sources */,
 				0141C02823A38AAF00566078 /* SelectCountryView.swift in Sources */,
 				0141C02E23A7917B00566078 /* Line.swift in Sources */,
+				182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */,
 				18953D4B268241CC0077F976 /* SettingsView.swift in Sources */,
+				182D63DD26FD99BA004289A3 /* SwitchTableViewCell.swift in Sources */,
 				18953DD12684E3B10077F976 /* SelfieSelectionComposer.swift in Sources */,
 				18237B3426D79E7100D83627 /* UnifiedDocumentResultAdapter.swift in Sources */,
 				18DB26AA26D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift in Sources */,
