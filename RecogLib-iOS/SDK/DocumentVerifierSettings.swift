@@ -13,10 +13,12 @@ public struct DocumentVerifierSettings: Equatable {
     public let specularAcceptableScore: Int
     public let documentBlurAcceptableScore: Int
     public let timeToBlurMaxToleranceInSeconds: Int
+    public let showTimer: Bool
     
-    public init(specularAcceptableScore: Int = 50, documentBlurAcceptableScore: Int = 50, timeToBlurMaxToleranceInSeconds: Int = 10) {
+    public init(specularAcceptableScore: Int = 50, documentBlurAcceptableScore: Int = 50, timeToBlurMaxToleranceInSeconds: Int = 10, showTimer: Bool = false) {
         self.specularAcceptableScore = specularAcceptableScore
         self.documentBlurAcceptableScore = documentBlurAcceptableScore
         self.timeToBlurMaxToleranceInSeconds = timeToBlurMaxToleranceInSeconds
+        self.showTimer = showTimer
     }
 }

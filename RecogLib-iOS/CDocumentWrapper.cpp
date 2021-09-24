@@ -85,6 +85,7 @@ const void * getDocumentVerifier(CDocumentVerifierSettings *setttings)
     verifierSettings.specularAcceptableScore = setttings->specularAcceptableScore;
     verifierSettings.documentBlurAcceptableScore = setttings->documentBlurAcceptableScore;
     verifierSettings.timeToBlurMaxToleranceInSeconds = setttings->timeToBlurMaxToleranceInSeconds;
+    verifierSettings.showTimer = setttings->showTimer;
     DocumentVerifier *verifier = new DocumentVerifier(std::make_shared<DocumentVerifierSettings>(verifierSettings));
     return (void *)verifier;
 }
@@ -152,6 +153,7 @@ void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSetting
     verifier->GetSettings().specularAcceptableScore = settings->specularAcceptableScore;
     verifier->GetSettings().documentBlurAcceptableScore = settings->documentBlurAcceptableScore;
     verifier->GetSettings().timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
+    verifier->GetSettings().showTimer = settings->showTimer;
 }
 
 bool verifyHologram(const void *object,
