@@ -57,7 +57,10 @@ final class SettingsComposer {
                 title: nil,
                 cells: [
                     ContactTableCellController(),
-                    LogoutTableCellController(viewController: viewController)
+                    LogoutTableCellController(
+                        viewController: viewController,
+                        coordinator: coordinator
+                    )
                 ]
             )
         ]

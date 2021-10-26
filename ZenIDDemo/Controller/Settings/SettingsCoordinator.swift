@@ -37,6 +37,10 @@ final class SettingsCoordinator {
         rootViewController.popViewController(animated: true)
     }
     
+    private func dismissViewController() {
+        rootViewController.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension SettingsCoordinator: SettingsCoordinable {
@@ -64,7 +68,10 @@ extension SettingsCoordinator: SettingsCoordinable {
         )
         show(viewController: viewController)
     }
-        
+    
+    func settingsDidLogout() {
+        dismissViewController()
+    }
 }
 
 extension SettingsCoordinator: SelfieSelectionCoordinable {

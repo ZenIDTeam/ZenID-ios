@@ -76,6 +76,10 @@ final class ChoiceViewController: UIViewController {
         }
         
         navigationItem.title = NSLocalizedString("app_name", comment: "")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         ensureCredentials()
     }
     
@@ -280,7 +284,7 @@ extension ChoiceViewController {
     private func ensureCredentials(completion: (() -> Void)? = nil) {
         if Credentials.shared.isValid() {
             if let completion = completion {
-                zenidAuthorize(completion: {
+                zenidAuthorize(completion: { _ in
                     DispatchQueue.main.async {
                         completion()
                     }
@@ -300,12 +304,12 @@ extension ChoiceViewController {
         self.present(qrScannerController, animated: false)
     }
     
-    private func zenidAuthorize(completion: @escaping (() -> Void)) {
+    private func zenidAuthorize(completion: @escaping ((Bool) -> Void)) {
         let isAuthorized = ZenidSecurity.isAuthorized()
         ApplicationLogger.shared.Verbose("ZenidSecurity: isAuthorized: \(String(isAuthorized))")
         
         if isAuthorized {
-            completion()
+            completion(true)
             return
         }
         
@@ -321,17 +325,20 @@ extension ChoiceViewController {
                         let authorize = ZenidSecurity.authorize(responseToken: responseToken)
                         ApplicationLogger.shared.Verbose("ZenidSecurity: authorize: \(String(authorize))")
                         if authorize {
-                            completion()
+                            completion(true)
                             return
                         } else {
+                            completion(false)
                             errorMessage()
                         }
                     } else {
+                        completion(false)
                         errorMessage()
                     }
                 }
         } else {
-             errorMessage()
+            completion(false)
+            errorMessage()
         }
     }
 }
@@ -456,7 +463,13 @@ extension ChoiceViewController: QrScannerControllerDelegate {
             Credentials.shared.update(apiURL: qr.apiURL!, apiKey: qr.apiKey!)
             Haptics.shared.success()
             if let completion = completion {
-                zenidAuthorize(completion: completion)
+                zenidAuthorize(completion: { isAuthorized in
+                    if !isAuthorized {
+                        Credentials.shared.clear()
+                    } else {
+                        completion()
+                    }
+                })
             }
             ApplicationLogger.shared.Verbose("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
         }

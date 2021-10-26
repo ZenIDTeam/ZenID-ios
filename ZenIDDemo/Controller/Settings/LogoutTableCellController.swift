@@ -12,9 +12,11 @@ import UIKit
 final class LogoutTableCellController: TableCellController {
     
     private let viewController: UIViewController
+    private let coordinator: SettingsCoordinable
     
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController, coordinator: SettingsCoordinable) {
         self.viewController = viewController
+        self.coordinator = coordinator
     }
     
     func view(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -27,6 +29,7 @@ final class LogoutTableCellController: TableCellController {
     func select() {
         viewController.confirm(title: nil, message: NSLocalizedString("alert-clear-credentials", comment: ""), ok: { [weak self] in
             self?.resetCredentials()
+            self?.coordinator.settingsDidLogout()
         })
     }
     
