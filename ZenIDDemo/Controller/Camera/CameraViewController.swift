@@ -141,6 +141,9 @@ class CameraViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
         configureOverlay()
+        DispatchQueue.main.async { [weak self] in
+            self?.orientationChanged()
+        }
     }
 
     public override func viewDidAppear(_ animated: Bool) {
