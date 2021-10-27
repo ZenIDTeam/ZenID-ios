@@ -61,6 +61,14 @@
 		1865AE742716DC3D00D06F6A /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		187CCCA02716DACC0032C421 /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */; };
 		187CCCA12716DACC0032C421 /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422E7272802D1002BD366 /* DebugTableViewCellController.swift */; };
+		188422EC27280683002BD366 /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422EB27280683002BD366 /* ConfigService.swift */; };
+		188422EE272806C6002BD366 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422ED272806C6002BD366 /* Config.swift */; };
+		188422F127280779002BD366 /* UserDefaultsConfigLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422F027280779002BD366 /* UserDefaultsConfigLoader.swift */; };
+		188422F3272811F0002BD366 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422F2272811F0002BD366 /* SwitchTableViewCell.swift */; };
+		188422F527281224002BD366 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188422F427281224002BD366 /* SwitchTableViewCell.xib */; };
+		188422F72729242C002BD366 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422F62729242C002BD366 /* Reusable.swift */; };
+		188422F9272926FD002BD366 /* ConfigServiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422F8272926FD002BD366 /* ConfigServiceComposer.swift */; };
 		18953D46268233AD0077F976 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18953D45268233AD0077F976 /* Menu.storyboard */; };
 		18953D492682419A0077F976 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D482682419A0077F976 /* SettingsViewController.swift */; };
 		18953D4B268241CC0077F976 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D4A268241CC0077F976 /* SettingsView.swift */; };
@@ -246,6 +254,14 @@
 		18237B3526D7A13300D83627 /* UnifiedSelfieResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedSelfieResultAdapter.swift; sourceTree = "<group>"; };
 		1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = "../../Downloads/LibZenid-iOS_1.9.1/LibZenid_iOS.xcframework"; sourceTree = "<group>"; };
 		187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RecogLib_iOS.xcframework; path = ../../Desktop/RecogLib/RecogLib_iOS.xcframework; sourceTree = "<group>"; };
+		188422E7272802D1002BD366 /* DebugTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewCellController.swift; sourceTree = "<group>"; };
+		188422EB27280683002BD366 /* ConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
+		188422ED272806C6002BD366 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		188422F027280779002BD366 /* UserDefaultsConfigLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfigLoader.swift; sourceTree = "<group>"; };
+		188422F2272811F0002BD366 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		188422F427281224002BD366 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		188422F62729242C002BD366 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		188422F8272926FD002BD366 /* ConfigServiceComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigServiceComposer.swift; sourceTree = "<group>"; };
 		18953D45268233AD0077F976 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		18953D482682419A0077F976 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18953D4A268241CC0077F976 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -382,6 +398,9 @@
 				0141C02723A38AAF00566078 /* SelectCountryView.swift */,
 				6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */,
 				6F2D536B24696A2A001C3544 /* QrSquareView.swift */,
+				188422F2272811F0002BD366 /* SwitchTableViewCell.swift */,
+				188422F427281224002BD366 /* SwitchTableViewCell.xib */,
+				188422F62729242C002BD366 /* Reusable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +408,7 @@
 		012F7B44228553AE00B0BBB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				188422E92728066D002BD366 /* Config */,
 				01859B0722C48A0B005B7E36 /* Camera */,
 				6FFC82C0247F020C00CB4979 /* Qr */,
 				D2CB352322BA829100453DB8 /* Results */,
@@ -551,6 +571,33 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		188422E92728066D002BD366 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				188422EA27280674002BD366 /* Domain */,
+				188422EF2728075B002BD366 /* Infrastructure */,
+				188422F8272926FD002BD366 /* ConfigServiceComposer.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		188422EA27280674002BD366 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				188422ED272806C6002BD366 /* Config.swift */,
+				188422EB27280683002BD366 /* ConfigService.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		188422EF2728075B002BD366 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				188422F027280779002BD366 /* UserDefaultsConfigLoader.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		18953D472682418B0077F976 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +611,7 @@
 				18953DCB2684E1A50077F976 /* SelfieTableCellController.swift */,
 				18953DA426833DED0077F976 /* ContactTableCellController.swift */,
 				18953DA626833F250077F976 /* LogoutTableCellController.swift */,
+				188422E7272802D1002BD366 /* DebugTableViewCellController.swift */,
 				18953D572682454E0077F976 /* SettingsComposer.swift */,
 			);
 			path = Settings;
@@ -875,6 +923,7 @@
 				18953D5B2682469A0077F976 /* Selection.storyboard in Resources */,
 				012F7B482285560900B0BBB6 /* Colors.xcassets in Resources */,
 				012F7B922292FB4500B0BBB6 /* Roboto-Black.ttf in Resources */,
+				188422F527281224002BD366 /* SwitchTableViewCell.xib in Resources */,
 				18953D4D268241E60077F976 /* Settings.storyboard in Resources */,
 				012F7B582285A2F100B0BBB6 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -908,6 +957,7 @@
 				6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */,
 				18953D6B26824AF10077F976 /* BasicTableCellController.swift in Sources */,
 				0141C03A23A853EE00566078 /* Circle.swift in Sources */,
+				188422F9272926FD002BD366 /* ConfigServiceComposer.swift in Sources */,
 				18953D562682444E0077F976 /* SettingsViewModel.swift in Sources */,
 				18237B3226D79E0F00D83627 /* UnifiedState.swift in Sources */,
 				01859B0422C360CE005B7E36 /* ToastView.swift in Sources */,
@@ -923,10 +973,13 @@
 				18953DC626847F4F0077F976 /* DocumentVerifierSettingsLoaderComposer.swift in Sources */,
 				18953D582682454E0077F976 /* SettingsComposer.swift in Sources */,
 				18953D652682472D0077F976 /* SelectionDelegate.swift in Sources */,
+				188422EC27280683002BD366 /* ConfigService.swift in Sources */,
+				188422F3272811F0002BD366 /* SwitchTableViewCell.swift in Sources */,
 				012F7B5E2285E6BC00B0BBB6 /* BusyViewController.swift in Sources */,
 				18953D9D26830D730077F976 /* AddDocumentFilterCoordinable.swift in Sources */,
 				012F7B68228C0FAE00B0BBB6 /* ResultViewController.swift in Sources */,
 				D2CB352722BB84CA00453DB8 /* DispatchError.swift in Sources */,
+				188422EE272806C6002BD366 /* Config.swift in Sources */,
 				0141C03623A7CBFC00566078 /* Rectangle.swift in Sources */,
 				18953DBE26846F930077F976 /* IntervalTableViewCell.swift in Sources */,
 				0141C03023A791B800566078 /* RenderableFactory.swift in Sources */,
@@ -934,11 +987,13 @@
 				18953D8E2682F1810077F976 /* DocumentsFilterLoaderComposer.swift in Sources */,
 				D2CB351622BA76F900453DB8 /* UIViewController+Gradient.swift in Sources */,
 				18953D7E2682E6110077F976 /* DocumentViewModel.swift in Sources */,
+				188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */,
 				18953D54268242E80077F976 /* TableViewCellViewModel.swift in Sources */,
 				18953DDA2685E9F00077F976 /* SelfieSelectionViewModel.swift in Sources */,
 				6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */,
 				0134756921FB538D004EE4E5 /* Dispatcher.swift in Sources */,
 				18953DC426847DD50077F976 /* InMemoryDocumentVerifierSettings.swift in Sources */,
+				188422F127280779002BD366 /* UserDefaultsConfigLoader.swift in Sources */,
 				18953D992682F4C20077F976 /* AddDocumentFilterViewModel.swift in Sources */,
 				012F7B66228B14FF00B0BBB6 /* PreviewViewController.swift in Sources */,
 				18953D63268246D10077F976 /* SelectionComposer.swift in Sources */,
@@ -1014,6 +1069,7 @@
 				18953D61268246C70077F976 /* SelectionViewModel.swift in Sources */,
 				6F2D53712469A937001C3544 /* Credentials.swift in Sources */,
 				0140263D22B3A76300CF60AD /* ResultsViewModel.swift in Sources */,
+				188422F72729242C002BD366 /* Reusable.swift in Sources */,
 				0134756721F75C9C004EE4E5 /* ImageInput.swift in Sources */,
 				18953D9F26830F6E0077F976 /* AddDocumentFilterRoleCellController.swift in Sources */,
 				18953DA726833F250077F976 /* LogoutTableCellController.swift in Sources */,

@@ -32,6 +32,7 @@ final class GroupedTableView: UITableView {
     
     private func registerCells() {
         register(UITableViewCell.self, forCellReuseIdentifier: Self.cellIdentifier)
+        register(UINib(nibName: SwitchTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.reuseIdentifier)
     }
     
 }

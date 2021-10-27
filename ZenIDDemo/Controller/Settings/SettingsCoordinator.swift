@@ -22,6 +22,7 @@ final class SettingsCoordinator {
     func start() -> UIViewController {
         let settingsViewController = SettingsComposer.compose(
             selfieSelectionLoader: SelfieSelectionLoaderComposer.compose(),
+            configService: ConfigServiceComposer.compose(),
             coordinator: self
         )
         rootViewController = UINavigationController(rootViewController: settingsViewController)

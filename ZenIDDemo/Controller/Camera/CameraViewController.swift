@@ -9,7 +9,7 @@ class CameraViewController: UIViewController {
     weak var delegate: CameraViewControllerDelegate?
     
     // This enables / disables additional debug visualisation hints from the ZenID framework
-    public var showVisualisationDebugInfo: Bool = false {
+    public var showVisualisationDebugInfo: Bool = true {
         didSet {
             documentVerifier.showDebugInfo = showVisualisationDebugInfo
             faceLivenessVerifier.showDebugInfo = showVisualisationDebugInfo

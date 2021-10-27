@@ -139,3 +139,6 @@
 "settings-selfie-none" = "None";
 "settings-selfie-match" = "Selfie Match";
 "settings-selfie-liveness" = "Selfie Liveness";
+
+// Debug
+"settings-verifier-debug" = "Debug Mode";
