@@ -187,7 +187,7 @@ class CameraViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
         self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
@@ -266,9 +266,9 @@ class CameraViewController: UIViewController {
             documentVerifier.documentsInput = .init(documents: documents)
         }
 
-        documentVerifier.showDebugInfo = showVisualisationDebugInfo
-        faceLivenessVerifier.showDebugInfo = showVisualisationDebugInfo
-        selfieVerifier.showDebugInfo = showVisualisationDebugInfo
+        documentVerifier.showDebugInfo = config.isDebugEnabled
+        faceLivenessVerifier.showDebugInfo = config.isDebugEnabled
+        selfieVerifier.showDebugInfo = config.isDebugEnabled
         
         // This hides visualisation hints, overlay and instructions for generic documents
         if type == .otherDocument {

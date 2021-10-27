@@ -361,7 +361,8 @@ extension ChoiceViewController: ScanProcessDelegate {
                             faceMode: faceMode,
                             photosCount: scanProcess.pdfImages.count,
                             documents: documents,
-                            documentSettings: settings
+                            documentSettings: settings,
+                            config: ConfigServiceComposer.compose().load()
                         )
                     }
                 }
