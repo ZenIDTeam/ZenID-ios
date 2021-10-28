@@ -12,7 +12,7 @@ final class DocumentVerifierSettingsSwitchCellController: TableCellController {
     }
     
     func view(in tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SwitchTableViewCell", for: indexPath) as! SwitchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentSwitchTableViewCell", for: indexPath) as! DocumentSwitchTableViewCell
         cell.titleLabel.text = viewModel.title
         cell.valueSwitch.isOn = viewModel.value
         cell.valueSwitch.addTarget(self, action: #selector(valueDidEnd), for: .touchUpInside)

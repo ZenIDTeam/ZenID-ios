@@ -140,10 +140,8 @@ class CameraViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         contentView.saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
         contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay)
-        saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
-        configureOverlay()
         DispatchQueue.main.async { [weak self] in
-            self?.orientationChanged()
+            self?.contentView.orientationChanged()
         }
     }
 

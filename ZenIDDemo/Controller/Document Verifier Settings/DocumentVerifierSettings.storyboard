@@ -80,7 +80,7 @@
                                             <outlet property="valueSlider" destination="nB1-p0-4s4" id="yxp-5g-hBX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchTableViewCell" id="lkU-D6-Zvz" customClass="SwitchTableViewCell" customModule="ZenIDDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DocumentSwitchTableViewCell" id="lkU-D6-Zvz" customClass="DocumentSwitchTableViewCell" customModule="ZenIDDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lkU-D6-Zvz" id="HoY-P7-Uky">

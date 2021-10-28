@@ -2,7 +2,7 @@
 import UIKit
 
 
-final class SwitchTableViewCell: UITableViewCell {
+final class DocumentSwitchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueSwitch: UISwitch!

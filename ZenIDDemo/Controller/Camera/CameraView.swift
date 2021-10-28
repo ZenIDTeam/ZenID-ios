@@ -114,7 +114,7 @@ final class CameraView: UIView {
         messageView.showMessage(type: .success)
     }
     
-    @objc private func orientationChanged() {
+    @objc func orientationChanged() {
         switch UIDevice.current.orientation {
         case .portrait:           deviceOrientation = .portrait
         //case .portraitUpsideDown: self.deviceOrientation = .portraitUpsideDown
