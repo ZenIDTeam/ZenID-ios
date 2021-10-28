@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IntervalTableViewCell" rowHeight="80" id="oI5-fd-e24" customClass="IntervalTableViewCell" customModule="ZenIDDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oI5-fd-e24" id="uKz-Hx-Umr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -78,6 +78,36 @@
                                             <outlet property="titleLabel" destination="aty-mG-mWg" id="fwE-PB-dtq"/>
                                             <outlet property="valueLabel" destination="6iF-KS-nsL" id="95E-BI-Txk"/>
                                             <outlet property="valueSlider" destination="nB1-p0-4s4" id="yxp-5g-hBX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchTableViewCell" id="lkU-D6-Zvz" customClass="SwitchTableViewCell" customModule="ZenIDDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lkU-D6-Zvz" id="HoY-P7-Uky">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYR-Pt-5gM">
+                                                    <rect key="frame" x="20" y="11.5" width="41.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1IV-Hz-COd">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xYR-Pt-5gM" firstAttribute="centerY" secondItem="HoY-P7-Uky" secondAttribute="centerY" id="P1x-TV-YNr"/>
+                                                <constraint firstAttribute="trailing" secondItem="1IV-Hz-COd" secondAttribute="trailing" constant="20" symbolic="YES" id="RSS-C2-UX1"/>
+                                                <constraint firstItem="1IV-Hz-COd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xYR-Pt-5gM" secondAttribute="trailing" constant="8" id="UGH-Ll-9Ew"/>
+                                                <constraint firstItem="xYR-Pt-5gM" firstAttribute="leading" secondItem="HoY-P7-Uky" secondAttribute="leadingMargin" id="cnc-X6-0oX"/>
+                                                <constraint firstItem="1IV-Hz-COd" firstAttribute="centerY" secondItem="HoY-P7-Uky" secondAttribute="centerY" id="sRG-CY-IdI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="xYR-Pt-5gM" id="zaw-IO-njU"/>
+                                            <outlet property="valueSwitch" destination="1IV-Hz-COd" id="wWI-IM-5qN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

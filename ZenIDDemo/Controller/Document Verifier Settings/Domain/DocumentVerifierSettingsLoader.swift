@@ -24,4 +24,5 @@ protocol DocumentVerifierSettingsUpdater {
     func update(specularAcceptableScore: Int, completion: Completion)
     func update(documentBlurAcceptableScore: Int, completion: Completion)
     func update(timeToBlurMaxToleranceInSeconds: Int, completion: Completion)
+    func update(showTimer: Bool, completion: Completion)
 }

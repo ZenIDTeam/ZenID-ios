@@ -1,6 +1,42 @@
 # RecogLib
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
+## Migration
+### To the version 1.7.0
+1. We removed models from RecogLib framework, therefore, you can now configure which models you want to use by yourself. It will help you to reduce the final size of your app binary.
+
+How to load models by yourself?
+Document Verifier:
+```Swift
+let verifier = DocumentVerifier(...)
+let url = Bundle.main.bundleURL.appendingPathComponent("documents")
+if let models = DocumentVerifierModels(url: url) {
+    verifier.loadModels(models)
+}
+```
+
+Selfie Verifier:
+```Swift
+let verifier = SelfieVerifier(...)
+let url = Bundle.main.bundleURL.appendingPathComponent("haarcascade_frontalface_alt2.xml")
+if let models = FaceVerifierModels(url: url) {
+    verifier.loadModels(models)
+}
+```
+
+Faceliveness Verifier:
+```Swift
+let verifier = FaceLivenessVerifier(...)
+let url = Bundle.main.bundleURL.appendingPathComponent("lbfmodel.yaml.bin")
+if let models = FaceVerifierModels(url: url) {
+    verifier.loadModels(models)
+}
+```
+
+Do not forget to add/link models into your Xcode project. Check out the documentation below for instructions.
+
+2. We changed format of RecogLib and LibZenid frameworks to XCFrameworks. Please, unlink your old RecogLib and LibZenid frameworks from your Xcode project add link the new ones. That means `LibZenid_iOS.xcframework` and `RecogLib_iOS.xcframework`, you do not have to change anything else.
+
 ## Document types
 Recoglib is capable of recognizing types that include:
 - Identity card
@@ -28,7 +64,7 @@ For compilation, running and deployment of the application following tools are r
 ## Installation
 ### Link your project against RecogLib and LibZenid frameworks 
 
-Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.framework` and `LibZenid_iOS.framework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
+Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.xcframework` and `LibZenid_iOS.xcframework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
 
 ## Authorization
 The SDK has to be authorized, otherwise it is not going to work. 
@@ -49,7 +85,7 @@ let success = ZenidSecurity.authorize(responseToken: responseToken)
 5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialized and is ready to be used, otherwise response token is not valid.
 
 
-## Appication settings
+## Application settings
 In iOS device under Settings -> ZenID is possible to set
 ### Camera video gravity mode
 `Fit` - preserve aspect ratio; fit within layer bounds, this mode corresponds to CENTER_INSIDE in Android, this is default and recommended settings because it generates images with better resolution
@@ -58,7 +94,7 @@ In iOS device under Settings -> ZenID is possible to set
 ### Torch mode
 Is useful for hologram detection
 
-## Appication logs
+## Application logs
 Demo application uses external libraries CocoaLumberjackSwift and ZipArchive to create application logs.
 You can get log file(s) through `Logs` button from home screen,
 or alternatively directly from device, through USB cable
@@ -69,6 +105,21 @@ or alternatively directly from device, through USB cable
 - At the bottom of the Installed Apps list, click on the gear icon and then Download Container.
 - In Finder, right click (show menu) on the saved .xcappdata file and select Show Package Contents
 - Log files are saved in /AppData/Library/Caches/Logs/
+
+## Models
+You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support.
+You can find all models available in the `Models` folder in the root of this repozitory.
+
+If you want to support Selfie, add/link this file: `Models/face/haarcascade_frontalface_alt2.xml` into your Xcode project.
+
+If you want to support Faceliveness, add/link this file: `Models/face/lbfmodel.yaml.bin` into your Xcode project.
+
+If you want to support Documents, such as ID, Passport and so on, or different countries, follow instructions below:
+
+1. You can find all models for documents grouped by countries in the `Models/documents` folder.
+2. Choose which countries do you want to support.
+3. Optionally, you can remove unnecessary files in those folders, such as `GUN` files if you do not want to scan/recognize these kinds of documents.
+4. Link/add all selected folders with your Xcode project.
 
 ## Usage
 ### 1. Configure `AVCaptureSession`
@@ -136,6 +187,16 @@ let verifier = DocumentVerifier(role: nil, country: nil, page: nil, language: .L
 For example, if you want to scan all Czech documents available, just pass nil to every parameter except `country`, that will be `Czech`.
 ```swift
 let verifier = DocumentVerifier(role: nil, country: .Cz, page: nil, language: .Language)
+```
+
+#### Models
+You have to load models that you would like to support.
+URL is the path to your folder that contains files or other folders, such as CZ, SK, etc. You have to pass url that is a folder, not a single file. 
+```swift
+let url = Bundle.main.bundleURL.appendingPathComponent("documents")
+if let models = DocumentVerifierModels(url: url) {
+    verifier.loadModels(models)
+}
 ```
 
 #### Verifier Settings
@@ -213,9 +274,31 @@ This video can be uploaded to the backend after successful detection of hologram
 You can use  `SelfieVerifier` to verify selfie (human face picture) from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `SelfieVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
 
+#### Models
+You have to load models that you would like to support.
+URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
+```Swift
+let verifier = SelfieVerifier(...)
+let url = Bundle.main.bundleURL.appendingPathComponent("haarcascade_frontalface_alt2.xml")
+if let models = FaceVerifierModels(url: url) {
+    verifier.loadModels(models)
+}
+```
+
 ### 5. Face liveness verifier
 You can use  `FaceLivenessVerifier` to verify face liveness from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `FaceLivenessVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
+
+#### Models
+You have to load models that you would like to support.
+URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
+```Swift
+let verifier = FaceLivenessVerifier(...)
+let url = Bundle.main.bundleURL.appendingPathComponent("lbfmodel.yaml.bin")
+if let models = FaceVerifierModels(url: url) {
+    verifier.loadModels(models)
+}
+```
  
 ### 6. Result
 The returning value of the `verify()` or `verifyImage(imageBuffer: )` methods is a struct of type `DocumentResult` for documents, `HologramResult` for holograms or `FaceResult` for face liveness.

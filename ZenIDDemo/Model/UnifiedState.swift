@@ -15,4 +15,10 @@ enum UnifiedState {
     case lookAtMe
     case turnHead
     case smile
+    case tiltLeft
+    case tiltRight
+    case tiltUp
+    case tiltDown
+    case rotateClockwise
+    case rotateCounterClockwise
 }
