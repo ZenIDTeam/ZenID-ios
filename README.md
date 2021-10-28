@@ -108,13 +108,14 @@ or alternatively directly from device, through USB cable
 
 ## Models
 You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support.
-You can find all models available in the `Models` folder in the root of this repozitory.
+You can find all models available in the `Models` folder in the root of this repository.
 
 If you want to support Selfie, add/link this file: `Models/face/haarcascade_frontalface_alt2.xml` into your Xcode project.
 
 If you want to support Faceliveness, add/link this file: `Models/face/lbfmodel.yaml.bin` into your Xcode project.
 
 If you want to support Documents, such as ID, Passport and so on, or different countries, follow instructions below:
+Supported countries: AT, CZ, DE, EU, IT, PL, SK
 
 1. You can find all models for documents grouped by countries in the `Models/documents` folder.
 2. Choose which countries do you want to support.
