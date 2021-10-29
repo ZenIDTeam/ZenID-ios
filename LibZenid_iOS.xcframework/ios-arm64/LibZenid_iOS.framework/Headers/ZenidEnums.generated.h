@@ -71,6 +71,11 @@ enum class DocumentCodes : uint8_t
 	HR_PAS_2009_15 = 58,
 	HR_DRV_2013 = 59,
 	HR_IDC_2003 = 60,
+	SI_DRV_2009 = 61,
+	BG_PAS_2010 = 62,
+	BG_IDC_2010 = 63,
+	BG_DRV_2010_13 = 64,
+	HR_IDC_2021 = 65,
 };
 
 enum class PageCodes : uint8_t
@@ -101,6 +106,7 @@ enum class Country : uint8_t
 	Nl = 17,
 	Se = 18,
 	Si = 19,
+	Bg = 20,
 };
 
 enum class DocumentRole : uint8_t
