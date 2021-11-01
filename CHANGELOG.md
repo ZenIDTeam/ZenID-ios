@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.8 - 2021-09-29
+* Updated LibZenid to 1.10.3.
+* Added Croatia models of ID cards.
+
+## 1.7 - 2021-09-28
+* Changed format of LibZenid and RecogLib frameworks to XCFrameworks. Please, read the Readme 1.7.0 migration tutorial.
+
 ## 1.6 - 2021-09-21
 * Updated RecogLib to support Swift 5.5
 
