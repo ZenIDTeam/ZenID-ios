@@ -41,6 +41,7 @@ class CameraViewController: UIViewController {
     }
     
     private var targetFrame: CGRect = .zero
+    private var deviceOrientation = UIInterfaceOrientation.landscapeLeft
     
     private var photoType: PhotoType
     private var documentType: DocumentType
@@ -115,6 +116,9 @@ class CameraViewController: UIViewController {
         contentView.targetFrame = { [unowned self] in
             self.targetFrame
         }
+        contentView.deviceOrientation = { [unowned self] in
+            self.deviceOrientation
+        }
     }
     
     private func loadModels() {
@@ -141,13 +145,14 @@ class CameraViewController: UIViewController {
         contentView.saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
         contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay)
         DispatchQueue.main.async { [weak self] in
-            self?.contentView.orientationChanged()
+            self?.orientationChanged()
         }
     }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
         setNilAllPreviousResults()
         captureSession.startRunning()
     }
@@ -382,6 +387,21 @@ class CameraViewController: UIViewController {
         guard let device = self.captureDevice else { return }
         Torch.shared.ensureMode(for: device, on: on)
     }
+    
+    @objc func orientationChanged() {
+        switch UIDevice.current.orientation {
+        case .portrait:           deviceOrientation = .portrait
+        //case .portraitUpsideDown: self.deviceOrientation = .portraitUpsideDown
+        case .portraitUpsideDown: return
+        case .landscapeLeft:      deviceOrientation = .landscapeLeft
+        case .landscapeRight:     deviceOrientation = .landscapeRight
+        default: break;
+        }
+        
+        contentView.drawLayer?.renderables = []
+        contentView.rotateOverlay()
+        contentView.rotateInstructionView()
+    }
 }
 
 // MARK: - Methods for AV session
@@ -502,7 +522,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     private func getImageOrientation() -> UIInterfaceOrientation {
-        switch contentView.deviceOrientation {
+        switch deviceOrientation {
         case .portrait:           return .landscapeLeft
         //case .portraitUpsideDown: return .landscapeLeft
         case .landscapeLeft:      return .portrait
@@ -646,7 +666,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
             }
         default:
-            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier)
+            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: getImageOrientation())
         }
     }
     
@@ -662,7 +682,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         case .hologram:
             return nil
         default:
-            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier)
+            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: getImageOrientation())
         }
     }
     

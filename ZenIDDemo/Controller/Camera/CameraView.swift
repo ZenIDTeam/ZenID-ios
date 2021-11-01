@@ -35,16 +35,11 @@ final class CameraView: UIView {
     var previewLayer: AVCaptureVideoPreviewLayer?
     private(set) var drawLayer: DrawingLayer?
     
-    private(set) var deviceOrientation = UIInterfaceOrientation.landscapeLeft
-    
+    var deviceOrientation: (() -> UIInterfaceOrientation)!
     var supportChangedOrientation: (() -> Bool)!
     var isFaceDetection: (() -> Bool)!
     var getCurrentResolution: (() -> CGSize)!
     var targetFrame: (() -> CGRect)!
-    
-    private func registerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -114,21 +109,6 @@ final class CameraView: UIView {
         messageView.showMessage(type: .success)
     }
     
-    @objc func orientationChanged() {
-        switch UIDevice.current.orientation {
-        case .portrait:           deviceOrientation = .portrait
-        //case .portraitUpsideDown: self.deviceOrientation = .portraitUpsideDown
-        case .portraitUpsideDown: return
-        case .landscapeLeft:      deviceOrientation = .landscapeLeft
-        case .landscapeRight:     deviceOrientation = .landscapeRight
-        default: break;
-        }
-        
-        drawLayer?.renderables = []
-        rotateOverlay()
-        rotateInstructionView()
-    }
-    
     func rotateOverlay() {
         guard let overlay = self.overlay else { return }
         
@@ -180,7 +160,7 @@ final class CameraView: UIView {
     }
     
     func isPortraitOrientation() -> Bool {
-        switch deviceOrientation {
+        switch deviceOrientation() {
         case .portrait:  return true
         //case .portraitUpsideDown: return true
         default: return false
@@ -188,7 +168,7 @@ final class CameraView: UIView {
     }
     
     func isUpsideDownOrientation() -> Bool {
-        switch deviceOrientation {
+        switch deviceOrientation() {
         //case .portraitUpsideDown: return true
         case .landscapeRight: return true
         default: return false
