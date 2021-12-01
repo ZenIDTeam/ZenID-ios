@@ -115,7 +115,7 @@ If you want to support Selfie, add/link this file: `Models/face/haarcascade_fron
 If you want to support Faceliveness, add/link this file: `Models/face/lbfmodel.yaml.bin` into your Xcode project.
 
 If you want to support Documents, such as ID, Passport and so on, or different countries, follow instructions below:
-Supported countries: AT, CZ, DE, EU, IT, PL, SK
+Supported countries: AT, CZ, DE, EU, IT, PL, SK, HU, HR
 
 1. You can find all models for documents grouped by countries in the `Models/documents` folder.
 2. Choose which countries do you want to support.
