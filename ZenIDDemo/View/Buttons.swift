@@ -260,20 +260,28 @@ enum Buttons {
         }
     }
     
-    enum Country {
+    enum BCountry {
         static var cz: CountryButton {
-            let button = CountryButton()
-            button.setImage(#imageLiteral(resourceName: "flag_cz"), for: .normal)
-            button.country = .cz
-            button.widthAnchor.constraint(equalToConstant: 100).isActive = true
-            button.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            return button
+            countryButton(with: .cz)
         }
         
         static var sk: CountryButton {
+            countryButton(with: .sk)
+        }
+        
+        static var pl: CountryButton {
+            countryButton(with: .pl)
+        }
+        
+        static var hr: CountryButton {
+            countryButton(with: .hr)
+        }
+        
+        private static func countryButton(with country: Country) -> CountryButton {
             let button = CountryButton()
-            button.setImage(#imageLiteral(resourceName: "flag_sk"), for: .normal)
-            button.country = .sk
+            button.setImage(#imageLiteral(resourceName: "flag_\(country.rawValue.lowercased())"), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            button.country = country
             button.widthAnchor.constraint(equalToConstant: 100).isActive = true
             button.heightAnchor.constraint(equalToConstant: 100).isActive = true
             return button

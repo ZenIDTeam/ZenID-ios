@@ -14,12 +14,13 @@ class SelectCountryView: UIView {
     var selectedCountry: Country = .cz
     var completion: ((Country)->())?
     
-    private let czButton = Buttons.Country.cz
-    private let skButton = Buttons.Country.sk
+    private var buttons: [UIButton] {
+        [Buttons.BCountry.cz, Buttons.BCountry.sk, Buttons.BCountry.pl, Buttons.BCountry.hr]
+    }
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.spacing = 5
         stackView.backgroundColor = .clear
@@ -31,11 +32,10 @@ class SelectCountryView: UIView {
         
         self.addSubview(stackView)
         stackView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
-        stackView.addArrangedSubview(czButton)
-        stackView.addArrangedSubview(skButton)
-        
-        czButton.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
-        skButton.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
+        for button in buttons {
+            stackView.addArrangedSubview(button)
+            button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
+        }
     }
     
     @objc func buttonAction(sender: CountryButton) {
