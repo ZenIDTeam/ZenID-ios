@@ -37,7 +37,6 @@ public enum DocumentCode: Int {
     case SK_DRV_2013 = 6
     case SK_DRV_2015 = 7
     case SK_PAS_2008_14 = 8
-    case SK_IDC_1993 = 9
     case SK_DRV_1993 = 10
     case PL_IDC_2015 = 11
     case DE_IDC_2010 = 12
@@ -101,8 +100,6 @@ extension DocumentCode: CustomStringConvertible {
             return "SK_DRV_2015"
         case .SK_PAS_2008_14:
             return "SK_PAS_2008_14"
-        case .SK_IDC_1993:
-            return "SK_IDC_1993"
         case .SK_DRV_1993:
             return "SK_DRV_1993"
         case .PL_IDC_2015:

@@ -58,7 +58,6 @@ enum DocumentCode: String, Decodable {
     case skDrv2004_08_09 = "SK_DRV_2004_08_09"
     case skDrv2013 = "SK_DRV_2013"
     case skDrv2015 = "SK_DRV_2015"
-    case skIdc1993 = "SK_IDC_1993"
     case skPas2005 = "SK_PAS_2005"
     case skPas2008 = "SK_PAS_2008"
     case skPas2014 = "SK_PAS_2014"
