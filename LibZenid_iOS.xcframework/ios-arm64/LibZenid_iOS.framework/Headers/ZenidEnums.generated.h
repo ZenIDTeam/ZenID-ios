@@ -19,7 +19,6 @@ enum class DocumentCodes : uint8_t
 	SK_DRV_2013 = 6,
 	SK_DRV_2015 = 7,
 	SK_PAS_2008_14 = 8,
-	SK_IDC_1993 = 9,
 	SK_DRV_1993 = 10,
 	PL_IDC_2015 = 11,
 	DE_IDC_2010 = 12,
@@ -149,6 +148,7 @@ enum class SelfieVerifierState : int
 	Blurry = 2,
 	Dark = 3,
 	ConfirmingFace = 4,
+	BadFaceAngle = 5,
 };
 
 enum class HologramState : int
@@ -171,6 +171,7 @@ enum class FaceLivenessVerifierState : int
 	Ok = 3,
 	Blurry = 4,
 	Dark = 5,
+	HoldStill = 6,
 };
 
 enum class FieldID : int

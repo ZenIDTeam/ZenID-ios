@@ -9,6 +9,7 @@
 #endif
 
 #include "ZenidEnums.generated.h"
+#include "Optional.h"
 
 #include <memory>
 #include <vector>
@@ -20,17 +21,22 @@ namespace RecogLibC
 enum class Orientation;
 class Image;
 
+class FaceLivenessVerifierSettings
+{
+public:
+	// Use the pre-1.11.4 behavior: turn in any direction then smile.
+	bool enableLegacyMode = false;
+	// Auxiliary images will be resized to fit into this size while preserving the aspect ratio.
+	int maxAuxiliaryImageSize = 300;
+};
+
 class FaceLivenessVerifier
 {
    public:
 	using State = FaceLivenessVerifierState;
 
-	explicit FaceLivenessVerifier(const char* resourcesPath);
-
-	// lbfModelContents: Buffer containing the contents of the lbfmodel.yaml.bin file.
-	// lbfModelSize: Size of the lbfModelContents buffer in bytes.
-	FaceLivenessVerifier(const char* resourcesPath, const char* lbfModelContents, size_t lbfModelSize);
-
+	explicit FaceLivenessVerifier(const char* resourcesPath, const std::shared_ptr<FaceLivenessVerifierSettings>& settings = std::make_shared<FaceLivenessVerifierSettings>());
+	
 #ifndef NO_OPENCV
 	void ProcessFrame(const cv::Mat& frame);
 #endif
@@ -43,6 +49,9 @@ class FaceLivenessVerifier
 	const std::string& GetSignature() const;
 	// Only valid if the state is OK.
 	const std::vector<uint8_t>& GetSignedImage() const;
+
+	std::vector<std::shared_ptr<std::vector<uint8_t>>> GetAuxiliaryImages() const;
+	std::string GetAuxiliaryImageMetadata() const;
 	
 	void Reset();
 
