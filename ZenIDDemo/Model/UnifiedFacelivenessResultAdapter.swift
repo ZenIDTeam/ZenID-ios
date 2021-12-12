@@ -38,6 +38,8 @@ extension FaceLivenessState {
             return .blurry
         case .dark:
             return .dark
+        case .holdStill:
+            return .holdSteady
         }
     }
 }

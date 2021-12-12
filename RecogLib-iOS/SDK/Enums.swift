@@ -339,15 +339,16 @@ public enum FaceLivenessState: Int {
     case Ok = 3
     case blurry = 4
     case dark = 5
+    case holdStill = 6
 }
 
 extension FaceLivenessState: CustomStringConvertible {
     public var description: String {
         switch self {
         case .LookAtMe:
-            return "Look at me"
+            return "Look at the camera"
         case .TurnHead:
-            return "Turn head"
+            return "Turn head slowly towards arrow"
         case .Smile:
             return "Smile"
         case .Ok:
@@ -356,6 +357,8 @@ extension FaceLivenessState: CustomStringConvertible {
             return "Blurry"
         case .dark:
             return "Dark"
+        case .holdStill:
+            return "Hold Still"
         }
     }
 }
