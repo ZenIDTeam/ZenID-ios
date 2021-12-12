@@ -36,6 +36,8 @@ extension SelfieState {
             return .notFound
         case .Ok:
             return .ok
+        case .badFaceAngle:
+            return .badFaceAngle
         }
     }
 }

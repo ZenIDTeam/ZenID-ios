@@ -15,6 +15,7 @@ enum UnifiedState {
     case lookAtMe
     case turnHead
     case smile
+    case badFaceAngle
     case tiltLeft
     case tiltRight
     case tiltUp

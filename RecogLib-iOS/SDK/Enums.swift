@@ -369,6 +369,7 @@ public enum SelfieState: Int {
     case Blurry = 2
     case Dark = 3
     case ConfirmingFace = 4
+    case badFaceAngle = 5
 }
 
 extension SelfieState: CustomStringConvertible {
@@ -384,6 +385,8 @@ extension SelfieState: CustomStringConvertible {
             return "Dark"
         case .ConfirmingFace:
             return "Confirming face"
+        case .badFaceAngle:
+            return "Bad face angle"
         }
     }
 }
