@@ -125,10 +125,11 @@ class CameraViewController: UIViewController {
         let rootUrl = URL.modelsFolder
         documentVerifier.loadModels(.init(url: URL.modelsDocuments)!)
         
-        let faceUrl = rootUrl.appendingPathComponent("face/lbfmodel.yaml.bin")
-        faceLivenessVerifier.loadModels(.init(url: faceUrl)!)
+        let faceUrl = rootUrl.appendingPathComponent("face")
+        let faceLoader = FaceVerifierModels(url: faceUrl)!
+        faceLivenessVerifier.loadModels(faceLoader)
         
-        let selfieUrl = rootUrl.appendingPathComponent("face/haarcascade_frontalface_alt2.xml")
+        let selfieUrl = rootUrl.appendingPathComponent("face")
         selfieVerifier.loadModels(.init(url: selfieUrl)!)
     }
     

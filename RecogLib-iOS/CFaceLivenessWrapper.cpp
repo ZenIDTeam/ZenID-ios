@@ -14,11 +14,9 @@
 
 using namespace RecogLibC;
 
-const void * getFaceLivenessVerifier(const char* resourcesPath,
-                             const char* lbfModelContents,
-                             size_t lbfModelSize)
+const void * getFaceLivenessVerifier(const char* resourcesPath)
 {
-    FaceLivenessVerifier *verifier = new FaceLivenessVerifier(resourcesPath, lbfModelContents, lbfModelSize);
+    FaceLivenessVerifier *verifier = new FaceLivenessVerifier(resourcesPath);
     return (void *)verifier;
 }
 

@@ -26,7 +26,7 @@ struct CFaceLivenessInfo {
 typedef struct CFaceLivenessInfo CFaceLivenessInfo;
 
 // Initialisation and loading models
-const void * getFaceLivenessVerifier(const char* resourcesPath, const char* lbfModelContents, size_t lbfModelSize);
+const void * getFaceLivenessVerifier(const char* resourcesPath);
 
 // Verifying faces
 bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector);

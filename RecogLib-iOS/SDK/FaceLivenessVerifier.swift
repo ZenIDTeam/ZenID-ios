@@ -26,8 +26,8 @@ public class FaceLivenessVerifier {
     
     public func loadModels(_ loader: FaceVerifierModels) {
         loader.loadPointer { pointer, data in
-            let folderUrl = loader.url.deletingLastPathComponent()
-            cppObject = RecogLib_iOS.getFaceLivenessVerifier(folderUrl.path.toUnsafeMutablePointer()!, pointer, data.count)
+            let folderUrl = loader.url
+            cppObject = RecogLib_iOS.getFaceLivenessVerifier(folderUrl.path.toUnsafeMutablePointer()!)
         }
     }
     
