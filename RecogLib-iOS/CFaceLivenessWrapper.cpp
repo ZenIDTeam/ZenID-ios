@@ -14,9 +14,12 @@
 
 using namespace RecogLibC;
 
-const void * getFaceLivenessVerifier(const char* resourcesPath)
+const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings)
 {
-    FaceLivenessVerifier *verifier = new FaceLivenessVerifier(resourcesPath);
+    FaceLivenessVerifierSettings verifierSettings = FaceLivenessVerifierSettings();
+    verifierSettings.enableLegacyMode = settings->enableLegacyMode;
+    verifierSettings.maxAuxiliaryImageSize = settings->maxAuxiliaryImageSize;
+    FaceLivenessVerifier *verifier = new FaceLivenessVerifier(resourcesPath, std::make_shared<FaceLivenessVerifierSettings>(verifierSettings));
     return (void *)verifier;
 }
 

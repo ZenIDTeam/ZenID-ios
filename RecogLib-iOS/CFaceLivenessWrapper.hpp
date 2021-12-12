@@ -25,8 +25,15 @@ struct CFaceLivenessInfo {
 
 typedef struct CFaceLivenessInfo CFaceLivenessInfo;
 
+struct CFaceLivenessVerifierSettings {
+    bool enableLegacyMode;
+    int maxAuxiliaryImageSize;
+};
+
+typedef struct CFaceLivenessVerifierSettings CFaceLivenessVerifierSettings;
+
 // Initialisation and loading models
-const void * getFaceLivenessVerifier(const char* resourcesPath);
+const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings);
 
 // Verifying faces
 bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector);

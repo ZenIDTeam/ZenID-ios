@@ -13,6 +13,7 @@ public class FaceLivenessVerifier {
     private var cppObject: UnsafeRawPointer?
 
     public var language: SupportedLanguages
+    private let settings: FaceLivenessVerifierSettings?
     
     public var showDebugInfo: Bool = false {
         didSet {
@@ -20,14 +21,15 @@ public class FaceLivenessVerifier {
         }
     }
         
-    public init(language: SupportedLanguages) {
+    public init(language: SupportedLanguages, settings: FaceLivenessVerifierSettings? = nil) {
         self.language = language
+        self.settings = settings
     }
     
     public func loadModels(_ loader: FaceVerifierModels) {
         loader.loadPointer { pointer, data in
-            let folderUrl = loader.url
-            cppObject = RecogLib_iOS.getFaceLivenessVerifier(folderUrl.path.toUnsafeMutablePointer()!)
+            var verifierSettings = createVerifierSettings(settings: settings)
+            cppObject = RecogLib_iOS.getFaceLivenessVerifier(loader.url.path.toUnsafeMutablePointer()!, &verifierSettings)
         }
     }
     
@@ -74,6 +76,13 @@ public class FaceLivenessVerifier {
             orientation: Int32(orientation.rawValue),
             language: Int32(language.rawValue),
             signature: .init()
+        )
+    }
+    
+    private func createVerifierSettings(settings: FaceLivenessVerifierSettings?) -> CFaceLivenessVerifierSettings {
+        return CFaceLivenessVerifierSettings(
+            enableLegacyMode: settings?.isLegacyModeEnabled ?? false,
+            maxAuxiliaryImageSize: Int32(settings?.maxAuxiliaryImageSize ?? 300)
         )
     }
 }
