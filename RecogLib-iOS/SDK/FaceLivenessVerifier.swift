@@ -53,6 +53,20 @@ public class FaceLivenessVerifier {
         }
     }
     
+    /*public func getAuxiliaryInfo() -> FaceLivenessAuxiliaryInfo? {
+        do {
+            let cInfo = RecogLib_iOS.getAuxiliaryInfo(cppObject)
+            let info = createFaceLivenessAuxiliaryInfo(info: cInfo)
+            if info.images.isEmpty || info.metadata.isEmpty {
+                return nil
+            }
+            return info
+        } catch {
+            ApplicationLogger.shared.Error(error.localizedDescription)
+        }
+        return nil
+    }*/
+    
     public func reset() {
         RecogLib_iOS.faceLivenessVerifierReset(cppObject)
     }
@@ -83,6 +97,29 @@ public class FaceLivenessVerifier {
         return CFaceLivenessVerifierSettings(
             enableLegacyMode: settings?.isLegacyModeEnabled ?? false,
             maxAuxiliaryImageSize: Int32(settings?.maxAuxiliaryImageSize ?? 300)
+        )
+    }
+    
+    private func createFaceLivenessAuxiliaryInfo(info: CFaceLivenessAuxiliaryInfo) -> FaceLivenessAuxiliaryInfo {
+        var images = [Data]()
+        var metadata = [FaceLivenessAuxiliaryMetadata]()
+        if let cImages = info.images, let cMetadata = info.metadata {
+            let imagesBuffer = UnsafeBufferPointer(start: cImages, count: Int(info.imagesSize))
+            for image in Array(imagesBuffer) {
+                images.append(Data(bytes: image.image, count: Int(image.imageSize)))
+            }
+            
+            let metadataString = String(cString: UnsafePointer<CChar>(cMetadata))
+            let metadataData = metadataString.data(using: .utf8) ?? Data()
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
+            if let decodedMetadata = try? decoder.decode([FaceLivenessAuxiliaryMetadata].self, from: metadataData) {
+                metadata.append(contentsOf: decodedMetadata)
+            }
+        }
+        return .init(
+            images: images,
+            metadata: metadata
         )
     }
 }

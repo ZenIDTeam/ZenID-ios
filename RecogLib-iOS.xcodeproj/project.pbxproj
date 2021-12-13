@@ -18,6 +18,7 @@
 		18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */; };
 		18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DBB23026F9E4F6002FA296 /* RecogLibC.h */; };
 		18E8BA2A27664F04008DEF0C /* FaceLivenessVerifierSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8BA2927664F04008DEF0C /* FaceLivenessVerifierSettings.swift */; };
+		18E8BA3D2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8BA3C2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift */; };
 		18ED9F6726B2B46C00AFF48B /* CImageSignature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18ED9F6526B2B46C00AFF48B /* CImageSignature.cpp */; };
 		18ED9F6826B2B46C00AFF48B /* CImageSignature.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18ED9F6626B2B46C00AFF48B /* CImageSignature.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		18ED9F6A26B2B4A900AFF48B /* DocumentSignatureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED9F6926B2B4A900AFF48B /* DocumentSignatureMapper.swift */; };
@@ -62,6 +63,7 @@
 		18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsInput.swift; sourceTree = "<group>"; };
 		18DBB23026F9E4F6002FA296 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
 		18E8BA2927664F04008DEF0C /* FaceLivenessVerifierSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessVerifierSettings.swift; sourceTree = "<group>"; };
+		18E8BA3C2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessAuxiliaryInfo.swift; sourceTree = "<group>"; };
 		18ED9F6526B2B46C00AFF48B /* CImageSignature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CImageSignature.cpp; sourceTree = "<group>"; };
 		18ED9F6626B2B46C00AFF48B /* CImageSignature.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CImageSignature.hpp; sourceTree = "<group>"; };
 		18ED9F6926B2B4A900AFF48B /* DocumentSignatureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSignatureMapper.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				B009CF5322C4B01C00AA568C /* DocumentResult.swift */,
 				6FE107AE24B0FAFE00610F8D /* HologramResult.swift */,
 				6F64016124C18125004A8982 /* FaceLivenessResult.swift */,
+				18E8BA3C2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift */,
 				6F1A6A8D251B98760087CC0A /* SelfieResult.swift */,
 				D296261022C265E0007B934C /* DocumentVerifier.swift */,
 				18953DB026844F6B0077F976 /* DocumentVerifierSettings.swift */,
@@ -319,6 +322,7 @@
 				6FE107B724B29B1C00610F8D /* CUtils.cpp in Sources */,
 				6FE1D5142612741D00529241 /* Logging.swift in Sources */,
 				18E8BA2A27664F04008DEF0C /* FaceLivenessVerifierSettings.swift in Sources */,
+				18E8BA3D2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift in Sources */,
 				18953DB126844F6B0077F976 /* DocumentVerifierSettings.swift in Sources */,
 				18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */,
 				6F2CFC89247471C5005D2FB6 /* CFaceLivenessWrapper.cpp in Sources */,

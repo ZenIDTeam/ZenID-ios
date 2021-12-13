@@ -77,6 +77,27 @@ bool verifyFaceLivenessImage(const void *object,
     return true;
 }
 
+CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
+{
+    FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+    CFaceLivenessAuxiliaryInfo info = CFaceLivenessAuxiliaryInfo();
+    const auto state = verifier->GetStage();
+    if (state == FaceLivenessVerifierState::Ok) {
+        std::vector<CFaceLivenessAuxiliaryImage> images;
+        for(auto image : verifier->GetAuxiliaryImages()) {
+            CFaceLivenessAuxiliaryImage auxiliaryImage = CFaceLivenessAuxiliaryImage();
+            auxiliaryImage.image = image->data();
+            auxiliaryImage.imageSize = image->size();
+            images.push_back(auxiliaryImage);
+        }
+        info.images = images.data();
+        info.imagesSize = images.size();
+        info.metadata = verifier->GetAuxiliaryImageMetadata().c_str();
+        info.metadataSize = verifier->GetAuxiliaryImageMetadata().size();
+    }
+    return info;
+}
+
 void faceLivenessVerifierReset(const void *object)
 {
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;

@@ -23,7 +23,22 @@ struct CFaceLivenessInfo {
     struct CImageSignature signature;
 };
 
+struct CFaceLivenessAuxiliaryImage {
+    const uint8_t *image;
+    int imageSize;
+};
+
+typedef struct CFaceLivenessAuxiliaryImage CFaceLivenessAuxiliaryImage;
+
+struct CFaceLivenessAuxiliaryInfo {
+    const CFaceLivenessAuxiliaryImage *images;
+    int imagesSize;
+    const char *metadata;
+    int metadataSize;
+};
+
 typedef struct CFaceLivenessInfo CFaceLivenessInfo;
+typedef struct CFaceLivenessAuxiliaryInfo CFaceLivenessAuxiliaryInfo;
 
 struct CFaceLivenessVerifierSettings {
     bool enableLegacyMode;
@@ -38,6 +53,9 @@ const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVer
 // Verifying faces
 bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector);
 bool verifyFaceLivenessImage(const void *object, CVPixelBufferRef _cvBuffer, CFaceLivenessInfo *faceDetector);
+
+// Auxiliary Images Info
+CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object);
 
 // Reset
 void faceLivenessVerifierReset(const void *object);
