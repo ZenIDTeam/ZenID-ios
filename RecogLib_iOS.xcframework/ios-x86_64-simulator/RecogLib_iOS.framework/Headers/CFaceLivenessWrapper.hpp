@@ -23,14 +23,39 @@ struct CFaceLivenessInfo {
     struct CImageSignature signature;
 };
 
+struct CFaceLivenessAuxiliaryImage {
+    const uint8_t *image;
+    int imageSize;
+};
+
+typedef struct CFaceLivenessAuxiliaryImage CFaceLivenessAuxiliaryImage;
+
+struct CFaceLivenessAuxiliaryInfo {
+    const CFaceLivenessAuxiliaryImage *images;
+    int imagesSize;
+    const char *metadata;
+    int metadataSize;
+};
+
 typedef struct CFaceLivenessInfo CFaceLivenessInfo;
+typedef struct CFaceLivenessAuxiliaryInfo CFaceLivenessAuxiliaryInfo;
+
+struct CFaceLivenessVerifierSettings {
+    bool enableLegacyMode;
+    int maxAuxiliaryImageSize;
+};
+
+typedef struct CFaceLivenessVerifierSettings CFaceLivenessVerifierSettings;
 
 // Initialisation and loading models
-const void * getFaceLivenessVerifier(const char* resourcesPath, const char* lbfModelContents, size_t lbfModelSize);
+const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings);
 
 // Verifying faces
 bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector);
 bool verifyFaceLivenessImage(const void *object, CVPixelBufferRef _cvBuffer, CFaceLivenessInfo *faceDetector);
+
+// Auxiliary Images Info
+CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object);
 
 // Reset
 void faceLivenessVerifierReset(const void *object);
