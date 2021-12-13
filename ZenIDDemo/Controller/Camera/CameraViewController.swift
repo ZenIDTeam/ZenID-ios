@@ -327,10 +327,6 @@ class CameraViewController: UIViewController {
         guard detectionRunning else { return }
         detectionRunning = false
         
-        if photoType == .face {
-            faceLivenessVerifier.getAuxiliaryInfo()
-        }
-        
         if photoType == .hologram {
             videoWriter.stop()
         } else if photoType.isDocument {
