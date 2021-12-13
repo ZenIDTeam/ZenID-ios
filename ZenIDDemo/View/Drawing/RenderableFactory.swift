@@ -14,6 +14,7 @@ enum RenderableType: String {
     case circle = "circle"
     case ellipse = "ellipse"
     case text = "text"
+    case triangle = "triangle"
 }
 
 class RenderableFactory {
@@ -39,6 +40,8 @@ class RenderableFactory {
             return Ellipse(strCommand)
         case .text:
             return Text(strCommand)
+        case .triangle:
+            return Triangle(strCommand)
             
         default:
             return nil
