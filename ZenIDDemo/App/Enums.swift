@@ -172,6 +172,7 @@ public enum Country: String {
 }
 
 public enum FaceMode: String {
+    case faceLivenessLegacy = "FaceLivenessLegacy"
     case faceLiveness = "FaceLiveness"
     case selfie = "Selfie"
     
@@ -180,6 +181,8 @@ public enum FaceMode: String {
             self = .selfie
         } else if index == 1 {
             self = .faceLiveness
+        } else if index == 2 {
+            self = .faceLivenessLegacy
         } else {
             return nil
         }

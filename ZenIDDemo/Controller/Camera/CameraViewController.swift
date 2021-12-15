@@ -125,9 +125,7 @@ class CameraViewController: UIViewController {
         let rootUrl = URL.modelsFolder
         documentVerifier.loadModels(.init(url: URL.modelsDocuments)!)
         
-        let faceUrl = rootUrl.appendingPathComponent("face")
-        let faceLoader = FaceVerifierModels(url: faceUrl)!
-        faceLivenessVerifier.loadModels(faceLoader)
+        loadFacelivenessModels(isLegacy: true)
         
         let selfieUrl = rootUrl.appendingPathComponent("face")
         selfieVerifier.loadModels(.init(url: selfieUrl)!)
@@ -182,8 +180,19 @@ class CameraViewController: UIViewController {
         super.viewDidLayoutSubviews()
         targetFrame = contentView.overlay?.frame ?? .zero
     }
+    
+    private func loadFacelivenessModels(isLegacy: Bool) {
+        let faceUrl = URL.modelsFolder.appendingPathComponent("face")
+        let faceLoader = FaceVerifierModels(url: faceUrl)!
+        faceLivenessVerifier.loadModels(faceLoader)
+    }
 
     public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
+        if (faceMode == .faceLivenessLegacy || faceMode == .faceLiveness) && photoType == .face {
+            let isLegacy = faceMode == .faceLivenessLegacy
+            faceLivenessVerifier = FaceLivenessVerifier(language: LanguageHelper.language, settings: .init(isLegacyModeEnabled: isLegacy))
+            loadFacelivenessModels(isLegacy: isLegacy)
+        }
         self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
@@ -661,7 +670,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         switch photoType {
         case .face:
             switch faceMode {
-            case .faceLiveness:
+            case .faceLiveness, .faceLivenessLegacy:
                 return UnifiedFacelivenessVerifierAdapter(verifier: faceLivenessVerifier)
             case .selfie:
                 return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
@@ -675,7 +684,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         switch photoType {
         case .face:
             switch faceMode {
-            case .faceLiveness:
+            case .faceLiveness, .faceLivenessLegacy:
                 return UnifiedFacelivenessVerifierAdapter(verifier: faceLivenessVerifier)
             case .selfie:
                 return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
