@@ -188,10 +188,9 @@ class CameraViewController: UIViewController {
     }
 
     public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
-        if (faceMode == .faceLivenessLegacy || faceMode == .faceLiveness) && photoType == .face {
+        if faceMode?.isFaceliveness ?? false && photoType == .face {
             let isLegacy = faceMode == .faceLivenessLegacy
-            faceLivenessVerifier = FaceLivenessVerifier(language: LanguageHelper.language, settings: .init(isLegacyModeEnabled: isLegacy))
-            loadFacelivenessModels(isLegacy: isLegacy)
+            faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
         }
         self.detectionRunning = false
         self.photoType = photoType

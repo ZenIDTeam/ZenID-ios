@@ -53,6 +53,11 @@ public class FaceLivenessVerifier {
         }
     }
     
+    public func update(settings: FaceLivenessVerifierSettings) {
+        var settings = createVerifierSettings(settings: settings)
+        updateFacelivenessVerifierSettings(cppObject, &settings)
+    }
+    
     public func getAuxiliaryInfo() -> FaceLivenessAuxiliaryInfo? {
         do {
             let cInfo = RecogLib_iOS.getAuxiliaryInfo(cppObject)

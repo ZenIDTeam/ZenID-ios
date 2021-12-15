@@ -77,6 +77,13 @@ bool verifyFaceLivenessImage(const void *object,
     return true;
 }
 
+void updateFacelivenessVerifierSettings(const void *object, CFaceLivenessVerifierSettings *settings) {
+    FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+    verifier->GetSettings().enableLegacyMode = settings->enableLegacyMode;
+    verifier->GetSettings().maxAuxiliaryImageSize = settings->maxAuxiliaryImageSize;
+    verifier->Reset();
+}
+
 std::vector<uint8_t> images1d;
 std::vector<uint32_t> imageLengths;
 
