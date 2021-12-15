@@ -53,11 +53,11 @@ public class FaceLivenessVerifier {
         }
     }
     
-    /*public func getAuxiliaryInfo() -> FaceLivenessAuxiliaryInfo? {
+    public func getAuxiliaryInfo() -> FaceLivenessAuxiliaryInfo? {
         do {
             let cInfo = RecogLib_iOS.getAuxiliaryInfo(cppObject)
             let info = createFaceLivenessAuxiliaryInfo(info: cInfo)
-            if info.images.isEmpty || info.metadata.isEmpty {
+            if info.images.isEmpty {
                 return nil
             }
             return info
@@ -65,7 +65,7 @@ public class FaceLivenessVerifier {
             ApplicationLogger.shared.Error(error.localizedDescription)
         }
         return nil
-    }*/
+    }
     
     public func reset() {
         RecogLib_iOS.faceLivenessVerifierReset(cppObject)
@@ -103,10 +103,15 @@ public class FaceLivenessVerifier {
     private func createFaceLivenessAuxiliaryInfo(info: CFaceLivenessAuxiliaryInfo) -> FaceLivenessAuxiliaryInfo {
         var images = [Data]()
         var metadata = [FaceLivenessAuxiliaryMetadata]()
-        if let cImages = info.images, let cMetadata = info.metadata {
-            let imagesBuffer = UnsafeBufferPointer(start: cImages, count: Int(info.imagesSize))
-            for image in Array(imagesBuffer) {
-                images.append(Data(bytes: image.image, count: Int(image.imageSize)))
+        if let cImages = info.images, let cImageLengths = info.imageLengths, let cMetadata = info.metadata {
+            let imagesData = Data(bytes: cImages, count: Int(info.imagesSize))
+            let lengths = UnsafeBufferPointer(start: cImageLengths, count: Int(info.imageLengthsSize))
+            
+            var currentPosition = 0;
+            for length in lengths {
+                let image = imagesData.subdata(in: currentPosition ..< currentPosition + Int(length))
+                currentPosition += Int(length)
+                images.append(image)
             }
             
             let metadataString = String(cString: UnsafePointer<CChar>(cMetadata))

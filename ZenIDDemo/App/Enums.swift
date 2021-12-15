@@ -74,7 +74,7 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [.front, .back, .face]
+                return [front, .back, .face]
             case .drivingLicence:
                 return [.front, .face]
             case .passport:
@@ -175,6 +175,10 @@ public enum FaceMode: String {
     case faceLivenessLegacy = "FaceLivenessLegacy"
     case faceLiveness = "FaceLiveness"
     case selfie = "Selfie"
+    
+    var isFaceliveness: Bool {
+        self == .faceLivenessLegacy || self == .faceLiveness
+    }
     
     init?(index: Int) {
         if index == 0 {

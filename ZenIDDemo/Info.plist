@@ -39,6 +39,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Fotoaparát je používán pro focení dokladů</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library je používán pro uložení naskenovaných obrázků</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>

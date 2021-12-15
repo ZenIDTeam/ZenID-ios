@@ -333,6 +333,10 @@ class CameraViewController: UIViewController {
         }
         previousResult = unwrappedResult
         
+        if photoType == .face && faceMode?.isFaceliveness ?? false {
+            saveAuxiliaryImagesToLibrary(info: faceLivenessVerifier.getAuxiliaryInfo())
+        }
+        
         guard detectionRunning else { return }
         detectionRunning = false
         
@@ -342,6 +346,15 @@ class CameraViewController: UIViewController {
             returnImage(buffer, ImageFlip.fromLandScape, result: unwrappedResult)
         } else {
             returnImage(buffer, ImageFlip.fromPortrait, result: unwrappedResult)
+        }
+    }
+    
+    private func saveAuxiliaryImagesToLibrary(info: FaceLivenessAuxiliaryInfo?) {
+        for image in info?.images ?? [] {
+            guard let image = UIImage(data: image) else {
+                continue
+            }
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
     }
 
