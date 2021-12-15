@@ -44,6 +44,8 @@ public class FaceLivenessVerifier {
   public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
+  public func update(settings: RecogLib_iOS.FaceLivenessVerifierSettings)
+  public func getAuxiliaryInfo() -> RecogLib_iOS.FaceLivenessAuxiliaryInfo?
   public func reset()
   public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
   @objc deinit
