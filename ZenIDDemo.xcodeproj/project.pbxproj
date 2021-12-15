@@ -55,6 +55,7 @@
 		01EDB2C3231FAE22009B0859 /* UIImageView+Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */; };
 		180D9FFF27690FBA006A90CC /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
 		180DA00027690FBA006A90CC /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */; };
 		181AB23426F9A2870081420D /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 181AB23326F9A2870081420D /* Models */; };
 		18237B3026D79DB800D83627 /* UnifiedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B2F26D79DB700D83627 /* UnifiedResult.swift */; };
 		18237B3226D79E0F00D83627 /* UnifiedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B3126D79E0F00D83627 /* UnifiedState.swift */; };
@@ -262,6 +263,7 @@
 		01859B0522C4863C005B7E36 /* UIDevice+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Size.swift"; sourceTree = "<group>"; };
 		01B8F88522B92BE100D8B75E /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Clipping.swift"; sourceTree = "<group>"; };
+		180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidatorComposer.swift; sourceTree = "<group>"; };
 		181AB23326F9A2870081420D /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		18237B2F26D79DB700D83627 /* UnifiedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedResult.swift; sourceTree = "<group>"; };
 		18237B3126D79E0F00D83627 /* UnifiedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedState.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 				18953D872682EBBF0077F976 /* DocumentFilterTableCell.swift */,
 				18953D892682EF940077F976 /* DocumentsFilterViewModelAdapter.swift */,
 				18953D7B2682E6000077F976 /* DocumentsFilterComposer.swift */,
+				180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */,
 			);
 			path = "Documents Filter";
 			sourceTree = "<group>";
@@ -1084,6 +1087,7 @@
 				18DB26AA26D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift in Sources */,
 				18DB26B026D891F400CCAB02 /* UnifiedHologramVerifierAdapter.swift in Sources */,
 				18953D502682428F0077F976 /* GroupedTableView.swift in Sources */,
+				180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */,
 				011C6A8A22BCF8A80053ABF6 /* CameraViewControllerDelegate.swift in Sources */,
 				D2CB351E22BA792400453DB8 /* Data+resizing.swift in Sources */,
 				012F7B62228AA85700B0BBB6 /* CameraViewController.swift in Sources */,

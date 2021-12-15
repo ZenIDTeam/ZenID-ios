@@ -48,7 +48,7 @@ final class AddDocumentFilterComposer {
     }
     
     private static func resolve() -> DocumentsFilterValidator {
-        RecogLibDocumentsFilterValidator()
+        DocumentsFilterValidatorComposer.compose()
     }
     
 }

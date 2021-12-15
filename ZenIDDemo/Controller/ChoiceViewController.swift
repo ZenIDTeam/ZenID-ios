@@ -23,6 +23,7 @@ final class ChoiceViewController: UIViewController {
     private let faceButton = Buttons.face
     private let logsButton = Buttons.logs
     
+    private let documentsValidator: DocumentsFilterValidator = DocumentsFilterValidatorComposer.compose()
     private var settingsCoordinator: SettingsCoordinator?
     
     private lazy var documentButtons = [
@@ -202,9 +203,25 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func startProcess(_ documentType: DocumentType) {
-        scanProcess = createScanProcess(documentType: documentType, country: selectedCountry)
-        scanProcess?.delegate = self
-        scanProcess?.start()
+        if validateInput(documentType) {
+            scanProcess = createScanProcess(documentType: documentType, country: selectedCountry)
+            scanProcess?.delegate = self
+            scanProcess?.start()
+        } else {
+            alert(
+                title: NSLocalizedString("title-warning", comment: ""),
+                message: NSLocalizedString("document-filter-invalid-input", comment: "")
+            )
+        }
+    }
+    
+    private func validateInput(_ documentType: DocumentType) -> Bool {
+        let document = Document(
+            role: RecoglibMapper.documentRole(from: documentType, role: nil),
+            country: RecoglibMapper.country(from: selectedCountry),
+            page: nil, code: nil
+        )
+       return documentsValidator.validate(input: .init(documents: [document]))
     }
     
     private func restartProcess(currentScanProcess: ScanProcess) {
