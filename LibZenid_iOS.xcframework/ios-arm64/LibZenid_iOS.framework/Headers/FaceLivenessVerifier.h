@@ -52,6 +52,9 @@ class FaceLivenessVerifier
 
 	std::vector<std::shared_ptr<std::vector<uint8_t>>> GetAuxiliaryImages() const;
 	std::string GetAuxiliaryImageMetadata() const;
+
+	// Settings that will be applied when Reset() is called.
+	FaceLivenessVerifierSettings& GetSettings();
 	
 	void Reset();
 
