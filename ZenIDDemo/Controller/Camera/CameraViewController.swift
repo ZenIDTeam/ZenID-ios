@@ -142,7 +142,7 @@ class CameraViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
         contentView.saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
-        contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay)
+        contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay && photoType != .face)
         DispatchQueue.main.async { [weak self] in
             self?.orientationChanged()
         }
@@ -472,7 +472,7 @@ private extension CameraViewController {
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             contentView.previewLayer = previewLayer
         }
-        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay)
+        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay && photoType != .face)
     }
     
     func setupCameraSession(_ device: AVCaptureDevice) -> Bool {

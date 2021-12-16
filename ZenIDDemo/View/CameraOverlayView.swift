@@ -23,6 +23,8 @@ final class CameraOverlayView: UIView {
     private var targettingReticle: UIImage {
         get {
             switch documentType {
+            case .face:
+                return UIImage()
             case .passport:
                 return #imageLiteral(resourceName: "targettingRectPas")
             default:
