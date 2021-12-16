@@ -39,18 +39,21 @@ final class Triangle: Renderable {
     }
     
     func draw(in ctx: CGContext) {
-        ctx.move(to: aPoint)
+        /*ctx.move(to: aPoint)
         ctx.addLine(to: bPoint)
         ctx.addLine(to: cPoint)
         ctx.closePath()
         
         if canFill {
             ctx.setFillColor(color)
-            ctx.fillPath()
+            //ctx.setShouldAntialias(false)
+            //ctx.setAllowsAntialiasing(false)
+            ctx.setBlendMode(.lighten)
+            ctx.drawPath(using: .fill)
         } else {
             ctx.setStrokeColor(color)
             ctx.setLineWidth(thickness)
             ctx.strokePath()
-        }
+        }*/
     }
 }
