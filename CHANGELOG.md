@@ -1,5 +1,11 @@
 # Change Log
 
+
+## 1.9 - 2021-12-17
+* Updated LibZenid to 1.12.11.
+* Changed face models.
+* Added HR 2021 ID models.
+
 ## 1.8 - 2021-09-29
 * Updated LibZenid to 1.10.3.
 * Added Croatia models of ID cards.
