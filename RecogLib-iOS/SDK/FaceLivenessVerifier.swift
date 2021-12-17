@@ -112,7 +112,7 @@ public class FaceLivenessVerifier {
             let imagesData = Data(bytes: cImages, count: Int(info.imagesSize))
             let lengths = UnsafeBufferPointer(start: cImageLengths, count: Int(info.imageLengthsSize))
             
-            var currentPosition = 0;
+            var currentPosition = 0
             for length in lengths {
                 let image = imagesData.subdata(in: currentPosition ..< currentPosition + Int(length))
                 currentPosition += Int(length)
@@ -126,6 +126,8 @@ public class FaceLivenessVerifier {
             if let decodedMetadata = try? decoder.decode([FaceLivenessAuxiliaryMetadata].self, from: metadataData) {
                 metadata.append(contentsOf: decodedMetadata)
             }
+            cImages.deallocate()
+            cImageLengths.deallocate()
         }
         return .init(
             images: images,

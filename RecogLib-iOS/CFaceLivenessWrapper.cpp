@@ -84,25 +84,31 @@ void updateFacelivenessVerifierSettings(const void *object, CFaceLivenessVerifie
     verifier->Reset();
 }
 
-std::vector<uint8_t> images1d;
-std::vector<uint32_t> imageLengths;
-
 CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
 {
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     CFaceLivenessAuxiliaryInfo info = CFaceLivenessAuxiliaryInfo();
     const auto state = verifier->GetStage();
     if (state == FaceLivenessVerifierState::Ok) {
-        images1d.clear();
-        imageLengths.clear();
+        std::vector<uint8_t> images1d;
+        std::vector<uint32_t> imageLengths;
         for (auto image : verifier->GetAuxiliaryImages()) {
             images1d.insert(images1d.end(), image->begin(), image->end());
             imageLengths.push_back(image->size());
         }
         
-        info.images = images1d.data();
+        uint8_t* cImages1d = new uint8_t[images1d.size()];
+        for (int i = 0; i < images1d.size(); i++) {
+            cImages1d[i] = images1d[i];
+        }
+        uint32_t* cImageLengths = new uint32_t[imageLengths.size()];
+        for (int i = 0; i < imageLengths.size(); i++) {
+            cImageLengths[i] = imageLengths[i];
+        }
+        
+        info.images = cImages1d;
         info.imagesSize = images1d.size();
-        info.imageLengths = imageLengths.data();
+        info.imageLengths = cImageLengths;
         info.imageLengthsSize = imageLengths.size();
         info.metadata = verifier->GetAuxiliaryImageMetadata().c_str();
         info.metadataSize = verifier->GetAuxiliaryImageMetadata().size();
