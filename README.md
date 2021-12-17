@@ -3,7 +3,7 @@ Recoglib is a library that lets you recognize and categorize a stream of picture
 
 ## Migration
 ### To the version 1.9.0
-1. We removed `Models/face/haarcascade_frontalface_alt2.xml` and `Models/face/lbfmodel.yaml.bin`. The models were replace by new models. Please do not use individual file anymore. Use the `Models/face` folder to load models for Selfie or Faceliveness.
+1. We removed `Models/face/haarcascade_frontalface_alt2.xml` and `Models/face/lbfmodel.yaml.bin`. The models were replace by new models. Please do not use an individual file anymore. Use the `Models/face` folder to load models for Selfie or Faceliveness.
 
 ### To the version 1.7.0
 1. We removed models from RecogLib framework, therefore, you can now configure which models you want to use by yourself. It will help you to reduce the final size of your app binary.
