@@ -314,6 +314,30 @@ for imageData in info.images {
     // You can use the image
 }
 ```
+
+#### Legacy mode
+Faceliveness verifier has two modes. First is the new one and second one is the legacy. You can choose which one you want by using FaceLivenessVerifierSettings in constructor or `update` method of the verifier class. Moreover, you can specify the qualify of those pictures. Be default the legacy mode is disabled.
+
+Constructor method
+```Swift
+let settings = FaceLivenessVerifierSettings(
+    isLegacyModeEnabled: true,
+    maxAuxiliaryImageSize: 300
+)
+let verifier = FaceLivenessVerifier(language: .Czech, settings: settings)
+```
+
+Update method
+```Swift
+let verifier = FaceLivenessVerifier(...)
+...
+let settings = FaceLivenessVerifierSettings(
+    isLegacyModeEnabled: false,
+    maxAuxiliaryImageSize: 300
+)
+verifier.update(settings: settings)
+let info = verifier.getAuxiliaryInfo()
+```
  
 ### 6. Result
 The returning value of the `verify()` or `verifyImage(imageBuffer: )` methods is a struct of type `DocumentResult` for documents, `HologramResult` for holograms or `FaceResult` for face liveness.
