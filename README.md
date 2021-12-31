@@ -2,6 +2,9 @@
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
 ## Migration
+### To the version 1.9.0
+1. We removed `Models/face/haarcascade_frontalface_alt2.xml` and `Models/face/lbfmodel.yaml.bin`. The models were replace by new models. Please do not use an individual file anymore. Use the `Models/face` folder to load models for Selfie or Faceliveness. Check the Faceliveness Verifier sections for more information.
+
 ### To the version 1.7.0
 1. We removed models from RecogLib framework, therefore, you can now configure which models you want to use by yourself. It will help you to reduce the final size of your app binary.
 
@@ -110,9 +113,9 @@ or alternatively directly from device, through USB cable
 You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support.
 You can find all models available in the `Models` folder in the root of this repository.
 
-If you want to support Selfie, add/link this file: `Models/face/haarcascade_frontalface_alt2.xml` into your Xcode project.
+If you want to support Selfie, add/link this folder and all files included: `Models/face` into your Xcode project.
 
-If you want to support Faceliveness, add/link this file: `Models/face/lbfmodel.yaml.bin` into your Xcode project.
+If you want to support Faceliveness, add/link this folder and all files included: `Models/face` into your Xcode project.
 
 If you want to support Documents, such as ID, Passport and so on, or different countries, follow instructions below:
 Supported countries: AT, CZ, DE, EU, IT, PL, SK, HU, HR
@@ -194,7 +197,7 @@ let verifier = DocumentVerifier(role: nil, country: .Cz, page: nil, language: .L
 You have to load models that you would like to support.
 URL is the path to your folder that contains files or other folders, such as CZ, SK, etc. You have to pass url that is a folder, not a single file. 
 ```swift
-let url = Bundle.main.bundleURL.appendingPathComponent("documents")
+let url = Bundle.main.bundleURL.appendingPathComponent("Models/documents")
 if let models = DocumentVerifierModels(url: url) {
     verifier.loadModels(models)
 }
@@ -280,7 +283,7 @@ You have to load models that you would like to support.
 URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
 ```Swift
 let verifier = SelfieVerifier(...)
-let url = Bundle.main.bundleURL.appendingPathComponent("haarcascade_frontalface_alt2.xml")
+let url = Bundle.main.bundleURL.appendingPathComponent("Models/face")
 if let models = FaceVerifierModels(url: url) {
     verifier.loadModels(models)
 }
@@ -295,10 +298,45 @@ You have to load models that you would like to support.
 URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
 ```Swift
 let verifier = FaceLivenessVerifier(...)
-let url = Bundle.main.bundleURL.appendingPathComponent("lbfmodel.yaml.bin")
+let url = Bundle.main.bundleURL.appendingPathComponent("Models/face")
 if let models = FaceVerifierModels(url: url) {
     verifier.loadModels(models)
 }
+```
+
+#### Auxiliary Images
+You can get all images that have been taken during the Faceliveness process.
+```Swift
+let verifier = FaceLivenessVerifier(...)
+let info = verifier.getAuxiliaryInfo()
+for imageData in info.images {
+    let image = UIImage(data: imageData)
+    // You can use the image
+}
+```
+
+#### Legacy mode
+Faceliveness verifier has two modes. First is the new one and second one is the legacy. You can choose which one you want by using FaceLivenessVerifierSettings in constructor or `update` method of the verifier class. Moreover, you can specify the qualify of those pictures. Be default the legacy mode is disabled.
+
+Constructor method
+```Swift
+let settings = FaceLivenessVerifierSettings(
+    isLegacyModeEnabled: true,
+    maxAuxiliaryImageSize: 300
+)
+let verifier = FaceLivenessVerifier(language: .Czech, settings: settings)
+```
+
+Update method
+```Swift
+let verifier = FaceLivenessVerifier(...)
+...
+let settings = FaceLivenessVerifierSettings(
+    isLegacyModeEnabled: false,
+    maxAuxiliaryImageSize: 300
+)
+verifier.update(settings: settings)
+let info = verifier.getAuxiliaryInfo()
 ```
  
 ### 6. Result
