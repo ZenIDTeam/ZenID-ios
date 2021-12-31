@@ -106,12 +106,15 @@ CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
             cImageLengths[i] = imageLengths[i];
         }
         
+        char *metadata = NULL;
+        metadata = strdup(verifier->GetAuxiliaryImageMetadata().c_str());
+        
         info.images = cImages1d;
         info.imagesSize = images1d.size();
         info.imageLengths = cImageLengths;
         info.imageLengthsSize = imageLengths.size();
-        info.metadata = verifier->GetAuxiliaryImageMetadata().c_str();
-        info.metadataSize = verifier->GetAuxiliaryImageMetadata().size();
+        info.metadata = metadata;
+        info.metadataSize = strlen(metadata);
     }
     return info;
 }

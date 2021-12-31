@@ -16,7 +16,7 @@ public enum FaceLivenessCheckType: String, Decodable {
 
 public enum FaceLivenessAngle: String, Decodable {
     case left = "Left"
-    case top = "Top"
+    case top = "Up"
     case right = "Right"
     case down = "Down"
 }
@@ -31,6 +31,14 @@ public struct FaceLivenessAuxiliaryMetadata: Decodable {
     public let type: FaceLivenessCheckType
     public let date: Date
     public let angle: FaceLivenessAngle?
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        type = try container.decode(FaceLivenessCheckType.self, forKey: .type)
+        angle = try? container.decodeIfPresent(FaceLivenessAngle.self, forKey: .angle)
+        let timestampString = try container.decode(String.self, forKey: .date)
+        date = Date(timeIntervalSince1970: TimeInterval(Int(timestampString) ?? 0))
+    }
 }
 
 public struct FaceLivenessAuxiliaryInfo {

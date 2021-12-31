@@ -62,6 +62,7 @@ public class FaceLivenessVerifier {
         do {
             let cInfo = RecogLib_iOS.getAuxiliaryInfo(cppObject)
             let info = createFaceLivenessAuxiliaryInfo(info: cInfo)
+            print(info.metadata)
             if info.images.isEmpty {
                 return nil
             }
@@ -128,6 +129,7 @@ public class FaceLivenessVerifier {
             }
             cImages.deallocate()
             cImageLengths.deallocate()
+            cMetadata.deallocate()
         }
         return .init(
             images: images,
