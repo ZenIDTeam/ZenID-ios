@@ -42,6 +42,7 @@ public enum DocumentCode: Int {
     case DE_IDC_2010 = 12
     case DE_IDC_2001 = 13
     case HR_IDC_2013_15 = 14
+    case HR_IDC_2021 = 65
     case AT_IDE_2000 = 15
     case AT_IDC_2002_05_10 = 18
     case AT_PAS_2006_14 = 20
@@ -110,6 +111,8 @@ extension DocumentCode: CustomStringConvertible {
             return "DE_IDC_2001"
         case .HR_IDC_2013_15:
             return "HR_IDC_2013_15"
+        case .HR_IDC_2021:
+            return "HR_IDC_2021"
         case .AT_IDE_2000:
             return "AT_IDE_2000"
         case .AT_IDC_2002_05_10:

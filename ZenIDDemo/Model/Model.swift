@@ -77,6 +77,7 @@ enum DocumentCode: String, Decodable {
     case deIdc2010 = "DE_IDC_2010"
     case deIdc2001 = "DE_IDC_2001"
     case hrIdc2013_15 = "HR_IDC_2013_15"
+    case hrIdc2021 = "HR_IDC_2021"
     case czRes2011_14 = "CZ_RES_2011_14"
     case czRes2006T = "CZ_RES_2006_T"
     case czRes2006_07 = "CZ_RES_2006_07"
