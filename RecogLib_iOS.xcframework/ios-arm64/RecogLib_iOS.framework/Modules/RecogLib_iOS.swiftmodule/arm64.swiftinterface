@@ -173,6 +173,7 @@ public enum DocumentCode : Swift.Int {
   case DE_IDC_2010
   case DE_IDC_2001
   case HR_IDC_2013_15
+  case HR_IDC_2021
   case AT_IDE_2000
   case AT_IDC_2002_05_10
   case AT_PAS_2006_14
