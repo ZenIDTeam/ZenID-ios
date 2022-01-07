@@ -30,30 +30,30 @@ final class Triangle: Renderable {
         bPoint = .init(x: floatValues[2], y: floatValues[3])
         cPoint = .init(x: floatValues[4], y: floatValues[5])
         
-        color = UIColor(red:   floatValues[6] / 255,
-                             green: floatValues[7] / 255,
-                             blue:  floatValues[8] / 255,
-                             alpha: floatValues[9] / 255).cgColor
+        color = UIColor(red:   floatValues[6] / 255.0,
+                        green: floatValues[7] / 255.0,
+                        blue:  floatValues[8] / 255.0,
+                        alpha: floatValues[9] / 255.0).cgColor
         
         thickness = floatValues[10]
     }
     
     func draw(in ctx: CGContext) {
-        /*ctx.move(to: aPoint)
+        ctx.move(to: aPoint)
         ctx.addLine(to: bPoint)
         ctx.addLine(to: cPoint)
         ctx.closePath()
         
         if canFill {
             ctx.setFillColor(color)
-            //ctx.setShouldAntialias(false)
-            //ctx.setAllowsAntialiasing(false)
-            ctx.setBlendMode(.lighten)
-            ctx.drawPath(using: .fill)
+            ctx.setShouldAntialias(false)
+            ctx.setAllowsAntialiasing(false)
+            ctx.setBlendMode(.destinationAtop)
+            ctx.fillPath()
         } else {
             ctx.setStrokeColor(color)
             ctx.setLineWidth(thickness)
             ctx.strokePath()
-        }*/
+        }
     }
 }
