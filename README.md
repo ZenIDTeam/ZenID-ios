@@ -313,6 +313,9 @@ for imageData in info.images {
     let image = UIImage(data: imageData)
     // You can use the image
 }
+for metadata in info.metadata {
+    // You can use the image metadata
+}
 ```
 
 #### Legacy mode

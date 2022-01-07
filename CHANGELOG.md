@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.10 - 2021-12-31
+* Added Support for HR ID 2021.
+* Added Faceliveness metadata.
 
 ## 1.9 - 2021-12-17
 * Updated LibZenid to 1.12.11.
