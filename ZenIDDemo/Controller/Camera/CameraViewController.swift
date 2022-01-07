@@ -281,7 +281,7 @@ class CameraViewController: UIViewController {
         } else {
             self.showStaticOverlay = true
             self.showVisualisation = true
-            self.showInstructionView = photoType != .face
+            self.showInstructionView = photoType != .face && faceMode == .faceLiveness
         }
         
         // Control view
