@@ -22,6 +22,7 @@ final class ChoiceViewController: UIViewController {
     private let hologramButton = Buttons.hologram
     private let faceButton = Buttons.face
     private let logsButton = Buttons.logs
+    private let webViewButton = Buttons.webView
     
     private let documentsValidator: DocumentsFilterValidator = DocumentsFilterValidatorComposer.compose()
     private var settingsCoordinator: SettingsCoordinator?
@@ -34,7 +35,8 @@ final class ChoiceViewController: UIViewController {
         documentsFilterButton,
         //hologramButton,
         //faceButton,
-        logsButton
+        logsButton,
+        webViewButton
     ]
     
     private var selectedCountry: Country {
@@ -196,6 +198,8 @@ final class ChoiceViewController: UIViewController {
                 self.shareLogFile()
             case self.documentsFilterButton:
                 self.startProcess(.filter)
+            case self.webViewButton:
+                break
             default:
                 break
             }

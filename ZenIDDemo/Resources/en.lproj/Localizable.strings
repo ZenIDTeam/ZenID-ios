@@ -73,6 +73,7 @@
 "btn-face-mode" = "Selfie";
 "btn-logout" = "Logout";
 "btn-filter" = "Filter";
+"btn-webview" = "Web View";
 
 // Walkthrough
 "walkthrough-title-0" = "Document information";
