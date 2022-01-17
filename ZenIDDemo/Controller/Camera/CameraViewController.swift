@@ -3,6 +3,7 @@ import AVFoundation
 import CoreGraphics
 import RecogLib_iOS
 import UIKit
+import WebKit
 
 
 class CameraViewController: UIViewController {
@@ -84,6 +85,8 @@ class CameraViewController: UIViewController {
     
     private var documents: [Document]
     private var documentSettings: DocumentVerifierSettings?
+    
+    private var webViewOverlay: WKWebView?
     
     init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
         self.photoType = photoType
@@ -291,6 +294,19 @@ class CameraViewController: UIViewController {
         self.detectionRunning = true
         
         setNilAllPreviousResults()
+    }
+    
+    func addWebViewOverlay(urlRequest: URLRequest) {
+        webViewOverlay?.removeFromSuperview()
+        let webView = WKWebView()
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.load(urlRequest)
+        view.addSubview(webView)
+        view.leftAnchor.constraint(equalTo: webView.leftAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: webView.bottomAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: webView.rightAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: webView.topAnchor).isActive = true
+        webViewOverlay = webView
     }
     
     private func resetDocumentVerifier() {

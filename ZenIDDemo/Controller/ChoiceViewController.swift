@@ -199,7 +199,9 @@ final class ChoiceViewController: UIViewController {
             case self.documentsFilterButton:
                 self.startProcess(.filter)
             case self.webViewButton:
-                break
+                startProcess(.idCard)
+                let request = URLRequest(url: URL(string: "https://www.google.com/")!)
+                cachedCameraViewController.addWebViewOverlay(urlRequest: request)
             default:
                 break
             }

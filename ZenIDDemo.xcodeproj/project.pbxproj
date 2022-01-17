@@ -142,6 +142,7 @@
 		18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */; };
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
 		18A7B91526D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */; };
+		18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDC33C2795C3E40016AAF6 /* WebKit.framework */; };
 		18DB26A626D7A75300CCAB02 /* UnifiedVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A526D7A75300CCAB02 /* UnifiedVerifier.swift */; };
 		18DB26A826D7A94E00CCAB02 /* VerifierRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */; };
 		18DB26AA26D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A926D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift */; };
@@ -352,6 +353,7 @@
 		18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecogLibDocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessResultAdapter.swift; sourceTree = "<group>"; };
+		18BDC33C2795C3E40016AAF6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		18DB26A526D7A75300CCAB02 /* UnifiedVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedVerifier.swift; sourceTree = "<group>"; };
 		18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierRenderable.swift; sourceTree = "<group>"; };
 		18DB26A926D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentVerifierAdapter.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			files = (
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
+				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
 				18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
 				180AD43E277ECF9B002750EB /* RecogLib_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
@@ -542,6 +545,7 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18BDC33C2795C3E40016AAF6 /* WebKit.framework */,
 				18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */,
 				1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */,
 				187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */,
