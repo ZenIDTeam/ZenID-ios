@@ -298,9 +298,14 @@ class CameraViewController: UIViewController {
     
     func addWebViewOverlay(urlRequest: URLRequest) {
         webViewOverlay?.removeFromSuperview()
-        let webView = WKWebView()
+        let configuration = WKWebViewConfiguration()
+        configuration.preferences.javaScriptEnabled = true
+        let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.load(urlRequest)
+        //webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+        //webView.load(urlRequest)
+        let fileUrl = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "WebSource")!
+        webView.loadFileURL(fileUrl, allowingReadAccessTo: fileUrl)
         view.addSubview(webView)
         view.leftAnchor.constraint(equalTo: webView.leftAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: webView.bottomAnchor).isActive = true

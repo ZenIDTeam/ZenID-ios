@@ -143,6 +143,7 @@
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
 		18A7B91526D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */; };
 		18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDC33C2795C3E40016AAF6 /* WebKit.framework */; };
+		18BDC36927983D920016AAF6 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = 18BDC36827983D920016AAF6 /* WebSource */; };
 		18DB26A626D7A75300CCAB02 /* UnifiedVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A526D7A75300CCAB02 /* UnifiedVerifier.swift */; };
 		18DB26A826D7A94E00CCAB02 /* VerifierRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */; };
 		18DB26AA26D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A926D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift */; };
@@ -354,6 +355,7 @@
 		18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecogLibDocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessResultAdapter.swift; sourceTree = "<group>"; };
 		18BDC33C2795C3E40016AAF6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		18BDC36827983D920016AAF6 /* WebSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSource; sourceTree = "<group>"; };
 		18DB26A526D7A75300CCAB02 /* UnifiedVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedVerifier.swift; sourceTree = "<group>"; };
 		18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierRenderable.swift; sourceTree = "<group>"; };
 		18DB26A926D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentVerifierAdapter.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 		0134751321ECB3FB004EE4E5 = {
 			isa = PBXGroup;
 			children = (
+				18BDC36827983D920016AAF6 /* WebSource */,
 				181AB23326F9A2870081420D /* Models */,
 				0134751E21ECB3FB004EE4E5 /* ZenIDDemo */,
 				6F8EEF2024C4ECA600208223 /* README.md */,
@@ -979,6 +982,7 @@
 				18953D46268233AD0077F976 /* Menu.storyboard in Resources */,
 				012559D922C2233400B4DEB6 /* Settings.plist in Resources */,
 				0131CE9B2204415C00DBA4C4 /* Localizable.strings in Resources */,
+				18BDC36927983D920016AAF6 /* WebSource in Resources */,
 				18953D722682E4E90077F976 /* DocumentsFilter.storyboard in Resources */,
 				012F7B8C2292FB4500B0BBB6 /* Apache License.txt in Resources */,
 				012F7B822292FB4500B0BBB6 /* Roboto-Bold.ttf in Resources */,
