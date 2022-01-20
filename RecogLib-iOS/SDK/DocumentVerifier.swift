@@ -92,7 +92,7 @@ public class DocumentVerifier {
         return size > 0
     }
     
-    public func verifyHologram(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> HologramResult? {
+    /*public func verifyHologram(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> HologramResult? {
         do {
             var document = createDocumentInfo(orientation: orientation)
             RecogLib_iOS.verifyHologram(cppObject, buffer, &document)
@@ -110,11 +110,7 @@ public class DocumentVerifier {
         } catch {
             ApplicationLogger.shared.Error(error.localizedDescription)
         }
-    }
-    
-    public func supportsHologram() -> Bool {
-        return RecogLib_iOS.supportsHologram(cppObject)
-    }
+    }*/
     
     public func beginHologramVerification() {
         RecogLib_iOS.beginHologramVerification(cppObject)

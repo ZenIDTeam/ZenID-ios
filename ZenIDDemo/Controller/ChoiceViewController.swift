@@ -32,7 +32,7 @@ final class ChoiceViewController: UIViewController {
         passportButton,
         otherDocumentButton,
         documentsFilterButton,
-        //hologramButton,
+        hologramButton,
         //faceButton,
         logsButton
     ]

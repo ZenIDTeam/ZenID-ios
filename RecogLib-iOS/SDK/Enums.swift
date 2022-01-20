@@ -299,34 +299,22 @@ extension DocumentState: CustomStringConvertible {
 }
 
 public enum HologramState: Int {
-    case NoMatchFound = 0
-    case TiltLeft = 1
-    case TiltRight = 2
-    case TiltUp = 3
-    case TiltDown = 4
-    case RotateClockwise = 5
-    case RotateCounterClockwise = 6
-    case Ok = 7
+    case center = 0
+    case tiltLeftAndRight = 1
+    case tiltUpAndDown = 2
+    case ok = 3
 }
 
 extension HologramState: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .NoMatchFound:
-            return "No match found"
-        case .TiltLeft:
-            return "Tilt left"
-        case .TiltRight:
-            return "Tilt right"
-        case .TiltUp:
-            return "Tilt up"
-        case .TiltDown:
-            return "Tilt down"
-        case .RotateClockwise:
-            return "Rotate clockwise"
-        case .RotateCounterClockwise:
-            return "Rotate counter clockwise"
-        case .Ok:
+        case .center:
+            return "Center"
+        case .tiltLeftAndRight:
+            return "Tilt left and right"
+        case .tiltUpAndDown:
+            return "Tilt up and down"
+        case .ok:
             return "Ok"
         }
     }

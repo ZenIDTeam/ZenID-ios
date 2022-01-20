@@ -53,8 +53,6 @@
 		01859B0622C4863C005B7E36 /* UIDevice+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01859B0522C4863C005B7E36 /* UIDevice+Size.swift */; };
 		01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8F88522B92BE100D8B75E /* MessagesView.swift */; };
 		01EDB2C3231FAE22009B0859 /* UIImageView+Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */; };
-		180AD43E277ECF9B002750EB /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; };
-		180AD43F277ECF9B002750EB /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */; };
 		181AB23426F9A2870081420D /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 181AB23326F9A2870081420D /* Models */; };
 		18237B3026D79DB800D83627 /* UnifiedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B2F26D79DB700D83627 /* UnifiedResult.swift */; };
@@ -141,13 +139,14 @@
 		18953DE02685F3310077F976 /* SelfieSelectionCoordinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DDF2685F3310077F976 /* SelfieSelectionCoordinable.swift */; };
 		18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */; };
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
+		18A69F9C27999820001B6235 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
+		18A69F9D27999820001B6235 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18A7B91526D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */; };
 		18DB26A626D7A75300CCAB02 /* UnifiedVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A526D7A75300CCAB02 /* UnifiedVerifier.swift */; };
 		18DB26A826D7A94E00CCAB02 /* VerifierRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */; };
 		18DB26AA26D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A926D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift */; };
 		18DB26AC26D8915900CCAB02 /* UnifiedSelfieVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26AB26D8915900CCAB02 /* UnifiedSelfieVerifierAdapter.swift */; };
 		18DB26AE26D8919100CCAB02 /* UnifiedFacelivenessVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26AD26D8919100CCAB02 /* UnifiedFacelivenessVerifierAdapter.swift */; };
-		18DB26B026D891F400CCAB02 /* UnifiedHologramVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26AF26D891F400CCAB02 /* UnifiedHologramVerifierAdapter.swift */; };
 		18DB26B226D8921D00CCAB02 /* UnifiedHologramResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26B126D8921D00CCAB02 /* UnifiedHologramResultAdapter.swift */; };
 		18DB26B426D8A41200CCAB02 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26B326D8A41200CCAB02 /* CameraView.swift */; };
 		18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */; };
@@ -203,8 +202,8 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
+				18A69F9D27999820001B6235 /* RecogLib_iOS.framework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
-				180AD43F277ECF9B002750EB /* RecogLib_iOS.xcframework in Embed Frameworks */,
 				18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -351,13 +350,13 @@
 		18953DDF2685F3310077F976 /* SelfieSelectionCoordinable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieSelectionCoordinable.swift; sourceTree = "<group>"; };
 		18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecogLibDocumentsFilterValidator.swift; sourceTree = "<group>"; };
+		18A69F9927999311001B6235 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecogLib_iOS.framework; path = "../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Release-iphoneos/RecogLib_iOS.framework"; sourceTree = "<group>"; };
 		18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessResultAdapter.swift; sourceTree = "<group>"; };
 		18DB26A526D7A75300CCAB02 /* UnifiedVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedVerifier.swift; sourceTree = "<group>"; };
 		18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierRenderable.swift; sourceTree = "<group>"; };
 		18DB26A926D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentVerifierAdapter.swift; sourceTree = "<group>"; };
 		18DB26AB26D8915900CCAB02 /* UnifiedSelfieVerifierAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedSelfieVerifierAdapter.swift; sourceTree = "<group>"; };
 		18DB26AD26D8919100CCAB02 /* UnifiedFacelivenessVerifierAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessVerifierAdapter.swift; sourceTree = "<group>"; };
-		18DB26AF26D891F400CCAB02 /* UnifiedHologramVerifierAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedHologramVerifierAdapter.swift; sourceTree = "<group>"; };
 		18DB26B126D8921D00CCAB02 /* UnifiedHologramResultAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedHologramResultAdapter.swift; sourceTree = "<group>"; };
 		18DB26B326D8A41200CCAB02 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RecogLib_iOS.xcframework; sourceTree = "<group>"; };
@@ -411,8 +410,8 @@
 			files = (
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
+				18A69F9C27999820001B6235 /* RecogLib_iOS.framework in Frameworks */,
 				18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
-				180AD43E277ECF9B002750EB /* RecogLib_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */,
+				18A69F9927999311001B6235 /* RecogLib_iOS.framework */,
 				1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */,
 				187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */,
 				6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */,
@@ -610,7 +610,6 @@
 				18DB26A926D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift */,
 				18DB26AB26D8915900CCAB02 /* UnifiedSelfieVerifierAdapter.swift */,
 				18DB26AD26D8919100CCAB02 /* UnifiedFacelivenessVerifierAdapter.swift */,
-				18DB26AF26D891F400CCAB02 /* UnifiedHologramVerifierAdapter.swift */,
 				18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */,
 			);
 			path = Camera;
@@ -1085,7 +1084,6 @@
 				18953DD12684E3B10077F976 /* SelfieSelectionComposer.swift in Sources */,
 				18237B3426D79E7100D83627 /* UnifiedDocumentResultAdapter.swift in Sources */,
 				18DB26AA26D8909500CCAB02 /* UnifiedDocumentVerifierAdapter.swift in Sources */,
-				18DB26B026D891F400CCAB02 /* UnifiedHologramVerifierAdapter.swift in Sources */,
 				18953D502682428F0077F976 /* GroupedTableView.swift in Sources */,
 				180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */,
 				011C6A8A22BCF8A80053ABF6 /* CameraViewControllerDelegate.swift in Sources */,

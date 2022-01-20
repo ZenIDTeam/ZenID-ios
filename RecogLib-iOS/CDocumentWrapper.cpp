@@ -126,23 +126,27 @@ bool verifyImage(const void *object,
         document->signature = signature;
     }
     
+    document->state = static_cast<int>(state);
+    if (state == DocumentVerifierState::Hologram) {
+        document->hologramState = static_cast<int>(verifier->GetHologramState());
+        if (verifier->GetHologramState() == HologramState::Ok) {
+            document->state = static_cast<int>(DocumentVerifierState::Ok);
+        }
+    }
+    
     switch (state) {
-        case RecogLibC::DocumentVerifierState::Hologram:
-            throw std::runtime_error(std::string("Not a valid state 'Hologram'"));
-            
         case RecogLibC::DocumentVerifierState::NoMatchFound:
             document->code = -1;
             document->page = -1;
             document->role = -1;
             document->country = -1;
-            document->state = static_cast<int>(state);
             return false;
             
         default:
-            document->code = static_cast<int>(verifier->GetDocumentCode());
-            document->page = static_cast<int>(verifier->GetPageCode());
-            document->role = static_cast<int>(verifier->GetDocumentRole());
-            document->country = static_cast<int>(verifier->GetCountry());
+            document->code = verifier->GetDocumentCode().has_value() ? static_cast<int>(verifier->GetDocumentCode().value()) : -1;
+            document->page = verifier->GetPageCode().has_value() ? static_cast<int>(verifier->GetPageCode().value()) : -1;
+            document->role = verifier->GetDocumentRole().has_value() ? static_cast<int>(verifier->GetDocumentRole().value()) : -1;
+            document->country = verifier->GetCountry().has_value() ? static_cast<int>(verifier->GetCountry().value()) : -1;
             document->state = static_cast<int>(state);
             return true;
     }
@@ -171,22 +175,13 @@ bool verifyHologramImage(const void *object,
     processFrame(object, _cvBuffer, document, NULL);
     
     DocumentVerifier *verifier = (DocumentVerifier *)object;
-    const auto hologramState = verifier->GetHologramState();
-    switch (hologramState) {
-        case RecogLibC::HologramState::NoMatchFound:
-            document->hologramState = static_cast<int>(hologramState);
+    document->hologramState = static_cast<int>(verifier->GetHologramState());
+    switch (verifier->GetState()) {
+        case RecogLibC::DocumentVerifierState::NoMatchFound:
             return false;
-            
         default:
-            document->hologramState = static_cast<int>(hologramState);
             return true;
     }
-}
-
-bool supportsHologram(const void *object)
-{
-    DocumentVerifier *verifier = (DocumentVerifier *)object;
-    return verifier->SupportsHologram();
 }
 
 void beginHologramVerification(const void *object)

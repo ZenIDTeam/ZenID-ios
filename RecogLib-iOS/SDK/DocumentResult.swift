@@ -17,6 +17,7 @@ public struct DocumentResult {
     public var country: Country?
     public var code: DocumentCode?
     public var page: PageCode?
+    public var hologremState: HologramState?
     
     public var signature: ImageSignature?
         
@@ -28,6 +29,7 @@ public struct DocumentResult {
         self.code = DocumentCode(rawValue: Int(document.code))
         self.country = Country(rawValue: Int(document.country))
         self.state = state
+        self.hologremState = HologramState(rawValue: Int(document.hologramState))
         self.signature = DocumentSignatureMapper.map(document.signature)
     }
 }

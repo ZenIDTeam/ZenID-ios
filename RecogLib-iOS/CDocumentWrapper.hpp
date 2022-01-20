@@ -44,7 +44,6 @@ void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSetting
 // Verifying holograms
 bool verifyHologram(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document);
 bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document);
-bool supportsHologram(const void *object);
 void beginHologramVerification(const void *object);
 void endHologramVerification(const void *object);
 

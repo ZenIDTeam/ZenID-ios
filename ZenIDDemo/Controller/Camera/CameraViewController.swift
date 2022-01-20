@@ -336,6 +336,7 @@ class CameraViewController: UIViewController {
             saveAuxiliaryImagesToLibrary(info: faceLivenessVerifier.getAuxiliaryInfo())
         }
         
+        
         guard detectionRunning else { return }
         detectionRunning = false
         
@@ -646,7 +647,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         let commandsRect: CGRect
-        if photoType.isDocument {
+        if photoType.isDocument || photoType == .hologram {
             if targetFrame == .zero {
                 return
             }
@@ -662,7 +663,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         if let drawLayer = contentView.drawLayer {
             let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-            if photoType.isDocument {
+            if photoType.isDocument || photoType == .hologram {
                 let flipped = !contentView.isPortraitOrientation()
                 let mirrored = contentView.isUpsideDownOrientation()
                 let transform = flipped ?
@@ -701,8 +702,6 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             case .selfie:
                 return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
             }
-        case .hologram:
-            return nil
         default:
             return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: getImageOrientation())
         }
