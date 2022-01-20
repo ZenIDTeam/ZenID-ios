@@ -9,7 +9,6 @@
 #endif
 
 #include "ZenidEnums.generated.h"
-#include "Optional.h"
 
 #include <memory>
 #include <vector>

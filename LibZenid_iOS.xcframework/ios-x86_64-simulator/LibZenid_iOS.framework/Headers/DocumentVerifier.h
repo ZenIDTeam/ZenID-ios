@@ -72,14 +72,15 @@ public:
 
 	State GetState() const;
 	float GetSecondsToMaxTolerance() const;
-	// Invalid if the state is NoMatchFound
-	DocumentCodes GetDocumentCode() const;
-	// Invalid if the state is NoMatchFound
-	PageCodes GetPageCode() const;
-	// Invalid if the state is NoMatchFound
-	DocumentRole GetDocumentRole() const;
-	// Invalid if the state is NoMatchFound
-	Country GetCountry() const;
+	// Empty if the state is NoMatchFound
+	std::optional<DocumentCodes> GetDocumentCode() const;
+	// Empty if the state is NoMatchFound
+	std::optional<PageCodes> GetPageCode() const;
+	// Empty if the state is NoMatchFound
+	std::optional<DocumentRole> GetDocumentRole() const;
+	// Empty if the state is NoMatchFound
+	std::optional<Country> GetCountry() const;
+	
 	// Only valid if the state is OK.
 	const std::string& GetSignature() const;
 	// Only valid if the state is OK.
@@ -88,9 +89,7 @@ public:
 	HologramState GetHologramState() const;
 
 	void LoadModel(const char* buffer, size_t size);
-
-	bool SupportsHologram() const;
-
+	
 	void BeginHologramVerification();
 
 	void EndHologramVerification();

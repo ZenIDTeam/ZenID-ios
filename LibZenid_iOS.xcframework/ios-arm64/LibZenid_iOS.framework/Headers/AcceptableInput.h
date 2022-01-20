@@ -1,11 +1,11 @@
 #pragma once
 
 #include "ZenidEnums.generated.h"
-#include "Optional.h"
 
 
 #include <vector>
 #include <string>
+#include <optional>
 
 
 namespace RecogLibC
@@ -13,11 +13,11 @@ namespace RecogLibC
 class DocumentFilter
 {
 public:
-	Optional<DocumentRole> Role;
-	Optional<Country> Country;
-	Optional<PageCodes> Page;
-	Optional<DocumentCodes> DocumentCode;
-	Optional<std::string> ModelID;
+	std::optional<DocumentRole> Role;
+	std::optional<Country> Country;
+	std::optional<PageCodes> Page;
+	std::optional<DocumentCodes> DocumentCode;
+	std::optional<std::string> ModelID;
 };
 
 class AcceptableInput
@@ -56,7 +56,7 @@ public:
 	}
 
 
-	AcceptableInput(Optional<DocumentCodes> documentCode, Optional<PageCodes> pageCode = {})
+	AcceptableInput(const std::optional<DocumentCodes>& documentCode, const std::optional<PageCodes>& pageCode = {})
 	{
 		if (documentCode || pageCode)
 		{
