@@ -46,10 +46,18 @@ final class Triangle: Renderable {
         
         if canFill {
             ctx.setFillColor(color)
-            ctx.setShouldAntialias(false)
-            ctx.setAllowsAntialiasing(false)
-            ctx.setBlendMode(.destinationAtop)
+            let isAntialiasEnabled = color.alpha >= 1.0
+            print(isAntialiasEnabled)
+            ctx.setShouldAntialias(isAntialiasEnabled)
+            ctx.setAllowsAntialiasing(isAntialiasEnabled)
+            if isAntialiasEnabled {
+                ctx.setBlendMode(.normal)
+            } else {
+                ctx.setBlendMode(.destinationAtop)
+            }
             ctx.fillPath()
+            ctx.setShouldAntialias(true)
+            ctx.setAllowsAntialiasing(true)
         } else {
             ctx.setStrokeColor(color)
             ctx.setLineWidth(thickness)
