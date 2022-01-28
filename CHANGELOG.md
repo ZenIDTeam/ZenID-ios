@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.11 - 2022-21-01
+* Updated LibZenid to 2.1.4.
+* Activated DocumentVerifier Hologram methods.
+
 ## 1.10 - 2021-12-31
 * Added Support for HR ID 2021.
 * Added Faceliveness metadata.
