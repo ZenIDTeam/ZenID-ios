@@ -47,6 +47,7 @@ class CameraViewController: UIViewController {
     private var documentType: DocumentType
     private var country: Country
     private var faceMode: FaceMode?
+    private var dataType: DataType
 
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevicePosition: AVCaptureDevice.Position = .back
@@ -75,7 +76,7 @@ class CameraViewController: UIViewController {
     private var previousResult: UnifiedResult?
     
     private var supportChangedOrientation: Bool {
-        return photoType != .face && photoType != .hologram
+        return photoType != .face && dataType != .video
     }
     
     private var isFaceDetection: Bool {
@@ -85,11 +86,12 @@ class CameraViewController: UIViewController {
     private var documents: [Document]
     private var documentSettings: DocumentVerifierSettings?
     
-    init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
+    init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode, dataType: DataType) {
         self.photoType = photoType
         self.documentType = documentType
         self.country = country
         self.faceMode = faceMode
+        self.dataType = dataType
         self.photosCount = 0
         self.documents = []
         
@@ -187,7 +189,7 @@ class CameraViewController: UIViewController {
         faceLivenessVerifier.loadModels(faceLoader)
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config, dataType: DataType) {
         if faceMode?.isFaceliveness ?? false && photoType == .face {
             let isLegacy = faceMode == .faceLivenessLegacy
             faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
@@ -197,6 +199,7 @@ class CameraViewController: UIViewController {
         self.documentType = type
         self.country = country
         self.faceMode = faceMode
+        self.dataType = dataType
         self.documents = documents
         self.captureDevicePosition = isFaceDetection ? .front : .back
         contentView.rotateInstructionView()
@@ -214,28 +217,13 @@ class CameraViewController: UIViewController {
         self.startSession()
         
         resetDocumentVerifier()
+        
         // Create verify object
         switch photoType {
         case .face:
             // Reset verifier
             self.faceLivenessVerifier.reset()
             self.selfieVerifier.reset()
-            break
-            
-        case .hologram:
-            // Reset verifier
-            self.documentVerifier.reset()
-            
-            // This will setup document verifier to Czech ID / front side
-            self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
-            self.documentVerifier.country = RecogLib_iOS.Country.Cz
-            self.documentVerifier.page = RecogLib_iOS.PageCode.Front
-            
-            // This will setup document verifier to detect holograms
-            self.documentVerifier.beginHologramVerification()
-            
-            // This starts video writer for holograms
-            self.videoWriter.start()
             break
         default:
             // Reset verifier
@@ -246,8 +234,7 @@ class CameraViewController: UIViewController {
             
             if type == .unspecifiedDocument {
                 resetDocumentVerifier()
-            } else
-            {
+            } else {
                 // This will setup document verifier
                 if let role = RecoglibMapper.documentRole(from: type) {
                     documentVerifier.documentRole = role
@@ -263,6 +250,22 @@ class CameraViewController: UIViewController {
                 }
             }
             break
+        }
+        
+        if dataType == .video {
+            // Reset verifier
+            self.documentVerifier.reset()
+            
+            // This will setup document verifier to Czech ID / front side
+            self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
+            self.documentVerifier.country = RecogLib_iOS.Country.Cz
+            self.documentVerifier.page = RecogLib_iOS.PageCode.Front
+            
+            // This will setup document verifier to detect holograms
+            self.documentVerifier.beginHologramVerification()
+            
+            // This starts video writer for holograms
+            self.videoWriter.start()
         }
         
         if type == .filter {
@@ -339,7 +342,7 @@ class CameraViewController: UIViewController {
         guard detectionRunning else { return }
         detectionRunning = false
         
-        if photoType == .hologram {
+        if dataType == .video {
             videoWriter.stop()
         } else if photoType.isDocument {
             returnImage(buffer, ImageFlip.fromLandScape, result: unwrappedResult)
@@ -527,7 +530,7 @@ private extension CameraViewController {
     }
     
     private func canShowInstructionView() -> Bool {
-        (photoType != .face && faceMode == .faceLiveness) && photoType != .hologram
+        (photoType != .face && faceMode == .faceLiveness) && dataType != .video
     }
 }
 
@@ -623,12 +626,12 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight).flip()
         
         // torch for holograms
-        self.setTorch(on: photoType == .hologram)
+        self.setTorch(on: dataType == .video && photoType != .face)
         
         if faceMode == nil && photoType == .face {
             return
         }
-        if let videoWriter = self.videoWriter, photoType == .hologram, videoWriter.isRecording {
+        if let videoWriter = self.videoWriter, dataType == .video, videoWriter.isRecording {
             videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
         }
         let verifier = getVerifier(photoType: photoType, faceMode: faceMode ?? .selfie)
@@ -654,7 +657,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         let commandsRect: CGRect
-        if photoType.isDocument || photoType == .hologram {
+        if photoType.isDocument {
             if targetFrame == .zero {
                 return
             }
@@ -670,7 +673,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         if let drawLayer = contentView.drawLayer {
             let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-            if photoType.isDocument || photoType == .hologram {
+            if photoType.isDocument {
                 let flipped = !contentView.isPortraitOrientation()
                 let mirrored = contentView.isUpsideDownOrientation()
                 let transform = flipped ?

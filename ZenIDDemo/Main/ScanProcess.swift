@@ -26,6 +26,7 @@ final class ScanProcess {
     
     /// Document type that the class will process
     let documentType: DocumentType
+    let dataType: DataType
     
     /// Document country
     let country: Country
@@ -41,8 +42,9 @@ final class ScanProcess {
     /// Initialize the scan process with a specific document type
     ///
     /// - Parameter documentType: Document type to scan
-    init(documentType: DocumentType, country: Country, selfieSelectionLoader: SelfieSelectionLoader) {
+    init(documentType: DocumentType, dataType: DataType, country: Country, selfieSelectionLoader: SelfieSelectionLoader) {
         self.documentType = documentType
+        self.dataType = dataType
         self.country = country
         requestsToScan = documentType.scanRequests
         requestsCount = requestsToScan.count
@@ -136,7 +138,8 @@ final class ScanProcess {
             documentCode: result?.code == nil ? documentType.rawValue : String(describing: result!.code!),
             photoType: result?.page == nil ? type : (result!.page == .Back ? .back : .front),
             country: result?.country?.rawValue == nil ? country : (Country(rawValue: result!.country!.description) ?? country),
-            signature: result?.signature?.signature
+            signature: result?.signature?.signature,
+            dataType: dataType
         )
         if self.documentType == .otherDocument {
             // in case of other documents we are uploading only the whole file in completion of this controller

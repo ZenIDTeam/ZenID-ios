@@ -17,4 +17,5 @@ struct ImageInput {
     var photoType: PhotoType
     var country: Country
     var signature: String?
+    var dataType: DataType
 }

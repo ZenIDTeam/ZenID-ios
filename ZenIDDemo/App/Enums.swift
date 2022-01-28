@@ -14,23 +14,18 @@ public enum UploadedSampleType: String {
     case face = "Selfie"
     case otherDocument = "Archived"
     
-    static func from(photoType: PhotoType, documentType: DocumentType) -> UploadedSampleType {
+    static func from(photoType: PhotoType, documentType: DocumentType, dataType: DataType) -> UploadedSampleType {
         if case .otherDocument = documentType {
             return .otherDocument
         }
+        if dataType == .video {
+            return .documentVideo
+        }
         switch photoType {
-        case .front:
-            if case .hologram = documentType {
-                return .documentVideo
-            } else {
-                return .documentPicture
-            }
-        case .back:
+        case .front, .back:
             return .documentPicture
         case .face:
             return .face
-        case .hologram:
-            return .documentVideo
         }
     }
 }
@@ -42,8 +37,8 @@ public enum DocumentType: String {
     case unspecifiedDocument = "Unsp"
     case filter = "Filter"
     case otherDocument = "Cont"
-    case hologram = "Holo"
     case face = "Self"
+    case documentVideo = "DocVideo"
 }
 
 extension DocumentType {
@@ -60,12 +55,12 @@ extension DocumentType {
                 return "btn-unspecified-document".localized.uppercased()
             case .otherDocument:
                 return "btn-other-document".localized.uppercased()
-            case .hologram:
-                return "btn-hologram".localized.uppercased()
             case .face:
                 return "btn-face".localized.uppercased()
             case .filter:
                 return NSLocalizedString("btn-filter", comment: "").uppercased()
+            case .documentVideo:
+                return NSLocalizedString("btn-hologram", comment: "").uppercased()
             }
         }
     }
@@ -74,7 +69,7 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [.front, .back, .face]
+                return [/*.front, .back,*/ .face]
             case .drivingLicence:
                 return [.front, .face]
             case .passport:
@@ -83,8 +78,8 @@ extension DocumentType {
                 return [.front, .face]
             case .otherDocument:
                 return (0...30).map { _ in .front }
-            case .hologram:
-                return [.hologram]
+            case .documentVideo:
+                return [.front]
             case .face:
                 return [.face]
             case .filter:
@@ -106,8 +101,6 @@ extension DocumentType {
                 return #imageLiteral(resourceName: "OK button@2x.png")
             case .otherDocument:
                 return #imageLiteral(resourceName: "OK button@2x.png")
-            case .hologram:
-                return #imageLiteral(resourceName: "Kruh-HL")
             case .face:
                 return #imageLiteral(resourceName: "Kruh-SF")
             default:
@@ -120,12 +113,16 @@ extension DocumentType {
 public enum PhotoType {
     case front
     case back
-    case hologram
     case face
     
     var isDocument: Bool {
         self == .front || self == .back
     }
+}
+
+public enum DataType {
+    case picture
+    case video
 }
 
 extension PhotoType {
@@ -136,8 +133,6 @@ extension PhotoType {
                 return "F"
             case .back:
                 return "B"
-            case .hologram:
-                return "F"
             case .face:
                 return "F"
             }
@@ -151,8 +146,6 @@ extension PhotoType {
                 return "msg-scan-front".localized
             case .back:
                 return "msg-scan-back".localized
-            case .hologram:
-                return "msg-scan-hologram".localized
             case .face:
                 return "msg-scan-face".localized
             }

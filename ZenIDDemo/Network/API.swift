@@ -55,7 +55,7 @@ extension API {
         let pageKey = "pageCode"
         let signatureKey = "sdkSignature"
         let documentCodeKey  = "documentCode"
-        let sampleType = UploadedSampleType.from(photoType: image.photoType, documentType: image.documentType)
+        let sampleType = UploadedSampleType.from(photoType: image.photoType, documentType: image.documentType, dataType: image.dataType)
         var parameters = [typeKey : sampleType.rawValue,
                           roleKey : image.documentRole?.description ?? "",
                           countryKey: image.country.rawValue,

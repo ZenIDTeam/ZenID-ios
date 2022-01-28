@@ -171,7 +171,7 @@ class ResultsViewModel {
             return [.firstName, .lastName, .birthDate, .documentNumber, .issueDate, .expiryDate, .nationality, .address, .authority]
         case .face:
             return [.selfie]
-        case .hologram:
+        case .documentVideo:
             return [.hologram]
         default:
             return []

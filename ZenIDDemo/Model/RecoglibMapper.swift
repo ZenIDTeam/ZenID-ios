@@ -23,12 +23,12 @@ final class RecoglibMapper {
             return nil
         case .otherDocument:
             return nil
-        case .hologram:
-            return nil
         case .face:
             return nil
         case .filter:
             return role
+        case .documentVideo:
+            return nil
         }
     }
 
@@ -39,8 +39,6 @@ final class RecoglibMapper {
         case .back:
             return .Back
         case .face:
-            return nil
-        case .hologram:
             return nil
         }
     }
