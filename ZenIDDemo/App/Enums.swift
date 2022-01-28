@@ -74,7 +74,7 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [.front, .back, .face]
+                return [/*.front, .back,*/ .face]
             case .drivingLicence:
                 return [.front, .face]
             case .passport:
@@ -117,7 +117,7 @@ extension DocumentType {
     }
 }
 
-public enum PhotoType {
+public enum PhotoType: Equatable {
     case front
     case back
     case hologram
@@ -126,6 +126,16 @@ public enum PhotoType {
     var isDocument: Bool {
         self == .front || self == .back
     }
+}
+
+public enum FaceType: Equatable {
+    case picture
+    case video
+}
+
+public struct FaceConfig {
+    let mode: FaceMode
+    let type: FaceType
 }
 
 extension PhotoType {

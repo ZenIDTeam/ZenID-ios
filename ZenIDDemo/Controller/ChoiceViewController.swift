@@ -63,7 +63,7 @@ final class ChoiceViewController: UIViewController {
         label.textColor = .zenTextLight
     }
     
-    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz, faceMode: .faceLiveness)
+    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz, faceConfig: .init(mode: .faceLiveness, type: .picture))
     private var scanProcess: ScanProcess?
 
     override func viewDidLoad() {
@@ -375,7 +375,7 @@ extension ChoiceViewController: ScanProcessDelegate {
                             type: scanProcess.documentType,
                             photoType: photoType,
                             country: scanProcess.country,
-                            faceMode: faceMode,
+                            faceConfig: faceMode == nil ? nil : .init(mode: faceMode!, type: .picture),
                             photosCount: scanProcess.pdfImages.count,
                             documents: documents,
                             documentSettings: settings,
