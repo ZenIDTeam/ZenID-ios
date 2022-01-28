@@ -299,19 +299,28 @@ class CameraViewController: UIViewController {
     func addWebViewOverlay(urlRequest: URLRequest) {
         webViewOverlay?.removeFromSuperview()
         let configuration = WKWebViewConfiguration()
-        configuration.preferences.javaScriptEnabled = true
+        //configuration.preferences.javaScriptEnabled = true
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.backgroundColor = .clear
+        webView.scrollView.backgroundColor = .clear
+        webView.isOpaque = false
         //webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         //webView.load(urlRequest)
-        let fileUrl = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "WebSource")!
-        webView.loadFileURL(fileUrl, allowingReadAccessTo: fileUrl)
+        //let fileUrl = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "WebSource")!
+        //webView.loadFileURL(fileUrl, allowingReadAccessTo: fileUrl)
+        webView.load(urlRequest)
         view.addSubview(webView)
         view.leftAnchor.constraint(equalTo: webView.leftAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: webView.bottomAnchor).isActive = true
         view.rightAnchor.constraint(equalTo: webView.rightAnchor).isActive = true
         view.topAnchor.constraint(equalTo: webView.topAnchor).isActive = true
         webViewOverlay = webView
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            let command = "const event = new CustomEvent('stateChange', { detail: { url: '/id-front' }});window.dispatchEvent(event);"
+            webView.evaluateJavaScript(command, completionHandler: nil)
+        }
     }
     
     private func resetDocumentVerifier() {
