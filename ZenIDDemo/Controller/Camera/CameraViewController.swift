@@ -46,7 +46,7 @@ class CameraViewController: UIViewController {
     private var photoType: PhotoType
     private var documentType: DocumentType
     private var country: Country
-    private var faceConfig: FaceConfig?
+    private var faceMode: FaceMode?
 
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevicePosition: AVCaptureDevice.Position = .back
@@ -85,11 +85,11 @@ class CameraViewController: UIViewController {
     private var documents: [Document]
     private var documentSettings: DocumentVerifierSettings?
     
-    init(photoType: PhotoType, documentType: DocumentType, country: Country, faceConfig: FaceConfig) {
+    init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
         self.photoType = photoType
         self.documentType = documentType
         self.country = country
-        self.faceConfig = faceConfig
+        self.faceMode = faceMode
         self.photosCount = 0
         self.documents = []
         
@@ -187,16 +187,16 @@ class CameraViewController: UIViewController {
         faceLivenessVerifier.loadModels(faceLoader)
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceConfig: FaceConfig?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
-        if faceConfig?.mode.isFaceliveness ?? false && photoType == .face {
-            let isLegacy = faceConfig?.mode == .faceLivenessLegacy
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
+        if faceMode?.isFaceliveness ?? false && photoType == .face {
+            let isLegacy = faceMode == .faceLivenessLegacy
             faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
         }
         self.detectionRunning = false
         self.photoType = photoType
         self.documentType = type
         self.country = country
-        self.faceConfig = faceConfig
+        self.faceMode = faceMode
         self.documents = documents
         self.captureDevicePosition = isFaceDetection ? .front : .back
         contentView.rotateInstructionView()
@@ -332,7 +332,7 @@ class CameraViewController: UIViewController {
         }
         previousResult = unwrappedResult
         
-        if photoType == .face && faceConfig?.mode.isFaceliveness ?? false {
+        if photoType == .face && faceMode?.isFaceliveness ?? false {
             saveAuxiliaryImagesToLibrary(info: faceLivenessVerifier.getAuxiliaryInfo())
         }
         
@@ -527,7 +527,7 @@ private extension CameraViewController {
     }
     
     private func canShowInstructionView() -> Bool {
-        (photoType != .face && faceConfig?.mode == .faceLiveness) && photoType != .hologram
+        (photoType != .face && faceMode == .faceLiveness) && photoType != .hologram
     }
 }
 
@@ -625,20 +625,20 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         // torch for holograms
         self.setTorch(on: photoType == .hologram)
         
-        if faceConfig?.mode == nil && photoType == .face {
+        if faceMode == nil && photoType == .face {
             return
         }
         if let videoWriter = self.videoWriter, photoType == .hologram, videoWriter.isRecording {
             videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
         }
-        let verifier = getVerifier(photoType: photoType, faceMode: faceConfig?.mode ?? .selfie)
+        let verifier = getVerifier(photoType: photoType, faceMode: faceMode ?? .selfie)
         guard let result = verifier.verify(image: croppedBuffer) else {
             return
         }
         DispatchQueue.main.async { [unowned self] in
             self.updateView(with: result, photoType: photoType, buffer: croppedBuffer)
         }
-        guard let renderable = getVerifierRenderable(photoType: photoType, faceMode: faceConfig?.mode ?? .selfie) else {
+        guard let renderable = getVerifierRenderable(photoType: photoType, faceMode: faceMode ?? .selfie) else {
             return
         }
         DispatchQueue.main.async {
