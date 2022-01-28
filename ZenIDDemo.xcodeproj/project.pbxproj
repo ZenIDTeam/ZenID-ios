@@ -54,6 +54,7 @@
 		01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8F88522B92BE100D8B75E /* MessagesView.swift */; };
 		01EDB2C3231FAE22009B0859 /* UIImageView+Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */; };
 		180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */; };
+		18153CC427A434BE0066FDF2 /* DataTypeTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */; };
 		181AB23426F9A2870081420D /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 181AB23326F9A2870081420D /* Models */; };
 		18237B3026D79DB800D83627 /* UnifiedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B2F26D79DB700D83627 /* UnifiedResult.swift */; };
 		18237B3226D79E0F00D83627 /* UnifiedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18237B3126D79E0F00D83627 /* UnifiedState.swift */; };
@@ -263,6 +264,7 @@
 		01B8F88522B92BE100D8B75E /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		01EDB2C2231FAE22009B0859 /* UIImageView+Clipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Clipping.swift"; sourceTree = "<group>"; };
 		180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidatorComposer.swift; sourceTree = "<group>"; };
+		18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeTableViewCellController.swift; sourceTree = "<group>"; };
 		181AB23326F9A2870081420D /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		18237B2F26D79DB700D83627 /* UnifiedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedResult.swift; sourceTree = "<group>"; };
 		18237B3126D79E0F00D83627 /* UnifiedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedState.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				18953DA426833DED0077F976 /* ContactTableCellController.swift */,
 				18953DA626833F250077F976 /* LogoutTableCellController.swift */,
 				188422E7272802D1002BD366 /* DebugTableViewCellController.swift */,
+				18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */,
 				18953D572682454E0077F976 /* SettingsComposer.swift */,
 			);
 			path = Settings;
@@ -1046,6 +1049,7 @@
 				0141C03023A791B800566078 /* RenderableFactory.swift in Sources */,
 				18953D952682F4AD0077F976 /* AddDocumentFilterViewController.swift in Sources */,
 				18953D8E2682F1810077F976 /* DocumentsFilterLoaderComposer.swift in Sources */,
+				18153CC427A434BE0066FDF2 /* DataTypeTableViewCellController.swift in Sources */,
 				D2CB351622BA76F900453DB8 /* UIViewController+Gradient.swift in Sources */,
 				18953D7E2682E6110077F976 /* DocumentViewModel.swift in Sources */,
 				188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */,

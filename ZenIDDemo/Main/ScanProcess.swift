@@ -26,7 +26,6 @@ final class ScanProcess {
     
     /// Document type that the class will process
     let documentType: DocumentType
-    let dataType: DataType
     
     /// Document country
     let country: Country
@@ -42,9 +41,8 @@ final class ScanProcess {
     /// Initialize the scan process with a specific document type
     ///
     /// - Parameter documentType: Document type to scan
-    init(documentType: DocumentType, dataType: DataType, country: Country, selfieSelectionLoader: SelfieSelectionLoader) {
+    init(documentType: DocumentType, country: Country, selfieSelectionLoader: SelfieSelectionLoader) {
         self.documentType = documentType
-        self.dataType = dataType
         self.country = country
         requestsToScan = documentType.scanRequests
         requestsCount = requestsToScan.count
@@ -128,7 +126,7 @@ final class ScanProcess {
     /// - Parameters:
     ///   - imageData: the image data
     ///   - type: photo sample type
-    public func processPhoto(imageData: Data, type: PhotoType, result: UnifiedResult?) {
+    public func processPhoto(imageData: Data, type: PhotoType, result: UnifiedResult?, dataType: DataType) {
         checkIfIsFinishedAndCallDelegate()
         self.scanNextSample()
         let imageInput = ImageInput(

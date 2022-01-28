@@ -69,7 +69,7 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [/*.front, .back,*/ .face]
+                return [.front, .back, .face]
             case .drivingLicence:
                 return [.front, .face]
             case .passport:

@@ -181,7 +181,8 @@ final class ChoiceViewController: UIViewController {
             Haptics.shared.select()
             switch sender {
             case self.idButton:
-                self.startProcess(.idCard, dataType: .video)
+                let isLivenessVideo = ConfigServiceComposer.compose().load().isLivenessVideo
+                self.startProcess(.idCard, dataType: isLivenessVideo ? .video : .picture)
             case self.drivingLicenceButton:
                 self.startProcess(.drivingLicence)
             case self.passportButton:
@@ -189,7 +190,7 @@ final class ChoiceViewController: UIViewController {
             case self.otherDocumentButton:
                 self.startProcess(.otherDocument)
             case self.hologramButton:
-                self.startProcess(.documentVideo, dataType: .video)
+                self.startProcess(.documentVideo)
             case self.faceButton:
                 self.startProcess(.face)
             case self.logsButton:
@@ -204,7 +205,7 @@ final class ChoiceViewController: UIViewController {
     
     private func startProcess(_ documentType: DocumentType, dataType: DataType = .picture) {
         if validateInput(documentType) {
-            scanProcess = createScanProcess(documentType: documentType, dataType: dataType, country: selectedCountry)
+            scanProcess = createScanProcess(documentType: documentType, country: selectedCountry)
             scanProcess?.delegate = self
             scanProcess?.start()
         } else {
@@ -229,17 +230,15 @@ final class ChoiceViewController: UIViewController {
         self.scanProcess = nil
         self.scanProcess = createScanProcess(
             documentType: currentScanProcess.documentType,
-            dataType: currentScanProcess.dataType,
             country: currentScanProcess.country
         )
         self.scanProcess!.delegate = self
         self.scanProcess!.start()
     }
     
-    private func createScanProcess(documentType: DocumentType, dataType: DataType, country: Country) -> ScanProcess {
+    private func createScanProcess(documentType: DocumentType, country: Country) -> ScanProcess {
         .init(
             documentType: documentType,
-            dataType: dataType,
             country: country,
             selfieSelectionLoader: SelfieSelectionLoaderComposer.compose()
         )
@@ -281,14 +280,14 @@ final class ChoiceViewController: UIViewController {
 extension ChoiceViewController: CameraViewControllerDelegate {
     func didTakePhoto(_ imageData: Data?, type: PhotoType, result: UnifiedResult?) {
         if let data = imageData {
-            scanProcess?.processPhoto(imageData: data, type: type, result: result)
+            scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .picture)
         }
     }
     
     func didTakeVideo(_ videoAsset: AVURLAsset?, type: PhotoType) {
         if let videoAsset = videoAsset {
             if let data = try? Data(contentsOf: videoAsset.url) {
-                scanProcess?.processPhoto(imageData: data, type: type, result: nil)
+                scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
             }
         }
     }
@@ -381,8 +380,7 @@ extension ChoiceViewController: ScanProcessDelegate {
                             photosCount: scanProcess.pdfImages.count,
                             documents: documents,
                             documentSettings: settings,
-                            config: ConfigServiceComposer.compose().load(),
-                            dataType: scanProcess.dataType
+                            config: ConfigServiceComposer.compose().load()
                         )
                     }
                 }

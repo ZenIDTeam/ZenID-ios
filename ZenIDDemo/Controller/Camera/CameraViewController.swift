@@ -189,7 +189,7 @@ class CameraViewController: UIViewController {
         faceLivenessVerifier.loadModels(faceLoader)
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config, dataType: DataType) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, photosCount: Int = 0, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
         if faceMode?.isFaceliveness ?? false && photoType == .face {
             let isLegacy = faceMode == .faceLivenessLegacy
             faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
@@ -199,7 +199,7 @@ class CameraViewController: UIViewController {
         self.documentType = type
         self.country = country
         self.faceMode = faceMode
-        self.dataType = dataType
+        self.dataType = dataType(of: documentType, photoType: photoType, isLivenessVideo: config.isLivenessVideo)
         self.documents = documents
         self.captureDevicePosition = isFaceDetection ? .front : .back
         contentView.rotateInstructionView()
@@ -294,6 +294,13 @@ class CameraViewController: UIViewController {
         self.detectionRunning = true
         
         setNilAllPreviousResults()
+    }
+    
+    private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {
+        if documentType == .documentVideo || photoType == .face && isLivenessVideo {
+            return .video
+        }
+        return .picture
     }
     
     private func resetDocumentVerifier() {
