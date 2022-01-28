@@ -33,7 +33,7 @@ final class ChoiceViewController: UIViewController {
         passportButton,
         otherDocumentButton,
         documentsFilterButton,
-        //hologramButton,
+        hologramButton,
         //faceButton,
         logsButton,
         webViewButton
@@ -65,7 +65,7 @@ final class ChoiceViewController: UIViewController {
         label.textColor = .zenTextLight
     }
     
-    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz, faceMode: .faceLiveness)
+    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz, faceMode: .faceLiveness, dataType: .picture)
     private var scanProcess: ScanProcess?
 
     override func viewDidLoad() {
@@ -183,7 +183,8 @@ final class ChoiceViewController: UIViewController {
             Haptics.shared.select()
             switch sender {
             case self.idButton:
-                self.startProcess(.idCard)
+                let isLivenessVideo = ConfigServiceComposer.compose().load().isLivenessVideo
+                self.startProcess(.idCard, dataType: isLivenessVideo ? .video : .picture)
             case self.drivingLicenceButton:
                 self.startProcess(.drivingLicence)
             case self.passportButton:
@@ -191,7 +192,7 @@ final class ChoiceViewController: UIViewController {
             case self.otherDocumentButton:
                 self.startProcess(.otherDocument)
             case self.hologramButton:
-                self.startProcess(.hologram)
+                self.startProcess(.documentVideo)
             case self.faceButton:
                 self.startProcess(.face)
             case self.logsButton:
@@ -208,7 +209,7 @@ final class ChoiceViewController: UIViewController {
         }
     }
     
-    private func startProcess(_ documentType: DocumentType) {
+    private func startProcess(_ documentType: DocumentType, dataType: DataType = .picture) {
         if validateInput(documentType) {
             scanProcess = createScanProcess(documentType: documentType, country: selectedCountry)
             scanProcess?.delegate = self
@@ -285,14 +286,14 @@ final class ChoiceViewController: UIViewController {
 extension ChoiceViewController: CameraViewControllerDelegate {
     func didTakePhoto(_ imageData: Data?, type: PhotoType, result: UnifiedResult?) {
         if let data = imageData {
-            scanProcess?.processPhoto(imageData: data, type: type, result: result)
+            scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .picture)
         }
     }
     
     func didTakeVideo(_ videoAsset: AVURLAsset?, type: PhotoType) {
         if let videoAsset = videoAsset {
             if let data = try? Data(contentsOf: videoAsset.url) {
-                scanProcess?.processPhoto(imageData: data, type: type, result: nil)
+                scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
             }
         }
     }

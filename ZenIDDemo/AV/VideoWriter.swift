@@ -48,7 +48,9 @@ extension VideoWriter {
             if let delegate = self.delegate {
                 let url = self.videoWriter.outputURL
                 let videoAsset = AVURLAsset(url: url)
-                delegate.didTakeVideo(videoAsset)
+                DispatchQueue.main.async { [weak delegate] in
+                    delegate?.didTakeVideo(videoAsset)
+                }
             }
         }
     }

@@ -6,27 +6,23 @@
 	<dict>
 		<key>Headers/AcceptableInput.h</key>
 		<data>
-		aun0PXb0JUrfDpmnxVCWENu+Inw=
+		+xKZkpar6IZzUlekB2PaOYR/c4w=
 		</data>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		FwR0k/4/miyyYNeCa78V1Oju5q8=
+		7u9c2cFe13qKYR+M2XMmVcXM1d0=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
-		fCGqDT5l8UoUQ3iCmhvP0fOgyVk=
+		WEiutjBNFSypeMjolxTy8TPPrcQ=
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
 		sNKFo4FOYQZNtw25gVjb8DaWVSs=
 		</data>
-		<key>Headers/Optional.h</key>
-		<data>
-		Gj4ymQLVIjK1byiFpBVT3c1GG18=
-		</data>
 		<key>Headers/RecogLibC.h</key>
 		<data>
-		yMSzIeuVpxhgjKhitGMUWE3JzKI=
+		bEvdSiTa4MN2lvMUg5smVfsAMSc=
 		</data>
 		<key>Headers/RecogLibCException.h</key>
 		<data>
@@ -38,7 +34,7 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		Sqelg5J7YhRm2QzITkgezwApXEM=
+		vyeDp2q/BwUp8+B17SzWmU5Kxkg=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
@@ -46,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		R5xpeP6FkrW0S54YyC9hZOowtME=
+		BijxEbcqjF7Uax31N5SW/rNuV3g=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -59,21 +55,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QExTszCQtuP6NPlzY2eSn+ZwRnpH35nqFwNKQB07Ass=
+			Sws+uALaqdJAhZtJihYDUOPCZ7Nv6iQp66BcAdSM5Oc=
 			</data>
 		</dict>
 		<key>Headers/DocumentVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h34/2pIgNkZxodUkoZpjTbIBOUkFZyhFCuExmtPU87o=
+			/CYDUtJoYSAL53RdwzdMFQ63Yuiwham7vGK7U1m07Xw=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			epEl5B+o4t3yfo7Om0SEdxJD0UzKmtnZDviRgm64ESs=
+			uqej9DRoCLuOoe0cUU6t20pVcs5GdM8H62lRBvGTeDk=
 			</data>
 		</dict>
 		<key>Headers/Image.h</key>
@@ -83,18 +79,11 @@
 			4/SPz9YfCsoZTmQhMrKV5pCpClia5V45q7Vod438Iok=
 			</data>
 		</dict>
-		<key>Headers/Optional.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			RUHfwS52oQmWKRSccNmNwzxLWMsjYyx+oc2W9UaPhXE=
-			</data>
-		</dict>
 		<key>Headers/RecogLibC.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rVOJ6ReEcV4zOyfU4IwVfwqW/TiVw5XEIEiO2gIdhjg=
+			PwGHxR8hbjmp8q8XhLPuPJkGxtEgLxi53Dby8/WUEdw=
 			</data>
 		</dict>
 		<key>Headers/RecogLibCException.h</key>
@@ -115,7 +104,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XylH00zjAtSqIjIiWmg351wnqKTDxSmq4lAqPlrfXzw=
+			+MOn+ZAKbYzs9f22ot7l87kKnytC7pXJT3l19zmF0ds=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>

@@ -142,6 +142,7 @@
 "settings-selfie-match" = "Selfie Match";
 "settings-selfie-liveness" = "Selfie Liveness";
 "settings-selfie-liveness-legacy" = "Selfie Liveness Legacy";
+"settings-selfie-mode-video" = "Liveness Mode Video";
 
 // Debug
 "settings-verifier-debug" = "Debug Mode";

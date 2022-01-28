@@ -26,22 +26,14 @@ final class UnifiedHologramResultAdapter: UnifiedResult {
 extension HologramState {
     func toDomain() -> UnifiedState {
         switch self {
-        case .TiltLeft:
-            return .tiltLeft
-        case .TiltUp:
-            return .tiltUp
-        case .TiltDown:
-            return .tiltDown
-        case .TiltRight:
-            return .tiltRight
-        case .NoMatchFound:
-            return .notFound
-        case .Ok:
+        case .center:
+            return .center
+        case .tiltUpAndDown:
+            return .tiltUpAndDown
+        case .tiltLeftAndRight:
+            return .tiltLeftAndRight
+        case .ok:
             return .ok
-        case .RotateClockwise:
-            return .rotateClockwise
-        case .RotateCounterClockwise:
-            return .rotateCounterClockwise
         }
     }
 }

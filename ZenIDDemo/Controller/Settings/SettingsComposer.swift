@@ -34,7 +34,8 @@ final class SettingsComposer {
                 cells: [
                     SelfieTableCellController(viewModel: .init(name: faceMode?.rawValue.uppercased(), action: {
                         coordinator.settingsOpenSelfieSelection()
-                    }))
+                    })),
+                    DataTypeTableViewCellController(service: configService)
                 ]
             ),
             .init(

@@ -75,6 +75,48 @@ enum class DocumentCodes : uint8_t
 	BG_IDC_2010 = 63,
 	BG_DRV_2010_13 = 64,
 	HR_IDC_2021 = 65,
+	AT_IDC_2021 = 66,
+	DE_PAS_2007 = 67,
+	DE_DRV_2013_21 = 68,
+	DE_DRV_1999_01_04_11 = 69,
+	DE_IDC_2021 = 70,
+	FR_IDC_2021 = 71,
+	FR_IDC_1988_94 = 72,
+	ES_PAS_2003_06 = 73,
+	ES_IDC_2015 = 74,
+	ES_IDC_2006 = 75,
+	IT_IDC_2004 = 76,
+	RO_IDC_2001_06_09_17_21 = 77,
+	NL_IDC_2014_17_21 = 78,
+	BE_PAS_2014_17_19 = 79,
+	BE_IDC_2013_15 = 80,
+	BE_IDC_2020_21 = 81,
+	GR_PAS_2020 = 82,
+	PT_PAS_2006_09 = 83,
+	PT_PAS_2017 = 84,
+	PT_IDC_2007_08_09_15 = 85,
+	SE_IDC_2012_21 = 86,
+	FI_IDC_2017_21 = 87,
+	IE_PAS_2006_13 = 88,
+	LT_PAS_2008_09_11_19 = 89,
+	LT_IDC_2009_12 = 90,
+	LV_PAS_2015 = 91,
+	LV_PAS_2007 = 92,
+	LV_IDC_2012 = 93,
+	LV_IDC_2019 = 94,
+	EE_PAS_2014 = 95,
+	EE_PAS_2021 = 96,
+	EE_IDC_2011 = 97,
+	EE_IDC_2018_21 = 98,
+	CY_PAS_2010_20 = 99,
+	CY_IDC_2000_08 = 100,
+	CY_IDC_2015_20 = 101,
+	LU_PAS_2015 = 102,
+	LU_IDC_2014_21 = 103,
+	LU_IDC_2008_13 = 104,
+	MT_PAS_2008 = 105,
+	MT_IDC_2014 = 106,
+	PL_PAS_2011 = 107,
 };
 
 enum class PageCodes : uint8_t
@@ -106,6 +148,16 @@ enum class Country : uint8_t
 	Se = 18,
 	Si = 19,
 	Bg = 20,
+	Be = 23,
+	Ee = 27,
+	Ie = 28,
+	Cy = 29,
+	Lt = 31,
+	Lv = 32,
+	Lu = 33,
+	Mt = 34,
+	Pt = 38,
+	Gr = 39,
 };
 
 enum class DocumentRole : uint8_t
@@ -119,6 +171,8 @@ enum class DocumentRole : uint8_t
 	Std = 6,
 	Car = 7,
 	Birth = 8,
+	Add = 9,
+	Ide = 10,
 };
 
 enum class SupportedLanguages : uint8_t
@@ -153,14 +207,10 @@ enum class SelfieVerifierState : int
 
 enum class HologramState : int
 {
-	NoMatchFound = 0,
-	TiltLeft = 1,
-	TiltRight = 2,
-	TiltUp = 3,
-	TiltDown = 4,
-	RotateClockwise = 5,
-	RotateCounterClockwise = 6,
-	Ok = 7,
+	Center = 0,
+	TiltLeftAndRight = 1,
+	TiltUpAndDown = 2,
+	Ok = 3,
 };
 
 enum class FaceLivenessVerifierState : int

@@ -104,7 +104,7 @@ final class ResultViewController: BaseInfoViewController {
             return #imageLiteral(resourceName: "Icon-CP")
         case .otherDocument:
             return #imageLiteral(resourceName: "Icon-CP")
-        case .hologram:
+        case .documentVideo:
             return #imageLiteral(resourceName: "Kruh-HL")
         case .face:
             return #imageLiteral(resourceName: "Kruh-SF")

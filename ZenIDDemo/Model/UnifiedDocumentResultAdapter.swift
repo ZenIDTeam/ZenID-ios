@@ -13,7 +13,7 @@ final class UnifiedDocumentResultAdapter: UnifiedResult {
     let signature: ImageSignature?
     
     init(result: DocumentResult) {
-        state = result.state.toDomain()
+        state = result.hologremState?.toDomain() ?? result.state.toDomain()
         role = result.role
         country = result.country
         code = result.code

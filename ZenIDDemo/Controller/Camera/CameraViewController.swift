@@ -48,6 +48,7 @@ class CameraViewController: UIViewController {
     private var documentType: DocumentType
     private var country: Country
     private var faceMode: FaceMode?
+    private var dataType: DataType
 
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevicePosition: AVCaptureDevice.Position = .back
@@ -76,7 +77,7 @@ class CameraViewController: UIViewController {
     private var previousResult: UnifiedResult?
     
     private var supportChangedOrientation: Bool {
-        return photoType != .face && photoType != .hologram
+        return photoType != .face && dataType != .video
     }
     
     private var isFaceDetection: Bool {
@@ -88,11 +89,12 @@ class CameraViewController: UIViewController {
     
     private var webViewOverlay: WKWebView?
     
-    init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode) {
+    init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode, dataType: DataType) {
         self.photoType = photoType
         self.documentType = documentType
         self.country = country
         self.faceMode = faceMode
+        self.dataType = dataType
         self.photosCount = 0
         self.documents = []
         
@@ -145,7 +147,7 @@ class CameraViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
         contentView.saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
-        contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay && photoType != .face)
+        contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay())
         DispatchQueue.main.async { [weak self] in
             self?.orientationChanged()
         }
@@ -200,6 +202,7 @@ class CameraViewController: UIViewController {
         self.documentType = type
         self.country = country
         self.faceMode = faceMode
+        self.dataType = dataType(of: documentType, photoType: photoType, isLivenessVideo: config.isLivenessVideo)
         self.documents = documents
         self.captureDevicePosition = isFaceDetection ? .front : .back
         contentView.rotateInstructionView()
@@ -217,28 +220,13 @@ class CameraViewController: UIViewController {
         self.startSession()
         
         resetDocumentVerifier()
+        
         // Create verify object
         switch photoType {
         case .face:
             // Reset verifier
             self.faceLivenessVerifier.reset()
             self.selfieVerifier.reset()
-            break
-            
-        case .hologram:
-            // Reset verifier
-            self.documentVerifier.reset()
-            
-            // This will setup document verifier to Czech ID / front side
-            self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
-            self.documentVerifier.country = RecogLib_iOS.Country.Cz
-            self.documentVerifier.page = RecogLib_iOS.PageCode.Front
-            
-            // This will setup document verifier to detect holograms
-            self.documentVerifier.beginHologramVerification()
-            
-            // This starts video writer for holograms
-            self.videoWriter.start()
             break
         default:
             // Reset verifier
@@ -249,8 +237,7 @@ class CameraViewController: UIViewController {
             
             if type == .unspecifiedDocument {
                 resetDocumentVerifier()
-            } else
-            {
+            } else {
                 // This will setup document verifier
                 if let role = RecoglibMapper.documentRole(from: type) {
                     documentVerifier.documentRole = role
@@ -266,6 +253,22 @@ class CameraViewController: UIViewController {
                 }
             }
             break
+        }
+        
+        if dataType == .video {
+            // Reset verifier
+            self.documentVerifier.reset()
+            
+            // This will setup document verifier to Czech ID / front side
+            self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
+            self.documentVerifier.country = RecogLib_iOS.Country.Cz
+            self.documentVerifier.page = RecogLib_iOS.PageCode.Front
+            
+            // This will setup document verifier to detect holograms
+            self.documentVerifier.beginHologramVerification()
+            
+            // This starts video writer for holograms
+            self.videoWriter.start()
         }
         
         if type == .filter {
@@ -284,7 +287,7 @@ class CameraViewController: UIViewController {
         } else {
             self.showStaticOverlay = true
             self.showVisualisation = true
-            self.showInstructionView = photoType != .face && faceMode == .faceLiveness
+            self.showInstructionView = canShowInstructionView()
         }
         
         // Control view
@@ -294,6 +297,13 @@ class CameraViewController: UIViewController {
         self.detectionRunning = true
         
         setNilAllPreviousResults()
+    }
+    
+    private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {
+        if documentType == .documentVideo || photoType == .face && isLivenessVideo {
+            return .video
+        }
+        return .picture
     }
     
     func addWebViewOverlay(urlRequest: URLRequest) {
@@ -369,7 +379,7 @@ class CameraViewController: UIViewController {
         guard detectionRunning else { return }
         detectionRunning = false
         
-        if photoType == .hologram {
+        if dataType == .video {
             videoWriter.stop()
         } else if photoType.isDocument {
             returnImage(buffer, ImageFlip.fromLandScape, result: unwrappedResult)
@@ -502,7 +512,7 @@ private extension CameraViewController {
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             contentView.previewLayer = previewLayer
         }
-        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: showStaticOverlay && photoType != .face)
+        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay())
     }
     
     func setupCameraSession(_ device: AVCaptureDevice) -> Bool {
@@ -550,6 +560,14 @@ private extension CameraViewController {
         
         let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
         return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
+    }
+    
+    private func canShowStaticOverlay() -> Bool {
+        showStaticOverlay && photoType != .face
+    }
+    
+    private func canShowInstructionView() -> Bool {
+        (photoType != .face && faceMode == .faceLiveness) && dataType != .video
     }
 }
 
@@ -645,12 +663,12 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight).flip()
         
         // torch for holograms
-        self.setTorch(on: photoType == .hologram)
+        self.setTorch(on: dataType == .video && photoType != .face)
         
         if faceMode == nil && photoType == .face {
             return
         }
-        if let videoWriter = self.videoWriter, photoType == .hologram, videoWriter.isRecording {
+        if let videoWriter = self.videoWriter, dataType == .video, videoWriter.isRecording {
             videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
         }
         let verifier = getVerifier(photoType: photoType, faceMode: faceMode ?? .selfie)
@@ -731,8 +749,6 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             case .selfie:
                 return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
             }
-        case .hologram:
-            return nil
         default:
             return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: getImageOrientation())
         }

@@ -126,7 +126,7 @@ final class ScanProcess {
     /// - Parameters:
     ///   - imageData: the image data
     ///   - type: photo sample type
-    public func processPhoto(imageData: Data, type: PhotoType, result: UnifiedResult?) {
+    public func processPhoto(imageData: Data, type: PhotoType, result: UnifiedResult?, dataType: DataType) {
         checkIfIsFinishedAndCallDelegate()
         self.scanNextSample()
         let imageInput = ImageInput(
@@ -136,7 +136,8 @@ final class ScanProcess {
             documentCode: result?.code == nil ? documentType.rawValue : String(describing: result!.code!),
             photoType: result?.page == nil ? type : (result!.page == .Back ? .back : .front),
             country: result?.country?.rawValue == nil ? country : (Country(rawValue: result!.country!.description) ?? country),
-            signature: result?.signature?.signature
+            signature: result?.signature?.signature,
+            dataType: dataType
         )
         if self.documentType == .otherDocument {
             // in case of other documents we are uploading only the whole file in completion of this controller

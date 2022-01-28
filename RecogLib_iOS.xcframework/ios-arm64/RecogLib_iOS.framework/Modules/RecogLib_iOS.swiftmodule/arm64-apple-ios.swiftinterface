@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
-// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name RecogLib_iOS
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 import AVFoundation
 import CoreGraphics
 import CoreMedia
@@ -24,7 +24,7 @@ public class SelfieVerifier {
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
     get
-    set(value)
+    set
   }
   public init(language: RecogLib_iOS.SupportedLanguages)
   public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
@@ -38,7 +38,7 @@ public class FaceLivenessVerifier {
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
     get
-    set(value)
+    set
   }
   public init(language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.FaceLivenessVerifierSettings? = nil)
   public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
@@ -58,12 +58,12 @@ public class DocumentVerifier {
   final public let settings: RecogLib_iOS.DocumentVerifierSettings?
   public var documentsInput: RecogLib_iOS.DocumentsInput? {
     get
-    set(value)
+    set
   }
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
     get
-    set(value)
+    set
   }
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
   public init(input: RecogLib_iOS.DocumentsInput, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
@@ -72,9 +72,6 @@ public class DocumentVerifier {
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func update(settings: RecogLib_iOS.DocumentVerifierSettings)
   public func validate(input: RecogLib_iOS.DocumentsInput) -> Swift.Bool
-  public func verifyHologram(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
-  public func verifyHologramImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.HologramResult?
-  public func supportsHologram() -> Swift.Bool
   public func beginHologramVerification()
   public func endHologramVerification()
   public func reset()
@@ -89,7 +86,7 @@ public protocol LoggerProtocol {
   func Verbose(_ message: Swift.String)
 }
 @_hasMissingDesignatedInitializers final public class ApplicationLogger {
-  public static var shared: RecogLib_iOS.ApplicationLogger
+  public static let shared: RecogLib_iOS.ApplicationLogger
   final public func startLogging(logger: RecogLib_iOS.LoggerProtocol)
   final public func Error(_ message: Swift.String)
   final public func Warn(_ message: Swift.String)
@@ -221,8 +218,7 @@ extension RecogLib_iOS.DocumentCode : Swift.CustomStringConvertible {
   }
 }
 public enum PageCode : Swift.Int {
-  case Front
-  case Back
+  case Front, Back
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -293,14 +289,10 @@ extension RecogLib_iOS.DocumentState : Swift.CustomStringConvertible {
   }
 }
 public enum HologramState : Swift.Int {
-  case NoMatchFound
-  case TiltLeft
-  case TiltRight
-  case TiltUp
-  case TiltDown
-  case RotateClockwise
-  case RotateCounterClockwise
-  case Ok
+  case center
+  case tiltLeftAndRight
+  case tiltUpAndDown
+  case ok
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -359,6 +351,7 @@ public struct DocumentResult {
   public var country: RecogLib_iOS.Country?
   public var code: RecogLib_iOS.DocumentCode?
   public var page: RecogLib_iOS.PageCode?
+  public var hologremState: RecogLib_iOS.HologramState?
   public var signature: RecogLib_iOS.ImageSignature?
 }
 final public class DocumentVerifierModels : RecogLib_iOS.VerifierModels {
@@ -397,3 +390,36 @@ final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
   final public func load(onLoad: (Foundation.Data) -> Swift.Void)
   @objc deinit
 }
+extension RecogLib_iOS.FaceLivenessCheckType : Swift.Equatable {}
+extension RecogLib_iOS.FaceLivenessCheckType : Swift.Hashable {}
+extension RecogLib_iOS.FaceLivenessCheckType : Swift.RawRepresentable {}
+extension RecogLib_iOS.FaceLivenessAngle : Swift.Equatable {}
+extension RecogLib_iOS.FaceLivenessAngle : Swift.Hashable {}
+extension RecogLib_iOS.FaceLivenessAngle : Swift.RawRepresentable {}
+extension RecogLib_iOS.SupportedLanguages : Swift.Equatable {}
+extension RecogLib_iOS.SupportedLanguages : Swift.Hashable {}
+extension RecogLib_iOS.SupportedLanguages : Swift.RawRepresentable {}
+extension RecogLib_iOS.DocumentCode : Swift.Equatable {}
+extension RecogLib_iOS.DocumentCode : Swift.Hashable {}
+extension RecogLib_iOS.DocumentCode : Swift.RawRepresentable {}
+extension RecogLib_iOS.PageCode : Swift.Equatable {}
+extension RecogLib_iOS.PageCode : Swift.Hashable {}
+extension RecogLib_iOS.PageCode : Swift.RawRepresentable {}
+extension RecogLib_iOS.Country : Swift.Equatable {}
+extension RecogLib_iOS.Country : Swift.Hashable {}
+extension RecogLib_iOS.Country : Swift.RawRepresentable {}
+extension RecogLib_iOS.DocumentRole : Swift.Equatable {}
+extension RecogLib_iOS.DocumentRole : Swift.Hashable {}
+extension RecogLib_iOS.DocumentRole : Swift.RawRepresentable {}
+extension RecogLib_iOS.DocumentState : Swift.Equatable {}
+extension RecogLib_iOS.DocumentState : Swift.Hashable {}
+extension RecogLib_iOS.DocumentState : Swift.RawRepresentable {}
+extension RecogLib_iOS.HologramState : Swift.Equatable {}
+extension RecogLib_iOS.HologramState : Swift.Hashable {}
+extension RecogLib_iOS.HologramState : Swift.RawRepresentable {}
+extension RecogLib_iOS.FaceLivenessState : Swift.Equatable {}
+extension RecogLib_iOS.FaceLivenessState : Swift.Hashable {}
+extension RecogLib_iOS.FaceLivenessState : Swift.RawRepresentable {}
+extension RecogLib_iOS.SelfieState : Swift.Equatable {}
+extension RecogLib_iOS.SelfieState : Swift.Hashable {}
+extension RecogLib_iOS.SelfieState : Swift.RawRepresentable {}
