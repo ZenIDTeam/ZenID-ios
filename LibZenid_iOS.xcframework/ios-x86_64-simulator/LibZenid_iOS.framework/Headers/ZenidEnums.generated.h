@@ -117,6 +117,7 @@ enum class DocumentCodes : uint8_t
 	MT_PAS_2008 = 105,
 	MT_IDC_2014 = 106,
 	PL_PAS_2011 = 107,
+	PL_DRV_1999 = 108,
 };
 
 enum class PageCodes : uint8_t
