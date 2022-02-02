@@ -286,7 +286,7 @@ class CameraViewController: UIViewController {
             self.showInstructionView = false
         } else {
             self.showStaticOverlay = true
-            self.showVisualisation = true
+            self.showVisualisation = canShowVisualisation()
             self.showInstructionView = canShowInstructionView()
         }
         
@@ -316,11 +316,6 @@ class CameraViewController: UIViewController {
         view.rightAnchor.constraint(equalTo: webView.rightAnchor).isActive = true
         view.topAnchor.constraint(equalTo: webView.topAnchor).isActive = true
         webViewOverlay = webView
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            let command = "const event = new CustomEvent('document', { detail: { page: 'F', feedback: 'blurry'}});window.dispatchEvent(event);"
-            webView.evaluateJavaScript(command, completionHandler: nil)
-        }
     }
     
     private func resetDocumentVerifier() {
@@ -553,11 +548,15 @@ private extension CameraViewController {
     }
     
     private func canShowStaticOverlay() -> Bool {
-        showStaticOverlay && photoType != .face
+        showStaticOverlay && photoType != .face && webViewOverlay == nil
     }
     
     private func canShowInstructionView() -> Bool {
-        (photoType != .face && faceMode == .faceLiveness) && dataType != .video
+        (photoType != .face && faceMode == .faceLiveness) && dataType != .video && webViewOverlay == nil
+    }
+    
+    private func canShowVisualisation() -> Bool {
+        webViewOverlay == nil
     }
 }
 
@@ -666,6 +665,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         DispatchQueue.main.async { [unowned self] in
+            self.webViewOverlay?.updateState(state: getWebViewOverlayState(result: result))
             self.updateView(with: result, photoType: photoType, buffer: croppedBuffer)
         }
         guard let renderable = getVerifierRenderable(photoType: photoType, faceMode: faceMode ?? .selfie) else {
@@ -744,6 +744,13 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
     
+    private func getWebViewOverlayState(result: UnifiedResult) -> WebViewOverlayState {
+        .init(
+            page: photoType.pageCode,
+            state: String(describing: result.state),
+            frame: getCroppedTargetFrame(width: Int(contentView.previewLayer!.frame.width), height: Int(contentView.previewLayer!.frame.height))
+        )
+    }
 }
 
 // MARK: - VideoWriterDelegate
