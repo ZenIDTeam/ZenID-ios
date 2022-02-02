@@ -201,8 +201,7 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.filter)
             case self.webViewButton:
                 startProcess(.idCard)
-                let request = URLRequest(url: URL(string: "http://sdkdev.zenid.cz/")!)
-                cachedCameraViewController.addWebViewOverlay(urlRequest: request)
+                cachedCameraViewController.addWebViewOverlay()
             default:
                 break
             }

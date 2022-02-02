@@ -87,7 +87,7 @@ class CameraViewController: UIViewController {
     private var documents: [Document]
     private var documentSettings: DocumentVerifierSettings?
     
-    private var webViewOverlay: WKWebView?
+    private var webViewOverlay: WebViewOverlay?
     
     init(photoType: PhotoType, documentType: DocumentType, country: Country, faceMode: FaceMode, dataType: DataType) {
         self.photoType = photoType
@@ -306,20 +306,10 @@ class CameraViewController: UIViewController {
         return .picture
     }
     
-    func addWebViewOverlay(urlRequest: URLRequest) {
+    func addWebViewOverlay() {
         webViewOverlay?.removeFromSuperview()
-        let configuration = WKWebViewConfiguration()
-        //configuration.preferences.javaScriptEnabled = true
-        let webView = WKWebView(frame: .zero, configuration: configuration)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.backgroundColor = .clear
-        webView.scrollView.backgroundColor = .clear
-        webView.isOpaque = false
-        //webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
-        //webView.load(urlRequest)
-        //let fileUrl = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "WebSource")!
-        //webView.loadFileURL(fileUrl, allowingReadAccessTo: fileUrl)
-        webView.load(urlRequest)
+        let webView = WebViewOverlay()
+        webView.loadOnline()
         view.addSubview(webView)
         view.leftAnchor.constraint(equalTo: webView.leftAnchor).isActive = true
         view.bottomAnchor.constraint(equalTo: webView.bottomAnchor).isActive = true
@@ -328,7 +318,7 @@ class CameraViewController: UIViewController {
         webViewOverlay = webView
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            let command = "const event = new CustomEvent('stateChange', { detail: { url: '/id-front' }});window.dispatchEvent(event);"
+            let command = "const event = new CustomEvent('document', { detail: { page: 'F', feedback: 'blurry'}});window.dispatchEvent(event);"
             webView.evaluateJavaScript(command, completionHandler: nil)
         }
     }
