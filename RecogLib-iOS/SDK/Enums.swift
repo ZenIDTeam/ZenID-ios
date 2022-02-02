@@ -58,6 +58,7 @@ public enum DocumentCode: Int {
     case EU_EHIC_2004_A = 30
     case EU_EHIC_2004_B = 55
     case PL_IDC_2019 = 34
+    case PL_DRV_1999 = 108
     case INT_ISIC_2008 = 36
     case DE_PAS = 37
     case DK_PAS = 38
@@ -143,6 +144,8 @@ extension DocumentCode: CustomStringConvertible {
             return "EU_EHIC_2004_B"
         case .PL_IDC_2019:
             return "PL_IDC_2019"
+        case .PL_DRV_1999:
+            return "PL_DRV_1999"
         case .INT_ISIC_2008:
             return "INT_ISIC_2008"
         case .DE_PAS:

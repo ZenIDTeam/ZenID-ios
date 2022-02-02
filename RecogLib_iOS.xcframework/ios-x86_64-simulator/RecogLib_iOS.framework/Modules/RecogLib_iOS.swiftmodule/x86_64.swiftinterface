@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 import AVFoundation
 import CoreGraphics
@@ -186,6 +186,7 @@ public enum DocumentCode : Swift.Int {
   case EU_EHIC_2004_A
   case EU_EHIC_2004_B
   case PL_IDC_2019
+  case PL_DRV_1999
   case INT_ISIC_2008
   case DE_PAS
   case DK_PAS
