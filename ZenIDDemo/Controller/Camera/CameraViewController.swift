@@ -318,6 +318,11 @@ class CameraViewController: UIViewController {
         webViewOverlay = webView
     }
     
+    func removeWebViewOverlay() {
+        webViewOverlay?.removeFromSuperview()
+        webViewOverlay = nil
+    }
+    
     private func resetDocumentVerifier() {
         documentVerifier.documentsInput = nil
         documentVerifier.documentRole = nil

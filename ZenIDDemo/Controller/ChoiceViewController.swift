@@ -179,6 +179,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     @objc private func selectAction(sender: UIButton) {
+        cachedCameraViewController.removeWebViewOverlay()
         ensureCredentials { [unowned self] in
             Haptics.shared.select()
             switch sender {
