@@ -64,6 +64,8 @@
 		182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */; };
 		182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
+		186ECA2E27B0148C002189C3 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
+		186ECA2F27B0148C002189C3 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422E7272802D1002BD366 /* DebugTableViewCellController.swift */; };
 		188422EC27280683002BD366 /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422EB27280683002BD366 /* ConfigService.swift */; };
 		188422EE272806C6002BD366 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422ED272806C6002BD366 /* Config.swift */; };
@@ -141,8 +143,6 @@
 		18953DE02685F3310077F976 /* SelfieSelectionCoordinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DDF2685F3310077F976 /* SelfieSelectionCoordinable.swift */; };
 		18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */; };
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
-		18A13779279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; };
-		18A1377A279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18A7B91526D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */; };
 		18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDC33C2795C3E40016AAF6 /* WebKit.framework */; };
 		18BDC36927983D920016AAF6 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = 18BDC36827983D920016AAF6 /* WebSource */; };
@@ -206,8 +206,8 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
+				186ECA2F27B0148C002189C3 /* RecogLib_iOS.framework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
-				18A1377A279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Embed Frameworks */,
 				18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -419,8 +419,8 @@
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
 				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
+				186ECA2E27B0148C002189C3 /* RecogLib_iOS.framework in Frameworks */,
 				18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
-				18A13779279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

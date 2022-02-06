@@ -405,7 +405,7 @@ class CameraViewController: UIViewController {
     }
     
     private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip, result: UnifiedResult? = nil) {
-        let image = UIImage(pixelBuffer: buffer)?.flip(flipMethod)
+        let image = UIImage(pixelBuffer: buffer)//?.flip(flipMethod)
         let data = image?.jpegData(compressionQuality: 0.5)
         returnImage(data, result)
     }
@@ -450,6 +450,25 @@ class CameraViewController: UIViewController {
         default: break;
         }
         
+        switch UIDevice.current.orientation {
+        case .portrait:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+        case .landscapeRight:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+        case .landscapeLeft:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+        case .portraitUpsideDown:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
+        default: break
+        }
+        
+        if #available(iOS 13.0, *) {
+            for connection in captureSession.connections {
+                connection.videoOrientation = previewLayer.connection?.videoOrientation ?? .portrait
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         contentView.drawLayer?.renderables = []
         contentView.rotateOverlay()
         contentView.rotateInstructionView()
@@ -616,7 +635,13 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         switch gravity {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let layerRect = imageRect.flip().rectThatFitsRect(targetFrame)
+            let layerRect: CGRect
+            if isPortrait() {
+                layerRect = imageRect.rectThatFitsRect(targetFrame)
+            } else {
+                layerRect = imageRect.rectThatFitsRect(targetFrame)
+            }
+            
             let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
@@ -654,7 +679,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer)
         let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
-        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight).flip()
+        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
         
         // torch for holograms
         self.setTorch(on: dataType == .video && photoType != .face)
@@ -693,11 +718,9 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if targetFrame == .zero {
                 return
             }
-            let flipped = !contentView.isPortraitOrientation()
-            let croppedPreview = getCroppedTargetFrame(width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
-            commandsRect = flipped ? croppedPreview.flip() : croppedPreview
+            commandsRect = previewLayer.frame
         } else {
-            commandsRect = imageRect.rectThatFitsRect(previewLayer.frame)
+            commandsRect = previewLayer.frame //imageRect.rectThatFitsRect(previewLayer.frame)
         }
         guard let renderCommands = renderable.getRenderCommands(canvasSize: commandsRect.size) else {
             return
@@ -705,18 +728,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         if let drawLayer = contentView.drawLayer {
             let renderables = RenderableFactory.createRenderables(commands: renderCommands)
-            if photoType.isDocument {
-                let flipped = !contentView.isPortraitOrientation()
-                let mirrored = contentView.isUpsideDownOrientation()
-                let transform = flipped ?
-                    (mirrored ? CGAffineTransform(rotationAngle: -.pi / 2) : CGAffineTransform(rotationAngle: .pi / 2)) :
-                    (mirrored ? CGAffineTransform(rotationAngle: .pi) : CGAffineTransform.identity)
-                
-                drawLayer.frame = flipped ? commandsRect.flip() : commandsRect
-                drawLayer.setAffineTransform(transform)
-            } else {
-                drawLayer.frame = commandsRect
-            }
+            drawLayer.frame = commandsRect
             drawLayer.renderables = renderables
         }
     }
@@ -731,7 +743,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
             }
         default:
-            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: getImageOrientation())
+            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: .portrait)
         }
     }
     
@@ -745,7 +757,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
             }
         default:
-            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: getImageOrientation())
+            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: .portrait)
         }
     }
     
@@ -755,6 +767,15 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             state: String(describing: result.state),
             frame: getCroppedTargetFrame(width: Int(contentView.previewLayer!.frame.width), height: Int(contentView.previewLayer!.frame.height))
         )
+    }
+    
+    private func isPortrait() -> Bool {
+        switch UIDevice.current.orientation {
+        case .portrait:
+            return true
+        default:
+            return false
+        }
     }
 }
 

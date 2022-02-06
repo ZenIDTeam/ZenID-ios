@@ -24,6 +24,6 @@ final class UnifiedDocumentVerifierAdapter: UnifiedVerifier {
 
 extension UnifiedDocumentVerifierAdapter: VerifierRenderable {
     func getRenderCommands(canvasSize: CGSize) -> String? {
-        verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height))
+        verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height), orientation: orientation)
     }
 }

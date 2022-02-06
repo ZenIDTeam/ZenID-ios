@@ -77,7 +77,7 @@ extension UIImage {
         let cropRect = CGRect(x: posX, y: posY, width: width, height: height)
 
         if let imageRef = cgImage?.cropping(to: cropRect) {
-            image = UIImage(cgImage: imageRef, scale: 1.0, orientation: .right)
+            image = UIImage(cgImage: imageRef, scale: 1.0, orientation: .up)
         }
 
         return image

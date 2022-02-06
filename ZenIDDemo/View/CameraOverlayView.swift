@@ -16,6 +16,7 @@ final class CameraOverlayView: UIView {
     lazy var frameImageView: UIImageView = {
         let imageView = UIImageView(image: targettingReticle)
         imageView.tintColor = UIColor.white
+        imageView.backgroundColor = .green.withAlphaComponent(0.25)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -74,7 +75,7 @@ final class CameraOverlayView: UIView {
             let targetFrame = rect ?? self.frame
             let croppedFrame = self.frame.flip().rectThatFitsRect(targetFrame);
             let scale = croppedFrame.height / targetFrame.width
-            transform = CGAffineTransform(rotationAngle: .pi / 2).scaledBy(x: scale, y: scale)
+            transform = CGAffineTransform(rotationAngle: 90.0 * .pi / 180.0).scaledBy(x: scale, y: scale)
         }
         
         frameImageView.layer.setAffineTransform(transform)

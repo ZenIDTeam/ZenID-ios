@@ -45,6 +45,7 @@ final class CameraView: UIView {
         super.layoutSubviews()
         if let previewLayer = previewLayer {
             previewLayer.frame = cameraView.bounds
+            //previewLayer.backgroundColor = UIColor.red.cgColor
         }
     }
     
@@ -125,7 +126,7 @@ final class CameraView: UIView {
             let layerRect = (supportChangedOrientation() && isPortraitOrientation()) ?
                 croppedTargetFrame.flip().rectThatFitsRect(croppedTargetFrame) :
                 croppedTargetFrame;
-            overlay.setupImage(flipped: isPortraitOrientation(), in: layerRect)
+            overlay.setupImage(flipped: /*isPortraitOrientation()*/ true, in: layerRect)
             
         case .resizeAspectFill:
             overlay.setupImage(flipped: isPortraitOrientation())
@@ -136,6 +137,7 @@ final class CameraView: UIView {
     }
     
     func rotateInstructionView() {
+        return;
         if isFaceDetection() {
             self.instructionView.transform = .identity
             return
@@ -185,6 +187,7 @@ final class CameraView: UIView {
         guard let previewLayer = previewLayer else { return }
         drawLayer?.removeFromSuperlayer()
         drawLayer = DrawingLayer()
+        drawLayer?.backgroundColor = UIColor.red.withAlphaComponent(0.4).cgColor
         previewLayer.addSublayer(drawLayer!)
     }
     
