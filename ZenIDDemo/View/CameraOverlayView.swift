@@ -68,11 +68,11 @@ final class CameraOverlayView: UIView {
         ])
     }
     
-    public func setupImage(flipped: Bool, in rect: CGRect? = nil) {
+    public func setupImage(rect: CGRect? = nil) {
         var transform = CGAffineTransform.identity
         
-        if flipped && self.frame != .zero {
-            let targetFrame = rect ?? self.frame
+        if self.frame != .zero {
+            let targetFrame = rect?.flip() ?? self.frame
             let croppedFrame = self.frame.flip().rectThatFitsRect(targetFrame);
             let scale = croppedFrame.height / targetFrame.width
             transform = CGAffineTransform(rotationAngle: 90.0 * .pi / 180.0).scaledBy(x: scale, y: scale)

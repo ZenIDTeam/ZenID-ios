@@ -35,17 +35,12 @@ final class CameraView: UIView {
     var previewLayer: AVCaptureVideoPreviewLayer?
     private(set) var drawLayer: DrawingLayer?
     
-    var deviceOrientation: (() -> UIInterfaceOrientation)!
     var supportChangedOrientation: (() -> Bool)!
-    var isFaceDetection: (() -> Bool)!
-    var getCurrentResolution: (() -> CGSize)!
-    var targetFrame: (() -> CGRect)!
     
     override func layoutSubviews() {
         super.layoutSubviews()
         if let previewLayer = previewLayer {
             previewLayer.frame = cameraView.bounds
-            //previewLayer.backgroundColor = UIColor.red.cgColor
         }
     }
     
@@ -110,7 +105,7 @@ final class CameraView: UIView {
         messageView.showMessage(type: .success)
     }
     
-    func rotateOverlay() {
+    func rotateOverlay(targetFrame: CGRect) {
         guard let overlay = self.overlay else { return }
         
         if !supportChangedOrientation() {
@@ -120,60 +115,13 @@ final class CameraView: UIView {
         let gravity = Defaults.videoGravity
         switch gravity {
         case .resizeAspect:
-            let resolution = getCurrentResolution()
-            let imageRect = CGRect(x: 0, y: 0, width: resolution.width, height: resolution.height)
-            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame())
-            let layerRect = (supportChangedOrientation() && isPortraitOrientation()) ?
-                croppedTargetFrame.flip().rectThatFitsRect(croppedTargetFrame) :
-                croppedTargetFrame;
-            overlay.setupImage(flipped: /*isPortraitOrientation()*/ true, in: layerRect)
+            overlay.setupImage(rect: targetFrame)
             
         case .resizeAspectFill:
-            overlay.setupImage(flipped: isPortraitOrientation())
+            overlay.setupImage()
             
         default:
-            overlay.setupImage(flipped: isPortraitOrientation())
-        }
-    }
-    
-    func rotateInstructionView() {
-        return;
-        if isFaceDetection() {
-            self.instructionView.transform = .identity
-            return
-        }
-       
-        if !supportChangedOrientation() {
-            self.instructionView.transform = CGAffineTransform(rotationAngle: .pi/2)
-            return
-        }
-        
-        let flipped = isPortraitOrientation()
-        let mirrored = isUpsideDownOrientation()
-        if flipped {
-            self.instructionView.transform = mirrored ?
-                CGAffineTransform(rotationAngle: .pi) :
-                CGAffineTransform.identity
-        } else {
-            self.instructionView.transform = mirrored ?
-                CGAffineTransform(rotationAngle: -.pi/2) :
-                CGAffineTransform(rotationAngle: .pi/2)
-        }
-    }
-    
-    func isPortraitOrientation() -> Bool {
-        switch deviceOrientation() {
-        case .portrait:  return true
-        //case .portraitUpsideDown: return true
-        default: return false
-        }
-    }
-    
-    func isUpsideDownOrientation() -> Bool {
-        switch deviceOrientation() {
-        //case .portraitUpsideDown: return true
-        case .landscapeRight: return true
-        default: return false
+            overlay.setupImage()
         }
     }
     
@@ -191,7 +139,7 @@ final class CameraView: UIView {
         previewLayer.addSublayer(drawLayer!)
     }
     
-    func configureOverlay(overlay: CameraOverlayView, showStaticOverlay: Bool) {
+    func configureOverlay(overlay: CameraOverlayView, showStaticOverlay: Bool, targetFrame: CGRect) {
         self.overlay?.removeFromSuperview()
         self.overlay = overlay
         if let overlay = self.overlay {
@@ -199,14 +147,14 @@ final class CameraView: UIView {
             overlay.anchor(top: cameraView.topAnchor, left: cameraView.leftAnchor, bottom: cameraView.bottomAnchor, right: cameraView.rightAnchor)
             overlay.isHidden = !showStaticOverlay
             overlay.setupSafeArea(layoutGuide: safeAreaLayoutGuide)
-            rotateOverlay()
+            rotateOverlay(targetFrame: targetFrame)
         }
     }
     
-    func configureVideoLayers(overlay: CameraOverlayView, showStaticOverlay: Bool) {
+    func configureVideoLayers(overlay: CameraOverlayView, showStaticOverlay: Bool, targetFrame: CGRect) {
         configurePreviewLayer()
         configureDrawingLayer()
-        configureOverlay(overlay: overlay, showStaticOverlay: showStaticOverlay)
+        configureOverlay(overlay: overlay, showStaticOverlay: showStaticOverlay, targetFrame: targetFrame)
         cameraView.layer.addSublayer(messageView.layer)
     }
     

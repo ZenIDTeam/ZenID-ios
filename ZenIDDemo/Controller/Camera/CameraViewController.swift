@@ -42,7 +42,6 @@ class CameraViewController: UIViewController {
     }
     
     private var targetFrame: CGRect = .zero
-    private var deviceOrientation = UIInterfaceOrientation.landscapeLeft
     
     private var photoType: PhotoType
     private var documentType: DocumentType
@@ -80,10 +79,6 @@ class CameraViewController: UIViewController {
         return photoType != .face && dataType != .video
     }
     
-    private var isFaceDetection: Bool {
-        return photoType == .face
-    }
-    
     private var documents: [Document]
     private var documentSettings: DocumentVerifierSettings?
     
@@ -112,18 +107,6 @@ class CameraViewController: UIViewController {
         contentView.supportChangedOrientation = { [unowned self] in
             self.supportChangedOrientation
         }
-        contentView.isFaceDetection = { [unowned self] in
-            self.isFaceDetection
-        }
-        contentView.getCurrentResolution = { [unowned self] in
-            self.getCurrentResolution()
-        }
-        contentView.targetFrame = { [unowned self] in
-            self.targetFrame
-        }
-        contentView.deviceOrientation = { [unowned self] in
-            self.deviceOrientation
-        }
     }
     
     private func loadModels() {
@@ -147,7 +130,7 @@ class CameraViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
         contentView.saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
-        contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay())
+        contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         DispatchQueue.main.async { [weak self] in
             self?.orientationChanged()
         }
@@ -204,8 +187,7 @@ class CameraViewController: UIViewController {
         self.faceMode = faceMode
         self.dataType = dataType(of: documentType, photoType: photoType, isLivenessVideo: config.isLivenessVideo)
         self.documents = documents
-        self.captureDevicePosition = isFaceDetection ? .front : .back
-        contentView.rotateInstructionView()
+        self.captureDevicePosition = photoType == .face ? .front : .back
         
         self.title = type.title
         contentView.topLabel.text = photoType.message
@@ -372,9 +354,9 @@ class CameraViewController: UIViewController {
         if dataType == .video {
             videoWriter.stop()
         } else if photoType.isDocument {
-            returnImage(buffer, ImageFlip.fromLandScape, result: unwrappedResult)
+            returnImage(buffer, result: unwrappedResult)
         } else {
-            returnImage(buffer, ImageFlip.fromPortrait, result: unwrappedResult)
+            returnImage(buffer, result: unwrappedResult)
         }
     }
     
@@ -404,8 +386,8 @@ class CameraViewController: UIViewController {
         delegate?.didFinishPDF()
     }
     
-    private func returnImage(_ buffer: CVPixelBuffer, _ flipMethod: ImageFlip, result: UnifiedResult? = nil) {
-        let image = UIImage(pixelBuffer: buffer)//?.flip(flipMethod)
+    private func returnImage(_ buffer: CVPixelBuffer, result: UnifiedResult? = nil) {
+        let image = UIImage(pixelBuffer: buffer)
         let data = image?.jpegData(compressionQuality: 0.5)
         returnImage(data, result)
     }
@@ -442,15 +424,6 @@ class CameraViewController: UIViewController {
     
     @objc func orientationChanged() {
         switch UIDevice.current.orientation {
-        case .portrait:           deviceOrientation = .portrait
-        //case .portraitUpsideDown: self.deviceOrientation = .portraitUpsideDown
-        case .portraitUpsideDown: return
-        case .landscapeLeft:      deviceOrientation = .landscapeLeft
-        case .landscapeRight:     deviceOrientation = .landscapeRight
-        default: break;
-        }
-        
-        switch UIDevice.current.orientation {
         case .portrait:
             previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
         case .landscapeRight:
@@ -466,12 +439,9 @@ class CameraViewController: UIViewController {
             for connection in captureSession.connections {
                 connection.videoOrientation = previewLayer.connection?.videoOrientation ?? .portrait
             }
-        } else {
-            // Fallback on earlier versions
         }
         contentView.drawLayer?.renderables = []
-        contentView.rotateOverlay()
-        contentView.rotateInstructionView()
+        contentView.rotateOverlay(targetFrame: getOverlayTargetFrame())
     }
 }
 
@@ -521,7 +491,7 @@ private extension CameraViewController {
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             contentView.previewLayer = previewLayer
         }
-        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay())
+        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
     }
     
     func setupCameraSession(_ device: AVCaptureDevice) -> Bool {
@@ -562,13 +532,16 @@ private extension CameraViewController {
         return true
     }
     
-    private func getCurrentResolution() -> CGSize {
+    private func getOverlayTargetFrame() -> CGRect {
         guard let formatDescription = captureDevice?.activeFormat.formatDescription else {
             return .zero
         }
         
         let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
-        return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
+        let size = CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
+        
+        let imageRect = CGRect(origin: .zero, size: size)
+        return imageRect.rectThatFitsRect(targetFrame)
     }
     
     private func canShowStaticOverlay() -> Bool {
@@ -604,22 +577,12 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    private func getImageOrientation() -> UIInterfaceOrientation {
-        switch deviceOrientation {
-        case .portrait:           return .landscapeLeft
-        //case .portraitUpsideDown: return .landscapeLeft
-        case .landscapeLeft:      return .portrait
-        case .landscapeRight:     return .portraitUpsideDown
-        default: return .portrait
-        }
-    }
-    
     private func getCroppedTargetFrame(width: Int, height: Int) -> CGRect {
         let gravity = Defaults.videoGravity
         switch gravity {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let croppedTargetFrame = imageRect.flip().rectThatFitsRect(targetFrame)
+            let croppedTargetFrame = imageRect.rectThatFitsRect(targetFrame)
             return croppedTargetFrame
             
         case .resizeAspectFill:
@@ -635,12 +598,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         switch gravity {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let layerRect: CGRect
-            if isPortrait() {
-                layerRect = imageRect.rectThatFitsRect(targetFrame)
-            } else {
-                layerRect = imageRect.rectThatFitsRect(targetFrame)
-            }
+            let layerRect = imageRect.rectThatFitsRect(targetFrame)
             
             let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
@@ -713,15 +671,10 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let previewLayer = previewLayer else {
             return
         }
-        let commandsRect: CGRect
-        if photoType.isDocument {
-            if targetFrame == .zero {
-                return
-            }
-            commandsRect = previewLayer.frame
-        } else {
-            commandsRect = previewLayer.frame //imageRect.rectThatFitsRect(previewLayer.frame)
+        if targetFrame == .zero {
+            return
         }
+        let commandsRect = previewLayer.frame
         guard let renderCommands = renderable.getRenderCommands(canvasSize: commandsRect.size) else {
             return
         }
@@ -767,15 +720,6 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             state: String(describing: result.state),
             frame: getCroppedTargetFrame(width: Int(contentView.previewLayer!.frame.width), height: Int(contentView.previewLayer!.frame.height))
         )
-    }
-    
-    private func isPortrait() -> Bool {
-        switch UIDevice.current.orientation {
-        case .portrait:
-            return true
-        default:
-            return false
-        }
     }
 }
 
