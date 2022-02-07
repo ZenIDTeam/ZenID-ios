@@ -279,6 +279,7 @@ class CameraViewController: UIViewController {
         self.detectionRunning = true
         
         setNilAllPreviousResults()
+        orientationChanged()
     }
     
     private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {
