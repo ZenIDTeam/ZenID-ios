@@ -6,6 +6,169 @@ import UIKit
 import WebKit
 
 
+struct CameraConfiguration {
+    public let type: CameraType
+}
+
+enum CameraError: Error {
+    case notInitialized
+}
+
+enum CameraType {
+    case front
+    case back
+}
+
+protocol CameraDelegate: AnyObject {
+    func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer)
+}
+
+final class Camera: NSObject {
+    weak var delegate: CameraDelegate?
+    private(set) var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
+    private var captureDevice: AVCaptureDevice?
+    private let captureSession = AVCaptureSession()
+    private var cameraPhotoOutput: AVCapturePhotoOutput!
+    private var cameraVideoOutput: AVCaptureVideoDataOutput!
+    
+    private var takePictureCompletion: ((Swift.Result<Data, Swift.Error>) -> Void)?
+    
+    func configure(with configuration: CameraConfiguration) throws {
+        let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
+        let deviceDescoverySession = AVCaptureDevice.DiscoverySession(
+            deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: captureDevicePosition
+        )
+        captureDevice = deviceDescoverySession.devices.first
+        
+        guard let device = captureDevice, setupCameraSession(device) else {
+            throw CameraError.notInitialized
+        }
+        if previewLayer == nil {
+            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        }
+    }
+    
+    func start() {
+        captureSession.startRunning()
+    }
+    
+    func stop() {
+        captureSession.stopRunning()
+    }
+    
+    func takePicture(completion: @escaping (Swift.Result<Data, Swift.Error>) -> Void) {
+        guard captureDevice != nil else {
+            completion(.failure(CameraError.notInitialized))
+            return
+        }
+        guard AVCaptureDevice.authorizationStatus(for: .video) == .authorized else {
+            completion(.failure(CameraError.notInitialized))
+            return
+        }
+        takePictureCompletion = completion
+        cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+    }
+    
+    func setOrientation(orientation: UIDeviceOrientation) {
+        switch UIDevice.current.orientation {
+        case .portrait:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+        case .landscapeRight:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+        case .landscapeLeft:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+        case .portraitUpsideDown:
+            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
+        default: break
+        }
+        
+        if #available(iOS 13.0, *) {
+            for connection in captureSession.connections {
+                connection.videoOrientation = previewLayer.connection?.videoOrientation ?? .portrait
+            }
+        }
+    }
+    
+    func setTorch(isOn: Bool) throws {
+        guard let device = captureDevice, device.hasTorch else { return }
+        guard isOn || device.torchMode != .off else { return }
+        
+        let torchMode: AVCaptureDevice.TorchMode = isOn ? .on : .off
+        guard device.torchMode != torchMode else { return }
+        
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+            } catch {
+                throw error
+            }
+            device.torchMode = torchMode
+        }
+        device.unlockForConfiguration()
+    }
+
+    func getCurrentResolution() -> CGSize {
+        guard let formatDescription = captureDevice?.activeFormat.formatDescription else {
+            return .zero
+        }
+        let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
+        return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
+    }
+}
+
+extension Camera: AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let error = error {
+            takePictureCompletion?(.failure(error))
+        } else if let data = photo.fileDataRepresentation() {
+            takePictureCompletion?(.success(data))
+        }
+        takePictureCompletion = nil
+    }
+}
+
+extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        delegate?.cameraDelegate(camera: self, onOutput: sampleBuffer)
+    }
+}
+
+private extension Camera {
+    func setupCameraSession(_ device: AVCaptureDevice) -> Bool {
+        guard let input = try? AVCaptureDeviceInput(device: device) else {
+            return false
+        }
+        
+        previewLayer?.videoGravity = Defaults.videoGravity
+        
+        captureSession.beginConfiguration()
+        
+        if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+            for input in inputs {
+                captureSession.removeInput(input)
+            }
+        }
+        for output in captureSession.outputs {
+            captureSession.removeOutput(output)
+        }
+        
+        cameraPhotoOutput = AVCapturePhotoOutput()
+        cameraVideoOutput = AVCaptureVideoDataOutput()
+        
+        captureSession.addInput(input)
+        captureSession.addOutput(cameraPhotoOutput)
+        cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
+        cameraVideoOutput.setSampleBufferDelegate(self, queue: cameraCaptureQueue)
+        captureSession.addOutput(cameraVideoOutput)
+
+        captureSession.commitConfiguration()
+
+        return true
+    }
+}
+
 class CameraViewController: UIViewController {
     weak var delegate: CameraViewControllerDelegate?
     
@@ -48,15 +211,9 @@ class CameraViewController: UIViewController {
     private var country: Country
     private var faceMode: FaceMode?
     private var dataType: DataType
-
-    private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
-    private var captureDevicePosition: AVCaptureDevice.Position = .back
-    private var captureDevice: AVCaptureDevice?
-    private let captureSession = AVCaptureSession()
-    private var cameraPhotoOutput: AVCapturePhotoOutput!
-    private var cameraVideoOutput: AVCaptureVideoDataOutput!
+    
+    private let camera = Camera()
     private var videoWriter: VideoWriter!
-    private var previewLayer: AVCaptureVideoPreviewLayer!
     
     private var documentVerifier: DocumentVerifier = DocumentVerifier(
                                                             role: RecogLib_iOS.DocumentRole.Idc,
@@ -94,6 +251,7 @@ class CameraViewController: UIViewController {
         self.documents = []
         
         super.init(nibName: nil, bundle: nil)
+        camera.delegate = self
         loadModels()
     }
     
@@ -141,7 +299,7 @@ class CameraViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
         setNilAllPreviousResults()
-        captureSession.startRunning()
+        camera.start()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
@@ -155,12 +313,12 @@ class CameraViewController: UIViewController {
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        captureSession.stopRunning()
+        camera.stop()
         setTorch(on: false)
     }
     
     deinit {
-        captureSession.stopRunning()
+        camera.stop()
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
@@ -187,7 +345,6 @@ class CameraViewController: UIViewController {
         self.faceMode = faceMode
         self.dataType = dataType(of: documentType, photoType: photoType, isLivenessVideo: config.isLivenessVideo)
         self.documents = documents
-        self.captureDevicePosition = photoType == .face ? .front : .back
         
         self.title = type.title
         contentView.topLabel.text = photoType.message
@@ -371,16 +528,25 @@ class CameraViewController: UIViewController {
     }
 
     @objc private func capture() {
-        guard captureDevice != nil else {
-            return
+        camera.takePicture { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(data):
+                if let originalImage = UIImage(data: data), let previewLayer = self.camera.previewLayer, let croppedImage = originalImage.cropCameraImage(previewLayer: previewLayer) {
+                    self.returnImage(croppedImage.jpegData(compressionQuality: 0.5))
+                } else {
+                    let resizedImageData = data.resizeImage(maxResolution: 2000, compression: 0.5)
+                    self.returnImage(resizedImageData)
+                }
+            case let .failure(error):
+                if case CameraError.notInitialized = error {
+                    self.showErrorMessage("camera-not-authorized".localized)
+                } else {
+                    ApplicationLogger.shared.Error(error.localizedDescription)
+                }
+                self.returnImage(nil)
+            }
         }
-
-        guard AVCaptureDevice.authorizationStatus(for: .video) == .authorized else {
-            showErrorMessage("camera-not-authorized".localized)
-            return
-        }
-
-        cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
     
     @objc private func save() {
@@ -419,28 +585,15 @@ class CameraViewController: UIViewController {
     }
     
     private func setTorch(on: Bool) {
-        guard let device = self.captureDevice else { return }
-        Torch.shared.ensureMode(for: device, on: on)
+        do {
+            try camera.setTorch(isOn: on)
+        } catch {
+            ApplicationLogger.shared.Verbose("\(error.localizedDescription)")
+        }
     }
     
     @objc func orientationChanged() {
-        switch UIDevice.current.orientation {
-        case .portrait:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        case .landscapeRight:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-        case .landscapeLeft:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-        case .portraitUpsideDown:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
-        default: break
-        }
-        
-        if #available(iOS 13.0, *) {
-            for connection in captureSession.connections {
-                connection.videoOrientation = previewLayer.connection?.videoOrientation ?? .portrait
-            }
-        }
+        camera.setOrientation(orientation: UIDevice.current.orientation)
         contentView.drawLayer?.renderables = []
         contentView.rotateOverlay(targetFrame: getOverlayTargetFrame())
     }
@@ -448,10 +601,6 @@ class CameraViewController: UIViewController {
 
 // MARK: - Methods for AV session
 private extension CameraViewController {
-    func updateCaptureDevice() {
-        let deviceDescoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: self.captureDevicePosition)
-        self.captureDevice = deviceDescoverySession.devices.first
-    }
     
     func startSession() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -483,64 +632,21 @@ private extension CameraViewController {
     }
     
     func beginSession() {
-        self.updateCaptureDevice()
-        guard let device = captureDevice, setupCameraSession(device) else {
+        do {
+            let configuration = CameraConfiguration(type: photoType == .face ? .front : .back)
+            try camera.configure(with: configuration)
+            videoWriter = VideoWriter()
+            videoWriter.delegate = self
+        } catch {
             returnImage(nil)
             return
         }
-        if previewLayer == nil {
-            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            contentView.previewLayer = previewLayer
-        }
+        contentView.previewLayer = camera.previewLayer
         contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
     }
     
-    func setupCameraSession(_ device: AVCaptureDevice) -> Bool {
-        guard let input = try? AVCaptureDeviceInput(device: device) else {
-            return false
-        }
-        
-        previewLayer?.videoGravity = Defaults.videoGravity
-        
-        captureSession.beginConfiguration()
-        
-        if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
-            for input in inputs {
-                captureSession.removeInput(input)
-            }
-        }
-        for output in captureSession.outputs {
-            captureSession.removeOutput(output)
-        }
-        
-        cameraPhotoOutput = AVCapturePhotoOutput()
-        cameraVideoOutput = AVCaptureVideoDataOutput()
-
-        videoWriter = VideoWriter(cameraVideoOutput: cameraVideoOutput)
-        videoWriter.delegate = self
-        
-        //for video aspect ratio/gravity testing
-        //captureSession.sessionPreset = AVCaptureSession.Preset.vga640x480
-        
-        captureSession.addInput(input)
-        captureSession.addOutput(cameraPhotoOutput)
-        cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
-        cameraVideoOutput.setSampleBufferDelegate(self, queue: cameraCaptureQueue)
-        captureSession.addOutput(cameraVideoOutput)
-
-        captureSession.commitConfiguration()
-
-        return true
-    }
-    
     private func getOverlayTargetFrame() -> CGRect {
-        guard let formatDescription = captureDevice?.activeFormat.formatDescription else {
-            return .zero
-        }
-        
-        let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
-        let size = CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
-        
+        let size = camera.getCurrentResolution()
         let imageRect = CGRect(origin: .zero, size: size)
         return imageRect.rectThatFitsRect(targetFrame)
     }
@@ -558,26 +664,8 @@ private extension CameraViewController {
     }
 }
 
-// MARK: - AVCapturePhotoCaptureDelegate
-extension CameraViewController: AVCapturePhotoCaptureDelegate {
-    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard error == nil else {
-            ApplicationLogger.shared.Error(error!.localizedDescription)
-            returnImage(nil)
-            return
-        }
-        let imageData = photo.fileDataRepresentation()
-        if let data = imageData, let originalImage = UIImage(data: data), let previewLayer = previewLayer, let croppedImage = originalImage.cropCameraImage(previewLayer: previewLayer) {
-            returnImage(croppedImage.jpegData(compressionQuality: 0.5))
-        } else {
-            let resizedImageData = imageData?.resizeImage(maxResolution: 2000, compression: 0.5)
-            returnImage(resizedImageData)
-        }
-    }
-}
-
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
-extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension CameraViewController: CameraDelegate {
     private func getCroppedTargetFrame(width: Int, height: Int) -> CGRect {
         let gravity = Defaults.videoGravity
         switch gravity {
@@ -601,13 +689,13 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
             let layerRect = imageRect.rectThatFitsRect(targetFrame)
             
-            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
             
         case .resizeAspectFill:
             let layerRect = targetFrame
-            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
             
@@ -629,12 +717,12 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         return (image?.toCVPixelBuffer())!
     }
     
-    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    func cameraDelegate(camera: Camera, onOutput buffer: CMSampleBuffer) {
         guard detectionRunning else { return }
         guard targetFrame.width > 0 else { return }
         
         // crop pixel data if necessary
-        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) else { return }
         let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer)
         let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
@@ -647,7 +735,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         if let videoWriter = self.videoWriter, dataType == .video, videoWriter.isRecording {
-            videoWriter.captureOutput(output, didOutput: sampleBuffer, from: connection)
+            videoWriter.captureOutput(sampleBuffer: buffer)
         }
         let verifier = getVerifier(photoType: photoType, faceMode: faceMode ?? .selfie)
         guard let result = verifier.verify(image: croppedBuffer) else {
@@ -669,7 +757,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         if !showVisualisation {
             return
         }
-        guard let previewLayer = previewLayer else {
+        guard let previewLayer = camera.previewLayer else {
             return
         }
         if targetFrame == .zero {

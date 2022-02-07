@@ -18,16 +18,11 @@ public class VideoWriter: NSObject {
     public private(set) var isRecording = false
     
     private let filePrefix = "VideoSample-"
-    private var cameraVideoOutput: AVCaptureVideoDataOutput
 
     private var videoWriter: AVAssetWriter!
     private var videoWriterInput: AVAssetWriterInput!
     private var audioWriterInput: AVAssetWriterInput!
     private var sessionAtSourceTime: CMTime?
-    
-    public init(cameraVideoOutput: AVCaptureVideoDataOutput) {
-        self.cameraVideoOutput = cameraVideoOutput
-    }
 }
 
 // MARK: - Public
@@ -61,6 +56,22 @@ extension VideoWriter {
     
     public func resume() {
         isRecording = true
+    }
+    
+    public func captureOutput(sampleBuffer: CMSampleBuffer) {
+        guard CMSampleBufferDataIsReady(sampleBuffer) else { return }
+        
+        let writable = canWrite()
+        if writable, sessionAtSourceTime == nil {
+            // Start writing
+            sessionAtSourceTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+            videoWriter.startSession(atSourceTime: sessionAtSourceTime!)
+        }
+        
+        if videoWriterInput.isReadyForMoreMediaData {
+            // Write video buffer
+            videoWriterInput.append(sampleBuffer)
+        }
     }
 }
 
@@ -121,7 +132,7 @@ extension VideoWriter {
 }
 
 // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
-extension VideoWriter: AVCaptureVideoDataOutputSampleBufferDelegate {
+/*extension VideoWriter: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard CMSampleBufferDataIsReady(sampleBuffer) else { return }
         
@@ -139,4 +150,4 @@ extension VideoWriter: AVCaptureVideoDataOutputSampleBufferDelegate {
             }
         }
     }
-}
+}*/
