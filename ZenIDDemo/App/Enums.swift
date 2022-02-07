@@ -11,21 +11,25 @@ import UIKit
 public enum UploadedSampleType: String {
     case documentPicture = "DocumentPicture"
     case documentVideo = "DocumentVideo"
-    case face = "Selfie"
+    case faceVideo = "SelfieVideo"
+    case facePicture = "Selfie"
     case otherDocument = "Archived"
     
     static func from(photoType: PhotoType, documentType: DocumentType, dataType: DataType) -> UploadedSampleType {
         if case .otherDocument = documentType {
             return .otherDocument
         }
-        if dataType == .video {
-            return .documentVideo
-        }
         switch photoType {
         case .front, .back:
+            if dataType == .video {
+                return .documentVideo
+            }
             return .documentPicture
         case .face:
-            return .face
+            if dataType == .video {
+                return .faceVideo
+            }
+            return .facePicture
         }
     }
 }

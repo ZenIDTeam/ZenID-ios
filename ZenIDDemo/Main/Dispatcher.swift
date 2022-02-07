@@ -71,6 +71,13 @@ public class Dispatcher {
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
         }
+        else if sampleType == .selfieVideo {
+            
+            guard let state = response.State, state == .done else {
+                ApplicationLogger.shared.Verbose("Invalid selfie video")
+                return rescan(image, response, .unknownEstimatedDocumentType)
+            }
+        }
         else if sampleType == .selfie {
             
             guard image.photoType == .face else {
