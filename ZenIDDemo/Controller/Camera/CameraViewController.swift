@@ -169,6 +169,73 @@ private extension Camera {
     }
 }
 
+protocol DocumentControllerDelegate: AnyObject {
+    
+}
+
+final class DocumentController {
+    weak var delegate: DocumentControllerDelegate?
+    
+    private let camera: Camera
+    private let view: CameraView
+    private var documentVerifier: DocumentVerifier
+    
+    init(camera: Camera) {
+        self.camera = camera
+        view = CameraView()
+        documentVerifier = .init(
+            role: RecogLib_iOS.DocumentRole.Idc,
+            country: RecogLib_iOS.Country.Cz,
+            page: RecogLib_iOS.PageCode.Front,
+            code: nil,
+            language: LanguageHelper.language
+        )
+        camera.delegate = self
+    }
+    
+    func getView() -> UIView {
+        view
+    }
+}
+
+extension DocumentController: CameraDelegate {
+    func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
+        guard detectionRunning else { return }
+        guard targetFrame.width > 0 else { return }
+        
+        // crop pixel data if necessary
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer)
+        let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
+        let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
+        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
+        
+        // torch for holograms
+        self.setTorch(on: dataType == .video && photoType != .face)
+        
+        if faceMode == nil && photoType == .face {
+            return
+        }
+        if let videoWriter = self.videoWriter, dataType == .video, videoWriter.isRecording {
+            videoWriter.captureOutput(sampleBuffer: sampleBuffer)
+        }
+        let verifier = getVerifier(photoType: photoType, faceMode: faceMode ?? .selfie)
+        guard let result = verifier.verify(image: croppedBuffer) else {
+            return
+        }
+        DispatchQueue.main.async { [unowned self] in
+            self.webViewOverlay?.updateState(state: getWebViewOverlayState(result: result))
+            self.updateView(with: result, photoType: photoType, buffer: croppedBuffer)
+        }
+        guard let renderable = getVerifierRenderable(photoType: photoType, faceMode: faceMode ?? .selfie) else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.renderCommands(renderable: renderable, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        }
+    }
+}
+
 class CameraViewController: UIViewController {
     weak var delegate: CameraViewControllerDelegate?
     
