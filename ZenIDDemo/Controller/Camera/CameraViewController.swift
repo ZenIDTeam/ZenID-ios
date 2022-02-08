@@ -391,8 +391,8 @@ class CameraViewController: UIViewController {
     }
     
     private func returnImage(_ data: Data?, _ result: UnifiedResult? = nil) {
-        if let data = data, let image = UIImage(data: data) {
-            let preview = PreviewViewController(title:title ?? "", image: image)
+        if let data = data, let image = UIImage(data: data), let signatureImageData = result?.signature?.image, let signatureImage = UIImage(data: signatureImageData) {
+            let preview = PreviewViewController(title:title ?? "", image: signatureImage)
             preview.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             preview.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             
