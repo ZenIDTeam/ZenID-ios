@@ -257,9 +257,9 @@ class CameraViewController: UIViewController {
             self.documentVerifier.reset()
             
             // This will setup document verifier to Czech ID / front side
-            self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
-            self.documentVerifier.country = RecogLib_iOS.Country.Cz
-            self.documentVerifier.page = RecogLib_iOS.PageCode.Front
+            //self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
+            //self.documentVerifier.country = RecogLib_iOS.Country.Cz
+            //self.documentVerifier.page = RecogLib_iOS.PageCode.Front
             
             // This will setup document verifier to detect holograms
             self.documentVerifier.beginHologramVerification()
