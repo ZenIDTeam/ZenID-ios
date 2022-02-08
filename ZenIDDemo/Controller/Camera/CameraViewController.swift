@@ -466,9 +466,9 @@ class CameraViewController: UIViewController {
             self.documentVerifier.reset()
             
             // This will setup document verifier to Czech ID / front side
-            self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
-            self.documentVerifier.country = RecogLib_iOS.Country.Cz
-            self.documentVerifier.page = RecogLib_iOS.PageCode.Front
+            //self.documentVerifier.documentRole = RecogLib_iOS.DocumentRole.Idc
+            //self.documentVerifier.country = RecogLib_iOS.Country.Cz
+            //self.documentVerifier.page = RecogLib_iOS.PageCode.Front
             
             // This will setup document verifier to detect holograms
             self.documentVerifier.beginHologramVerification()
@@ -627,8 +627,8 @@ class CameraViewController: UIViewController {
     }
     
     private func returnImage(_ data: Data?, _ result: UnifiedResult? = nil) {
-        if let data = data, let image = UIImage(data: data) {
-            let preview = PreviewViewController(title:title ?? "", image: image)
+        if let data = data, let image = UIImage(data: data), let signatureImageData = result?.signature?.image, let signatureImage = UIImage(data: signatureImageData) {
+            let preview = PreviewViewController(title:title ?? "", image: signatureImage)
             preview.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             preview.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             
