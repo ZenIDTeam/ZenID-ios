@@ -19,6 +19,11 @@ enum CameraType {
     case back
 }
 
+public enum DataType {
+    case picture
+    case video
+}
+
 protocol CameraDelegate: AnyObject {
     func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer)
 }
@@ -170,7 +175,27 @@ private extension Camera {
 }
 
 protocol DocumentControllerDelegate: AnyObject {
+    func documentController(controller: DocumentController, didScan result: DocumentResult)
+}
+
+struct ControllerConfiguration {
+    public static let `default` = ControllerConfiguration(
+        showVisualisation: true,
+        dataType: .picture,
+        role: nil,
+        country: nil,
+        page: nil,
+        code: nil,
+        settings: nil
+    )
     
+    public let showVisualisation: Bool
+    public let dataType: DataType
+    public var role: RecogLib_iOS.DocumentRole?
+    public var country: RecogLib_iOS.Country?
+    public var page: RecogLib_iOS.PageCode?
+    public var code: RecogLib_iOS.DocumentCode?
+    public let settings: DocumentVerifierSettings?
 }
 
 final class DocumentController {
@@ -178,12 +203,19 @@ final class DocumentController {
     
     private let camera: Camera
     private let view: CameraView
-    private var documentVerifier: DocumentVerifier
+    private let verifier: DocumentVerifier
     
-    init(camera: Camera) {
+    private var config = ControllerConfiguration.default
+    
+    private var targetFrame: CGRect = .zero
+    private var previousResult: DocumentResult?
+    
+    private var isRunning: Bool = false
+    
+    init(camera: Camera, view: CameraView, modelsUrl: URL) {
         self.camera = camera
-        view = CameraView()
-        documentVerifier = .init(
+        self.view = view
+        verifier = .init(
             role: RecogLib_iOS.DocumentRole.Idc,
             country: RecogLib_iOS.Country.Cz,
             page: RecogLib_iOS.PageCode.Front,
@@ -191,47 +223,261 @@ final class DocumentController {
             language: LanguageHelper.language
         )
         camera.delegate = self
+        
+        loadModels(url: modelsUrl)
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(orientationChanged),
+            name: UIDevice.orientationDidChangeNotification, object: nil
+        )
     }
     
-    func getView() -> UIView {
-        view
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func configure(configuration: ControllerConfiguration = .default) throws {
+        isRunning = false
+        verifier.reset()
+        verifier.endHologramVerification()
+        let oldConfig = self.config
+        config = configuration
+        
+        view.layoutIfNeeded()
+        
+        try camera.configure(with: .init(type: .back))
+        
+        view.previewLayer = camera.previewLayer
+        view.setup(isOtherDocument: false)
+        view.setupControlView(isOtherDocument: false)
+        view.supportChangedOrientation = { true }
+        view.configureOverlay(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: true, targetFrame: getOverlayTargetFrame())
+        view.configureVideoLayers(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: true, targetFrame: getOverlayTargetFrame())
+        
+        targetFrame = view.overlay?.bounds ?? .zero
+        
+        resetDocumentVerifier()
+        
+        if let config = config.settings, config != oldConfig.settings {
+            verifier.update(settings: config)
+        }
+        
+        // This will setup document verifier
+        if let role = config.role {
+            verifier.documentRole = role
+        }
+        if let page = config.page {
+            verifier.page = page
+        }
+        if let country = config.country {
+            verifier.country = country
+        }
+        if let code = previousResult?.code, config.page == .Back {
+            verifier.code = code
+        }
+        
+        orientationChanged()
+        start()
+        isRunning = true
+        
+        //
+        /*if faceMode?.isFaceliveness ?? false && photoType == .face {
+            let isLegacy = faceMode == .faceLivenessLegacy
+            faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
+        }*/
+        self.documents = documents
+        
+        contentView.topLabel.text = photoType.message
+        
+        if dataType == .video {
+            // This will setup document verifier to detect holograms
+            self.documentVerifier.beginHologramVerification()
+            
+            // This starts video writer for holograms
+            self.videoWriter.start()
+        }
+        
+        if type == .filter {
+            documentVerifier.documentsInput = .init(documents: documents)
+        }
+
+        /*documentVerifier.showDebugInfo = config.isDebugEnabled
+        faceLivenessVerifier.showDebugInfo = config.isDebugEnabled
+        selfieVerifier.showDebugInfo = config.isDebugEnabled*/
+        
+        // This hides visualisation hints, overlay and instructions for generic documents
+        if type == .otherDocument {
+            self.showStaticOverlay = false
+            self.showVisualisation = false
+            self.showInstructionView = false
+        } else {
+            self.showStaticOverlay = true
+            self.showVisualisation = canShowVisualisation()
+            self.showInstructionView = canShowInstructionView()
+        }
+        
+        // Control view
+        contentView.setupControlView(isOtherDocument: documentType == .otherDocument)
+        
+        setNilAllPreviousResults()
+    }
+    
+    func start() {
+        camera.start()
+    }
+    
+    func stop() {
+        camera.stop()
+    }
+    
+    private func getOverlayTargetFrame() -> CGRect {
+        let size = camera.getCurrentResolution()
+        let imageRect = CGRect(origin: .zero, size: size)
+        return imageRect.rectThatFitsRect(view.overlay?.frame ?? .zero)
+    }
+    
+    private func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer? {
+        // camera frame size
+        let width = CVPixelBufferGetWidth(pixelBuffer)
+        let height = CVPixelBufferGetHeight(pixelBuffer)
+        
+        // find cropping
+        let cropRect = getCroppedImageRect(width: width, height: height)
+        
+        // create (cropped) image
+        let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
+        return image?.toCVPixelBuffer()
+    }
+    
+    private func getCroppedImageRect(width: Int, height: Int) -> CGRect {
+        let gravity = Defaults.videoGravity
+        switch gravity {
+        case .resizeAspect:
+            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
+            let layerRect = imageRect.rectThatFitsRect(targetFrame)
+            
+            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect
+            
+        case .resizeAspectFill:
+            let layerRect = targetFrame
+            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect
+            
+        default:
+            return .zero
+        }
+    }
+    
+    private func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
+        if !config.showVisualisation {
+            return
+        }
+        guard let previewLayer = camera.previewLayer else {
+            return
+        }
+        if targetFrame == .zero {
+            return
+        }
+        let commandsRect = previewLayer.frame
+        if let drawLayer = view.drawLayer {
+            let renderables = RenderableFactory.createRenderables(commands: commands)
+            drawLayer.frame = commandsRect
+            drawLayer.renderables = renderables
+        }
+    }
+    
+    private func loadModels(url: URL) {
+        verifier.loadModels(.init(url: url)!)
+        
+        //loadFacelivenessModels(isLegacy: true)
+        
+        //let selfieUrl = rootUrl.appendingPathComponent("face")
+        //selfieVerifier.loadModels(.init(url: selfieUrl)!)
+    }
+    
+    @objc
+    private func orientationChanged() {
+        targetFrame = view.overlay?.bounds ?? .zero
+        camera.setOrientation(orientation: UIDevice.current.orientation)
+        view.drawLayer?.renderables = []
+        view.rotateOverlay(targetFrame: getOverlayTargetFrame())
+    }
+    
+    private func updateView(with result: DocumentResult?, buffer: CVPixelBuffer) {
+        guard let unwrappedResult = result else {
+            view.statusButton.setTitle("nil result", for: .normal)
+            return
+        }
+        
+        guard unwrappedResult.state == .Ok, previousResult?.state != .Ok else {
+            view.statusButton.setTitle(String(describing: unwrappedResult.state.localizedDescription), for: .normal)
+            return
+        }
+        previousResult = unwrappedResult
+        
+        debugPrint("Done")
+        /*if photoType == .face && faceMode?.isFaceliveness ?? false {
+            saveAuxiliaryImagesToLibrary(info: faceLivenessVerifier.getAuxiliaryInfo())
+        }*/
+        
+        guard isRunning else { return }
+        isRunning = false
+        
+        if config.dataType == .video {
+            videoWriter.stop()
+        }
+        delegate?.documentController(controller: self, didScan: unwrappedResult)
+    }
+    
+    private func resetDocumentVerifier() {
+        verifier.documentsInput = nil
+        verifier.documentRole = nil
+        verifier.page = nil
+        verifier.country = nil
+        verifier.code = nil
     }
 }
 
 extension DocumentController: CameraDelegate {
     func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
-        guard detectionRunning else { return }
+        guard isRunning else { return }
         guard targetFrame.width > 0 else { return }
         
         // crop pixel data if necessary
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer)
+        guard let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer) else {
+            return
+        }
         let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
         
         // torch for holograms
-        self.setTorch(on: dataType == .video && photoType != .face)
+        /*self.setTorch(on: dataType == .video && photoType != .face)
         
         if faceMode == nil && photoType == .face {
             return
         }
         if let videoWriter = self.videoWriter, dataType == .video, videoWriter.isRecording {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
-        }
-        let verifier = getVerifier(photoType: photoType, faceMode: faceMode ?? .selfie)
-        guard let result = verifier.verify(image: croppedBuffer) else {
+        }*/
+        guard let result = verifier.verifyImage(imageBuffer: croppedBuffer) else {
             return
         }
         DispatchQueue.main.async { [unowned self] in
-            self.webViewOverlay?.updateState(state: getWebViewOverlayState(result: result))
-            self.updateView(with: result, photoType: photoType, buffer: croppedBuffer)
+            //self.webViewOverlay?.updateState(state: getWebViewOverlayState(result: result))
+            
+            self.updateView(with: result, buffer: croppedBuffer)
         }
-        guard let renderable = getVerifierRenderable(photoType: photoType, faceMode: faceMode ?? .selfie) else {
+        let canvasSize = camera.previewLayer.frame.size
+        guard let commands = verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height)) else {
             return
         }
         DispatchQueue.main.async {
-            self.renderCommands(renderable: renderable, imageRect: imageRect, pixelBuffer: pixelBuffer)
+            self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
         }
     }
 }
@@ -355,7 +601,7 @@ class CameraViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
         contentView.saveTrigger.setTitle("\("btn-save".localized) (\(photosCount))", for: .normal)
-        contentView.configureOverlay(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        contentView.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName(), frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         DispatchQueue.main.async { [weak self] in
             self?.orientationChanged()
         }
@@ -709,7 +955,7 @@ private extension CameraViewController {
             return
         }
         contentView.previewLayer = camera.previewLayer
-        contentView.configureVideoLayers(overlay: CameraOverlayView(documentType: documentType, photoType: photoType, frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        contentView.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName(), frame: contentView.cameraView.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
     }
     
     private func getOverlayTargetFrame() -> CGRect {
@@ -728,6 +974,15 @@ private extension CameraViewController {
     
     private func canShowVisualisation() -> Bool {
         webViewOverlay == nil
+    }
+    
+    private func overlayImageName() -> String {
+        if documentType == .passport {
+            return "targettingRectPas"
+        } else if documentType == .idCard {
+            return "targettingRect"
+        }
+        return ""
     }
 }
 

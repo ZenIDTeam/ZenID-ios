@@ -10,8 +10,7 @@ import UIKit
 import RecogLib_iOS
 
 final class CameraOverlayView: UIView {
-    private let photoType: PhotoType
-    private let documentType: DocumentType
+    private let imageName: String
     
     lazy var frameImageView: UIImageView = {
         let imageView = UIImageView(image: targettingReticle)
@@ -22,21 +21,11 @@ final class CameraOverlayView: UIView {
     }()
     
     private var targettingReticle: UIImage {
-        get {
-            switch documentType {
-            case .face:
-                return UIImage()
-            case .passport:
-                return #imageLiteral(resourceName: "targettingRectPas")
-            default:
-                return #imageLiteral(resourceName: "targettingRect")
-            }
-        }
+        UIImage(named: imageName) ?? UIImage()
     }
     
-    init(documentType: DocumentType, photoType: PhotoType, frame: CGRect) {
-        self.documentType = documentType
-        self.photoType = photoType
+    init(imageName: String, frame: CGRect) {
+        self.imageName = imageName
         super.init(frame: frame)
         setupView()
     }

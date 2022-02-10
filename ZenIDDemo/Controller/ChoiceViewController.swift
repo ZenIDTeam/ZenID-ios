@@ -378,7 +378,7 @@ extension ChoiceViewController: ScanProcessDelegate {
                     SelfieSelectionLoaderComposer.compose().load { [weak self] result in
                         let faceMode = (try? result.get())
                         guard let self = self else { return }
-                        self.cachedCameraViewController.configureController(
+                        /*self.cachedCameraViewController.configureController(
                             type: scanProcess.documentType,
                             photoType: photoType,
                             country: scanProcess.country,
@@ -387,13 +387,15 @@ extension ChoiceViewController: ScanProcessDelegate {
                             documents: documents,
                             documentSettings: settings,
                             config: ConfigServiceComposer.compose().load()
-                        )
+                        )*/
+                        let viewController = MyViewController()
+                        self.navigationController?.pushViewController(viewController, animated: true)
                     }
                 }
             }
         }
                 
-        DispatchQueue.main.async { [unowned self] in
+        /*DispatchQueue.main.async { [unowned self] in
             guard self.navigationController?.topViewController != self.cachedCameraViewController else { return }
 
             if self.isBusyViewControllerPresented() {
@@ -401,7 +403,7 @@ extension ChoiceViewController: ScanProcessDelegate {
             } else {
                 self.navigationController?.pushViewController(self.cachedCameraViewController, animated: true)
             }
-        }
+        }*/
     }
     
     func willProcessData(scanProcess: ScanProcess) {

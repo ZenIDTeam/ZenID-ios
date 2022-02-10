@@ -124,11 +124,6 @@ public enum PhotoType {
     }
 }
 
-public enum DataType {
-    case picture
-    case video
-}
-
 extension PhotoType {
     var pageCode: String {
         get {
