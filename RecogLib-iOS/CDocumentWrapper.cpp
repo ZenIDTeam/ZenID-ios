@@ -158,6 +158,7 @@ void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSetting
     verifier->GetSettings().documentBlurAcceptableScore = settings->documentBlurAcceptableScore;
     verifier->GetSettings().timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
     verifier->GetSettings().showTimer = settings->showTimer;
+    verifier->GetSettings().enableAimingCircle = settings->enableAimingCircle;
 }
 
 bool verifyHologram(const void *object,

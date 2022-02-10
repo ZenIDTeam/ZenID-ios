@@ -137,7 +137,8 @@ public struct DocumentVerifierSettings : Swift.Equatable {
   public let documentBlurAcceptableScore: Swift.Int
   public let timeToBlurMaxToleranceInSeconds: Swift.Int
   public let showTimer: Swift.Bool
-  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false)
+  public let showAimingCircle: Swift.Bool
+  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false)
   public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
 }
 public enum SupportedLanguages : Swift.Int {
