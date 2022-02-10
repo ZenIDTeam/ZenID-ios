@@ -25,7 +25,7 @@ struct CDocumentInfo {
 
 struct CDocumentVerifierSettings {
     int specularAcceptableScore, documentBlurAcceptableScore, timeToBlurMaxToleranceInSeconds;
-    bool showTimer;
+    bool showTimer, enableAimingCircle;
 };
 
 typedef struct CImageSignature CImageSignature;

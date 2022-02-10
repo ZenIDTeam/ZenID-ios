@@ -40,16 +40,23 @@ extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsUpdater {
     
     func update(showTimer: Bool, completion: (DocumentVerifierSettingsUpdater.Result) -> Void) {
         settings = settings.update(showTimer: showTimer)
+        completion(.success(()))
+    }
+    
+    func update(showAimingCircle: Bool, completion: (DocumentVerifierSettingsUpdater.Result) -> Void) {
+        settings = settings.update(showAimingCircle: showAimingCircle)
+        completion(.success(()))
     }
 }
 
 private extension DocumentVerifierSettings {
-    func update(specularAcceptableScore: Int? = nil, documentBlurAcceptableScore: Int? = nil, timeToBlurMaxToleranceInSeconds: Int? = nil, showTimer: Bool? = nil) -> DocumentVerifierSettings {
+    func update(specularAcceptableScore: Int? = nil, documentBlurAcceptableScore: Int? = nil, timeToBlurMaxToleranceInSeconds: Int? = nil, showTimer: Bool? = nil, showAimingCircle: Bool? = nil) -> DocumentVerifierSettings {
         .init(
             specularAcceptableScore: specularAcceptableScore ?? self.specularAcceptableScore,
             documentBlurAcceptableScore: documentBlurAcceptableScore ?? self.documentBlurAcceptableScore,
             timeToBlurMaxToleranceInSeconds: timeToBlurMaxToleranceInSeconds ?? self.timeToBlurMaxToleranceInSeconds,
-            showTimer: showTimer ?? self.showTimer
+            showTimer: showTimer ?? self.showTimer,
+            showAimingCircle: showAimingCircle ?? self.showAimingCircle
         )
     }
 }

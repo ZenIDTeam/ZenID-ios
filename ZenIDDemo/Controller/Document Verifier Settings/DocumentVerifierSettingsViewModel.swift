@@ -79,6 +79,13 @@ final class DocumentVerifierSettingsViewModel {
                 onChange: { [weak self] value in
                     self?.updater.update(showTimer: value, completion: { _ in })
                 }
+            ),
+            .init(
+                title: NSLocalizedString("document-verifier-settings-circle", comment: ""),
+                value: settings.showAimingCircle,
+                onChange: { [weak self] value in
+                    self?.updater.update(showAimingCircle: value, completion: { _ in })
+                }
             )
         ]
         onUpdate?(intervalItems.map({ .interval($0) }) + switchItems.map({ .switch($0) }))
