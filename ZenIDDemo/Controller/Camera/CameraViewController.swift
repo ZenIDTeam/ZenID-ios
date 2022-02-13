@@ -176,6 +176,7 @@ private extension Camera {
 
 protocol DocumentControllerDelegate: AnyObject {
     func documentController(controller: DocumentController, didScan result: DocumentResult)
+    func documentController(controller: DocumentController, didRecord videoURL: URL)
 }
 
 struct ControllerConfiguration {
@@ -186,15 +187,17 @@ struct ControllerConfiguration {
         country: nil,
         page: nil,
         code: nil,
+        documents: nil,
         settings: nil
     )
     
     public let showVisualisation: Bool
     public let dataType: DataType
-    public var role: RecogLib_iOS.DocumentRole?
-    public var country: RecogLib_iOS.Country?
-    public var page: RecogLib_iOS.PageCode?
-    public var code: RecogLib_iOS.DocumentCode?
+    public let role: RecogLib_iOS.DocumentRole?
+    public let country: RecogLib_iOS.Country?
+    public let page: RecogLib_iOS.PageCode?
+    public let code: RecogLib_iOS.DocumentCode?
+    public let documents: [Document]?
     public let settings: DocumentVerifierSettings?
 }
 
@@ -204,6 +207,7 @@ final class DocumentController {
     private let camera: Camera
     private let view: CameraView
     private let verifier: DocumentVerifier
+    private var videoWriter: VideoWriter?
     
     private var config = ControllerConfiguration.default
     
@@ -234,6 +238,9 @@ final class DocumentController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        setTorch(on: false)
+        verifier.endHologramVerification()
+        videoWriter?.stop()
     }
     
     func configure(configuration: ControllerConfiguration = .default) throws {
@@ -275,9 +282,22 @@ final class DocumentController {
         if let code = previousResult?.code, config.page == .Back {
             verifier.code = code
         }
+        if let documents = config.documents {
+            verifier.documentsInput = .init(documents: documents)
+        }
+        
+        if config.dataType == .video {
+            videoWriter = VideoWriter()
+            videoWriter?.delegate = self
+            
+            setTorch(on: config.dataType == .video /*&& photoType != .face*/)
+            verifier.beginHologramVerification()
+            videoWriter?.start()
+        }
         
         orientationChanged()
         start()
+        previousResult = nil
         isRunning = true
         
         //
@@ -285,28 +305,15 @@ final class DocumentController {
             let isLegacy = faceMode == .faceLivenessLegacy
             faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
         }*/
-        self.documents = documents
         
-        contentView.topLabel.text = photoType.message
-        
-        if dataType == .video {
-            // This will setup document verifier to detect holograms
-            self.documentVerifier.beginHologramVerification()
-            
-            // This starts video writer for holograms
-            self.videoWriter.start()
-        }
-        
-        if type == .filter {
-            documentVerifier.documentsInput = .init(documents: documents)
-        }
+        //contentView.topLabel.text = photoType.message
 
         /*documentVerifier.showDebugInfo = config.isDebugEnabled
         faceLivenessVerifier.showDebugInfo = config.isDebugEnabled
         selfieVerifier.showDebugInfo = config.isDebugEnabled*/
         
         // This hides visualisation hints, overlay and instructions for generic documents
-        if type == .otherDocument {
+        /*if type == .otherDocument {
             self.showStaticOverlay = false
             self.showVisualisation = false
             self.showInstructionView = false
@@ -314,12 +321,7 @@ final class DocumentController {
             self.showStaticOverlay = true
             self.showVisualisation = canShowVisualisation()
             self.showInstructionView = canShowInstructionView()
-        }
-        
-        // Control view
-        contentView.setupControlView(isOtherDocument: documentType == .otherDocument)
-        
-        setNilAllPreviousResults()
+        }*/
     }
     
     func start() {
@@ -427,7 +429,9 @@ final class DocumentController {
         isRunning = false
         
         if config.dataType == .video {
-            videoWriter.stop()
+            videoWriter?.stop()
+            setTorch(on: false)
+            return
         }
         delegate?.documentController(controller: self, didScan: unwrappedResult)
     }
@@ -438,6 +442,14 @@ final class DocumentController {
         verifier.page = nil
         verifier.country = nil
         verifier.code = nil
+    }
+    
+    private func setTorch(on: Bool) {
+        do {
+            try camera.setTorch(isOn: on)
+        } catch {
+            ApplicationLogger.shared.Verbose("\(error.localizedDescription)")
+        }
     }
 }
 
@@ -456,14 +468,14 @@ extension DocumentController: CameraDelegate {
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
         
         // torch for holograms
-        /*self.setTorch(on: dataType == .video && photoType != .face)
+        //self.setTorch(on: config.dataType == .video && photoType != .face)
         
-        if faceMode == nil && photoType == .face {
+        /*if faceMode == nil && photoType == .face {
             return
-        }
-        if let videoWriter = self.videoWriter, dataType == .video, videoWriter.isRecording {
-            videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }*/
+        if let videoWriter = self.videoWriter, config.dataType == .video, videoWriter.isRecording {
+            videoWriter.captureOutput(sampleBuffer: sampleBuffer)
+        }
         guard let result = verifier.verifyImage(imageBuffer: croppedBuffer) else {
             return
         }
@@ -479,6 +491,12 @@ extension DocumentController: CameraDelegate {
         DispatchQueue.main.async {
             self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
         }
+    }
+}
+
+extension DocumentController: VideoWriterDelegate {
+    public func didTakeVideo(_ videoAsset: AVURLAsset) {
+        delegate?.documentController(controller: self, didRecord: videoAsset.url)
     }
 }
 

@@ -22,7 +22,16 @@ final class MyViewController: UIViewController {
         self.view.bottomAnchor.constraint(equalTo: cameraView!.bottomAnchor).isActive = true
         
         do {
-            let configuration = ControllerConfiguration.default
+            let configuration = ControllerConfiguration(
+                showVisualisation: true,
+                dataType: .picture,
+                role: .Idc,
+                country: .Cz,
+                page: .Front,
+                code: nil,
+                documents: nil,
+                settings: nil
+            )
             try controller?.configure(configuration: configuration)
         } catch {
             debugPrint(error)
@@ -56,5 +65,9 @@ extension MyViewController: DocumentControllerDelegate {
 
             present(preview, animated: true, completion: nil)
         }
+    }
+    
+    func documentController(controller: DocumentController, didRecord videoURL: URL) {
+        
     }
 }
