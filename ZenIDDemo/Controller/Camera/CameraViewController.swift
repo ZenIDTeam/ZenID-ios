@@ -174,13 +174,6 @@ private extension Camera {
     }
 }
 
-protocol ControllerDelegate: AnyObject {
-    associatedtype ResultType: ResultState
-    
-    func controllerDidScan(result: ResultType)
-    func controllerDidRecord(videoURL: URL)
-}
-
 struct BaseControllerConfiguration {
     static let `default` = BaseControllerConfiguration(showVisualisation: true, dataType: .picture, cameraType: .back)
     
@@ -228,9 +221,7 @@ extension DocumentResult: ResultState {
     }
 }
 
-class BaseController<Delegate: ControllerDelegate> {
-    weak var delegate: Delegate?
-    
+class BaseController<ResultType: ResultState> {
     let camera: Camera
     let view: CameraView
     
@@ -239,7 +230,7 @@ class BaseController<Delegate: ControllerDelegate> {
     var targetFrame: CGRect = .zero
     var isRunning: Bool = false
     
-    var previousResult: Delegate.ResultType?
+    var previousResult: ResultType?
     
     private(set) var baseConfig: BaseControllerConfiguration = .default
     
@@ -300,12 +291,28 @@ class BaseController<Delegate: ControllerDelegate> {
         camera.stop()
     }
     
-    func verify(pixelBuffer: CVPixelBuffer) -> Delegate.ResultType? {
+    func verify(pixelBuffer: CVPixelBuffer) -> ResultType? {
         nil
     }
     
     func getRenderCommands(size: CGSize) -> String? {
         nil
+    }
+    
+    func canShowStaticOverlay() -> Bool {
+        canShowVisualisation()
+    }
+    
+    func canShowInstructionView() -> Bool {
+        baseConfig.dataType != .video && canShowVisualisation()
+    }
+    
+    func callDelegate(with result: ResultType) {
+        
+    }
+    
+    func callDelegate(with videoUrl: URL) {
+        
     }
     
     @objc
@@ -385,7 +392,7 @@ extension BaseController {
         }
     }
     
-    func updateView(with result: Delegate.ResultType?, buffer: CVPixelBuffer) {
+    func updateView(with result: ResultType?, buffer: CVPixelBuffer) {
         guard let unwrappedResult = result else {
             view.statusButton.setTitle("nil result", for: .normal)
             return
@@ -410,25 +417,17 @@ extension BaseController {
             setTorch(on: false)
             return
         }
-        delegate?.controllerDidScan(result: unwrappedResult)
+        callDelegate(with: unwrappedResult)
     }
     
     func canShowVisualisation() -> Bool {
         view.webViewOverlay == nil
     }
-    
-    func canShowStaticOverlay() -> Bool {
-        /*photoType != .face &&*/ canShowVisualisation()
-    }
-    
-    func canShowInstructionView() -> Bool {
-        /*(photoType != .face && faceMode == .faceLiveness) &&*/ baseConfig.dataType != .video && canShowVisualisation()
-    }
 }
 
 extension BaseController: VideoWriterDelegate {
     public func didTakeVideo(_ videoAsset: AVURLAsset) {
-        delegate?.controllerDidRecord(videoURL: videoAsset.url)
+        callDelegate(with: videoAsset.url)
     }
 }
 
@@ -468,11 +467,14 @@ extension BaseController: CameraDelegate {
     }
 }
 
-protocol DocumentControllerDelegate: ControllerDelegate where ResultType == DocumentResult {
-    
+protocol DocumentControllerDelegate: AnyObject {
+    func controller(_ controller: DocumentController, didScan result: DocumentResult)
+    func controller(_ controller: DocumentController, didRecord videoURL: URL)
 }
 
-final class DocumentController<Delegate: DocumentControllerDelegate>: BaseController<Delegate> {
+final class DocumentController: BaseController<DocumentResult> {
+    weak var delegate: DocumentControllerDelegate?
+    
     private let verifier: DocumentVerifier
     
     private var config = DocumentControllerConfiguration.default
@@ -539,19 +541,9 @@ final class DocumentController<Delegate: DocumentControllerDelegate>: BaseContro
         try self.configure(configuration: baseConfig)
         
         //contentView.topLabel.text = photoType.message
-        
-        //
-        /*if faceMode?.isFaceliveness ?? false && photoType == .face {
-            let isLegacy = faceMode == .faceLivenessLegacy
-            faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
-        }*/
-
-        /*
-        faceLivenessVerifier.showDebugInfo = config.isDebugEnabled
-        selfieVerifier.showDebugInfo = config.isDebugEnabled*/
     }
     
-    override func verify(pixelBuffer: CVPixelBuffer) -> Delegate.ResultType? {
+    override func verify(pixelBuffer: CVPixelBuffer) -> DocumentResult? {
         verifier.verifyImage(imageBuffer: pixelBuffer)
     }
     
@@ -559,13 +551,16 @@ final class DocumentController<Delegate: DocumentControllerDelegate>: BaseContro
         verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
     }
     
+    override func callDelegate(with result: DocumentResult) {
+        delegate?.controller(self, didScan: result)
+    }
+    
+    override func callDelegate(with videoUrl: URL) {
+        delegate?.controller(self, didRecord: videoUrl)
+    }
+    
     private func loadModels(url: URL) {
         verifier.loadModels(.init(url: url)!)
-        
-        //loadFacelivenessModels(isLegacy: true)
-        
-        //let selfieUrl = rootUrl.appendingPathComponent("face")
-        //selfieVerifier.loadModels(.init(url: selfieUrl)!)
     }
     
     private func resetDocumentVerifier() {
@@ -576,6 +571,190 @@ final class DocumentController<Delegate: DocumentControllerDelegate>: BaseContro
         verifier.code = nil
     }
 }
+
+extension SelfieResult: ResultState {
+    var isOk: Bool {
+        selfieState == .Ok
+    }
+    
+    var description: String {
+        selfieState.description
+    }
+}
+
+struct SelfieControllerConfiguration {
+    public static let `default` = SelfieControllerConfiguration(
+        showVisualisation: true,
+        showDebugVisualisation: false,
+        dataType: .picture
+    )
+    
+    public let showVisualisation: Bool
+    public let showDebugVisualisation: Bool
+    public let dataType: DataType
+}
+
+protocol SelfieControllerDelegate: AnyObject {
+    func controller(_ controller: SelfieController, didScan result: SelfieResult)
+    func controller(_ controller: SelfieController, didRecord videoURL: URL)
+}
+
+final class SelfieController: BaseController<SelfieResult> {
+    weak var delegate: SelfieControllerDelegate?
+    
+    private let verifier: SelfieVerifier
+    
+    private var config = SelfieControllerConfiguration.default
+    
+    init(camera: Camera, view: CameraView, modelsUrl: URL) {
+        verifier = .init(language: LanguageHelper.language)
+        super.init(camera: camera, view: view)
+        camera.delegate = self
+        
+        loadModels(url: modelsUrl)
+    }
+    
+    func configure(configuration: SelfieControllerConfiguration = .default) throws {
+        verifier.reset()
+        config = configuration
+        
+        let baseConfig = BaseControllerConfiguration(
+            showVisualisation: configuration.showVisualisation && canShowVisualisation(),
+            dataType: configuration.dataType,
+            cameraType: .front
+        )
+        
+        verifier.showDebugInfo = config.showDebugVisualisation
+        
+        try self.configure(configuration: baseConfig)
+        
+        //contentView.topLabel.text = photoType.message
+    }
+    
+    override func verify(pixelBuffer: CVPixelBuffer) -> SelfieResult? {
+        verifier.verifyImage(imageBuffer: pixelBuffer)
+    }
+    
+    override func getRenderCommands(size: CGSize) -> String? {
+        verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
+    }
+    
+    override func canShowStaticOverlay() -> Bool {
+        false
+    }
+    
+    override func canShowInstructionView() -> Bool {
+        false
+    }
+    
+    override func callDelegate(with result: SelfieResult) {
+        delegate?.controller(self, didScan: result)
+    }
+    
+    override func callDelegate(with videoUrl: URL) {
+        delegate?.controller(self, didRecord: videoUrl)
+    }
+    
+    private func loadModels(url: URL) {
+        verifier.loadModels(.init(url: url)!)
+    }
+}
+
+
+extension FaceLivenessResult: ResultState {
+    var isOk: Bool {
+        faceLivenessState == .Ok
+    }
+    
+    var description: String {
+        faceLivenessState.description
+    }
+}
+
+struct FacelivenessControllerConfiguration {
+    public static let `default` = FacelivenessControllerConfiguration(
+        showVisualisation: true,
+        showDebugVisualisation: false,
+        dataType: .picture,
+        isLegacy: false
+    )
+    
+    public let showVisualisation: Bool
+    public let showDebugVisualisation: Bool
+    public let dataType: DataType
+    public let isLegacy: Bool
+}
+
+protocol FacelivenessControllerDelegate: AnyObject {
+    func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult)
+    func controller(_ controller: FacelivenessController, didRecord videoURL: URL)
+}
+
+final class FacelivenessController: BaseController<FaceLivenessResult> {
+    weak var delegate: FacelivenessControllerDelegate?
+    
+    private let verifier: FaceLivenessVerifier
+    
+    private var config = FacelivenessControllerConfiguration.default
+    
+    init(camera: Camera, view: CameraView, modelsUrl: URL) {
+        verifier = .init(language: LanguageHelper.language)
+        super.init(camera: camera, view: view)
+        camera.delegate = self
+        
+        loadModels(url: modelsUrl)
+    }
+    
+    func configure(configuration: FacelivenessControllerConfiguration = .default) throws {
+        verifier.reset()
+        config = configuration
+        
+        let baseConfig = BaseControllerConfiguration(
+            showVisualisation: configuration.showVisualisation && canShowVisualisation(),
+            dataType: configuration.dataType,
+            cameraType: .front
+        )
+        
+        verifier.update(settings: .init(isLegacyModeEnabled: configuration.isLegacy))
+        verifier.showDebugInfo = config.showDebugVisualisation
+        
+        try self.configure(configuration: baseConfig)
+        
+        //contentView.topLabel.text = photoType.message
+    }
+    
+    override func verify(pixelBuffer: CVPixelBuffer) -> FaceLivenessResult? {
+        verifier.verifyImage(imageBuffer: pixelBuffer)
+    }
+    
+    override func getRenderCommands(size: CGSize) -> String? {
+        verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
+    }
+    
+    override func canShowStaticOverlay() -> Bool {
+        false
+    }
+    
+    override func canShowInstructionView() -> Bool {
+        false
+    }
+    
+    override func callDelegate(with result: FaceLivenessResult) {
+        delegate?.controller(self, didScan: result)
+    }
+    
+    override func callDelegate(with videoUrl: URL) {
+        delegate?.controller(self, didRecord: videoUrl)
+    }
+    
+    private func loadModels(url: URL) {
+        guard let models = FaceVerifierModels(url: url) else {
+            return
+        }
+        verifier.loadModels(models)
+    }
+}
+
 
 class CameraViewController: UIViewController {
     weak var delegate: CameraViewControllerDelegate?
