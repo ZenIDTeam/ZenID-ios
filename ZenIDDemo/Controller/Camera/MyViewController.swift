@@ -2,7 +2,7 @@ import UIKit
 import RecogLib_iOS
 
 final class MyViewController: UIViewController {
-    private var controller: DocumentController?
+    private var controller: DocumentController<MyViewController>?
     private var camera: Camera?
     private var cameraView: CameraView?
     
@@ -11,7 +11,7 @@ final class MyViewController: UIViewController {
         
         camera = Camera()
         cameraView = CameraView()
-        controller = DocumentController(camera: camera!, view: cameraView!, modelsUrl: URL.modelsDocuments)
+        controller = DocumentController<MyViewController>(camera: camera!, view: cameraView!, modelsUrl: URL.modelsDocuments)
         controller?.delegate = self
         
         cameraView!.translatesAutoresizingMaskIntoConstraints = false
@@ -22,8 +22,9 @@ final class MyViewController: UIViewController {
         self.view.bottomAnchor.constraint(equalTo: cameraView!.bottomAnchor).isActive = true
         
         do {
-            let configuration = ControllerConfiguration(
+            let configuration = DocumentControllerConfiguration(
                 showVisualisation: true,
+                showDebugVisualisation: false,
                 dataType: .picture,
                 role: .Idc,
                 country: .Cz,
@@ -50,7 +51,7 @@ final class MyViewController: UIViewController {
 }
 
 extension MyViewController: DocumentControllerDelegate {
-    func documentController(controller: DocumentController, didScan result: DocumentResult) {
+    func controllerDidScan(result: DocumentResult) {
         if let signatureImageData = result.signature?.image, let signatureImage = UIImage(data: signatureImageData) {
             let preview = PreviewViewController(title:title ?? "", image: signatureImage)
             preview.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -67,7 +68,7 @@ extension MyViewController: DocumentControllerDelegate {
         }
     }
     
-    func documentController(controller: DocumentController, didRecord videoURL: URL) {
-        
+    func controllerDidRecord(videoURL: URL) {
+        debugPrint(videoURL)
     }
 }

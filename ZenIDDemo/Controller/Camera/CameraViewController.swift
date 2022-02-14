@@ -174,14 +174,25 @@ private extension Camera {
     }
 }
 
-protocol DocumentControllerDelegate: AnyObject {
-    func documentController(controller: DocumentController, didScan result: DocumentResult)
-    func documentController(controller: DocumentController, didRecord videoURL: URL)
+protocol ControllerDelegate: AnyObject {
+    associatedtype ResultType: ResultState
+    
+    func controllerDidScan(result: ResultType)
+    func controllerDidRecord(videoURL: URL)
 }
 
-struct ControllerConfiguration {
-    public static let `default` = ControllerConfiguration(
+struct BaseControllerConfiguration {
+    static let `default` = BaseControllerConfiguration(showVisualisation: true, dataType: .picture, cameraType: .back)
+    
+    public let showVisualisation: Bool
+    public let dataType: DataType
+    public let cameraType: CameraType
+}
+
+struct DocumentControllerConfiguration {
+    public static let `default` = DocumentControllerConfiguration(
         showVisualisation: true,
+        showDebugVisualisation: false,
         dataType: .picture,
         role: nil,
         country: nil,
@@ -192,6 +203,7 @@ struct ControllerConfiguration {
     )
     
     public let showVisualisation: Bool
+    public let showDebugVisualisation: Bool
     public let dataType: DataType
     public let role: RecogLib_iOS.DocumentRole?
     public let country: RecogLib_iOS.Country?
@@ -201,34 +213,39 @@ struct ControllerConfiguration {
     public let settings: DocumentVerifierSettings?
 }
 
-final class DocumentController {
-    weak var delegate: DocumentControllerDelegate?
+protocol ResultState {
+    var isOk: Bool { get }
+    var description: String { get }
+}
+
+extension DocumentResult: ResultState {
+    var isOk: Bool {
+        state == .Ok || hologremState == .ok
+    }
     
-    private let camera: Camera
-    private let view: CameraView
-    private let verifier: DocumentVerifier
-    private var videoWriter: VideoWriter?
+    var description: String {
+        state.localizedDescription
+    }
+}
+
+class BaseController<Delegate: ControllerDelegate> {
+    weak var delegate: Delegate?
     
-    private var config = ControllerConfiguration.default
+    let camera: Camera
+    let view: CameraView
     
-    private var targetFrame: CGRect = .zero
-    private var previousResult: DocumentResult?
+    var videoWriter: VideoWriter?
     
-    private var isRunning: Bool = false
+    var targetFrame: CGRect = .zero
+    var isRunning: Bool = false
     
-    init(camera: Camera, view: CameraView, modelsUrl: URL) {
+    var previousResult: Delegate.ResultType?
+    
+    private(set) var baseConfig: BaseControllerConfiguration = .default
+    
+    init(camera: Camera, view: CameraView) {
         self.camera = camera
         self.view = view
-        verifier = .init(
-            role: RecogLib_iOS.DocumentRole.Idc,
-            country: RecogLib_iOS.Country.Cz,
-            page: RecogLib_iOS.PageCode.Front,
-            code: nil,
-            language: LanguageHelper.language
-        )
-        camera.delegate = self
-        
-        loadModels(url: modelsUrl)
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(orientationChanged),
@@ -239,29 +256,256 @@ final class DocumentController {
     deinit {
         NotificationCenter.default.removeObserver(self)
         setTorch(on: false)
-        verifier.endHologramVerification()
         videoWriter?.stop()
     }
     
-    func configure(configuration: ControllerConfiguration = .default) throws {
+    func configure(configuration: BaseControllerConfiguration = .default) throws {
+        baseConfig = configuration
+        
         isRunning = false
-        verifier.reset()
-        verifier.endHologramVerification()
-        let oldConfig = self.config
-        config = configuration
         
         view.layoutIfNeeded()
         
-        try camera.configure(with: .init(type: .back))
+        try camera.configure(with: .init(type: configuration.cameraType))
         
         view.previewLayer = camera.previewLayer
         view.setup(isOtherDocument: false)
         view.setupControlView(isOtherDocument: false)
         view.supportChangedOrientation = { true }
-        view.configureOverlay(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: true, targetFrame: getOverlayTargetFrame())
-        view.configureVideoLayers(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: true, targetFrame: getOverlayTargetFrame())
+        view.configureOverlay(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        view.configureVideoLayers(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         
         targetFrame = view.overlay?.bounds ?? .zero
+        
+        setTorch(on: baseConfig.dataType == .video)
+        if baseConfig.dataType == .video {
+            videoWriter = VideoWriter()
+            videoWriter?.delegate = self
+            videoWriter?.start()
+        }
+        
+        view.showInstructionView = canShowInstructionView()
+
+        previousResult = nil
+        orientationChanged()
+        start()
+        isRunning = true
+    }
+    
+    func start() {
+        camera.start()
+    }
+    
+    func stop() {
+        camera.stop()
+    }
+    
+    func verify(pixelBuffer: CVPixelBuffer) -> Delegate.ResultType? {
+        nil
+    }
+    
+    func getRenderCommands(size: CGSize) -> String? {
+        nil
+    }
+    
+    @objc
+    private func orientationChanged() {
+        targetFrame = view.overlay?.bounds ?? .zero
+        camera.setOrientation(orientation: UIDevice.current.orientation)
+        view.drawLayer?.renderables = []
+        view.rotateOverlay(targetFrame: getOverlayTargetFrame())
+    }
+}
+
+extension BaseController {
+    func getOverlayTargetFrame() -> CGRect {
+        let size = camera.getCurrentResolution()
+        let imageRect = CGRect(origin: .zero, size: size)
+        return imageRect.rectThatFitsRect(view.overlay?.frame ?? .zero)
+    }
+    
+    func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer? {
+        // camera frame size
+        let width = CVPixelBufferGetWidth(pixelBuffer)
+        let height = CVPixelBufferGetHeight(pixelBuffer)
+        
+        // find cropping
+        let cropRect = getCroppedImageRect(width: width, height: height)
+        
+        // create (cropped) image
+        let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
+        return image?.toCVPixelBuffer()
+    }
+    
+    func getCroppedImageRect(width: Int, height: Int) -> CGRect {
+        let gravity = Defaults.videoGravity
+        switch gravity {
+        case .resizeAspect:
+            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
+            let layerRect = imageRect.rectThatFitsRect(targetFrame)
+            
+            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect
+            
+        case .resizeAspectFill:
+            let layerRect = targetFrame
+            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect
+            
+        default:
+            return .zero
+        }
+    }
+    
+    func setTorch(on: Bool) {
+        do {
+            try camera.setTorch(isOn: on)
+        } catch {
+            ApplicationLogger.shared.Verbose("\(error.localizedDescription)")
+        }
+    }
+    
+    func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
+        if !baseConfig.showVisualisation {
+            return
+        }
+        guard let previewLayer = camera.previewLayer else {
+            return
+        }
+        if targetFrame == .zero {
+            return
+        }
+        let commandsRect = previewLayer.frame
+        if let drawLayer = view.drawLayer {
+            let renderables = RenderableFactory.createRenderables(commands: commands)
+            drawLayer.frame = commandsRect
+            drawLayer.renderables = renderables
+        }
+    }
+    
+    func updateView(with result: Delegate.ResultType?, buffer: CVPixelBuffer) {
+        guard let unwrappedResult = result else {
+            view.statusButton.setTitle("nil result", for: .normal)
+            return
+        }
+        
+        guard unwrappedResult.isOk, !(previousResult?.isOk ?? false) else {
+            view.statusButton.setTitle(String(describing: unwrappedResult.description), for: .normal)
+            return
+        }
+        previousResult = unwrappedResult
+        
+        debugPrint("Done")
+        /*if photoType == .face && faceMode?.isFaceliveness ?? false {
+            saveAuxiliaryImagesToLibrary(info: faceLivenessVerifier.getAuxiliaryInfo())
+        }*/
+        
+        guard isRunning else { return }
+        isRunning = false
+        
+        if baseConfig.dataType == .video {
+            videoWriter?.stop()
+            setTorch(on: false)
+            return
+        }
+        delegate?.controllerDidScan(result: unwrappedResult)
+    }
+    
+    func canShowVisualisation() -> Bool {
+        view.webViewOverlay == nil
+    }
+    
+    func canShowStaticOverlay() -> Bool {
+        /*photoType != .face &&*/ canShowVisualisation()
+    }
+    
+    func canShowInstructionView() -> Bool {
+        /*(photoType != .face && faceMode == .faceLiveness) &&*/ baseConfig.dataType != .video && canShowVisualisation()
+    }
+}
+
+extension BaseController: VideoWriterDelegate {
+    public func didTakeVideo(_ videoAsset: AVURLAsset) {
+        delegate?.controllerDidRecord(videoURL: videoAsset.url)
+    }
+}
+
+extension BaseController: CameraDelegate {
+    func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
+        guard isRunning else { return }
+        guard targetFrame.width > 0 else { return }
+        
+        // crop pixel data if necessary
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        guard let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer) else {
+            return
+        }
+        let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
+        let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
+        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
+        
+        /*if faceMode == nil && photoType == .face {
+            return
+        }*/
+        if let videoWriter = self.videoWriter, baseConfig.dataType == .video, videoWriter.isRecording {
+            videoWriter.captureOutput(sampleBuffer: sampleBuffer)
+        }
+        guard let result = verify(pixelBuffer: croppedBuffer) else {
+            return
+        }
+        DispatchQueue.main.async { [unowned self] in
+            self.updateView(with: result, buffer: croppedBuffer)
+        }
+        let canvasSize = camera.previewLayer.frame.size
+        guard let commands = getRenderCommands(size: canvasSize) else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        }
+    }
+}
+
+protocol DocumentControllerDelegate: ControllerDelegate where ResultType == DocumentResult {
+    
+}
+
+final class DocumentController<Delegate: DocumentControllerDelegate>: BaseController<Delegate> {
+    private let verifier: DocumentVerifier
+    
+    private var config = DocumentControllerConfiguration.default
+    
+    init(camera: Camera, view: CameraView, modelsUrl: URL) {
+        verifier = .init(
+            role: RecogLib_iOS.DocumentRole.Idc,
+            country: RecogLib_iOS.Country.Cz,
+            page: RecogLib_iOS.PageCode.Front,
+            code: nil,
+            language: LanguageHelper.language
+        )
+        super.init(camera: camera, view: view)
+        camera.delegate = self
+        
+        loadModels(url: modelsUrl)
+    }
+    
+    deinit {
+        verifier.endHologramVerification()
+    }
+    
+    func configure(configuration: DocumentControllerConfiguration = .default) throws {
+        verifier.reset()
+        verifier.endHologramVerification()
+        let oldConfig = self.config
+        config = configuration
+        
+        let baseConfig = BaseControllerConfiguration(
+            showVisualisation: configuration.showVisualisation && canShowVisualisation(),
+            dataType: configuration.dataType,
+            cameraType: .back
+        )
         
         resetDocumentVerifier()
         
@@ -287,108 +531,32 @@ final class DocumentController {
         }
         
         if config.dataType == .video {
-            videoWriter = VideoWriter()
-            videoWriter?.delegate = self
-            
-            setTorch(on: config.dataType == .video /*&& photoType != .face*/)
             verifier.beginHologramVerification()
-            videoWriter?.start()
         }
         
-        orientationChanged()
-        start()
-        previousResult = nil
-        isRunning = true
+        verifier.showDebugInfo = config.showDebugVisualisation
+        
+        try self.configure(configuration: baseConfig)
+        
+        //contentView.topLabel.text = photoType.message
         
         //
         /*if faceMode?.isFaceliveness ?? false && photoType == .face {
             let isLegacy = faceMode == .faceLivenessLegacy
             faceLivenessVerifier.update(settings: .init(isLegacyModeEnabled: isLegacy))
         }*/
-        
-        //contentView.topLabel.text = photoType.message
 
-        /*documentVerifier.showDebugInfo = config.isDebugEnabled
+        /*
         faceLivenessVerifier.showDebugInfo = config.isDebugEnabled
         selfieVerifier.showDebugInfo = config.isDebugEnabled*/
-        
-        // This hides visualisation hints, overlay and instructions for generic documents
-        /*if type == .otherDocument {
-            self.showStaticOverlay = false
-            self.showVisualisation = false
-            self.showInstructionView = false
-        } else {
-            self.showStaticOverlay = true
-            self.showVisualisation = canShowVisualisation()
-            self.showInstructionView = canShowInstructionView()
-        }*/
     }
     
-    func start() {
-        camera.start()
+    override func verify(pixelBuffer: CVPixelBuffer) -> Delegate.ResultType? {
+        verifier.verifyImage(imageBuffer: pixelBuffer)
     }
     
-    func stop() {
-        camera.stop()
-    }
-    
-    private func getOverlayTargetFrame() -> CGRect {
-        let size = camera.getCurrentResolution()
-        let imageRect = CGRect(origin: .zero, size: size)
-        return imageRect.rectThatFitsRect(view.overlay?.frame ?? .zero)
-    }
-    
-    private func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer? {
-        // camera frame size
-        let width = CVPixelBufferGetWidth(pixelBuffer)
-        let height = CVPixelBufferGetHeight(pixelBuffer)
-        
-        // find cropping
-        let cropRect = getCroppedImageRect(width: width, height: height)
-        
-        // create (cropped) image
-        let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
-        return image?.toCVPixelBuffer()
-    }
-    
-    private func getCroppedImageRect(width: Int, height: Int) -> CGRect {
-        let gravity = Defaults.videoGravity
-        switch gravity {
-        case .resizeAspect:
-            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let layerRect = imageRect.rectThatFitsRect(targetFrame)
-            
-            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
-            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-            return cropRect
-            
-        case .resizeAspectFill:
-            let layerRect = targetFrame
-            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
-            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-            return cropRect
-            
-        default:
-            return .zero
-        }
-    }
-    
-    private func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
-        if !config.showVisualisation {
-            return
-        }
-        guard let previewLayer = camera.previewLayer else {
-            return
-        }
-        if targetFrame == .zero {
-            return
-        }
-        let commandsRect = previewLayer.frame
-        if let drawLayer = view.drawLayer {
-            let renderables = RenderableFactory.createRenderables(commands: commands)
-            drawLayer.frame = commandsRect
-            drawLayer.renderables = renderables
-        }
+    override func getRenderCommands(size: CGSize) -> String? {
+        verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
     }
     
     private func loadModels(url: URL) {
@@ -400,103 +568,12 @@ final class DocumentController {
         //selfieVerifier.loadModels(.init(url: selfieUrl)!)
     }
     
-    @objc
-    private func orientationChanged() {
-        targetFrame = view.overlay?.bounds ?? .zero
-        camera.setOrientation(orientation: UIDevice.current.orientation)
-        view.drawLayer?.renderables = []
-        view.rotateOverlay(targetFrame: getOverlayTargetFrame())
-    }
-    
-    private func updateView(with result: DocumentResult?, buffer: CVPixelBuffer) {
-        guard let unwrappedResult = result else {
-            view.statusButton.setTitle("nil result", for: .normal)
-            return
-        }
-        
-        guard unwrappedResult.state == .Ok, previousResult?.state != .Ok else {
-            view.statusButton.setTitle(String(describing: unwrappedResult.state.localizedDescription), for: .normal)
-            return
-        }
-        previousResult = unwrappedResult
-        
-        debugPrint("Done")
-        /*if photoType == .face && faceMode?.isFaceliveness ?? false {
-            saveAuxiliaryImagesToLibrary(info: faceLivenessVerifier.getAuxiliaryInfo())
-        }*/
-        
-        guard isRunning else { return }
-        isRunning = false
-        
-        if config.dataType == .video {
-            videoWriter?.stop()
-            setTorch(on: false)
-            return
-        }
-        delegate?.documentController(controller: self, didScan: unwrappedResult)
-    }
-    
     private func resetDocumentVerifier() {
         verifier.documentsInput = nil
         verifier.documentRole = nil
         verifier.page = nil
         verifier.country = nil
         verifier.code = nil
-    }
-    
-    private func setTorch(on: Bool) {
-        do {
-            try camera.setTorch(isOn: on)
-        } catch {
-            ApplicationLogger.shared.Verbose("\(error.localizedDescription)")
-        }
-    }
-}
-
-extension DocumentController: CameraDelegate {
-    func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
-        guard isRunning else { return }
-        guard targetFrame.width > 0 else { return }
-        
-        // crop pixel data if necessary
-        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        guard let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer) else {
-            return
-        }
-        let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
-        let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
-        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
-        
-        // torch for holograms
-        //self.setTorch(on: config.dataType == .video && photoType != .face)
-        
-        /*if faceMode == nil && photoType == .face {
-            return
-        }*/
-        if let videoWriter = self.videoWriter, config.dataType == .video, videoWriter.isRecording {
-            videoWriter.captureOutput(sampleBuffer: sampleBuffer)
-        }
-        guard let result = verifier.verifyImage(imageBuffer: croppedBuffer) else {
-            return
-        }
-        DispatchQueue.main.async { [unowned self] in
-            //self.webViewOverlay?.updateState(state: getWebViewOverlayState(result: result))
-            
-            self.updateView(with: result, buffer: croppedBuffer)
-        }
-        let canvasSize = camera.previewLayer.frame.size
-        guard let commands = verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height)) else {
-            return
-        }
-        DispatchQueue.main.async {
-            self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
-        }
-    }
-}
-
-extension DocumentController: VideoWriterDelegate {
-    public func didTakeVideo(_ videoAsset: AVURLAsset) {
-        delegate?.documentController(controller: self, didRecord: videoAsset.url)
     }
 }
 

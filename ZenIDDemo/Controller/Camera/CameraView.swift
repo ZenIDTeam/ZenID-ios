@@ -35,7 +35,15 @@ final class CameraView: UIView {
     var previewLayer: AVCaptureVideoPreviewLayer?
     private(set) var drawLayer: DrawingLayer?
     
+    var showInstructionView: Bool = false {
+        didSet {
+            instructionView.isHidden = !showInstructionView
+        }
+    }
+    
     var supportChangedOrientation: (() -> Bool)!
+    
+    private(set) var webViewOverlay: WebViewOverlay?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -123,6 +131,23 @@ final class CameraView: UIView {
         default:
             overlay.setupImage()
         }
+    }
+    
+    func addWebViewOverlay() {
+        webViewOverlay?.removeFromSuperview()
+        let webView = WebViewOverlay()
+        webView.loadOnline()
+        addSubview(webView)
+        leftAnchor.constraint(equalTo: webView.leftAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: webView.bottomAnchor).isActive = true
+        rightAnchor.constraint(equalTo: webView.rightAnchor).isActive = true
+        topAnchor.constraint(equalTo: webView.topAnchor).isActive = true
+        webViewOverlay = webView
+    }
+    
+    func removeWebViewOverlay() {
+        webViewOverlay?.removeFromSuperview()
+        webViewOverlay = nil
     }
     
     private func configurePreviewLayer() {
