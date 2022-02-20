@@ -1,9 +1,7 @@
-
 import UIKit
 import AVFoundation
 
-
-final class CameraView: UIView {
+public final class CameraView: UIView {
     
     let saveTrigger = Buttons.Camera.saveStack
     let cameraTrigger = Buttons.Camera.trigger
@@ -44,7 +42,15 @@ final class CameraView: UIView {
     
     private(set) var webViewOverlay: WebViewOverlay?
     
-    override func layoutSubviews() {
+    public init() {
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func layoutSubviews() {
         super.layoutSubviews()
         if let previewLayer = previewLayer {
             previewLayer.frame = cameraView.bounds
