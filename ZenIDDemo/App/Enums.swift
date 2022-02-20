@@ -138,19 +138,6 @@ extension PhotoType {
             }
         }
     }
-    
-    var message: String {
-        get {
-            switch(self) {
-            case .front:
-                return "msg-scan-front".localized
-            case .back:
-                return "msg-scan-back".localized
-            case .face:
-                return "msg-scan-face".localized
-            }
-        }
-    }
 }
 
 public enum Country: String {

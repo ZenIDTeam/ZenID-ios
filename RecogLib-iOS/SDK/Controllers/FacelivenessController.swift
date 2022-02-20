@@ -53,6 +53,8 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
     }
     
     public func configure(configuration: FacelivenessControllerConfiguration = .default) throws {
+        view.topLabel.text = NSLocalizedString("msg-scan-face", comment: "")
+        
         verifier.reset()
         config = configuration
         
@@ -66,8 +68,6 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
-        
-        //contentView.topLabel.text = photoType.message
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> FaceLivenessResult? {

@@ -50,9 +50,6 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        setupDocumentController()
-        setupFacelivenessController()
-        setupSelfieController()
         
         // Message view
         contentView.addSubview(messageView)
@@ -86,11 +83,16 @@ class CameraViewController: UIViewController {
         self.dataType = dataType(of: documentType, photoType: photoType, isLivenessVideo: config.isLivenessVideo)
         
         self.title = type.title
-        contentView.topLabel.text = photoType.message
 
         startSession()
         
+        setupDocumentController()
+        setupFacelivenessController()
+        setupSelfieController()
+        
         documentControllerConfig = nil
+        facelivenessControllerConfig = nil
+        selfieControllerConfig = nil
         
         if photoType.isDocument {
             documentControllerConfig = .init(
@@ -183,16 +185,19 @@ class CameraViewController: UIViewController {
     }
     
     func setupDocumentController() {
+        if documentController != nil { return }
         documentController = DocumentController(camera: camera, view: contentView, modelsUrl: URL.modelsDocuments)
         documentController?.delegate = self
     }
     
     func setupFacelivenessController() {
+        if facelivenessController != nil { return }
         facelivenessController = FacelivenessController(camera: camera, view: contentView, modelsUrl: URL.modelsFolder.appendingPathComponent("face"))
         facelivenessController?.delegate = self
     }
     
     func setupSelfieController() {
+        if selfieController != nil { return }
         selfieController = SelfieController(camera: camera, view: contentView, modelsUrl: URL.modelsFolder.appendingPathComponent("face"))
         selfieController?.delegate = self
     }

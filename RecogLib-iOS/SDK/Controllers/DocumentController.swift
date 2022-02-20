@@ -78,6 +78,8 @@ public final class DocumentController: BaseController<DocumentResult> {
     }
     
     public func configure(configuration: DocumentControllerConfiguration = .default) throws {
+        view.topLabel.text = config.page == .Back ? NSLocalizedString("msg-scan-back", comment: "") : NSLocalizedString("msg-scan-front", comment: "")
+        
         verifier.reset()
         verifier.endHologramVerification()
         let oldConfig = self.config
@@ -119,8 +121,6 @@ public final class DocumentController: BaseController<DocumentResult> {
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
-        
-        //contentView.topLabel.text = photoType.message
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> DocumentResult? {

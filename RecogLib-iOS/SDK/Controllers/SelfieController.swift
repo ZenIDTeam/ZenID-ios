@@ -49,6 +49,8 @@ public final class SelfieController: BaseController<SelfieResult> {
     }
     
     public func configure(configuration: SelfieControllerConfiguration = .default) throws {
+        view.topLabel.text = NSLocalizedString("msg-scan-face", comment: "")
+        
         verifier.reset()
         config = configuration
         
@@ -61,8 +63,6 @@ public final class SelfieController: BaseController<SelfieResult> {
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
-        
-        //contentView.topLabel.text = photoType.message
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> SelfieResult? {

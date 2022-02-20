@@ -15,7 +15,7 @@ public final class CameraView: UIView {
         return stack
     }()
 
-    public let topLabel: UILabel = {
+    let topLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .messageLabel
