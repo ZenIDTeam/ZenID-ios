@@ -27,11 +27,11 @@ public class VideoWriter: NSObject {
 
 // MARK: - Public
 extension VideoWriter {
-    public func start() {
+    public func start(isPortrait: Bool) {
         guard !isRecording else { return }
         isRecording = true
         sessionAtSourceTime = nil
-        setupWriter()
+        setupWriter(isPortrait: isPortrait)
     }
     
     public func stop() {
@@ -77,7 +77,7 @@ extension VideoWriter {
 
 // MARK: - Private
 extension VideoWriter {
-    private func setupWriter() {
+    private func setupWriter(isPortrait: Bool) {
         do {
             let outputFileName = "\(filePrefix)\(ProcessInfo.processInfo.globallyUniqueString).mp4"
             clearTemporaryFiles()
@@ -87,8 +87,8 @@ extension VideoWriter {
             videoWriter = try AVAssetWriter(url: url, fileType: AVFileType.mp4)
             videoWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: [
                 AVVideoCodecKey: AVVideoCodecType.h264,
-                AVVideoWidthKey: 640,
-                AVVideoHeightKey: 360,
+                AVVideoWidthKey: isPortrait ? 360.0 : 640.0,
+                AVVideoHeightKey: isPortrait ? 640.0 : 360,
                 AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 1_000_000]
               ])
             videoWriterInput.expectsMediaDataInRealTime = true
