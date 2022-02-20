@@ -273,7 +273,8 @@ class BaseController<ResultType: ResultState> {
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
             videoWriter?.delegate = self
-            videoWriter?.start()
+            let orientation = UIDevice.current.orientation
+            videoWriter?.start(isPortrait: orientation == .portrait || orientation == .faceUp)
         }
         
         view.showInstructionView = canShowInstructionView()
