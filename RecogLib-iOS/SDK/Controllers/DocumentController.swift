@@ -48,13 +48,13 @@ extension DocumentResult: ResultState {
     }
 }
 
-protocol DocumentControllerDelegate: AnyObject {
+public protocol DocumentControllerDelegate: AnyObject {
     func controller(_ controller: DocumentController, didScan result: DocumentResult)
     func controller(_ controller: DocumentController, didRecord videoURL: URL)
 }
 
 public final class DocumentController: BaseController<DocumentResult> {
-    weak var delegate: DocumentControllerDelegate?
+    public weak var delegate: DocumentControllerDelegate?
     
     private let verifier: DocumentVerifier
     
@@ -66,7 +66,7 @@ public final class DocumentController: BaseController<DocumentResult> {
             country: RecogLib_iOS.Country.Cz,
             page: RecogLib_iOS.PageCode.Front,
             code: nil,
-            language: LanguageHelper.language
+            language: .Czech
         )
         super.init(camera: camera, view: view)
         

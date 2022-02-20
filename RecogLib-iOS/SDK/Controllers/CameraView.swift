@@ -3,8 +3,6 @@ import AVFoundation
 
 public final class CameraView: UIView {
     
-    let saveTrigger = Buttons.Camera.saveStack
-    let cameraTrigger = Buttons.Camera.trigger
     let statusButton = Buttons.Camera.status
     let instructionView: UIStackView = {
         let stack = UIStackView()
@@ -17,7 +15,7 @@ public final class CameraView: UIView {
         return stack
     }()
 
-    let topLabel: UILabel = {
+    public let topLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .messageLabel
@@ -85,24 +83,10 @@ public final class CameraView: UIView {
         if isOtherDocument {
             addSubview(controlView)
             controlView.anchor(top: cameraView.bottomAnchor, left: leftAnchor, bottom: layoutMarginsGuide.bottomAnchor, right: rightAnchor)
-            
-            // Trigger button
-            controlView.addSubview(cameraTrigger)
-            cameraTrigger.isHidden = false
-            cameraTrigger.anchor(top: controlView.topAnchor, left: nil, bottom: controlView.bottomAnchor, right: nil, paddingTop: 10, paddingBottom: 10)
-            cameraTrigger.centerX(to: controlView)
-            cameraTrigger.centerY(to: controlView)
-
-            // Save button
-            controlView.addSubview(saveTrigger)
-            saveTrigger.anchor(top: controlView.topAnchor, left: cameraTrigger.rightAnchor, bottom: controlView.bottomAnchor, right: controlView.rightAnchor)
         } else {
             addSubview(controlView)
             controlView.anchor(top: cameraView.bottomAnchor, left: leftAnchor, bottom: layoutMarginsGuide.bottomAnchor, right: rightAnchor)
             controlView.heightAnchor.constraint(equalToConstant: 0).isActive = true
-            controlView.addSubview(cameraTrigger)
-            cameraTrigger.translatesAutoresizingMaskIntoConstraints = false
-            cameraTrigger.isHidden = true
         }
     }
     

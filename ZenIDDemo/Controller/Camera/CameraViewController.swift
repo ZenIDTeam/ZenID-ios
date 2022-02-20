@@ -62,15 +62,20 @@ class CameraViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         documentController?.start()
+        facelivenessController?.start()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         documentController?.stop()
+        facelivenessController?.stop()
+        selfieController?.stop()
     }
     
     deinit {
         documentController?.stop()
+        facelivenessController?.stop()
+        selfieController?.stop()
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 

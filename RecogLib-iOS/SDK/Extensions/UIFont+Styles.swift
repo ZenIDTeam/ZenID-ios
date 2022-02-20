@@ -1,21 +1,13 @@
-//
-//  UIFont+Styles.swift
-//  ZenIDDemo
-//
-//  Created by Marek Stana on 19/06/2019.
-//  Copyright © 2019 Trask, a.s. All rights reserved.
-//
-
 import UIKit
 
-enum ZenFont {
+public enum ZenFont {
     static let regular = "Roboto-Regular"
     static let bold = "Roboto-Bold"
     static let italic = "Roboto-Italic"
     static let black = "Roboto-Black"
 }
 
-extension UIFont {
+public extension UIFont {
     static let dtitle = UIFont(name: ZenFont.black, size: 25)!
     static let darkTitle = UIFont(name: ZenFont.black, size: 25)!
     static let darkDescription = UIFont(name: ZenFont.regular, size: 18)!

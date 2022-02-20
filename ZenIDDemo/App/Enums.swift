@@ -206,9 +206,3 @@ public enum FaceMode: String {
         }
     }
 }
-
-public enum ImageFlip: Int {
-    case none
-    case fromLandScape
-    case fromPortrait
-}

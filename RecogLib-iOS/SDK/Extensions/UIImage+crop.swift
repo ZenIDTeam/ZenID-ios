@@ -10,6 +10,13 @@ import AVFoundation
 import VideoToolbox
 import UIKit
 
+public enum ImageFlip: Int {
+    case none
+    case fromLandScape
+    case fromPortrait
+}
+
+
 extension UIImage {
     public convenience init?(pixelBuffer: CVPixelBuffer, crop: CGRect? = nil) {
         var cgImage: CGImage?

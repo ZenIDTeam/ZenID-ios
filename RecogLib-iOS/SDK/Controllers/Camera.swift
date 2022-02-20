@@ -56,10 +56,16 @@ public final class Camera: NSObject {
     }
     
     func start() {
+        if captureSession.isRunning {
+            return
+        }
         captureSession.startRunning()
     }
     
     func stop() {
+        if !captureSession.isRunning {
+            return
+        }
         captureSession.stopRunning()
     }
     

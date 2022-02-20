@@ -1,58 +1,54 @@
 import Foundation
 import UIKit
-import RecogLib_iOS
 
-extension FaceLivenessResult: ResultState {
+extension SelfieResult: ResultState {
     public var isOk: Bool {
-        faceLivenessState == .Ok
+        selfieState == .Ok
     }
     
     public var description: String {
-        faceLivenessState.description
+        selfieState.description
     }
 }
 
-public struct FacelivenessControllerConfiguration {
-    public static let `default` = FacelivenessControllerConfiguration(
+public struct SelfieControllerConfiguration {
+    public static let `default` = SelfieControllerConfiguration(
         showVisualisation: true,
         showDebugVisualisation: false,
-        dataType: .picture,
-        isLegacy: false
+        dataType: .picture
     )
     
     public let showVisualisation: Bool
     public let showDebugVisualisation: Bool
     public let dataType: DataType
-    public let isLegacy: Bool
     
-    public init(showVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, isLegacy: Bool) {
+    public init(showVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType) {
         self.showVisualisation = showVisualisation
         self.showDebugVisualisation = showDebugVisualisation
         self.dataType = dataType
-        self.isLegacy = isLegacy
     }
 }
 
-protocol FacelivenessControllerDelegate: AnyObject {
-    func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult)
-    func controller(_ controller: FacelivenessController, didRecord videoURL: URL)
+public protocol SelfieControllerDelegate: AnyObject {
+    func controller(_ controller: SelfieController, didScan result: SelfieResult)
+    func controller(_ controller: SelfieController, didRecord videoURL: URL)
 }
 
-public final class FacelivenessController: BaseController<FaceLivenessResult> {
-    weak var delegate: FacelivenessControllerDelegate?
+public final class SelfieController: BaseController<SelfieResult> {
+    public weak var delegate: SelfieControllerDelegate?
     
-    private let verifier: FaceLivenessVerifier
+    private let verifier: SelfieVerifier
     
-    private var config = FacelivenessControllerConfiguration.default
+    private var config = SelfieControllerConfiguration.default
     
     public init(camera: Camera, view: CameraView, modelsUrl: URL) {
-        verifier = .init(language: LanguageHelper.language)
+        verifier = .init(language: .Czech)
         super.init(camera: camera, view: view)
         
         loadModels(url: modelsUrl)
     }
     
-    public func configure(configuration: FacelivenessControllerConfiguration = .default) throws {
+    public func configure(configuration: SelfieControllerConfiguration = .default) throws {
         verifier.reset()
         config = configuration
         
@@ -62,7 +58,6 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
             cameraType: .front
         )
         
-        verifier.update(settings: .init(isLegacyModeEnabled: configuration.isLegacy))
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
@@ -70,7 +65,7 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
         //contentView.topLabel.text = photoType.message
     }
     
-    override func verify(pixelBuffer: CVPixelBuffer) -> FaceLivenessResult? {
+    override func verify(pixelBuffer: CVPixelBuffer) -> SelfieResult? {
         verifier.verifyImage(imageBuffer: pixelBuffer)
     }
     
@@ -86,7 +81,7 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
         false
     }
     
-    override func callDelegate(with result: FaceLivenessResult) {
+    override func callDelegate(with result: SelfieResult) {
         delegate?.controller(self, didScan: result)
     }
     
@@ -95,9 +90,6 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
     }
     
     private func loadModels(url: URL) {
-        guard let models = FaceVerifierModels(url: url) else {
-            return
-        }
-        verifier.loadModels(models)
+        verifier.loadModels(.init(url: url)!)
     }
 }

@@ -10,6 +10,36 @@
 		181AB22E26F9856C0081420D /* VerifierModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181AB22D26F9856C0081420D /* VerifierModels.swift */; };
 		181AB23026F985AB0081420D /* DocumentVerifierModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181AB22F26F985AB0081420D /* DocumentVerifierModels.swift */; };
 		181AB23226F993140081420D /* FaceVerifierModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181AB23126F993140081420D /* FaceVerifierModels.swift */; };
+		18371AF227C2437B002528F3 /* SelfieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AEC27C2437B002528F3 /* SelfieController.swift */; };
+		18371AF327C2437B002528F3 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AED27C2437B002528F3 /* DocumentController.swift */; };
+		18371AF427C2437B002528F3 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AEE27C2437B002528F3 /* CameraView.swift */; };
+		18371AF527C2437B002528F3 /* FacelivenessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AEF27C2437B002528F3 /* FacelivenessController.swift */; };
+		18371AF627C2437B002528F3 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AF027C2437B002528F3 /* Camera.swift */; };
+		18371AF727C2437B002528F3 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AF127C2437B002528F3 /* BaseController.swift */; };
+		18371AF927C243F8002528F3 /* CameraOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AF827C243F8002528F3 /* CameraOverlayView.swift */; };
+		18371B0427C2443C002528F3 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AFB27C2443C002528F3 /* Text.swift */; };
+		18371B0527C2443C002528F3 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AFC27C2443C002528F3 /* Line.swift */; };
+		18371B0627C2443C002528F3 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AFD27C2443C002528F3 /* Renderable.swift */; };
+		18371B0727C2443C002528F3 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AFE27C2443C002528F3 /* Rectangle.swift */; };
+		18371B0827C2443C002528F3 /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371AFF27C2443C002528F3 /* Ellipse.swift */; };
+		18371B0927C2443C002528F3 /* DrawingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B0027C2443C002528F3 /* DrawingLayer.swift */; };
+		18371B0A27C2443C002528F3 /* RenderableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B0127C2443C002528F3 /* RenderableFactory.swift */; };
+		18371B0B27C2443C002528F3 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B0227C2443C002528F3 /* Circle.swift */; };
+		18371B0C27C2443C002528F3 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B0327C2443C002528F3 /* Triangle.swift */; };
+		18371B0E27C24475002528F3 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B0D27C24475002528F3 /* Buttons.swift */; };
+		18371B1227C244BC002528F3 /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B1027C244BC002528F3 /* VideoWriter.swift */; };
+		18371B1327C244BC002528F3 /* VideoWriterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B1127C244BC002528F3 /* VideoWriterDelegate.swift */; };
+		18371B1527C2453E002528F3 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B1427C2453E002528F3 /* UIView+Layout.swift */; };
+		18371B1727C24548002528F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18371B1627C24547002528F3 /* UIKit.framework */; };
+		18371B1B27C24609002528F3 /* WebViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B1A27C24609002528F3 /* WebViewOverlay.swift */; };
+		18371B1D27C24639002528F3 /* CGRect+Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B1C27C24639002528F3 /* CGRect+Flip.swift */; };
+		18371B1F27C24656002528F3 /* CGSize+Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B1E27C24656002528F3 /* CGSize+Flip.swift */; };
+		18371B2127C246B5002528F3 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2027C246B5002528F3 /* Defaults.swift */; };
+		18371B2527C2473E002528F3 /* CMSampleBuffer+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2227C2473E002528F3 /* CMSampleBuffer+UIImage.swift */; };
+		18371B2627C2473E002528F3 /* UIImageView+Clipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2327C2473E002528F3 /* UIImageView+Clipping.swift */; };
+		18371B2727C2473E002528F3 /* UIImage+crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2427C2473E002528F3 /* UIImage+crop.swift */; };
+		18371B2927C24834002528F3 /* UIFont+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2827C24834002528F3 /* UIFont+Styles.swift */; };
+		18371B2B27C26A51002528F3 /* DocumentState+Localised.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2A27C26A51002528F3 /* DocumentState+Localised.swift */; };
 		188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */; };
 		18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */; };
 		18953DAF26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +85,36 @@
 		181AB22D26F9856C0081420D /* VerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierModels.swift; sourceTree = "<group>"; };
 		181AB22F26F985AB0081420D /* DocumentVerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierModels.swift; sourceTree = "<group>"; };
 		181AB23126F993140081420D /* FaceVerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceVerifierModels.swift; sourceTree = "<group>"; };
+		18371AEC27C2437B002528F3 /* SelfieController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieController.swift; sourceTree = "<group>"; };
+		18371AED27C2437B002528F3 /* DocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
+		18371AEE27C2437B002528F3 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		18371AEF27C2437B002528F3 /* FacelivenessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacelivenessController.swift; sourceTree = "<group>"; };
+		18371AF027C2437B002528F3 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		18371AF127C2437B002528F3 /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		18371AF827C243F8002528F3 /* CameraOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraOverlayView.swift; sourceTree = "<group>"; };
+		18371AFB27C2443C002528F3 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		18371AFC27C2443C002528F3 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		18371AFD27C2443C002528F3 /* Renderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		18371AFE27C2443C002528F3 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		18371AFF27C2443C002528F3 /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
+		18371B0027C2443C002528F3 /* DrawingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingLayer.swift; sourceTree = "<group>"; };
+		18371B0127C2443C002528F3 /* RenderableFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderableFactory.swift; sourceTree = "<group>"; };
+		18371B0227C2443C002528F3 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		18371B0327C2443C002528F3 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		18371B0D27C24475002528F3 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		18371B1027C244BC002528F3 /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
+		18371B1127C244BC002528F3 /* VideoWriterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriterDelegate.swift; sourceTree = "<group>"; };
+		18371B1427C2453E002528F3 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		18371B1627C24547002528F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		18371B1A27C24609002528F3 /* WebViewOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewOverlay.swift; sourceTree = "<group>"; };
+		18371B1C27C24639002528F3 /* CGRect+Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Flip.swift"; sourceTree = "<group>"; };
+		18371B1E27C24656002528F3 /* CGSize+Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Flip.swift"; sourceTree = "<group>"; };
+		18371B2027C246B5002528F3 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		18371B2227C2473E002528F3 /* CMSampleBuffer+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+UIImage.swift"; sourceTree = "<group>"; };
+		18371B2327C2473E002528F3 /* UIImageView+Clipping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Clipping.swift"; sourceTree = "<group>"; };
+		18371B2427C2473E002528F3 /* UIImage+crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+crop.swift"; sourceTree = "<group>"; };
+		18371B2827C24834002528F3 /* UIFont+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Styles.swift"; sourceTree = "<group>"; };
+		18371B2A27C26A51002528F3 /* DocumentState+Localised.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentState+Localised.swift"; sourceTree = "<group>"; };
 		188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentVerifierSettingsWrapper.cpp; sourceTree = "<group>"; };
 		18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CDocumentVerifierSettingsWrapper.hpp; sourceTree = "<group>"; };
@@ -109,15 +169,59 @@
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
 				188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
+				18371B1727C24548002528F3 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18371AEB27C24352002528F3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				18371AF127C2437B002528F3 /* BaseController.swift */,
+				18371AF027C2437B002528F3 /* Camera.swift */,
+				18371B1A27C24609002528F3 /* WebViewOverlay.swift */,
+				18371AEE27C2437B002528F3 /* CameraView.swift */,
+				18371AF827C243F8002528F3 /* CameraOverlayView.swift */,
+				18371AED27C2437B002528F3 /* DocumentController.swift */,
+				18371AEF27C2437B002528F3 /* FacelivenessController.swift */,
+				18371AEC27C2437B002528F3 /* SelfieController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		18371AFA27C2441D002528F3 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				18371B0227C2443C002528F3 /* Circle.swift */,
+				18371B0027C2443C002528F3 /* DrawingLayer.swift */,
+				18371AFF27C2443C002528F3 /* Ellipse.swift */,
+				18371AFC27C2443C002528F3 /* Line.swift */,
+				18371AFE27C2443C002528F3 /* Rectangle.swift */,
+				18371AFD27C2443C002528F3 /* Renderable.swift */,
+				18371B0127C2443C002528F3 /* RenderableFactory.swift */,
+				18371AFB27C2443C002528F3 /* Text.swift */,
+				18371B0327C2443C002528F3 /* Triangle.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		18371B0F27C244A1002528F3 /* VideoWriter */ = {
+			isa = PBXGroup;
+			children = (
+				18371B1027C244BC002528F3 /* VideoWriter.swift */,
+				18371B1127C244BC002528F3 /* VideoWriterDelegate.swift */,
+			);
+			path = VideoWriter;
+			sourceTree = "<group>";
+		};
 		6F6C26F724B87F410073A2CA /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				18371B0F27C244A1002528F3 /* VideoWriter */,
+				18371AFA27C2441D002528F3 /* Drawing */,
+				18371AEB27C24352002528F3 /* Controllers */,
 				6FE1D5122612740A00529241 /* App */,
 				6F6C26F824B87F5C0073A2CA /* Extensions */,
 				6F6C26F924B87F680073A2CA /* Utils */,
@@ -140,6 +244,8 @@
 				181AB22D26F9856C0081420D /* VerifierModels.swift */,
 				181AB22F26F985AB0081420D /* DocumentVerifierModels.swift */,
 				181AB23126F993140081420D /* FaceVerifierModels.swift */,
+				18371B0D27C24475002528F3 /* Buttons.swift */,
+				18371B2027C246B5002528F3 /* Defaults.swift */,
 			);
 			path = SDK;
 			sourceTree = "<group>";
@@ -148,6 +254,14 @@
 			isa = PBXGroup;
 			children = (
 				6F6C26FA24B87F7F0073A2CA /* String+Extensions.swift */,
+				18371B1427C2453E002528F3 /* UIView+Layout.swift */,
+				18371B1C27C24639002528F3 /* CGRect+Flip.swift */,
+				18371B1E27C24656002528F3 /* CGSize+Flip.swift */,
+				18371B2227C2473E002528F3 /* CMSampleBuffer+UIImage.swift */,
+				18371B2427C2473E002528F3 /* UIImage+crop.swift */,
+				18371B2327C2473E002528F3 /* UIImageView+Clipping.swift */,
+				18371B2827C24834002528F3 /* UIFont+Styles.swift */,
+				18371B2A27C26A51002528F3 /* DocumentState+Localised.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +327,7 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18371B1627C24547002528F3 /* UIKit.framework */,
 				188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */,
 				D2BD780622C4EA24006D7974 /* CoreMedia.framework */,
 				D261289422C370C200942D8A /* libc++.tbd */,
@@ -313,32 +428,61 @@
 			files = (
 				6F64016224C18125004A8982 /* FaceLivenessResult.swift in Sources */,
 				6F1A6A8B251B6DB40087CC0A /* CSelfieWrapper.cpp in Sources */,
+				18371AF727C2437B002528F3 /* BaseController.swift in Sources */,
+				18371AF627C2437B002528F3 /* Camera.swift in Sources */,
 				18ED9F6A26B2B4A900AFF48B /* DocumentSignatureMapper.swift in Sources */,
+				18371B2927C24834002528F3 /* UIFont+Styles.swift in Sources */,
 				6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */,
 				6F1A6A90251B98C30087CC0A /* SelfieVerifier.swift in Sources */,
+				18371B1F27C24656002528F3 /* CGSize+Flip.swift in Sources */,
 				6F6C26FB24B87F7F0073A2CA /* String+Extensions.swift in Sources */,
 				6F2CFC86247469AE005D2FB6 /* FaceLivenessVerifier.swift in Sources */,
 				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
 				6FE107B724B29B1C00610F8D /* CUtils.cpp in Sources */,
+				18371B0E27C24475002528F3 /* Buttons.swift in Sources */,
+				18371B1B27C24609002528F3 /* WebViewOverlay.swift in Sources */,
+				18371AF327C2437B002528F3 /* DocumentController.swift in Sources */,
+				18371B0C27C2443C002528F3 /* Triangle.swift in Sources */,
 				6FE1D5142612741D00529241 /* Logging.swift in Sources */,
 				18E8BA2A27664F04008DEF0C /* FaceLivenessVerifierSettings.swift in Sources */,
+				18371B0427C2443C002528F3 /* Text.swift in Sources */,
+				18371B0727C2443C002528F3 /* Rectangle.swift in Sources */,
+				18371B0527C2443C002528F3 /* Line.swift in Sources */,
+				18371B1327C244BC002528F3 /* VideoWriterDelegate.swift in Sources */,
+				18371B0B27C2443C002528F3 /* Circle.swift in Sources */,
 				18E8BA3D2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift in Sources */,
 				18953DB126844F6B0077F976 /* DocumentVerifierSettings.swift in Sources */,
+				18371B0A27C2443C002528F3 /* RenderableFactory.swift in Sources */,
 				18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */,
+				18371AF427C2437B002528F3 /* CameraView.swift in Sources */,
 				6F2CFC89247471C5005D2FB6 /* CFaceLivenessWrapper.cpp in Sources */,
+				18371B2627C2473E002528F3 /* UIImageView+Clipping.swift in Sources */,
 				18ED9F6726B2B46C00AFF48B /* CImageSignature.cpp in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
 				B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */,
+				18371B0627C2443C002528F3 /* Renderable.swift in Sources */,
+				18371B2B27C26A51002528F3 /* DocumentState+Localised.swift in Sources */,
+				18371AF527C2437B002528F3 /* FacelivenessController.swift in Sources */,
 				18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */,
 				B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */,
 				181AB23026F985AB0081420D /* DocumentVerifierModels.swift in Sources */,
+				18371B2527C2473E002528F3 /* CMSampleBuffer+UIImage.swift in Sources */,
+				18371B1D27C24639002528F3 /* CGRect+Flip.swift in Sources */,
 				6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */,
+				18371B0827C2443C002528F3 /* Ellipse.swift in Sources */,
 				181AB22E26F9856C0081420D /* VerifierModels.swift in Sources */,
 				18C1A3952680F4D80047FDD3 /* Document.swift in Sources */,
+				18371B2127C246B5002528F3 /* Defaults.swift in Sources */,
+				18371B2727C2473E002528F3 /* UIImage+crop.swift in Sources */,
 				18ED9F6C26B2B4BB00AFF48B /* ImageSignature.swift in Sources */,
 				6F1A6A8E251B98760087CC0A /* SelfieResult.swift in Sources */,
 				6F6C26FD24B87FD90073A2CA /* StringUtils.swift in Sources */,
+				18371AF927C243F8002528F3 /* CameraOverlayView.swift in Sources */,
+				18371AF227C2437B002528F3 /* SelfieController.swift in Sources */,
 				6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */,
+				18371B1227C244BC002528F3 /* VideoWriter.swift in Sources */,
+				18371B0927C2443C002528F3 /* DrawingLayer.swift in Sources */,
+				18371B1527C2453E002528F3 /* UIView+Layout.swift in Sources */,
 				181AB23226F993140081420D /* FaceVerifierModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

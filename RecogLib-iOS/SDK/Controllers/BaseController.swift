@@ -84,11 +84,11 @@ public class BaseController<ResultType: ResultState> {
         }
     }
     
-    func start() {
+    public func start() {
         camera.start()
     }
     
-    func stop() {
+    public func stop() {
         camera.stop()
         videoWriter?.delegate = nil
         videoWriter?.stop()
