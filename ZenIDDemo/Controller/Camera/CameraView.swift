@@ -30,7 +30,6 @@ final class CameraView: UIView {
 
     private var controlView = UIView()
     let cameraView = UIView()
-    private let messageView = MessagesView()
     private(set) var overlay: CameraOverlayView?
     var previewLayer: AVCaptureVideoPreviewLayer?
     private(set) var drawLayer: DrawingLayer?
@@ -59,10 +58,6 @@ final class CameraView: UIView {
         
         // Control view
         setupControlView(isOtherDocument: isOtherDocument)
-
-        // Message view
-        cameraView.addSubview(messageView)
-        messageView.anchor(top: cameraView.safeAreaLayoutGuide.topAnchor, left: cameraView.leftAnchor, bottom: nil, right: cameraView.rightAnchor)
 
         // Top label wrapper
         let topLabelWrapper = UIView()
@@ -103,14 +98,6 @@ final class CameraView: UIView {
             cameraTrigger.translatesAutoresizingMaskIntoConstraints = false
             cameraTrigger.isHidden = true
         }
-    }
-    
-    func showErrorMessage(_ message: String) {
-        messageView.showMessage(type: .error(message: message))
-    }
-    
-    func showSuccessMessage() {
-        messageView.showMessage(type: .success)
     }
     
     func rotateOverlay(targetFrame: CGRect) {
@@ -180,7 +167,6 @@ final class CameraView: UIView {
         configurePreviewLayer()
         configureDrawingLayer()
         configureOverlay(overlay: overlay, showStaticOverlay: showStaticOverlay, targetFrame: targetFrame)
-        cameraView.layer.addSublayer(messageView.layer)
     }
     
 }

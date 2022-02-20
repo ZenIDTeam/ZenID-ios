@@ -764,6 +764,7 @@ final class FacelivenessController: BaseController<FaceLivenessResult> {
 class CameraViewController: UIViewController {
     weak var delegate: CameraViewControllerDelegate?
     
+    private let messageView = MessagesView()
     private var contentView: CameraView {
         view as! CameraView
     }
@@ -809,6 +810,10 @@ class CameraViewController: UIViewController {
         setupDocumentController()
         setupFacelivenessController()
         setupSelfieController()
+        
+        // Message view
+        contentView.addSubview(messageView)
+        messageView.anchor(top: contentView.safeAreaLayoutGuide.topAnchor, left: contentView.leftAnchor, bottom: nil, right: contentView.rightAnchor)
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -870,6 +875,8 @@ class CameraViewController: UIViewController {
                 updateSelfieController()
             }
         }
+        
+        contentView.layer.addSublayer(messageView.layer)
     }
     
     private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {
@@ -880,11 +887,11 @@ class CameraViewController: UIViewController {
     }
     
     public func showErrorMessage(_ message: String) {
-        contentView.showErrorMessage(message)
+        messageView.showMessage(type: .error(message: message))
     }
 
     public func showSuccess() {
-        contentView.showSuccessMessage()
+        messageView.showMessage(type: .success)
     }
     
     private func setupView() {
