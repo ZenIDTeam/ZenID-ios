@@ -65,7 +65,7 @@ final class ChoiceViewController: UIViewController {
         label.textColor = .zenTextLight
     }
     
-    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, country: .cz, faceMode: .faceLiveness, dataType: .picture)
+    private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, faceMode: .faceLiveness, dataType: .picture)
     private var scanProcess: ScanProcess?
 
     override func viewDidLoad() {
@@ -179,7 +179,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     @objc private func selectAction(sender: UIButton) {
-        cachedCameraViewController.removeWebViewOverlay()
+        //cachedCameraViewController.removeWebViewOverlay()
         ensureCredentials { [unowned self] in
             Haptics.shared.select()
             switch sender {
@@ -202,7 +202,7 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.filter)
             case self.webViewButton:
                 startProcess(.idCard)
-                cachedCameraViewController.addWebViewOverlay()
+                //cachedCameraViewController.addWebViewOverlay()
             default:
                 break
             }
@@ -290,9 +290,9 @@ extension ChoiceViewController: CameraViewControllerDelegate {
         }
     }
     
-    func didTakeVideo(_ videoAsset: AVURLAsset?, type: PhotoType) {
-        if let videoAsset = videoAsset {
-            if let data = try? Data(contentsOf: videoAsset.url) {
+    func didTakeVideo(_ videoURL: URL?, type: PhotoType) {
+        if let url = videoURL {
+            if let data = try? Data(contentsOf: url) {
                 scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
             }
         }
@@ -378,24 +378,23 @@ extension ChoiceViewController: ScanProcessDelegate {
                     SelfieSelectionLoaderComposer.compose().load { [weak self] result in
                         let faceMode = (try? result.get())
                         guard let self = self else { return }
-                        /*self.cachedCameraViewController.configureController(
+                        self.cachedCameraViewController.configureController(
                             type: scanProcess.documentType,
                             photoType: photoType,
                             country: scanProcess.country,
                             faceMode: faceMode,
-                            photosCount: scanProcess.pdfImages.count,
                             documents: documents,
                             documentSettings: settings,
                             config: ConfigServiceComposer.compose().load()
-                        )*/
-                        let viewController = MyViewController()
-                        self.navigationController?.pushViewController(viewController, animated: true)
+                        )
+                        //let viewController = MyViewController()
+                        //self.navigationController?.pushViewController(self.cachedCameraViewController, animated: true)
                     }
                 }
             }
         }
                 
-        /*DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [unowned self] in
             guard self.navigationController?.topViewController != self.cachedCameraViewController else { return }
 
             if self.isBusyViewControllerPresented() {
@@ -403,7 +402,7 @@ extension ChoiceViewController: ScanProcessDelegate {
             } else {
                 self.navigationController?.pushViewController(self.cachedCameraViewController, animated: true)
             }
-        }*/
+        }
     }
     
     func willProcessData(scanProcess: ScanProcess) {

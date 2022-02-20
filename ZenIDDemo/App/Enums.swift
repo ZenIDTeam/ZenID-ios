@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RecogLib_iOS
 
 public enum UploadedSampleType: String {
     case documentPicture = "DocumentPicture"
@@ -73,7 +74,7 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [.front, .back, .face]
+                return [/*.front, .back,*/ .face]
             case .drivingLicence:
                 return [.front, .face]
             case .passport:
@@ -161,6 +162,27 @@ public enum Country: String {
     case de = "De"
     case hr = "Hr"
     case it = "It"
+    
+    var recoglibCountry: RecogLib_iOS.Country {
+        switch self {
+        case .cz:
+            return .Cz
+        case .sk:
+            return .Sk
+        case .at:
+            return .At
+        case .hu:
+            return .Hu
+        case .pl:
+            return .Pl
+        case .de:
+            return .De
+        case .hr:
+            return .Hr
+        case .it:
+            return .It
+        }
+    }
 }
 
 public enum FaceMode: String {

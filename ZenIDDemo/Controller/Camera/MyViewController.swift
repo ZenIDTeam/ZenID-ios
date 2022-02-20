@@ -10,8 +10,8 @@ final class MyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupDocumentController()
-        setupSelfieController()
+        setupDocumentController()
+        //setupSelfieController()
         //setupFacelivenessController()
     }
     
