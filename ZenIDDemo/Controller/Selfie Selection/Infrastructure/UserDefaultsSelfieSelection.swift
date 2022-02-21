@@ -14,8 +14,8 @@ final class UserDefaultsSelfieSelection {
 }
 
 extension UserDefaultsSelfieSelection: SelfieSelectionLoader {
-    func load(completion: (SelfieSelectionLoader.Result) -> Void) {
-        completion(.success(Defaults.selectedFaceMode))
+    func load() throws -> FaceMode? {
+        Defaults.selectedFaceMode
     }
 }
 

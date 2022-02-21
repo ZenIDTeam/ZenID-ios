@@ -22,23 +22,21 @@ final class InMemoryDocumentsFilter {
 }
 
 extension InMemoryDocumentsFilter: DocumentsFilterLoader {
-    func load(completion: (DocumentsFilterLoader.Result) -> Void) {
-        completion(.success(documents))
+    func load() throws -> [Document] {
+        documents
     }
 }
 
 extension InMemoryDocumentsFilter: DocumentsFilterDeleter {
-    func delete(document: Document, completion: (DocumentsFilterDeleter.Result) -> Void) {
+    func delete(document: Document) {
         if let index = documents.firstIndex(of: document) {
             documents.remove(at: index)
         }
-        completion(.success(()))
     }
 }
 
 extension InMemoryDocumentsFilter: DocumentsFilterSaver {
-    func save(document: Document, completion: (DocumentsFilterSaver.Result) -> Void) {
+    func save(document: Document) {
         documents.append(document)
-        completion(.success(()))
     }
 }

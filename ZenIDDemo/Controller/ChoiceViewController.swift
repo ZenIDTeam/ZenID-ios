@@ -379,26 +379,22 @@ extension ChoiceViewController {
 extension ChoiceViewController: ScanProcessDelegate {
     func willTakePhoto(scanProcess: ScanProcess, photoType: PhotoType) {
         DispatchQueue.main.async { [weak self] in
-            DocumentsFilterLoaderComposer.compose().load { [weak self] result in
-                let documents = (try? result.get()) ?? []
-                DocumentVerifierSettingsLoaderComposer.compose().load { [weak self] result in
-                    let settings = (try? result.get()) ?? .init()
-                    SelfieSelectionLoaderComposer.compose().load { [weak self] result in
-                        let faceMode = (try? result.get())
-                        guard let self = self else { return }
-                        self.cachedCameraViewController.configureController(
-                            type: scanProcess.documentType,
-                            photoType: photoType,
-                            country: scanProcess.country,
-                            faceMode: faceMode,
-                            documents: documents,
-                            documentSettings: settings,
-                            config: ConfigServiceComposer.compose().load()
-                        )
-                        //let viewController = MyViewController()
-                        //self.navigationController?.pushViewController(self.cachedCameraViewController, animated: true)
-                    }
-                }
+            do {
+                let documents = try DocumentsFilterLoaderComposer.compose().load()
+                let settings = try DocumentVerifierSettingsLoaderComposer.compose().load()
+                let faceMode = try SelfieSelectionLoaderComposer.compose().load()
+                guard let self = self else { return }
+                self.cachedCameraViewController.configureController(
+                    type: scanProcess.documentType,
+                    photoType: photoType,
+                    country: scanProcess.country,
+                    faceMode: faceMode,
+                    documents: documents,
+                    documentSettings: settings,
+                    config: ConfigServiceComposer.compose().load()
+                )
+            } catch {
+                debugPrint(error)
             }
         }
                 

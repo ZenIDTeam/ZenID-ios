@@ -17,35 +17,30 @@ final class InMemoryDocumentVerifierSettings {
 }
 
 extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsLoader {
-    func load(completion: (DocumentVerifierSettingsLoader.Result) -> Void) {
-        completion(.success(settings))
+    func load() throws -> DocumentVerifierSettings {
+        settings
     }
 }
 
 extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsUpdater {
-    func update(specularAcceptableScore: Int, completion: (DocumentVerifierSettingsUpdater.Result) -> Void) {
+    func update(specularAcceptableScore: Int) {
         settings = settings.update(specularAcceptableScore: specularAcceptableScore)
-        completion(.success(()))
     }
     
-    func update(documentBlurAcceptableScore: Int, completion: (DocumentVerifierSettingsUpdater.Result) -> Void) {
+    func update(documentBlurAcceptableScore: Int) {
         settings = settings.update(documentBlurAcceptableScore: documentBlurAcceptableScore)
-        completion(.success(()))
     }
     
-    func update(timeToBlurMaxToleranceInSeconds: Int, completion: (DocumentVerifierSettingsUpdater.Result) -> Void) {
+    func update(timeToBlurMaxToleranceInSeconds: Int) {
         settings = settings.update(timeToBlurMaxToleranceInSeconds: timeToBlurMaxToleranceInSeconds)
-        completion(.success(()))
     }
     
-    func update(showTimer: Bool, completion: (DocumentVerifierSettingsUpdater.Result) -> Void) {
+    func update(showTimer: Bool) {
         settings = settings.update(showTimer: showTimer)
-        completion(.success(()))
     }
     
-    func update(showAimingCircle: Bool, completion: (DocumentVerifierSettingsUpdater.Result) -> Void) {
+    func update(showAimingCircle: Bool) {
         settings = settings.update(showAimingCircle: showAimingCircle)
-        completion(.success(()))
     }
 }
 

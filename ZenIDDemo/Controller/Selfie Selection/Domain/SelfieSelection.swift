@@ -10,10 +10,7 @@ import Foundation
 
 
 protocol SelfieSelectionLoader {
-    typealias Result = Swift.Result<FaceMode?, Error>
-    typealias Completion = (Result) -> Void
-    
-    func load(completion: Completion)
+    func load() throws -> FaceMode?
 }
 
 protocol SelfieSelectionSaver {

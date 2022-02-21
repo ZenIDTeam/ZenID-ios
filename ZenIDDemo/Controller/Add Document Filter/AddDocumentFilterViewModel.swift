@@ -38,8 +38,11 @@ final class AddDocumentFilterViewModel {
         if validateAndShowErrorIfNecesary() {
             return
         }
-        saver.save(document: getDocument()) { [weak self] result in
-            self?.handleSaveResult(result: result)
+        do {
+            try saver.save(document: getDocument())
+            coordinator.addDocumentDidFinish()
+        } catch {
+            coordinator.addDocumentDidFail(error: error)
         }
     }
     
@@ -67,14 +70,4 @@ final class AddDocumentFilterViewModel {
             code: nil
         )
     }
-    
-    private func handleSaveResult(result: DocumentsFilterSaver.Result) {
-        switch result {
-        case .success :
-            coordinator.addDocumentDidFinish()
-        case let .failure(error):
-            coordinator.addDocumentDidFail(error: error)
-        }
-    }
-    
 }

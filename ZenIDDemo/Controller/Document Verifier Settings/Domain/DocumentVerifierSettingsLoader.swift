@@ -11,19 +11,13 @@ import RecogLib_iOS
 
 
 protocol DocumentVerifierSettingsLoader {
-    typealias Result = Swift.Result<DocumentVerifierSettings, Error>
-    typealias Completion = (Result) -> Void
-    
-    func load(completion: Completion)
+    func load() throws -> DocumentVerifierSettings
 }
 
 protocol DocumentVerifierSettingsUpdater {
-    typealias Result = Swift.Result<Void, Error>
-    typealias Completion = (Result) -> Void
-    
-    func update(specularAcceptableScore: Int, completion: Completion)
-    func update(documentBlurAcceptableScore: Int, completion: Completion)
-    func update(timeToBlurMaxToleranceInSeconds: Int, completion: Completion)
-    func update(showTimer: Bool, completion: Completion)
-    func update(showAimingCircle: Bool, completion: Completion)
+    func update(specularAcceptableScore: Int)
+    func update(documentBlurAcceptableScore: Int)
+    func update(timeToBlurMaxToleranceInSeconds: Int)
+    func update(showTimer: Bool)
+    func update(showAimingCircle: Bool)
 }

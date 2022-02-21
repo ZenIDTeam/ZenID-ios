@@ -46,13 +46,11 @@ final class ScanProcess {
         self.country = country
         requestsToScan = documentType.scanRequests
         requestsCount = requestsToScan.count
-        selfieSelectionLoader.load { [weak self] result in
-            let faceMode = (try? result.get())
-            if faceMode == nil {
-                self?.requestsToScan = self?.requestsToScan.filter({ $0 != .face }) ?? []
-            }
-            self?.requestsCount = self?.requestsToScan.count ?? 0
+        let faceMode = try? selfieSelectionLoader.load()
+        if faceMode == nil {
+            requestsToScan = requestsToScan.filter({ $0 != .face })
         }
+        requestsCount = requestsToScan.count
     }
     
     deinit {

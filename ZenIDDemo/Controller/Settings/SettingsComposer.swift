@@ -15,10 +15,8 @@ final class SettingsComposer {
         let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         viewController.viewModel = resolve(coordinator: coordinator)
         viewController.viewModel.onChange = { [unowned viewController] in
-            selfieSelectionLoader.load { [unowned viewController] result in
-                let faceMode = (try? result.get())
-                viewController.contentView.tableView.sections = getSections(viewController: viewController, configService: configService, coordinator: coordinator, faceMode: faceMode)
-            }
+            let faceMode = try? selfieSelectionLoader.load()
+            viewController.contentView.tableView.sections = getSections(viewController: viewController, configService: configService, coordinator: coordinator, faceMode: faceMode)
         }
         return viewController
     }

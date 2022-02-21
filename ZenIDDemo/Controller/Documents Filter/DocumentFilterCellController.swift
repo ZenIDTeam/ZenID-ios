@@ -30,18 +30,11 @@ final class DocumentFilterCellController: TableCellController {
     }
     
     func select() {
-        deleter.execute { [weak self] result in
-            self?.handleDeleteResult(result: result)
-        }
-    }
-    
-    private func handleDeleteResult(result: DocumentsFilterDeleter.Result) {
-        switch result {
-        case .success:
+        do {
+            try deleter.execute()
             onDelete()
-        case .failure:
-            break
+        } catch {
+            debugPrint(error)
         }
     }
-    
 }

@@ -23,22 +23,16 @@ final class DocumentsFilterViewModel {
     }
     
     func reloadData() {
-        loader.load { [weak self] result in
-            self?.handleLoadResult(result: result)
+        do {
+            let documents = try loader.load()
+            refresh(documents: documents)
+        } catch {
+            refresh(documents: [])
         }
     }
     
     func addNewFilter() {
         coordinator.documentsFilterAddNewDocumentFilter()
-    }
-    
-    private func handleLoadResult(result: DocumentsFilterLoader.Result) {
-        switch result {
-        case let .success(documents):
-            refresh(documents: documents)
-        case .failure:
-            refresh(documents: [])
-        }
     }
     
     private func refresh(documents: [Document]) {

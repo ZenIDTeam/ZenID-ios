@@ -11,22 +11,13 @@ import RecogLib_iOS
 
 
 protocol DocumentsFilterLoader {
-    typealias Result = Swift.Result<[Document], Error>
-    typealias Completion = (Result) -> Void
-    
-    func load(completion: Completion)
+    func load() throws -> [Document]
 }
 
 protocol DocumentsFilterDeleter {
-    typealias Result = Swift.Result<Void, Error>
-    typealias Completion = (Result) -> Void
-    
-    func delete(document: Document, completion: Completion)
+    func delete(document: Document) throws
 }
 
 protocol DocumentsFilterSaver {
-    typealias Result = Swift.Result<Void, Error>
-    typealias Completion = (Result) -> Void
-    
-    func save(document: Document, completion: Completion)
+    func save(document: Document) throws
 }

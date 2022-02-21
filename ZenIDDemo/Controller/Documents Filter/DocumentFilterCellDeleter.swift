@@ -20,8 +20,8 @@ final class DocumentFilterCellDeleter {
         self.document = document
     }
     
-    func execute(completion: @escaping DocumentsFilterDeleter.Completion) {
-        service.delete(document: document, completion: completion)
+    func execute() throws {
+        try service.delete(document: document)
     }
     
 }
