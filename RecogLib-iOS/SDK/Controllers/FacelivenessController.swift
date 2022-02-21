@@ -1,6 +1,5 @@
 import Foundation
 import UIKit
-import RecogLib_iOS
 
 extension FaceLivenessResult: ResultState {
     public var isOk: Bool {
@@ -68,6 +67,10 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
+    }
+    
+    public func getAuxiliaryImages() -> FaceLivenessAuxiliaryInfo? {
+        verifier.getAuxiliaryInfo()
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> FaceLivenessResult? {

@@ -248,6 +248,9 @@ extension CameraViewController: DocumentControllerDelegate {
 
 extension CameraViewController: FacelivenessControllerDelegate {
     func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult) {
+        if let auxiliaryInfo = controller.getAuxiliaryImages() {
+            saveAuxiliaryImagesToLibrary(info: auxiliaryInfo)
+        }
         returnImage(nil, UnifiedFacelivenessResultAdapter(result: result))
     }
     
