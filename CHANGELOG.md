@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.12 - 2022-21-02
+* Updated LibZenid to 2.1.41.
+* Added AimingCircle option into DocumentSettings.
+
 ## 1.11 - 2022-21-01
 * Updated LibZenid to 2.1.4.
 * Activated DocumentVerifier Hologram methods.
