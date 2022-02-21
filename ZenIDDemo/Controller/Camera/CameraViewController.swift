@@ -7,6 +7,14 @@ import WebKit
 class CameraViewController: UIViewController {
     weak var delegate: CameraViewControllerDelegate?
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .all
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
     private let messageView = MessagesView()
     private var contentView: CameraView {
         view as! CameraView
@@ -73,7 +81,6 @@ class CameraViewController: UIViewController {
         documentController?.stop()
         facelivenessController?.stop()
         selfieController?.stop()
-        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
@@ -233,6 +240,11 @@ class CameraViewController: UIViewController {
         } catch {
             debugPrint(error)
         }
+    }
+    
+    func rotateToLeft() {
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
 }
 

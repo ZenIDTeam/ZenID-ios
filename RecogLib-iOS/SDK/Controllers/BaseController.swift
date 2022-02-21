@@ -59,6 +59,9 @@ public class BaseController<ResultType: ResultState> {
         view.setup(isOtherDocument: false)
         view.setupControlView(isOtherDocument: false)
         view.supportChangedOrientation = { true }
+        view.onFrameChange = { [weak self] in
+            self?.orientationChanged()
+        }
         view.configureOverlay(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         view.configureVideoLayers(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         

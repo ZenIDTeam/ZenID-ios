@@ -11,7 +11,7 @@ import UIKit
 
 final class SettingsCoordinator {
     
-    private var rootViewController: UINavigationController!
+    private var rootViewController: NavigationController!
     
     private var documentsFilterCoordinator: DocumentsFilterCoordinator?
     
@@ -25,7 +25,8 @@ final class SettingsCoordinator {
             configService: ConfigServiceComposer.compose(),
             coordinator: self
         )
-        rootViewController = UINavigationController(rootViewController: settingsViewController)
+        rootViewController = NavigationController(rootViewController: settingsViewController)
+        rootViewController?.shouldRotate = false
         rootViewController?.modalPresentationStyle = .fullScreen
         return rootViewController
     }

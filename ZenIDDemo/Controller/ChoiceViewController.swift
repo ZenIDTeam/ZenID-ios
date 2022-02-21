@@ -13,6 +13,14 @@ import RecogLib_iOS
 import os
 
 final class ChoiceViewController: UIViewController {
+    override var shouldAutorotate: Bool {
+        false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
+    
     private let countryButton = Buttons.country
     private let idButton = Buttons.id
     private let drivingLicenceButton = Buttons.drivingLicence

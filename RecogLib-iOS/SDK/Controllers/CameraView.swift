@@ -36,7 +36,14 @@ public final class CameraView: UIView {
         }
     }
     
+    public override var frame: CGRect {
+        didSet {
+            onFrameChange?()
+        }
+    }
+    
     var supportChangedOrientation: (() -> Bool)!
+    var onFrameChange: (() -> Void)?
     
     private(set) var webViewOverlay: WebViewOverlay?
     

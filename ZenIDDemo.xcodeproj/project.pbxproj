@@ -54,6 +54,7 @@
 		182D63DD26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DC26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift */; };
 		182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */; };
 		182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */; };
+		18371B3027C3CCA3002528F3 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2F27C3CCA3002528F3 /* NavigationController.swift */; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
 		186ECA2E27B0148C002189C3 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
 		186ECA2F27B0148C002189C3 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -250,6 +251,7 @@
 		182D63DC26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchViewModel.swift; sourceTree = "<group>"; };
 		182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchCellController.swift; sourceTree = "<group>"; };
+		18371B2F27C3CCA3002528F3 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1861947226FC28D500B8B395 /* URL+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Models.swift"; sourceTree = "<group>"; };
 		1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = "../../Downloads/LibZenid-iOS_1.9.1/LibZenid_iOS.xcframework"; sourceTree = "<group>"; };
 		187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RecogLib_iOS.xcframework; path = ../../Desktop/RecogLib/RecogLib_iOS.xcframework; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				012F7B6A2292743000B0BBB6 /* ErrorViewController.swift */,
 				012F7B65228B14FF00B0BBB6 /* PreviewViewController.swift */,
 				012F7B49228557BE00B0BBB6 /* WalkthroughViewController.swift */,
+				18371B2F27C3CCA3002528F3 /* NavigationController.swift */,
 				18953D4E268242720077F976 /* Grouped Table View */,
 				18953D472682418B0077F976 /* Settings */,
 				18953D592682468E0077F976 /* Selection */,
@@ -952,6 +955,7 @@
 				18953DA9268394FC0077F976 /* DocumentFilterCellDeleter.swift in Sources */,
 				18953DBA2684680A0077F976 /* DocumentVerifierSettingsViewModel.swift in Sources */,
 				012F7B602285E6F600B0BBB6 /* BaseInfoViewController.swift in Sources */,
+				18371B3027C3CCA3002528F3 /* NavigationController.swift in Sources */,
 				18953DCA268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift in Sources */,
 				0134756121F5BF90004EE4E5 /* Defaults.swift in Sources */,
 				18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */,

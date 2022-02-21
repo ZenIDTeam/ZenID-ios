@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let menuViewController = UIStoryboard(name: "Menu", bundle: nil).instantiateViewController(withIdentifier: "ChoiceViewController")
-        self.window?.rootViewController = UINavigationController(rootViewController: menuViewController)
+        self.window?.rootViewController = NavigationController(rootViewController: menuViewController)
         self.window?.makeKeyAndVisible()
         configureNavigationBar()
 

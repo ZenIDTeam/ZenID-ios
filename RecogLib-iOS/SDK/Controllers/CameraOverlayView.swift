@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RecogLib_iOS
 
 final class CameraOverlayView: UIView {
     private let imageName: String
