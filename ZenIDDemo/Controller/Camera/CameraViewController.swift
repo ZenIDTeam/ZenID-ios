@@ -310,13 +310,4 @@ private extension CameraViewController {
     func beginSession() {
         
     }
-    
-    private func overlayImageName() -> String {
-        if documentType == .passport {
-            return "targettingRectPas"
-        } else if documentType == .idCard {
-            return "targettingRect"
-        }
-        return ""
-    }
 }

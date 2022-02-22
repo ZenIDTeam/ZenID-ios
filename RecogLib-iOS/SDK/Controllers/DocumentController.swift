@@ -56,6 +56,13 @@ public protocol DocumentControllerDelegate: AnyObject {
 public final class DocumentController: BaseController<DocumentResult> {
     public weak var delegate: DocumentControllerDelegate?
     
+    override var overlayImageName: String {
+        if config.role == .Pas {
+            return "targettingRectPas"
+        }
+        return "targettingRect"
+    }
+    
     private let verifier: DocumentVerifier
     
     private var config = DocumentControllerConfiguration.default

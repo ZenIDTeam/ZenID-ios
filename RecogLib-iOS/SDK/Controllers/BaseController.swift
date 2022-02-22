@@ -27,6 +27,10 @@ public class BaseController<ResultType: ResultState> {
     
     var previousResult: ResultType?
     
+    var overlayImageName: String {
+        "targettingRect"
+    }
+    
     private(set) var baseConfig: BaseControllerConfiguration = .default
     
     init(camera: Camera, view: CameraView) {
@@ -62,8 +66,8 @@ public class BaseController<ResultType: ResultState> {
         view.onFrameChange = { [weak self] in
             self?.orientationChanged()
         }
-        view.configureOverlay(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
-        view.configureVideoLayers(overlay: CameraOverlayView(imageName: "targettingRect", frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        view.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        view.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         
         targetFrame = view.overlay?.bounds ?? .zero
         

@@ -1,6 +1,5 @@
 
 import Foundation
-import RecogLib_iOS
 
 
 public protocol UnifiedResult {
