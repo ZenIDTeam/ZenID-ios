@@ -3,16 +3,16 @@ import Foundation
 import RecogLib_iOS
 
 
-final class UnifiedDocumentResultAdapter: UnifiedResult {
+public final class UnifiedDocumentResultAdapter: UnifiedResult {
     
-    let state: UnifiedState
-    let role: RecogLib_iOS.DocumentRole?
-    let country: RecogLib_iOS.Country?
-    let code: RecogLib_iOS.DocumentCode?
-    let page: RecogLib_iOS.PageCode?
-    let signature: ImageSignature?
+    public let state: UnifiedState
+    public let role: RecogLib_iOS.DocumentRole?
+    public let country: RecogLib_iOS.Country?
+    public let code: RecogLib_iOS.DocumentCode?
+    public let page: RecogLib_iOS.PageCode?
+    public let signature: ImageSignature?
     
-    init(result: DocumentResult) {
+    public init(result: DocumentResult) {
         state = result.hologremState?.toDomain() ?? result.state.toDomain()
         role = result.role
         country = result.country
@@ -23,7 +23,7 @@ final class UnifiedDocumentResultAdapter: UnifiedResult {
     
 }
 
-extension DocumentState {
+public extension DocumentState {
     func toDomain() -> UnifiedState {
         switch self {
         case .AlignCard:

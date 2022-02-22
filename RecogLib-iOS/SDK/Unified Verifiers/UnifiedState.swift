@@ -2,7 +2,7 @@
 import Foundation
 
 
-enum UnifiedState {
+public enum UnifiedState {
     case notFound
     case alignCard
     case holdSteady

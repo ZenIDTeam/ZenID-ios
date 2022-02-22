@@ -3,15 +3,15 @@ import Foundation
 import RecogLib_iOS
 
 
-final class UnifiedFacelivenessVerifierAdapter: UnifiedVerifier {
+public final class UnifiedFacelivenessVerifierAdapter: UnifiedVerifier {
     
     private let verifier: FaceLivenessVerifier
     
-    init(verifier: FaceLivenessVerifier) {
+    public init(verifier: FaceLivenessVerifier) {
         self.verifier = verifier
     }
     
-    func verify(image: CVPixelBuffer) -> UnifiedResult? {
+    public func verify(image: CVPixelBuffer) -> UnifiedResult? {
         guard let result = verifier.verifyImage(imageBuffer: image) else {
             return nil
         }
@@ -21,7 +21,7 @@ final class UnifiedFacelivenessVerifierAdapter: UnifiedVerifier {
 }
 
 extension UnifiedFacelivenessVerifierAdapter: VerifierRenderable {
-    func getRenderCommands(canvasSize: CGSize) -> String? {
+    public func getRenderCommands(canvasSize: CGSize) -> String? {
         verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height))
     }
 }

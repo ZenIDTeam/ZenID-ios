@@ -3,17 +3,17 @@ import Foundation
 import RecogLib_iOS
 
 
-final class UnifiedDocumentVerifierAdapter: UnifiedVerifier {
+public final class UnifiedDocumentVerifierAdapter: UnifiedVerifier {
     
     private let verifier: DocumentVerifier
     private let orientation: UIInterfaceOrientation
     
-    init(verifier: DocumentVerifier, orientation: UIInterfaceOrientation) {
+    public init(verifier: DocumentVerifier, orientation: UIInterfaceOrientation) {
         self.verifier = verifier
         self.orientation = orientation
     }
     
-    func verify(image: CVPixelBuffer) -> UnifiedResult? {
+    public func verify(image: CVPixelBuffer) -> UnifiedResult? {
         guard let result = verifier.verifyImage(imageBuffer: image, orientation: orientation) else {
             return nil
         }
@@ -23,7 +23,7 @@ final class UnifiedDocumentVerifierAdapter: UnifiedVerifier {
 }
 
 extension UnifiedDocumentVerifierAdapter: VerifierRenderable {
-    func getRenderCommands(canvasSize: CGSize) -> String? {
+    public func getRenderCommands(canvasSize: CGSize) -> String? {
         verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height), orientation: orientation)
     }
 }

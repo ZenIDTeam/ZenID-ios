@@ -241,11 +241,6 @@ class CameraViewController: UIViewController {
             debugPrint(error)
         }
     }
-    
-    func rotateToLeft() {
-        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-    }
 }
 
 extension CameraViewController: DocumentControllerDelegate {
@@ -283,7 +278,6 @@ extension CameraViewController: SelfieControllerDelegate {
 
 // MARK: - Methods for AV session
 private extension CameraViewController {
-    
     func startSession() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
@@ -314,14 +308,8 @@ private extension CameraViewController {
     }
     
     func beginSession() {
-        do {
-            
-        } catch {
-            returnImage(nil)
-            return
-        }
+        
     }
-    
     
     private func overlayImageName() -> String {
         if documentType == .passport {
@@ -331,42 +319,4 @@ private extension CameraViewController {
         }
         return ""
     }
-}
-
-extension CameraViewController {
-    /*private func getVerifier(photoType: PhotoType, faceMode: FaceMode) -> UnifiedVerifier {
-        switch photoType {
-        case .face:
-            switch faceMode {
-            case .faceLiveness, .faceLivenessLegacy:
-                return UnifiedFacelivenessVerifierAdapter(verifier: faceLivenessVerifier)
-            case .selfie:
-                return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
-            }
-        default:
-            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: .portrait)
-        }
-    }
-    
-    private func getVerifierRenderable(photoType: PhotoType, faceMode: FaceMode) -> VerifierRenderable? {
-        switch photoType {
-        case .face:
-            switch faceMode {
-            case .faceLiveness, .faceLivenessLegacy:
-                return UnifiedFacelivenessVerifierAdapter(verifier: faceLivenessVerifier)
-            case .selfie:
-                return UnifiedSelfieVerifierAdapter(verifier: selfieVerifier)
-            }
-        default:
-            return UnifiedDocumentVerifierAdapter(verifier: documentVerifier, orientation: .portrait)
-        }
-    }
-    
-    private func getWebViewOverlayState(result: UnifiedResult) -> WebViewOverlayState {
-        .init(
-            page: photoType.pageCode,
-            state: String(describing: result.state),
-            frame: getCroppedTargetFrame(width: Int(contentView.previewLayer!.frame.width), height: Int(contentView.previewLayer!.frame.height))
-        )
-    }*/
 }

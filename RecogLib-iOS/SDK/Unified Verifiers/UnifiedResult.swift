@@ -3,7 +3,7 @@ import Foundation
 import RecogLib_iOS
 
 
-protocol UnifiedResult {
+public protocol UnifiedResult {
     var state: UnifiedState { get }
     var role: RecogLib_iOS.DocumentRole? { get }
     var country: RecogLib_iOS.Country? { get }

@@ -3,6 +3,6 @@ import Foundation
 import CoreVideo
 
 
-protocol UnifiedVerifier {
+public protocol UnifiedVerifier {
     func verify(image: CVPixelBuffer) -> UnifiedResult?
 }

@@ -40,6 +40,17 @@
 		18371B2727C2473E002528F3 /* UIImage+crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2427C2473E002528F3 /* UIImage+crop.swift */; };
 		18371B2927C24834002528F3 /* UIFont+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2827C24834002528F3 /* UIFont+Styles.swift */; };
 		18371B2B27C26A51002528F3 /* DocumentState+Localised.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2A27C26A51002528F3 /* DocumentState+Localised.swift */; };
+		18371B5727C5441E002528F3 /* UnifiedSelfieVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B4C27C5441D002528F3 /* UnifiedSelfieVerifierAdapter.swift */; };
+		18371B5827C5441E002528F3 /* UnifiedVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B4D27C5441D002528F3 /* UnifiedVerifier.swift */; };
+		18371B5927C5441E002528F3 /* UnifiedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B4E27C5441D002528F3 /* UnifiedResult.swift */; };
+		18371B5A27C5441E002528F3 /* UnifiedHologramResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B4F27C5441D002528F3 /* UnifiedHologramResultAdapter.swift */; };
+		18371B5B27C5441E002528F3 /* UnifiedDocumentVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5027C5441D002528F3 /* UnifiedDocumentVerifierAdapter.swift */; };
+		18371B5C27C5441E002528F3 /* UnifiedFacelivenessVerifierAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5127C5441D002528F3 /* UnifiedFacelivenessVerifierAdapter.swift */; };
+		18371B5D27C5441E002528F3 /* UnifiedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5227C5441D002528F3 /* UnifiedState.swift */; };
+		18371B5E27C5441E002528F3 /* UnifiedSelfieResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5327C5441D002528F3 /* UnifiedSelfieResultAdapter.swift */; };
+		18371B5F27C5441E002528F3 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5427C5441D002528F3 /* UnifiedFacelivenessResultAdapter.swift */; };
+		18371B6027C5441E002528F3 /* VerifierRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5527C5441D002528F3 /* VerifierRenderable.swift */; };
+		18371B6127C5441E002528F3 /* UnifiedDocumentResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5627C5441D002528F3 /* UnifiedDocumentResultAdapter.swift */; };
 		188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */; };
 		18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */; };
 		18953DAF26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,6 +126,17 @@
 		18371B2427C2473E002528F3 /* UIImage+crop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+crop.swift"; sourceTree = "<group>"; };
 		18371B2827C24834002528F3 /* UIFont+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Styles.swift"; sourceTree = "<group>"; };
 		18371B2A27C26A51002528F3 /* DocumentState+Localised.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentState+Localised.swift"; sourceTree = "<group>"; };
+		18371B4C27C5441D002528F3 /* UnifiedSelfieVerifierAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedSelfieVerifierAdapter.swift; sourceTree = "<group>"; };
+		18371B4D27C5441D002528F3 /* UnifiedVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedVerifier.swift; sourceTree = "<group>"; };
+		18371B4E27C5441D002528F3 /* UnifiedResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedResult.swift; sourceTree = "<group>"; };
+		18371B4F27C5441D002528F3 /* UnifiedHologramResultAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedHologramResultAdapter.swift; sourceTree = "<group>"; };
+		18371B5027C5441D002528F3 /* UnifiedDocumentVerifierAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentVerifierAdapter.swift; sourceTree = "<group>"; };
+		18371B5127C5441D002528F3 /* UnifiedFacelivenessVerifierAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessVerifierAdapter.swift; sourceTree = "<group>"; };
+		18371B5227C5441D002528F3 /* UnifiedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedState.swift; sourceTree = "<group>"; };
+		18371B5327C5441D002528F3 /* UnifiedSelfieResultAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedSelfieResultAdapter.swift; sourceTree = "<group>"; };
+		18371B5427C5441D002528F3 /* UnifiedFacelivenessResultAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessResultAdapter.swift; sourceTree = "<group>"; };
+		18371B5527C5441D002528F3 /* VerifierRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifierRenderable.swift; sourceTree = "<group>"; };
+		18371B5627C5441D002528F3 /* UnifiedDocumentResultAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentResultAdapter.swift; sourceTree = "<group>"; };
 		188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentVerifierSettingsWrapper.cpp; sourceTree = "<group>"; };
 		18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CDocumentVerifierSettingsWrapper.hpp; sourceTree = "<group>"; };
@@ -216,9 +238,28 @@
 			path = VideoWriter;
 			sourceTree = "<group>";
 		};
+		18371B3527C54189002528F3 /* Unified Verifiers */ = {
+			isa = PBXGroup;
+			children = (
+				18371B5627C5441D002528F3 /* UnifiedDocumentResultAdapter.swift */,
+				18371B5027C5441D002528F3 /* UnifiedDocumentVerifierAdapter.swift */,
+				18371B5427C5441D002528F3 /* UnifiedFacelivenessResultAdapter.swift */,
+				18371B5127C5441D002528F3 /* UnifiedFacelivenessVerifierAdapter.swift */,
+				18371B4F27C5441D002528F3 /* UnifiedHologramResultAdapter.swift */,
+				18371B4E27C5441D002528F3 /* UnifiedResult.swift */,
+				18371B5327C5441D002528F3 /* UnifiedSelfieResultAdapter.swift */,
+				18371B4C27C5441D002528F3 /* UnifiedSelfieVerifierAdapter.swift */,
+				18371B5227C5441D002528F3 /* UnifiedState.swift */,
+				18371B4D27C5441D002528F3 /* UnifiedVerifier.swift */,
+				18371B5527C5441D002528F3 /* VerifierRenderable.swift */,
+			);
+			path = "Unified Verifiers";
+			sourceTree = "<group>";
+		};
 		6F6C26F724B87F410073A2CA /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				18371B3527C54189002528F3 /* Unified Verifiers */,
 				18371B0F27C244A1002528F3 /* VideoWriter */,
 				18371AFA27C2441D002528F3 /* Drawing */,
 				18371AEB27C24352002528F3 /* Controllers */,
@@ -426,17 +467,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18371B5827C5441E002528F3 /* UnifiedVerifier.swift in Sources */,
 				6F64016224C18125004A8982 /* FaceLivenessResult.swift in Sources */,
 				6F1A6A8B251B6DB40087CC0A /* CSelfieWrapper.cpp in Sources */,
+				18371B6027C5441E002528F3 /* VerifierRenderable.swift in Sources */,
 				18371AF727C2437B002528F3 /* BaseController.swift in Sources */,
 				18371AF627C2437B002528F3 /* Camera.swift in Sources */,
 				18ED9F6A26B2B4A900AFF48B /* DocumentSignatureMapper.swift in Sources */,
 				18371B2927C24834002528F3 /* UIFont+Styles.swift in Sources */,
 				6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */,
+				18371B5B27C5441E002528F3 /* UnifiedDocumentVerifierAdapter.swift in Sources */,
 				6F1A6A90251B98C30087CC0A /* SelfieVerifier.swift in Sources */,
 				18371B1F27C24656002528F3 /* CGSize+Flip.swift in Sources */,
 				6F6C26FB24B87F7F0073A2CA /* String+Extensions.swift in Sources */,
+				18371B6127C5441E002528F3 /* UnifiedDocumentResultAdapter.swift in Sources */,
 				6F2CFC86247469AE005D2FB6 /* FaceLivenessVerifier.swift in Sources */,
+				18371B5927C5441E002528F3 /* UnifiedResult.swift in Sources */,
 				D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */,
 				6FE107B724B29B1C00610F8D /* CUtils.cpp in Sources */,
 				18371B0E27C24475002528F3 /* Buttons.swift in Sources */,
@@ -449,11 +495,14 @@
 				18371B0727C2443C002528F3 /* Rectangle.swift in Sources */,
 				18371B0527C2443C002528F3 /* Line.swift in Sources */,
 				18371B1327C244BC002528F3 /* VideoWriterDelegate.swift in Sources */,
+				18371B5E27C5441E002528F3 /* UnifiedSelfieResultAdapter.swift in Sources */,
 				18371B0B27C2443C002528F3 /* Circle.swift in Sources */,
 				18E8BA3D2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift in Sources */,
+				18371B5C27C5441E002528F3 /* UnifiedFacelivenessVerifierAdapter.swift in Sources */,
 				18953DB126844F6B0077F976 /* DocumentVerifierSettings.swift in Sources */,
 				18371B0A27C2443C002528F3 /* RenderableFactory.swift in Sources */,
 				18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */,
+				18371B5F27C5441E002528F3 /* UnifiedFacelivenessResultAdapter.swift in Sources */,
 				18371AF427C2437B002528F3 /* CameraView.swift in Sources */,
 				6F2CFC89247471C5005D2FB6 /* CFaceLivenessWrapper.cpp in Sources */,
 				18371B2627C2473E002528F3 /* UIImageView+Clipping.swift in Sources */,
@@ -465,6 +514,7 @@
 				18371AF527C2437B002528F3 /* FacelivenessController.swift in Sources */,
 				18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */,
 				B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */,
+				18371B5727C5441E002528F3 /* UnifiedSelfieVerifierAdapter.swift in Sources */,
 				181AB23026F985AB0081420D /* DocumentVerifierModels.swift in Sources */,
 				18371B2527C2473E002528F3 /* CMSampleBuffer+UIImage.swift in Sources */,
 				18371B1D27C24639002528F3 /* CGRect+Flip.swift in Sources */,
@@ -481,6 +531,8 @@
 				18371AF227C2437B002528F3 /* SelfieController.swift in Sources */,
 				6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */,
 				18371B1227C244BC002528F3 /* VideoWriter.swift in Sources */,
+				18371B5A27C5441E002528F3 /* UnifiedHologramResultAdapter.swift in Sources */,
+				18371B5D27C5441E002528F3 /* UnifiedState.swift in Sources */,
 				18371B0927C2443C002528F3 /* DrawingLayer.swift in Sources */,
 				18371B1527C2453E002528F3 /* UIView+Layout.swift in Sources */,
 				181AB23226F993140081420D /* FaceVerifierModels.swift in Sources */,

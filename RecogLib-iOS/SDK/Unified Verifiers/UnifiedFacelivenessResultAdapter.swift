@@ -3,16 +3,16 @@ import Foundation
 import RecogLib_iOS
 
 
-final class UnifiedFacelivenessResultAdapter: UnifiedResult {
+public final class UnifiedFacelivenessResultAdapter: UnifiedResult {
     
-    let state: UnifiedState
-    let role: RecogLib_iOS.DocumentRole?
-    let country: RecogLib_iOS.Country?
-    let code: RecogLib_iOS.DocumentCode?
-    let page: RecogLib_iOS.PageCode?
-    let signature: ImageSignature?
+    public let state: UnifiedState
+    public let role: RecogLib_iOS.DocumentRole?
+    public let country: RecogLib_iOS.Country?
+    public let code: RecogLib_iOS.DocumentCode?
+    public let page: RecogLib_iOS.PageCode?
+    public let signature: ImageSignature?
     
-    init(result: FaceLivenessResult) {
+    public init(result: FaceLivenessResult) {
         state = result.faceLivenessState.toDomain()
         role = nil
         country = nil
