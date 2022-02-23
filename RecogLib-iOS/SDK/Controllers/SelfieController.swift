@@ -14,16 +14,19 @@ extension SelfieResult: ResultState {
 public struct SelfieControllerConfiguration {
     public static let `default` = SelfieControllerConfiguration(
         showVisualisation: true,
+        showHelperVisualisation: true,
         showDebugVisualisation: false,
         dataType: .picture
     )
     
     public let showVisualisation: Bool
+    public let showHelperVisualisation: Bool
     public let showDebugVisualisation: Bool
     public let dataType: DataType
     
-    public init(showVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType) {
+    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType) {
         self.showVisualisation = showVisualisation
+        self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
         self.dataType = dataType
     }
@@ -55,7 +58,8 @@ public final class SelfieController: BaseController<SelfieResult> {
         config = configuration
         
         let baseConfig = BaseControllerConfiguration(
-            showVisualisation: configuration.showVisualisation && canShowVisualisation(),
+            showVisualisation: configuration.showVisualisation,
+            showHelperVisualisation: configuration.showVisualisation,
             dataType: configuration.dataType,
             cameraType: .front
         )

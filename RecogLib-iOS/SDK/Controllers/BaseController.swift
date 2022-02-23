@@ -1,6 +1,5 @@
 import Foundation
 import UIKit
-import RecogLib_iOS
 import AVFoundation
 
 public protocol ResultState {
@@ -9,9 +8,10 @@ public protocol ResultState {
 }
 
 struct BaseControllerConfiguration {
-    static let `default` = BaseControllerConfiguration(showVisualisation: true, dataType: .picture, cameraType: .back)
+    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back)
     
     public let showVisualisation: Bool
+    public let showHelperVisualisation: Bool
     public let dataType: DataType
     public let cameraType: CameraType
 }
@@ -111,11 +111,11 @@ public class BaseController<ResultType: ResultState> {
     }
     
     func canShowStaticOverlay() -> Bool {
-        canShowVisualisation()
+        canShowVisualisation() && isVisualisationAllowed()
     }
     
     func canShowInstructionView() -> Bool {
-        baseConfig.dataType != .video && canShowVisualisation()
+        baseConfig.dataType != .video && canShowStaticOverlay()
     }
     
     func callDelegate(with result: ResultType) {
@@ -132,6 +132,10 @@ public class BaseController<ResultType: ResultState> {
         camera.setOrientation(orientation: UIDevice.current.orientation)
         view.drawLayer?.renderables = []
         view.rotateOverlay(targetFrame: getOverlayTargetFrame())
+    }
+    
+    private func isVisualisationAllowed() -> Bool {
+        baseConfig.showVisualisation
     }
 }
 
@@ -161,17 +165,14 @@ extension BaseController {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
             let layerRect = imageRect.rectThatFitsRect(targetFrame)
-            
             let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
-            
         case .resizeAspectFill:
             let layerRect = targetFrame
             let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
             let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
             return cropRect
-            
         default:
             return .zero
         }
@@ -186,7 +187,7 @@ extension BaseController {
     }
     
     func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
-        if !baseConfig.showVisualisation {
+        if !baseConfig.showHelperVisualisation {
             return
         }
         guard let previewLayer = camera.previewLayer else {
@@ -208,17 +209,11 @@ extension BaseController {
             view.statusButton.setTitle("nil result", for: .normal)
             return
         }
-        
         guard unwrappedResult.isOk, !(previousResult?.isOk ?? false) else {
             view.statusButton.setTitle(String(describing: unwrappedResult.description), for: .normal)
             return
         }
         previousResult = unwrappedResult
-        
-        debugPrint("Done")
-        /*if photoType == .face && faceMode?.isFaceliveness ?? false {
-            saveAuxiliaryImagesToLibrary(info: faceLivenessVerifier.getAuxiliaryInfo())
-        }*/
         
         guard isRunning else { return }
         isRunning = false
@@ -256,9 +251,6 @@ extension BaseController: CameraDelegate {
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
         
-        /*if faceMode == nil && photoType == .face {
-            return
-        }*/
         if let videoWriter = self.videoWriter, baseConfig.dataType == .video, videoWriter.isRecording {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }

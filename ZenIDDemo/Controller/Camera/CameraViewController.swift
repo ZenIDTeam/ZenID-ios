@@ -104,6 +104,7 @@ class CameraViewController: UIViewController {
         if photoType.isDocument {
             documentControllerConfig = .init(
                 showVisualisation: true,
+                showHelperVisualisation: true,
                 showDebugVisualisation: config.isDebugEnabled,
                 dataType: dataType,
                 role: RecoglibMapper.documentRole(from: type),
@@ -118,6 +119,7 @@ class CameraViewController: UIViewController {
             if faceMode?.isFaceliveness ?? false {
                 facelivenessControllerConfig = .init(
                     showVisualisation: true,
+                    showHelperVisualisation: true,
                     showDebugVisualisation: config.isDebugEnabled,
                     dataType: dataType,
                     isLegacy: faceMode == .faceLivenessLegacy
@@ -126,6 +128,7 @@ class CameraViewController: UIViewController {
             } else if faceMode == .selfie {
                 selfieControllerConfig = .init(
                     showVisualisation: true,
+                    showHelperVisualisation: true,
                     showDebugVisualisation: config.isDebugEnabled,
                     dataType: dataType
                 )

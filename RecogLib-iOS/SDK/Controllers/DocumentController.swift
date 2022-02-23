@@ -1,10 +1,10 @@
 import Foundation
 import UIKit
-import RecogLib_iOS
 
 public struct DocumentControllerConfiguration {
     public static let `default` = DocumentControllerConfiguration(
         showVisualisation: true,
+        showHelperVisualisation: true,
         showDebugVisualisation: false,
         dataType: .picture,
         role: nil,
@@ -16,6 +16,7 @@ public struct DocumentControllerConfiguration {
     )
     
     public let showVisualisation: Bool
+    public let showHelperVisualisation: Bool
     public let showDebugVisualisation: Bool
     public let dataType: DataType
     public let role: RecogLib_iOS.DocumentRole?
@@ -25,8 +26,9 @@ public struct DocumentControllerConfiguration {
     public let documents: [Document]?
     public let settings: DocumentVerifierSettings?
     
-    public init(showVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, documents: [Document]?, settings: DocumentVerifierSettings?) {
+    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, documents: [Document]?, settings: DocumentVerifierSettings?) {
         self.showVisualisation = showVisualisation
+        self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
         self.dataType = dataType
         self.role = role
@@ -93,7 +95,8 @@ public final class DocumentController: BaseController<DocumentResult> {
         config = configuration
         
         let baseConfig = BaseControllerConfiguration(
-            showVisualisation: configuration.showVisualisation && canShowVisualisation(),
+            showVisualisation: configuration.showVisualisation,
+            showHelperVisualisation: configuration.showHelperVisualisation,
             dataType: configuration.dataType,
             cameraType: .back
         )

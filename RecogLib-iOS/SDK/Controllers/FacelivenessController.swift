@@ -14,18 +14,21 @@ extension FaceLivenessResult: ResultState {
 public struct FacelivenessControllerConfiguration {
     public static let `default` = FacelivenessControllerConfiguration(
         showVisualisation: true,
+        showHelperVisualisation: true,
         showDebugVisualisation: false,
         dataType: .picture,
         isLegacy: false
     )
     
     public let showVisualisation: Bool
+    public let showHelperVisualisation: Bool
     public let showDebugVisualisation: Bool
     public let dataType: DataType
     public let isLegacy: Bool
     
-    public init(showVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, isLegacy: Bool) {
+    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, isLegacy: Bool) {
         self.showVisualisation = showVisualisation
+        self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
         self.dataType = dataType
         self.isLegacy = isLegacy
@@ -58,7 +61,8 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
         config = configuration
         
         let baseConfig = BaseControllerConfiguration(
-            showVisualisation: configuration.showVisualisation && canShowVisualisation(),
+            showVisualisation: configuration.showVisualisation,
+            showHelperVisualisation: configuration.showHelperVisualisation,
             dataType: configuration.dataType,
             cameraType: .front
         )
