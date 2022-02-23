@@ -254,6 +254,10 @@ extension CameraViewController: DocumentControllerDelegate {
     func controller(_ controller: DocumentController, didRecord videoURL: URL) {
         delegate?.didTakeVideo(videoURL, type: photoType)
     }
+    
+    func controller(_ controller: DocumentController, didUpdate result: DocumentResult) {
+        debugPrint(result)
+    }
 }
 
 extension CameraViewController: FacelivenessControllerDelegate {
@@ -267,6 +271,10 @@ extension CameraViewController: FacelivenessControllerDelegate {
     func controller(_ controller: FacelivenessController, didRecord videoURL: URL) {
         delegate?.didTakeVideo(videoURL, type: photoType)
     }
+    
+    func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult) {
+        debugPrint(result)
+    }
 }
 
 extension CameraViewController: SelfieControllerDelegate {
@@ -276,6 +284,10 @@ extension CameraViewController: SelfieControllerDelegate {
     
     func controller(_ controller: SelfieController, didRecord videoURL: URL) {
         delegate?.didTakeVideo(videoURL, type: photoType)
+    }
+    
+    func controller(_ controller: SelfieController, didUpdate result: SelfieResult) {
+        debugPrint(result)
     }
 }
 

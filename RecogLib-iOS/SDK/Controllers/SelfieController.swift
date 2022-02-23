@@ -35,6 +35,7 @@ public struct SelfieControllerConfiguration {
 public protocol SelfieControllerDelegate: AnyObject {
     func controller(_ controller: SelfieController, didScan result: SelfieResult)
     func controller(_ controller: SelfieController, didRecord videoURL: URL)
+    func controller(_ controller: SelfieController, didUpdate result: SelfieResult)
 }
 
 public final class SelfieController: BaseController<SelfieResult> {
@@ -91,6 +92,10 @@ public final class SelfieController: BaseController<SelfieResult> {
     
     override func callDelegate(with videoUrl: URL) {
         delegate?.controller(self, didRecord: videoUrl)
+    }
+    
+    override func callUpdateDelegate(with result: SelfieResult) {
+        delegate?.controller(self, didUpdate: result)
     }
     
     private func loadModels(url: URL) {

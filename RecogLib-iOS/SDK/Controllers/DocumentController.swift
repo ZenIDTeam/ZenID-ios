@@ -53,6 +53,7 @@ extension DocumentResult: ResultState {
 public protocol DocumentControllerDelegate: AnyObject {
     func controller(_ controller: DocumentController, didScan result: DocumentResult)
     func controller(_ controller: DocumentController, didRecord videoURL: URL)
+    func controller(_ controller: DocumentController, didUpdate result: DocumentResult)
 }
 
 public final class DocumentController: BaseController<DocumentResult> {
@@ -147,6 +148,10 @@ public final class DocumentController: BaseController<DocumentResult> {
     
     override func callDelegate(with videoUrl: URL) {
         delegate?.controller(self, didRecord: videoUrl)
+    }
+    
+    override func callUpdateDelegate(with result: DocumentResult) {
+        delegate?.controller(self, didUpdate: result)
     }
     
     private func loadModels(url: URL) {

@@ -126,6 +126,10 @@ public class BaseController<ResultType: ResultState> {
         
     }
     
+    func callUpdateDelegate(with result: ResultType) {
+        
+    }
+    
     @objc
     private func orientationChanged() {
         targetFrame = view.overlay?.bounds ?? .zero
@@ -257,6 +261,7 @@ extension BaseController: CameraDelegate {
         guard let result = verify(pixelBuffer: croppedBuffer) else {
             return
         }
+        callUpdateDelegate(with: result)
         DispatchQueue.main.async { [unowned self] in
             self.updateView(with: result, buffer: croppedBuffer)
         }

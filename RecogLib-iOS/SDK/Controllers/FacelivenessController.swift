@@ -38,6 +38,7 @@ public struct FacelivenessControllerConfiguration {
 public protocol FacelivenessControllerDelegate: AnyObject {
     func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult)
     func controller(_ controller: FacelivenessController, didRecord videoURL: URL)
+    func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult)
 }
 
 public final class FacelivenessController: BaseController<FaceLivenessResult> {
@@ -99,6 +100,10 @@ public final class FacelivenessController: BaseController<FaceLivenessResult> {
     
     override func callDelegate(with videoUrl: URL) {
         delegate?.controller(self, didRecord: videoUrl)
+    }
+    
+    override func callUpdateDelegate(with result: FaceLivenessResult) {
+        delegate?.controller(self, didUpdate: result)
     }
     
     private func loadModels(url: URL) {
