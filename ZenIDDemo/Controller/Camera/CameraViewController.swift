@@ -2,7 +2,6 @@ import AVFoundation
 import CoreGraphics
 import RecogLib_iOS
 import UIKit
-import WebKit
 
 class CameraViewController: UIViewController {
     weak var delegate: CameraViewControllerDelegate?
@@ -19,8 +18,6 @@ class CameraViewController: UIViewController {
     private var contentView: CameraView {
         view as! CameraView
     }
-    
-    private var targetFrame: CGRect = .zero
     
     private var photoType: PhotoType
     private var documentType: DocumentType
@@ -46,7 +43,6 @@ class CameraViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        ApplicationLogger.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -56,10 +52,8 @@ class CameraViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
         
-        // Message view
         contentView.addSubview(messageView)
         messageView.anchor(top: contentView.safeAreaLayoutGuide.topAnchor, left: contentView.leftAnchor, bottom: nil, right: contentView.rightAnchor)
     }
@@ -68,6 +62,7 @@ class CameraViewController: UIViewController {
         super.viewDidAppear(animated)
         documentController?.start()
         facelivenessController?.start()
+        selfieController?.start()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
@@ -158,15 +153,6 @@ class CameraViewController: UIViewController {
         view.backgroundColor = UIColor.black
     }
     
-    private func saveAuxiliaryImagesToLibrary(info: FaceLivenessAuxiliaryInfo?) {
-        for image in info?.images ?? [] {
-            guard let image = UIImage(data: image) else {
-                continue
-            }
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        }
-    }
-    
     private func returnImage(_ buffer: CVPixelBuffer, result: UnifiedResult? = nil) {
         let image = UIImage(pixelBuffer: buffer)
         let data = image?.jpegData(compressionQuality: 0.5)
@@ -193,7 +179,10 @@ class CameraViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
+}
+
+// Controllers
+extension CameraViewController {
     func setupDocumentController() {
         if documentController != nil { return }
         documentController = DocumentController(camera: camera, view: contentView, modelsUrl: URL.modelsDocuments)
@@ -213,9 +202,7 @@ class CameraViewController: UIViewController {
     }
     
     func updateDocumentController() {
-        guard let configuration = documentControllerConfig else {
-            return
-        }
+        guard let configuration = documentControllerConfig else { return }
         do {
             try documentController?.configure(configuration: configuration)
         } catch {
@@ -224,9 +211,7 @@ class CameraViewController: UIViewController {
     }
     
     func updateFacelivenessController() {
-        guard let configuration = facelivenessControllerConfig else {
-            return
-        }
+        guard let configuration = facelivenessControllerConfig else { return }
         do {
             try facelivenessController?.configure(configuration: configuration)
         } catch {
@@ -235,9 +220,7 @@ class CameraViewController: UIViewController {
     }
     
     func updateSelfieController() {
-        guard let configuration = selfieControllerConfig else {
-            return
-        }
+        guard let configuration = selfieControllerConfig else { return }
         do {
             try selfieController?.configure(configuration: configuration)
         } catch {
@@ -274,6 +257,15 @@ extension CameraViewController: FacelivenessControllerDelegate {
     
     func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult) {
         debugPrint(result)
+    }
+    
+    private func saveAuxiliaryImagesToLibrary(info: FaceLivenessAuxiliaryInfo?) {
+        for image in info?.images ?? [] {
+            guard let image = UIImage(data: image) else {
+                continue
+            }
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
     }
 }
 
