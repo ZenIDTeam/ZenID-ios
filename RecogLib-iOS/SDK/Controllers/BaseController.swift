@@ -265,8 +265,7 @@ extension BaseController: CameraDelegate {
         DispatchQueue.main.async { [unowned self] in
             self.updateView(with: result, buffer: croppedBuffer)
         }
-        let canvasSize = camera.previewLayer.frame.size
-        guard let commands = getRenderCommands(size: canvasSize) else {
+        guard let canvasSize = camera.previewLayer?.frame.size, let commands = getRenderCommands(size: canvasSize) else {
             return
         }
         DispatchQueue.main.async {

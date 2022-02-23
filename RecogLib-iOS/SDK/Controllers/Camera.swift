@@ -26,7 +26,7 @@ protocol CameraDelegate: AnyObject {
 
 public final class Camera: NSObject {
     weak var delegate: CameraDelegate?
-    private(set) var previewLayer: AVCaptureVideoPreviewLayer!
+    private(set) var previewLayer: AVCaptureVideoPreviewLayer?
     
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevice: AVCaptureDevice?
@@ -85,19 +85,19 @@ public final class Camera: NSObject {
     func setOrientation(orientation: UIDeviceOrientation) {
         switch UIDevice.current.orientation {
         case .portrait:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
         case .landscapeRight:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
         case .landscapeLeft:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
         case .portraitUpsideDown:
-            previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
         default: break
         }
         
         if #available(iOS 13.0, *) {
             for connection in captureSession.connections {
-                connection.videoOrientation = previewLayer.connection?.videoOrientation ?? .portrait
+                connection.videoOrientation = previewLayer?.connection?.videoOrientation ?? .portrait
             }
         }
     }

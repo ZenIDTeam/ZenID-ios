@@ -295,34 +295,20 @@ extension CameraViewController: SelfieControllerDelegate {
 private extension CameraViewController {
     func startSession() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized:
-            beginSession()
-        case .notDetermined:
+        case .authorized, .notDetermined:
             getAccessToCamera()
-        case .denied, .restricted:
-            returnImage(nil)
-        @unknown default:
+        default:
             returnImage(nil)
         }
     }
     
     func getAccessToCamera() {
-        if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
-            return
-        }
-
         AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
             DispatchQueue.main.async { [unowned self] in
-                if granted {
-                    self.beginSession()
-                } else {
+                if !granted {
                     self.returnImage(nil)
                 }
             }
         })
-    }
-    
-    func beginSession() {
-        
     }
 }
