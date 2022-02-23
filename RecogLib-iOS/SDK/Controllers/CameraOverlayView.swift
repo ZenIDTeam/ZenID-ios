@@ -20,7 +20,7 @@ final class CameraOverlayView: UIView {
     }()
     
     private var targettingReticle: UIImage {
-        UIImage(named: imageName) ?? UIImage()
+        UIImage(named: imageName, in: Bundle(for: CameraOverlayView.self), compatibleWith: nil) ?? UIImage()
     }
     
     init(imageName: String, frame: CGRect) {

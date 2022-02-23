@@ -1,0 +1,14 @@
+
+"msg-scan-front" = "Vyfoťte přední stranu.";
+"msg-scan-back" = "Vyfoťte zadní stranu.";
+"msg-scan-face" = "Vyfoťte se.";
+"msg-scan-hologram" = "Nahrajte video hologramu.";
+
+"document.state.ok" = "Ok ";
+"document.state.align.card" = "Zarovnejte průkaz v rámečku";
+"document.state.blurry" = "Fotka je rozmazaná";
+"document.state.hold.steady" = "Držte ješte chvíli bez pohybu";
+"document.state.no.match.found" = "Žádna shoda nenalezena";
+"document.state.reflection.present" = "Příliš mnoho odlesků";
+"document.state.hologram.error" = "Chybný hologram";
+"document.state.dark" = "Fotka je příliš tmavá";

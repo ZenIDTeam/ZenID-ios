@@ -42,14 +42,14 @@ public final class SelfieController: BaseController<SelfieResult> {
     private var config = SelfieControllerConfiguration.default
     
     public init(camera: Camera, view: CameraView, modelsUrl: URL) {
-        verifier = .init(language: .Czech)
+        verifier = .init(language: .English)
         super.init(camera: camera, view: view)
         
         loadModels(url: modelsUrl)
     }
     
     public func configure(configuration: SelfieControllerConfiguration = .default) throws {
-        view.topLabel.text = NSLocalizedString("msg-scan-face", comment: "")
+        view.topLabel.text = LocalizedString("msg-scan-face", comment: "")
         
         verifier.reset()
         config = configuration

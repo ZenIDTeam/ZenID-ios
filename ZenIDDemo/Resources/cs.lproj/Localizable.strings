@@ -8,11 +8,6 @@
 
 "app_name" = "Trask ZenID";
 
-"msg-scan-front" = "Vyfoťte přední stranu.";
-"msg-scan-back" = "Vyfoťte zadní stranu.";
-"msg-scan-face" = "Vyfoťte se.";
-"msg-scan-hologram" = "Nahrajte video hologramu.";
-
 "msg-sample-success" = "Vzorek úspěšně zpracován.";
 "msg-unreadable-picture" = "Nečitelná fotografie.";
 "msg-unknown-estimated-document-type" = "Neznámý typ dokumentu.";
@@ -101,16 +96,6 @@
 
 // Logout
 "logout-confirm" = "Chcete smazat přihlašovací údaje?";
-
-// Recoglib errors
-"document.state.ok" = "Ok ";
-"document.state.align.card" = "Zarovnejte průkaz v rámečku";
-"document.state.blurry" = "Fotka je rozmazaná";
-"document.state.hold.steady" = "Držte ješte chvíli bez pohybu";
-"document.state.no.match.found" = "Žádna shoda nenalezena";
-"document.state.reflection.present" = "Příliš mnoho odlesků";
-"document.state.hologram.error" = "Chybný hologram";
-"document.state.dark" = "Fotka je příliš tmavá";
 
 // Alerts
 "alert-authorization-failed" = "Chyba ZenID authorizace";

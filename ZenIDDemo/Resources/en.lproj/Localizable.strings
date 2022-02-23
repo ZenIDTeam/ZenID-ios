@@ -8,11 +8,6 @@
 
 "app_name" = "Trask ZenID";
 
-"msg-scan-front" = "Please take a photo of the front side.";
-"msg-scan-back" = "Please take a photo of the rear side.";
-"msg-scan-face" = "Please take a photo of yourself.";
-"msg-scan-hologram" = "Please take a video of the hologram.";
-
 "msg-sample-success" = "Sample successfully processed.";
 "msg-unreadable-picture" = "Unreadable photo.";
 "msg-unknown-estimated-document-type" = "Unknown estimated document type.";
@@ -101,16 +96,6 @@
 
 // Logout
 "logout-confirm" = "Delete the login information?";
-
-// Recoglib errors
-"document.state.ok" = "Ok ";
-"document.state.align.card" = "Align card";
-"document.state.blurry" = "Image is blurry";
-"document.state.hold.steady" = "Hold steady";
-"document.state.no.match.found" = "No match found";
-"document.state.reflection.present" = "Drop reflection please";
-"document.state.hologram.error" = "Hologram error";
-"document.state.dark" = "Image too dark";
 
 // Alerts
 "alert-authorization-failed" = "ZenID authorization failed";

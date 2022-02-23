@@ -73,7 +73,7 @@ public final class DocumentController: BaseController<DocumentResult> {
             country: RecogLib_iOS.Country.Cz,
             page: RecogLib_iOS.PageCode.Front,
             code: nil,
-            language: .Czech
+            language: .English
         )
         super.init(camera: camera, view: view)
         
@@ -85,7 +85,7 @@ public final class DocumentController: BaseController<DocumentResult> {
     }
     
     public func configure(configuration: DocumentControllerConfiguration = .default) throws {
-        view.topLabel.text = config.page == .Back ? NSLocalizedString("msg-scan-back", comment: "") : NSLocalizedString("msg-scan-front", comment: "")
+        view.topLabel.text = config.page == .Back ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
         
         verifier.reset()
         verifier.endHologramVerification()

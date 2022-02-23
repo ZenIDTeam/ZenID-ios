@@ -51,6 +51,9 @@
 		18371B5F27C5441E002528F3 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5427C5441D002528F3 /* UnifiedFacelivenessResultAdapter.swift */; };
 		18371B6027C5441E002528F3 /* VerifierRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5527C5441D002528F3 /* VerifierRenderable.swift */; };
 		18371B6127C5441E002528F3 /* UnifiedDocumentResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B5627C5441D002528F3 /* UnifiedDocumentResultAdapter.swift */; };
+		18371B6A27C667E9002528F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18371B6927C667E9002528F3 /* Assets.xcassets */; };
+		18371B6D27C66961002528F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18371B6F27C66961002528F3 /* Localizable.strings */; };
+		18371B7227C66B8B002528F3 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B7127C66B8B002528F3 /* LocalizedString.swift */; };
 		188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */; };
 		18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */; };
 		18953DAF26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -137,6 +140,10 @@
 		18371B5427C5441D002528F3 /* UnifiedFacelivenessResultAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedFacelivenessResultAdapter.swift; sourceTree = "<group>"; };
 		18371B5527C5441D002528F3 /* VerifierRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifierRenderable.swift; sourceTree = "<group>"; };
 		18371B5627C5441D002528F3 /* UnifiedDocumentResultAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifiedDocumentResultAdapter.swift; sourceTree = "<group>"; };
+		18371B6927C667E9002528F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18371B6E27C66961002528F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		18371B7027C6696C002528F3 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		18371B7127C66B8B002528F3 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentVerifierSettingsWrapper.cpp; sourceTree = "<group>"; };
 		18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CDocumentVerifierSettingsWrapper.hpp; sourceTree = "<group>"; };
@@ -360,7 +367,10 @@
 				6F1A6A89251B6DB40087CC0A /* CSelfieWrapper.cpp */,
 				6F6C26FF24B8805E0073A2CA /* CZenidSecurityWrapper.hpp */,
 				6F6C26FE24B8805E0073A2CA /* CZenidSecurityWrapper.cpp */,
+				18371B7127C66B8B002528F3 /* LocalizedString.swift */,
 				D264246122C11E7E00735B99 /* Info.plist */,
+				18371B6927C667E9002528F3 /* Assets.xcassets */,
+				18371B6F27C66961002528F3 /* Localizable.strings */,
 			);
 			path = "RecogLib-iOS";
 			sourceTree = "<group>";
@@ -441,6 +451,7 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
 			);
 			mainGroup = D264245322C11E7E00735B99;
 			productRefGroup = D264245E22C11E7E00735B99 /* Products */;
@@ -457,6 +468,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18371B6A27C667E9002528F3 /* Assets.xcassets in Resources */,
+				18371B6D27C66961002528F3 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +490,7 @@
 				18371B2927C24834002528F3 /* UIFont+Styles.swift in Sources */,
 				6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */,
 				18371B5B27C5441E002528F3 /* UnifiedDocumentVerifierAdapter.swift in Sources */,
+				18371B7227C66B8B002528F3 /* LocalizedString.swift in Sources */,
 				6F1A6A90251B98C30087CC0A /* SelfieVerifier.swift in Sources */,
 				18371B1F27C24656002528F3 /* CGSize+Flip.swift in Sources */,
 				6F6C26FB24B87F7F0073A2CA /* String+Extensions.swift in Sources */,
@@ -541,6 +555,18 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		18371B6F27C66961002528F3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18371B6E27C66961002528F3 /* en */,
+				18371B7027C6696C002528F3 /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		D264246322C11E7E00735B99 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -548,6 +574,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -618,6 +645,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
