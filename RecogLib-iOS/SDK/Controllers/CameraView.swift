@@ -110,7 +110,7 @@ public final class CameraView: UIView {
             overlay.setupImage(rect: targetFrame)
             
         case .resizeAspectFill:
-            overlay.setupImage()
+            overlay.setupImage(rect: targetFrame)
             
         default:
             overlay.setupImage()
