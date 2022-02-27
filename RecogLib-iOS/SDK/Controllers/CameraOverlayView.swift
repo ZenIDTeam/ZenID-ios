@@ -14,7 +14,6 @@ final class CameraOverlayView: UIView {
     lazy var frameImageView: UIImageView = {
         let imageView = UIImageView(image: targettingReticle)
         imageView.tintColor = UIColor.white
-        imageView.backgroundColor = .green.withAlphaComponent(0.25)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

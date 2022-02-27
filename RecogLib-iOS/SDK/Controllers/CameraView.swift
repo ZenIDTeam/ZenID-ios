@@ -62,13 +62,13 @@ public final class CameraView: UIView {
         }
     }
     
-    func setup(isOtherDocument: Bool) {
+    func setup() {
         // Camera view
         addSubview(cameraView)
         cameraView.anchor(top: safeAreaLayoutGuide.topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor)
         
         // Control view
-        setupControlView(isOtherDocument: isOtherDocument)
+        setupControlView()
 
         // Top label wrapper
         let topLabelWrapper = UIView()
@@ -84,17 +84,12 @@ public final class CameraView: UIView {
         instructionView.centerY(to: cameraView)
     }
     
-    func setupControlView(isOtherDocument: Bool) {
+    func setupControlView() {
         controlView.removeFromSuperview()
         controlView = UIView()
-        if isOtherDocument {
-            addSubview(controlView)
-            controlView.anchor(top: cameraView.bottomAnchor, left: leftAnchor, bottom: layoutMarginsGuide.bottomAnchor, right: rightAnchor)
-        } else {
-            addSubview(controlView)
-            controlView.anchor(top: cameraView.bottomAnchor, left: leftAnchor, bottom: layoutMarginsGuide.bottomAnchor, right: rightAnchor)
-            controlView.heightAnchor.constraint(equalToConstant: 0).isActive = true
-        }
+        addSubview(controlView)
+        controlView.anchor(top: cameraView.bottomAnchor, left: leftAnchor, bottom: layoutMarginsGuide.bottomAnchor, right: rightAnchor)
+        controlView.heightAnchor.constraint(equalToConstant: 0).isActive = true
     }
     
     func rotateOverlay(targetFrame: CGRect) {
@@ -144,7 +139,6 @@ public final class CameraView: UIView {
         guard let previewLayer = previewLayer else { return }
         drawLayer?.removeFromSuperlayer()
         drawLayer = DrawingLayer()
-        drawLayer?.backgroundColor = UIColor.red.withAlphaComponent(0.4).cgColor
         previewLayer.addSublayer(drawLayer!)
     }
     

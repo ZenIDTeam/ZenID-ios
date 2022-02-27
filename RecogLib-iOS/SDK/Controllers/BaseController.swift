@@ -60,8 +60,8 @@ public class BaseController<ResultType: ResultState> {
         try camera.configure(with: .init(type: configuration.cameraType))
         
         view.previewLayer = camera.previewLayer
-        view.setup(isOtherDocument: false)
-        view.setupControlView(isOtherDocument: false)
+        view.setup()
+        view.setupControlView()
         view.supportChangedOrientation = { true }
         view.onFrameChange = { [weak self] in
             self?.orientationChanged()
