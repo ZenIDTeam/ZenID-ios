@@ -9,14 +9,6 @@
 import UIKit
 
 final class BusyViewController: BaseInfoViewController {
-    override var shouldAutorotate: Bool {
-        false
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        .portrait
-    }
-    
     private let onImage = #imageLiteral(resourceName: "BulbOn")
     private let offImage = #imageLiteral(resourceName: "BulbOff")
 

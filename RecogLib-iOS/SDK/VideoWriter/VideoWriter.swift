@@ -7,15 +7,14 @@
 //
 
 import AVFoundation
-import RecogLib_iOS
 
 enum VideoWriterError : Error {
     case cannotWriteError
 }
 
-public class VideoWriter: NSObject {
+final class VideoWriter: NSObject {
     public weak var delegate: VideoWriterDelegate?
-    public private(set) var isRecording = false
+    private(set) var isRecording = false
     
     private let filePrefix = "VideoSample-"
 
@@ -27,14 +26,14 @@ public class VideoWriter: NSObject {
 
 // MARK: - Public
 extension VideoWriter {
-    public func start(isPortrait: Bool) {
+    func start(isPortrait: Bool) {
         guard !isRecording else { return }
         isRecording = true
         sessionAtSourceTime = nil
         setupWriter(isPortrait: isPortrait)
     }
     
-    public func stop() {
+    func stop() {
         guard isRecording else { return }
         isRecording = false
         videoWriter.finishWriting { [weak self] in
@@ -50,15 +49,22 @@ extension VideoWriter {
         }
     }
     
-    public func pause() {
+    func stopAndCancel() {
+        guard isRecording else { return }
+        isRecording = false
+        videoWriter.cancelWriting()
+        sessionAtSourceTime = nil
+    }
+    
+    func pause() {
         isRecording = false
     }
     
-    public func resume() {
+    func resume() {
         isRecording = true
     }
     
-    public func captureOutput(sampleBuffer: CMSampleBuffer) {
+    func captureOutput(sampleBuffer: CMSampleBuffer) {
         guard CMSampleBufferDataIsReady(sampleBuffer) else { return }
         
         let writable = canWrite()
@@ -130,24 +136,3 @@ extension VideoWriter {
         }
     }
 }
-
-// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
-/*extension VideoWriter: AVCaptureVideoDataOutputSampleBufferDelegate {
-    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard CMSampleBufferDataIsReady(sampleBuffer) else { return }
-        
-        let writable = canWrite()
-        if writable, sessionAtSourceTime == nil {
-            // Start writing
-            sessionAtSourceTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
-            videoWriter.startSession(atSourceTime: sessionAtSourceTime!)
-        }
-        
-        if output == cameraVideoOutput {
-            if videoWriterInput.isReadyForMoreMediaData {
-                // Write video buffer
-                videoWriterInput.append(sampleBuffer)
-            }
-        }
-    }
-}*/

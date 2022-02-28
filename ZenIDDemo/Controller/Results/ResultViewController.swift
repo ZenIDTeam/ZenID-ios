@@ -51,15 +51,7 @@ final class ResultCell: UITableViewCell {
     }
 }
 
-final class ResultViewController: BaseInfoViewController {
-    override var shouldAutorotate: Bool {
-        false
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        .portrait
-    }
-    
+final class ResultViewController: BaseInfoViewController {    
     private let viewModel: ResultsViewModel
     private let tableView: UITableView = {
         let view = UITableView()

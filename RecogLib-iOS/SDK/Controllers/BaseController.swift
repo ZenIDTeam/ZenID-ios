@@ -71,12 +71,10 @@ public class BaseController<ResultType: ResultState> {
         
         targetFrame = view.overlay?.bounds ?? .zero
         
-        setTorch(on: baseConfig.dataType == .video)
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
             videoWriter?.delegate = self
-            let orientation = UIDevice.current.orientation
-            videoWriter?.start(isPortrait: orientation == .portrait || orientation == .faceUp)
+            startVideoWriter()
         }
         
         view.showInstructionView = canShowInstructionView()
@@ -86,8 +84,10 @@ public class BaseController<ResultType: ResultState> {
         start()
         isRunning = true
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             self.orientationChanged()
+            self.setTorch(on: self.baseConfig.dataType == .video)
         }
     }
     
@@ -136,10 +136,22 @@ public class BaseController<ResultType: ResultState> {
         camera.setOrientation(orientation: UIDevice.current.orientation)
         view.drawLayer?.renderables = []
         view.rotateOverlay(targetFrame: getOverlayTargetFrame())
+        
+        if let videoWriter = videoWriter, videoWriter.isRecording {
+            videoWriter.stopAndCancel()
+            DispatchQueue.main.async { [weak self] in
+                self?.startVideoWriter()
+            }
+        }
     }
     
     private func isVisualisationAllowed() -> Bool {
         baseConfig.showVisualisation
+    }
+    
+    private func startVideoWriter() {
+        let orientation = UIDevice.current.orientation
+        videoWriter?.start(isPortrait: orientation == .portrait || orientation == .faceUp)
     }
 }
 

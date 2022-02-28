@@ -83,6 +83,7 @@ public final class Camera: NSObject {
     }
     
     func setOrientation(orientation: UIDeviceOrientation) {
+        let isTorchOn = captureDevice?.torchMode == .on
         switch UIDevice.current.orientation {
         case .portrait:
             previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
@@ -98,6 +99,12 @@ public final class Camera: NSObject {
         if #available(iOS 13.0, *) {
             for connection in captureSession.connections {
                 connection.videoOrientation = previewLayer?.connection?.videoOrientation ?? .portrait
+            }
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            if isTorchOn {
+                try? self?.setTorch(isOn: true)
             }
         }
     }

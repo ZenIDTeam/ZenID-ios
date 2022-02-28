@@ -142,7 +142,6 @@
 		6F556FFE2573C92900E7C0B8 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */; };
 		6F64016424C19E95004A8982 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F64016324C19E95004A8982 /* Settings.bundle */; };
 		6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */; };
-		6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8EEF1E24C4E62A00208223 /* Torch.swift */; };
 		6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */; };
 		6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */; };
 		6FD5BDFF26409471001943DD /* ZenIDLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5BDFE26409471001943DD /* ZenIDLogger.swift */; };
@@ -329,7 +328,6 @@
 		6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		6F64016324C19E95004A8982 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
-		6F8EEF1E24C4E62A00208223 /* Torch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Torch.swift; sourceTree = "<group>"; };
 		6F8EEF2024C4ECA600208223 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6FAE47872520AB1700A92876 /* SelectFaceModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceModeView.swift; sourceTree = "<group>"; };
 		6FBEFB8024A60EFD00099A38 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
@@ -760,7 +758,6 @@
 			isa = PBXGroup;
 			children = (
 				6F2D53752469D242001C3544 /* Haptics.swift */,
-				6F8EEF1E24C4E62A00208223 /* Torch.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -980,7 +977,6 @@
 				D2CB352522BB7BA900453DB8 /* Responses.swift in Sources */,
 				0134755A21EE2179004EE4E5 /* Client.swift in Sources */,
 				0134753721ECBD1F004EE4E5 /* Enums.swift in Sources */,
-				6F8EEF1F24C4E62A00208223 /* Torch.swift in Sources */,
 				0141C02823A38AAF00566078 /* SelectCountryView.swift in Sources */,
 				182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */,
 				18953D4B268241CC0077F976 /* SettingsView.swift in Sources */,
