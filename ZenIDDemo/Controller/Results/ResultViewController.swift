@@ -64,6 +64,8 @@ final class ResultViewController: BaseInfoViewController {
         return view
     }()
     
+    private var backgroundLayer: CALayer?
+    
     init(model: ResultsViewModel) {
         viewModel = model
         super.init(nibName: nil, bundle: nil)
@@ -72,6 +74,12 @@ final class ResultViewController: BaseInfoViewController {
     required init?(coder aDecoder: NSCoder) {
         ApplicationLogger.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        backgroundLayer?.removeFromSuperlayer()
+        setupBackground()
     }
 
     override func viewDidLoad() {
@@ -85,7 +93,7 @@ final class ResultViewController: BaseInfoViewController {
     }
     
     override func setupBackground() {
-        applyPathGradient()
+        backgroundLayer = applyPathGradient()
     }
     
     private func image(from model: ResultsViewModel) -> UIImage {

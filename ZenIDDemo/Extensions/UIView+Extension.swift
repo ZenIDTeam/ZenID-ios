@@ -38,7 +38,7 @@ extension UIView {
         return gradient
     }
 
-    func setPartialGradient(colors: [CGColor], angle: Float = 0, start: CGFloat, end: CGFloat) {
+    func setPartialGradient(colors: [CGColor], angle: Float = 0, start: CGFloat, end: CGFloat) -> CAGradientLayer {
         let gradient = createGradientLayer(colors: colors, angle: angle)
 
         let path = UIBezierPath()
@@ -55,6 +55,8 @@ extension UIView {
         fillLayer.fillColor = UIColor.white.cgColor
         fillLayer.opacity = 1
         gradient.addSublayer(fillLayer)
+        
+        return gradient
     }
 
     func dropShadow() {

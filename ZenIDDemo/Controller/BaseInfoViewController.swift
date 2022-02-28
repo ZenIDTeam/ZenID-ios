@@ -33,12 +33,19 @@ class BaseInfoViewController: UIViewController {
         bottomLabel.textAlignment = .center
         return bottomLabel
     }()
+    
+    private var backgroundLayer: CALayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupBackground()
         //setupNavigationBar()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        backgroundLayer?.frame = view.bounds
     }
     
     func setupView() {
@@ -57,6 +64,7 @@ class BaseInfoViewController: UIViewController {
         imageParent.addSubview(imageView)
         imageView.centerX(to: imageParent)
         imageView.centerY(to: imageParent)
+        imageView.isHidden = true
 
         // Top title
         view.addSubview(topLabel)
@@ -68,7 +76,7 @@ class BaseInfoViewController: UIViewController {
     }
     
     func setupBackground() {
-        self.applyDefaultGradient()
+        backgroundLayer = applyDefaultGradient()
     }
     
     func setupImageBackground(documentType: DocumentType?) {
