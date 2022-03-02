@@ -15,7 +15,7 @@ final class DocumentsFilterLoaderComposer {
     
     static func compose() -> DocumentsFilterLoader & DocumentsFilterSaver & DocumentsFilterDeleter {
         if service == nil {
-            service = InMemoryDocumentsFilter()
+            service = UserDefaultsDocumentsFilter()
         }
         return service!
     }

@@ -51,6 +51,7 @@
 		182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */; };
 		182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */; };
 		18371B3027C3CCA3002528F3 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2F27C3CCA3002528F3 /* NavigationController.swift */; };
+		1852EC4A27CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852EC4927CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift */; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
 		186ECA2E27B0148C002189C3 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
 		186ECA2F27B0148C002189C3 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -90,7 +91,6 @@
 		18953D7C2682E6000077F976 /* DocumentsFilterComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D7B2682E6000077F976 /* DocumentsFilterComposer.swift */; };
 		18953D7E2682E6110077F976 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D7D2682E6110077F976 /* DocumentViewModel.swift */; };
 		18953D812682E6BF0077F976 /* DocumentsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D802682E6BF0077F976 /* DocumentsFilter.swift */; };
-		18953D842682E7820077F976 /* InMemoryDocumentsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D832682E7820077F976 /* InMemoryDocumentsFilter.swift */; };
 		18953D862682EB1F0077F976 /* DocumentFilterCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D852682EB1F0077F976 /* DocumentFilterCellController.swift */; };
 		18953D882682EBBF0077F976 /* DocumentFilterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D872682EBBF0077F976 /* DocumentFilterTableCell.swift */; };
 		18953D8A2682EF940077F976 /* DocumentsFilterViewModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D892682EF940077F976 /* DocumentsFilterViewModelAdapter.swift */; };
@@ -235,6 +235,7 @@
 		182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchViewModel.swift; sourceTree = "<group>"; };
 		182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchCellController.swift; sourceTree = "<group>"; };
 		18371B2F27C3CCA3002528F3 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		1852EC4927CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDocumentsFilter.swift; sourceTree = "<group>"; };
 		1861947226FC28D500B8B395 /* URL+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Models.swift"; sourceTree = "<group>"; };
 		1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = "../../Downloads/LibZenid-iOS_1.9.1/LibZenid_iOS.xcframework"; sourceTree = "<group>"; };
 		187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RecogLib_iOS.xcframework; path = ../../Desktop/RecogLib/RecogLib_iOS.xcframework; sourceTree = "<group>"; };
@@ -274,7 +275,6 @@
 		18953D7B2682E6000077F976 /* DocumentsFilterComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterComposer.swift; sourceTree = "<group>"; };
 		18953D7D2682E6110077F976 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
 		18953D802682E6BF0077F976 /* DocumentsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilter.swift; sourceTree = "<group>"; };
-		18953D832682E7820077F976 /* InMemoryDocumentsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryDocumentsFilter.swift; sourceTree = "<group>"; };
 		18953D852682EB1F0077F976 /* DocumentFilterCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFilterCellController.swift; sourceTree = "<group>"; };
 		18953D872682EBBF0077F976 /* DocumentFilterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFilterTableCell.swift; sourceTree = "<group>"; };
 		18953D892682EF940077F976 /* DocumentsFilterViewModelAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterViewModelAdapter.swift; sourceTree = "<group>"; };
@@ -655,7 +655,7 @@
 		18953D822682E7710077F976 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				18953D832682E7820077F976 /* InMemoryDocumentsFilter.swift */,
+				1852EC4927CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift */,
 				18953D8D2682F1810077F976 /* DocumentsFilterLoaderComposer.swift */,
 				18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */,
 			);
@@ -917,6 +917,7 @@
 				18953DBA2684680A0077F976 /* DocumentVerifierSettingsViewModel.swift in Sources */,
 				012F7B602285E6F600B0BBB6 /* BaseInfoViewController.swift in Sources */,
 				18371B3027C3CCA3002528F3 /* NavigationController.swift in Sources */,
+				1852EC4A27CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift in Sources */,
 				18953DCA268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift in Sources */,
 				0134756121F5BF90004EE4E5 /* Defaults.swift in Sources */,
 				18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */,
@@ -1014,7 +1015,6 @@
 				6F2D53762469D242001C3544 /* Haptics.swift in Sources */,
 				0134754F21EE0325004EE4E5 /* Endpoint.swift in Sources */,
 				D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */,
-				18953D842682E7820077F976 /* InMemoryDocumentsFilter.swift in Sources */,
 				18953D902682F33A0077F976 /* SettingsCoordinator.swift in Sources */,
 				D2CB351A22BA784400453DB8 /* ZenConstants.swift in Sources */,
 				6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */,
