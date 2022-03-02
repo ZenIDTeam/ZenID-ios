@@ -63,6 +63,7 @@ public final class Camera: NSObject {
     }
     
     func stop() {
+        try? setTorch(isOn: false)
         if !captureSession.isRunning {
             return
         }
