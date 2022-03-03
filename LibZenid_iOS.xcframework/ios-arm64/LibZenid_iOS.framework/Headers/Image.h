@@ -53,8 +53,8 @@ class Image
 
 	/**
 	 * \brief Crop image to the viewport aspect ratio.
-	 * \param viewportHeight 
-	 * \param viewportWidth 
+	 * \param viewportHeight Height
+	 * \param viewportWidth Width
 	 */
 	void CenterCrop(int viewportWidth, int viewportHeight);
 

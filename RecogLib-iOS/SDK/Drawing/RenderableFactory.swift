@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RecogLib_iOS
+
 enum RenderableType: String {
     case line = "line"
     case rectangle = "rectangle"

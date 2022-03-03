@@ -1,6 +1,5 @@
 import Foundation
 import WebKit
-import RecogLib_iOS
 
 struct WebViewOverlayState {
     let page: String

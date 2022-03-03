@@ -10,10 +10,12 @@ import UIKit
 
 
 extension UIViewController {
+    @discardableResult
     func applyDefaultGradient() -> CALayer {
         view.createGradientLayer(colors: [UIColor.zenPurple.cgColor, UIColor.zenGreen.cgColor], angle: 29)
     }
 
+    @discardableResult
     func applyPathGradient() -> CALayer {
         let startHeight: CGFloat = 190 - (UIDevice.isPhoneSE ? 40 : 0)
         let endHeight: CGFloat = 190 - (UIDevice.isPhoneSE ? 40 : 0)

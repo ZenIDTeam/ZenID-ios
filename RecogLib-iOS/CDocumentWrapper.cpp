@@ -120,9 +120,9 @@ bool verifyImage(const void *object,
     if (state == DocumentVerifierState::Ok) {
         CImageSignature signature = CImageSignature();
         signature.signature = verifier->GetSignature().c_str();
-        signature.signatureSize = verifier->GetSignature().size();
+        signature.signatureSize = static_cast<int>(verifier->GetSignature().size());
         signature.image = verifier->GetSignedImage().data();
-        signature.imageSize = verifier->GetSignedImage().size();
+        signature.imageSize = static_cast<int>(verifier->GetSignedImage().size());
         document->signature = signature;
     }
     
@@ -205,7 +205,7 @@ void reset(const void *object)
 
 int validateDocumentsInput(const void *object, const char* acceptableInputJson) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
-    int size = verifier->GetEnabledModels(acceptableInputJson).size();
+    int size = static_cast<int>(verifier->GetEnabledModels(acceptableInputJson).size());
     return size;
 }
 

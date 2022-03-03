@@ -62,9 +62,9 @@ bool verifyFaceLivenessImage(const void *object,
     if (state == FaceLivenessVerifierState::Ok) {
         CImageSignature signature = CImageSignature();
         signature.signature = verifier->GetSignature().c_str();
-        signature.signatureSize = verifier->GetSignature().size();
+        signature.signatureSize = static_cast<int>(verifier->GetSignature().size());
         signature.image = verifier->GetSignedImage().data();
-        signature.imageSize = verifier->GetSignedImage().size();
+        signature.imageSize = static_cast<int>(verifier->GetSignedImage().size());
         face->signature = signature;
     }
     
@@ -94,7 +94,7 @@ CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
         std::vector<uint32_t> imageLengths;
         for (auto image : verifier->GetAuxiliaryImages()) {
             images1d.insert(images1d.end(), image->begin(), image->end());
-            imageLengths.push_back(image->size());
+            imageLengths.push_back(static_cast<int>(image->size()));
         }
         
         uint8_t* cImages1d = new uint8_t[images1d.size()];
@@ -110,11 +110,11 @@ CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
         metadata = strdup(verifier->GetAuxiliaryImageMetadata().c_str());
         
         info.images = cImages1d;
-        info.imagesSize = images1d.size();
+        info.imagesSize = static_cast<int>(images1d.size());
         info.imageLengths = cImageLengths;
-        info.imageLengthsSize = imageLengths.size();
+        info.imageLengthsSize = static_cast<int>(imageLengths.size());
         info.metadata = metadata;
-        info.metadataSize = strlen(metadata);
+        info.metadataSize = static_cast<int>(strlen(metadata));
     }
     return info;
 }

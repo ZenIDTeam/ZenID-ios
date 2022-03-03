@@ -1,7 +1,4 @@
-
 import Foundation
-import RecogLib_iOS
-
 
 public final class UnifiedDocumentVerifierAdapter: UnifiedVerifier {
     

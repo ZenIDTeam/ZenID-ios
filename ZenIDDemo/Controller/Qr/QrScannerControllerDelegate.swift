@@ -9,7 +9,7 @@
 import UIKit
 
 /// This protocol defines QR scnanner events
-public protocol QrScannerControllerDelegate: class {
+public protocol QrScannerControllerDelegate: AnyObject {
     func qrSuccess(_ controller: UIViewController, scanDidComplete result: String, completion: (() -> Void)?)
     func qrFail(_ controller: UIViewController, error: String)
     func qrCancel(_ controller: UIViewController)

@@ -66,9 +66,9 @@ bool verifySelfieImage(const void *object,
     if (state == SelfieVerifierState::Ok) {
         CImageSignature signature = CImageSignature();
         signature.signature = verifier->GetSignature().c_str();
-        signature.signatureSize = verifier->GetSignature().size();
+        signature.signatureSize = static_cast<int>(verifier->GetSignature().size());
         signature.image = verifier->GetSignedImage().data();
-        signature.imageSize = verifier->GetSignedImage().size();
+        signature.imageSize = static_cast<int>(verifier->GetSignedImage().size());
         selfie->signature = signature;
     }
     

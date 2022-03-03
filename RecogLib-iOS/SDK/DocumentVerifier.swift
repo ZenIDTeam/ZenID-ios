@@ -63,23 +63,15 @@ public class DocumentVerifier {
     }
 
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
-        do {
-            var document = createDocumentInfo(orientation: orientation)
-            RecogLib_iOS.verify(cppObject, buffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
-            return DocumentResult(document: document)
-        } catch {
-            ApplicationLogger.shared.Error(error.localizedDescription)
-        }
+        var document = createDocumentInfo(orientation: orientation)
+        RecogLib_iOS.verify(cppObject, buffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
+        return DocumentResult(document: document)
     }
     
     public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
-        do {
-            var document = createDocumentInfo(orientation: orientation)
-            RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
-            return DocumentResult(document: document)
-        } catch {
-            ApplicationLogger.shared.Error(error.localizedDescription)
-        }
+        var document = createDocumentInfo(orientation: orientation)
+        RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
+        return DocumentResult(document: document)
     }
     
     public func update(settings: DocumentVerifierSettings) {

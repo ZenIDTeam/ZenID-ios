@@ -1,6 +1,7 @@
 // Copyright (c) Společnost pro informační technologie a právo, s.r.o.
 
 #pragma once
+#pragma clang system_header
 
 #include "DocumentVerifier.h"
 #include "FaceLivenessVerifier.h"

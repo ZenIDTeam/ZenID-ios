@@ -34,23 +34,15 @@ public class FaceLivenessVerifier {
     }
     
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
-        do {
-            var face = createFaceLivenessInfo(orientation: orientation)
-            RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
-            return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
-        } catch {
-            ApplicationLogger.shared.Error(error.localizedDescription)
-        }
+        var face = createFaceLivenessInfo(orientation: orientation)
+        RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
+        return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
     }
     
     public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
-        do {
-            var face = createFaceLivenessInfo(orientation: orientation)
-            RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
-            return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
-        } catch {
-            ApplicationLogger.shared.Error(error.localizedDescription)
-        }
+        var face = createFaceLivenessInfo(orientation: orientation)
+        RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
+        return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
     }
     
     public func update(settings: FaceLivenessVerifierSettings) {
@@ -59,18 +51,13 @@ public class FaceLivenessVerifier {
     }
     
     public func getAuxiliaryInfo() -> FaceLivenessAuxiliaryInfo? {
-        do {
-            let cInfo = RecogLib_iOS.getAuxiliaryInfo(cppObject)
-            let info = createFaceLivenessAuxiliaryInfo(info: cInfo)
-            print(info.metadata)
-            if info.images.isEmpty {
-                return nil
-            }
-            return info
-        } catch {
-            ApplicationLogger.shared.Error(error.localizedDescription)
+        let cInfo = RecogLib_iOS.getAuxiliaryInfo(cppObject)
+        let info = createFaceLivenessAuxiliaryInfo(info: cInfo)
+        print(info.metadata)
+        if info.images.isEmpty {
+            return nil
         }
-        return nil
+        return info
     }
     
     public func reset() {

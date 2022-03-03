@@ -8,6 +8,6 @@
 
 import AVFoundation
 
-public protocol VideoWriterDelegate: class {
+public protocol VideoWriterDelegate: AnyObject {
     func didTakeVideo(_ videoAsset: AVURLAsset)
 }
