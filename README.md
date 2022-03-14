@@ -209,7 +209,8 @@ You can tune a couple of parameters of document verifier. Each initializer has o
 DocumentVerifierSettings(
     specularAcceptableScore: 50,
     documentBlurAcceptableScore: 50,
-    timeToBlurMaxToleranceInSeconds: 10
+    timeToBlurMaxToleranceInSeconds: 10,
+    showAimingCircle: false
 )
 ```
 ```swift
@@ -227,6 +228,10 @@ timeToBlurMaxToleranceInSeconds
 ```
 - default: 10
 - range: <0; undefined)
+```swift
+showAimingCircle
+```
+- default: False
 
 Note that properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
 ```swift
@@ -269,7 +274,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 ### 3. Holograms
 You can use  `DocumentVerifier` to detect 2D holograms on cards.
-To do that, you can use this object the same way like to detect documents and call method `beginHologramVerification`.
+To do that, you can use this object the same way like to detect documents and call method `beginHologramVerification` and endHologramVerification. You can record video for selfie and faceliveness, however, there is no need to call any methods on their verifiers.
 
 Detection logic in `captureOutput(_: ,didOutput: ,from:)` is almost the same but in case of holograms you can easily add reconrding video with `VideoWriter` class.
 This video can be uploaded to the backend after successful detection of hologram.
@@ -356,7 +361,7 @@ It contains all the information found describing currently analysed document/fac
 - `signature` - signature when state is OK
 
 Hologram result contains state of currently analysed image.
-`HologramResult.state`  can be `NoMatchFound`, `TiltLeft`, `RotateClockwise` etc. and finally  `Ok`
+`HologramResult.state`  can be `center`, `tiltLeftAndRight`, `tiltUpAndDown` and finally  `ok`
 
 Selfie detection result contains state of currently analysed image.
 `SelfieResult.state` can be `NoFaceFound`, `Blurry`, `Dark`, `ConfirmingFace` and finally `Ok`

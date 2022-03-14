@@ -79,6 +79,7 @@ public enum DocumentCode: Int {
     case SI_IDC = 53
     case SI_DRV = 54
     case PL_IDC_2001_02_13 = 56
+    case LT_IDC_2021 = 109
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -186,6 +187,8 @@ extension DocumentCode: CustomStringConvertible {
             return "SI_DRV"
         case .PL_IDC_2001_02_13:
             return "PL_IDC_2001_02_13"
+        case .LT_IDC_2021:
+            return "LT_IDC_2021"
         }
     }
 }
@@ -276,6 +279,7 @@ public enum DocumentState: Int {
     case Ok = 5
     case Hologram = 6
     case Dark = 7
+    case Barcode = 8
 }
 
 extension DocumentState: CustomStringConvertible {
@@ -297,6 +301,8 @@ extension DocumentState: CustomStringConvertible {
             return "Hologram error"
         case .Dark:
             return "Too dark"
+        case .Barcode:
+            return "Barcode not readable"
         }
     }
 }

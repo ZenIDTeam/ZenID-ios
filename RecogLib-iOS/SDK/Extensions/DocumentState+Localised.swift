@@ -19,6 +19,8 @@ extension DocumentState {
             return LocalizedString("document.state.hologram.error", comment: "")
         case .Dark:
             return LocalizedString("document.state.dark", comment: "")
+        case .Barcode:
+            return LocalizedString("document.state.barcode", comment: "")
         }
     }
 }

@@ -19,4 +19,5 @@ public enum UnifiedState {
     case tiltLeftAndRight
     case tiltUpAndDown
     case center
+    case barcode
 }

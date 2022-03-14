@@ -28,6 +28,8 @@ extension UnifiedState {
             return "document.state.hologram.error".localized
         case .dark:
             return "document.state.dark".localized
+        case .barcode:
+            return "document.state.barcode".localized
         default:
             return String(describing: self)
         }

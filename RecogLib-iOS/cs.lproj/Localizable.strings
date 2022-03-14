@@ -12,3 +12,4 @@
 "document.state.reflection.present" = "Příliš mnoho odlesků";
 "document.state.hologram.error" = "Chybný hologram";
 "document.state.dark" = "Fotka je příliš tmavá";
+"document.state.barcode" = "Barcode není čítelný";
