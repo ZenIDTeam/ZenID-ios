@@ -79,7 +79,6 @@ enum class DocumentCodes : uint8_t
 	DE_PAS_2007 = 67,
 	DE_DRV_2013_21 = 68,
 	DE_DRV_1999_01_04_11 = 69,
-	DE_IDC_2021 = 70,
 	FR_IDC_2021 = 71,
 	FR_IDC_1988_94 = 72,
 	ES_PAS_2003_06 = 73,
@@ -118,6 +117,7 @@ enum class DocumentCodes : uint8_t
 	MT_IDC_2014 = 106,
 	PL_PAS_2011 = 107,
 	PL_DRV_1999 = 108,
+	LT_IDC_2021 = 109,
 };
 
 enum class PageCodes : uint8_t
@@ -194,6 +194,7 @@ enum class DocumentVerifierState : int
 	Ok = 5,
 	Hologram = 6,
 	Dark = 7,
+	Barcode = 8,
 };
 
 enum class SelfieVerifierState : int
@@ -298,6 +299,21 @@ enum class FieldID : int
 	IssuingCountry = 68,
 	ResidencyNumberPhoto = 69,
 	IssueDateAndAuthority = 70,
+	TitlesAfter = 71,
+	PlaceOfIssue = 72,
+	BirthAddressAndDate = 73,
+	IssueDateAndPlaceOfIssue = 74,
+	MothersSurname = 75,
+	MothersName = 76,
+	FathersSurname = 77,
+	FathersName = 78,
+	LastName2 = 79,
+	A4 = 80,
+	FirstName2 = 81,
+	IssueAndExpiryDate = 82,
+	FiscalNumber = 83,
+	SocialNumber = 84,
+	AlternativeName = 85,
 };
 
 enum class SdkSignatureProblem : int

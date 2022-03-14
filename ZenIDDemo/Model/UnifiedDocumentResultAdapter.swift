@@ -42,6 +42,8 @@ extension DocumentState {
             return .hologram
         case .ReflectionPresent:
             return .reflectionPresent
+        case .Barcode:
+            return .barcode
         }
     }
 }

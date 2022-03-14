@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		axWqUgcn1bhpXm2RThXlV001HIA=
+		</data>
 		<key>Headers/AcceptableInput.h</key>
 		<data>
 		+xKZkpar6IZzUlekB2PaOYR/c4w=
@@ -34,7 +38,7 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		Rsw7Z1kttHh99Ix/0iBGwQCEyIg=
+		kSDm0RwZUg3pHz7nkBxNdY2PGqU=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
@@ -42,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		8uigXYCARRYW02Q8ORApQJOo0Dw=
+		136BIIqLTiofc9g8KQachtE44Wc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -104,7 +108,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			G89iUT5OLsvY5djPJYDIvOnlh+Q0onHW3n1dASLKvPg=
+			gFw2WaZ3CPfdTfKwi1g00ezTujTPchYNk2C3ZGbIgac=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>

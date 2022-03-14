@@ -28,6 +28,8 @@ extension RecogLib_iOS.DocumentState {
             return "document.state.hologram.error".localized
         case .Dark:
             return "document.state.dark".localized
+        case .Barcode:
+            return "document.state.barcode".localized
         }
     }
 }
@@ -51,6 +53,8 @@ extension UnifiedState {
             return "document.state.hologram.error".localized
         case .dark:
             return "document.state.dark".localized
+        case .barcode:
+            return "document.state.barcode".localized
         default:
             return String(describing: self)
         }

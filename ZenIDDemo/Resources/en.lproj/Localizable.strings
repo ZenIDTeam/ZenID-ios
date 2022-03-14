@@ -110,6 +110,7 @@
 "document.state.reflection.present" = "Drop reflection please";
 "document.state.hologram.error" = "Hologram error";
 "document.state.dark" = "Image too dark";
+"document.state.barcode" = "Barcode not readable";
 
 // Alerts
 "alert-authorization-failed" = "ZenID authorization failed";

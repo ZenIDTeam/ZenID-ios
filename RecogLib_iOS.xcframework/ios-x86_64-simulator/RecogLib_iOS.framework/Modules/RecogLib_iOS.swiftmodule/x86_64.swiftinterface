@@ -208,6 +208,7 @@ public enum DocumentCode : Swift.Int {
   case SI_IDC
   case SI_DRV
   case PL_IDC_2001_02_13
+  case LT_IDC_2021
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -279,6 +280,7 @@ public enum DocumentState : Swift.Int {
   case Ok
   case Hologram
   case Dark
+  case Barcode
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
