@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.14 - 2022-03-22
+* Updated LibZenid to 2.3.11.
+* DocumentVerifierState Barcode new state.
+* New models:
+  recoglibc_CZ_RES_2006_07_B.bin, 
+  recoglibc_CZ_RES_2006_07_F.bin, 
+  recoglibc_CZ_RES_2006_T_B.bin, 
+  recoglibc_CZ_RES_2006_T_F.bin, 
+  recoglibc_PL_DRV_1999_F.bin
+
 ## 1.12 - 2022-02-21
 * Updated LibZenid to 2.1.41.
 * Added AimingCircle option into DocumentSettings.
