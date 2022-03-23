@@ -57,6 +57,11 @@ class CameraViewController: UIViewController {
         contentView.addSubview(messageView)
         messageView.anchor(top: contentView.safeAreaLayoutGuide.topAnchor, left: contentView.leftAnchor, bottom: nil, right: contentView.rightAnchor)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.allButUpsideDown, andRotateTo: UIDevice.current.orientation)
+    }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

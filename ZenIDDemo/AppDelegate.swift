@@ -9,10 +9,31 @@
 import UIKit
 import RecogLib_iOS
 
+struct AppUtility {
+    static func lockOrientation(_ orientation: UIInterfaceOrientationMask) {
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            delegate.orientationLock = orientation
+        }
+    }
+    
+    static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation: UIDeviceOrientation) {
+        let rotation: UIInterfaceOrientation
+        switch rotateOrientation {
+        case .landscapeLeft: rotation = .landscapeRight
+        case .landscapeRight: rotation = .landscapeLeft
+        default: rotation = .portrait
+        }
+        lockOrientation(orientation)
+        UIDevice.current.setValue(rotation.rawValue, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var orientationLock = UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ZenIDLogger.shared.startLogging()
@@ -24,6 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureNavigationBar()
 
         return true
+    }
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        orientationLock
     }
 
     private func configureNavigationBar() {

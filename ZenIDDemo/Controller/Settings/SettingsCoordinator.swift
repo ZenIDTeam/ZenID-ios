@@ -26,7 +26,6 @@ final class SettingsCoordinator {
             coordinator: self
         )
         rootViewController = NavigationController(rootViewController: settingsViewController)
-        rootViewController?.shouldRotate = false
         rootViewController?.modalPresentationStyle = .fullScreen
         return rootViewController
     }
