@@ -118,6 +118,9 @@ enum class DocumentCodes : uint8_t
 	PL_PAS_2011 = 107,
 	PL_DRV_1999 = 108,
 	LT_IDC_2021 = 109,
+	UA_PAS_2007_15 = 110,
+	UA_IDC_2017 = 111,
+	EU_VIS_2019 = 112,
 };
 
 enum class PageCodes : uint8_t
@@ -174,6 +177,7 @@ enum class DocumentRole : uint8_t
 	Birth = 8,
 	Add = 9,
 	Ide = 10,
+	Vis = 11,
 };
 
 enum class SupportedLanguages : uint8_t
@@ -314,6 +318,10 @@ enum class FieldID : int
 	FiscalNumber = 83,
 	SocialNumber = 84,
 	AlternativeName = 85,
+	VisaNumber = 86,
+	Duration = 87,
+	Type = 88,
+	Count = 89,
 };
 
 enum class SdkSignatureProblem : int
