@@ -138,7 +138,8 @@ public struct DocumentVerifierSettings : Swift.Equatable {
   public let timeToBlurMaxToleranceInSeconds: Swift.Int
   public let showTimer: Swift.Bool
   public let showAimingCircle: Swift.Bool
-  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false)
+  public let drawOutline: Swift.Bool
+  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = false)
   public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
 }
 public enum SupportedLanguages : Swift.Int {
@@ -171,23 +172,26 @@ public enum DocumentCode : Swift.Int {
   case DE_IDC_2010
   case DE_IDC_2001
   case HR_IDC_2013_15
-  case HR_IDC_2021
   case AT_IDE_2000
+  case HU_IDC_2000_01_12
+  case HU_IDC_2016
   case AT_IDC_2002_05_10
+  case HU_ADD_2012
   case AT_PAS_2006_14
   case AT_DRV_2006
   case AT_DRV_2013
-  case IT_PAS_2006_10
   case CZ_RES_2011_14
   case CZ_RES_2006_T
   case CZ_RES_2006_07
-  case CZ_RES_2020
   case CZ_GUN_2014
-  case CZ_GUN_2017
+  case HU_PAS_2006_12
+  case HU_DRV_2012_13
+  case HU_DRV_2012_B
   case EU_EHIC_2004_A
-  case EU_EHIC_2004_B
+  case CZ_GUN_2017
+  case CZ_RES_2020
   case PL_IDC_2019
-  case PL_DRV_1999
+  case IT_PAS_2006_10
   case INT_ISIC_2008
   case DE_PAS
   case DK_PAS
@@ -204,11 +208,66 @@ public enum DocumentCode : Swift.Int {
   case CZ_BIRTH
   case CZ_VEHICLE_I
   case INT_ISIC_2019
-  case SI_Pas
+  case SI_PAS
   case SI_IDC
   case SI_DRV
+  case EU_EHIC_2004_B
   case PL_IDC_2001_02_13
+  case IT_IDC_2016
+  case HR_PAS_2009_15
+  case HR_DRV_2013
+  case HR_IDC_2003
+  case SI_DRV_2009
+  case BG_PAS_2010
+  case BG_IDC_2010
+  case BG_DRV_2010_13
+  case HR_IDC_2021
+  case AT_IDC_2021
+  case DE_PAS_2007
+  case DE_DRV_2013_21
+  case DE_DRV_1999_01_04_11
+  case FR_IDC_2021
+  case FR_IDC_1988_94
+  case ES_PAS_2003_06
+  case ES_IDC_2015
+  case ES_IDC_2006
+  case IT_IDC_2004
+  case RO_IDC_2001_06_09_17_21
+  case NL_IDC_2014_17_21
+  case BE_PAS_2014_17_19
+  case BE_IDC_2013_15
+  case BE_IDC_2020_21
+  case GR_PAS_2020
+  case PT_PAS_2006_09
+  case PT_PAS_2017
+  case PT_IDC_2007_08_09_15
+  case SE_IDC_2012_21
+  case FI_IDC_2017_21
+  case IE_PAS_2006_13
+  case LT_PAS_2008_09_11_19
+  case LT_IDC_2009_12
+  case LV_PAS_2015
+  case LV_PAS_2007
+  case LV_IDC_2012
+  case LV_IDC_2019
+  case EE_PAS_2014
+  case EE_PAS_2021
+  case EE_IDC_2011
+  case EE_IDC_2018_21
+  case CY_PAS_2010_20
+  case CY_IDC_2000_08
+  case CY_IDC_2015_20
+  case LU_PAS_2015
+  case LU_IDC_2014_21
+  case LU_IDC_2008_13
+  case MT_PAS_2008
+  case MT_IDC_2014
+  case PL_PAS_2011
+  case PL_DRV_1999
   case LT_IDC_2021
+  case UA_PAS_2007_15
+  case UA_IDC_2017
+  case EU_VIS_2019
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -241,7 +300,30 @@ public enum Country : Swift.Int {
   case Pl
   case De
   case Hr
+  case Ro
+  case Ru
+  case Ua
   case It
+  case Dk
+  case Es
+  case Fi
+  case Fr
+  case Gb
+  case Is
+  case Nl
+  case Se
+  case Si
+  case Bg
+  case Be
+  case Ee
+  case Ie
+  case Cy
+  case Lt
+  case Lv
+  case Lu
+  case Mt
+  case Pt
+  case Gr
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -260,6 +342,7 @@ public enum DocumentRole : Swift.Int {
   case Res
   case Gun
   case Hic
+  case Vis
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {

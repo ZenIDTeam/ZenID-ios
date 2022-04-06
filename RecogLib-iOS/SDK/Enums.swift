@@ -42,23 +42,26 @@ public enum DocumentCode: Int {
     case DE_IDC_2010 = 12
     case DE_IDC_2001 = 13
     case HR_IDC_2013_15 = 14
-    case HR_IDC_2021 = 65
     case AT_IDE_2000 = 15
+    case HU_IDC_2000_01_12 = 16
+    case HU_IDC_2016 = 17
     case AT_IDC_2002_05_10 = 18
+    case HU_ADD_2012 = 19
     case AT_PAS_2006_14 = 20
     case AT_DRV_2006 = 21
     case AT_DRV_2013 = 22
-    case IT_PAS_2006_10 = 35
     case CZ_RES_2011_14 = 23
     case CZ_RES_2006_T = 24
     case CZ_RES_2006_07 = 25
-    case CZ_RES_2020 = 33
     case CZ_GUN_2014 = 26
-    case CZ_GUN_2017 = 32
+    case HU_PAS_2006_12 = 27
+    case HU_DRV_2012_13 = 28
+    case HU_DRV_2012_B = 29
     case EU_EHIC_2004_A = 30
-    case EU_EHIC_2004_B = 55
+    case CZ_GUN_2017 = 32
+    case CZ_RES_2020 = 33
     case PL_IDC_2019 = 34
-    case PL_DRV_1999 = 108
+    case IT_PAS_2006_10 = 35
     case INT_ISIC_2008 = 36
     case DE_PAS = 37
     case DK_PAS = 38
@@ -75,11 +78,66 @@ public enum DocumentCode: Int {
     case CZ_BIRTH = 49
     case CZ_VEHICLE_I = 50
     case INT_ISIC_2019 = 51
-    case SI_Pas = 52
+    case SI_PAS = 52
     case SI_IDC = 53
     case SI_DRV = 54
+    case EU_EHIC_2004_B = 55
     case PL_IDC_2001_02_13 = 56
+    case IT_IDC_2016 = 57
+    case HR_PAS_2009_15 = 58
+    case HR_DRV_2013 = 59
+    case HR_IDC_2003 = 60
+    case SI_DRV_2009 = 61
+    case BG_PAS_2010 = 62
+    case BG_IDC_2010 = 63
+    case BG_DRV_2010_13 = 64
+    case HR_IDC_2021 = 65
+    case AT_IDC_2021 = 66
+    case DE_PAS_2007 = 67
+    case DE_DRV_2013_21 = 68
+    case DE_DRV_1999_01_04_11 = 69
+    case FR_IDC_2021 = 71
+    case FR_IDC_1988_94 = 72
+    case ES_PAS_2003_06 = 73
+    case ES_IDC_2015 = 74
+    case ES_IDC_2006 = 75
+    case IT_IDC_2004 = 76
+    case RO_IDC_2001_06_09_17_21 = 77
+    case NL_IDC_2014_17_21 = 78
+    case BE_PAS_2014_17_19 = 79
+    case BE_IDC_2013_15 = 80
+    case BE_IDC_2020_21 = 81
+    case GR_PAS_2020 = 82
+    case PT_PAS_2006_09 = 83
+    case PT_PAS_2017 = 84
+    case PT_IDC_2007_08_09_15 = 85
+    case SE_IDC_2012_21 = 86
+    case FI_IDC_2017_21 = 87
+    case IE_PAS_2006_13 = 88
+    case LT_PAS_2008_09_11_19 = 89
+    case LT_IDC_2009_12 = 90
+    case LV_PAS_2015 = 91
+    case LV_PAS_2007 = 92
+    case LV_IDC_2012 = 93
+    case LV_IDC_2019 = 94
+    case EE_PAS_2014 = 95
+    case EE_PAS_2021 = 96
+    case EE_IDC_2011 = 97
+    case EE_IDC_2018_21 = 98
+    case CY_PAS_2010_20 = 99
+    case CY_IDC_2000_08 = 100
+    case CY_IDC_2015_20 = 101
+    case LU_PAS_2015 = 102
+    case LU_IDC_2014_21 = 103
+    case LU_IDC_2008_13 = 104
+    case MT_PAS_2008 = 105
+    case MT_IDC_2014 = 106
+    case PL_PAS_2011 = 107
+    case PL_DRV_1999 = 108
     case LT_IDC_2021 = 109
+    case UA_PAS_2007_15 = 110
+    case UA_IDC_2017 = 111
+    case EU_VIS_2019 = 112
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -179,8 +237,6 @@ extension DocumentCode: CustomStringConvertible {
             return "CZ_VEHICLE_I"
         case .INT_ISIC_2019:
             return "INT_ISIC_2019"
-        case .SI_Pas:
-            return "SI_PAS"
         case .SI_IDC:
             return "SI_IDC"
         case .SI_DRV:
@@ -189,6 +245,124 @@ extension DocumentCode: CustomStringConvertible {
             return "PL_IDC_2001_02_13"
         case .LT_IDC_2021:
             return "LT_IDC_2021"
+        case .HU_IDC_2000_01_12:
+            return "HU_IDC_2000_01_12"
+        case .HU_IDC_2016:
+            return "HU_IDC_2016"
+        case .HU_ADD_2012:
+            return "HU_ADD_2012"
+        case .HU_PAS_2006_12:
+            return "HU_PAS_2006_12"
+        case .HU_DRV_2012_13:
+            return "HU_DRV_2012_13"
+        case .HU_DRV_2012_B:
+            return "HU_DRV_2012_B"
+        case .SI_PAS:
+            return "SI_PAS"
+        case .IT_IDC_2016:
+            return "IT_IDC_2016"
+        case .HR_PAS_2009_15:
+            return "HR_PAS_2009_15"
+        case .HR_DRV_2013:
+            return "HR_DRV_2013"
+        case .HR_IDC_2003:
+            return "HR_IDC_2003"
+        case .SI_DRV_2009:
+            return "SI_DRV_2009"
+        case .BG_PAS_2010:
+            return "BG_PAS_2010"
+        case .BG_IDC_2010:
+            return "BG_IDC_2010"
+        case .BG_DRV_2010_13:
+            return "BG_DRV_2010_13"
+        case .AT_IDC_2021:
+            return "AT_IDC_2021"
+        case .DE_PAS_2007:
+            return "DE_PAS_2007"
+        case .DE_DRV_2013_21:
+            return "DE_DRV_2013_21"
+        case .DE_DRV_1999_01_04_11:
+            return "DE_DRV_1999_01_04_11"
+        case .FR_IDC_2021:
+            return "FR_IDC_2021"
+        case .FR_IDC_1988_94:
+            return "FR_IDC_1988_94"
+        case .ES_PAS_2003_06:
+            return "ES_PAS_2003_06"
+        case .ES_IDC_2015:
+            return "ES_IDC_2015"
+        case .ES_IDC_2006:
+            return "ES_IDC_2006"
+        case .IT_IDC_2004:
+            return "IT_IDC_2004"
+        case .RO_IDC_2001_06_09_17_21:
+            return "RO_IDC_2001_06_09_17_21"
+        case .NL_IDC_2014_17_21:
+            return "NL_IDC_2014_17_21"
+        case .BE_PAS_2014_17_19:
+            return "BE_PAS_2014_17_19"
+        case .BE_IDC_2013_15:
+            return "BE_IDC_2013_15"
+        case .BE_IDC_2020_21:
+            return "BE_IDC_2020_21"
+        case .GR_PAS_2020:
+            return "GR_PAS_2020"
+        case .PT_PAS_2006_09:
+            return "PT_PAS_2006_09"
+        case .PT_PAS_2017:
+            return "PT_PAS_2017"
+        case .PT_IDC_2007_08_09_15:
+            return "PT_IDC_2007_08_09_15"
+        case .SE_IDC_2012_21:
+            return "SE_IDC_2012_21"
+        case .FI_IDC_2017_21:
+            return "FI_IDC_2017_21"
+        case .IE_PAS_2006_13:
+            return "IE_PAS_2006_13"
+        case .LT_PAS_2008_09_11_19:
+            return "LT_PAS_2008_09_11_19"
+        case .LT_IDC_2009_12:
+            return "LT_IDC_2009_12"
+        case .LV_PAS_2015:
+            return "LV_PAS_2015"
+        case .LV_PAS_2007:
+            return "LV_PAS_2007"
+        case .LV_IDC_2012:
+            return "LV_IDC_2012"
+        case .LV_IDC_2019:
+            return "LV_IDC_2019"
+        case .EE_PAS_2014:
+            return "EE_PAS_2014"
+        case .EE_PAS_2021:
+            return "EE_PAS_2021"
+        case .EE_IDC_2011:
+            return "EE_IDC_2011"
+        case .EE_IDC_2018_21:
+            return "EE_IDC_2018_21"
+        case .CY_PAS_2010_20:
+            return "CY_PAS_2010_20"
+        case .CY_IDC_2000_08:
+            return "CY_IDC_2000_08"
+        case .CY_IDC_2015_20:
+            return "CY_IDC_2015_20"
+        case .LU_PAS_2015:
+            return "LU_PAS_2015"
+        case .LU_IDC_2014_21:
+            return "LU_IDC_2014_21"
+        case .LU_IDC_2008_13:
+            return "LU_IDC_2008_13"
+        case .MT_PAS_2008:
+            return "MT_PAS_2008"
+        case .MT_IDC_2014:
+            return "MT_IDC_2014"
+        case .PL_PAS_2011:
+            return "PL_PAS_2011"
+        case .UA_PAS_2007_15:
+            return "UA_PAS_2007_15"
+        case .UA_IDC_2017:
+            return "UA_IDC_2017"
+        case .EU_VIS_2019:
+            return "EU_VIS_2019"
         }
     }
 }
@@ -216,7 +390,30 @@ public enum Country: Int {
     case Pl = 4
     case De = 5
     case Hr = 6
+    case Ro = 7
+    case Ru = 8
+    case Ua = 9
     case It = 10
+    case Dk = 11
+    case Es = 12
+    case Fi = 13
+    case Fr = 14
+    case Gb = 15
+    case Is = 16
+    case Nl = 17
+    case Se = 18
+    case Si = 19
+    case Bg = 20
+    case Be = 23
+    case Ee = 27
+    case Ie = 28
+    case Cy = 29
+    case Lt = 31
+    case Lv = 32
+    case Lu = 33
+    case Mt = 34
+    case Pt = 38
+    case Gr = 39
 }
 
 extension Country: CustomStringConvertible {
@@ -238,6 +435,52 @@ extension Country: CustomStringConvertible {
             return "Hr"
         case .It:
             return "It"
+        case .Ro:
+            return "Ro"
+        case .Ru:
+            return "Ru"
+        case .Ua:
+            return "Ua"
+        case .Dk:
+            return "Dk"
+        case .Es:
+            return "Es"
+        case .Fi:
+            return "Fi"
+        case .Fr:
+            return "Fr"
+        case .Gb:
+            return "Gb"
+        case .Is:
+            return "Is"
+        case .Nl:
+            return "Nl"
+        case .Se:
+            return "Se"
+        case .Si:
+            return "Si"
+        case .Bg:
+            return "Bg"
+        case .Be:
+            return "Be"
+        case .Ee:
+            return "Ee"
+        case .Ie:
+            return "Ie"
+        case .Cy:
+            return "Cy"
+        case .Lt:
+            return "Lt"
+        case .Lv:
+            return "Lv"
+        case .Lu:
+            return "Lu"
+        case .Mt:
+            return "Mt"
+        case .Pt:
+            return "Pt"
+        case .Gr:
+            return "Gr"
         }
     }
 }
@@ -249,6 +492,7 @@ public enum DocumentRole: Int {
     case Res = 3
     case Gun = 4
     case Hic = 5
+    case Vis = 11
 }
 
 extension DocumentRole: CustomStringConvertible {
@@ -266,6 +510,8 @@ extension DocumentRole: CustomStringConvertible {
             return "Gun"
         case .Hic:
             return "Hic"
+        case .Vis:
+            return "Vis"
         }
     }
 }

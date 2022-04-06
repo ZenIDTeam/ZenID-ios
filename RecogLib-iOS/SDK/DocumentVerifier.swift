@@ -149,7 +149,8 @@ public class DocumentVerifier {
             documentBlurAcceptableScore: Int32(settings?.documentBlurAcceptableScore ?? 50),
             timeToBlurMaxToleranceInSeconds: Int32(settings?.timeToBlurMaxToleranceInSeconds ?? 10),
             showTimer: settings?.showTimer ?? false,
-            enableAimingCircle: settings?.showAimingCircle ?? false
+            enableAimingCircle: settings?.showAimingCircle ?? false,
+            drawOutline: settings?.drawOutline ?? false
         )
     }
 }

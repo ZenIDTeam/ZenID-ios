@@ -39,6 +39,9 @@ public:
 	std::optional<int> documentBlurAcceptableScore;
 	//The time delay for the blur validator to become max tolerant. Default value is 10.
 	std::optional<int> timeToBlurMaxToleranceInSeconds;
+
+	// Draw the card outline
+	bool drawOutline = true;
 };
 
 class DocumentVerifier

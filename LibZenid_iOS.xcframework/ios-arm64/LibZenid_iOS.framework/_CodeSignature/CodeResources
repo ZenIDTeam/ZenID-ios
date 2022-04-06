@@ -4,17 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		axWqUgcn1bhpXm2RThXlV001HIA=
-		</data>
 		<key>Headers/AcceptableInput.h</key>
 		<data>
 		+xKZkpar6IZzUlekB2PaOYR/c4w=
 		</data>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		7u9c2cFe13qKYR+M2XMmVcXM1d0=
+		uzn1U7xRLfc22ePPC6wr6gCeK4w=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
@@ -38,7 +34,7 @@
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		kSDm0RwZUg3pHz7nkBxNdY2PGqU=
+		sjQ75dlv7N5YqU62j7I4om92h20=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
@@ -46,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		136BIIqLTiofc9g8KQachtE44Wc=
+		2jjccNc4w/NQZkQ3knec3zt/kWc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -66,7 +62,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/CYDUtJoYSAL53RdwzdMFQ63Yuiwham7vGK7U1m07Xw=
+			1WpItIGDFS8LjvQ8jxec/Oz5CzRmMFVdXsppwMX/Ol8=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
@@ -108,7 +104,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gFw2WaZ3CPfdTfKwi1g00ezTujTPchYNk2C3ZGbIgac=
+			G5C9zqOnUQy7JejnGmDlrb/Cw63qCnm86T7DmrAOiVw=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>
