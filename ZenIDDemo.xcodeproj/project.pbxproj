@@ -63,8 +63,8 @@
 		182D63DD26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DC26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift */; };
 		182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */; };
 		182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */; };
-		1843D7BD27FCB2EF003CC73A /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
-		1843D7BE27FCB2EF003CC73A /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1843D7C427FDD719003CC73A /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; };
+		1843D7C527FDD719003CC73A /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
 		188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422E7272802D1002BD366 /* DebugTableViewCellController.swift */; };
 		188422EC27280683002BD366 /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422EB27280683002BD366 /* ConfigService.swift */; };
@@ -203,8 +203,8 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
-				1843D7BE27FCB2EF003CC73A /* RecogLib_iOS.framework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
+				1843D7C527FDD719003CC73A /* RecogLib_iOS.xcframework in Embed Frameworks */,
 				18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -412,8 +412,8 @@
 			files = (
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
-				1843D7BD27FCB2EF003CC73A /* RecogLib_iOS.framework in Frameworks */,
 				18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
+				1843D7C427FDD719003CC73A /* RecogLib_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1300,7 +1300,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1319,7 +1319,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.14.0;
+				MARKETING_VERSION = 1.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
@@ -1335,7 +1335,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1351,7 +1351,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.14.0;
+				MARKETING_VERSION = 1.15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
