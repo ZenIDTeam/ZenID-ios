@@ -63,6 +63,8 @@
 		182D63DD26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DC26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift */; };
 		182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */; };
 		182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */; };
+		1843D7BD27FCB2EF003CC73A /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
+		1843D7BE27FCB2EF003CC73A /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
 		188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422E7272802D1002BD366 /* DebugTableViewCellController.swift */; };
 		188422EC27280683002BD366 /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422EB27280683002BD366 /* ConfigService.swift */; };
@@ -140,8 +142,6 @@
 		18953DE02685F3310077F976 /* SelfieSelectionCoordinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DDF2685F3310077F976 /* SelfieSelectionCoordinable.swift */; };
 		18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */; };
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
-		18A13779279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; };
-		18A1377A279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18A7B91526D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7B91426D7A38000BD8A83 /* UnifiedFacelivenessResultAdapter.swift */; };
 		18DB26A626D7A75300CCAB02 /* UnifiedVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A526D7A75300CCAB02 /* UnifiedVerifier.swift */; };
 		18DB26A826D7A94E00CCAB02 /* VerifierRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DB26A726D7A94E00CCAB02 /* VerifierRenderable.swift */; };
@@ -203,8 +203,8 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
+				1843D7BE27FCB2EF003CC73A /* RecogLib_iOS.framework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
-				18A1377A279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Embed Frameworks */,
 				18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -412,8 +412,8 @@
 			files = (
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
+				1843D7BD27FCB2EF003CC73A /* RecogLib_iOS.framework in Frameworks */,
 				18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
-				18A13779279AE98900E2A7B2 /* RecogLib_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

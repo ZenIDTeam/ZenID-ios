@@ -137,6 +137,7 @@
 "document-verifier-settings-blur-tolerance" = "Time To Blur Max Tolerance (seconds)";
 "document-verifier-settings-timer" = "Show Timer";
 "document-verifier-settings-circle" = "Show Aiming Circle";
+"document-verifier-settings-outline" = "Draw Outline";
 
 // Selfie Settings
 "settings-selfie-none" = "None";

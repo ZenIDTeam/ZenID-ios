@@ -86,6 +86,7 @@ const void * getDocumentVerifier(CDocumentVerifierSettings *setttings)
     verifierSettings.documentBlurAcceptableScore = setttings->documentBlurAcceptableScore;
     verifierSettings.timeToBlurMaxToleranceInSeconds = setttings->timeToBlurMaxToleranceInSeconds;
     verifierSettings.showTimer = setttings->showTimer;
+    verifierSettings.drawOutline = setttings->drawOutline;
     DocumentVerifier *verifier = new DocumentVerifier(std::make_shared<DocumentVerifierSettings>(verifierSettings));
     return (void *)verifier;
 }
@@ -159,6 +160,7 @@ void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSetting
     verifier->GetSettings().timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
     verifier->GetSettings().showTimer = settings->showTimer;
     verifier->GetSettings().enableAimingCircle = settings->enableAimingCircle;
+    verifier->GetSettings().drawOutline = settings->drawOutline;
 }
 
 bool verifyHologram(const void *object,

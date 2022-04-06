@@ -86,6 +86,13 @@ final class DocumentVerifierSettingsViewModel {
                 onChange: { [weak self] value in
                     self?.updater.update(showAimingCircle: value, completion: { _ in })
                 }
+            ),
+            .init(
+                title: NSLocalizedString("document-verifier-settings-outline", comment: ""),
+                value: settings.drawOutline,
+                onChange: { [weak self] value in
+                    self?.updater.update(drawOutline: value)
+                }
             )
         ]
         onUpdate?(intervalItems.map({ .interval($0) }) + switchItems.map({ .switch($0) }))
