@@ -150,8 +150,13 @@ public class BaseController<ResultType: ResultState> {
     }
     
     private func startVideoWriter() {
-        let orientation = UIDevice.current.orientation
-        videoWriter?.start(isPortrait: orientation == .portrait || orientation == .faceUp)
+        let orientation: UIInterfaceOrientation
+        if #available(iOS 13.0, *) {
+            orientation = UIApplication.shared.keyWindow?.windowScene?.interfaceOrientation ?? .portrait
+        } else {
+            orientation = UIApplication.shared.statusBarOrientation
+        }
+        videoWriter?.start(isPortrait: orientation.isPortrait)
     }
 }
 
