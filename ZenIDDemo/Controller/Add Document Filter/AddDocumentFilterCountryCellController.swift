@@ -39,7 +39,11 @@ final class AddDocumentFilterCountryCellController: BasicTableCellController {
             SelectionItemViewModel(title: RecogLib_iOS.Country.Pl.description),
             SelectionItemViewModel(title: RecogLib_iOS.Country.De.description),
             SelectionItemViewModel(title: RecogLib_iOS.Country.Hr.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.It.description)
+            SelectionItemViewModel(title: RecogLib_iOS.Country.It.description),
+            SelectionItemViewModel(title: RecogLib_iOS.Country.Bg.description),
+            SelectionItemViewModel(title: RecogLib_iOS.Country.Ua.description),
+            SelectionItemViewModel(title: RecogLib_iOS.Country.Ro.description),
+            SelectionItemViewModel(title: RecogLib_iOS.Country.Ru.description)
         ]
     }
     
