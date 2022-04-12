@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
-// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 import AVFoundation
 import CoreGraphics
 import CoreMedia
@@ -271,8 +271,6 @@ public enum DocumentCode : Swift.Int {
   case UA_PAS_2007_15
   case UA_IDC_2017
   case EU_VIS_2019
-  case UA_DRV_2016
-  case UA_DRV_2005
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -297,7 +295,7 @@ extension RecogLib_iOS.PageCode : Swift.CustomStringConvertible {
     get
   }
 }
-public enum Country : Swift.Int, Swift.CaseIterable {
+public enum Country : Swift.Int {
   case Cz
   case Sk
   case At
@@ -330,11 +328,7 @@ public enum Country : Swift.Int, Swift.CaseIterable {
   case Pt
   case Gr
   public init?(rawValue: Swift.Int)
-  public typealias AllCases = [RecogLib_iOS.Country]
   public typealias RawValue = Swift.Int
-  public static var allCases: [RecogLib_iOS.Country] {
-    get
-  }
   public var rawValue: Swift.Int {
     get
   }
