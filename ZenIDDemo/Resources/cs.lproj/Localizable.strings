@@ -137,6 +137,7 @@
 "document-verifier-settings-timer" = "Show Timer";
 "document-verifier-settings-circle" = "Show Aiming Circle";
 "document-verifier-settings-outline" = "Draw Outline";
+"document-verifier-settings-barcode" = "Read Barcode";
 
 // Selfie Settings
 "settings-selfie-none" = "None";

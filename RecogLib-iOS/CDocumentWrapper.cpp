@@ -79,14 +79,15 @@ static void processFrame(const void *object,
 }
 
 
-const void * getDocumentVerifier(CDocumentVerifierSettings *setttings)
+const void * getDocumentVerifier(CDocumentVerifierSettings *settings)
 {
     DocumentVerifierSettings verifierSettings = DocumentVerifierSettings();
-    verifierSettings.specularAcceptableScore = setttings->specularAcceptableScore;
-    verifierSettings.documentBlurAcceptableScore = setttings->documentBlurAcceptableScore;
-    verifierSettings.timeToBlurMaxToleranceInSeconds = setttings->timeToBlurMaxToleranceInSeconds;
-    verifierSettings.showTimer = setttings->showTimer;
-    verifierSettings.drawOutline = setttings->drawOutline;
+    verifierSettings.specularAcceptableScore = settings->specularAcceptableScore;
+    verifierSettings.documentBlurAcceptableScore = settings->documentBlurAcceptableScore;
+    verifierSettings.timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
+    verifierSettings.showTimer = settings->showTimer;
+    verifierSettings.drawOutline = settings->drawOutline;
+    verifierSettings.readBarcode = settings->readBarcode;
     DocumentVerifier *verifier = new DocumentVerifier(std::make_shared<DocumentVerifierSettings>(verifierSettings));
     return (void *)verifier;
 }
@@ -161,6 +162,7 @@ void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSetting
     verifier->GetSettings().showTimer = settings->showTimer;
     verifier->GetSettings().enableAimingCircle = settings->enableAimingCircle;
     verifier->GetSettings().drawOutline = settings->drawOutline;
+    verifier->GetSettings().readBarcode = settings->readBarcode;
 }
 
 bool verifyHologram(const void *object,

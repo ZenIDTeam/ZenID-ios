@@ -93,6 +93,13 @@ final class DocumentVerifierSettingsViewModel {
                 onChange: { [weak self] value in
                     self?.updater.update(drawOutline: value)
                 }
+            ),
+            .init(
+                title: NSLocalizedString("document-verifier-settings-barcode", comment: ""),
+                value: settings.readBarcode,
+                onChange: { [weak self] value in
+                    self?.updater.update(readBarcode: value)
+                }
             )
         ]
         onUpdate?(intervalItems.map({ .interval($0) }) + switchItems.map({ .switch($0) }))
