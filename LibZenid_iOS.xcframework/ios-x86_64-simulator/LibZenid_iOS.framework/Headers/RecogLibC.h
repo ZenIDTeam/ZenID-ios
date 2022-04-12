@@ -1,5 +1,3 @@
-// Copyright (c) Společnost pro informační technologie a právo, s.r.o.
-
 #pragma once
 
 #include "DocumentVerifier.h"
@@ -10,3 +8,4 @@
 #include "ZenidEnums.generated.h"
 #include "ZenidSecurity.h"
 #include "AcceptableInput.h"
+#include "ZenidLog.h"
