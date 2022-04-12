@@ -21,4 +21,5 @@ protocol DocumentVerifierSettingsUpdater {
     func update(showTimer: Bool)
     func update(showAimingCircle: Bool)
     func update(drawOutline: Bool)
+    func update(readBarcode: Bool)
 }

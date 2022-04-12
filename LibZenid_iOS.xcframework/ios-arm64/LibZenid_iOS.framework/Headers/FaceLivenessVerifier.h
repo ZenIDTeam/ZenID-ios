@@ -1,7 +1,4 @@
-// Copyright (c) Společnost pro informační technologie a právo, s.r.o.
-
 #pragma once
-#pragma clang system_header
 
 #ifndef NO_FACE
 

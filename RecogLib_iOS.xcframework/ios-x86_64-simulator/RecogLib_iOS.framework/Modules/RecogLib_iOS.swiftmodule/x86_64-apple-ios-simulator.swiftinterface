@@ -93,6 +93,8 @@ public protocol LoggerProtocol {
   final public func Info(_ message: Swift.String)
   final public func Debug(_ message: Swift.String)
   final public func Verbose(_ message: Swift.String)
+  final public func disableRecognitionLogging()
+  final public func enableRecognitionLogging()
   @objc deinit
 }
 public struct FaceLivenessVerifierSettings : Swift.Equatable {
@@ -139,7 +141,8 @@ public struct DocumentVerifierSettings : Swift.Equatable {
   public let showTimer: Swift.Bool
   public let showAimingCircle: Swift.Bool
   public let drawOutline: Swift.Bool
-  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = false)
+  public let readBarcode: Swift.Bool
+  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = false, readBarcode: Swift.Bool = true)
   public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
 }
 public enum SupportedLanguages : Swift.Int {
@@ -268,6 +271,8 @@ public enum DocumentCode : Swift.Int {
   case UA_PAS_2007_15
   case UA_IDC_2017
   case EU_VIS_2019
+  case UA_DRV_2016
+  case UA_DRV_2005
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {

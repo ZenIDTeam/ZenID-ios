@@ -53,8 +53,6 @@
 		18371B3027C3CCA3002528F3 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2F27C3CCA3002528F3 /* NavigationController.swift */; };
 		1852EC4A27CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852EC4927CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift */; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
-		186ECA2E27B0148C002189C3 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; platformFilter = ios; };
-		186ECA2F27B0148C002189C3 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422E7272802D1002BD366 /* DebugTableViewCellController.swift */; };
 		188422EC27280683002BD366 /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422EB27280683002BD366 /* ConfigService.swift */; };
 		188422EE272806C6002BD366 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188422ED272806C6002BD366 /* Config.swift */; };
@@ -130,10 +128,12 @@
 		18953DE02685F3310077F976 /* SelfieSelectionCoordinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DDF2685F3310077F976 /* SelfieSelectionCoordinable.swift */; };
 		18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */; };
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
+		18BD1B8F2805E5B70062C89B /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */; };
+		18BD1B902805E5B70062C89B /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18BD1B982805E7CB0062C89B /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */; platformFilter = ios; };
+		18BD1B992805E7CB0062C89B /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDC33C2795C3E40016AAF6 /* WebKit.framework */; };
 		18BDC36927983D920016AAF6 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = 18BDC36827983D920016AAF6 /* WebSource */; };
-		18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */; };
-		18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
 		6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536D246970DC001C3544 /* QrScannerController.swift */; };
 		6F2D53712469A937001C3544 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D53702469A937001C3544 /* Credentials.swift */; };
@@ -177,9 +177,9 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
-				186ECA2F27B0148C002189C3 /* RecogLib_iOS.framework in Embed Frameworks */,
+				18BD1B992805E7CB0062C89B /* RecogLib_iOS.framework in Embed Frameworks */,
+				18BD1B902805E5B70062C89B /* LibZenid_iOS.xcframework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
-				18DBB22B26F9E496002FA296 /* LibZenid_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,7 +222,6 @@
 		0134756621F75C9C004EE4E5 /* ImageInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInput.swift; sourceTree = "<group>"; };
 		0134756821FB538D004EE4E5 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		0140263C22B3A76300CF60AD /* ResultsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
-		0141C02323A2A13200566078 /* LibZenid_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LibZenid_iOS.framework; sourceTree = "<group>"; };
 		0141C02723A38AAF00566078 /* SelectCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryView.swift; sourceTree = "<group>"; };
 		0141C03723A7DB0100566078 /* CGPoint+Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Flip.swift"; sourceTree = "<group>"; };
 		01859B0322C360CE005B7E36 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -237,8 +236,6 @@
 		18371B2F27C3CCA3002528F3 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1852EC4927CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDocumentsFilter.swift; sourceTree = "<group>"; };
 		1861947226FC28D500B8B395 /* URL+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Models.swift"; sourceTree = "<group>"; };
-		1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = "../../Downloads/LibZenid-iOS_1.9.1/LibZenid_iOS.xcframework"; sourceTree = "<group>"; };
-		187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RecogLib_iOS.xcframework; path = ../../Desktop/RecogLib/RecogLib_iOS.xcframework; sourceTree = "<group>"; };
 		188422E7272802D1002BD366 /* DebugTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugTableViewCellController.swift; sourceTree = "<group>"; };
 		188422EB27280683002BD366 /* ConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
 		188422ED272806C6002BD366 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -314,12 +311,12 @@
 		18953DDF2685F3310077F976 /* SelfieSelectionCoordinable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieSelectionCoordinable.swift; sourceTree = "<group>"; };
 		18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecogLibDocumentsFilterValidator.swift; sourceTree = "<group>"; };
-		18A69F9927999311001B6235 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecogLib_iOS.framework; path = "../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Release-iphoneos/RecogLib_iOS.framework"; sourceTree = "<group>"; };
+		18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
+		18BD1B912805E5E80062C89B /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecogLib_iOS.framework; path = "../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Release-iphonesimulator/RecogLib_iOS.framework"; sourceTree = "<group>"; };
+		18BD1B942805E73B0062C89B /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RecogLib_iOS.xcframework; sourceTree = "<group>"; };
+		18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecogLib_iOS.framework; path = "../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Debug-iphoneos/RecogLib_iOS.framework"; sourceTree = "<group>"; };
 		18BDC33C2795C3E40016AAF6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		18BDC36827983D920016AAF6 /* WebSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSource; sourceTree = "<group>"; };
-		18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RecogLib_iOS.xcframework; sourceTree = "<group>"; };
-		18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
-		18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecogLib_iOS.framework; path = "../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Debug-iphoneos/RecogLib_iOS.framework"; sourceTree = "<group>"; };
 		6F2D536B24696A2A001C3544 /* QrSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrSquareView.swift; sourceTree = "<group>"; };
 		6F2D536D246970DC001C3544 /* QrScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerController.swift; sourceTree = "<group>"; };
 		6F2D53702469A937001C3544 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -350,7 +347,6 @@
 		D2CB352422BB7BA900453DB8 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		D2CB352622BB84CA00453DB8 /* DispatchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchError.swift; sourceTree = "<group>"; };
 		D2CB352822BB84F700453DB8 /* DispatchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchResult.swift; sourceTree = "<group>"; };
-		D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RecogLib_iOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,8 +357,8 @@
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
 				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
-				186ECA2E27B0148C002189C3 /* RecogLib_iOS.framework in Frameworks */,
-				18DBB22A26F9E496002FA296 /* LibZenid_iOS.xcframework in Frameworks */,
+				18BD1B982805E7CB0062C89B /* RecogLib_iOS.framework in Frameworks */,
+				18BD1B8F2805E5B70062C89B /* LibZenid_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,7 +452,6 @@
 				6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */,
 				0134751D21ECB3FB004EE4E5 /* Products */,
 				0134753121ECBC2D004EE4E5 /* Frameworks */,
-				188422FF272AA60C002BD366 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -491,16 +486,14 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */,
+				18BD1B942805E73B0062C89B /* RecogLib_iOS.xcframework */,
+				18BD1B912805E5E80062C89B /* RecogLib_iOS.framework */,
+				18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */,
 				18BDC33C2795C3E40016AAF6 /* WebKit.framework */,
-				18E8BA2627664AE6008DEF0C /* RecogLib_iOS.framework */,
-				18A69F9927999311001B6235 /* RecogLib_iOS.framework */,
-				1865AE722716DC3D00D06F6A /* LibZenid_iOS.xcframework */,
-				187CCC9F2716DACC0032C421 /* RecogLib_iOS.xcframework */,
 				6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */,
 				6FE1D50C2612705E00529241 /* CocoaLumberjack.xcframework */,
 				6FE1D50D2612705E00529241 /* CocoaLumberjackSwift.xcframework */,
-				0141C02323A2A13200566078 /* LibZenid_iOS.framework */,
-				D2F5A3C222CA125D000A293A /* RecogLib_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -563,15 +556,6 @@
 				188422F027280779002BD366 /* UserDefaultsConfigLoader.swift */,
 			);
 			path = Infrastructure;
-			sourceTree = "<group>";
-		};
-		188422FF272AA60C002BD366 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				18DBB21D26F9D697002FA296 /* RecogLib_iOS.xcframework */,
-				18DBB22926F9E496002FA296 /* LibZenid_iOS.xcframework */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		18953D472682418B0077F976 /* Settings */ = {

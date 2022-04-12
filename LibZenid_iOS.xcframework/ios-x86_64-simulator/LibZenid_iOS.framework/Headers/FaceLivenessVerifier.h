@@ -1,5 +1,3 @@
-// Copyright (c) Společnost pro informační technologie a právo, s.r.o.
-
 #pragma once
 
 #ifndef NO_FACE

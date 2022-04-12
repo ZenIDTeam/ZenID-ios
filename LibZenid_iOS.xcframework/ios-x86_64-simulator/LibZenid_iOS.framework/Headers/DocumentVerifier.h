@@ -1,5 +1,3 @@
-// Copyright (c) Společnost pro informační technologie a právo, s.r.o.
-
 #pragma once
 
 #include "ZenidEnums.generated.h"
@@ -42,6 +40,8 @@ public:
 
 	// Draw the card outline
 	bool drawOutline = true;
+	// Read the barcode
+	bool readBarcode = true;
 };
 
 class DocumentVerifier

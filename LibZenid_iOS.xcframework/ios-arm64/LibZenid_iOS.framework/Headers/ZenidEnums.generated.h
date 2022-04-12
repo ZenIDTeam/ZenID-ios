@@ -1,4 +1,3 @@
-// Copyright (c) Společnost pro informační technologie a právo, s.r.o.
 // This file is generated automatically. Any change will be overwritten.
 
 #pragma once
@@ -121,6 +120,8 @@ enum class DocumentCodes : uint8_t
 	UA_PAS_2007_15 = 110,
 	UA_IDC_2017 = 111,
 	EU_VIS_2019 = 112,
+	UA_DRV_2016 = 113,
+	UA_DRV_2005 = 114,
 };
 
 enum class PageCodes : uint8_t
@@ -322,6 +323,8 @@ enum class FieldID : int
 	Duration = 87,
 	Type = 88,
 	Count = 89,
+	NamesOfParents = 90,
+	NamesOfParents2 = 91,
 };
 
 enum class SdkSignatureProblem : int

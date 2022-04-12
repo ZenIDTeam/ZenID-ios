@@ -1,5 +1,3 @@
-// Copyright (c) Společnost pro informační technologie a právo, s.r.o.
-
 #pragma once
 
 #include <memory>
@@ -53,8 +51,8 @@ class Image
 
 	/**
 	 * \brief Crop image to the viewport aspect ratio.
-	 * \param viewportHeight Height
-	 * \param viewportWidth Width
+	 * \param viewportHeight 
+	 * \param viewportWidth 
 	 */
 	void CenterCrop(int viewportWidth, int viewportHeight);
 

@@ -1,5 +1,4 @@
 #pragma once
-#pragma clang system_header
 
 #include "ZenidEnums.generated.h"
 

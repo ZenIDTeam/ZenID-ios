@@ -54,6 +54,8 @@
 		18371B6A27C667E9002528F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18371B6927C667E9002528F3 /* Assets.xcassets */; };
 		18371B6D27C66961002528F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18371B6F27C66961002528F3 /* Localizable.strings */; };
 		18371B7227C66B8B002528F3 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B7127C66B8B002528F3 /* LocalizedString.swift */; };
+		1848AC712805D449001A8C9A /* CZenidLogWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */; };
+		1848AC722805D449001A8C9A /* CZenidLogWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */; };
 		18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */; };
 		18953DAF26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -144,6 +146,8 @@
 		18371B6E27C66961002528F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		18371B7027C6696C002528F3 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		18371B7127C66B8B002528F3 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CZenidLogWrapper.cpp; sourceTree = "<group>"; };
+		1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CZenidLogWrapper.hpp; sourceTree = "<group>"; };
 		188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentVerifierSettingsWrapper.cpp; sourceTree = "<group>"; };
 		18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CDocumentVerifierSettingsWrapper.hpp; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 				6F6C26FF24B8805E0073A2CA /* CZenidSecurityWrapper.hpp */,
 				6F6C26FE24B8805E0073A2CA /* CZenidSecurityWrapper.cpp */,
 				18371B7127C66B8B002528F3 /* LocalizedString.swift */,
+				1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */,
+				1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */,
 				D264246122C11E7E00735B99 /* Info.plist */,
 				18371B6927C667E9002528F3 /* Assets.xcassets */,
 				18371B6F27C66961002528F3 /* Localizable.strings */,
@@ -402,6 +408,7 @@
 				D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */,
 				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
 				6FE107B824B29B1C00610F8D /* CUtils.hpp in Headers */,
+				1848AC722805D449001A8C9A /* CZenidLogWrapper.hpp in Headers */,
 				18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */,
 				6F6C270124B8805E0073A2CA /* CZenidSecurityWrapper.hpp in Headers */,
 				6F2CFC8A247471C5005D2FB6 /* CFaceLivenessWrapper.hpp in Headers */,
@@ -532,6 +539,7 @@
 				181AB23026F985AB0081420D /* DocumentVerifierModels.swift in Sources */,
 				18371B2527C2473E002528F3 /* CMSampleBuffer+UIImage.swift in Sources */,
 				18371B1D27C24639002528F3 /* CGRect+Flip.swift in Sources */,
+				1848AC712805D449001A8C9A /* CZenidLogWrapper.cpp in Sources */,
 				6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */,
 				18371B0827C2443C002528F3 /* Ellipse.swift in Sources */,
 				181AB22E26F9856C0081420D /* VerifierModels.swift in Sources */,
@@ -715,7 +723,7 @@
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
@@ -746,7 +754,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.15.0;
+				MARKETING_VERSION = 1.16.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
@@ -771,7 +779,7 @@
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
@@ -799,7 +807,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.15.0;
+				MARKETING_VERSION = 1.16.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";

@@ -150,7 +150,8 @@ public class DocumentVerifier {
             timeToBlurMaxToleranceInSeconds: Int32(settings?.timeToBlurMaxToleranceInSeconds ?? 10),
             showTimer: settings?.showTimer ?? false,
             enableAimingCircle: settings?.showAimingCircle ?? false,
-            drawOutline: settings?.drawOutline ?? false
+            drawOutline: settings?.drawOutline ?? false,
+            readBarcode: settings?.readBarcode ?? true
         )
     }
 }
