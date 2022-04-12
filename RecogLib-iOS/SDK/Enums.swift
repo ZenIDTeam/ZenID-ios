@@ -138,6 +138,8 @@ public enum DocumentCode: Int {
     case UA_PAS_2007_15 = 110
     case UA_IDC_2017 = 111
     case EU_VIS_2019 = 112
+    case UA_DRV_2016 = 113
+    case UA_DRV_2005 = 114
 }
 
 extension DocumentCode: CustomStringConvertible {
@@ -363,6 +365,10 @@ extension DocumentCode: CustomStringConvertible {
             return "UA_IDC_2017"
         case .EU_VIS_2019:
             return "EU_VIS_2019"
+        case .UA_DRV_2016:
+            return "UA_DRV_2016"
+        case .UA_DRV_2005:
+            return "UA_DRV_2016"
         }
     }
 }

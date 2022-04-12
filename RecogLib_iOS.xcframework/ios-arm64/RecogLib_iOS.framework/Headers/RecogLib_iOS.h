@@ -12,6 +12,7 @@
 #import <RecogLib_iOS/CFaceLivenessWrapper.hpp>
 #import <RecogLib_iOS/CSelfieWrapper.hpp>
 #import <RecogLib_iOS/CDocumentVerifierSettingsWrapper.hpp>
+#import <RecogLib_iOS/CZenidLogWrapper.hpp>
 
 //! Project version number for RecogLib_iOS.
 FOUNDATION_EXPORT double RecogLib_iOSVersionNumber;
