@@ -10,6 +10,8 @@
 		181AB22E26F9856C0081420D /* VerifierModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181AB22D26F9856C0081420D /* VerifierModels.swift */; };
 		181AB23026F985AB0081420D /* DocumentVerifierModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181AB22F26F985AB0081420D /* DocumentVerifierModels.swift */; };
 		181AB23226F993140081420D /* FaceVerifierModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181AB23126F993140081420D /* FaceVerifierModels.swift */; };
+		1848AC712805D449001A8C9A /* CZenidLogWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */; };
+		1848AC722805D449001A8C9A /* CZenidLogWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */; };
 		18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */; };
 		18953DAF26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +57,8 @@
 		181AB22D26F9856C0081420D /* VerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierModels.swift; sourceTree = "<group>"; };
 		181AB22F26F985AB0081420D /* DocumentVerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierModels.swift; sourceTree = "<group>"; };
 		181AB23126F993140081420D /* FaceVerifierModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceVerifierModels.swift; sourceTree = "<group>"; };
+		1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CZenidLogWrapper.cpp; sourceTree = "<group>"; };
+		1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CZenidLogWrapper.hpp; sourceTree = "<group>"; };
 		188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentVerifierSettingsWrapper.cpp; sourceTree = "<group>"; };
 		18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CDocumentVerifierSettingsWrapper.hpp; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				6F1A6A89251B6DB40087CC0A /* CSelfieWrapper.cpp */,
 				6F6C26FF24B8805E0073A2CA /* CZenidSecurityWrapper.hpp */,
 				6F6C26FE24B8805E0073A2CA /* CZenidSecurityWrapper.cpp */,
+				1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */,
+				1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */,
 				D264246122C11E7E00735B99 /* Info.plist */,
 			);
 			path = "RecogLib-iOS";
@@ -236,6 +242,7 @@
 				D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */,
 				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
 				6FE107B824B29B1C00610F8D /* CUtils.hpp in Headers */,
+				1848AC722805D449001A8C9A /* CZenidLogWrapper.hpp in Headers */,
 				18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */,
 				6F6C270124B8805E0073A2CA /* CZenidSecurityWrapper.hpp in Headers */,
 				6F2CFC8A247471C5005D2FB6 /* CFaceLivenessWrapper.hpp in Headers */,
@@ -332,6 +339,7 @@
 				18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */,
 				B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */,
 				181AB23026F985AB0081420D /* DocumentVerifierModels.swift in Sources */,
+				1848AC712805D449001A8C9A /* CZenidLogWrapper.cpp in Sources */,
 				6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */,
 				181AB22E26F9856C0081420D /* VerifierModels.swift in Sources */,
 				18C1A3952680F4D80047FDD3 /* Document.swift in Sources */,

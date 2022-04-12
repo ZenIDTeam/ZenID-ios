@@ -45,4 +45,12 @@ final public class ApplicationLogger {
     public func Verbose(_ message: String) {
         self.logger?.Verbose(message)
     }
+    
+    public func disableRecognitionLogging() {
+        clearZenidListeners()
+    }
+    
+    public func enableRecognitionLogging() {
+        addZenidListener()
+    }
 }
