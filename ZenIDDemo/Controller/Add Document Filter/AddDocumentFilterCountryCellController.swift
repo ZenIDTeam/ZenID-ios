@@ -49,22 +49,11 @@ final class AddDocumentFilterCountryCellController: BasicTableCellController {
     
     private func didSelect(item: SelectionItemViewModel) {
         update(viewModel: getViewModel(item: item))
-        if item.title == RecogLib_iOS.Country.Cz.description {
-            onSelection(.Cz)
-        } else if item.title == RecogLib_iOS.Country.Sk.description {
-            onSelection(.Sk)
-        } else if item.title == RecogLib_iOS.Country.At.description {
-            onSelection(.At)
-        } else if item.title == RecogLib_iOS.Country.Hu.description {
-            onSelection(.Hu)
-        } else if item.title == RecogLib_iOS.Country.Pl.description {
-            onSelection(.Pl)
-        } else if item.title == RecogLib_iOS.Country.De.description {
-            onSelection(.De)
-        } else if item.title == RecogLib_iOS.Country.Hr.description {
-            onSelection(.Hr)
-        } else if item.title == RecogLib_iOS.Country.It.description {
-            onSelection(.It)
+        for country in RecogLib_iOS.Country.allCases {
+            if item.title == country.description {
+                onSelection(country)
+                return
+            }
         }
     }
     
