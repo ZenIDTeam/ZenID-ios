@@ -54,11 +54,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		JrFatrNUSd8UO7h+J5GyPt7TjnA=
+		HR3E51/Mu6Rp2xcBOi9Sza5CadA=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		JrFatrNUSd8UO7h+J5GyPt7TjnA=
+		HR3E51/Mu6Rp2xcBOi9Sza5CadA=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -90,11 +90,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		4pc4foKtpfFWYKP8ChKeko+HlYw=
+		t91wXw2tfpFj10JsVmls+GQfdA4=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		amw2Kp+pCUiWEaxTZbJ3LqRwWA4=
+		QMB35aIZcaqGbBGQET0jghBEAhY=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -102,11 +102,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		4pc4foKtpfFWYKP8ChKeko+HlYw=
+		t91wXw2tfpFj10JsVmls+GQfdA4=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		amw2Kp+pCUiWEaxTZbJ3LqRwWA4=
+		QMB35aIZcaqGbBGQET0jghBEAhY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -196,14 +196,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EUY862R6RL2PpDYjBTFV2u4bfW/etNMRcv7DZfpj7oE=
+			n1LMQhzlcIyBrRPqnOmXvAFx0GtjK8WcGROr0ypJt4Y=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EUY862R6RL2PpDYjBTFV2u4bfW/etNMRcv7DZfpj7oE=
+			n1LMQhzlcIyBrRPqnOmXvAFx0GtjK8WcGROr0ypJt4Y=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -259,14 +259,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			359EADM0+X/lt91ladKWljVb8ewn6HnxZtc4oDg7baE=
+			L/o5b8VmiIM27HifGtKQGs1ufxC05Cg18IBHhSmrVcM=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PUI94c7P0uPXJZZlC99QiW9tGtswCOJRE0LNqql0ccY=
+			MdQoLQJ2PMWD+/TdijaEDj8j7BM7nw7pTNqfYHQNWRA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftdoc</key>
@@ -280,14 +280,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			359EADM0+X/lt91ladKWljVb8ewn6HnxZtc4oDg7baE=
+			L/o5b8VmiIM27HifGtKQGs1ufxC05Cg18IBHhSmrVcM=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PUI94c7P0uPXJZZlC99QiW9tGtswCOJRE0LNqql0ccY=
+			MdQoLQJ2PMWD+/TdijaEDj8j7BM7nw7pTNqfYHQNWRA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

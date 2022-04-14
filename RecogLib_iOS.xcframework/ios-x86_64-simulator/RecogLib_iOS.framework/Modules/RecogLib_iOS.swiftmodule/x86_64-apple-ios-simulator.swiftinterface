@@ -297,7 +297,7 @@ extension RecogLib_iOS.PageCode : Swift.CustomStringConvertible {
     get
   }
 }
-public enum Country : Swift.Int {
+public enum Country : Swift.Int, Swift.CaseIterable {
   case Cz
   case Sk
   case At
@@ -330,7 +330,11 @@ public enum Country : Swift.Int {
   case Pt
   case Gr
   public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.Country]
   public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.Country] {
+    get
+  }
   public var rawValue: Swift.Int {
     get
   }

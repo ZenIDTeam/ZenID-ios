@@ -388,7 +388,7 @@ extension PageCode: CustomStringConvertible {
     }
 }
 
-public enum Country: Int {
+public enum Country: Int, CaseIterable {
     case Cz = 0
     case Sk = 1
     case At = 2
