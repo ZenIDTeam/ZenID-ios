@@ -134,7 +134,7 @@ public class BaseController<ResultType: ResultState> {
     private func orientationChanged() {
         targetFrame = view.overlay?.bounds ?? .zero
         camera.setOrientation(orientation: UIDevice.current.orientation)
-        view.drawLayer?.renderables = []
+        view.drawLayer?.setRenderables([])
         view.rotateOverlay(targetFrame: getOverlayTargetFrame())
         
         if let videoWriter = videoWriter, videoWriter.isRecording {
@@ -221,7 +221,7 @@ extension BaseController {
         if let drawLayer = view.drawLayer {
             let renderables = RenderableFactory.createRenderables(commands: commands)
             drawLayer.frame = commandsRect
-            drawLayer.renderables = renderables
+            drawLayer.setRenderables(renderables)
         }
     }
     

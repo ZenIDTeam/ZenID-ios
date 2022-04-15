@@ -10,6 +10,10 @@ import UIKit
 
 
 final class Triangle: Renderable {
+    var priority: RenderingPriority {
+        .high
+    }
+    
     private let aPoint: CGPoint
     private let bPoint: CGPoint
     private let cPoint: CGPoint
@@ -46,18 +50,10 @@ final class Triangle: Renderable {
         
         if canFill {
             ctx.setFillColor(color)
-            let isAntialiasEnabled = color.alpha >= 1.0
-            print(isAntialiasEnabled)
-            ctx.setShouldAntialias(isAntialiasEnabled)
-            ctx.setAllowsAntialiasing(isAntialiasEnabled)
-            if isAntialiasEnabled {
-                ctx.setBlendMode(.normal)
-            } else {
-                ctx.setBlendMode(.destinationAtop)
-            }
-            ctx.fillPath()
-            ctx.setShouldAntialias(true)
-            ctx.setAllowsAntialiasing(true)
+            ctx.setStrokeColor(color)
+            ctx.setLineWidth(1.0)
+            ctx.setBlendMode(.copy)
+            ctx.drawPath(using: .fillStroke)
         } else {
             ctx.setStrokeColor(color)
             ctx.setLineWidth(thickness)
