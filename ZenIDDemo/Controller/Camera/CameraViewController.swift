@@ -430,7 +430,7 @@ class CameraViewController: UIViewController {
         default: break;
         }
         
-        contentView.drawLayer?.renderables = []
+        contentView.drawLayer?.setRenderables([])
         contentView.rotateOverlay()
         contentView.rotateInstructionView()
     }
@@ -692,7 +692,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             } else {
                 drawLayer.frame = commandsRect
             }
-            drawLayer.renderables = renderables
+            drawLayer.setRenderables(renderables)
         }
     }
     
