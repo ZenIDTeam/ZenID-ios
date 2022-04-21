@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import RecogLib_iOS
 
 final class Defaults {
     private static let defaults: UserDefaults = {
@@ -33,8 +34,8 @@ final class Defaults {
     
     static var selectedCountry: Country {
         get {
-            let rawValue = defaults[#function] ?? Country.cz.rawValue
-            return Country.init(rawValue:rawValue) ?? Country.cz
+            let rawValue = defaults[#function] ?? Country.Cz.rawValue
+            return Country.init(rawValue:rawValue) ?? Country.Cz
         }
         set { defaults[#function] = newValue.rawValue }
     }

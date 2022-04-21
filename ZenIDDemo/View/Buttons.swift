@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RecogLib_iOS
 
 final class ZenTextButton: UIButton {
     override init(frame: CGRect) {
@@ -73,7 +74,7 @@ class ZenButton: UIButton {
 }
 
 class CountryButton: UIButton {
-    var country: Country = .cz
+    var country: Country = .Cz
 }
 
 class FaceModeButton: UIButton {
@@ -271,24 +272,24 @@ enum Buttons {
     
     enum BCountry {
         static var cz: CountryButton {
-            countryButton(with: .cz)
+            countryButton(with: .Cz)
         }
         
         static var sk: CountryButton {
-            countryButton(with: .sk)
+            countryButton(with: .Sk)
         }
         
         static var pl: CountryButton {
-            countryButton(with: .pl)
+            countryButton(with: .Pl)
         }
         
         static var hr: CountryButton {
-            countryButton(with: .hr)
+            countryButton(with: .Hr)
         }
         
         private static func countryButton(with country: Country) -> CountryButton {
             let button = CountryButton()
-            button.setImage(#imageLiteral(resourceName: "flag_\(country.rawValue.lowercased())"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "flag_\(country.description.lowercased())"), for: .normal)
             button.imageView?.contentMode = .scaleAspectFit
             button.country = country
             button.widthAnchor.constraint(equalToConstant: 100).isActive = true

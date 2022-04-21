@@ -42,25 +42,4 @@ final class RecoglibMapper {
             return nil
         }
     }
-    
-    static func country(from country: Country) -> RecogLib_iOS.Country? {
-        switch country {
-        case .cz:
-            return .Cz
-        case .sk:
-            return .Sk
-        case .at:
-            return .At
-        case .de:
-            return .De
-        case .hr:
-            return .Hr
-        case .hu:
-            return .Hu
-        case .it:
-            return .It
-        case .pl:
-            return .Pl
-        }
-    }
 }

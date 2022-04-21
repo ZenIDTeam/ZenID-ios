@@ -155,7 +155,7 @@ final class ChoiceViewController: UIViewController {
     
     private func updateCountryButton() {
         let title = "btn-country".localized.uppercased()
-        let country = selectedCountry.rawValue.uppercased()
+        let country = selectedCountry.description.uppercased()
         countryButton.setTitle("\(title): \(country)", for: .normal)
     }
     
@@ -226,7 +226,7 @@ final class ChoiceViewController: UIViewController {
     private func validateInput(_ documentType: DocumentType) -> Bool {
         let document = Document(
             role: RecoglibMapper.documentRole(from: documentType, role: nil),
-            country: RecoglibMapper.country(from: selectedCountry),
+            country: selectedCountry,
             page: nil, code: nil
         )
        return documentsValidator.validate(input: .init(documents: [document]))

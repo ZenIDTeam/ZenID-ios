@@ -58,7 +58,7 @@ extension API {
         let sampleType = UploadedSampleType.from(photoType: image.photoType, documentType: image.documentType, dataType: image.dataType)
         var parameters = [typeKey : sampleType.rawValue,
                           roleKey : image.documentRole?.description ?? "",
-                          countryKey: image.country.rawValue,
+                          countryKey: image.country.description,
                           pageKey: image.photoType.pageCode,
                           documentCodeKey : image.documentCode
         ]

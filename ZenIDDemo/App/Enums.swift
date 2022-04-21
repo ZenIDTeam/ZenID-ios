@@ -140,38 +140,6 @@ extension PhotoType {
     }
 }
 
-public enum Country: String {
-    case cz = "Cz"
-    case sk = "Sk"
-    case at = "At"
-    case hu = "Hu"
-    case pl = "Pl"
-    case de = "De"
-    case hr = "Hr"
-    case it = "It"
-    
-    var recoglibCountry: RecogLib_iOS.Country {
-        switch self {
-        case .cz:
-            return .Cz
-        case .sk:
-            return .Sk
-        case .at:
-            return .At
-        case .hu:
-            return .Hu
-        case .pl:
-            return .Pl
-        case .de:
-            return .De
-        case .hr:
-            return .Hr
-        case .it:
-            return .It
-        }
-    }
-}
-
 public enum FaceMode: String {
     case faceLivenessLegacy = "FaceLivenessLegacy"
     case faceLiveness = "FaceLiveness"

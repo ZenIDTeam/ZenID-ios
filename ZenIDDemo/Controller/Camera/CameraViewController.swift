@@ -108,7 +108,7 @@ class CameraViewController: UIViewController {
                 showDebugVisualisation: config.isDebugEnabled,
                 dataType: dataType,
                 role: RecoglibMapper.documentRole(from: type),
-                country: country.recoglibCountry,
+                country: country,
                 page: photoType == .front ? .Front : .Back,
                 code: nil,
                 documents: type == .filter ? documents : nil,

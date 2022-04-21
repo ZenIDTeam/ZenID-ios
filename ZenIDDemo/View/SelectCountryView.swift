@@ -11,7 +11,7 @@ import RecogLib_iOS
 
 class SelectCountryView: UIView {
 
-    var selectedCountry: Country = .cz
+    var selectedCountry: Country = .Cz
     var completion: ((Country)->())?
     
     private var buttons: [UIButton] {
