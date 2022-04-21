@@ -51,16 +51,62 @@ final class RecoglibMapper {
             return .Sk
         case .at:
             return .At
+        case .hu:
+            return .Hu
+        case .pl:
+            return .Pl
         case .de:
             return .De
         case .hr:
             return .Hr
-        case .hu:
-            return .Hu
+        case .ro:
+            return .Ro
+        case .ru:
+            return .Ru
+        case .ua:
+            return .Ua
         case .it:
             return .It
-        case .pl:
-            return .Pl
+        case .dk:
+            return .Dk
+        case .es:
+            return .Es
+        case .fi:
+            return .Fi
+        case .fr:
+            return .Fr
+        case .gb:
+            return .Gb
+        case .is:
+            return .Is
+        case .nl:
+            return .Nl
+        case .se:
+            return .Se
+        case .si:
+            return .Si
+        case .bg:
+            return .Bg
+        case .be:
+            return .Be
+        case .ee:
+            return .Ee
+        case .ie:
+            return .Ie
+        case .cy:
+            return .Cy
+        case .lt:
+            return .Lt
+        case .lv:
+            return .Lv
+        case .lu:
+            return .Lu
+        case .mt:
+            return .Mt
+        case .pt:
+            return .Pt
+        case .gr:
+            return .Gr
         }
     }
 }
