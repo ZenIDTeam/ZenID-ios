@@ -27,7 +27,7 @@ extension SupportedLanguages: CustomStringConvertible {
     }
 }
 
-public enum DocumentCode: Int {
+public enum DocumentCode: Int, CaseIterable {
     case IDC1 = 0
     case IDC2 = 1
     case DRV = 2
@@ -140,6 +140,18 @@ public enum DocumentCode: Int {
     case EU_VIS_2019 = 112
     case UA_DRV_2016 = 113
     case UA_DRV_2005 = 114
+}
+
+public extension DocumentCode {
+    public init?(stringValue: String) {
+        for code in DocumentCode.allCases {
+            if code.description.uppercased() == stringValue.uppercased() {
+                self = code
+                return
+            }
+        }
+        return nil
+    }
 }
 
 extension DocumentCode: CustomStringConvertible {

@@ -160,7 +160,7 @@ extension RecogLib_iOS.SupportedLanguages : Swift.CustomStringConvertible {
     get
   }
 }
-public enum DocumentCode : Swift.Int {
+public enum DocumentCode : Swift.Int, Swift.CaseIterable {
   case IDC1
   case IDC2
   case DRV
@@ -274,10 +274,17 @@ public enum DocumentCode : Swift.Int {
   case UA_DRV_2016
   case UA_DRV_2005
   public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.DocumentCode]
   public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.DocumentCode] {
+    get
+  }
   public var rawValue: Swift.Int {
     get
   }
+}
+extension RecogLib_iOS.DocumentCode {
+  public init?(stringValue: Swift.String)
 }
 extension RecogLib_iOS.DocumentCode : Swift.CustomStringConvertible {
   public var description: Swift.String {
@@ -344,7 +351,7 @@ extension RecogLib_iOS.Country : Swift.CustomStringConvertible {
     get
   }
 }
-public enum DocumentRole : Swift.Int {
+public enum DocumentRole : Swift.Int, Swift.CaseIterable {
   case Idc
   case Pas
   case Drv
@@ -353,7 +360,11 @@ public enum DocumentRole : Swift.Int {
   case Hic
   case Vis
   public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.DocumentRole]
   public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.DocumentRole] {
+    get
+  }
   public var rawValue: Swift.Int {
     get
   }

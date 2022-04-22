@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RecogLib_iOS
 
 enum InvestigateResponseError: String, Error, Decodable {
     case unknownSampleId = "UnknownSampleID"
@@ -47,11 +48,15 @@ struct InvestigationValidatorResponse: Decodable {
 struct InvestigationIssueResponse: Decodable {
     var IssueUrl: String?
     var IssueDescription: String?
-    var DocumentCode: DocumentCode?
+    var DocumentCode: String?
     var FieldID: String?
     var SampleID: String?
     var PageCode: String?
     var SampleType: SampleType?
+    
+    var documentCode: RecogLib_iOS.DocumentCode? {
+        RecogLib_iOS.DocumentCode(stringValue: DocumentCode ?? "")
+    }
 }
 
 struct ListSamplesResponse: Decodable {
