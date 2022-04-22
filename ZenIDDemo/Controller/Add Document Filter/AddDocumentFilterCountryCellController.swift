@@ -31,20 +31,7 @@ final class AddDocumentFilterCountryCellController: BasicTableCellController {
     }
     
     private func getSelectionOptions() -> [SelectionItemViewModel] {
-        [
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Cz.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Sk.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.At.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Hu.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Pl.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.De.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Hr.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.It.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Bg.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Ua.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Ro.description),
-            SelectionItemViewModel(title: RecogLib_iOS.Country.Ru.description)
-        ]
+        RecogLib_iOS.Country.allCases.map({ SelectionItemViewModel(title: $0.description) })
     }
     
     private func didSelect(item: SelectionItemViewModel) {

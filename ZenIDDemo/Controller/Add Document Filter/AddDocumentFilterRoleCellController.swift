@@ -31,30 +31,16 @@ final class AddDocumentFilterRoleCellController: BasicTableCellController {
     }
     
     private func getSelectionOptions() -> [SelectionItemViewModel] {
-        [
-            SelectionItemViewModel(title: DocumentRole.Idc.description),
-            SelectionItemViewModel(title: DocumentRole.Pas.description),
-            SelectionItemViewModel(title: DocumentRole.Drv.description),
-            SelectionItemViewModel(title: DocumentRole.Res.description),
-            SelectionItemViewModel(title: DocumentRole.Gun.description),
-            SelectionItemViewModel(title: DocumentRole.Hic.description)
-        ]
+        DocumentRole.allCases.map({ SelectionItemViewModel(title: $0.description) })
     }
     
     private func didSelect(item: SelectionItemViewModel) {
         update(viewModel: getViewModel(item: item))
-        if item.title == DocumentRole.Idc.description {
-            onSelection(.Idc)
-        } else if item.title == DocumentRole.Pas.description {
-            onSelection(.Pas)
-        } else if item.title == DocumentRole.Drv.description {
-            onSelection(.Drv)
-        } else if item.title == DocumentRole.Res.description {
-            onSelection(.Res)
-        } else if item.title == DocumentRole.Gun.description {
-            onSelection(.Gun)
-        } else if item.title == DocumentRole.Hic.description {
-            onSelection(.Hic)
+        for role in DocumentRole.allCases {
+            if item.title == role.description {
+                onSelection(role)
+                return
+            }
         }
     }
     

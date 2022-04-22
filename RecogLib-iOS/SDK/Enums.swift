@@ -491,7 +491,7 @@ extension Country: CustomStringConvertible {
     }
 }
 
-public enum DocumentRole: Int {
+public enum DocumentRole: Int, CaseIterable {
     case Idc = 0
     case Pas = 1
     case Drv = 2
