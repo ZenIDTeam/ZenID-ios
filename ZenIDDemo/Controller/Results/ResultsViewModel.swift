@@ -122,7 +122,7 @@ extension InvestigateDataRow {
     }
     
     private func getDocumentNumber(from: InvestigateResponse) -> String? {
-        guard let documentCode = from.MinedData?.DocumentCode else { return nil }
+        guard let documentCode = from.MinedData?.documentCode else { return nil }
         switch documentCode.documentType {
         case .idCard:
             return from.MinedData?.IdcardNumber?.Text
@@ -136,7 +136,7 @@ extension InvestigateDataRow {
     }
     
     private func getDocumentNumberConfidence(from: InvestigateResponse) -> Int? {
-        guard let documentCode = from.MinedData?.DocumentCode else { return nil }
+        guard let documentCode = from.MinedData?.documentCode else { return nil }
         switch documentCode.documentType {
         case .idCard:
             return from.MinedData?.IdcardNumber?.Confidence

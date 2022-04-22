@@ -259,7 +259,7 @@ final class ChoiceViewController: UIViewController {
 
     private func showResults(documentType: DocumentType, investigateResponse: InvestigateResponse) {
         ApplicationLogger.shared.Verbose("Show investigation results")
-        let model = ResultsViewModel(documentType: investigateResponse.MinedData?.DocumentCode?.documentType ?? documentType, investigateResponse: investigateResponse)
+        let model = ResultsViewModel(documentType: investigateResponse.MinedData?.documentCode?.documentType ?? documentType, investigateResponse: investigateResponse)
         let resultsViewController = ResultViewController(model: model)
         navigationController?.setViewControllers([self, resultsViewController], animated: true)
     }

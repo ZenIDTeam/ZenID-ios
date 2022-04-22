@@ -39,7 +39,7 @@ public class Dispatcher {
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
             
-            guard let resultDocumentCode = minedData.DocumentCode else {
+            guard let resultDocumentCode = minedData.documentCode else {
                 ApplicationLogger.shared.Verbose("Document code missing")
                 return rescan(image, response, .unknownEstimatedDocumentType)
             }
