@@ -1,5 +1,44 @@
 # Change Log
 
+## 1.18 - 2022-04-22
+* Added CaseIterable support for DocumentCode enum.
+
+## 1.17 - 2022-04-17
+* Added Swift 5.6 and Xcode 13.3 support
+
+## 1.16 - 2022-04-14
+* Updated LibZenid to 2.4.2.
+* Added ReadBarcode option into DocumentSettings.
+* Added the ability to turn off the logging of scanning.
+* New models:
+  recoglibc_UA_DRV_2005_F.bin,
+  recoglibc_UA_DRV_2016_F.bin
+* New DocumentCodes:
+  UA_DRV_2016,
+  UA_DRV_2005
+
+
+## 1.15 - 2022-04-06
+* Updated LibZenid to 2.4.11.
+* Added DrawOutline option into DocumentSettings.
+* Fixed missing built-in feedback text in the FaceLivenessVerifier.
+* New models:
+  recoglibc_AT_IDC_2021_B.bin, 
+  recoglibc_AT_IDC_2021_F.bin, 
+  recoglibc_BG_IDC_2010_B.bin, 
+  recoglibc_BG_IDC_2010_F.bin, 
+  recoglibc_BG_PAS_2010_F.bin, 
+  recoglibc_EU_VIS_2019_F.bin, 
+  recoglibc_UA_IDC_2017_B.bin, 
+  recoglibc_UA_IDC_2017_F.bin, 
+  recoglibc_UA_PAS_2007_15_F.bin
+* New DocumentCodes:
+  UA_PAS_2007_15, 
+  UA_IDC_2017, 
+  EU_VIS_2019
+* New DocumentRole:
+  Vis
+
 ## 1.14 - 2022-03-22
 * Updated LibZenid to 2.3.11.
 * DocumentVerifierState Barcode new state.
