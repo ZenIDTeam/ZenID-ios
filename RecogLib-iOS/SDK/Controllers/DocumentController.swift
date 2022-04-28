@@ -56,7 +56,13 @@ public protocol DocumentControllerDelegate: AnyObject {
     func controller(_ controller: DocumentController, didUpdate result: DocumentResult)
 }
 
-public final class DocumentController: BaseController<DocumentResult> {
+public protocol DocumentControllerAbstraction {
+    var delegate: DocumentControllerDelegate? { get set }
+    
+    func configure(configuration: DocumentControllerConfiguration) throws
+}
+
+public final class DocumentController: BaseController<DocumentResult>, DocumentControllerAbstraction {
     public weak var delegate: DocumentControllerDelegate?
     
     override var overlayImageName: String {

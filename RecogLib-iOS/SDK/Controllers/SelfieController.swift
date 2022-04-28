@@ -38,7 +38,13 @@ public protocol SelfieControllerDelegate: AnyObject {
     func controller(_ controller: SelfieController, didUpdate result: SelfieResult)
 }
 
-public final class SelfieController: BaseController<SelfieResult> {
+public protocol SelfieControllerAbstraction {
+    var delegate: SelfieControllerDelegate? { get set }
+    
+    func configure(configuration: SelfieControllerConfiguration) throws
+}
+
+public final class SelfieController: BaseController<SelfieResult>, SelfieControllerAbstraction {
     public weak var delegate: SelfieControllerDelegate?
     
     private let verifier: SelfieVerifier

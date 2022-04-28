@@ -41,7 +41,13 @@ public protocol FacelivenessControllerDelegate: AnyObject {
     func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult)
 }
 
-public final class FacelivenessController: BaseController<FaceLivenessResult> {
+public protocol FacelivenessControllerAbstraction {
+    var delegate: FacelivenessControllerDelegate? { get set }
+    
+    func configure(configuration: FacelivenessControllerConfiguration) throws
+}
+
+public final class FacelivenessController: BaseController<FaceLivenessResult>, FacelivenessControllerAbstraction {
     public weak var delegate: FacelivenessControllerDelegate?
     
     private let verifier: FaceLivenessVerifier

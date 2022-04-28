@@ -78,6 +78,7 @@ The SDK has to be authorized, otherwise it is not going to work.
 
 1. Contact your manager and get information of initSDK API Endpoint and access to the ZenID system where you have to set your bundle ids.
 2. Fetch your challenge token from SDK:
+
 ```swift
 import RecogLib_iOS.CZenidSecurityWrapper
 
@@ -179,8 +180,6 @@ You should always keep one instance of `Camera`, even when you have more control
 
 Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
 
-You can pass role, country, page, and code if you want to scan only one document. If you need to scan more than one document use `documents` field to pass an array of allowed documents.
-
 You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
 
 
@@ -217,8 +216,6 @@ selfieController?.delegate = self
 You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
 
 Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
-
-You can pass role, country, page, and code if you want to scan only one document. If you need to scan more than one document use `documents` field to pass an array of allowed documents.
 
 You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
 
