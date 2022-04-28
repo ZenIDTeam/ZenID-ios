@@ -1,6 +1,4 @@
-
 import Foundation
-
 
 public protocol VerifierModels {
     var url: URL { get }

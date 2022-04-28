@@ -1,13 +1,4 @@
-//
-//  Document.swift
-//  RecogLib-iOS
-//
-//  Created by Libor Polehna on 21.06.2021.
-//  Copyright © 2021 Marek Stana. All rights reserved.
-//
-
 import Foundation
-
 
 public struct Document: Comparable {
     public static func < (lhs: Document, rhs: Document) -> Bool {

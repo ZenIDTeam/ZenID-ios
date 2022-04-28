@@ -1,11 +1,3 @@
-//
-//  CDocumentWrapper.cpp
-//  RecogLib-iOS
-//
-//  Created by Marek Stana on 26/06/2019.
-//  Copyright © 2019 Marek Stana. All rights reserved.
-//
-
 #include "CUtils.hpp"
 #include "CDocumentWrapper.hpp"
 #include "RecogLibC.h"

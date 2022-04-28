@@ -1,11 +1,3 @@
-//
-//  CUtils.cpp
-//  RecogLib-iOS
-//
-//  Created by Jiri Sacha on 03/07/2020.
-//  Copyright © 2020 Marek Stana. All rights reserved.
-//
-
 #include "CUtils.hpp"
 
 char* getString(std::string token)

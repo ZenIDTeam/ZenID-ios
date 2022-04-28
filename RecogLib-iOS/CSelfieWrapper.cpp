@@ -1,11 +1,3 @@
-//
-//  CSelfieWrapper.cpp
-//  RecogLib-iOS
-//
-//  Created by Jiri Sacha on 23/09/2020.
-//  Copyright © 2020 Marek Stana. All rights reserved.
-//
-
 #include "CUtils.hpp"
 #include "CSelfieWrapper.hpp"
 #include "RecogLibC.h"

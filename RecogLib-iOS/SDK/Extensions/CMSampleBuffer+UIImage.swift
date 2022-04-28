@@ -1,11 +1,3 @@
-//
-//  CMSampleBuffer+UIImage.swift
-//  ZenIDDemo
-//
-//  Created by Marek Stana on 01/07/2019.
-//  Copyright © 2019 Trask, a.s. All rights reserved.
-//
-
 import AVFoundation
 import UIKit
 

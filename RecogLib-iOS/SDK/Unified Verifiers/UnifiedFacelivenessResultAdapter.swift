@@ -1,6 +1,5 @@
 import Foundation
 
-
 public final class UnifiedFacelivenessResultAdapter: UnifiedResult {
     
     public let state: UnifiedState

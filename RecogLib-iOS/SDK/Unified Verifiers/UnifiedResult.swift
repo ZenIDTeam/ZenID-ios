@@ -1,6 +1,4 @@
-
 import Foundation
-
 
 public protocol UnifiedResult {
     var state: UnifiedState { get }

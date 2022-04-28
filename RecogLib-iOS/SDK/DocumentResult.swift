@@ -1,11 +1,3 @@
-//
-//  MatcherResult.swift
-//  RecogLib-iOS
-//
-//  Created by Adam Salih on 27/06/2019.
-//  Copyright © 2019 Marek Stana. All rights reserved.
-//
-
 import Foundation
 import CoreGraphics
 import AVFoundation

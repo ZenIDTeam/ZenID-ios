@@ -1,11 +1,3 @@
-//
-//  UIImageView+Clipping.swift
-//  ZenIDDemo
-//
-//  Created by František Kratochvíl on 04/09/2019.
-//  Copyright © 2019 Trask, a.s. All rights reserved.
-//
-
 import UIKit
 
 extension UIImageView {

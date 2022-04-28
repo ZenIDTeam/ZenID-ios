@@ -1,7 +1,5 @@
-
 import Foundation
 import UIKit.UIImage
-
 
 public struct ImageSignature {
     

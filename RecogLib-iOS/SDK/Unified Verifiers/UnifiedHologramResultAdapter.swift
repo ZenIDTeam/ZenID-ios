@@ -1,6 +1,5 @@
 import Foundation
 
-
 public final class UnifiedHologramResultAdapter: UnifiedResult {
     
     public let state: UnifiedState

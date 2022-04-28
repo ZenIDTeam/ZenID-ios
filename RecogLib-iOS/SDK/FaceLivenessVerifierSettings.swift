@@ -1,13 +1,4 @@
-//
-//  FaceLivenessVerifierSettings.swift
-//  RecogLib-iOS
-//
-//  Created by Libor on 12.12.2021.
-//  Copyright © 2021 Marek Stana. All rights reserved.
-//
-
 import Foundation
-
 
 public struct FaceLivenessVerifierSettings: Equatable {
     public let isLegacyModeEnabled: Bool

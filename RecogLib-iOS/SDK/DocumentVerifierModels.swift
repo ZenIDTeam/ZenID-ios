@@ -1,6 +1,4 @@
-
 import Foundation
-
 
 public final class DocumentVerifierModels: VerifierModels {
     public let url: URL

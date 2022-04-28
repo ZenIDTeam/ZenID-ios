@@ -1,11 +1,3 @@
-//
-//  Rectangle.swift
-//  ZenIDDemo
-//
-//  Created by František Kratochvíl on 16/12/2019.
-//  Copyright © 2019 Trask, a.s. All rights reserved.
-//
-
 import UIKit
 
 class Rectangle: Renderable {

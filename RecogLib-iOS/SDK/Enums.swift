@@ -1,11 +1,3 @@
-//
-//  DocumentEnums.swift
-//  RecogLib-iOS
-//
-//  Created by Adam Salih on 01/07/2019.
-//  Copyright © 2019 Marek Stana. All rights reserved.
-//
-
 import Foundation
 
 public enum SupportedLanguages: Int {

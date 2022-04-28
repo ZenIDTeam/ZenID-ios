@@ -1,6 +1,5 @@
 import Foundation
 
-
 public final class UnifiedDocumentResultAdapter: UnifiedResult {
     
     public let state: UnifiedState

@@ -1,13 +1,4 @@
-//
-//  DocumentsInput.swift
-//  RecogLib-iOS
-//
-//  Created by Libor Polehna on 21.06.2021.
-//  Copyright © 2021 Marek Stana. All rights reserved.
-//
-
 import Foundation
-
 
 public class DocumentsInput {
     

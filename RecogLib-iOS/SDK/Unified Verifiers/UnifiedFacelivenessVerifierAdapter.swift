@@ -1,6 +1,5 @@
 import Foundation
 
-
 public final class UnifiedFacelivenessVerifierAdapter: UnifiedVerifier {
     
     private let verifier: FaceLivenessVerifier

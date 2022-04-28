@@ -1,11 +1,3 @@
-//
-//  FaceLivenessAuxiliaryInfo.swift
-//  RecogLib-iOS
-//
-//  Created by Libor on 13.12.2021.
-//  Copyright © 2021 Marek Stana. All rights reserved.
-//
-
 import Foundation
 
 public enum FaceLivenessCheckType: String, Decodable {

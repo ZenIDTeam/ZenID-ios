@@ -1,11 +1,3 @@
-//
-//  SelfieVerifier.swift
-//  RecogLib-iOS
-//
-//  Created by Jiri Sacha on 23/09/2020.
-//  Copyright © 2020 Marek Stana. All rights reserved.
-//
-
 import Foundation
 import CoreMedia
 

@@ -1,13 +1,4 @@
-//
-//  Triangle.swift
-//  ZenIDDemo
-//
-//  Created by Libor on 13.12.2021.
-//  Copyright © 2021 Trask, a.s. All rights reserved.
-//
-
 import UIKit
-
 
 final class Triangle: Renderable {
     var priority: RenderingPriority {

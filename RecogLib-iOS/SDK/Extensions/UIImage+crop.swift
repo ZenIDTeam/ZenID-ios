@@ -1,11 +1,3 @@
-//
-//  UIImage+crop.swift
-//  ZenIDDemo
-//
-//  Created by Marek Stana on 02/07/2019.
-//  Copyright © 2019 Trask, a.s. All rights reserved.
-//
-
 import AVFoundation
 import VideoToolbox
 import UIKit
@@ -15,7 +7,6 @@ public enum ImageFlip: Int {
     case fromLandScape
     case fromPortrait
 }
-
 
 extension UIImage {
     public convenience init?(pixelBuffer: CVPixelBuffer, crop: CGRect? = nil) {

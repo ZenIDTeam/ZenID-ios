@@ -1,11 +1,3 @@
-//
-//  Log.swift
-//  RecogLib-iOS
-//
-//  Created by Jiri Sacha on 29.03.2021.
-//  Copyright © 2021 Marek Stana. All rights reserved.
-//
-
 public protocol LoggerProtocol {
     func Error(_ message: String);
     func Warn(_ message: String);
