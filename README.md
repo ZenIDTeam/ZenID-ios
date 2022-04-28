@@ -2,6 +2,9 @@
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
 ## Migration
+### To the version 2.0.0
+When calling `verifyImage` method of all verifiers, pass the orientation of the device. There is no need to transform/map the orientation anymore. 
+
 ### To the version 1.9.0
 1. We removed `Models/face/haarcascade_frontalface_alt2.xml` and `Models/face/lbfmodel.yaml.bin`. The models were replace by new models. Please do not use an individual file anymore. Use the `Models/face` folder to load models for Selfie or Faceliveness. Check the Faceliveness Verifier sections for more information.
 
@@ -66,7 +69,7 @@ For compilation, running and deployment of the application following tools are r
     - iOS 11.0
 
 ## Installation
-### Link your project against RecogLib and LibZenid frameworks 
+### Link your project against RecogLib.xcframework and LibZenid.xcframework frameworks 
 
 Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.xcframework` and `LibZenid_iOS.xcframework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
 
@@ -86,29 +89,7 @@ let challengeToken = ZenidSecurity.getChallengeToken()
 let responseToken = ... // backend response - initSDK API Endpoint
 let success = ZenidSecurity.authorize(responseToken: responseToken)
 ```
-5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialized and is ready to be used, otherwise response token is not valid.
-
-
-## Application settings
-In iOS device under Settings -> ZenID is possible to set
-### Camera video gravity mode
-`Fit` - preserve aspect ratio; fit within layer bounds, this mode corresponds to CENTER_INSIDE in Android, this is default and recommended settings because it generates images with better resolution
-`Fill` - preserve aspect ratio; fill layer bounds - CENTER_CROP from Android, data will be cropped to visible part of the image preview. 
-
-### Torch mode
-Is useful for hologram detection
-
-## Application logs
-Demo application uses external libraries CocoaLumberjackSwift and ZipArchive to create application logs.
-You can get log file(s) through `Logs` button from home screen,
-or alternatively directly from device, through USB cable
-- Connect your device to your mac
-- In Xcode, go to Window -> Devices
-- On top-left in the device list, click on the connected device.
-- In the main panel, under Installed Apps section, click on the ZenID application.
-- At the bottom of the Installed Apps list, click on the gear icon and then Download Container.
-- In Finder, right click (show menu) on the saved .xcappdata file and select Show Package Contents
-- Log files are saved in /AppData/Library/Caches/Logs/
+5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialised and is ready to be used, otherwise response token is not valid.
 
 ## Models
 You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support.
@@ -127,38 +108,138 @@ Supported countries: AT, BG, CZ, DE, EU, HR, HU, IT, PL, SK, UA
 4. Link/add all selected folders with your Xcode project.
 
 ## Usage
-### 1. Configure `AVCaptureSession`
-Recoglib is built to be used with AVCaptureSession. Here is a typical example of implementing `AVCaptureSession`. First initialize `AVCaptureSession` object and start batch configuration by calling `beginConfiguration` method.
+The SDK provides two options how to handle the scanning process. First of them is lightweight, where everything is provided to you and you can have running code with the logic and UI in just a couple lines of code. Second of them is more complicated where you have to implement everything from the scratch by yourself if needed. Let's have a look at those options. 
+
+## Usage - Lightweight
+### DocumentController
+Use `DocumentController` for scanning documents. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
+
 ```swift
-let session = AVCaptureSession()
-session.beginConfiguration()
+// Configuration
+let documentControllerConfig = DocumentControllerConfiguration(
+	showVisualisation: true,
+	showHelperVisualisation: true,
+	showDebugVisualisation: false,
+	dataType: .picture,
+	role: .Idc,
+	country: .Cz,
+	page: .Front,
+	code: nil,
+	documents: nil,
+	settings: nil
+)
+// Controller
+let camera = Camera()
+Let cameraView = CameraView()
+let documentController = DocumentController(camera: camera, view: cameraView, modelsUrl: URL.modelsDocuments)
+documentController?.delegate = self
+
 ```
-Set up the input device that you'd want to receive video stream from. Please note that you'd want mark `mediaType` as `.video` since Recoglib can't deal with any other types of media. Using the mediaType of `.video` **is mandatory**.
+You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
+
+Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
+
+You can pass role, country, page, and code if you want to scan only one document. If you need to scan more than one document use `documents` field to pass an array of allowed documents.
+
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+
+
+The delegate of the controller is following:
 ```swift
-let input = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back)
-guard let device = input.devices.first, let deviceInput = try? AVCaptureDeviceInput(device: device) else {
-    session.commitConfiguration()
-    return
+public protocol DocumentControllerDelegate: AnyObject {
+    func controller(_ controller: DocumentController, didScan result: DocumentResult)
+    func controller(_ controller: DocumentController, didRecord videoURL: URL)
+    func controller(_ controller: DocumentController, didUpdate result: DocumentResult)
 }
-session.addInput(deviceInput)
-```
-Next you need to specify a `AVCaptureVideoDataOutputSampleBufferDelegate` which will receive the video stream from the input specified above. To do that, you need to instanciate `AVCaptureVideoDataOutput` and its settings as shown below.
 
-Please note that the whole video stream will be capture **on a background thread** that needs to be specified explicitly.
-```swift
-let output = AVCaptureVideoDataOutput()
-output.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
-let captureQueue = DispatchQueue(label: "Camera_capture_queue")
-output.setSampleBufferDelegate(self, queue: captureQueue)
-session.addOutput(output)
 ```
-Lastly you need to commit this configuration and start the capturing.
-```swift
-session.commitConfiguration()
-session.startRunning()
-```
+You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
+The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
-### 2. Configure `DocumentVerifier`
+### FacelivenessController 
+Use `FacelivenessController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
+
+```swift
+// Configuration
+let documentControllerConfig = FacelivenessControllerConfiguration(
+	showVisualisation: true,
+	showHelperVisualisation: true,
+	showDebugVisualisation: false,
+	dataType: .picture,
+	isLegacy: false
+)
+// Controller
+let camera = Camera()
+Let cameraView = CameraView()
+let facelivenessController = FacelivenessController(camera: camera, view: contentView, modelsUrl: URL.modelsFolder.appendingPathComponent("face"))
+facelivenessController?.delegate = self
+
+```
+You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
+
+Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
+
+You can pass role, country, page, and code if you want to scan only one document. If you need to scan more than one document use `documents` field to pass an array of allowed documents.
+
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+
+
+The delegate of the controller is following:
+```swift
+public protocol FacelivenessControllerDelegate: AnyObject {
+    func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult)
+    func controller(_ controller: FacelivenessController, didRecord videoURL: URL)
+    func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult)
+}
+
+```
+You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
+The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
+
+### SelfieController 
+Use `SelfieController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
+
+```swift
+// Configuration
+let documentControllerConfig = SelfieControllerConfiguration(
+	showVisualisation: true,
+	showHelperVisualisation: true,
+	showDebugVisualisation: false,
+	dataType: .picture
+)
+// Controller
+let camera = Camera()
+Let cameraView = CameraView()
+let selfieController = SelfieController(camera: camera, view: contentView, modelsUrl: URL.modelsFolder.appendingPathComponent("face"))
+selfieController?.delegate = self
+
+```
+You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
+
+Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
+
+You can pass role, country, page, and code if you want to scan only one document. If you need to scan more than one document use `documents` field to pass an array of allowed documents.
+
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+
+
+The delegate of the controller is following:
+```swift
+public protocol SelfieControllerDelegate: AnyObject {
+    func controller(_ controller: SelfieController, didScan result: SelfieResult)
+    func controller(_ controller: SelfieController, didRecord videoURL: URL)
+    func controller(_ controller: SelfieController, didUpdate result: SelfieResult)
+}
+
+```
+You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
+The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
+
+## Usage - From Scratch
+You are free to implement everything from the scratch, without use our controller classes. The SDK provides three classes for you: `DocumentVerifier`, `SelfierVerifier`, and `FacelivenessVerifier`.
+
+
+### `DocumentVerifier`
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
 
 1. Recognizing only one specific document
@@ -246,10 +327,7 @@ readBarcode
 
 Note that properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
 ```swift
-// Domain models option (recommended)
 let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language)
-// JSON option (internal use only)
-let verifier = DocumentVerifier(acceptableInputJson: String, language: .Language)
 ```
 Than you define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate`
 ```swift
@@ -283,17 +361,6 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 ```
 
-### 3. Holograms
-You can use  `DocumentVerifier` to detect 2D holograms on cards.
-To do that, you can use this object the same way like to detect documents and call method `beginHologramVerification` and endHologramVerification. You can record video for selfie and faceliveness, however, there is no need to call any methods on their verifiers.
-
-Detection logic in `captureOutput(_: ,didOutput: ,from:)` is almost the same but in case of holograms you can easily add reconrding video with `VideoWriter` class.
-This video can be uploaded to the backend after successful detection of hologram.
-
-### 4. Selfie verifier
-You can use  `SelfieVerifier` to verify selfie (human face picture) from short video. Human faces are to be identified in video frames.
-Interface is very similar to  `DocumentVerifier`, first you initialize `SelfieVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
-
 #### Models
 You have to load models that you would like to support.
 URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
@@ -305,7 +372,7 @@ if let models = FaceVerifierModels(url: url) {
 }
 ```
 
-### 5. Face liveness verifier
+### Face liveness verifier
 You can use  `FaceLivenessVerifier` to verify face liveness from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `FaceLivenessVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
 
@@ -319,6 +386,18 @@ if let models = FaceVerifierModels(url: url) {
     verifier.loadModels(models)
 }
 ```
+
+### Holograms
+You can use  `DocumentVerifier` to detect 2D holograms on cards.
+To do that, you can use this object the same way like to detect documents and call method `beginHologramVerification` and endHologramVerification. You can record video for selfie and faceliveness, however, there is no need to call any methods on their verifiers.
+
+Detection logic in `captureOutput(_: ,didOutput: ,from:)` is almost the same but in case of holograms you can easily add reconrding video with `VideoWriter` class.
+This video can be uploaded to the backend after successful detection of hologram.
+
+### Selfie verifier
+You can use  `SelfieVerifier` to verify selfie (human face picture) from short video. Human faces are to be identified in video frames.
+Interface is very similar to  `DocumentVerifier`, first you initialize `SelfieVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)`.
+
 
 #### Auxiliary Images
 You can get all images that have been taken during the Faceliveness process.
@@ -358,7 +437,7 @@ verifier.update(settings: settings)
 let info = verifier.getAuxiliaryInfo()
 ```
  
-### 6. Result
+### Result
 The returning value of the `verify()` or `verifyImage(imageBuffer: )` methods is a struct of type `DocumentResult` for documents, `HologramResult` for holograms or `FaceResult` for face liveness.
 
 It contains all the information found describing currently analysed document/face.
@@ -394,25 +473,7 @@ struct Signature {
 ```
 Where the `image` attribute is binary data of the image that contains the SDK signature. You have to send this binary data to the backend if you want to have your signature to be validated. The `signature` attribute is a string that represents the signature itself that you should send to the backend in your investigation sample HTTP REST call. 
 
-### Device Orientation
-SDK supports all device orientations - landscape and portrait. 
-
-You have to pass on this information to SDK as a `orientation` parameter of `verifyImage` method that every validator has.
-However, the orientation in the SDK is not straightforward, you have to convert it first. Here is the mapping/coverting function:
-```swift
-func getImageOrientation(deviceOrientation: UIInterfaceOrientation) -> UIInterfaceOrientation {
-        switch deviceOrientation {
-        case .portrait:
-            return .landscapeLeft
-        case .landscapeRight:
-            return .portraitUpsideDown
-        default:
-            return .portrait
-        }
-}
-```
-
- ### Open Source
+### Open Source
 
 Zenid is powered by Open Source libraries.
 

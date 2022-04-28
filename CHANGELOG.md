@@ -1,5 +1,8 @@
 # Change Log
 
+## 2.0 - 2022-04-28
+* Refactored SDK. Checkout the Readme file.
+
 ## 1.18 - 2022-04-22
 * Added CaseIterable support for DocumentCode enum.
 
