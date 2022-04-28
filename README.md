@@ -51,6 +51,7 @@ Recoglib is capable of recognizing types that include:
 - Holograms
 - Selfie (human face picture)
 - Face liveness
+- EU VISA
 
 ## Configuration management
 For compilation, running and deployment of the application following tools are required. Newer versions of the tools should work, these were tested to work and used during the development:
@@ -118,7 +119,7 @@ If you want to support Selfie, add/link this folder and all files included: `Mod
 If you want to support Faceliveness, add/link this folder and all files included: `Models/face` into your Xcode project.
 
 If you want to support Documents, such as ID, Passport and so on, or different countries, follow instructions below:
-Supported countries: AT, CZ, DE, EU, IT, PL, SK, HU, HR
+Supported countries: AT, BG, CZ, DE, EU, HR, HU, IT, PL, SK, UA
 
 1. You can find all models for documents grouped by countries in the `Models/documents` folder.
 2. Choose which countries do you want to support.
@@ -204,13 +205,15 @@ if let models = DocumentVerifierModels(url: url) {
 ```
 
 #### Verifier Settings
-You can tune a couple of parameters of document verifier. Each initializer has optinal `settings` parameter.
+You can tune a couple of parameters of document verifier. Each initializer has optional `settings` parameter.
 ```swift
 DocumentVerifierSettings(
     specularAcceptableScore: 50,
     documentBlurAcceptableScore: 50,
     timeToBlurMaxToleranceInSeconds: 10,
-    showAimingCircle: false
+    showAimingCircle: false,
+    drawOutline: true,
+    readBarcode: true
 )
 ```
 ```swift
@@ -232,6 +235,14 @@ timeToBlurMaxToleranceInSeconds
 showAimingCircle
 ```
 - default: False
+```swift
+drawOutline
+```
+- default: False
+```swift
+readBarcode
+```
+- default: True
 
 Note that properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
 ```swift
@@ -354,7 +365,7 @@ It contains all the information found describing currently analysed document/fac
 
 `DocumentResult` contains following values:
 - `state` - state of currently analysed image (e.g. `NoMatchFound`, `Blurry` or `ReflectionPresent` etc.)
-- `code` - version of a document (e.g. new or old version of slovakia identity card). This attribute can be `nil` when state is equal to `NoMatchFound`
+- `code` - version of a document (e.g. new or old version of Slovakia identity card). This attribute can be `nil` when state is equal to `NoMatchFound`
 - `role` - specified type of a document
 - `country` - specified origin country of a document
 - `page` - specified page
