@@ -124,7 +124,7 @@ final class ScanProcess {
     /// - Parameters:
     ///   - imageData: the image data
     ///   - type: photo sample type
-    public func processPhoto(imageData: Data, type: PhotoType, result: UnifiedResult?, dataType: DataType) {
+    public func processPhoto(imageData: Data, type: PhotoType, result: RecogLib_iOS.UnifiedResult?, dataType: RecogLib_iOS.DataType) {
         checkIfIsFinishedAndCallDelegate()
         self.scanNextSample()
         let imageInput = ImageInput(

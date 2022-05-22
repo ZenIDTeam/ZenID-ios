@@ -1,18 +1,74 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 import AVFoundation
 import CoreGraphics
 import CoreMedia
+import CoreVideo
 import Foundation
 @_exported import RecogLib_iOS
 import Swift
 import UIKit.UIImage
 import UIKit
+import VideoToolbox
+import WebKit
 import _Concurrency
+public protocol UnifiedVerifier {
+  func verify(image: CoreVideo.CVPixelBuffer) -> RecogLib_iOS.UnifiedResult?
+}
 public struct FaceLivenessResult {
   public var faceLivenessState: RecogLib_iOS.FaceLivenessState
   public let signature: RecogLib_iOS.ImageSignature?
+}
+public protocol VerifierRenderable {
+  func getRenderCommands(canvasSize: CoreGraphics.CGSize) -> Swift.String?
+}
+public protocol ResultState {
+  var isOk: Swift.Bool { get }
+  var description: Swift.String { get }
+}
+@_hasMissingDesignatedInitializers public class BaseController<ResultType> where ResultType : RecogLib_iOS.ResultState {
+  @objc deinit
+  public func start()
+  public func stop()
+}
+extension RecogLib_iOS.BaseController : RecogLib_iOS.VideoWriterDelegate {
+  public func didTakeVideo(_ videoAsset: AVFoundation.AVURLAsset)
+}
+public enum DataType {
+  case picture
+  case video
+  public static func == (a: RecogLib_iOS.DataType, b: RecogLib_iOS.DataType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers final public class Camera : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
+  @objc final public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVFoundation.AVCapturePhoto, error: Swift.Error?)
+}
+extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
+  @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+}
+public enum ZenFont {
+}
+extension UIKit.UIFont {
+  public static let dtitle: UIKit.UIFont
+  public static let darkTitle: UIKit.UIFont
+  public static let darkDescription: UIKit.UIFont
+  public static let buttonFont: UIKit.UIFont
+  public static let bigTitle: UIKit.UIFont
+  public static let title: UIKit.UIFont
+  public static let version: UIKit.UIFont
+  public static let topLabel: UIKit.UIFont
+  public static let messageLabel: UIKit.UIFont
+  public static let pagesCountLabel: UIKit.UIFont
+  public static let resultTitle: UIKit.UIFont
+  public static let resultValue: UIKit.UIFont
 }
 @_hasMissingDesignatedInitializers final public class ZenidSecurity {
   public static func getChallengeToken() -> Swift.String?
@@ -20,6 +76,15 @@ public struct FaceLivenessResult {
   public static func isAuthorized() -> Swift.Bool
   @objc deinit
 }
+final public class UnifiedDocumentVerifierAdapter : RecogLib_iOS.UnifiedVerifier {
+  public init(verifier: RecogLib_iOS.DocumentVerifier, orientation: UIKit.UIInterfaceOrientation)
+  final public func verify(image: CoreVideo.CVPixelBuffer) -> RecogLib_iOS.UnifiedResult?
+  @objc deinit
+}
+extension RecogLib_iOS.UnifiedDocumentVerifierAdapter : RecogLib_iOS.VerifierRenderable {
+  final public func getRenderCommands(canvasSize: CoreGraphics.CGSize) -> Swift.String?
+}
+public func LocalizedString(_ key: Swift.String, tableName: Swift.String? = nil, bundle: Foundation.Bundle = Bundle.main, value: Swift.String = "", comment: Swift.String) -> Swift.String
 public class SelfieVerifier {
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
@@ -33,6 +98,19 @@ public class SelfieVerifier {
   public func reset()
   public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
   @objc deinit
+}
+final public class UnifiedDocumentResultAdapter : RecogLib_iOS.UnifiedResult {
+  final public let state: RecogLib_iOS.UnifiedState
+  final public let role: RecogLib_iOS.DocumentRole?
+  final public let country: RecogLib_iOS.Country?
+  final public let code: RecogLib_iOS.DocumentCode?
+  final public let page: RecogLib_iOS.PageCode?
+  final public let signature: RecogLib_iOS.ImageSignature?
+  public init(result: RecogLib_iOS.DocumentResult)
+  @objc deinit
+}
+extension RecogLib_iOS.DocumentState {
+  public func toDomain() -> RecogLib_iOS.UnifiedState
 }
 public class FaceLivenessVerifier {
   public var language: RecogLib_iOS.SupportedLanguages
@@ -49,6 +127,14 @@ public class FaceLivenessVerifier {
   public func reset()
   public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
   @objc deinit
+}
+public protocol UnifiedResult {
+  var state: RecogLib_iOS.UnifiedState { get }
+  var role: RecogLib_iOS.DocumentRole? { get }
+  var country: RecogLib_iOS.Country? { get }
+  var code: RecogLib_iOS.DocumentCode? { get }
+  var page: RecogLib_iOS.PageCode? { get }
+  var signature: RecogLib_iOS.ImageSignature? { get }
 }
 public class DocumentVerifier {
   public var documentRole: RecogLib_iOS.DocumentRole?
@@ -78,6 +164,43 @@ public class DocumentVerifier {
   public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
   @objc deinit
 }
+public struct DocumentControllerConfiguration {
+  public static let `default`: RecogLib_iOS.DocumentControllerConfiguration
+  public let showVisualisation: Swift.Bool
+  public let showHelperVisualisation: Swift.Bool
+  public let showDebugVisualisation: Swift.Bool
+  public let dataType: RecogLib_iOS.DataType
+  public let role: RecogLib_iOS.DocumentRole?
+  public let country: RecogLib_iOS.Country?
+  public let page: RecogLib_iOS.PageCode?
+  public let code: RecogLib_iOS.DocumentCode?
+  public let documents: [RecogLib_iOS.Document]?
+  public let settings: RecogLib_iOS.DocumentVerifierSettings?
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, dataType: RecogLib_iOS.DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, documents: [RecogLib_iOS.Document]?, settings: RecogLib_iOS.DocumentVerifierSettings?)
+}
+extension RecogLib_iOS.DocumentResult : RecogLib_iOS.ResultState {
+  public var isOk: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol DocumentControllerDelegate : AnyObject {
+  func controller(_ controller: RecogLib_iOS.DocumentController, didScan result: RecogLib_iOS.DocumentResult)
+  func controller(_ controller: RecogLib_iOS.DocumentController, didRecord videoURL: Foundation.URL)
+  func controller(_ controller: RecogLib_iOS.DocumentController, didUpdate result: RecogLib_iOS.DocumentResult)
+}
+public protocol DocumentControllerAbstraction {
+  var delegate: RecogLib_iOS.DocumentControllerDelegate? { get set }
+  func configure(configuration: RecogLib_iOS.DocumentControllerConfiguration) throws
+}
+@_hasMissingDesignatedInitializers final public class DocumentController : RecogLib_iOS.BaseController<RecogLib_iOS.DocumentResult>, RecogLib_iOS.DocumentControllerAbstraction {
+  weak final public var delegate: RecogLib_iOS.DocumentControllerDelegate?
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL)
+  @objc deinit
+  final public func configure(configuration: RecogLib_iOS.DocumentControllerConfiguration = .default) throws
+}
 public protocol LoggerProtocol {
   func Error(_ message: Swift.String)
   func Warn(_ message: Swift.String)
@@ -102,6 +225,22 @@ public struct FaceLivenessVerifierSettings : Swift.Equatable {
   public let maxAuxiliaryImageSize: Swift.Int
   public init(isLegacyModeEnabled: Swift.Bool = false, maxAuxiliaryImageSize: Swift.Int = 300)
   public static func == (a: RecogLib_iOS.FaceLivenessVerifierSettings, b: RecogLib_iOS.FaceLivenessVerifierSettings) -> Swift.Bool
+}
+public protocol VideoWriterDelegate : AnyObject {
+  func didTakeVideo(_ videoAsset: AVFoundation.AVURLAsset)
+}
+final public class UnifiedSelfieResultAdapter : RecogLib_iOS.UnifiedResult {
+  final public let state: RecogLib_iOS.UnifiedState
+  final public let role: RecogLib_iOS.DocumentRole?
+  final public let country: RecogLib_iOS.Country?
+  final public let code: RecogLib_iOS.DocumentCode?
+  final public let page: RecogLib_iOS.PageCode?
+  final public let signature: RecogLib_iOS.ImageSignature?
+  public init(result: RecogLib_iOS.SelfieResult)
+  @objc deinit
+}
+extension RecogLib_iOS.SelfieState {
+  public func toDomain() -> RecogLib_iOS.UnifiedState
 }
 public enum FaceLivenessCheckType : Swift.String, Swift.Decodable {
   case angle
@@ -134,6 +273,14 @@ public struct FaceLivenessAuxiliaryInfo {
   public let images: [Foundation.Data]
   public let metadata: [RecogLib_iOS.FaceLivenessAuxiliaryMetadata]
 }
+final public class UnifiedFacelivenessVerifierAdapter : RecogLib_iOS.UnifiedVerifier {
+  public init(verifier: RecogLib_iOS.FaceLivenessVerifier)
+  final public func verify(image: CoreVideo.CVPixelBuffer) -> RecogLib_iOS.UnifiedResult?
+  @objc deinit
+}
+extension RecogLib_iOS.UnifiedFacelivenessVerifierAdapter : RecogLib_iOS.VerifierRenderable {
+  final public func getRenderCommands(canvasSize: CoreGraphics.CGSize) -> Swift.String?
+}
 public struct DocumentVerifierSettings : Swift.Equatable {
   public let specularAcceptableScore: Swift.Int
   public let documentBlurAcceptableScore: Swift.Int
@@ -144,6 +291,25 @@ public struct DocumentVerifierSettings : Swift.Equatable {
   public let readBarcode: Swift.Bool
   public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = false, readBarcode: Swift.Bool = true)
   public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
+}
+final public class UnifiedFacelivenessResultAdapter : RecogLib_iOS.UnifiedResult {
+  final public let state: RecogLib_iOS.UnifiedState
+  final public let role: RecogLib_iOS.DocumentRole?
+  final public let country: RecogLib_iOS.Country?
+  final public let code: RecogLib_iOS.DocumentCode?
+  final public let page: RecogLib_iOS.PageCode?
+  final public let signature: RecogLib_iOS.ImageSignature?
+  public init(result: RecogLib_iOS.FaceLivenessResult)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class CameraView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override final public var frame: CoreGraphics.CGRect {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @objc deinit
 }
 public enum SupportedLanguages : Swift.Int {
   case English
@@ -448,6 +614,39 @@ extension RecogLib_iOS.SelfieState : Swift.CustomStringConvertible {
     get
   }
 }
+extension RecogLib_iOS.FaceLivenessResult : RecogLib_iOS.ResultState {
+  public var isOk: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+public struct FacelivenessControllerConfiguration {
+  public static let `default`: RecogLib_iOS.FacelivenessControllerConfiguration
+  public let showVisualisation: Swift.Bool
+  public let showHelperVisualisation: Swift.Bool
+  public let showDebugVisualisation: Swift.Bool
+  public let dataType: RecogLib_iOS.DataType
+  public let isLegacy: Swift.Bool
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, dataType: RecogLib_iOS.DataType, isLegacy: Swift.Bool)
+}
+public protocol FacelivenessControllerDelegate : AnyObject {
+  func controller(_ controller: RecogLib_iOS.FacelivenessController, didScan result: RecogLib_iOS.FaceLivenessResult)
+  func controller(_ controller: RecogLib_iOS.FacelivenessController, didRecord videoURL: Foundation.URL)
+  func controller(_ controller: RecogLib_iOS.FacelivenessController, didUpdate result: RecogLib_iOS.FaceLivenessResult)
+}
+public protocol FacelivenessControllerAbstraction {
+  var delegate: RecogLib_iOS.FacelivenessControllerDelegate? { get set }
+  func configure(configuration: RecogLib_iOS.FacelivenessControllerConfiguration) throws
+}
+@_hasMissingDesignatedInitializers final public class FacelivenessController : RecogLib_iOS.BaseController<RecogLib_iOS.FaceLivenessResult>, RecogLib_iOS.FacelivenessControllerAbstraction {
+  weak final public var delegate: RecogLib_iOS.FacelivenessControllerDelegate?
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL)
+  final public func configure(configuration: RecogLib_iOS.FacelivenessControllerConfiguration = .default) throws
+  final public func getAuxiliaryImages() -> RecogLib_iOS.FaceLivenessAuxiliaryInfo?
+  @objc deinit
+}
 public class DocumentsInput {
   public init(documents: [RecogLib_iOS.Document])
   @objc deinit
@@ -460,6 +659,14 @@ public struct DocumentResult {
   public var page: RecogLib_iOS.PageCode?
   public var hologremState: RecogLib_iOS.HologramState?
   public var signature: RecogLib_iOS.ImageSignature?
+}
+final public class UnifiedSelfieVerifierAdapter : RecogLib_iOS.UnifiedVerifier {
+  public init(verifier: RecogLib_iOS.SelfieVerifier)
+  final public func verify(image: CoreVideo.CVPixelBuffer) -> RecogLib_iOS.UnifiedResult?
+  @objc deinit
+}
+extension RecogLib_iOS.UnifiedSelfieVerifierAdapter : RecogLib_iOS.VerifierRenderable {
+  final public func getRenderCommands(canvasSize: CoreGraphics.CGSize) -> Swift.String?
 }
 final public class DocumentVerifierModels : RecogLib_iOS.VerifierModels {
   final public let url: Foundation.URL
@@ -480,6 +687,19 @@ public struct Document : Swift.Comparable {
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?)
   public static func == (a: RecogLib_iOS.Document, b: RecogLib_iOS.Document) -> Swift.Bool
 }
+public enum ImageFlip : Swift.Int {
+  case none
+  case fromLandScape
+  case fromPortrait
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension UIKit.UIImage {
+  convenience public init?(pixelBuffer: CoreVideo.CVPixelBuffer, crop: CoreGraphics.CGRect? = nil)
+}
 public struct ImageSignature {
   public let image: Foundation.Data
   public let signature: Swift.String
@@ -488,8 +708,76 @@ public struct SelfieResult {
   public var selfieState: RecogLib_iOS.SelfieState
   public let signature: RecogLib_iOS.ImageSignature?
 }
+extension RecogLib_iOS.SelfieResult : RecogLib_iOS.ResultState {
+  public var isOk: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+public struct SelfieControllerConfiguration {
+  public static let `default`: RecogLib_iOS.SelfieControllerConfiguration
+  public let showVisualisation: Swift.Bool
+  public let showHelperVisualisation: Swift.Bool
+  public let showDebugVisualisation: Swift.Bool
+  public let dataType: RecogLib_iOS.DataType
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, dataType: RecogLib_iOS.DataType)
+}
+public protocol SelfieControllerDelegate : AnyObject {
+  func controller(_ controller: RecogLib_iOS.SelfieController, didScan result: RecogLib_iOS.SelfieResult)
+  func controller(_ controller: RecogLib_iOS.SelfieController, didRecord videoURL: Foundation.URL)
+  func controller(_ controller: RecogLib_iOS.SelfieController, didUpdate result: RecogLib_iOS.SelfieResult)
+}
+public protocol SelfieControllerAbstraction {
+  var delegate: RecogLib_iOS.SelfieControllerDelegate? { get set }
+  func configure(configuration: RecogLib_iOS.SelfieControllerConfiguration) throws
+}
+@_hasMissingDesignatedInitializers final public class SelfieController : RecogLib_iOS.BaseController<RecogLib_iOS.SelfieResult>, RecogLib_iOS.SelfieControllerAbstraction {
+  weak final public var delegate: RecogLib_iOS.SelfieControllerDelegate?
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL)
+  final public func configure(configuration: RecogLib_iOS.SelfieControllerConfiguration = .default) throws
+  @objc deinit
+}
 public struct HologramResult {
   public var hologramState: RecogLib_iOS.HologramState
+}
+final public class UnifiedHologramResultAdapter : RecogLib_iOS.UnifiedResult {
+  final public let state: RecogLib_iOS.UnifiedState
+  final public let role: RecogLib_iOS.DocumentRole?
+  final public let country: RecogLib_iOS.Country?
+  final public let code: RecogLib_iOS.DocumentCode?
+  final public let page: RecogLib_iOS.PageCode?
+  final public let signature: RecogLib_iOS.ImageSignature?
+  public init(result: RecogLib_iOS.HologramResult)
+  @objc deinit
+}
+extension RecogLib_iOS.HologramState {
+  public func toDomain() -> RecogLib_iOS.UnifiedState
+}
+public enum UnifiedState {
+  case notFound
+  case alignCard
+  case holdSteady
+  case blurry
+  case reflectionPresent
+  case ok
+  case hologram
+  case dark
+  case confirming
+  case lookAtMe
+  case turnHead
+  case smile
+  case badFaceAngle
+  case tiltLeftAndRight
+  case tiltUpAndDown
+  case center
+  case barcode
+  public static func == (a: RecogLib_iOS.UnifiedState, b: RecogLib_iOS.UnifiedState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
   final public let url: Foundation.URL
@@ -497,12 +785,23 @@ final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
   final public func load(onLoad: (Foundation.Data) -> Swift.Void)
   @objc deinit
 }
+extension RecogLib_iOS.DataType : Swift.Equatable {}
+extension RecogLib_iOS.DataType : Swift.Hashable {}
+extension RecogLib_iOS.DocumentState : Swift.Equatable {}
+extension RecogLib_iOS.DocumentState : Swift.Hashable {}
+extension RecogLib_iOS.DocumentState : Swift.RawRepresentable {}
+extension RecogLib_iOS.SelfieState : Swift.Equatable {}
+extension RecogLib_iOS.SelfieState : Swift.Hashable {}
+extension RecogLib_iOS.SelfieState : Swift.RawRepresentable {}
 extension RecogLib_iOS.FaceLivenessCheckType : Swift.Equatable {}
 extension RecogLib_iOS.FaceLivenessCheckType : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessCheckType : Swift.RawRepresentable {}
 extension RecogLib_iOS.FaceLivenessAngle : Swift.Equatable {}
 extension RecogLib_iOS.FaceLivenessAngle : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessAngle : Swift.RawRepresentable {}
+extension RecogLib_iOS.FaceLivenessState : Swift.Equatable {}
+extension RecogLib_iOS.FaceLivenessState : Swift.Hashable {}
+extension RecogLib_iOS.FaceLivenessState : Swift.RawRepresentable {}
 extension RecogLib_iOS.SupportedLanguages : Swift.Equatable {}
 extension RecogLib_iOS.SupportedLanguages : Swift.Hashable {}
 extension RecogLib_iOS.SupportedLanguages : Swift.RawRepresentable {}
@@ -518,15 +817,11 @@ extension RecogLib_iOS.Country : Swift.RawRepresentable {}
 extension RecogLib_iOS.DocumentRole : Swift.Equatable {}
 extension RecogLib_iOS.DocumentRole : Swift.Hashable {}
 extension RecogLib_iOS.DocumentRole : Swift.RawRepresentable {}
-extension RecogLib_iOS.DocumentState : Swift.Equatable {}
-extension RecogLib_iOS.DocumentState : Swift.Hashable {}
-extension RecogLib_iOS.DocumentState : Swift.RawRepresentable {}
 extension RecogLib_iOS.HologramState : Swift.Equatable {}
 extension RecogLib_iOS.HologramState : Swift.Hashable {}
 extension RecogLib_iOS.HologramState : Swift.RawRepresentable {}
-extension RecogLib_iOS.FaceLivenessState : Swift.Equatable {}
-extension RecogLib_iOS.FaceLivenessState : Swift.Hashable {}
-extension RecogLib_iOS.FaceLivenessState : Swift.RawRepresentable {}
-extension RecogLib_iOS.SelfieState : Swift.Equatable {}
-extension RecogLib_iOS.SelfieState : Swift.Hashable {}
-extension RecogLib_iOS.SelfieState : Swift.RawRepresentable {}
+extension RecogLib_iOS.ImageFlip : Swift.Equatable {}
+extension RecogLib_iOS.ImageFlip : Swift.Hashable {}
+extension RecogLib_iOS.ImageFlip : Swift.RawRepresentable {}
+extension RecogLib_iOS.UnifiedState : Swift.Equatable {}
+extension RecogLib_iOS.UnifiedState : Swift.Hashable {}

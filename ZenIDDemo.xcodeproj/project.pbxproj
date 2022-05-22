@@ -130,8 +130,6 @@
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
 		18BD1B8F2805E5B70062C89B /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */; };
 		18BD1B902805E5B70062C89B /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		18BD1B982805E7CB0062C89B /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */; platformFilter = ios; };
-		18BD1B992805E7CB0062C89B /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDC33C2795C3E40016AAF6 /* WebKit.framework */; };
 		18BDC36927983D920016AAF6 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = 18BDC36827983D920016AAF6 /* WebSource */; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
@@ -153,6 +151,8 @@
 		6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FF5E9CD2468ACF20077980C /* CredentialsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */; };
 		6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */; };
+		BAF5658B283A5B1A00E0E98A /* RecogLib_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B942805E73B0062C89B /* RecogLib_iOS.xcframework */; };
+		BAF5658C283A5B1A00E0E98A /* RecogLib_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD1B942805E73B0062C89B /* RecogLib_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C3C7522CA540A00585770 /* DocumentState+Localized.swift */; };
 		D293FE1A22CA393D00FC49D0 /* RecoglibMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D293FE1922CA393D00FC49D0 /* RecoglibMapper.swift */; };
 		D2AB79EB22B904F800F1D7AA /* PDFHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB79EA22B904F800F1D7AA /* PDFHelper.swift */; };
@@ -177,8 +177,8 @@
 			files = (
 				6FE1D50F2612705E00529241 /* CocoaLumberjack.xcframework in Embed Frameworks */,
 				6FF414DC26148FDC0091CBEB /* ZipArchive.xcframework in Embed Frameworks */,
-				18BD1B992805E7CB0062C89B /* RecogLib_iOS.framework in Embed Frameworks */,
 				18BD1B902805E5B70062C89B /* LibZenid_iOS.xcframework in Embed Frameworks */,
+				BAF5658C283A5B1A00E0E98A /* RecogLib_iOS.xcframework in Embed Frameworks */,
 				6FE1D5112612705E00529241 /* CocoaLumberjackSwift.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -312,9 +312,7 @@
 		18953DE3268994D60077F976 /* DocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecogLibDocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
-		18BD1B912805E5E80062C89B /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecogLib_iOS.framework; path = "../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Release-iphonesimulator/RecogLib_iOS.framework"; sourceTree = "<group>"; };
 		18BD1B942805E73B0062C89B /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RecogLib_iOS.xcframework; sourceTree = "<group>"; };
-		18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecogLib_iOS.framework; path = "../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Debug-iphoneos/RecogLib_iOS.framework"; sourceTree = "<group>"; };
 		18BDC33C2795C3E40016AAF6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		18BDC36827983D920016AAF6 /* WebSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSource; sourceTree = "<group>"; };
 		6F2D536B24696A2A001C3544 /* QrSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrSquareView.swift; sourceTree = "<group>"; };
@@ -357,7 +355,7 @@
 				6FE1D50E2612705E00529241 /* CocoaLumberjack.xcframework in Frameworks */,
 				6FF414DB26148FDC0091CBEB /* ZipArchive.xcframework in Frameworks */,
 				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
-				18BD1B982805E7CB0062C89B /* RecogLib_iOS.framework in Frameworks */,
+				BAF5658B283A5B1A00E0E98A /* RecogLib_iOS.xcframework in Frameworks */,
 				18BD1B8F2805E5B70062C89B /* LibZenid_iOS.xcframework in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
@@ -486,9 +484,7 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18BD1B972805E7CB0062C89B /* RecogLib_iOS.framework */,
 				18BD1B942805E73B0062C89B /* RecogLib_iOS.xcframework */,
-				18BD1B912805E5E80062C89B /* RecogLib_iOS.framework */,
 				18BD1B8E2805E5B70062C89B /* LibZenid_iOS.xcframework */,
 				18BDC33C2795C3E40016AAF6 /* WebKit.framework */,
 				6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */,
@@ -1162,8 +1158,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 139;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = YES;
@@ -1186,7 +1182,7 @@
 				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
@@ -1197,10 +1193,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 139;
-				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1218,7 +1214,7 @@
 				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Development: ZenID Demo Debug";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
