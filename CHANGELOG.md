@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.0.5 2022-05-25
+* Updated LibZenid 2.5.1
+* The recoglibc*.bin models were renamed to usurf*.bin and the file names were switched to lowercase.
+* Switched to a combined xcframework instead of two frameworks
+
 ## 2.0 - 2022-04-28
 * Refactored SDK. Checkout the Readme file.
 
