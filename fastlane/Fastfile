@@ -23,11 +23,11 @@ platform :ios do
   end
 
   lane :firebase do
-    build_app(workspace: "ZenID.xcworkspace", scheme: "ZenIDDemo")
+    # build_app(workspace: "ZenID.xcworkspace", scheme: "ZenIDDemo")
     firebase_app_distribution(
-            app: "1:308002022528:ios:36531d62e268b7432df265",
-            testers: "ffogaras@trask.cz, enrico@nubtron.com",
-            groups:
-            release_notes_file: "CHANGELOG.md"
-        )
+      app: "1:308002022528:ios:36531d62e268b7432df265",
+      testers: "ffogaras@trask.cz, enrico@nubtron.com",
+      release_notes_file: "CHANGELOG.md",
+    )
+  end
 end
