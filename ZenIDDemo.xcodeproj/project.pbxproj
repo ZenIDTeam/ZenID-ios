@@ -326,7 +326,6 @@
 		6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZipArchive.xcframework; path = Carthage/Build/ZipArchive.xcframework; sourceTree = "<group>"; };
 		6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSettings.swift; sourceTree = "<group>"; };
 		6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerControllerDelegate.swift; sourceTree = "<group>"; };
-		BAA4718F2854BC4900240BEB /* RecogLibPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RecogLibPackage; sourceTree = "<group>"; };
 		BAF9E49D284F6CF10030212D /* ZenIDDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenIDDemo.entitlements; sourceTree = "<group>"; };
 		D24C3C7522CA540A00585770 /* DocumentState+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentState+Localized.swift"; sourceTree = "<group>"; };
 		D293FE1922CA393D00FC49D0 /* RecoglibMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoglibMapper.swift; sourceTree = "<group>"; };
@@ -439,7 +438,6 @@
 		0134751321ECB3FB004EE4E5 = {
 			isa = PBXGroup;
 			children = (
-				BAA4718F2854BC4900240BEB /* RecogLibPackage */,
 				18BDC36827983D920016AAF6 /* WebSource */,
 				181AB23326F9A2870081420D /* Models */,
 				0134751E21ECB3FB004EE4E5 /* ZenIDDemo */,
