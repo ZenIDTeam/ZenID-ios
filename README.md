@@ -461,9 +461,9 @@ The SDK now generates a signature for the snapshots it takes. The backend uses t
 
 The SDK provides the signature as an attribute inside of the result objects of verifiers, such as `DocumentResult`, `FaceLivenessResult`, and `SelfieResult`. Hologram does not support the signature. 
 
-This is what `Signature` structure looks like:
+This is what `ImageSignature` structure looks like:
 ```swift
-struct Signature {
+struct ImageSignature {
     let image: Data
     let signature: String
 }

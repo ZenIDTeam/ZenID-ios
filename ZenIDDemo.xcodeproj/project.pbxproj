@@ -151,6 +151,8 @@
 		6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */; };
 		BAA471912854BC6500240BEB /* LibZenid_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = BAA471902854BC6500240BEB /* LibZenid_iOS */; };
 		BAA471932854BC6800240BEB /* RecogLib_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = BAA471922854BC6800240BEB /* RecogLib_iOS */; };
+		BAA6B08A28575488006DDC61 /* LibZenid_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = BAA6B08928575488006DDC61 /* LibZenid_iOS */; };
+		BAA6B08C28575488006DDC61 /* RecogLib_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = BAA6B08B28575488006DDC61 /* RecogLib_iOS */; };
 		D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C3C7522CA540A00585770 /* DocumentState+Localized.swift */; };
 		D293FE1A22CA393D00FC49D0 /* RecoglibMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D293FE1922CA393D00FC49D0 /* RecoglibMapper.swift */; };
 		D2AB79EB22B904F800F1D7AA /* PDFHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB79EA22B904F800F1D7AA /* PDFHelper.swift */; };
@@ -352,6 +354,8 @@
 				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
 				BAA471932854BC6800240BEB /* RecogLib_iOS in Frameworks */,
 				BAA471912854BC6500240BEB /* LibZenid_iOS in Frameworks */,
+				BAA6B08C28575488006DDC61 /* RecogLib_iOS in Frameworks */,
+				BAA6B08A28575488006DDC61 /* LibZenid_iOS in Frameworks */,
 				6FE1D5102612705E00529241 /* CocoaLumberjackSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,6 +809,8 @@
 			packageProductDependencies = (
 				BAA471902854BC6500240BEB /* LibZenid_iOS */,
 				BAA471922854BC6800240BEB /* RecogLib_iOS */,
+				BAA6B08928575488006DDC61 /* LibZenid_iOS */,
+				BAA6B08B28575488006DDC61 /* RecogLib_iOS */,
 			);
 			productName = ZenIDDemo;
 			productReference = 0134751C21ECB3FB004EE4E5 /* ZenIDDemo.app */;
@@ -837,6 +843,7 @@
 			);
 			mainGroup = 0134751321ECB3FB004EE4E5;
 			packageReferences = (
+				BAA6B08828575488006DDC61 /* XCRemoteSwiftPackageReference "ZenID-ios" */,
 			);
 			productRefGroup = 0134751D21ECB3FB004EE4E5 /* Products */;
 			projectDirPath = "";
@@ -1180,7 +1187,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
@@ -1214,7 +1221,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
@@ -1244,6 +1251,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		BAA6B08828575488006DDC61 /* XCRemoteSwiftPackageReference "ZenID-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZenIDTeam/ZenID-ios.git";
+			requirement = {
+				branch = "swift-package";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		BAA471902854BC6500240BEB /* LibZenid_iOS */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1251,6 +1269,16 @@
 		};
 		BAA471922854BC6800240BEB /* RecogLib_iOS */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = RecogLib_iOS;
+		};
+		BAA6B08928575488006DDC61 /* LibZenid_iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAA6B08828575488006DDC61 /* XCRemoteSwiftPackageReference "ZenID-ios" */;
+			productName = LibZenid_iOS;
+		};
+		BAA6B08B28575488006DDC61 /* RecogLib_iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAA6B08828575488006DDC61 /* XCRemoteSwiftPackageReference "ZenID-ios" */;
 			productName = RecogLib_iOS;
 		};
 /* End XCSwiftPackageProductDependency section */
