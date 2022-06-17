@@ -69,9 +69,18 @@ For compilation, running and deployment of the application following tools are r
     - iOS 11.0
 
 ## Installation
-### Link your project against RecogLib.xcframework and LibZenid.xcframework frameworks 
+
+### Statically link the frameworks
+Link your project against RecogLib.xcframework and LibZenid.xcframework frameworks 
 
 Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.xcframework` and `LibZenid_iOS.xcframework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
+
+
+### Installation with SPM
+
+1. Open your Xcode project.
+2. Add remote package dependency https://github.com/ZenIDTeam/ZenID-ios.git
+3. In your app target, General tab add **LibZenid_iOS** and **Recoglib_iOS** frameworks 
 
 ## Authorization
 The SDK has to be authorized, otherwise it is not going to work. 
