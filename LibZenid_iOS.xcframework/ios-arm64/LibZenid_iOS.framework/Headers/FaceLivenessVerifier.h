@@ -2,11 +2,11 @@
 
 #ifndef NO_FACE
 
+#include "ZenidEnums.generated.h"
+
 #ifndef NO_OPENCV
 #include "opencv2/core.hpp"
 #endif
-
-#include "ZenidEnums.generated.h"
 
 #include <memory>
 #include <vector>
@@ -21,10 +21,18 @@ class Image;
 class FaceLivenessVerifierSettings
 {
 public:
+	FaceLivenessVerifierSettings() = default;
+	FaceLivenessVerifierSettings(bool enableLegacyMode, int maxAuxiliaryImageSize, int visualizerVersion);
+
 	// Use the pre-1.11.4 behavior: turn in any direction then smile.
 	bool enableLegacyMode = false;
 	// Auxiliary images will be resized to fit into this size while preserving the aspect ratio.
 	int maxAuxiliaryImageSize = 300;
+
+	// Selects the format of GetRenderCommands.
+	// Version 1 is the procedural version wih semicolon-separated parameters.
+	// Version 2 is JSON processed by zenid-visualizer.js
+	int visualizerVersion = 2;
 };
 
 class FaceLivenessVerifier

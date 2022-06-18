@@ -91,7 +91,6 @@ enum class DocumentCodes : uint8_t
 	BE_IDC_2020_21 = 81,
 	GR_PAS_2020 = 82,
 	PT_PAS_2006_09 = 83,
-	PT_PAS_2017 = 84,
 	PT_IDC_2007_08_09_15 = 85,
 	SE_IDC_2012_21 = 86,
 	FI_IDC_2017_21 = 87,
@@ -123,6 +122,8 @@ enum class DocumentCodes : uint8_t
 	UA_DRV_2016 = 113,
 	UA_DRV_2005 = 114,
 	UA_DRV_2021 = 115,
+	EU_EHIC_2004_C = 116,
+	VN_PAS_2005 = 117,
 };
 
 enum class PageCodes : uint8_t
@@ -162,8 +163,11 @@ enum class Country : uint8_t
 	Lv = 32,
 	Lu = 33,
 	Mt = 34,
+	Md = 35,
+	No = 37,
 	Pt = 38,
 	Gr = 39,
+	Vn = 46,
 };
 
 enum class DocumentRole : uint8_t
@@ -326,6 +330,7 @@ enum class FieldID : int
 	Count = 89,
 	NamesOfParents = 90,
 	NamesOfParents2 = 91,
+	HealthInsuranceNumber = 92,
 };
 
 enum class SdkSignatureProblem : int

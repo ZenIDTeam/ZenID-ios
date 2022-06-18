@@ -56,7 +56,6 @@
 		18371B7227C66B8B002528F3 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B7127C66B8B002528F3 /* LocalizedString.swift */; };
 		1848AC712805D449001A8C9A /* CZenidLogWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */; };
 		1848AC722805D449001A8C9A /* CZenidLogWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */; };
 		18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */; };
 		18953DAF26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		18953DB126844F6B0077F976 /* DocumentVerifierSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DB026844F6B0077F976 /* DocumentVerifierSettings.swift */; };
@@ -95,6 +94,7 @@
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
+		EA1D1A06285DEBAB001711D0 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1D1A05285DEBAB001711D0 /* LibZenid_iOS.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,7 +148,6 @@
 		18371B7127C66B8B002528F3 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		1848AC6F2805D449001A8C9A /* CZenidLogWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CZenidLogWrapper.cpp; sourceTree = "<group>"; };
 		1848AC702805D449001A8C9A /* CZenidLogWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CZenidLogWrapper.hpp; sourceTree = "<group>"; };
-		188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		18953DAC26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDocumentVerifierSettingsWrapper.cpp; sourceTree = "<group>"; };
 		18953DAD26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CDocumentVerifierSettingsWrapper.hpp; sourceTree = "<group>"; };
 		18953DB026844F6B0077F976 /* DocumentVerifierSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettings.swift; sourceTree = "<group>"; };
@@ -191,6 +190,7 @@
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D2BD780622C4EA24006D7974 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		EA1D1A05285DEBAB001711D0 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +200,8 @@
 			files = (
 				D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
-				188422FC272A9B2B002BD366 /* LibZenid_iOS.xcframework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
+				EA1D1A06285DEBAB001711D0 /* LibZenid_iOS.xcframework in Frameworks */,
 				18371B1727C24548002528F3 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,8 +384,8 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA1D1A05285DEBAB001711D0 /* LibZenid_iOS.xcframework */,
 				18371B1627C24547002528F3 /* UIKit.framework */,
-				188422FB272A9B2B002BD366 /* LibZenid_iOS.xcframework */,
 				D2BD780622C4EA24006D7974 /* CoreMedia.framework */,
 				D261289422C370C200942D8A /* libc++.tbd */,
 				D261288C22C3701F00942D8A /* CoreVideo.framework */,
