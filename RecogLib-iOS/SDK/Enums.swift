@@ -132,6 +132,7 @@ public enum DocumentCode: Int, CaseIterable {
     case EU_VIS_2019 = 112
     case UA_DRV_2016 = 113
     case UA_DRV_2005 = 114
+    case UA_DRV_2021 = 115
 }
 
 public extension DocumentCode {
@@ -373,6 +374,8 @@ extension DocumentCode: CustomStringConvertible {
             return "UA_DRV_2016"
         case .UA_DRV_2005:
             return "UA_DRV_2016"
+        case .UA_DRV_2021:
+            return "UA_DRV_2021"
         }
     }
 }
