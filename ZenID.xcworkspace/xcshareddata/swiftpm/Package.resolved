@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ZenIDTeam/ZenID-ios.git",
       "state" : {
-        "branch" : "swift-package",
-        "revision" : "9c75970d8bf08ac869ba0690518e46dd366645e3"
+        "branch" : "master",
+        "revision" : "c55fa564df3be5b98df628636b32fffa8a42251f"
       }
     }
   ],

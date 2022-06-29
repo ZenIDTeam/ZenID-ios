@@ -1256,7 +1256,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ZenIDTeam/ZenID-ios.git";
 			requirement = {
-				branch = "swift-package";
+				branch = master;
 				kind = branch;
 			};
 		};
