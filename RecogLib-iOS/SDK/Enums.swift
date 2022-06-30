@@ -101,7 +101,6 @@ public enum DocumentCode: Int, CaseIterable {
     case BE_IDC_2020_21 = 81
     case GR_PAS_2020 = 82
     case PT_PAS_2006_09 = 83
-    case PT_PAS_2017 = 84
     case PT_IDC_2007_08_09_15 = 85
     case SE_IDC_2012_21 = 86
     case FI_IDC_2017_21 = 87
@@ -133,6 +132,11 @@ public enum DocumentCode: Int, CaseIterable {
     case UA_DRV_2016 = 113
     case UA_DRV_2005 = 114
     case UA_DRV_2021 = 115
+    case EU_EHIC_2004_C = 116
+    case VN_PAS_2005 = 117
+    case NL_DRV_2006 = 118
+    case NL_DRV_2013 = 119
+    case NL_DRV_2014 = 120
 }
 
 public extension DocumentCode {
@@ -376,6 +380,16 @@ extension DocumentCode: CustomStringConvertible {
             return "UA_DRV_2016"
         case .UA_DRV_2021:
             return "UA_DRV_2021"
+        case .EU_EHIC_2004_C
+            return "EU_EHIC_2004_C"
+        case .VN_PAS_2005
+            return "VN_PAS_2005"
+        case .NL_DRV_2006
+            return "NL_DRV_2006"
+        case .NL_DRV_2013
+            return "NL_DRV_2006"
+        case .NL_DRV_2014
+            return "NL_DRV_2014"
         }
     }
 }
@@ -425,8 +439,11 @@ public enum Country: Int, CaseIterable {
     case Lv = 32
     case Lu = 33
     case Mt = 34
+    case Md = 35
+    case No = 37
     case Pt = 38
     case Gr = 39
+    case Vn = 46
 }
 
 extension Country: CustomStringConvertible {
@@ -488,12 +505,18 @@ extension Country: CustomStringConvertible {
             return "Lv"
         case .Lu:
             return "Lu"
+        case .Md
+            return "Md"
+        case .No
+            return "No"
         case .Mt:
             return "Mt"
         case .Pt:
             return "Pt"
         case .Gr:
             return "Gr"
+        case .Vn:
+            return "Vn"
         }
     }
 }
