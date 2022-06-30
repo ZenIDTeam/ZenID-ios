@@ -13,6 +13,19 @@
 #include <vector>
 #include <cstdint>
 
+
+class SelfieVerifierSettings
+{
+public:
+	SelfieVerifierSettings() = default;
+	explicit SelfieVerifierSettings(int visualizerVersion);
+
+	// Selects the format of GetRenderCommands.
+	// Version 1 is the procedural version wih semicolon-separated parameters.
+	// Version 2 is JSON processed by zenid-visualizer.js
+	int visualizerVersion = 2;
+};
+
 namespace RecogLibC
 {
 class Image;
@@ -20,7 +33,7 @@ class SelfieVerifier
 {
    public:
 	using State = SelfieVerifierState;
-	SelfieVerifier();
+	explicit SelfieVerifier(const std::shared_ptr<SelfieVerifierSettings>& settings = std::make_shared<SelfieVerifierSettings>());
 	void Load(const std::string& modelPath);
 #ifndef NO_OPENCV
 	void ProcessFrame(const cv::Mat& frame);

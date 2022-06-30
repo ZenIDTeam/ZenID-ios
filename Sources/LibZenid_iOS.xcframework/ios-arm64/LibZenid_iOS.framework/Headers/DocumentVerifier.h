@@ -19,6 +19,16 @@ class AcceptableInput;
 class DocumentVerifierSettings
 {
 public:
+	DocumentVerifierSettings() = default;
+	DocumentVerifierSettings(const std::optional<float>& viewportHeightCm,
+	                         bool enableAimingCircle,
+	                         bool showTimer,
+	                         const std::optional<int>& specularAcceptableScore,
+	                         const std::optional<int>& documentBlurAcceptableScore,
+	                         const std::optional<int>& timeToBlurMaxToleranceInSeconds,
+	                         bool drawOutline,
+	                         bool readBarcode);
+
 	// Height of the visible area seen by the camera, in cm.
 	// If set, the outlines will be adjusted to match the actual document sizes.
 	// Useful for taking pictures from a camera mounted at a fixed distance from a surface.
@@ -42,6 +52,11 @@ public:
 	bool drawOutline = true;
 	// Read the barcode
 	bool readBarcode = true;
+	
+	// Selects the format of GetRenderCommands.
+	// Version 1 is the procedural version wih semicolon-separated parameters.
+	// Version 2 is JSON processed by zenid-visualizer.js
+	int visualizerVersion = 2;
 };
 
 class DocumentVerifier

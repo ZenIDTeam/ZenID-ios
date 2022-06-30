@@ -1,6 +1,0 @@
-framework module LibZenid_iOS {
-  umbrella header "LibZenid_iOS.h"
-
-  export *
-  module * { export * }
-}
