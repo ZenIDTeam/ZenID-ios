@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.6 2022-07-01
+* Updated LibZenid 2.6.3
+* Support for ARM simulator builds in iOS
+
 ## 2.0.5 2022-05-25
 * Updated LibZenid 2.5.1
 * The recoglibc*.bin models were renamed to usurf*.bin and the file names were switched to lowercase.

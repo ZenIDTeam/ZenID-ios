@@ -61,7 +61,6 @@
 		18953DB126844F6B0077F976 /* DocumentVerifierSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DB026844F6B0077F976 /* DocumentVerifierSettings.swift */; };
 		18C1A3952680F4D80047FDD3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3942680F4D80047FDD3 /* Document.swift */; };
 		18C1A3972680FD1E0047FDD3 /* DocumentsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */; };
-		18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DBB23026F9E4F6002FA296 /* RecogLibC.h */; };
 		18E8BA2A27664F04008DEF0C /* FaceLivenessVerifierSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8BA2927664F04008DEF0C /* FaceLivenessVerifierSettings.swift */; };
 		18E8BA3D2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E8BA3C2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift */; };
 		18ED9F6726B2B46C00AFF48B /* CImageSignature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18ED9F6526B2B46C00AFF48B /* CImageSignature.cpp */; };
@@ -87,6 +86,8 @@
 		6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */; };
 		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
 		B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* Enums.swift */; };
+		BAE07B71286DAE6900E62C42 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */; };
+		BAE07B77286DB01000E62C42 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE07B76286DB01000E62C42 /* RecogLibC.h */; };
 		D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
 		D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D261289A22C38F0100942D8A /* CDocumentWrapper.cpp */; };
@@ -94,7 +95,6 @@
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
-		EA1D1A06285DEBAB001711D0 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1D1A05285DEBAB001711D0 /* LibZenid_iOS.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,7 +153,6 @@
 		18953DB026844F6B0077F976 /* DocumentVerifierSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettings.swift; sourceTree = "<group>"; };
 		18C1A3942680F4D80047FDD3 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		18C1A3962680FD1E0047FDD3 /* DocumentsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsInput.swift; sourceTree = "<group>"; };
-		18DBB23026F9E4F6002FA296 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
 		18E8BA2927664F04008DEF0C /* FaceLivenessVerifierSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessVerifierSettings.swift; sourceTree = "<group>"; };
 		18E8BA3C2767A2C2008DEF0C /* FaceLivenessAuxiliaryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessAuxiliaryInfo.swift; sourceTree = "<group>"; };
 		18ED9F6526B2B46C00AFF48B /* CImageSignature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CImageSignature.cpp; sourceTree = "<group>"; };
@@ -179,6 +178,8 @@
 		6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenidSecurity.swift; sourceTree = "<group>"; };
 		B009CF5322C4B01C00AA568C /* DocumentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResult.swift; sourceTree = "<group>"; };
 		B051AFDA22CA48AA007AF46E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = Sources/LibZenid_iOS.xcframework; sourceTree = "<group>"; };
+		BAE07B76286DB01000E62C42 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "Sources/LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
 		D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CDocumentWrapper.hpp; sourceTree = "<group>"; };
 		D261288C22C3701F00942D8A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		D261289422C370C200942D8A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -190,7 +191,6 @@
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D2BD780622C4EA24006D7974 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		EA1D1A05285DEBAB001711D0 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +201,7 @@
 				D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
-				EA1D1A06285DEBAB001711D0 /* LibZenid_iOS.xcframework in Frameworks */,
+				BAE07B71286DAE6900E62C42 /* LibZenid_iOS.xcframework in Frameworks */,
 				18371B1727C24548002528F3 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +337,8 @@
 		D264245322C11E7E00735B99 = {
 			isa = PBXGroup;
 			children = (
-				18DBB23026F9E4F6002FA296 /* RecogLibC.h */,
+				BAE07B76286DB01000E62C42 /* RecogLibC.h */,
+				BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */,
 				D264245F22C11E7E00735B99 /* RecogLib-iOS */,
 				D264245E22C11E7E00735B99 /* Products */,
 				D264249022C1210000735B99 /* Frameworks */,
@@ -384,7 +385,6 @@
 		D264249022C1210000735B99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EA1D1A05285DEBAB001711D0 /* LibZenid_iOS.xcframework */,
 				18371B1627C24547002528F3 /* UIKit.framework */,
 				D2BD780622C4EA24006D7974 /* CoreMedia.framework */,
 				D261289422C370C200942D8A /* libc++.tbd */,
@@ -405,11 +405,11 @@
 				6F1A6A8C251B6DB40087CC0A /* CSelfieWrapper.hpp in Headers */,
 				18ED9F6826B2B46C00AFF48B /* CImageSignature.hpp in Headers */,
 				18953DAF26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.hpp in Headers */,
+				BAE07B77286DB01000E62C42 /* RecogLibC.h in Headers */,
 				D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */,
 				D264246222C11E7E00735B99 /* RecogLib_iOS.h in Headers */,
 				6FE107B824B29B1C00610F8D /* CUtils.hpp in Headers */,
 				1848AC722805D449001A8C9A /* CZenidLogWrapper.hpp in Headers */,
-				18DBB23126F9E4F6002FA296 /* RecogLibC.h in Headers */,
 				6F6C270124B8805E0073A2CA /* CZenidSecurityWrapper.hpp in Headers */,
 				6F2CFC8A247471C5005D2FB6 /* CFaceLivenessWrapper.hpp in Headers */,
 			);
