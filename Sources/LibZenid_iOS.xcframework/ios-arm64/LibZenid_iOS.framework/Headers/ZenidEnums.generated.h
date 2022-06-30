@@ -122,6 +122,7 @@ enum class DocumentCodes : uint8_t
 	EU_VIS_2019 = 112,
 	UA_DRV_2016 = 113,
 	UA_DRV_2005 = 114,
+	UA_DRV_2021 = 115,
 };
 
 enum class PageCodes : uint8_t
