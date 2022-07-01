@@ -17,7 +17,8 @@ public class SelfieVerifier {
     }
     
     public func loadModels(_ loader: FaceVerifierModels) {
-        cppObject = RecogLib_iOS.getSelfieVerifier()
+        var settings = CSelfieVerifierSettings(visualizerVersion: 1)
+        cppObject = RecogLib_iOS.getSelfieVerifier(&settings)
         RecogLib_iOS.loadSelfie(cppObject, loader.url.path.toUnsafeMutablePointer()!)
     }
     

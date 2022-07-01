@@ -223,7 +223,8 @@ public protocol LoggerProtocol {
 public struct FaceLivenessVerifierSettings : Swift.Equatable {
   public let isLegacyModeEnabled: Swift.Bool
   public let maxAuxiliaryImageSize: Swift.Int
-  public init(isLegacyModeEnabled: Swift.Bool = false, maxAuxiliaryImageSize: Swift.Int = 300)
+  public let visualizerVersion: Swift.Int
+  public init(isLegacyModeEnabled: Swift.Bool = false, maxAuxiliaryImageSize: Swift.Int = 300, visualizerVersion: Swift.Int = 1)
   public static func == (a: RecogLib_iOS.FaceLivenessVerifierSettings, b: RecogLib_iOS.FaceLivenessVerifierSettings) -> Swift.Bool
 }
 public protocol VideoWriterDelegate : AnyObject {
@@ -289,7 +290,8 @@ public struct DocumentVerifierSettings : Swift.Equatable {
   public let showAimingCircle: Swift.Bool
   public let drawOutline: Swift.Bool
   public let readBarcode: Swift.Bool
-  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = false, readBarcode: Swift.Bool = true)
+  public let visualizerVersion: Swift.Int
+  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = false, readBarcode: Swift.Bool = true, visualizerVersion: Swift.Int = 1)
   public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
 }
 final public class UnifiedFacelivenessResultAdapter : RecogLib_iOS.UnifiedResult {

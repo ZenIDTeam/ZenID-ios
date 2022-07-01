@@ -30,6 +30,7 @@ typedef struct CFaceLivenessAuxiliaryInfo CFaceLivenessAuxiliaryInfo;
 struct CFaceLivenessVerifierSettings {
     bool enableLegacyMode;
     int maxAuxiliaryImageSize;
+    int visualizerVersion;
 };
 
 typedef struct CFaceLivenessVerifierSettings CFaceLivenessVerifierSettings;

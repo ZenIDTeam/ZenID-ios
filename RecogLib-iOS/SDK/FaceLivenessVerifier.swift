@@ -81,7 +81,8 @@ public class FaceLivenessVerifier {
     private func createVerifierSettings(settings: FaceLivenessVerifierSettings?) -> CFaceLivenessVerifierSettings {
         return CFaceLivenessVerifierSettings(
             enableLegacyMode: settings?.isLegacyModeEnabled ?? false,
-            maxAuxiliaryImageSize: Int32(settings?.maxAuxiliaryImageSize ?? 300)
+            maxAuxiliaryImageSize: Int32(settings?.maxAuxiliaryImageSize ?? 300),
+            visualizerVersion: Int32(settings?.visualizerVersion ?? 1)
         )
     }
     

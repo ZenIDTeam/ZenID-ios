@@ -16,7 +16,7 @@ struct CDocumentInfo {
 };
 
 struct CDocumentVerifierSettings {
-    int specularAcceptableScore, documentBlurAcceptableScore, timeToBlurMaxToleranceInSeconds;
+    int specularAcceptableScore, documentBlurAcceptableScore, timeToBlurMaxToleranceInSeconds, visualizerVersion;
     bool showTimer, enableAimingCircle, drawOutline, readBarcode;
 };
 

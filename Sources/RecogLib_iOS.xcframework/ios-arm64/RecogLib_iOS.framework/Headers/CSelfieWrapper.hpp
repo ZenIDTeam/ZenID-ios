@@ -16,9 +16,13 @@ struct CSelfieInfo {
 };
 
 typedef struct CSelfieInfo CSelfieInfo;
+struct CSelfieVerifierSettings {
+    int visualizerVersion;
+};
 
+typedef struct CSelfieVerifierSettings CSelfieVerifierSettings;
 // Initialisation and loading models
-const void * getSelfieVerifier();
+const void * getSelfieVerifier(CSelfieVerifierSettings *settings);
 void loadSelfie(const void *object, const char* modelPath);
 
 // Verifying faces

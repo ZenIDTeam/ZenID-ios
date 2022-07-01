@@ -140,7 +140,7 @@ public class DocumentVerifier {
             specularAcceptableScore: Int32(settings?.specularAcceptableScore ?? 50),
             documentBlurAcceptableScore: Int32(settings?.documentBlurAcceptableScore ?? 50),
             timeToBlurMaxToleranceInSeconds: Int32(settings?.timeToBlurMaxToleranceInSeconds ?? 10),
-            showTimer: settings?.showTimer ?? false,
+            visualizerVersion: Int32(settings?.visualizerVersion ?? 1), showTimer: settings?.showTimer ?? false,
             enableAimingCircle: settings?.showAimingCircle ?? false,
             drawOutline: settings?.drawOutline ?? false,
             readBarcode: settings?.readBarcode ?? true

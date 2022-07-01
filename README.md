@@ -426,7 +426,8 @@ Constructor method
 ```Swift
 let settings = FaceLivenessVerifierSettings(
     isLegacyModeEnabled: true,
-    maxAuxiliaryImageSize: 300
+    maxAuxiliaryImageSize: 300,
+    visualizerVersion: 1
 )
 let verifier = FaceLivenessVerifier(language: .Czech, settings: settings)
 ```
@@ -437,7 +438,8 @@ let verifier = FaceLivenessVerifier(...)
 ...
 let settings = FaceLivenessVerifierSettings(
     isLegacyModeEnabled: false,
-    maxAuxiliaryImageSize: 300
+    maxAuxiliaryImageSize: 300,
+    visualizerVersion: 1
 )
 verifier.update(settings: settings)
 let info = verifier.getAuxiliaryInfo()

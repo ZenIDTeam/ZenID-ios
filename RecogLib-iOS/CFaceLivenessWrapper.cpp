@@ -11,6 +11,7 @@ const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVer
     FaceLivenessVerifierSettings verifierSettings = FaceLivenessVerifierSettings();
     verifierSettings.enableLegacyMode = settings->enableLegacyMode;
     verifierSettings.maxAuxiliaryImageSize = settings->maxAuxiliaryImageSize;
+    verifierSettings.visualizerVersion = settings->visualizerVersion;
     FaceLivenessVerifier *verifier = new FaceLivenessVerifier(resourcesPath, std::make_shared<FaceLivenessVerifierSettings>(verifierSettings));
     return (void *)verifier;
 }
@@ -73,6 +74,7 @@ void updateFacelivenessVerifierSettings(const void *object, CFaceLivenessVerifie
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     verifier->GetSettings().enableLegacyMode = settings->enableLegacyMode;
     verifier->GetSettings().maxAuxiliaryImageSize = settings->maxAuxiliaryImageSize;
+    verifier->GetSettings().visualizerVersion = settings->visualizerVersion;
     verifier->Reset();
 }
 

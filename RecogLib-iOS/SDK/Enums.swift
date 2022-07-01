@@ -320,8 +320,6 @@ extension DocumentCode: CustomStringConvertible {
             return "GR_PAS_2020"
         case .PT_PAS_2006_09:
             return "PT_PAS_2006_09"
-        case .PT_PAS_2017:
-            return "PT_PAS_2017"
         case .PT_IDC_2007_08_09_15:
             return "PT_IDC_2007_08_09_15"
         case .SE_IDC_2012_21:
@@ -380,15 +378,15 @@ extension DocumentCode: CustomStringConvertible {
             return "UA_DRV_2016"
         case .UA_DRV_2021:
             return "UA_DRV_2021"
-        case .EU_EHIC_2004_C
+        case .EU_EHIC_2004_C:
             return "EU_EHIC_2004_C"
-        case .VN_PAS_2005
+        case .VN_PAS_2005:
             return "VN_PAS_2005"
-        case .NL_DRV_2006
+        case .NL_DRV_2006:
             return "NL_DRV_2006"
-        case .NL_DRV_2013
+        case .NL_DRV_2013:
             return "NL_DRV_2006"
-        case .NL_DRV_2014
+        case .NL_DRV_2014:
             return "NL_DRV_2014"
         }
     }
@@ -505,9 +503,9 @@ extension Country: CustomStringConvertible {
             return "Lv"
         case .Lu:
             return "Lu"
-        case .Md
+        case .Md:
             return "Md"
-        case .No
+        case .No:
             return "No"
         case .Mt:
             return "Mt"

@@ -80,6 +80,7 @@ const void * getDocumentVerifier(CDocumentVerifierSettings *settings)
     verifierSettings.showTimer = settings->showTimer;
     verifierSettings.drawOutline = settings->drawOutline;
     verifierSettings.readBarcode = settings->readBarcode;
+    verifierSettings.visualizerVersion = settings->visualizerVersion;
     DocumentVerifier *verifier = new DocumentVerifier(std::make_shared<DocumentVerifierSettings>(verifierSettings));
     return (void *)verifier;
 }
@@ -155,6 +156,7 @@ void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSetting
     verifier->GetSettings().enableAimingCircle = settings->enableAimingCircle;
     verifier->GetSettings().drawOutline = settings->drawOutline;
     verifier->GetSettings().readBarcode = settings->readBarcode;
+    verifier->GetSettings().visualizerVersion = settings->visualizerVersion;
 }
 
 bool verifyHologram(const void *object,
