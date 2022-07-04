@@ -38,3 +38,4 @@ xcodebuild -create-xcframework -framework "RecogLib_iOS_simulator/RecogLib_iOS.f
 
 rm -r "RecogLib_iOS_simulator"
 rm -r "RecogLib_iOS_device"
+rm -r "LibZenid_iOS.framework"

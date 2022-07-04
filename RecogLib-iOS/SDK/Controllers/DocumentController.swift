@@ -94,12 +94,12 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     }
     
     public func configure(configuration: DocumentControllerConfiguration = .default) throws {
-        view.topLabel.text = config.page == .Back ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
-        
         verifier.reset()
         verifier.endHologramVerification()
         let oldConfig = self.config
         config = configuration
+        
+        view.topLabel.text = config.page == .Back ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
         
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
