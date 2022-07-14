@@ -1,4 +1,11 @@
 # Change Log
+## 2.0.7 2022-07-14
+* Updated LibZenid 2.7.3
+* Fixed failed assertion in face liveness and selfie liveness introduced in 2.6.4. (websdk as well as sdks)
+* Added FathersBirthDate, MothersBirthDate, BirthCertificateNumber1, BirthCertificateNumber2, BirthCertificateNumber3, BirthCertificateNumber4, FathersBirthNumber, MothersBirthNumber, FathersSurnameBirthSurname, MothersSurnameBirthSurname in FieldID enum.
+* Added FathersBirthDate, FathersSurname, FathersBirthNumber, FathersBirthSurname, MothersBirthDate, MothersSurname, MothersBirthNumber, MothersBirthSurname, BirthCertificateNumber to MineAllResult.
+* New: Support for Czech birth certificate - version 2001. ZenID-issues#2500
+* Added usurf_hr_idc_2003_f.bin
 
 ## 2.0.6 2022-07-01
 * Updated LibZenid 2.6.3

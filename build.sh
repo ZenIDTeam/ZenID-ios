@@ -24,18 +24,19 @@ rm -r "RecogLib_iOS.framework.dSYM"
 
 # Mac catalyst
 
-# xcodebuild -project RecogLib-iOS.xcodeproj -scheme "RecogLib-iOS" -configuration "Release" -sdk "macos" CONFIGURATION_BUILD_DIR=. clean build
+xcodebuild -project RecogLib-iOS.xcodeproj -scheme "RecogLib-iOS" -configuration "Release" -sdk "macosx" CONFIGURATION_BUILD_DIR=. clean build
 
-# mkdir RecogLib_macOS
-# mv RecogLib_iOS.framework "RecogLib_macOS/RecogLib_iOS.framework"
-# rm -r "RecogLib_iOS.framework.dSYM"
+mkdir RecogLib_macOS
+mv RecogLib_iOS.framework "RecogLib_macOS/RecogLib_iOS.framework"
+rm -r "RecogLib_iOS.framework.dSYM"
 
 
 # Create xcframework
 
 rm -r "Sources/RecogLib_iOS.xcframework" 
-xcodebuild -create-xcframework -framework "RecogLib_iOS_simulator/RecogLib_iOS.framework" -framework "RecogLib_iOS_device/RecogLib_iOS.framework" -output Sources/RecogLib_iOS.xcframework
+xcodebuild -create-xcframework -framework "RecogLib_iOS_simulator/RecogLib_iOS.framework" -framework "RecogLib_iOS_device/RecogLib_iOS.framework" -framework "RecogLib_macOS/RecogLib_iOS.framework" -output Sources/RecogLib_iOS.xcframework
 
 rm -r "RecogLib_iOS_simulator"
 rm -r "RecogLib_iOS_device"
+rm -r "RecogLib_macOS"
 rm -r "LibZenid_iOS.framework"
