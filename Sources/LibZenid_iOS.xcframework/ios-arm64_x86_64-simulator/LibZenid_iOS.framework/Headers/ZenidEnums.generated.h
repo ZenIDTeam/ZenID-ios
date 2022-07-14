@@ -124,6 +124,9 @@ enum class DocumentCodes : uint8_t
 	UA_DRV_2021 = 115,
 	EU_EHIC_2004_C = 116,
 	VN_PAS_2005 = 117,
+	NL_DRV_2006 = 118,
+	NL_DRV_2013 = 119,
+	NL_DRV_2014 = 120,
 };
 
 enum class PageCodes : uint8_t
@@ -331,6 +334,16 @@ enum class FieldID : int
 	NamesOfParents = 90,
 	NamesOfParents2 = 91,
 	HealthInsuranceNumber = 92,
+	FathersBirthDate = 93,
+	MothersBirthDate = 94,
+	BirthCertificateNumber1 = 95,
+	BirthCertificateNumber2 = 96,
+	BirthCertificateNumber3 = 97,
+	BirthCertificateNumber4 = 98,
+	FathersBirthNumber = 99,
+	MothersBirthNumber = 100,
+	FathersSurnameBirthSurname = 101,
+	MothersSurnameBirthSurname = 102,
 };
 
 enum class SdkSignatureProblem : int
