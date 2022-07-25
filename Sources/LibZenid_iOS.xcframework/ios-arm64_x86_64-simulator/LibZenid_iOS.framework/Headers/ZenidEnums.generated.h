@@ -344,6 +344,7 @@ enum class FieldID : int
 	MothersBirthNumber = 100,
 	FathersSurnameBirthSurname = 101,
 	MothersSurnameBirthSurname = 102,
+	Authority3 = 103,
 };
 
 enum class SdkSignatureProblem : int
