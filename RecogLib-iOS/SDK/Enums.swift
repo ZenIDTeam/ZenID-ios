@@ -526,6 +526,11 @@ public enum DocumentRole: Int, CaseIterable {
     case Res = 3
     case Gun = 4
     case Hic = 5
+    case Std = 6
+    case Car = 7
+    case Birth = 8
+    case Add = 9
+    case Ide = 10
     case Vis = 11
 }
 
@@ -544,6 +549,16 @@ extension DocumentRole: CustomStringConvertible {
             return "Gun"
         case .Hic:
             return "Hic"
+        case .Std:
+            return "Std"
+        case .Car:
+            return "Card"
+        case .Birth:
+            return "Birth"
+        case .Add:
+            return "Add"
+        case .Ide:
+            return "Ide"
         case .Vis:
             return "Vis"
         }
