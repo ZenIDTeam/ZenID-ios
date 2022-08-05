@@ -31,7 +31,7 @@ final class ChoiceViewController: UIViewController {
         idButton,
         drivingLicenceButton,
         passportButton,
-        otherDocumentButton,
+//        otherDocumentButton,
         documentsFilterButton,
         hologramButton,
         //faceButton,
