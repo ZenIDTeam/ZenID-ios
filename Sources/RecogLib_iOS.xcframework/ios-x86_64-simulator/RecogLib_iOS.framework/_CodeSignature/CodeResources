@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		ZB+JqjpovrPuq2WGD0+/CMX4iQc=
+		k8+BMxj/mEH+dA1i9Aw6JbMfYSM=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Fqy7+TCqgdDmHmSTXSNuUnexaL4=
+		qlxXzLbL/HwcBsaVYiIK2Zw/Nkg=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		INdm5ezEnJGpl2chAORV2krlGhA=
+		8azfcGk5i0D0fYH4CLzQA784Fj0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -163,7 +163,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			URG3xyLS349jSJI47pYFp8UtnlIez/vx+kiFTsB8JqQ=
+			eL5D6IR0f9R5mbRLHiwIeZEsu9prKI50YIpU3U9mcwU=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -177,14 +177,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ulR0bmBH+W3kpoc21Kaac5MygAuWXMcQUq+2bvw1OK4=
+			LTyLaJQAtu2v81W0mUNhahrER+AmPkv6nG4BxLWc8mc=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4UbQo+igFJxbmk/NBPLDXax0Una9NMoFx8FckL81m20=
+			tKTEyEkTMDD+RUp3Cd/oK8TZ06bpKJo5M+w9fIt8SKg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

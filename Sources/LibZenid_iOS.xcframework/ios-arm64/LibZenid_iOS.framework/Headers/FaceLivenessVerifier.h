@@ -33,6 +33,9 @@ public:
 	// Version 1 is the procedural version wih semicolon-separated parameters.
 	// Version 2 is JSON processed by zenid-visualizer.js
 	int visualizerVersion = 2;
+
+	// Show the default smile animation when the feedback is "Smile".
+	bool showSmileAnimation = true;
 };
 
 class FaceLivenessVerifier

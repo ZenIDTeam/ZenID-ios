@@ -137,6 +137,15 @@ public enum DocumentCode: Int, CaseIterable {
     case NL_DRV_2006 = 118
     case NL_DRV_2013 = 119
     case NL_DRV_2014 = 120
+    case AL_PAS_2009 = 121
+    case BA_PAS_2014 = 122
+    case CH_PAS_2010 = 123
+    case ME_PAS_2008 = 124
+    case MK_PAS_2007 = 125
+    case RS_PAS_2008 = 126
+    case NO_PAS_2011_15 = 127
+    case NO_PAS_2020 = 128
+    case GB_PAS_2010_11_15_19 = 129
 }
 
 public extension DocumentCode {
@@ -388,6 +397,24 @@ extension DocumentCode: CustomStringConvertible {
             return "NL_DRV_2006"
         case .NL_DRV_2014:
             return "NL_DRV_2014"
+        case .AL_PAS_2009:
+            return "AL_PAS_2009"
+        case .BA_PAS_2014:
+            return "BA_PAS_2014"
+        case .CH_PAS_2010:
+            return "CH_PAS_2010"
+        case .ME_PAS_2008:
+            return "ME_PAS_2008"
+        case .MK_PAS_2007:
+            return "MK_PAS_2007"
+        case .RS_PAS_2008:
+            return "MK_PAS_2007"
+        case .NO_PAS_2011_15:
+            return "NO_PAS_2011_15"
+        case .NO_PAS_2020:
+            return "NO_PAS_2020"
+        case .GB_PAS_2010_11_15_19:
+            return "GB_PAS_2010_11_15_19"
         }
     }
 }
@@ -429,7 +456,11 @@ public enum Country: Int, CaseIterable {
     case Se = 18
     case Si = 19
     case Bg = 20
+    case Al = 21
     case Be = 23
+    case By = 24
+    case Ba = 25
+    case Me = 26
     case Ee = 27
     case Ie = 28
     case Cy = 29
@@ -441,6 +472,9 @@ public enum Country: Int, CaseIterable {
     case No = 37
     case Pt = 38
     case Gr = 39
+    case Mk = 41
+    case Rs = 42
+    case Ch = 43
     case Vn = 46
 }
 
@@ -489,7 +523,15 @@ extension Country: CustomStringConvertible {
             return "Si"
         case .Bg:
             return "Bg"
+        case .Al:
+            return "Al"
         case .Be:
+            return "Be"
+        case .By:
+            return "By"
+        case .Ba:
+            return "Ba"
+        case .Me:
             return "Be"
         case .Ee:
             return "Ee"
@@ -513,6 +555,12 @@ extension Country: CustomStringConvertible {
             return "Pt"
         case .Gr:
             return "Gr"
+        case .Mk:
+            return "Mk"
+        case .Rs:
+            return "Rs"
+        case .Ch:
+            return "Ch"
         case .Vn:
             return "Vn"
         }

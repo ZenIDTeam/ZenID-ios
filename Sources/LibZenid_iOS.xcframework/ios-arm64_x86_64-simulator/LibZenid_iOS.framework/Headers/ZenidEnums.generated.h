@@ -127,6 +127,15 @@ enum class DocumentCodes : uint8_t
 	NL_DRV_2006 = 118,
 	NL_DRV_2013 = 119,
 	NL_DRV_2014 = 120,
+	AL_PAS_2009 = 121,
+	BA_PAS_2014 = 122,
+	CH_PAS_2010 = 123,
+	ME_PAS_2008 = 124,
+	MK_PAS_2007 = 125,
+	RS_PAS_2008 = 126,
+	NO_PAS_2011_15 = 127,
+	NO_PAS_2020 = 128,
+	GB_PAS_2010_11_15_19 = 129,
 };
 
 enum class PageCodes : uint8_t
@@ -158,7 +167,11 @@ enum class Country : uint8_t
 	Se = 18,
 	Si = 19,
 	Bg = 20,
+	Al = 21,
 	Be = 23,
+	By = 24,
+	Ba = 25,
+	Me = 26,
 	Ee = 27,
 	Ie = 28,
 	Cy = 29,
@@ -170,6 +183,9 @@ enum class Country : uint8_t
 	No = 37,
 	Pt = 38,
 	Gr = 39,
+	Mk = 41,
+	Rs = 42,
+	Ch = 43,
 	Vn = 46,
 };
 
