@@ -1,4 +1,9 @@
 # Change Log
+## 2.0.8 2022-07-25
+* Updated LibZenid 2.7.4
+* Fix Support for Czech birth certificate - version 2001. ZenID-issues#2500
+* Added usurf_hr_idc_2003_f.bin
+
 ## 2.0.7 2022-07-18
 * Updated LibZenid 2.7.3
 * Fixed failed assertion in face liveness and selfie liveness introduced in 2.6.4. (websdk as well as sdks)
