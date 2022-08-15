@@ -1,5 +1,12 @@
 # Change Log
 ## 2.0.8 2022-07-25
+* Updated LibZenid 2.8.2
+* New: Support for Dutch driving license (v2013 and v2014). ZenID-issues#2514
+* New: Support for Swiss passport (v2010). ZenID-issues#2514
+* Added Al, By, Ba, Me, Mk, Rs, Ch to Country.
+* Added AL_PAS_2009, BA_PAS_2014, CH_PAS_2010, ME_PAS_2008, MK_PAS_2007, RS_PAS_2008, NO_PAS_2020, NO_PAS_2011_15 in DocumentCodes enum.
+
+## 2.0.8 2022-07-25
 * Updated LibZenid 2.7.4
 * Fix Support for Czech birth certificate - version 2001. ZenID-issues#2500
 * Added usurf_hr_idc_2003_f.bin
