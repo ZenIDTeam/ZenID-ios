@@ -146,6 +146,8 @@ public enum DocumentCode: Int, CaseIterable {
     case NO_PAS_2011_15 = 127
     case NO_PAS_2020 = 128
     case GB_PAS_2010_11_15_19 = 129
+    case BY_PAS_2006 = 130
+    case BY_PAS_2021 = 131
 }
 
 public extension DocumentCode {
@@ -415,6 +417,10 @@ extension DocumentCode: CustomStringConvertible {
             return "NO_PAS_2020"
         case .GB_PAS_2010_11_15_19:
             return "GB_PAS_2010_11_15_19"
+        case .BY_PAS_2006:
+            return "BY_PAS_2006"
+        case .BY_PAS_2021:
+            return "BY_PAS_2021"
         }
     }
 }

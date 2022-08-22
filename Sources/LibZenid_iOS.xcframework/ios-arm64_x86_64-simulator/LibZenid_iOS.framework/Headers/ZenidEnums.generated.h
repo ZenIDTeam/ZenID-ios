@@ -136,6 +136,8 @@ enum class DocumentCodes : uint8_t
 	NO_PAS_2011_15 = 127,
 	NO_PAS_2020 = 128,
 	GB_PAS_2010_11_15_19 = 129,
+	BY_PAS_2006 = 130,
+	BY_PAS_2021 = 131,
 };
 
 enum class PageCodes : uint8_t
