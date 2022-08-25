@@ -1,5 +1,5 @@
 # Change Log
-## 2.0.9 2022-07-25
+## 2.0.9 2022-08-25
 * Updated LibZenid 2.8.3
 * New: Support for Dutch driving license (v2013 and v2014). ZenID-issues#2514
 * New: Support for Swiss passport (v2010). ZenID-issues#2514
