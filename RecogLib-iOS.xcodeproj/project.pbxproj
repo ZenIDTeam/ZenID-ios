@@ -86,7 +86,7 @@
 		6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */; };
 		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
 		B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* Enums.swift */; };
-		BAE07B71286DAE6900E62C42 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */; };
+		BABECC7928805B6200A629F3 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */; };
 		BAE07B77286DB01000E62C42 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE07B76286DB01000E62C42 /* RecogLibC.h */; };
 		D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D296262622C36B81007B934C /* AssetsLibrary.framework */; };
@@ -201,7 +201,7 @@
 				D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */,
 				D23D193E22C3C7D7004860F9 /* AssetsLibrary.framework in Frameworks */,
 				D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */,
-				BAE07B71286DAE6900E62C42 /* LibZenid_iOS.xcframework in Frameworks */,
+				BABECC7928805B6200A629F3 /* LibZenid_iOS.xcframework in Frameworks */,
 				18371B1727C24548002528F3 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +748,7 @@
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -801,6 +802,7 @@
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

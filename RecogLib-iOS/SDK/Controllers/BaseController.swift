@@ -132,6 +132,13 @@ public class BaseController<ResultType: ResultState> {
     
     @objc
     private func orientationChanged() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            self.updateOrientation()
+        }
+    }
+    
+    @objc
+    private func updateOrientation() {
         targetFrame = view.overlay?.bounds ?? .zero
         camera.setOrientation(orientation: UIDevice.current.orientation)
         view.drawLayer?.setRenderables([])

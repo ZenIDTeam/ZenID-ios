@@ -124,6 +124,20 @@ enum class DocumentCodes : uint8_t
 	UA_DRV_2021 = 115,
 	EU_EHIC_2004_C = 116,
 	VN_PAS_2005 = 117,
+	NL_DRV_2006 = 118,
+	NL_DRV_2013 = 119,
+	NL_DRV_2014 = 120,
+	AL_PAS_2009 = 121,
+	BA_PAS_2014 = 122,
+	CH_PAS_2010 = 123,
+	ME_PAS_2008 = 124,
+	MK_PAS_2007 = 125,
+	RS_PAS_2008 = 126,
+	NO_PAS_2011_15 = 127,
+	NO_PAS_2020 = 128,
+	GB_PAS_2010_11_15_19 = 129,
+	BY_PAS_2006 = 130,
+	BY_PAS_2021 = 131,
 };
 
 enum class PageCodes : uint8_t
@@ -155,7 +169,11 @@ enum class Country : uint8_t
 	Se = 18,
 	Si = 19,
 	Bg = 20,
+	Al = 21,
 	Be = 23,
+	By = 24,
+	Ba = 25,
+	Me = 26,
 	Ee = 27,
 	Ie = 28,
 	Cy = 29,
@@ -167,6 +185,9 @@ enum class Country : uint8_t
 	No = 37,
 	Pt = 38,
 	Gr = 39,
+	Mk = 41,
+	Rs = 42,
+	Ch = 43,
 	Vn = 46,
 };
 
@@ -331,6 +352,17 @@ enum class FieldID : int
 	NamesOfParents = 90,
 	NamesOfParents2 = 91,
 	HealthInsuranceNumber = 92,
+	FathersBirthDate = 93,
+	MothersBirthDate = 94,
+	BirthCertificateNumber1 = 95,
+	BirthCertificateNumber2 = 96,
+	BirthCertificateNumber3 = 97,
+	BirthCertificateNumber4 = 98,
+	FathersBirthNumber = 99,
+	MothersBirthNumber = 100,
+	FathersSurnameBirthSurname = 101,
+	MothersSurnameBirthSurname = 102,
+	Authority3 = 103,
 };
 
 enum class SdkSignatureProblem : int

@@ -446,6 +446,17 @@ public enum DocumentCode : Swift.Int, Swift.CaseIterable {
   case NL_DRV_2006
   case NL_DRV_2013
   case NL_DRV_2014
+  case AL_PAS_2009
+  case BA_PAS_2014
+  case CH_PAS_2010
+  case ME_PAS_2008
+  case MK_PAS_2007
+  case RS_PAS_2008
+  case NO_PAS_2011_15
+  case NO_PAS_2020
+  case GB_PAS_2010_11_15_19
+  case BY_PAS_2006
+  case BY_PAS_2021
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCode]
   public typealias RawValue = Swift.Int
@@ -499,7 +510,11 @@ public enum Country : Swift.Int, Swift.CaseIterable {
   case Se
   case Si
   case Bg
+  case Al
   case Be
+  case By
+  case Ba
+  case Me
   case Ee
   case Ie
   case Cy
@@ -511,6 +526,9 @@ public enum Country : Swift.Int, Swift.CaseIterable {
   case No
   case Pt
   case Gr
+  case Mk
+  case Rs
+  case Ch
   case Vn
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.Country]
@@ -534,6 +552,11 @@ public enum DocumentRole : Swift.Int, Swift.CaseIterable {
   case Res
   case Gun
   case Hic
+  case Std
+  case Car
+  case Birth
+  case Add
+  case Ide
   case Vis
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentRole]

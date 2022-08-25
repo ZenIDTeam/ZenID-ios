@@ -51,10 +51,15 @@ final class CameraOverlayView: UIView {
         var transform = CGAffineTransform.identity
         
         if self.frame != .zero {
-            let targetFrame = rect?.flip() ?? self.frame
+            let targetFrame = (rect?.flip() ?? self.frame)
             let croppedFrame = self.frame.flip().rectThatFitsRect(targetFrame);
             let scale = croppedFrame.height / targetFrame.width
-            transform = CGAffineTransform(rotationAngle: 90.0 * .pi / 180.0).scaledBy(x: scale, y: scale)
+            // adding 10% and -10% to scale because of DL snapping https://support.trask.cz/browse/MRZENID-228
+            if UIDevice.current.orientation == .portrait {
+                transform = CGAffineTransform(rotationAngle: 90.0 * .pi / 180.0).scaledBy(x: scale * 1.10, y: scale * 1.10)
+            } else {
+                transform = CGAffineTransform(rotationAngle: 90.0 * .pi / 180.0).scaledBy(x: scale * 0.9 , y: scale * 0.9)
+            }
         }
         
         frameImageView.layer.setAffineTransform(transform)
