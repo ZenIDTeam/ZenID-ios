@@ -174,7 +174,11 @@ class CameraViewController: UIViewController {
                 self.delegate?.didTakePhoto(signatureImageData, type: self.photoType, result: result)
             }
             preview.dismissAction = { [unowned self] in
-                self.updateDocumentController()
+                if self.photoType.isDocument {
+                    self.updateDocumentController()
+                } else {
+                    self.updateSelfieController()
+                }
             }
 
             present(preview, animated: true, completion: nil)
