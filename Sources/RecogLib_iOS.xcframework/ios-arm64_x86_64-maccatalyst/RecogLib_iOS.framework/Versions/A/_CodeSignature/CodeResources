@@ -4,84 +4,28 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Assets.car</key>
+		<key>Resources/Assets.car</key>
 		<data>
-		pc3Zbced0tqTjgRZyBEJRR1emnY=
+		eAp07CeZn5L1ypjZfcAhaG9fvA8=
 		</data>
-		<key>Headers/CDocumentVerifierSettingsWrapper.hpp</key>
+		<key>Resources/Info.plist</key>
 		<data>
-		kKzxhajwbBYG50kmYvGOjJUlxAQ=
+		HkQLnUCt0+cM/mhzqR2cyDHKNKk=
 		</data>
-		<key>Headers/CDocumentWrapper.hpp</key>
-		<data>
-		F5pkcH0Ns407GPz+02l+lxA0Pro=
-		</data>
-		<key>Headers/CFaceLivenessWrapper.hpp</key>
-		<data>
-		5k+2i4qi7BORNBaE48KoVeWBh3Y=
-		</data>
-		<key>Headers/CImageSignature.hpp</key>
-		<data>
-		dSbwxwqWg1OIOlYI0+dlHtQqzRI=
-		</data>
-		<key>Headers/CSelfieWrapper.hpp</key>
-		<data>
-		1+AiL8IKj2EfRN9WE3hxaWnwnpo=
-		</data>
-		<key>Headers/CZenidLogWrapper.hpp</key>
-		<data>
-		q+hL1fxJ0ZGCLW80PmWTKvK5+3k=
-		</data>
-		<key>Headers/CZenidSecurityWrapper.hpp</key>
-		<data>
-		pC3BGirQTAOD5lvG+YoykxAmyF4=
-		</data>
-		<key>Headers/RecogLib_iOS-Swift.h</key>
-		<data>
-		fLYIUgjzHQlzJcRmyE6QDqsQ+Gc=
-		</data>
-		<key>Headers/RecogLib_iOS.h</key>
-		<data>
-		sqOeqmoJhpaVAnhUQlT1NPfjQYc=
-		</data>
-		<key>Info.plist</key>
-		<data>
-		5sVZNwC/JIqqnJRdhu4CFhv0PMA=
-		</data>
-		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
-		<data>
-		xExGfPGm46/WUuhLcFS3P5+zfAM=
-		</data>
-		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
-		<data>
-		+2jnBtRPbWkxJO51bdDKx9s1Jxo=
-		</data>
-		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
-		<data>
-		w/+lsppSh0hlgqs6HVGlwqIrj8M=
-		</data>
-		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
-		<data>
-		qlETW4EWbeZcgV0OsxruW80q4os=
-		</data>
-		<key>Modules/module.modulemap</key>
-		<data>
-		60t/DX3ouCcTeWTPwqOVETCbReU=
-		</data>
-		<key>cs.lproj/Localizable.strings</key>
+		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IuoBsqbAWyylVrVktvnP7yKzaQI=
+			nKtERsWYQcPgaFV4A32B1ycUKRk=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>en.lproj/Localizable.strings</key>
+		<key>Resources/en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			am1IKq8foNkcG966Yp96G2xlyPo=
+			5DMJNXFiKYvH0XA8b2p3tKoOIs4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -89,13 +33,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Assets.car</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			wuT/Nh6wQea6A6vH0xbTsQwJhFfuV+XChPIjtYsX79w=
-			</data>
-		</dict>
 		<key>Headers/CDocumentVerifierSettingsWrapper.hpp</key>
 		<dict>
 			<key>hash2</key>
@@ -149,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3PyDO5vUyHJ3B1pRCN1cqbLzkZ1l2b0QHG5eA8NHlRI=
+			2uusJBoQhKotg3SwKEMES1K1jg5/FpIbLoHa3SXRiwM=
 			</data>
 		</dict>
 		<key>Headers/RecogLib_iOS.h</key>
@@ -159,32 +96,60 @@
 			kR3ayWyjRm0xl0eMGM0+c0ZXrFLycBJXsQrKH5ZWnT8=
 			</data>
 		</dict>
-		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
+		<key>Modules/RecogLib_iOS.swiftmodule/Project/arm64-apple-ios-macabi.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qXXFiruxD66E+K9ik5w/YUCxXju5SiULkE7rGWzH9Ho=
+			1ypBiCp6zHHN9ZxMFYmiJepnCaBvq+xkO6+MzN0CWsQ=
 			</data>
 		</dict>
-		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-macabi.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1YyMhKXgjlwggzQ/RWg9J6Spq1NvMYAWIgWN0jCRqyY=
+			Toan8IL6LKvGuvVDzexfuYjguZ+m12QJdx635E9oyiY=
 			</data>
 		</dict>
-		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2xNP2u8D9ZpOneSdc/fvGWvlNFepj/8KVvvrCPbGiRU=
+			PqvzLu3PMBI9P2AtDP/gfahWh3Xq0Wc7RcJYasrTbCQ=
 			</data>
 		</dict>
-		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			98h/laDDveBFqcX+3bvsjCRg04MOHwkVn4uom8+/UvA=
+			gQVEJ8T0pRYqyKbbwUkJwaQHr9q4NSiYgeRh1iaGoAM=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UwQPkFjeOrA6r+HTY+CovOeAcnl6Y7cuK0gL/XPHf04=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cpIkyg8+EEb2YjBWZNVT96pxHDRjYz01yCo63BxW7W0=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2v5KV3RzRciGragsWjrgDH5kN4lbK2treNlsiVX4vHY=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			l1d2+9/RQCGasVzW93IhSjD1aIuBosA9MbqfH1Ttkto=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -194,20 +159,34 @@
 			BJ6b+FohxdZzoi2SJGSXxo7Pgig1WKttp6KUaBY3l1w=
 			</data>
 		</dict>
-		<key>cs.lproj/Localizable.strings</key>
+		<key>Resources/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KgVFHYq5R4pk8ezsV96W5lkPZCXYElKRMxqk9DnYvH8=
+			3XQFH4pockl3frzrzGoJmPI+9ATadUcUvfeGIsmD7es=
+			</data>
+		</dict>
+		<key>Resources/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CJ5u99B84rQWgZ8wXjMJkq/hjQPZVZ+h24jXSjKs34M=
+			</data>
+		</dict>
+		<key>Resources/cs.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			01ph+wXWQeUVMJ6vKho+6BZaJDxE3YxUeFg+KiO/2IU=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>en.lproj/Localizable.strings</key>
+		<key>Resources/en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g2tA/8+CPY9drMWgh0uCD344bnhqDOhzykXuFtrqsHw=
+			/WbVE5XgrA0ke/qVsqFTcvRPLGVd2/WZ9pe+Qn6m7HQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -215,23 +194,23 @@
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^.*</key>
+		<key>^Resources/</key>
 		<true/>
-		<key>^.*\.lproj/</key>
+		<key>^Resources/.*\.lproj/</key>
 		<dict>
 			<key>optional</key>
 			<true/>
 			<key>weight</key>
 			<real>1000</real>
 		</dict>
-		<key>^.*\.lproj/locversion.plist$</key>
+		<key>^Resources/.*\.lproj/locversion.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
+		<key>^Resources/Base\.lproj/</key>
 		<dict>
 			<key>weight</key>
 			<real>1010</real>
@@ -253,27 +232,15 @@
 			<key>weight</key>
 			<real>2000</real>
 		</dict>
+		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
 		<key>^.*</key>
 		<true/>
-		<key>^.*\.lproj/</key>
-		<dict>
-			<key>optional</key>
-			<true/>
-			<key>weight</key>
-			<real>1000</real>
-		</dict>
-		<key>^.*\.lproj/locversion.plist$</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
 			<key>omit</key>
@@ -287,6 +254,37 @@
 			<true/>
 			<key>weight</key>
 			<real>20</real>
+		</dict>
+		<key>^Resources/</key>
+		<dict>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
+		<key>^Resources/.*\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>1000</real>
+		</dict>
+		<key>^Resources/.*\.lproj/locversion.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>1100</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
+		<key>^[^/]+$</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
 		</dict>
 		<key>^embedded\.provisionprofile$</key>
 		<dict>

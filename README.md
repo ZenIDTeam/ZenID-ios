@@ -128,8 +128,8 @@ Use `DocumentController` for scanning documents. You can configure the behaviour
 // Configuration
 let documentControllerConfig = DocumentControllerConfiguration(
 	showVisualisation: true,
-	showHelperVisualisation: true,
-	showDebugVisualisation: false,
+	showHelperVisualisation: true, // Enables text information rendering
+	showDebugVisualisation: false, // Enables debug visualisation rendered directly to camera feed
 	dataType: .picture,
 	role: .Idc,
 	country: .Cz,
