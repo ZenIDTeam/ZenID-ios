@@ -1,4 +1,8 @@
 # Change Log
+## 2.0.10 2022-09-09
+* Fix for NL DRV 2013
+* Fix Selfie cannot snap  after reject button tap
+
 ## 2.0.9 2022-08-25
 * Updated LibZenid 2.8.3
 * New: Support for Dutch driving license (v2013 and v2014). ZenID-issues#2514
