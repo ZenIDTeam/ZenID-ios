@@ -6,6 +6,6 @@ framework module RecogLib_iOS {
 }
 
 module RecogLib_iOS.Swift {
-    header "RecogLib_iOS-Swift.h"
-    requires objc
+  header "RecogLib_iOS-Swift.h"
+  requires objc
 }

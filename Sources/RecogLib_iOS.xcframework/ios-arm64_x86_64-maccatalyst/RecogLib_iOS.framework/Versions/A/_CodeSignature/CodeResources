@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		eAp07CeZn5L1ypjZfcAhaG9fvA8=
+		J6J92XnZHoyIE8HqtTfjCLpYNzM=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		HkQLnUCt0+cM/mhzqR2cyDHKNKk=
+		BRRFTPt6TRgo3QG81J4HjPvB/ik=
 		</data>
 		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2uusJBoQhKotg3SwKEMES1K1jg5/FpIbLoHa3SXRiwM=
+			kxK3xVN8fmWVLjwRo9Jp0yGVQCseVHHh6guv5HOBlzA=
 			</data>
 		</dict>
 		<key>Headers/RecogLib_iOS.h</key>
@@ -100,77 +100,105 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1ypBiCp6zHHN9ZxMFYmiJepnCaBvq+xkO6+MzN0CWsQ=
+			8545BFoM24exUeLSFdojDRtgTR/5wbfq+tTElBMNaNk=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-macabi.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Toan8IL6LKvGuvVDzexfuYjguZ+m12QJdx635E9oyiY=
+			6b9zxU4vGv8eNn2G3vAvFW44vGeP8rkPL4kdqIirYiw=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VflNFluexEZSJJlDz29pJkx8n8qvTom1oWQvYHPejtw=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6762znCBchEMYmvtZby+R42ywKRmbfWod1cx0aVtIQE=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PqvzLu3PMBI9P2AtDP/gfahWh3Xq0Wc7RcJYasrTbCQ=
+			JNtfbSYE6RW6mCV2K2f8FgFRn3r65eed93Qy5wvvlIQ=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gQVEJ8T0pRYqyKbbwUkJwaQHr9q4NSiYgeRh1iaGoAM=
+			6762znCBchEMYmvtZby+R42ywKRmbfWod1cx0aVtIQE=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UwQPkFjeOrA6r+HTY+CovOeAcnl6Y7cuK0gL/XPHf04=
+			xJh+D1SL/PpFp6++SVAwnT1kCuJwWWrYwcd59y02wWY=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VflNFluexEZSJJlDz29pJkx8n8qvTom1oWQvYHPejtw=
+			</data>
+		</dict>
+		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5tSZqvj5RYeEhEP0Ae6u01MgV+GWm+/nAzs1KjBKVj4=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			cpIkyg8+EEb2YjBWZNVT96pxHDRjYz01yCo63BxW7W0=
+			94+v83EO9yvcYIpL13IrSYKhoFaKW18amIq7VncnO0M=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2v5KV3RzRciGragsWjrgDH5kN4lbK2treNlsiVX4vHY=
+			5tSZqvj5RYeEhEP0Ae6u01MgV+GWm+/nAzs1KjBKVj4=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			l1d2+9/RQCGasVzW93IhSjD1aIuBosA9MbqfH1Ttkto=
+			HwQHp5hzae2SpX5BkW9Tv2KbWt/fRCapeJlnFbdpPoE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BJ6b+FohxdZzoi2SJGSXxo7Pgig1WKttp6KUaBY3l1w=
+			SB9hyi+zVKOqjKSSgi0D7xl9VP1PJbWI3Ug9dOi65B0=
 			</data>
 		</dict>
 		<key>Resources/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3XQFH4pockl3frzrzGoJmPI+9ATadUcUvfeGIsmD7es=
+			gcV8d/tWh+ThQwsLJ6dZhhz+iS5BzfmuACfIYyOxl6M=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CJ5u99B84rQWgZ8wXjMJkq/hjQPZVZ+h24jXSjKs34M=
+			jzslN2w6DtePFXbyRbsywkyDC0NyTB/W6Ofs7UWxZp4=
 			</data>
 		</dict>
 		<key>Resources/cs.lproj/Localizable.strings</key>

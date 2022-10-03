@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
 // swift-module-flags: -target x86_64-apple-ios14.2-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import CoreGraphics
 import CoreMedia
@@ -306,10 +307,10 @@ final public class UnifiedFacelivenessResultAdapter : RecogLib_iOS.UnifiedResult
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class CameraView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc override final public var frame: CoreGraphics.CGRect {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+    @objc get
+    @objc set
   }
-  @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   @objc deinit
 }
@@ -457,6 +458,11 @@ public enum DocumentCode : Swift.Int, Swift.CaseIterable {
   case GB_PAS_2010_11_15_19
   case BY_PAS_2006
   case BY_PAS_2021
+  case MD_PAS_2011_14_18
+  case IS_PAS_2006
+  case IN_PAS_2000_13
+  case TR_PAS_2010
+  case TR_PAS_2018
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCode]
   public typealias RawValue = Swift.Int
@@ -529,7 +535,9 @@ public enum Country : Swift.Int, Swift.CaseIterable {
   case Mk
   case Rs
   case Ch
+  case Tr
   case Vn
+  case In
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.Country]
   public typealias RawValue = Swift.Int

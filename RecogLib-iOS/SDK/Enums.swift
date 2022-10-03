@@ -148,6 +148,11 @@ public enum DocumentCode: Int, CaseIterable {
     case GB_PAS_2010_11_15_19 = 129
     case BY_PAS_2006 = 130
     case BY_PAS_2021 = 131
+    case MD_PAS_2011_14_18 = 132
+    case IS_PAS_2006 = 133
+    case IN_PAS_2000_13 = 134
+    case TR_PAS_2010 = 135
+    case TR_PAS_2018 = 136
 }
 
 public extension DocumentCode {
@@ -421,6 +426,16 @@ extension DocumentCode: CustomStringConvertible {
             return "BY_PAS_2006"
         case .BY_PAS_2021:
             return "BY_PAS_2021"
+        case .MD_PAS_2011_14_18:
+            return "MD_PAS_2011_14_18"
+        case .IS_PAS_2006:
+            return "IS_PAS_2006"
+        case .IN_PAS_2000_13:
+            return "IN_PAS_2000_13"
+        case .TR_PAS_2010:
+            return "TR_PAS_2010"
+        case .TR_PAS_2018:
+            return "TR_PAS_2018"
         }
     }
 }
@@ -481,7 +496,9 @@ public enum Country: Int, CaseIterable {
     case Mk = 41
     case Rs = 42
     case Ch = 43
+    case Tr = 44
     case Vn = 46
+    case In = 47
 }
 
 extension Country: CustomStringConvertible {
@@ -569,6 +586,10 @@ extension Country: CustomStringConvertible {
             return "Ch"
         case .Vn:
             return "Vn"
+        case .Tr:
+            return "Tr"
+        case .In:
+            return "In"
         }
     }
 }

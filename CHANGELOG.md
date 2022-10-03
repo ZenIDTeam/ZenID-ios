@@ -1,4 +1,17 @@
 # Change Log
+## 2.0.11 2022-10-03
+* Support for Serbian passports (v2008). ZenID-issues#2617
+* Support for Bosnian passports (v2014). ZenID-issues#2618
+* Support for Albanian passports (v2009). ZenID-issues#2619
+* Support for Macedonian passports (v2007). ZenID-issues#2620
+* Support for Belarussian passports (v2006 and v2021). ZenID-issues#2621
+* Support for Montenegrin passports (v2008). ZenID-issues#2617
+* Support for Norwegian passports (v2011/2015 and v2020). ZenID-issues#2634
+* Support for Polish passport version 2011. ZenID-issues#2585 SZENID-1694
+* Support for Croatian passport version 2009/2015. ZenID-issues#2585 SZENID-1694
+* Support for Moldovan passports (v2011/2014/2018). ZenID-issues#2637
+* Support for Icelandic passports (v2019 and v2006). ZenID-issues#2638
+
 ## 2.0.10 2022-09-09
 * Fix for NL DRV 2013
 * Fix Selfie cannot snap  after reject button tap

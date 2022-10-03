@@ -138,6 +138,11 @@ enum class DocumentCodes : uint8_t
 	GB_PAS_2010_11_15_19 = 129,
 	BY_PAS_2006 = 130,
 	BY_PAS_2021 = 131,
+	MD_PAS_2011_14_18 = 132,
+	IS_PAS_2006 = 133,
+	IN_PAS_2000_13 = 134,
+	TR_PAS_2010 = 135,
+	TR_PAS_2018 = 136,
 };
 
 enum class PageCodes : uint8_t
@@ -188,7 +193,9 @@ enum class Country : uint8_t
 	Mk = 41,
 	Rs = 42,
 	Ch = 43,
+	Tr = 44,
 	Vn = 46,
+	In = 47,
 };
 
 enum class DocumentRole : uint8_t
