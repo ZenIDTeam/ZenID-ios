@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		HL8tzm3xj+0wJexbgwBm4FL9ugM=
+		7uMZ67wvkzjXmFhQPdnaYZ7PHMg=
 		</data>
 		<key>Headers/CDocumentVerifierSettingsWrapper.hpp</key>
 		<data>
@@ -46,15 +46,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		x0faEHxSRypzzOyytB5xfUPTi7s=
+		Kpbqy45XqkLG4ktjxeN/a/ZoiTE=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		Adv8vq9T5WpO5w4yaIuxgImWA+E=
+		kEaWtCZSSIHs7rwl8HmIv531LPk=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		trWzlIPxeRl/NgZdr7MjkrKC5lA=
+		U9K4d1fAhaUg+CcCUWzqVxS8YmQ=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		J/kEmuoVYcenxiCWR87i81FnP58=
+		F7dZyHOcsmUFosSddDoijb69+rI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -101,7 +101,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IYAtnWQczTp2fCSEL5ybQQi2pgulnYUo7cRTiv1aiLo=
+			UTGa3C8098/0h7A6YjdbWAK+7rv/ta9HZWO5C29wX68=
 			</data>
 		</dict>
 		<key>Headers/CDocumentVerifierSettingsWrapper.hpp</key>
@@ -171,14 +171,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			A3a4zmqgoxYcZg6K8Vz97mUrxM5hlDXx9uBMKuu27nQ=
+			pJj3RXu8T2nFAFNV87Myp0UKexmxozqGeci0HpMJnAg=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qfeXeDSPnweu3KtvSZs4QW3aDCDHBl/aT3OYH3sycr8=
+			pUitUNO+QdIhRKlhiOcTRnplyYdU2+kagWomUXJsvPs=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -206,7 +206,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6UTBcA1EPNITZV2Mcllz9nZcRI4eYeTbRvlfQyfXfp0=
+			z4bnxbYRKEx2amTVBjE7tJLhY7SJTFeXcb27CeRrhDI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

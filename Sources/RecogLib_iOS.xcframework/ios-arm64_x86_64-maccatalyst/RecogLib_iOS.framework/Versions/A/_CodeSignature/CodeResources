@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		J6J92XnZHoyIE8HqtTfjCLpYNzM=
+		ZOcxGM/6eBp7XA3qvenr7bAxn5A=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		BRRFTPt6TRgo3QG81J4HjPvB/ik=
+		o2JxqAskP8246dWrPGcSO9cus18=
 		</data>
 		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
@@ -100,21 +100,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8545BFoM24exUeLSFdojDRtgTR/5wbfq+tTElBMNaNk=
+			mzVRrD5K8vJ6DgM92bDQs8TBxYzfZIg37dOKGz25eo0=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-macabi.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6b9zxU4vGv8eNn2G3vAvFW44vGeP8rkPL4kdqIirYiw=
+			DSduqE2pjWOdKP54w9oIz8pfySYWKgTOwMWs4BNqCGY=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VflNFluexEZSJJlDz29pJkx8n8qvTom1oWQvYHPejtw=
+			UOnoG7idt+jelNaHcKByZsAvShvZQBtIfa7hb4QPuZs=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
@@ -142,14 +142,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xJh+D1SL/PpFp6++SVAwnT1kCuJwWWrYwcd59y02wWY=
+			lmLPMKw13uJN2xf6gsAqGFwiyDAhRpiwcv3m/z+x2c0=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VflNFluexEZSJJlDz29pJkx8n8qvTom1oWQvYHPejtw=
+			UOnoG7idt+jelNaHcKByZsAvShvZQBtIfa7hb4QPuZs=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
@@ -177,7 +177,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HwQHp5hzae2SpX5BkW9Tv2KbWt/fRCapeJlnFbdpPoE=
+			4UF/7vknfU2nLoVdYSdm5EwDGo0FTKIs0WdO2Hf4kL8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -191,14 +191,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gcV8d/tWh+ThQwsLJ6dZhhz+iS5BzfmuACfIYyOxl6M=
+			QSlRvTmxqn/nB3FfK+h4YSu964hvJ5hd25WPoDaAEl4=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jzslN2w6DtePFXbyRbsywkyDC0NyTB/W6Ofs7UWxZp4=
+			9eRud800bfL5tuJhBAvCK4N2c4ftrLwPyiq+x5Aekts=
 			</data>
 		</dict>
 		<key>Resources/cs.lproj/Localizable.strings</key>
