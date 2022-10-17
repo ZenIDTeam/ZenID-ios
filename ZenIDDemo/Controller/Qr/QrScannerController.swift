@@ -212,8 +212,9 @@ public class QrScannerController: UIViewController,
     
     private func startCaptureSession() {
         if captureSession.isRunning { return }
-        
-        captureSession.startRunning()
+        DispatchQueue.global().async { [weak self] in
+            self?.captureSession.startRunning()
+        }
     }
 }
 
@@ -247,7 +248,9 @@ extension QrScannerController: AVCaptureMetadataOutputObjectsDelegate {
                         } else {
                             delegate?.qrFail(self, error: "Empty string found")
                         }
-                        captureSession.stopRunning()
+                        DispatchQueue.global().async { [weak self] in
+                            self?.captureSession.stopRunning()
+                        }
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
