@@ -59,7 +59,9 @@ public final class Camera: NSObject {
         if captureSession.isRunning {
             return
         }
-        captureSession.startRunning()
+        DispatchQueue.global().async { [weak self] in
+            self?.captureSession.startRunning()
+        }
     }
     
     func stop() {
@@ -67,7 +69,9 @@ public final class Camera: NSObject {
         if !captureSession.isRunning {
             return
         }
-        captureSession.stopRunning()
+        DispatchQueue.global().async { [weak self] in
+            self?.captureSession.stopRunning()
+        }
     }
     
     func takePicture(completion: @escaping (Swift.Result<Data, Swift.Error>) -> Void) {
