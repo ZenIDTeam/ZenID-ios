@@ -45,6 +45,7 @@
 // Login
 "login-qr-cancel" = "Zrušit";
 "login-qr-note" = "Naskenujte QR kód pro přihlášení";
+"login-qr-gallery" = "Vybrat QR kód z galerie";
 
 // Choice
 "title-select" = "Zvolte typ dokladu";
