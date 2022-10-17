@@ -18,7 +18,7 @@ public final class CameraView: UIView {
     let topLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .messageLabel
+        label.font = UIFont.systemFont(ofSize: 15.0)
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
