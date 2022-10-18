@@ -1,6 +1,6 @@
 import UIKit
 
-enum RenderableType: String {
+public enum RenderableType: String {
     case line = "line"
     case rectangle = "rectangle"
     case circle = "circle"
@@ -9,15 +9,15 @@ enum RenderableType: String {
     case triangle = "triangle"
 }
 
-class RenderableFactory {
-    static func createRenderables(commands: String) -> [Renderable] {
+public class RenderableFactory {
+    public static func createRenderables(commands: String) -> [Renderable] {
         //ApplicationLogger.shared.Debug("Render:\n\(commands)")
         return commands
             .split(separator: "\n")
             .compactMap(createRenderable(command:))
     }
         
-    static func createRenderable<T>(command: T) -> Renderable? where T: StringProtocol {
+    public static func createRenderable<T>(command: T) -> Renderable? where T: StringProtocol {
         let strCommand = String(command)
         guard let type = strCommand.split(separator: ";").first else { return nil }
         

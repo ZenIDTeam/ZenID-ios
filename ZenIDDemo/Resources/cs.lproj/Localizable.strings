@@ -70,6 +70,7 @@
 "btn-logout" = "Odhlásit";
 "btn-filter" = "Filter";
 "btn-webview" = "Web View";
+"btn-pure-verifier" = "Pouze verifier";
 
 // Walkthrough
 "walkthrough-title-0" = "Údaje z dokladu";

@@ -1,6 +1,5 @@
 //
-//  PureVerifierViewController.swift
-//  ZenIDDemo
+//  Example of using a pure document verifier when you need to implement a custom UI
 //
 //  Created by Lukáš Gergel on 18.10.2022.
 //  Copyright © 2022 Trask, a.s. All rights reserved.
@@ -19,20 +18,16 @@ typealias TakePictureCallback = (Result<Data, Error>) -> Void
 
 public struct Configuration {
     public static let `default` = Configuration(
-        showVisualisation: true,
-        showHelperVisualisation: true,
         showDebugVisualisation: false,
         dataType: .picture,
-        role: nil,
-        country: nil,
-        page: nil,
+        role: .Idc,
+        country: .Cz,
+        page: .Front,
         code: nil,
         documents: nil,
         settings: nil
     )
 
-    public let showVisualisation: Bool
-    public let showHelperVisualisation: Bool
     public let showDebugVisualisation: Bool
     public let dataType: DataType
     public let role: RecogLib_iOS.DocumentRole?
@@ -44,18 +39,15 @@ public struct Configuration {
 }
 
 final class PureVerifierViewController: UIViewController {
-    // MARK: - Public properties
-
-    public var takePictureCompletion: TakePictureCallback?
-
     // MARK: - Private properties
 
     private let verifier: DocumentVerifier
+
     private(set) var previewLayer: AVCaptureVideoPreviewLayer?
+    private(set) var drawingLayer = DrawingLayer()
+
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.zenid.cameraCaptureQueue")
-    private var captureDevice: AVCaptureDevice?
     private let captureSession = AVCaptureSession()
-    private var cameraPhotoOutput: AVCapturePhotoOutput!
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
 
     private let topLabel: UILabel = {
@@ -85,45 +77,31 @@ final class PureVerifierViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    deinit {
-        verifier.endHologramVerification()
-    }
-
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadModels(url: .modelsDocuments)
-        configure(with: .default)
+
+        guard setupCameraSession() else { return }
+        setupVerifier(with: .default)
+        setupUI(with: .default)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setOrientation(orientation: UIDevice.current.orientation)
         start()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        verifier.endHologramVerification()
         stop()
     }
 
     // MARK: - Public functions
-
-    func configure(with configuration: Configuration) {
-        let captureDevicePosition: AVCaptureDevice.Position = .back
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(
-            deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: captureDevicePosition
-        )
-        captureDevice = deviceDiscoverySession.devices.first
-
-        guard let device = captureDevice, setupCameraSession(device) else { return }
-        if previewLayer == nil {
-            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        }
-
-        setupVerifier(with: configuration)
-    }
 
     func start() {
         if captureSession.isRunning {
@@ -143,19 +121,6 @@ final class PureVerifierViewController: UIViewController {
         }
     }
 
-    func takePicture(completion: @escaping TakePictureCallback) {
-        guard captureDevice != nil else {
-            completion(.failure(PureVerifierError.notInitialized))
-            return
-        }
-        guard AVCaptureDevice.authorizationStatus(for: .video) == .authorized else {
-            completion(.failure(PureVerifierError.notInitialized))
-            return
-        }
-        takePictureCompletion = completion
-        cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-    }
-
     // MARK: - Private functions
 
     private func loadModels(url: URL) {
@@ -167,14 +132,18 @@ final class PureVerifierViewController: UIViewController {
 
     private func verifyImage(buffer: CMSampleBuffer) {
         let result = verifier.verify(buffer: buffer)
+        // process the verifier result here
     }
 
-    private func getCurrentResolution() -> CGSize {
-        guard let formatDescription = captureDevice?.activeFormat.formatDescription else {
-            return .zero
+    // Get the objects detected in the current frame and render them over the preview layer.
+    private func drawRenderables(buffer: CMSampleBuffer) {
+        guard let size = previewLayer?.frame.size, let commands = verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
+        else { return }
+
+        DispatchQueue.main.async { [weak self] in
+            let renderables = RenderableFactory.createRenderables(commands: commands)
+            self?.drawingLayer.setRenderables(renderables)
         }
-        let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
-        return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
     }
 }
 
@@ -183,28 +152,21 @@ final class PureVerifierViewController: UIViewController {
 extension PureVerifierViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         verifyImage(buffer: sampleBuffer)
-    }
-}
-
-// MARK: - AVCapturePhotoCaptureDelegate
-
-extension PureVerifierViewController: AVCapturePhotoCaptureDelegate {
-    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if let error = error {
-            takePictureCompletion?(.failure(error))
-        } else if let data = photo.fileDataRepresentation() {
-            takePictureCompletion?(.success(data))
-        }
-        takePictureCompletion = nil
+        drawRenderables(buffer: sampleBuffer)
     }
 }
 
 extension PureVerifierViewController {
     func setupUI(with configuration: Configuration) {
         topLabel.text = configuration.page == .Back ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
+        if let previewLayer {
+            view.layer.addSublayer(previewLayer)
+            previewLayer.frame = view.frame
+        }
+        view.layer.addSublayer(drawingLayer)
+        drawingLayer.frame = view.frame
     }
 }
-
 
 extension PureVerifierViewController {
     func setupVerifier(with configuration: Configuration) {
@@ -226,9 +188,6 @@ extension PureVerifierViewController {
         if let country = configuration.country {
             verifier.country = country
         }
-//        if let code = previousResult?.code, config.page == .Back {
-//            verifier.code = code
-//        }
         if let documents = configuration.documents {
             verifier.documentsInput = .init(documents: documents)
         }
@@ -250,12 +209,15 @@ extension PureVerifierViewController {
 }
 
 extension PureVerifierViewController {
-    func setupCameraSession(_ device: AVCaptureDevice) -> Bool {
-        guard let input = try? AVCaptureDeviceInput(device: device) else { return false }
+    func setupCameraSession() -> Bool {
+        guard let device = AVCaptureDevice.default(for: .video) else { return false }
 
-        previewLayer?.videoGravity = .resizeAspectFill
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.videoGravity = .resizeAspectFill
+        self.previewLayer = previewLayer
+
         captureSession.beginConfiguration()
-
+        captureSession.sessionPreset = .hd1920x1080
         if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
             for input in inputs {
                 captureSession.removeInput(input)
@@ -265,16 +227,36 @@ extension PureVerifierViewController {
             captureSession.removeOutput(output)
         }
 
-        cameraPhotoOutput = AVCapturePhotoOutput()
-        cameraVideoOutput = AVCaptureVideoDataOutput()
+        guard let input = try? AVCaptureDeviceInput(device: device) else { return false }
+        captureSession.addInput(input)
+
+        let cameraVideoOutput = AVCaptureVideoDataOutput()
         cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_32BGRA] as [String: Any]
         cameraVideoOutput.setSampleBufferDelegate(self, queue: cameraCaptureQueue)
-
-        captureSession.addInput(input)
-        captureSession.addOutput(cameraPhotoOutput)
         captureSession.addOutput(cameraVideoOutput)
+
         captureSession.commitConfiguration()
 
         return true
+    }
+
+    func setOrientation(orientation: UIDeviceOrientation) {
+        switch UIDevice.current.orientation {
+        case .portrait:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+        case .landscapeRight:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+        case .landscapeLeft:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+        case .portraitUpsideDown:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
+        default: break
+        }
+
+        if #available(iOS 13.0, *) {
+            for connection in captureSession.connections {
+                connection.videoOrientation = previewLayer?.connection?.videoOrientation ?? .portrait
+            }
+        }
     }
 }

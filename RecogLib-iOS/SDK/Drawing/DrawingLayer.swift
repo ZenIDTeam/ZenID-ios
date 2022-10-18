@@ -1,6 +1,6 @@
 import UIKit
 
-class DrawingLayer: CALayer {
+public class DrawingLayer: CALayer {
     var mirrorX = false
     
     private(set) var renderables: [Renderable]? {
@@ -11,11 +11,11 @@ class DrawingLayer: CALayer {
         }
     }
     
-    override func draw(in ctx: CGContext) {
+    override public func draw(in ctx: CGContext) {
         renderables?.forEach { $0.draw(in: ctx) }
     }
     
-    func setRenderables(_ renderables: [Renderable]?) {
+    public func setRenderables(_ renderables: [Renderable]?) {
         guard let renderables = renderables else {
             self.renderables = nil
             return

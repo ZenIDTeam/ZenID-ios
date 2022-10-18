@@ -70,6 +70,7 @@
 "btn-logout" = "Logout";
 "btn-filter" = "Filter";
 "btn-webview" = "Web View";
+"btn-pure-verifier" = "Pure verifier";
 
 // Walkthrough
 "walkthrough-title-0" = "Document information";

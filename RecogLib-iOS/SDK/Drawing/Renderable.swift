@@ -1,11 +1,11 @@
 import UIKit
 
-enum RenderingPriority {
+public enum RenderingPriority {
     case low
     case high
 }
 
-protocol Renderable {
+public protocol Renderable {
     var priority: RenderingPriority { get }
     
     init?(_ renderCommand: String)
@@ -13,7 +13,7 @@ protocol Renderable {
 }
 
 extension Renderable {
-    var priority: RenderingPriority {
+    public var priority: RenderingPriority {
         .low
     }
 }
