@@ -23,6 +23,8 @@ final class ChoiceViewController: UIViewController {
     private let faceButton = Buttons.face
     private let logsButton = Buttons.logs
     private let webViewButton = Buttons.webView
+    private let pureVerifierButton = Buttons.pureVerifier
+
     
     private let documentsValidator: DocumentsFilterValidator = DocumentsFilterValidatorComposer.compose()
     private var settingsCoordinator: SettingsCoordinator?
@@ -36,7 +38,8 @@ final class ChoiceViewController: UIViewController {
         hologramButton,
         //faceButton,
         logsButton,
-        webViewButton
+        webViewButton,
+        pureVerifierButton
     ]
     
     private var selectedCountry: Country {
@@ -204,6 +207,9 @@ final class ChoiceViewController: UIViewController {
             case self.webViewButton:
                 startProcess(.idCard)
                 //cachedCameraViewController.addWebViewOverlay()
+            case self.pureVerifierButton:
+                let vc = PureVerifierViewController()
+                navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }

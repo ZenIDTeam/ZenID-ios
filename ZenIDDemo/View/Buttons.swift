@@ -172,6 +172,15 @@ enum Buttons {
         }
     }
 
+    static var pureVerifier: UIButton {
+        get {
+            let button = ZenButton()
+            button.setTitle("btn-pure-verifier".localized.uppercased(), for: .normal)
+            button.outline = true
+            return button
+        }
+    }
+
     static var skip: UIButton {
         get {
             let button = ZenTextButton()

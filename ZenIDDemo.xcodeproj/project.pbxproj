@@ -163,6 +163,7 @@
 		D2CB352522BB7BA900453DB8 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352422BB7BA900453DB8 /* Responses.swift */; };
 		D2CB352722BB84CA00453DB8 /* DispatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352622BB84CA00453DB8 /* DispatchError.swift */; };
 		D2CB352922BB84F700453DB8 /* DispatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352822BB84F700453DB8 /* DispatchResult.swift */; };
+		E087641328FE0CC700D88353 /* PureVerifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E087641228FE0CC700D88353 /* PureVerifierViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -341,6 +342,7 @@
 		D2CB352422BB7BA900453DB8 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		D2CB352622BB84CA00453DB8 /* DispatchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchError.swift; sourceTree = "<group>"; };
 		D2CB352822BB84F700453DB8 /* DispatchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchResult.swift; sourceTree = "<group>"; };
+		E087641228FE0CC700D88353 /* PureVerifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureVerifierViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +393,7 @@
 				012F7B65228B14FF00B0BBB6 /* PreviewViewController.swift */,
 				012F7B49228557BE00B0BBB6 /* WalkthroughViewController.swift */,
 				18371B2F27C3CCA3002528F3 /* NavigationController.swift */,
+				E087641228FE0CC700D88353 /* PureVerifierViewController.swift */,
 				18953D4E268242720077F976 /* Grouped Table View */,
 				18953D472682418B0077F976 /* Settings */,
 				18953D592682468E0077F976 /* Selection */,
@@ -892,6 +895,7 @@
 				18953D882682EBBF0077F976 /* DocumentFilterTableCell.swift in Sources */,
 				D2CB352022BA794F00453DB8 /* UserDefaults+Subscript.swift in Sources */,
 				D2AB79EB22B904F800F1D7AA /* PDFHelper.swift in Sources */,
+				E087641328FE0CC700D88353 /* PureVerifierViewController.swift in Sources */,
 				18953DB8268467F90077F976 /* DocumentVerifierSettingsView.swift in Sources */,
 				01859B0622C4863C005B7E36 /* UIDevice+Size.swift in Sources */,
 				18953DC126847CBF0077F976 /* DocumentVerifierSettingsLoader.swift in Sources */,
