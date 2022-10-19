@@ -1,5 +1,5 @@
 //
-//  Example of using a pure document verifier when you need to implement a custom UI
+//  Example of an implementation from scratch when you need to implement a custom UI
 //
 //  Created by Lukáš Gergel on 18.10.2022.
 //  Copyright © 2022 Trask, a.s. All rights reserved.
@@ -49,15 +49,6 @@ final class PureVerifierViewController: UIViewController {
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.zenid.cameraCaptureQueue")
     private let captureSession = AVCaptureSession()
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
-
-    private let topLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 15.0)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        return label
-    }()
 
     // MARK: - Init
 
@@ -156,9 +147,10 @@ extension PureVerifierViewController: AVCaptureVideoDataOutputSampleBufferDelega
     }
 }
 
+// MARK: - UI setup
+
 extension PureVerifierViewController {
     func setupUI(with configuration: Configuration) {
-        topLabel.text = configuration.page == .Back ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
         if let previewLayer {
             view.layer.addSublayer(previewLayer)
             previewLayer.frame = view.frame
@@ -167,6 +159,8 @@ extension PureVerifierViewController {
         drawingLayer.frame = view.frame
     }
 }
+
+// MARK: - Verifier setup
 
 extension PureVerifierViewController {
     func setupVerifier(with configuration: Configuration) {
@@ -207,6 +201,8 @@ extension PureVerifierViewController {
         verifier.code = nil
     }
 }
+
+// MARK: - Camera session setup
 
 extension PureVerifierViewController {
     func setupCameraSession() -> Bool {

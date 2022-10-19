@@ -231,6 +231,7 @@ You can turn off all visualisations by setting the `showVisualisation: false`. A
 
 The delegate of the controller is following:
 ```swift
+
 public protocol SelfieControllerDelegate: AnyObject {
     func controller(_ controller: SelfieController, didScan result: SelfieResult)
     func controller(_ controller: SelfieController, didRecord videoURL: URL)
@@ -241,9 +242,10 @@ public protocol SelfieControllerDelegate: AnyObject {
 You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
 The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
+
 ## Usage - From Scratch
 You are free to implement everything from the scratch, without use our controller classes. The SDK provides three classes for you: `DocumentVerifier`, `SelfierVerifier`, and `FacelivenessVerifier`.
-
+Example of an implementation from scratch [PureVerifierViewController.swift(./ZenIDDemo/Controller/PureVerifierViewController.swift)]
 
 ### `DocumentVerifier`
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
@@ -365,6 +367,40 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
 }
+```
+
+#### Draw renderables
+In case you want to add an information layer with objects that the verifier has detected, you can use the `verifier.getRenderCommands(canvasWidth:Int, canvasHeight:Int)` method. This method returns a string representation of the detected objects. This string is converted into a collection of drawable objects implementing `Renderable` protocol using `RenderableFactory.createRenderables(commands: String)`.
+The types of renderable objects are the classes `Line`,`Rectangle`,`Circle`,`Ellipse`,`Text`,`Triangle`.
+
+```swift
+var previewLayer: AVCaptureVideoPreviewLayer?
+var drawingLayer = DrawingLayer()
+
+// Add the custom layers
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    if let previewLayer {
+        view.layer.addSublayer(previewLayer)
+        previewLayer.frame = view.frame
+    }
+
+    view.layer.addSublayer(drawingLayer)
+    drawingLayer.frame = view.frame
+}
+
+// Get the objects detected in the current frame and render them over the preview layer.
+private func drawRenderables(buffer: CMSampleBuffer) {
+    guard let size = previewLayer?.frame.size, let commands = verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
+    else { return }
+
+    DispatchQueue.main.async { [weak self] in
+        let renderables = RenderableFactory.createRenderables(commands: commands)
+        self?.drawingLayer.setRenderables(renderables)
+    }
+}
+
 ```
 
 #### Models
