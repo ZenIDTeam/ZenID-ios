@@ -10,12 +10,6 @@ import Foundation
 import RecogLib_iOS
 import UIKit
 
-enum PureVerifierError: Error {
-    case notInitialized
-}
-
-typealias TakePictureCallback = (Result<Data, Error>) -> Void
-
 public struct Configuration {
     public static let `default` = Configuration(
         showDebugVisualisation: false,
