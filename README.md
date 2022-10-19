@@ -296,7 +296,7 @@ if let models = DocumentVerifierModels(url: url) {
 #### Verifier Settings
 You can tune a couple of parameters of document verifier. Each initializer has optional `settings` parameter.
 ```swift
-DocumentVerifierSettings(
+let settings = DocumentVerifierSettings(
     specularAcceptableScore: 50,
     documentBlurAcceptableScore: 50,
     timeToBlurMaxToleranceInSeconds: 10,
@@ -333,10 +333,13 @@ readBarcode
 ```
 - default: True
 
-Note that properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
 ```swift
-let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language)
+let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language, settings: settings)
 ```
+
+Note that properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
+
+
 Than you define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate`
 ```swift
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
