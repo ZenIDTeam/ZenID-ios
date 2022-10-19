@@ -8208,6 +8208,443 @@
         "moduleName": "RecogLib_iOS"
       },
       {
+        "kind": "TypeDecl",
+        "name": "RenderableType",
+        "printedName": "RenderableType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "line",
+            "printedName": "line",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderableType.Type) -> RecogLib_iOS.RenderableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderableType",
+                    "printedName": "RecogLib_iOS.RenderableType",
+                    "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderableType",
+                        "printedName": "RecogLib_iOS.RenderableType",
+                        "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO4lineyA2CmF",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO4lineyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "rectangle",
+            "printedName": "rectangle",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderableType.Type) -> RecogLib_iOS.RenderableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderableType",
+                    "printedName": "RecogLib_iOS.RenderableType",
+                    "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderableType",
+                        "printedName": "RecogLib_iOS.RenderableType",
+                        "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO9rectangleyA2CmF",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO9rectangleyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "circle",
+            "printedName": "circle",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderableType.Type) -> RecogLib_iOS.RenderableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderableType",
+                    "printedName": "RecogLib_iOS.RenderableType",
+                    "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderableType",
+                        "printedName": "RecogLib_iOS.RenderableType",
+                        "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO6circleyA2CmF",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO6circleyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "ellipse",
+            "printedName": "ellipse",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderableType.Type) -> RecogLib_iOS.RenderableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderableType",
+                    "printedName": "RecogLib_iOS.RenderableType",
+                    "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderableType",
+                        "printedName": "RecogLib_iOS.RenderableType",
+                        "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO7ellipseyA2CmF",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO7ellipseyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "text",
+            "printedName": "text",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderableType.Type) -> RecogLib_iOS.RenderableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderableType",
+                    "printedName": "RecogLib_iOS.RenderableType",
+                    "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderableType",
+                        "printedName": "RecogLib_iOS.RenderableType",
+                        "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO4textyA2CmF",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO4textyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "triangle",
+            "printedName": "triangle",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderableType.Type) -> RecogLib_iOS.RenderableType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderableType",
+                    "printedName": "RecogLib_iOS.RenderableType",
+                    "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderableType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderableType",
+                        "printedName": "RecogLib_iOS.RenderableType",
+                        "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO8triangleyA2CmF",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO8triangleyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.RenderableType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderableType",
+                    "printedName": "RecogLib_iOS.RenderableType",
+                    "usr": "s:12RecogLib_iOS14RenderableTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO8rawValueACSgSS_tcfc",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO8rawValueACSgSS_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS14RenderableTypeO8rawValueSSvp",
+            "mangledName": "$s12RecogLib_iOS14RenderableTypeO8rawValueSSvp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS14RenderableTypeO8rawValueSSvg",
+                "mangledName": "$s12RecogLib_iOS14RenderableTypeO8rawValueSSvg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS14RenderableTypeO",
+        "mangledName": "$s12RecogLib_iOS14RenderableTypeO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RenderableFactory",
+        "printedName": "RenderableFactory",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "createRenderables",
+            "printedName": "createRenderables(commands:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.Renderable]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Renderable",
+                    "printedName": "RecogLib_iOS.Renderable",
+                    "usr": "s:12RecogLib_iOS10RenderableP"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS17RenderableFactoryC17createRenderables8commandsSayAA0D0_pGSS_tFZ",
+            "mangledName": "$s12RecogLib_iOS17RenderableFactoryC17createRenderables8commandsSayAA0D0_pGSS_tFZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "createRenderable",
+            "printedName": "createRenderable(command:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.Renderable?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Renderable",
+                    "printedName": "RecogLib_iOS.Renderable",
+                    "usr": "s:12RecogLib_iOS10RenderableP"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS17RenderableFactoryC06createD07commandAA0D0_pSgx_tSyRzlFZ",
+            "mangledName": "$s12RecogLib_iOS17RenderableFactoryC06createD07commandAA0D0_pSgx_tSyRzlFZ",
+            "moduleName": "RecogLib_iOS",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.StringProtocol>",
+            "sugared_genericSig": "<T where T : Swift.StringProtocol>",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:12RecogLib_iOS17RenderableFactoryC",
+        "mangledName": "$s12RecogLib_iOS17RenderableFactoryC",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -18970,6 +19407,368 @@
         "moduleName": "RecogLib_iOS"
       },
       {
+        "kind": "TypeDecl",
+        "name": "RenderingPriority",
+        "printedName": "RenderingPriority",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "low",
+            "printedName": "low",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderingPriority.Type) -> RecogLib_iOS.RenderingPriority",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderingPriority",
+                    "printedName": "RecogLib_iOS.RenderingPriority",
+                    "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderingPriority.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderingPriority",
+                        "printedName": "RecogLib_iOS.RenderingPriority",
+                        "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS17RenderingPriorityO3lowyA2CmF",
+            "mangledName": "$s12RecogLib_iOS17RenderingPriorityO3lowyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "high",
+            "printedName": "high",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.RenderingPriority.Type) -> RecogLib_iOS.RenderingPriority",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderingPriority",
+                    "printedName": "RecogLib_iOS.RenderingPriority",
+                    "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.RenderingPriority.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RenderingPriority",
+                        "printedName": "RecogLib_iOS.RenderingPriority",
+                        "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS17RenderingPriorityO4highyA2CmF",
+            "mangledName": "$s12RecogLib_iOS17RenderingPriorityO4highyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RenderingPriority",
+                "printedName": "RecogLib_iOS.RenderingPriority",
+                "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RenderingPriority",
+                "printedName": "RecogLib_iOS.RenderingPriority",
+                "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS17RenderingPriorityO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s12RecogLib_iOS17RenderingPriorityO2eeoiySbAC_ACtFZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS17RenderingPriorityO9hashValueSivp",
+            "mangledName": "$s12RecogLib_iOS17RenderingPriorityO9hashValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS17RenderingPriorityO9hashValueSivg",
+                "mangledName": "$s12RecogLib_iOS17RenderingPriorityO9hashValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS17RenderingPriorityO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s12RecogLib_iOS17RenderingPriorityO4hash4intoys6HasherVz_tF",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS17RenderingPriorityO",
+        "mangledName": "$s12RecogLib_iOS17RenderingPriorityO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Renderable",
+        "printedName": "Renderable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "priority",
+            "printedName": "priority",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RenderingPriority",
+                "printedName": "RecogLib_iOS.RenderingPriority",
+                "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS10RenderableP8priorityAA17RenderingPriorityOvp",
+            "mangledName": "$s12RecogLib_iOS10RenderableP8priorityAA17RenderingPriorityOvp",
+            "moduleName": "RecogLib_iOS",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderingPriority",
+                    "printedName": "RecogLib_iOS.RenderingPriority",
+                    "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10RenderableP8priorityAA17RenderingPriorityOvg",
+                "mangledName": "$s12RecogLib_iOS10RenderableP8priorityAA17RenderingPriorityOvg",
+                "moduleName": "RecogLib_iOS",
+                "genericSig": "<τ_0_0 where τ_0_0 : RecogLib_iOS.Renderable>",
+                "sugared_genericSig": "<Self where Self : RecogLib_iOS.Renderable>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS10RenderablePyxSgSScfc",
+            "mangledName": "$s12RecogLib_iOS10RenderablePyxSgSScfc",
+            "moduleName": "RecogLib_iOS",
+            "genericSig": "<τ_0_0 where τ_0_0 : RecogLib_iOS.Renderable>",
+            "sugared_genericSig": "<Self where Self : RecogLib_iOS.Renderable>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "draw",
+            "printedName": "draw(in:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGContext",
+                "printedName": "CoreGraphics.CGContext",
+                "usr": "c:@T@CGContextRef"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS10RenderableP4draw2inySo12CGContextRefa_tF",
+            "mangledName": "$s12RecogLib_iOS10RenderableP4draw2inySo12CGContextRefa_tF",
+            "moduleName": "RecogLib_iOS",
+            "genericSig": "<τ_0_0 where τ_0_0 : RecogLib_iOS.Renderable>",
+            "sugared_genericSig": "<Self where Self : RecogLib_iOS.Renderable>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "priority",
+            "printedName": "priority",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RenderingPriority",
+                "printedName": "RecogLib_iOS.RenderingPriority",
+                "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS10RenderablePAAE8priorityAA17RenderingPriorityOvp",
+            "mangledName": "$s12RecogLib_iOS10RenderablePAAE8priorityAA17RenderingPriorityOvp",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RenderingPriority",
+                    "printedName": "RecogLib_iOS.RenderingPriority",
+                    "usr": "s:12RecogLib_iOS17RenderingPriorityO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10RenderablePAAE8priorityAA17RenderingPriorityOvg",
+                "mangledName": "$s12RecogLib_iOS10RenderablePAAE8priorityAA17RenderingPriorityOvg",
+                "moduleName": "RecogLib_iOS",
+                "genericSig": "<τ_0_0 where τ_0_0 : RecogLib_iOS.Renderable>",
+                "sugared_genericSig": "<Self where Self : RecogLib_iOS.Renderable>",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:12RecogLib_iOS10RenderableP",
+        "mangledName": "$s12RecogLib_iOS10RenderableP",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -24392,6 +25191,248 @@
         "moduleName": "RecogLib_iOS"
       },
       {
+        "kind": "TypeDecl",
+        "name": "DrawingLayer",
+        "printedName": "DrawingLayer",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "draw",
+            "printedName": "draw(in:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGContext",
+                "printedName": "CoreGraphics.CGContext",
+                "usr": "c:@T@CGContextRef"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer(im)drawInContext:",
+            "mangledName": "$s12RecogLib_iOS12DrawingLayerC4draw2inySo12CGContextRefa_tF",
+            "moduleName": "RecogLib_iOS",
+            "overriding": true,
+            "objc_name": "drawInContext:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "Override"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setRenderables",
+            "printedName": "setRenderables(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[RecogLib_iOS.Renderable]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.Renderable]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Renderable",
+                        "printedName": "RecogLib_iOS.Renderable",
+                        "usr": "s:12RecogLib_iOS10RenderableP"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS12DrawingLayerC14setRenderablesyySayAA10Renderable_pGSgF",
+            "mangledName": "$s12RecogLib_iOS12DrawingLayerC14setRenderablesyySayAA10Renderable_pGSgF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DrawingLayer",
+                "printedName": "RecogLib_iOS.DrawingLayer",
+                "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer(im)init",
+            "mangledName": "$s12RecogLib_iOS12DrawingLayerCACycfc",
+            "moduleName": "RecogLib_iOS",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(layer:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DrawingLayer",
+                "printedName": "RecogLib_iOS.DrawingLayer",
+                "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer(im)initWithLayer:",
+            "mangledName": "$s12RecogLib_iOS12DrawingLayerC5layerACyp_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithLayer:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(coder:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.DrawingLayer?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DrawingLayer",
+                    "printedName": "RecogLib_iOS.DrawingLayer",
+                    "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSCoder",
+                "printedName": "Foundation.NSCoder",
+                "usr": "c:objc(cs)NSCoder"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer(im)initWithCoder:",
+            "mangledName": "$s12RecogLib_iOS12DrawingLayerC5coderACSgSo7NSCoderC_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithCoder:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Required"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RecogLib_iOS@objc(cs)DrawingLayer",
+        "mangledName": "$s12RecogLib_iOS12DrawingLayerC",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)CALayer",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "QuartzCore.CALayer",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -25914,84 +26955,84 @@
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 60,
+      "offset": 67,
       "length": 6,
       "value": "\"line\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 88,
+      "offset": 95,
       "length": 11,
       "value": "\"rectangle\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 118,
+      "offset": 125,
       "length": 8,
       "value": "\"circle\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 146,
+      "offset": 153,
       "length": 9,
       "value": "\"ellipse\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 172,
+      "offset": 179,
       "length": 6,
       "value": "\"text\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 199,
+      "offset": 206,
       "length": 10,
       "value": "\"triangle\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 60,
+      "offset": 67,
       "length": 6,
       "value": "\"line\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 88,
+      "offset": 95,
       "length": 11,
       "value": "\"rectangle\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 118,
+      "offset": 125,
       "length": 8,
       "value": "\"circle\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 146,
+      "offset": 153,
       "length": 9,
       "value": "\"ellipse\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 172,
+      "offset": 179,
       "length": 6,
       "value": "\"text\""
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
       "kind": "StringLiteral",
-      "offset": 199,
+      "offset": 206,
       "length": 10,
       "value": "\"triangle\""
     },
@@ -30730,7 +31771,7 @@
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/DrawingLayer.swift",
       "kind": "BooleanLiteral",
-      "offset": 62,
+      "offset": 69,
       "length": 5,
       "value": "false"
     },

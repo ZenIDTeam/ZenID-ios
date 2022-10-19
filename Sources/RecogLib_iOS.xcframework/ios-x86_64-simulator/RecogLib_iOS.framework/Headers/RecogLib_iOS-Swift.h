@@ -232,8 +232,10 @@ using UInt = size_t;
 #endif
 @import AVFoundation;
 @import CoreFoundation;
+@import CoreGraphics;
 @import CoreMedia;
 @import ObjectiveC;
+@import QuartzCore;
 @import UIKit;
 #endif
 
@@ -285,6 +287,15 @@ SWIFT_CLASS("_TtC12RecogLib_iOS10CameraView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)layoutSubviews;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC12RecogLib_iOS12DrawingLayer")
+@interface DrawingLayer : CALayer
+- (void)drawInContext:(CGContextRef _Nonnull)ctx;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithLayer:(id _Nonnull)layer OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

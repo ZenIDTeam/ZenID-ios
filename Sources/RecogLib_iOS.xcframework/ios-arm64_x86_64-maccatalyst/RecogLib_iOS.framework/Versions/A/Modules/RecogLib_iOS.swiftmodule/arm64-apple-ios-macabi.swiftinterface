@@ -295,6 +295,24 @@ public struct DocumentVerifierSettings : Swift.Equatable {
   public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = false, readBarcode: Swift.Bool = true, visualizerVersion: Swift.Int = 1)
   public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
 }
+public enum RenderableType : Swift.String {
+  case line
+  case rectangle
+  case circle
+  case ellipse
+  case text
+  case triangle
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RenderableFactory {
+  public static func createRenderables(commands: Swift.String) -> [RecogLib_iOS.Renderable]
+  public static func createRenderable<T>(command: T) -> RecogLib_iOS.Renderable? where T : Swift.StringProtocol
+  @objc deinit
+}
 final public class UnifiedFacelivenessResultAdapter : RecogLib_iOS.UnifiedResult {
   final public let state: RecogLib_iOS.UnifiedState
   final public let role: RecogLib_iOS.DocumentRole?
@@ -655,6 +673,25 @@ extension RecogLib_iOS.SelfieState : Swift.CustomStringConvertible {
     get
   }
 }
+public enum RenderingPriority {
+  case low
+  case high
+  public static func == (a: RecogLib_iOS.RenderingPriority, b: RecogLib_iOS.RenderingPriority) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol Renderable {
+  var priority: RecogLib_iOS.RenderingPriority { get }
+  init?(_ renderCommand: Swift.String)
+  func draw(in ctx: CoreGraphics.CGContext)
+}
+extension RecogLib_iOS.Renderable {
+  public var priority: RecogLib_iOS.RenderingPriority {
+    get
+  }
+}
 extension RecogLib_iOS.FaceLivenessResult : RecogLib_iOS.ResultState {
   public var isOk: Swift.Bool {
     get
@@ -820,6 +857,14 @@ public enum UnifiedState {
     get
   }
 }
+@objc @_inheritsConvenienceInitializers public class DrawingLayer : QuartzCore.CALayer {
+  @objc override dynamic public func draw(in ctx: CoreGraphics.CGContext)
+  public func setRenderables(_ renderables: [RecogLib_iOS.Renderable]?)
+  @objc override dynamic public init()
+  @objc override dynamic public init(layer: Any)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
 final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
   final public let url: Foundation.URL
   public init?(url: Foundation.URL, fileManager: Foundation.FileManager = .default)
@@ -840,6 +885,9 @@ extension RecogLib_iOS.FaceLivenessCheckType : Swift.RawRepresentable {}
 extension RecogLib_iOS.FaceLivenessAngle : Swift.Equatable {}
 extension RecogLib_iOS.FaceLivenessAngle : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessAngle : Swift.RawRepresentable {}
+extension RecogLib_iOS.RenderableType : Swift.Equatable {}
+extension RecogLib_iOS.RenderableType : Swift.Hashable {}
+extension RecogLib_iOS.RenderableType : Swift.RawRepresentable {}
 extension RecogLib_iOS.FaceLivenessState : Swift.Equatable {}
 extension RecogLib_iOS.FaceLivenessState : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessState : Swift.RawRepresentable {}
@@ -861,6 +909,8 @@ extension RecogLib_iOS.DocumentRole : Swift.RawRepresentable {}
 extension RecogLib_iOS.HologramState : Swift.Equatable {}
 extension RecogLib_iOS.HologramState : Swift.Hashable {}
 extension RecogLib_iOS.HologramState : Swift.RawRepresentable {}
+extension RecogLib_iOS.RenderingPriority : Swift.Equatable {}
+extension RecogLib_iOS.RenderingPriority : Swift.Hashable {}
 extension RecogLib_iOS.ImageFlip : Swift.Equatable {}
 extension RecogLib_iOS.ImageFlip : Swift.Hashable {}
 extension RecogLib_iOS.ImageFlip : Swift.RawRepresentable {}
