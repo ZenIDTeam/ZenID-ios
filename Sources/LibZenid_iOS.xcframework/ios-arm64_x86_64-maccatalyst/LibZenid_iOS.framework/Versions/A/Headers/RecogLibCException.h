@@ -24,4 +24,9 @@ class NoSuitableModelException: public RecogLibCException
 	
 };
 
+class RecogLibCAssertionException : public RecogLibCException
+{
+public:
+	explicit RecogLibCAssertionException(std::string message) : RecogLibCException{std::move(message)} {}
+};
 }

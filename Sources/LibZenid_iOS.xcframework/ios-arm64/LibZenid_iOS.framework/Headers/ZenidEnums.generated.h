@@ -7,8 +7,7 @@
 namespace RecogLibC
 {
 
-enum class DocumentCodes : uint8_t
-{
+enum class DocumentCodes : int32_t {
 	IDC1 = 0,
 	IDC2 = 1,
 	DRV = 2,
@@ -143,16 +142,15 @@ enum class DocumentCodes : uint8_t
 	IN_PAS_2000_13 = 134,
 	TR_PAS_2010 = 135,
 	TR_PAS_2018 = 136,
+	RO_IDC_2021sep = 137,
 };
 
-enum class PageCodes : uint8_t
-{
+enum class PageCodes : uint8_t {
 	F = 0,
 	B = 1,
 };
 
-enum class Country : uint8_t
-{
+enum class Country : uint8_t {
 	Cz = 0,
 	Sk = 1,
 	At = 2,
@@ -198,8 +196,7 @@ enum class Country : uint8_t
 	In = 47,
 };
 
-enum class DocumentRole : uint8_t
-{
+enum class DocumentRole : uint8_t {
 	Idc = 0,
 	Pas = 1,
 	Drv = 2,
@@ -214,16 +211,14 @@ enum class DocumentRole : uint8_t
 	Vis = 11,
 };
 
-enum class SupportedLanguages : uint8_t
-{
+enum class SupportedLanguages : uint8_t {
 	English = 0,
 	Czech = 1,
 	Polish = 2,
 	German = 3,
 };
 
-enum class DocumentVerifierState : int
-{
+enum class DocumentVerifierState : int {
 	NoMatchFound = 0,
 	AlignCard = 1,
 	HoldSteady = 2,
@@ -235,8 +230,7 @@ enum class DocumentVerifierState : int
 	Barcode = 8,
 };
 
-enum class SelfieVerifierState : int
-{
+enum class SelfieVerifierState : int {
 	Ok = 0,
 	NoFaceFound = 1,
 	Blurry = 2,
@@ -245,16 +239,14 @@ enum class SelfieVerifierState : int
 	BadFaceAngle = 5,
 };
 
-enum class HologramState : int
-{
+enum class HologramState : int {
 	Center = 0,
 	TiltLeftAndRight = 1,
 	TiltUpAndDown = 2,
 	Ok = 3,
 };
 
-enum class FaceLivenessVerifierState : int
-{
+enum class FaceLivenessVerifierState : int {
 	LookAtMe = 0,
 	TurnHead = 1,
 	Smile = 2,
@@ -264,8 +256,7 @@ enum class FaceLivenessVerifierState : int
 	HoldStill = 6,
 };
 
-enum class FieldID : int
-{
+enum class FieldID : int {
 	A1 = 0,
 	A2 = 1,
 	A3 = 2,
@@ -373,8 +364,7 @@ enum class FieldID : int
 	Sex2 = 104,
 };
 
-enum class SdkSignatureProblem : int
-{
+enum class SdkSignatureProblem : int {
 	HashDiffers = 0,
 	TimeDiffers = 1,
 	HostnameNotAllowed = 2,

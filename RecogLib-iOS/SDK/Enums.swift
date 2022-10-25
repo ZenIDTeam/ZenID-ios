@@ -153,10 +153,11 @@ public enum DocumentCode: Int, CaseIterable {
     case IN_PAS_2000_13 = 134
     case TR_PAS_2010 = 135
     case TR_PAS_2018 = 136
+    case RO_IDC_2021sep = 137
 }
 
 public extension DocumentCode {
-    public init?(stringValue: String) {
+    init?(stringValue: String) {
         for code in DocumentCode.allCases {
             if code.description.uppercased() == stringValue.uppercased() {
                 self = code
@@ -436,6 +437,8 @@ extension DocumentCode: CustomStringConvertible {
             return "TR_PAS_2010"
         case .TR_PAS_2018:
             return "TR_PAS_2018"
+        case .RO_IDC_2021sep:
+            return "RO_IDC_2021sep"
         }
     }
 }
