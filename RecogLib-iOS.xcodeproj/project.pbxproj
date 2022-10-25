@@ -95,6 +95,7 @@
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
+		E056A8682908838B00C8AE4F /* FaceLivenessStepParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056A8672908838B00C8AE4F /* FaceLivenessStepParameters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +192,7 @@
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D2BD780622C4EA24006D7974 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E056A8672908838B00C8AE4F /* FaceLivenessStepParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessStepParameters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				18953DB026844F6B0077F976 /* DocumentVerifierSettings.swift */,
 				6F2CFC85247469AE005D2FB6 /* FaceLivenessVerifier.swift */,
 				18E8BA2927664F04008DEF0C /* FaceLivenessVerifierSettings.swift */,
+				E056A8672908838B00C8AE4F /* FaceLivenessStepParameters.swift */,
 				6F1A6A8F251B98C30087CC0A /* SelfieVerifier.swift */,
 				6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */,
 				18C1A3942680F4D80047FDD3 /* Document.swift */,
@@ -501,6 +504,7 @@
 				6F1A6A90251B98C30087CC0A /* SelfieVerifier.swift in Sources */,
 				18371B1F27C24656002528F3 /* CGSize+Flip.swift in Sources */,
 				6F6C26FB24B87F7F0073A2CA /* String+Extensions.swift in Sources */,
+				E056A8682908838B00C8AE4F /* FaceLivenessStepParameters.swift in Sources */,
 				18371B6127C5441E002528F3 /* UnifiedDocumentResultAdapter.swift in Sources */,
 				6F2CFC86247469AE005D2FB6 /* FaceLivenessVerifier.swift in Sources */,
 				18371B5927C5441E002528F3 /* UnifiedResult.swift in Sources */,
@@ -730,7 +734,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -787,7 +791,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

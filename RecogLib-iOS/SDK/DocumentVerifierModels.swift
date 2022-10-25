@@ -14,18 +14,18 @@ public final class DocumentVerifierModels: VerifierModels {
         self.fileManager = fileManager
     }
     
-    public func load(onLoad: (Data) -> Void) {
+    public func load(onLoad: (Data, String) -> Void) {
         load(url: url, onLoad: onLoad)
     }
     
-    private func load(url: URL, onLoad: (Data) -> Void) {
+    private func load(url: URL, onLoad: (Data, String) -> Void) {
         let contents = getContent(of: url)
         for content in contents {
             let fileUrl = url.appendingPathComponent(content)
             if isDirectory(url: fileUrl) {
                 load(url: fileUrl, onLoad: onLoad)
             } else if isBinFile(url: fileUrl) {
-                onLoad(loadData(url: fileUrl))
+                onLoad(loadData(url: fileUrl), fileUrl.lastPathComponent)
             }
         }
     }

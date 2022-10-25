@@ -138,3 +138,11 @@ void setFaceLivenessDebugInfo(const void *object,
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     verifier->SetDebugVisualization(show);
 }
+
+char* getFaceLivenessStepParameters(const void *object)
+{
+    FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+
+    std::string stepParametersJson = verifier->GetStepParametersJson();
+    return getString(stepParametersJson);
+}

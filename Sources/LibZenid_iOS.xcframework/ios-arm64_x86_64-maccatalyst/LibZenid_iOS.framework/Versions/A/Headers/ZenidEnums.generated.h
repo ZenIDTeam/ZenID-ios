@@ -143,6 +143,8 @@ enum class DocumentCodes : int32_t {
 	TR_PAS_2010 = 135,
 	TR_PAS_2018 = 136,
 	RO_IDC_2021sep = 137,
+	SK_RES_2011 = 138,
+	SK_RES_2020 = 139,
 };
 
 enum class PageCodes : uint8_t {

@@ -13,8 +13,8 @@ public final class FaceVerifierModels: VerifierModels {
         self.fileManager = fileManager
     }
     
-    public func load(onLoad: (Data) -> Void) {
-        onLoad(loadData(url: url))
+    public func load(onLoad: (Data, String) -> Void) {
+        onLoad(loadData(url: url), url.lastPathComponent)
     }
     
     private func loadData(url: URL) -> Data {

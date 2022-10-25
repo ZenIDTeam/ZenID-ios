@@ -48,9 +48,9 @@ public class DocumentVerifier {
     }
     
     public func loadModels(_ loader: DocumentVerifierModels) {
-        loader.loadPointer { pointer, data in
+        loader.loadPointer { pointer, data, modelName in
             RecogLib_iOS.loadModel(self.cppObject, pointer, data.count)
-            ApplicationLogger.shared.Info("Loaded model: \(loader.url.lastPathComponent)")
+            ApplicationLogger.shared.Info("Loaded model: \(modelName)")
         }
     }
 

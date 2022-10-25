@@ -85,7 +85,9 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> FaceLivenessResult? {
-        verifier.verifyImage(imageBuffer: pixelBuffer)
+        let verifierResult = verifier.verifyImage(imageBuffer: pixelBuffer)
+        let json = verifier.getStepParameters()
+        return verifierResult
     }
     
     override func getRenderCommands(size: CGSize) -> String? {

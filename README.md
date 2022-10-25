@@ -1,3 +1,4 @@
+
 # RecogLib
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
@@ -127,16 +128,16 @@ Use `DocumentController` for scanning documents. You can configure the behaviour
 ```swift
 // Configuration
 let documentControllerConfig = DocumentControllerConfiguration(
-	showVisualisation: true,
-	showHelperVisualisation: true, // Enables text information rendering
-	showDebugVisualisation: false, // Enables debug visualisation rendered directly to camera feed
-	dataType: .picture,
-	role: .Idc,
-	country: .Cz,
-	page: .Front,
-	code: nil,
-	documents: nil,
-	settings: nil
+    showVisualisation: true,
+    showHelperVisualisation: true, // Enables text information rendering
+    showDebugVisualisation: false, // Enables debug visualisation rendered directly to camera feed
+    dataType: .picture,
+    role: .Idc,
+    country: .Cz,
+    page: .Front,
+    code: nil,
+    documents: nil,
+    settings: nil
 )
 // Controller
 let camera = Camera()
@@ -172,11 +173,11 @@ Use `FacelivenessController` for scanning face. You can configure the behaviour 
 ```swift
 // Configuration
 let documentControllerConfig = FacelivenessControllerConfiguration(
-	showVisualisation: true,
-	showHelperVisualisation: true,
-	showDebugVisualisation: false,
-	dataType: .picture,
-	isLegacy: false
+    showVisualisation: true,
+    showHelperVisualisation: true,
+    showDebugVisualisation: false,
+    dataType: .picture,
+    isLegacy: false
 )
 // Controller
 let camera = Camera()
@@ -210,10 +211,10 @@ Use `SelfieController` for scanning face. You can configure the behaviour and al
 ```swift
 // Configuration
 let documentControllerConfig = SelfieControllerConfiguration(
-	showVisualisation: true,
-	showHelperVisualisation: true,
-	showDebugVisualisation: false,
-	dataType: .picture
+    showVisualisation: true,
+    showHelperVisualisation: true,
+    showDebugVisualisation: false,
+    dataType: .picture
 )
 // Controller
 let camera = Camera()
@@ -420,6 +421,35 @@ if let models = FaceVerifierModels(url: url) {
 ### Face liveness verifier
 You can use  `FaceLivenessVerifier` to verify face liveness from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `FaceLivenessVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
+
+#### Face liveness step parameters
+
+> Available since version 2.0.12
+
+During the face liveness check, additional parameters (`FaceLivenessStepParameters`) for the current check can be accessed by calling the verifier method `getStepParameters()`
+The object is only available during the liveness part of the process. It is null during the preliminary quality check.
+
+Sample:
+```Swift
+let verifierResult = verifier.verifyImage(imageBuffer: pixelBuffer)
+let parameters:FaceLivenessStepParameters = verifier.getStepParameters()
+```
+
+The object `FaceLivenessStepParameters` has the following properties:
+|Property  |Description  |
+|--|--|
+| name | Name of the step. It can be `CenteredCheck`, `AngleCheck Left`, `AngleCheck Right`, `AngleCheck Up`, `AngleCheck Down`, `LegacyAngleCheck`, or `SmileCheck`. CenteredCheck requires the user to look at the camera. The AngleCheck steps require the user to turn their head in a specific direction. The LegacyAngleCheck requires the user to turn his head in any direction. It's only used when legacy mode is enabled. SmileCheck requires the user to smile.  |
+|totalCheckCount|The total number of the checks the user has to pass, including the ones that were already passed.|
+|passedCheckCount |The number of checks the user has passed.|
+|hasFailed |Flag that is true if the user has failed the most recent check. After the failed check, a few seconds pass and the check process is restarted - the flag is set to false and passedCheckCount goes back to 0.|
+|headYaw|Euler angles of the head in degrees. Only defined if a face is visible. |
+|headPitch|Euler angles of the head in degrees. Only defined if a face is visible. |
+|headRoll|Euler angles of the head in degrees. Only defined if a face is visible. |
+|faceCenterX |Coordinates of the center of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
+|faceCenterY |Coordinates of the center of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
+|faceWidth | Size of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
+|faceHeight | Size of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
+
 
 #### Models
 You have to load models that you would like to support.

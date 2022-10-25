@@ -154,6 +154,9 @@ public enum DocumentCode: Int, CaseIterable {
     case TR_PAS_2010 = 135
     case TR_PAS_2018 = 136
     case RO_IDC_2021sep = 137
+    case SK_RES_2011 = 138
+    case SK_RES_2020 = 139
+
 }
 
 public extension DocumentCode {
@@ -439,6 +442,10 @@ extension DocumentCode: CustomStringConvertible {
             return "TR_PAS_2018"
         case .RO_IDC_2021sep:
             return "RO_IDC_2021sep"
+        case .SK_RES_2011:
+            return "SK_RES_2011"
+        case .SK_RES_2020:
+            return "SK_RES_2020"
         }
     }
 }

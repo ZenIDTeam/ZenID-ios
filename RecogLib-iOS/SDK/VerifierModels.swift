@@ -3,16 +3,16 @@ import Foundation
 public protocol VerifierModels {
     var url: URL { get }
     
-    func load(onLoad: (Data) -> Void)
+    func load(onLoad: (Data, String) -> Void)
 }
 
 extension VerifierModels {
-    func loadPointer(onLoad: (UnsafePointer<CChar>, Data) -> Void) {
-        load { data in
+    func loadPointer(onLoad: (UnsafePointer<CChar>, Data, String) -> Void) {
+        load { data, modelName in
             guard let pointer = getPointer(data: data) else {
                 return
             }
-            onLoad(pointer, data)
+            onLoad(pointer, data, modelName)
         }
     }
     

@@ -1,11 +1,15 @@
 # Change Log
 
 ## 2.0.12 2022-10-25
-* Updated LibZenid 2.10.2
+* Updated LibZenid 2.10.4
 * Improved tracking and classification of documents.
 * Added the modelhashes.bin model, used for all countries for documents and holograms.
 * Added RO_IDC_2021sep in DocumentCodes enum.
 * Added RecogLibCAssertionException that is thrown for failed internal assertions. It's derived from RecogLibCException, so no code changes are necessary on the implementer side.
+* Added additional parameters describing the liveness check steps. ZenID-issues#2736
+* Fix the darkness validator being too strict.
+* Fix a bug that reduces tracking accuracy. ZenID-issues#2741
+
 
 ## 2.0.11 2022-10-03
 * Support for Serbian passports (v2008). ZenID-issues#2617

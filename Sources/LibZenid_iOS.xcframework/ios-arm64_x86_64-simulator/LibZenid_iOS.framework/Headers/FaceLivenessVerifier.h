@@ -61,6 +61,9 @@ class FaceLivenessVerifier
 	std::vector<std::shared_ptr<std::vector<uint8_t>>> GetAuxiliaryImages() const;
 	std::string GetAuxiliaryImageMetadata() const;
 
+	// Get additional parameters describing the face liveness step in JSON format.
+	std::string GetStepParametersJson() const;
+
 	// Settings that will be applied when Reset() is called.
 	FaceLivenessVerifierSettings& GetSettings();
 	
