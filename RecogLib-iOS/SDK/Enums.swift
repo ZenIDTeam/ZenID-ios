@@ -565,7 +565,7 @@ extension Country: CustomStringConvertible {
         case .Ba:
             return "Ba"
         case .Me:
-            return "Be"
+            return "Me"
         case .Ee:
             return "Ee"
         case .Ie:
