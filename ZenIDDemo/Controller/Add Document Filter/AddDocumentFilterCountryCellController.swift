@@ -31,7 +31,9 @@ final class AddDocumentFilterCountryCellController: BasicTableCellController {
     }
     
     private func getSelectionOptions() -> [SelectionItemViewModel] {
-        RecogLib_iOS.Country.allCases.map({ SelectionItemViewModel(title: $0.description) })
+        RecogLib_iOS.Country.allCases
+            .sorted { $0.description.lowercased() < $1.description.lowercased()}
+            .map({ SelectionItemViewModel(title: $0.description) })
     }
     
     private func didSelect(item: SelectionItemViewModel) {
