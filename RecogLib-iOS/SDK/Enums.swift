@@ -419,7 +419,7 @@ extension DocumentCode: CustomStringConvertible {
         case .MK_PAS_2007:
             return "MK_PAS_2007"
         case .RS_PAS_2008:
-            return "MK_PAS_2007"
+            return "RS_PAS_2008"
         case .NO_PAS_2011_15:
             return "NO_PAS_2011_15"
         case .NO_PAS_2020:
