@@ -87,7 +87,7 @@ public class QrScannerController: UIViewController, UINavigationBarDelegate {
         return layer
     }()
 
-    #if targetEnvironment(simulator)
+    #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
         var imagePicker = UIImagePickerController()
     #endif
 
@@ -107,7 +107,7 @@ public class QrScannerController: UIViewController, UINavigationBarDelegate {
         setupCaptureSession()
         addViedoPreviewLayer(view)
         createCornerFrame()
-        #if targetEnvironment(simulator)
+        #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
             addGalleryPickerButton(view)
         #endif
         addCancelButton(view)
@@ -188,7 +188,7 @@ public class QrScannerController: UIViewController, UINavigationBarDelegate {
         delegate?.qrCancel(self)
     }
 
-    #if targetEnvironment(simulator)
+    #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
         private func addGalleryPickerButton(_ view: UIView) {
             let height: CGFloat = 44.0
             let btnWidth: CGFloat = 320.0
@@ -300,7 +300,7 @@ extension QrScannerController: AVCaptureMetadataOutputObjectsDelegate {
     }
 }
 
-#if targetEnvironment(simulator)
+#if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
     extension QrScannerController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
         public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             dismiss(animated: true)
