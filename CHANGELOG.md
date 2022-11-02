@@ -9,6 +9,7 @@
 * Added additional parameters describing the liveness check steps. ZenID-issues#2736
 * Fix the darkness validator being too strict.
 * Fix a bug that reduces tracking accuracy. ZenID-issues#2741
+* Fix a bug when Romanian ID cannot be detected
 
 
 ## 2.0.11 2022-10-03
