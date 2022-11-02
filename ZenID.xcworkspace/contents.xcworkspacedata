@@ -7,4 +7,7 @@
    <FileRef
       location = "group:ZenIDDemo.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:ZenIDWebviewDemo.xcodeproj">
+   </FileRef>
 </Workspace>
