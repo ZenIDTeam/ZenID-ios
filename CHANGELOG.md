@@ -2,6 +2,8 @@
 
 ## 2.0.13 2022-11-07
 * Updated LibZenid 2.11.1
+* New: Support for Slovak residency permits v2011. TRASKZENIDPV-388
+* New: Support for Lithuanian ID cards (v2021). TRASKZENIDPV-461
 * Fixed hologram check getting stuck in the "align card" step.
 
 ## 2.0.12 2022-10-25
