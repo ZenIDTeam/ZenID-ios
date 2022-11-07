@@ -15,6 +15,12 @@ final class WebViewOverlay: WKWebView {
         backgroundColor = .clear
         scrollView.backgroundColor = .clear
         isOpaque = false
+
+        let source = "function captureLog(msg) { window.webkit.messageHandlers.logHandler.postMessage(msg); } window.console.log = captureLog;"
+        let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+        configuration.userContentController.addUserScript(script)
+        // register the bridge script that listens for the output
+        configuration.userContentController.add(self, name: "logHandler")
     }
 
     required init?(coder: NSCoder) {
@@ -40,12 +46,9 @@ final class WebViewOverlay: WKWebView {
     }
 }
 
-extension ViewController: WKScriptMessageHandler{
+extension WebViewOverlay: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let dict = message.body as? [String : AnyObject] else {
-            return
-        }
-
-        print(dict)
+        print("message.name: \(message.name)")
+        print("message.body: \(message.body)")
     }
 }
