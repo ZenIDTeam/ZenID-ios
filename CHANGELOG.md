@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.13 2022-11-07
+* Updated LibZenid 2.11.1
+* Fixed hologram check getting stuck in the "align card" step.
+
 ## 2.0.12 2022-10-25
 * Updated LibZenid 2.10.4
 * Improved tracking and classification of documents.
