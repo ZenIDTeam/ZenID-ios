@@ -3,6 +3,10 @@
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
 ## Migration
+
+### From version TODO
+The default value of parameter *drawOutline* in DocumentVerifierSettings changed from *false* to *true*
+
 ### To the version 2.0.0
 When calling `verifyImage` method of all verifiers, pass the orientation of the device. There is no need to transform/map the orientation anymore. 
 
@@ -328,7 +332,7 @@ showAimingCircle
 ```swift
 drawOutline
 ```
-- default: False
+- default: True
 ```swift
 readBarcode
 ```

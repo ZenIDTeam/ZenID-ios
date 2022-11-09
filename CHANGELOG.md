@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.14 2022-11-07
+* Important: The default value of parameter *drawOutline* in DocumentVerifierSettings changed from *false* to *true*
+
+
 ## 2.0.13 2022-11-07
 * Updated LibZenid 2.11.1
 * New: Support for Slovak residency permits v2011. TRASKZENIDPV-388
