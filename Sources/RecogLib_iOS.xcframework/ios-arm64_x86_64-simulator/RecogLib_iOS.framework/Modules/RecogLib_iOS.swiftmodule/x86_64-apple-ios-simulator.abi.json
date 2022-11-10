@@ -393,6 +393,13 @@
       },
       {
         "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -402,13 +409,6 @@
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "RecogLib_iOS"
-      },
-      {
-        "kind": "Import",
-        "name": "AVFoundation",
-        "printedName": "AVFoundation",
         "declKind": "Import",
         "moduleName": "RecogLib_iOS"
       },
@@ -611,15 +611,15 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
         "declKind": "Import",
         "moduleName": "RecogLib_iOS"
       },
       {
         "kind": "Import",
-        "name": "AVFoundation",
-        "printedName": "AVFoundation",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "RecogLib_iOS"
       },
@@ -856,8 +856,8 @@
             "declAttributes": [
               "Dynamic",
               "ObjC",
-              "Override",
-              "AccessControl"
+              "AccessControl",
+              "Override"
             ],
             "init_kind": "Designated"
           },
@@ -3235,6 +3235,48 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getRequiredFPS",
+            "printedName": "getRequiredFPS()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS20FaceLivenessVerifierC14getRequiredFPSSiyF",
+            "mangledName": "$s12RecogLib_iOS20FaceLivenessVerifierC14getRequiredFPSSiyF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getRequiredResolution",
+            "printedName": "getRequiredResolution()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS20FaceLivenessVerifierC21getRequiredResolutionSiyF",
+            "mangledName": "$s12RecogLib_iOS20FaceLivenessVerifierC21getRequiredResolutionSiyF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -4814,6 +4856,48 @@
             "declKind": "Func",
             "usr": "s:12RecogLib_iOS16DocumentVerifierC17getRenderCommands11canvasWidth0I6Height11orientationSSSgSi_SiSo22UIInterfaceOrientationVtF",
             "mangledName": "$s12RecogLib_iOS16DocumentVerifierC17getRenderCommands11canvasWidth0I6Height11orientationSSSgSi_SiSo22UIInterfaceOrientationVtF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getRequiredFPS",
+            "printedName": "getRequiredFPS()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS16DocumentVerifierC14getRequiredFPSSiyF",
+            "mangledName": "$s12RecogLib_iOS16DocumentVerifierC14getRequiredFPSSiyF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getRequiredResolution",
+            "printedName": "getRequiredResolution()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS16DocumentVerifierC21getRequiredResolutionSiyF",
+            "mangledName": "$s12RecogLib_iOS16DocumentVerifierC21getRequiredResolutionSiyF",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -20689,19 +20773,19 @@
           },
           {
             "kind": "Var",
-            "name": "isLegacy",
-            "printedName": "isLegacy",
+            "name": "settings",
+            "printedName": "settings",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "FaceLivenessVerifierSettings",
+                "printedName": "RecogLib_iOS.FaceLivenessVerifierSettings",
+                "usr": "s:12RecogLib_iOS28FaceLivenessVerifierSettingsV"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12RecogLib_iOS35FacelivenessControllerConfigurationV8isLegacySbvp",
-            "mangledName": "$s12RecogLib_iOS35FacelivenessControllerConfigurationV8isLegacySbvp",
+            "usr": "s:12RecogLib_iOS35FacelivenessControllerConfigurationV8settingsAA28FaceLivenessVerifierSettingsVvp",
+            "mangledName": "$s12RecogLib_iOS35FacelivenessControllerConfigurationV8settingsAA28FaceLivenessVerifierSettingsVvp",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "HasStorage",
@@ -20717,14 +20801,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
+                    "name": "FaceLivenessVerifierSettings",
+                    "printedName": "RecogLib_iOS.FaceLivenessVerifierSettings",
+                    "usr": "s:12RecogLib_iOS28FaceLivenessVerifierSettingsV"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecogLib_iOS35FacelivenessControllerConfigurationV8isLegacySbvg",
-                "mangledName": "$s12RecogLib_iOS35FacelivenessControllerConfigurationV8isLegacySbvg",
+                "usr": "s:12RecogLib_iOS35FacelivenessControllerConfigurationV8settingsAA28FaceLivenessVerifierSettingsVvg",
+                "mangledName": "$s12RecogLib_iOS35FacelivenessControllerConfigurationV8settingsAA28FaceLivenessVerifierSettingsVvg",
                 "moduleName": "RecogLib_iOS",
                 "implicit": true,
                 "accessorKind": "get"
@@ -20734,7 +20818,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(showVisualisation:showHelperVisualisation:showDebugVisualisation:dataType:isLegacy:)",
+            "printedName": "init(showVisualisation:showHelperVisualisation:showDebugVisualisation:dataType:settings:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -20768,14 +20852,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
+                "name": "FaceLivenessVerifierSettings",
+                "printedName": "RecogLib_iOS.FaceLivenessVerifierSettings",
+                "usr": "s:12RecogLib_iOS28FaceLivenessVerifierSettingsV"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS35FacelivenessControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH08dataType8isLegacyACSb_S2bAA04DataL0OSbtcfc",
-            "mangledName": "$s12RecogLib_iOS35FacelivenessControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH08dataType8isLegacyACSb_S2bAA04DataL0OSbtcfc",
+            "usr": "s:12RecogLib_iOS35FacelivenessControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH08dataType8settingsACSb_S2bAA04DataL0OAA28FaceLivenessVerifierSettingsVtcfc",
+            "mangledName": "$s12RecogLib_iOS35FacelivenessControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH08dataType8settingsACSb_S2bAA04DataL0OAA28FaceLivenessVerifierSettingsVtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -27177,29 +27261,43 @@
   "ConstValues": [
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 227,
+      "length": 4,
+      "value": "1920"
+    },
+    {
+      "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 267,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 259,
+      "offset": 369,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 290,
+      "offset": 400,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 708,
+      "offset": 1741,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 599,
+      "offset": 595,
       "length": 35,
       "value": "\"cz.trask.ZenID.cameraCaptureQueue\""
     },
@@ -27662,20 +27760,20 @@
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierSettings.swift",
       "kind": "BooleanLiteral",
       "offset": 599,
-      "length": 5,
-      "value": "false"
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierSettings.swift",
       "kind": "BooleanLiteral",
-      "offset": 626,
+      "offset": 625,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierSettings.swift",
       "kind": "IntegerLiteral",
-      "offset": 657,
+      "offset": 656,
       "length": 1,
       "value": "1"
     },
@@ -32455,15 +32553,8 @@
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 512,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
       "kind": "StringLiteral",
-      "offset": 1671,
+      "offset": 1744,
       "length": 22,
       "value": "\"RecogLib_iOS.FacelivenessController\""
     },
@@ -32547,14 +32638,14 @@
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 204,
+      "offset": 203,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lgergel3579ab\/Development\/skoumal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 244,
+      "offset": 239,
       "length": 14,
       "value": "\"VideoSample-\""
     },

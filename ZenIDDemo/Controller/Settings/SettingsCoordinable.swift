@@ -14,5 +14,6 @@ protocol SettingsCoordinable {
     func settingsOpenSelfieSelection()
     func settingsOpenDocumentsFilter()
     func settingsOpenDocumentVerifierSettings()
+    func settingsOpenFaceLivenessVerifierSettings()
     func settingsDidLogout()
 }

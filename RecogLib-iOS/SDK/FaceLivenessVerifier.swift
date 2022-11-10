@@ -87,7 +87,17 @@ public class FaceLivenessVerifier {
         }
         return nil
     }
+    
+    public func getRequiredFPS() -> Int {
+        let fps = RecogLib_iOS.getFaceLivenessRequiredFps(cppObject)
+        return Int(fps)
+    }
 
+    public func getRequiredResolution() -> Int {
+        let resolution = RecogLib_iOS.getFaceLivenessRequiredVideoResolution(cppObject)
+        return Int(resolution)
+    }
+    
     private func createFaceLivenessInfo(orientation: UIInterfaceOrientation) -> CFaceLivenessInfo {
         return CFaceLivenessInfo(
             state: -1,
@@ -101,7 +111,9 @@ public class FaceLivenessVerifier {
         return CFaceLivenessVerifierSettings(
             enableLegacyMode: settings?.isLegacyModeEnabled ?? false,
             maxAuxiliaryImageSize: Int32(settings?.maxAuxiliaryImageSize ?? 300),
-            visualizerVersion: Int32(settings?.visualizerVersion ?? 1)
+            visualizerVersion: Int32(settings?.visualizerVersion ?? 1),
+            fps: 0,
+            resolutionWidth: 0
         )
     }
 

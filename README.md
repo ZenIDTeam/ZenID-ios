@@ -4,8 +4,9 @@ Recoglib is a library that lets you recognize and categorize a stream of picture
 
 ## Migration
 
-### From version TODO
+### From version 2.0.14 (RecogLib 2.11.3)
 The default value of parameter *drawOutline* in DocumentVerifierSettings changed from *false* to *true*
+
 
 ### To the version 2.0.0
 When calling `verifyImage` method of all verifiers, pass the orientation of the device. There is no need to transform/map the orientation anymore. 
@@ -108,16 +109,16 @@ let success = ZenidSecurity.authorize(responseToken: responseToken)
 
 ## Models
 You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support.
-You can find all models available in the `Models` folder in the root of this repository.
+You can find all models available in the [Models](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models) folder in the root of this repository.
 
-If you want to support Selfie, add/link this folder and all files included: `Models/face` into your Xcode project.
+If you want to support Selfie, add/link this folder and all files included: [Models/face](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models/face) into your Xcode project.
 
-If you want to support Faceliveness, add/link this folder and all files included: `Models/face` into your Xcode project.
+If you want to support Faceliveness, add/link this folder and all files included: [Models/face](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models/face) into your Xcode project.
 
 If you want to support Documents, such as ID, Passport and so on, or different countries, follow instructions below:
 Supported countries: AT, BG, CZ, DE, EU, HR, HU, IT, PL, SK, UA
 
-1. You can find all models for documents grouped by countries in the `Models/documents` folder.
+1. You can find all models for documents grouped by countries in the [Models/documents](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models/documents) folder.
 2. Choose which countries do you want to support.
 3. Optionally, you can remove unnecessary files in those folders, such as `GUN` files if you do not want to scan/recognize these kinds of documents.
 4. Link/add all selected folders with your Xcode project.
@@ -328,11 +329,11 @@ timeToBlurMaxToleranceInSeconds
 ```swift
 showAimingCircle
 ```
-- default: False
+- default: True
 ```swift
 drawOutline
 ```
-- default: True
+- default: False
 ```swift
 readBarcode
 ```

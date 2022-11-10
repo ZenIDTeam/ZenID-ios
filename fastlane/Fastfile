@@ -22,12 +22,28 @@ platform :ios do
     upload_to_testflight
   end
 
+  desc "Upload testing build to firebase App Distribution"
   lane :firebase do
-    build_app(workspace: "ZenID.xcworkspace", scheme: "ZenIDDemo", export_method: "ad-hoc")
+    versionNumber = get_version_number_from_xcodeproj(scheme: "ZenIDDemo")
+    buildNumber =  number_of_commits
+    ipaName = "ZenIDDemo_#{versionNumber}(#{buildNumber})"
+
+    increment_build_number_in_plist(
+      build_number: "#{number_of_commits}",
+      xcodeproj: "ZenIDDemo.xcodeproj"
+    )
+
+    build_app(
+      workspace: "ZenID.xcworkspace",
+      scheme: "ZenIDDemo",
+      export_method: "ad-hoc",
+      output_name: ipaName
+    )
     firebase_app_distribution(
       app: "1:308002022528:ios:36531d62e268b7432df265",
-      testers: "ffogaras@trask.cz, enrico@nubtron.com",
+      testers: "Inhouse",
       release_notes_file: "CHANGELOG.md",
+      service_credentials_file: ".firebase-service-account.json"
     )
   end
 end

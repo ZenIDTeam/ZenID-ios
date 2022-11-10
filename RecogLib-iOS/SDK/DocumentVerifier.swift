@@ -146,4 +146,14 @@ public class DocumentVerifier {
             readBarcode: settings?.readBarcode ?? true
         )
     }
+    
+    public func getRequiredFPS() -> Int {
+        let fps = RecogLib_iOS.getDocumentRequiredFps(cppObject)
+        return Int(fps)
+    }
+
+    public func getRequiredResolution() -> Int {
+        let resolution = RecogLib_iOS.getDocumentRequiredVideoResolution(cppObject)
+        return Int(resolution)
+    }
 }

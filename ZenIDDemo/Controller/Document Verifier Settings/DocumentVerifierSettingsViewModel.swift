@@ -9,24 +9,22 @@
 import Foundation
 import RecogLib_iOS
 
-
 enum DocumentVerifierSettingsType {
-    case interval(DocumentVerifierSettingsValueViewModel)
-    case `switch`(DocumentVerifierSettingsSwitchViewModel)
+    case interval(SettingsValueViewModel)
+    case `switch`(SettingsSwitchViewModel)
 }
 
 final class DocumentVerifierSettingsViewModel {
-    
     var onUpdate: (([DocumentVerifierSettingsType]) -> Void)?
-    
+
     private let loader: DocumentVerifierSettingsLoader
     private let updater: DocumentVerifierSettingsUpdater
-    
+
     init(loader: DocumentVerifierSettingsLoader, updater: DocumentVerifierSettingsUpdater) {
         self.loader = loader
         self.updater = updater
     }
-    
+
     func reloadData() {
         do {
             let settings = try loader.load()
@@ -35,9 +33,9 @@ final class DocumentVerifierSettingsViewModel {
             debugPrint(error)
         }
     }
-    
+
     private func update(settings: DocumentVerifierSettings) {
-        let intervalItems: [DocumentVerifierSettingsValueViewModel] = [
+        let intervalItems: [SettingsValueViewModel] = [
             .init(
                 title: NSLocalizedString("document-verifier-settings-specular", comment: ""),
                 value: Float(settings.specularAcceptableScore), min: 0.0, max: 100.0,
@@ -60,7 +58,7 @@ final class DocumentVerifierSettingsViewModel {
                 }
             ),
         ]
-        let switchItems: [DocumentVerifierSettingsSwitchViewModel] = [
+        let switchItems: [SettingsSwitchViewModel] = [
             .init(
                 title: NSLocalizedString("document-verifier-settings-timer", comment: ""),
                 value: settings.showTimer,
@@ -90,6 +88,7 @@ final class DocumentVerifierSettingsViewModel {
                 }
             )
         ]
+
         onUpdate?(intervalItems.map({ .interval($0) }) + switchItems.map({ .switch($0) }))
     }
 }

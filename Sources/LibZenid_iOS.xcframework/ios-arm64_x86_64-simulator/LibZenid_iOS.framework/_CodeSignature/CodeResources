@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		UCPwyMHwsE4szRuhoiokOrvk2c8=
+		CBH7e7lVbr1C7bDoaIfF45nMk9g=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
-		hJeQUqmdv+lRpoD4qzwfAjt9oN0=
+		kMd9pZwJHiuVS2JLBtBN6BVmrEw=
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0mnFu2//EOvSKe0iYK9Nt5Kt6/U=
+		j0jMVzh+3iEqpKkVNdC/P1JkyJo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -62,14 +62,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vi4RF0JT117EhJ2klyB+bTkotEy+chPy6z9h5R0SjGI=
+			fiu5MAAUXeHzh75vrjkWdCNuXgY16CUY6QduT6sfp18=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			igeOtmXH6TSKC54gjZOh980Z/gc3Iua7baa6IjUhA1E=
+			E1hudCfHz5rZG0FqPgFFL2qEWsj/vdSky2/0dTB4klU=
 			</data>
 		</dict>
 		<key>Headers/Image.h</key>

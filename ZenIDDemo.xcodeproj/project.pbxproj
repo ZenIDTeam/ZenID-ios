@@ -47,9 +47,9 @@
 		180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */; };
 		18153CC427A434BE0066FDF2 /* DataTypeTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */; };
 		181AB23426F9A2870081420D /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 181AB23326F9A2870081420D /* Models */; };
-		182D63DD26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DC26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift */; };
-		182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */; };
-		182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */; };
+		182D63DD26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DC26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift */; };
+		182D63DF26FDA83A004289A3 /* SettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* SettingsSwitchViewModel.swift */; };
+		182D63E126FDB80E004289A3 /* SettingsSwitchCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63E026FDB80E004289A3 /* SettingsSwitchCellController.swift */; };
 		18371B3027C3CCA3002528F3 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18371B2F27C3CCA3002528F3 /* NavigationController.swift */; };
 		1852EC4A27CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852EC4927CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift */; };
 		1861947326FC28D500B8B395 /* URL+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861947226FC28D500B8B395 /* URL+Models.swift */; };
@@ -107,7 +107,6 @@
 		18953DA526833DED0077F976 /* ContactTableCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DA426833DED0077F976 /* ContactTableCellController.swift */; };
 		18953DA726833F250077F976 /* LogoutTableCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DA626833F250077F976 /* LogoutTableCellController.swift */; };
 		18953DA9268394FC0077F976 /* DocumentFilterCellDeleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DA8268394FB0077F976 /* DocumentFilterCellDeleter.swift */; };
-		18953DB4268467E10077F976 /* DocumentVerifierSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18953DB3268467E10077F976 /* DocumentVerifierSettings.storyboard */; };
 		18953DB6268467EC0077F976 /* DocumentVerifierSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DB5268467EC0077F976 /* DocumentVerifierSettingsViewController.swift */; };
 		18953DB8268467F90077F976 /* DocumentVerifierSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DB7268467F90077F976 /* DocumentVerifierSettingsView.swift */; };
 		18953DBA2684680A0077F976 /* DocumentVerifierSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DB92684680A0077F976 /* DocumentVerifierSettingsViewModel.swift */; };
@@ -116,8 +115,8 @@
 		18953DC126847CBF0077F976 /* DocumentVerifierSettingsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DC026847CBF0077F976 /* DocumentVerifierSettingsLoader.swift */; };
 		18953DC426847DD50077F976 /* InMemoryDocumentVerifierSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DC326847DD50077F976 /* InMemoryDocumentVerifierSettings.swift */; };
 		18953DC626847F4F0077F976 /* DocumentVerifierSettingsLoaderComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DC526847F4F0077F976 /* DocumentVerifierSettingsLoaderComposer.swift */; };
-		18953DC8268482840077F976 /* DocumentVerifierSettingsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DC7268482840077F976 /* DocumentVerifierSettingsCellController.swift */; };
-		18953DCA268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DC9268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift */; };
+		18953DC8268482840077F976 /* SettingsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DC7268482840077F976 /* SettingsCellController.swift */; };
+		18953DCA268482D90077F976 /* SettingsValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DC9268482D90077F976 /* SettingsValueViewModel.swift */; };
 		18953DCC2684E1A50077F976 /* SelfieTableCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DCB2684E1A50077F976 /* SelfieTableCellController.swift */; };
 		18953DCE2684E1F70077F976 /* SelfieTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DCD2684E1F70077F976 /* SelfieTableViewModel.swift */; };
 		18953DD12684E3B10077F976 /* SelfieSelectionComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DD02684E3B10077F976 /* SelfieSelectionComposer.swift */; };
@@ -164,6 +163,14 @@
 		D2CB352722BB84CA00453DB8 /* DispatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352622BB84CA00453DB8 /* DispatchError.swift */; };
 		D2CB352922BB84F700453DB8 /* DispatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB352822BB84F700453DB8 /* DispatchResult.swift */; };
 		E087641328FE0CC700D88353 /* PureVerifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E087641228FE0CC700D88353 /* PureVerifierViewController.swift */; };
+		E0B921F02934D5FF00E75886 /* LivenessVerifierSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B921EF2934D5FF00E75886 /* LivenessVerifierSettingsViewController.swift */; };
+		E0B921F22934D65C00E75886 /* LivenessVerifierSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B921F12934D65C00E75886 /* LivenessVerifierSettingsViewModel.swift */; };
+		E0B921F42935245C00E75886 /* LivenessVerifierSettingsComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B921F32935245C00E75886 /* LivenessVerifierSettingsComposer.swift */; };
+		E0B921F7293524A300E75886 /* LivenessVerifierSettingsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B921F6293524A300E75886 /* LivenessVerifierSettingsLoader.swift */; };
+		E0B921FA2935268300E75886 /* LivenessVerifierSettingsLoaderComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B921F92935268300E75886 /* LivenessVerifierSettingsLoaderComposer.swift */; };
+		E0B921FC293526D700E75886 /* InMemoryLivenessVerifierSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B921FB293526D600E75886 /* InMemoryLivenessVerifierSettings.swift */; };
+		E0B921FF293532FE00E75886 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B921FE293532FE00E75886 /* UIView+Constraints.swift */; };
+		E0B92201293605B800E75886 /* BaseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B92200293605B800E75886 /* BaseSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -225,9 +232,9 @@
 		180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidatorComposer.swift; sourceTree = "<group>"; };
 		18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeTableViewCellController.swift; sourceTree = "<group>"; };
 		181AB23326F9A2870081420D /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
-		182D63DC26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSwitchTableViewCell.swift; sourceTree = "<group>"; };
-		182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchViewModel.swift; sourceTree = "<group>"; };
-		182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsSwitchCellController.swift; sourceTree = "<group>"; };
+		182D63DC26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		182D63DE26FDA83A004289A3 /* SettingsSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchViewModel.swift; sourceTree = "<group>"; };
+		182D63E026FDB80E004289A3 /* SettingsSwitchCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchCellController.swift; sourceTree = "<group>"; };
 		18371B2F27C3CCA3002528F3 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		1852EC4927CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDocumentsFilter.swift; sourceTree = "<group>"; };
 		1861947226FC28D500B8B395 /* URL+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Models.swift"; sourceTree = "<group>"; };
@@ -285,7 +292,6 @@
 		18953DA426833DED0077F976 /* ContactTableCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableCellController.swift; sourceTree = "<group>"; };
 		18953DA626833F250077F976 /* LogoutTableCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTableCellController.swift; sourceTree = "<group>"; };
 		18953DA8268394FB0077F976 /* DocumentFilterCellDeleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFilterCellDeleter.swift; sourceTree = "<group>"; };
-		18953DB3268467E10077F976 /* DocumentVerifierSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DocumentVerifierSettings.storyboard; sourceTree = "<group>"; };
 		18953DB5268467EC0077F976 /* DocumentVerifierSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsViewController.swift; sourceTree = "<group>"; };
 		18953DB7268467F90077F976 /* DocumentVerifierSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsView.swift; sourceTree = "<group>"; };
 		18953DB92684680A0077F976 /* DocumentVerifierSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsViewModel.swift; sourceTree = "<group>"; };
@@ -294,8 +300,8 @@
 		18953DC026847CBF0077F976 /* DocumentVerifierSettingsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsLoader.swift; sourceTree = "<group>"; };
 		18953DC326847DD50077F976 /* InMemoryDocumentVerifierSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryDocumentVerifierSettings.swift; sourceTree = "<group>"; };
 		18953DC526847F4F0077F976 /* DocumentVerifierSettingsLoaderComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsLoaderComposer.swift; sourceTree = "<group>"; };
-		18953DC7268482840077F976 /* DocumentVerifierSettingsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsCellController.swift; sourceTree = "<group>"; };
-		18953DC9268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierSettingsValueViewModel.swift; sourceTree = "<group>"; };
+		18953DC7268482840077F976 /* SettingsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellController.swift; sourceTree = "<group>"; };
+		18953DC9268482D90077F976 /* SettingsValueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValueViewModel.swift; sourceTree = "<group>"; };
 		18953DCB2684E1A50077F976 /* SelfieTableCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieTableCellController.swift; sourceTree = "<group>"; };
 		18953DCD2684E1F70077F976 /* SelfieTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieTableViewModel.swift; sourceTree = "<group>"; };
 		18953DD02684E3B10077F976 /* SelfieSelectionComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieSelectionComposer.swift; sourceTree = "<group>"; };
@@ -343,6 +349,14 @@
 		D2CB352622BB84CA00453DB8 /* DispatchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchError.swift; sourceTree = "<group>"; };
 		D2CB352822BB84F700453DB8 /* DispatchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchResult.swift; sourceTree = "<group>"; };
 		E087641228FE0CC700D88353 /* PureVerifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureVerifierViewController.swift; sourceTree = "<group>"; };
+		E0B921EF2934D5FF00E75886 /* LivenessVerifierSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVerifierSettingsViewController.swift; sourceTree = "<group>"; };
+		E0B921F12934D65C00E75886 /* LivenessVerifierSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVerifierSettingsViewModel.swift; sourceTree = "<group>"; };
+		E0B921F32935245C00E75886 /* LivenessVerifierSettingsComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVerifierSettingsComposer.swift; sourceTree = "<group>"; };
+		E0B921F6293524A300E75886 /* LivenessVerifierSettingsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVerifierSettingsLoader.swift; sourceTree = "<group>"; };
+		E0B921F92935268300E75886 /* LivenessVerifierSettingsLoaderComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVerifierSettingsLoaderComposer.swift; sourceTree = "<group>"; };
+		E0B921FB293526D600E75886 /* InMemoryLivenessVerifierSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryLivenessVerifierSettings.swift; sourceTree = "<group>"; };
+		E0B921FE293532FE00E75886 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		E0B92200293605B800E75886 /* BaseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +415,7 @@
 				18953D702682E4BB0077F976 /* Documents Filter */,
 				18953D912682F48F0077F976 /* Add Document Filter */,
 				18953DB2268467CD0077F976 /* Document Verifier Settings */,
+				E0B921EE2934D5C700E75886 /* Face Liveness Settings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -558,6 +573,7 @@
 		18953D472682418B0077F976 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E0B921FD293531F600E75886 /* Components */,
 				18953D8F2682F33A0077F976 /* SettingsCoordinator.swift */,
 				18953D4C268241E60077F976 /* Settings.storyboard */,
 				18953D482682419A0077F976 /* SettingsViewController.swift */,
@@ -664,17 +680,10 @@
 			children = (
 				18953DBF268470410077F976 /* Domain */,
 				18953DC226847DAA0077F976 /* Infrastructure */,
-				18953DB3268467E10077F976 /* DocumentVerifierSettings.storyboard */,
-				18953DB5268467EC0077F976 /* DocumentVerifierSettingsViewController.swift */,
-				18953DB7268467F90077F976 /* DocumentVerifierSettingsView.swift */,
-				18953DBD26846F930077F976 /* IntervalTableViewCell.swift */,
-				182D63DC26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift */,
-				18953DC9268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift */,
-				182D63DE26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift */,
-				18953DC7268482840077F976 /* DocumentVerifierSettingsCellController.swift */,
-				182D63E026FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift */,
-				18953DB92684680A0077F976 /* DocumentVerifierSettingsViewModel.swift */,
 				18953DBB268468180077F976 /* DocumentVerifierSettingsComposer.swift */,
+				18953DB5268467EC0077F976 /* DocumentVerifierSettingsViewController.swift */,
+				18953DB92684680A0077F976 /* DocumentVerifierSettingsViewModel.swift */,
+				18953DB7268467F90077F976 /* DocumentVerifierSettingsView.swift */,
 			);
 			path = "Document Verifier Settings";
 			sourceTree = "<group>";
@@ -771,6 +780,7 @@
 				0141C03723A7DB0100566078 /* CGPoint+Flip.swift */,
 				D2CB351322BA736500453DB8 /* UIColor+Names.swift */,
 				D2CB351722BA776600453DB8 /* UIView+Extension.swift */,
+				E0B921FE293532FE00E75886 /* UIView+Constraints.swift */,
 				D2CB351B22BA78E500453DB8 /* String+localized.swift */,
 				D2CB351D22BA792400453DB8 /* Data+resizing.swift */,
 				D2CB351F22BA794F00453DB8 /* UserDefaults+Subscript.swift */,
@@ -790,6 +800,49 @@
 				0140263C22B3A76300CF60AD /* ResultsViewModel.swift */,
 			);
 			path = Results;
+			sourceTree = "<group>";
+		};
+		E0B921EE2934D5C700E75886 /* Face Liveness Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E0B921F82935266D00E75886 /* Infrastructure */,
+				E0B921F52935248700E75886 /* Domain */,
+				E0B921EF2934D5FF00E75886 /* LivenessVerifierSettingsViewController.swift */,
+				E0B921F12934D65C00E75886 /* LivenessVerifierSettingsViewModel.swift */,
+				E0B921F32935245C00E75886 /* LivenessVerifierSettingsComposer.swift */,
+			);
+			path = "Face Liveness Settings";
+			sourceTree = "<group>";
+		};
+		E0B921F52935248700E75886 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E0B921F6293524A300E75886 /* LivenessVerifierSettingsLoader.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E0B921F82935266D00E75886 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				E0B921F92935268300E75886 /* LivenessVerifierSettingsLoaderComposer.swift */,
+				E0B921FB293526D600E75886 /* InMemoryLivenessVerifierSettings.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		E0B921FD293531F600E75886 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				182D63DE26FDA83A004289A3 /* SettingsSwitchViewModel.swift */,
+				182D63E026FDB80E004289A3 /* SettingsSwitchCellController.swift */,
+				18953DC9268482D90077F976 /* SettingsValueViewModel.swift */,
+				18953DC7268482840077F976 /* SettingsCellController.swift */,
+				182D63DC26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift */,
+				18953DBD26846F930077F976 /* IntervalTableViewCell.swift */,
+				E0B92200293605B800E75886 /* BaseSettingsViewController.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -825,7 +878,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Trask, a.s.";
 				TargetAttributes = {
 					0134751B21ECB3FB004EE4E5 = {
@@ -862,7 +915,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18953DB4268467E10077F976 /* DocumentVerifierSettings.storyboard in Resources */,
 				012F7B892292FB4500B0BBB6 /* Roboto-Regular.ttf in Resources */,
 				18953D932682F4A00077F976 /* AddDocumentFilter.storyboard in Resources */,
 				0134752721ECB3FD004EE4E5 /* Assets.xcassets in Resources */,
@@ -905,7 +957,7 @@
 				012F7B602285E6F600B0BBB6 /* BaseInfoViewController.swift in Sources */,
 				18371B3027C3CCA3002528F3 /* NavigationController.swift in Sources */,
 				1852EC4A27CFA21D00C45616 /* UserDefaultsDocumentsFilter.swift in Sources */,
-				18953DCA268482D90077F976 /* DocumentVerifierSettingsValueViewModel.swift in Sources */,
+				18953DCA268482D90077F976 /* SettingsValueViewModel.swift in Sources */,
 				0134756121F5BF90004EE4E5 /* Defaults.swift in Sources */,
 				18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */,
 				6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */,
@@ -915,6 +967,7 @@
 				18953D6B26824AF10077F976 /* BasicTableCellController.swift in Sources */,
 				188422F9272926FD002BD366 /* ConfigServiceComposer.swift in Sources */,
 				18953D562682444E0077F976 /* SettingsViewModel.swift in Sources */,
+				E0B921FF293532FE00E75886 /* UIView+Constraints.swift in Sources */,
 				01859B0422C360CE005B7E36 /* ToastView.swift in Sources */,
 				18953DA1268314850077F976 /* AddDocumentFilterCountryCellController.swift in Sources */,
 				18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */,
@@ -923,7 +976,7 @@
 				18953D742682E4F20077F976 /* DocumentsFilterViewController.swift in Sources */,
 				D2CB351C22BA78E500453DB8 /* String+localized.swift in Sources */,
 				18953DCC2684E1A50077F976 /* SelfieTableCellController.swift in Sources */,
-				182D63DF26FDA83A004289A3 /* DocumentVerifierSettingsSwitchViewModel.swift in Sources */,
+				182D63DF26FDA83A004289A3 /* SettingsSwitchViewModel.swift in Sources */,
 				6FF5E9CD2468ACF20077980C /* CredentialsSettings.swift in Sources */,
 				18953DC626847F4F0077F976 /* DocumentVerifierSettingsLoaderComposer.swift in Sources */,
 				18953D582682454E0077F976 /* SettingsComposer.swift in Sources */,
@@ -954,11 +1007,13 @@
 				18953D762682E5150077F976 /* DocumentsFilterContentView.swift in Sources */,
 				18953D8A2682EF940077F976 /* DocumentsFilterViewModelAdapter.swift in Sources */,
 				18953DE02685F3310077F976 /* SelfieSelectionCoordinable.swift in Sources */,
-				18953DC8268482840077F976 /* DocumentVerifierSettingsCellController.swift in Sources */,
+				E0B921F7293524A300E75886 /* LivenessVerifierSettingsLoader.swift in Sources */,
+				18953DC8268482840077F976 /* SettingsCellController.swift in Sources */,
 				18953D6926824A880077F976 /* TableCellController.swift in Sources */,
 				0134755F21F5BE2A004EE4E5 /* Manager.swift in Sources */,
 				1861947326FC28D500B8B395 /* URL+Models.swift in Sources */,
 				18953D67268248C60077F976 /* SelectionItemViewModel.swift in Sources */,
+				E0B921F42935245C00E75886 /* LivenessVerifierSettingsComposer.swift in Sources */,
 				18953D7C2682E6000077F976 /* DocumentsFilterComposer.swift in Sources */,
 				012F7B6B2292743000B0BBB6 /* ErrorViewController.swift in Sources */,
 				18953D8C2682F14B0077F976 /* DocumentsFilterCoordinator.swift in Sources */,
@@ -966,9 +1021,9 @@
 				0134755A21EE2179004EE4E5 /* Client.swift in Sources */,
 				0134753721ECBD1F004EE4E5 /* Enums.swift in Sources */,
 				0141C02823A38AAF00566078 /* SelectCountryView.swift in Sources */,
-				182D63E126FDB80E004289A3 /* DocumentVerifierSettingsSwitchCellController.swift in Sources */,
+				182D63E126FDB80E004289A3 /* SettingsSwitchCellController.swift in Sources */,
 				18953D4B268241CC0077F976 /* SettingsView.swift in Sources */,
-				182D63DD26FD99BA004289A3 /* DocumentSwitchTableViewCell.swift in Sources */,
+				182D63DD26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift in Sources */,
 				18953DD12684E3B10077F976 /* SelfieSelectionComposer.swift in Sources */,
 				18953D502682428F0077F976 /* GroupedTableView.swift in Sources */,
 				180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */,
@@ -982,10 +1037,13 @@
 				18953D812682E6BF0077F976 /* DocumentsFilter.swift in Sources */,
 				D293FE1A22CA393D00FC49D0 /* RecoglibMapper.swift in Sources */,
 				18953D9B2682F4DB0077F976 /* AddDocumentFilterComposer.swift in Sources */,
+				E0B921FC293526D700E75886 /* InMemoryLivenessVerifierSettings.swift in Sources */,
 				0131CE8E2201920400DBA4C4 /* ScanProcess.swift in Sources */,
 				D2CB351422BA736500453DB8 /* UIColor+Names.swift in Sources */,
+				E0B921FA2935268300E75886 /* LivenessVerifierSettingsLoaderComposer.swift in Sources */,
 				18953DDC2685EC530077F976 /* SelfieSelectionLoaderComposer.swift in Sources */,
 				18953D52268242BA0077F976 /* TableViewSectionViewModel.swift in Sources */,
+				E0B92201293605B800E75886 /* BaseSettingsViewController.swift in Sources */,
 				18953D972682F4B70077F976 /* AddDocumentFilterContentView.swift in Sources */,
 				6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */,
 				0141C03823A7DB0100566078 /* CGPoint+Flip.swift in Sources */,
@@ -1000,6 +1058,7 @@
 				0134756521F5F0E2004EE4E5 /* Model.swift in Sources */,
 				6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */,
 				6F2D53762469D242001C3544 /* Haptics.swift in Sources */,
+				E0B921F22934D65C00E75886 /* LivenessVerifierSettingsViewModel.swift in Sources */,
 				0134754F21EE0325004EE4E5 /* Endpoint.swift in Sources */,
 				D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */,
 				18953D902682F33A0077F976 /* SettingsCoordinator.swift in Sources */,
@@ -1011,6 +1070,7 @@
 				0134752021ECB3FB004EE4E5 /* AppDelegate.swift in Sources */,
 				18953DA526833DED0077F976 /* ContactTableCellController.swift in Sources */,
 				18953D61268246C70077F976 /* SelectionViewModel.swift in Sources */,
+				E0B921F02934D5FF00E75886 /* LivenessVerifierSettingsViewController.swift in Sources */,
 				6F2D53712469A937001C3544 /* Credentials.swift in Sources */,
 				0140263D22B3A76300CF60AD /* ResultsViewModel.swift in Sources */,
 				188422F72729242C002BD366 /* Reusable.swift in Sources */,
@@ -1093,7 +1153,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1151,7 +1212,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1167,29 +1229,27 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZenIDDemo/ZenIDDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 158;
+				CURRENT_PROJECT_VERSION = 160;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NO_OPENCV=1",
 				);
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0.14;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1198,6 +1258,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1207,26 +1268,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ZenIDDemo/ZenIDDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 158;
+				CURRENT_PROJECT_VERSION = 160;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/ZenID-eygxmsniculhumhktuzszdzmcjil/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "NO_OPENCV=1";
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0.14;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1235,6 +1295,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

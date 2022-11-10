@@ -70,6 +70,14 @@ extension SettingsCoordinator: SettingsCoordinable {
         show(viewController: viewController)
     }
     
+    func settingsOpenFaceLivenessVerifierSettings() {
+        let viewController = LivenessVerifierSettingsComposer.compose(
+            loader: LivenessVerifierSettingsLoaderComposer.compose(),
+            updater: LivenessVerifierSettingsLoaderComposer.compose()
+        )
+        show(viewController: viewController)
+    }
+    
     func settingsDidLogout() {
         dismissViewController()
     }

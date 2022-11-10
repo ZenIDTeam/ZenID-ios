@@ -49,6 +49,11 @@ int validateDocumentsInput(const void *object, const char* acceptableInputJson);
 char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasHeight, CDocumentInfo *document);
 void setDocumentDebugInfo(const void *object, bool show);
 
+// Get video settings
+int getDocumentRequiredFps(const void *object);
+int getDocumentRequiredVideoResolution(const void *object);
+
+
 #ifdef __cplusplus
 }
 #endif
