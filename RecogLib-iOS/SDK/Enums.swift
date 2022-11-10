@@ -156,7 +156,6 @@ public enum DocumentCode: Int, CaseIterable {
     case RO_IDC_2021sep = 137
     case SK_RES_2011 = 138
     case SK_RES_2020 = 139
-
 }
 
 public extension DocumentCode {
