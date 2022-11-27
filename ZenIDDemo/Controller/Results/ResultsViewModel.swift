@@ -6,6 +6,7 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
+import Common
 import UIKit
 
 enum InvestigateDataRow {
@@ -20,36 +21,34 @@ enum InvestigateDataRow {
     case authority
     case selfie
     case hologram
-    
+
     var title: String {
-        get {
-            var msg: String
-            switch self {
-            case .firstName:
-                msg = "title-first-name"
-            case .lastName:
-                msg = "title-last-name"
-            case .birthDate:
-                msg = "title-birth-date"
-            case .documentNumber:
-                msg = "title-document-number"
-            case .issueDate:
-                msg = "title-issue-date"
-            case .expiryDate:
-                msg = "title-expiry-date"
-            case .nationality:
-                msg = "title-nationality"
-            case .address:
-                msg = "title-address"
-            case .authority:
-                msg = "title-authority"
-            case .selfie:
-                msg = "title-selfie"
-            case .hologram:
-                msg = "title-hologram"
-            }
-            return msg.localized
+        var msg: String
+        switch self {
+        case .firstName:
+            msg = "title-first-name"
+        case .lastName:
+            msg = "title-last-name"
+        case .birthDate:
+            msg = "title-birth-date"
+        case .documentNumber:
+            msg = "title-document-number"
+        case .issueDate:
+            msg = "title-issue-date"
+        case .expiryDate:
+            msg = "title-expiry-date"
+        case .nationality:
+            msg = "title-nationality"
+        case .address:
+            msg = "title-address"
+        case .authority:
+            msg = "title-authority"
+        case .selfie:
+            msg = "title-selfie"
+        case .hologram:
+            msg = "title-hologram"
         }
+        return msg.localized
     }
 }
 
@@ -58,7 +57,7 @@ extension InvestigateDataRow {
         if self == .selfie || self == .hologram {
             return "msg-sample-success".localized
         }
-        
+
         guard let data = from.MinedData else { return "" }
         var result: String?
 
@@ -70,7 +69,7 @@ extension InvestigateDataRow {
         case .birthDate:
             result = data.BirthDate?.Text
         case .documentNumber:
-            result = self.getDocumentNumber(from: from)
+            result = getDocumentNumber(from: from)
         case .issueDate:
             result = data.IssueDate?.Text
         case .expiryDate:
@@ -87,15 +86,15 @@ extension InvestigateDataRow {
 
         return result ?? ""
     }
-    
+
     func confidence(from: InvestigateResponse) -> Bool? {
         if self == .selfie || self == .hologram {
             return true
         }
-        
-        guard let data = from.MinedData else { return nil}
+
+        guard let data = from.MinedData else { return nil }
         var result: Bool?
-        
+
         switch self {
         case .firstName:
             result = data.FirstName?.Confidence == 100
@@ -104,7 +103,7 @@ extension InvestigateDataRow {
         case .birthDate:
             result = data.BirthDate?.Confidence == 100
         case .documentNumber:
-            result = self.getDocumentNumberConfidence(from: from) == 100
+            result = getDocumentNumberConfidence(from: from) == 100
         case .issueDate:
             result = data.IssueDate?.Confidence == 100
         case .expiryDate:
@@ -120,7 +119,7 @@ extension InvestigateDataRow {
         }
         return result
     }
-    
+
     private func getDocumentNumber(from: InvestigateResponse) -> String? {
         guard let documentCode = from.MinedData?.documentCode else { return nil }
         switch documentCode.documentType {
@@ -134,7 +133,7 @@ extension InvestigateDataRow {
             return "Test"
         }
     }
-    
+
     private func getDocumentNumberConfidence(from: InvestigateResponse) -> Int? {
         guard let documentCode = from.MinedData?.documentCode else { return nil }
         switch documentCode.documentType {
@@ -157,7 +156,6 @@ struct InvestigateDataItem {
 }
 
 class ResultsViewModel {
-    
     let documentType: DocumentType
     let investigateResponse: InvestigateResponse
 
@@ -187,34 +185,28 @@ class ResultsViewModel {
             )
         }
     }
-    
+
     var ministryCheck: Bool? {
-        get {
-            return self.validation(code: .ministry)
-        }
+        return validation(code: .ministry)
     }
-    
+
     var insolvencyCheck: Bool? {
-        get {
-            // TODO: This is not implemented on backend yet
-            return nil
-        }
+        // TODO: This is not implemented on backend yet
+        return nil
     }
-    
+
     var selfieCheck: Bool? {
-        get {
-            return self.validation(code: .selfie)
-        }
+        return validation(code: .selfie)
     }
-    
+
     init(documentType: DocumentType, investigateResponse: InvestigateResponse) {
         self.investigateResponse = investigateResponse
         self.documentType = documentType
     }
-    
+
     func validation(code: ValidatorCodes) -> Bool? {
-        guard let results = self.investigateResponse.ValidatorResults else { return nil }
-        
+        guard let results = investigateResponse.ValidatorResults else { return nil }
+
         for valResp in results {
             if let valCode = valResp.Code {
                 if code.rawValue == valCode {

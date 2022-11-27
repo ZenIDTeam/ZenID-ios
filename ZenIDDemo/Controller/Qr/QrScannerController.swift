@@ -278,6 +278,7 @@ extension QrScannerController: AVCaptureMetadataOutputObjectsDelegate {
 
     // This method get called when Scanning gets complete
     public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        print("metadataObjects \(metadataObjects)")
         for data in metadataObjects {
             let transformed = videoPreviewLayer.transformedMetadataObject(for: data) as? AVMetadataMachineReadableCodeObject
             if let unwraped = transformed {

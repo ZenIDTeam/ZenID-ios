@@ -6,6 +6,7 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
+import Common
 import UIKit
 
 final class ErrorViewController: BaseInfoViewController {
@@ -20,30 +21,30 @@ final class ErrorViewController: BaseInfoViewController {
         label.textAlignment = .center
         return label
     }()
-    
-    var documentType: DocumentType? = nil { didSet { setupImageBackground(documentType: documentType) }}
-    
+
+    var documentType: DocumentType? { didSet { setupImageBackground(documentType: documentType) }}
+
     override func setupBackground() {
         _ = view.createGradientLayer(colors: [UIColor.zenRedDark.cgColor, UIColor.zenRed.cgColor], angle: 29)
     }
-    
+
     override func setupView() {
         super.setupView()
         image = #imageLiteral(resourceName: "Icon-Error")
         bottomLabel.textColor = .zenTextLight
         bottomLabel.text = "title-error".localized
-        
+
         view.addSubview(messageLabel)
         messageLabel.anchor(top: bottomLabel.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: 20, width: 250)
         messageLabel.centerX(to: view)
-        
+
         view.addSubview(closeButton)
         closeButton.anchor(top: nil, left: nil, bottom: view.layoutMarginsGuide.bottomAnchor, right: nil, paddingBottom: 20)
         closeButton.centerX(to: view)
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
     }
-    
+
     @objc private func close() {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }

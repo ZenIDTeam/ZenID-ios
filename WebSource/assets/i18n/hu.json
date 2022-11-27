@@ -1,0 +1,207 @@
+{
+    "welcome": {
+        "titleMobile": "Térjen át mobilra!"
+    },
+    "document": {
+        "common": {
+            "info": {
+                "title": "Jó tudni az érvényesítés előtt",
+                "backButton": "Vissza"
+            },
+            "front": {
+                "desc": "Helyezze az igazolvány 4 sarkát jól látható módon a keretbe  és távolítsa el az esetleges takarást.",
+                "backButton": "Vissza",
+                "switchCamera": "Váltás kamerára",
+                "snapNow": "Take a picture"
+            },
+            "frontCheck": {
+                "title": "Ellenőrizze a minőséget",
+                "desc": "Győződjön meg arról, hogy a kártya fizikailag is jelen van, minden részlet jól olvasható elmosódás vagy tükröződés nélkül.",
+                "backButton": "Készítsen egy új fényképet"
+            },
+            "back": {
+                "desc": "Helyezze az igazolvány 4 sarkát jól látható módon a  keretbe és távolítsa el az esetleges takarást.",
+                "backButton": "Vissza",
+                "switchCamera": "Váltás kamerára",
+                "snapNow": "Take a picture"
+            },
+            "backCheck": {
+                "title": "Ellenőrizze a minőséget",
+                "desc": "Győződjön meg arról, hogy a kártya fizikailag is jelen van, minden részlet jól olvasható elmosódás vagy tükröződés nélkül.",
+                "backButton": "Készítsen egy új fényképet"
+            },
+            "help": {
+                "title": "Problémába ütközött?",
+                "item1": "Próbálja a dokumentumot a keret közepére illeszteni",
+                "item2": "Ügyeljen a jó fényviszonyokra",
+                "item3": "Távolítson el minden elmosódottságot vagy tükröződést a dokumentumon",
+                "item4": "Ne takarjon el fontos adatokat",
+                "submitButton": "Ok",
+                "note": "Your ID will be stored encrypted and won’t be shared with anyone else. Photos are deleted after successful verification."
+            }
+        },
+        "Idc": {
+            "info": {
+                "listItem1": "Készítsen elő egy érvényes személyi igazolványt",
+                "listItem1a": "Készítsen elő egy második dokumentumot is, például útlevelet, vezetői engedélyt vagy egészségbiztosítási kártyát (Európai Uniós oldalát/kék oldalát)",
+                "listItem2": "Győződjön meg, hogy a kamerához való hozzáférés engedélyezve van",
+                "listItem3": "Ellenőrizze a fényviszonyokat (tükröződés nélkül)",
+                "listItem4": "Készítsen egy fényképet semleges háttérrel",
+                "listItem5": "Ne takarjon el fontos adatokat",
+                "nextButton": "Az igazolványom érvényesítése",
+                "note": "Az ön igazolványát titkosítva tároljuk, és nem osztjuk meg másokkal."
+            },
+            "front": {
+                "title": "A személyi igazolvány eleje"
+            },
+            "frontCheck": {
+                "nextButton": "Az igazolványom olvasható"
+            },
+            "back": {
+                "title": "Az igazolvány hátulja"
+            },
+            "backCheck": {
+                "nextButton": "Az igazolványom olvasható"
+            }
+        },
+        "Drv": {
+            "info": {
+                "listItem1": "Készítsen elő érvényes vezetői engedélyet",
+                "listItem2": "Győződjön meg, hogy a kameráhóz való hozzáférés engedélyezve van",
+                "listItem3": "Ellenőrizze a fényviszonyokat",
+                "listItem4": "Készítsen egy fényképet semleges háttérrel",
+                "listItem5": "Ne takarjon egy fontos adatokat",
+                "nextButton": "A vezetői engedélyem érvényesítése",
+                "note": "Jogosítványát titkosítva tároljuk és nem osztjuk meg másokkal. A fotók a sikeres ellenőrzést követően törlődnek."
+            },
+            "front": {
+                "title": "A vezetői engedély eleje"
+            },
+            "frontCheck": {
+                "nextButton": "A vezetői engedélyem olvasható"
+            }
+        },
+        "Pas": {
+            "info": {
+                "listItem1": "Készítsen elő egy érvényes útlevelet",
+                "listItem2": "Győződjön meg, hogy a kamerához való hozzáférés engedélyezve van",
+                "listItem3": "Ellenőrizze a fényviszonyokat",
+                "listItem4": "Készítsen egy fényképet semleges háttérrel",
+                "listItem5": "Ne takarjon el fontos adatokat",
+                "nextButton": "Az útlevelem érvényesítése",
+                "note": "Az útlevelét titkosítva tároljuk és nem osztjuk meg másokkal. A fotók a sikeres ellenőrzést követően törlődnek."
+            },
+            "front": {
+                "title": "Az útleve eleje"
+            },
+            "frontCheck": {
+                "nextButton": "Az útlevelem olvasható"
+            }
+        },
+        "Sec": {
+            "front": {
+                "title": "Scanneljen be a vezetői engedélyét, útlevelét vagy az egészségbiztosítási kártyáját (Európai Uniós oldalát/kék oldalát)"
+            },
+            "frontCheck": {
+                "nextButton": "A dokumentumon olvasható"
+            }
+        },
+        "Filter": {
+            "info": {
+                "listItem1": "Prepare a valid document",
+                "listItem2": "Make sure you will allow access to your camera",
+                "listItem3": "Ensure good lighting conditions (without glare)",
+                "listItem4": "Take a photo on a neutral background",
+                "listItem5": "Do not cover important data",
+                "nextButton": "Validate my document",
+                "note": "Your documents will be safely stored and won’t be shared with anyone else."
+            },
+            "front": {
+                "title": "Scan your document"
+            },
+            "frontCheck": {
+                "nextButton": "My document is readable"
+            }
+        }
+    },
+    "selfie": {
+        "info": {
+            "title": "Good to know before taking a selfie",
+            "listItem1": "Position your face in the oval",
+            "listItem2": "Check lightning conditions",
+            "backButton": "Back",
+            "nextButton": "Take a selfie",
+            "note": "Your selfie will be stored encrypted and won’t be shared with anyone else. Photos are deleted after successful verification."
+        },
+        "camera": {
+            "title": "Take a nice selfie",
+            "desc": "Position your face in the oval",
+            "backButton": "Back",
+            "nextButton": "Take a picture"
+        },
+        "check": {
+            "title": "Check quality",
+            "desc": "Is your face visible and in the frame?",
+            "backButton": "Take a new picture",
+            "nextButton": "My selfie is clear"
+        }
+    },
+    "livenessCheck": {
+        "info": {
+            "title": "Készüljön fel egy szelfi ellenőrzésre",
+            "listItem1Prefix": "You have to complete",
+            "listItem1Legacy": "{{livenessCheck.info.listItem1Prefix}} 2 tasks",
+            "listItem1": "{{livenessCheck.info.listItem1Prefix}} 5 tasks",
+            "listItem2": "Kövesse a képernyőn megjelenő utasításokat",
+            "listItem3": "Helyezze az arcát az ovális formába",
+            "backButton": "Vissza",
+            "nextButton": "Készítsen egy szelfi ellenőrzést",
+            "note": "A szelfi titkosítva kerül tárolásra és nem osztjuk meg másokkal."
+        },
+        "camera": {
+            "backButton": "Vissza"
+        }
+    },
+    "cameraAccess": {
+        "title": "A folytatáshoz szükséges a kamerához való hozzáférés",
+        "desc": "A folytatás előtt egy szelfi megküldése szükséges és egy fénykép a dokumentumáról. A fényképeket az Ön személyazonosságának igazolására használjuk fel.",
+        "submitButton": "Folytatás"
+    },
+    "feedback": {
+        "NoMatchFound": "Kártya keresése",
+        "AlignCard": "Igazítsa meg a kártyát",
+        "HoldSteady": "Tartsa stabilan",
+        "Blurry": "Túl homályos",
+        "ReflectionPresent": "Tükröződött",
+        "Ok": "Rendben van",
+        "Dark": "Túl sötét",
+        "NoFaceFound": "Nem található arc",
+        "MoveElsewhere": "Lépjen máshova",
+        "TiltLeft": "Döntse balra",
+        "TiltRight": "Döntse jobbra",
+        "TiltUp": "Billentse felfelé",
+        "TiltDown": "Billentse lefelé",
+        "RotateClockwise": "Forgatás az óramutató járásával megegyező irányba",
+        "RotateCounterClockwise": "Forgatás az óramutató járásával ellenkező irányba",
+        "LookAtMe": "Nézzen rám",
+        "TurnHead": "Fordítsa meg a fejét",
+        "Smile": "Mosolyogjon",
+        "ConfirmingFace": "Arc megerősítése",
+        "HoldStill": "Tartsa nyugodtan",
+        "BadFaceAngle": "Rossz angyal arc",
+        "Barcode": "The barcode is unreadable"
+    },
+    "loading": {
+        "title": "Betöltés..."
+    },
+    "analyzing": {
+        "title": "Adatok elemzése...",
+        "document": "Dokumentumok olvasása",
+        "selfie": "Szelfi ellenőrzése",
+        "liveness": "Checking liveness",
+        "livenessLegacy": "Checking livenessLegacy"
+    },
+    "landscapeError": {
+        "title": "Sajnáljuk, a fekvő módot nem támogatjuk mobileszközökön. Kérjük kapcsolja vissza készülékét álló módba."
+    }
+}

@@ -6,8 +6,9 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
-import UIKit
+import Common
 import RecogLib_iOS
+import UIKit
 
 final class ResultCell: UITableViewCell {
     private let titleLabel: UILabel = {
@@ -16,7 +17,7 @@ final class ResultCell: UITableViewCell {
         label.textColor = .zenPurpleDark
         return label
     }()
-    
+
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.font = .resultValue
@@ -28,30 +29,30 @@ final class ResultCell: UITableViewCell {
     func configure(with item: InvestigateDataItem) {
         titleLabel.text = item.row.title
         valueLabel.text = item.value
-        
+
         backgroundColor = .white
         contentView.backgroundColor = .clear
     }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         // Title label
         addSubview(titleLabel)
         titleLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 5, paddingLeft: 10, paddingRight: 10)
-        
+
         // Value label
         addSubview(valueLabel)
         valueLabel.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 10, paddingRight: 10)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         ApplicationLogger.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-final class ResultViewController: BaseInfoViewController {    
+final class ResultViewController: BaseInfoViewController {
     private let viewModel: ResultsViewModel
     private let tableView: UITableView = {
         let view = UITableView()
@@ -63,19 +64,19 @@ final class ResultViewController: BaseInfoViewController {
         view.tableFooterView = UIView()
         return view
     }()
-    
+
     private var backgroundLayer: CALayer?
-    
+
     init(model: ResultsViewModel) {
         viewModel = model
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         ApplicationLogger.shared.Error("init(coder:) has not been implemented")
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         backgroundLayer?.removeFromSuperlayer()
@@ -86,16 +87,16 @@ final class ResultViewController: BaseInfoViewController {
         super.viewDidLoad()
         tableView.dataSource = self
     }
-    
+
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
-    
+
     override func setupBackground() {
         backgroundLayer = applyPathGradient()
     }
-    
+
     private func image(from model: ResultsViewModel) -> UIImage {
         switch model.documentType {
         case .idCard:
@@ -120,7 +121,7 @@ final class ResultViewController: BaseInfoViewController {
             return #imageLiteral(resourceName: "Kruh-SF")
         }
     }
-    
+
     override func setupView() {
         super.setupView()
         title = viewModel.documentType.title.uppercased()
@@ -128,7 +129,7 @@ final class ResultViewController: BaseInfoViewController {
         imageView.removeFromSuperview()
         backgroundView.removeFromSuperview()
 
-        view.addSubview(self.tableView)
+        view.addSubview(tableView)
         tableView.anchor(top: view.layoutMarginsGuide.topAnchor, left: view.leftAnchor, bottom: view.layoutMarginsGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 20)
 
         let backImage = UIImageView(image: viewModel.documentType.backgoundImage)
@@ -146,12 +147,12 @@ extension ResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.values.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ResultCell.self)) as? ResultCell {
             cell.configure(with: viewModel.values[indexPath.row])
             return cell
         }
         return UITableViewCell()
-    }    
+    }
 }

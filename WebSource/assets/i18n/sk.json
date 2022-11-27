@@ -1,0 +1,207 @@
+﻿{
+    "welcome": {
+        "titleMobile": "Prejsť na mobil!"
+    },
+    "document": {
+        "common": {
+            "info": {
+                "title": "Dobré vedieť pred overením",
+                "backButton": "Späť"
+            },
+            "front": {
+                "desc": "Všetky 4 rohy dokladu umiestnite do rámčeka a zamedzte prípadnému zakrytiu dát na doklade.",
+                "backButton": "Späť",
+                "switchCamera": "Zmeniť kameru",
+                "snapNow": "Odfotiť"
+            },
+            "frontCheck": {
+                "title": "Skontrolujte kvalitu",
+                "desc": "Uistite sa, že je vaša karta fyzicky prítomná, všetky údaje sú jasne čitateľné bez rozmazania alebo odleskov.",
+                "backButton": "Vyfotiť znova"
+            },
+            "back": {
+                "desc": "Všetky 4 rohy dokladu umiestnite do rámčeka a zamedzte prípadnému zakrytiu dát na doklade.",
+                "backButton": "Späť",
+                "switchCamera": "Zmeniť kameru",
+                "snapNow": "Odfotiť"
+            },
+            "backCheck": {
+                "title": "Skontrolujte kvalitu",
+                "desc": "Uistite sa, že je vaša karta fyzicky prítomná, všetky údaje sú jasne čitateľné bez rozmazania alebo odleskov.",
+                "backButton": "Vyfotiť znova"
+            },
+            "help": {
+                "title": "Máte problémy?",
+                "item1": "Pokúste sa umiestniť doklad do stredu rámčeka",
+                "item2": "Uistite sa, že Vaše svetelné podmienky sú dobré pre vytvorenie snímky",
+                "item3": "Vyvarujte sa rozmazaniu a odleskom na doklade",
+                "item4": "Nezakrývajte dáta na doklade",
+                "submitButton": "Ok",
+                "note": "Váš dokument bude uložený zašifrovaný a nebude zdieľaný s nikým iným. Fotografie sa po úspešnom overení odstránia."
+            }
+        },
+        "Idc": {
+            "info": {
+                "listItem1": "Pripravte si platný občiansky preukaz",
+                "listItem1a": "Pripravte si tiež druhý dokument, ako je pas, vodičský preukaz alebo kartička poistenca (európska/modrá strana).",
+                "listItem2": "Uistite sa, že dáte súhlas s používaním kamery",
+                "listItem3": "Zabezpečte dobré svetelné podmienky (bez odleskov)",
+                "listItem4": "Vyfoťte doklad na neutrálnom pozadí",
+                "listItem5": "Nezakrývajte dáta na doklade",
+                "nextButton": "Overiť môj občiansky preukaz",
+                "note": "Vaše doklady budú bezpečne uložené a nebudú zdieľané s ďalšími osobami."
+            },
+            "front": {
+                "title": "PREDNÁ strana občianskeho preukazu"
+            },
+            "frontCheck": {
+                "nextButton": "Môj doklad je čitateľný"
+            },
+            "back": {
+                "title": "ZADNÁ strana občianskeho preukazu"
+            },
+            "backCheck": {
+                "nextButton": "Môj doklad je čitateľný"
+            }
+        },
+        "Drv": {
+            "info": {
+                "listItem1": "Pripravte si platný vodičský preukaz",
+                "listItem2": "Uistite sa, že dáte súhlas s používaním kamery",
+                "listItem3": "Skontrolujte svetelné podmienky",
+                "listItem4": "Vyfoťte doklad na neutrálnom pozadí",
+                "listItem5": "Nezakrývajte dáta na doklade",
+                "nextButton": "Overiť môj vodičský preukaz",
+                "note": "Váš vodičský preukaz bude uložený v zašifrovanej podobe a nebude zdieľaný s ďalšími osobami. Po úspešnom overení sú fotografie vymazané."
+            },
+            "front": {
+                "title": "PREDNÁ strana vodičského preukazu"
+            },
+            "frontCheck": {
+                "nextButton": "Môj doklad je čitateľný"
+            }
+        },
+        "Pas": {
+            "info": {
+                "listItem1": "Pripravte si platný pas",
+                "listItem2": "Uistite sa, že dáte súhlas s používaním kamery",
+                "listItem3": "Skontrolujte svetelné podmienky",
+                "listItem4": "Vyfoťte doklad na neutrálnom pozadí",
+                "listItem5": "Nezakrývajte dáta na doklade",
+                "nextButton": "Overiť môj pas",
+                "note": "Váš pas bude uložený v zašifrovanej podobe a nebude zdieľaný s ďalšími osobami. Po úspešnom overení sú fotografie vymazané."
+            },
+            "front": {
+                "title": "Pas"
+            },
+            "frontCheck": {
+                "nextButton": "Môj doklad je čitateľný"
+            }
+        },
+        "Sec": {
+            "front": {
+                "title": "Naskenujte vodičský preukaz, pas alebo kartičku poistenca (európska/modrá strana)"
+            },
+            "frontCheck": {
+                "nextButton": "Môj dokument je čitateľný"
+            }
+        },
+        "Filter": {
+            "info": {
+                "listItem1": "Pripravte si platný dokument",
+                "listItem2": "Uistite sa, že povolíte prístup k fotoaparátu",
+                "listItem3": "Zabezpečte dobré svetelné podmienky (bez oslnenia)",
+                "listItem4": "Nasnímajte fotografiu na neutrálnom pozadí",
+                "listItem5": "Nezakrývajte dôležité údaje",
+                "nextButton": "Overiť môj dokument",
+                "note": "Vaše dokumenty budú bezpečne uložené a nebudú zdieľané s nikým iným."
+            },
+            "front": {
+                "title": "Naskenovať dokument"
+            },
+            "frontCheck": {
+                "nextButton": "Môj dokument je čitateľný"
+            }
+        }
+    },
+    "selfie": {
+        "info": {
+            "title": "Dobré vedieť pred fotením selfie",
+            "listItem1": "Umiestnite svoju tvár do oválu",
+            "listItem2": "Kontrola svetelných podmienok",
+            "backButton": "Späť",
+            "nextButton": "Odfotiť selfie",
+            "note": "Vaša selfie bude uložená zašifrovaná a nebude zdieľaná s nikým iným. Fotky sa po úspešnom overení odstránia."
+        },
+        "camera": {
+            "title": "Odfotiť selfie",
+            "desc": "Umiestnite tvár do oválu",
+            "backButton": "Späť",
+            "nextButton": "Odfotiť"
+        },
+        "check": {
+            "title": "Skontrolovať kvalitu",
+            "desc": "Je vaša tvár viditeľná a v ráme?",
+            "backButton": "Nasnímať nový obrázok",
+            "nextButton": "Moja selfie je viditeľná"
+        }
+    },
+    "livenessCheck": {
+        "info": {
+            "title": "Pripravte sa na selfie kontrolu",
+            "listItem1Prefix": "Budete musieť splniť",
+            "listItem1Legacy": "{{livenessCheck.info.listItem1Prefix}} 2 kroky",
+            "listItem1": "{{livenessCheck.info.listItem1Prefix}} 5 krokov",
+            "listItem2": "Umiestnite svoju tvár do oválu",
+            "listItem3": "Postupujte podľa inštrukcií na obrazovke",
+            "backButton": "Späť",
+            "nextButton": "Začať selfie kontrolu",
+            "note": "Vaša selfie bude uložená zašifrovaná a nebude zdieľaná s nikým iným. Fotky sa po úspešnom overení odstránia."
+        },
+        "camera": {
+            "backButton": "Späť"
+        }
+    },
+    "cameraAccess": {
+        "title": "Pred pokračovaním je vyžadovaný prístup k fotoaparátu",
+        "desc": "Predtým ako budete pokračovať, budete musieť odoslať selfie a fotografiu dokumentu. Fotografie budú použité k overeniu vašej identity.",
+        "submitButton": "Pokračovať"
+    },
+    "feedback": {
+        "NoMatchFound": "Hľadáme doklad",
+        "AlignCard": "Zarovnajte doklad",
+        "HoldSteady": "Držte doklad v kľude",
+        "Blurry": "Príliš neostré",
+        "ReflectionPresent": "Na doklade sú odlesky",
+        "Ok": "Dobrý snímok",
+        "Dark": "Príliš tmavé",
+        "NoFaceFound": "Tvár nenájdená",
+        "MoveElsewhere": "Presuňte se inam",
+        "TiltLeft": "Nakloňte doklad doľava",
+        "TiltRight": "Nakloňte doklad doprava",
+        "TiltUp": "Nakloňte doklad hore",
+        "TiltDown": "Nakloňte doklad dole",
+        "RotateClockwise": "Otočte doklad v smere hodinových ručičiek",
+        "RotateCounterClockwise": "Otočte doklad v proti smere hodinových ručičiek",
+        "LookAtMe": "Pozerajte sa do kamery",
+        "TurnHead": "Otočte hlavu",
+        "Smile": "Usmejte sa",
+        "ConfirmingFace": "Potvrdzujem tvár",
+        "HoldStill": "Snažte sa nepohnúť",
+        "BadFaceAngle": "Zlý uhol tváre",
+        "Barcode": "Čiarový kód je nečitateľný"
+    },
+    "loading": {
+        "title": "Načítavanie..."
+    },
+    "analyzing": {
+        "title": "Analyzujeme vaše dáta...",
+        "document": "Čítanie dokumentov",
+        "selfie": "Kontrola selfie",
+        "liveness": "Kontrola údajov liveness",
+        "livenessLegacy": "Kontrola údajov liveness"
+    },
+    "landscapeError": {
+        "title": "Je nám ľúto, na mobilných zariadeniach nepodporujeme režim na šírku. Vráťte zariadenie späť do režimu na výšku."
+    }
+}

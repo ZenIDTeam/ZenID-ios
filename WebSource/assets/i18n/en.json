@@ -1,0 +1,207 @@
+{
+    "welcome": {
+        "titleMobile": "Go mobile!"
+    },
+    "document": {
+        "common": {
+            "info": {
+                "title": "Good to know before validation",
+                "backButton": "Back"
+            },
+            "front": {
+                "desc": "Position all 4 corners of the document clearly in the frame and remove any cover.",
+                "backButton": "Back",
+                "switchCamera": "Change camera",
+                "snapNow": "Take a picture"
+            },
+            "frontCheck": {
+                "title": "Check quality",
+                "desc": "Make sure your card is physically present, all details are clear to read with no blur or glare.",
+                "backButton": "Take a new picture"
+            },
+            "back": {
+                "desc": "Position all 4 corners of the document clearly in the frame and remove any cover.",
+                "backButton": "Back",
+                "switchCamera": "Change camera",
+                "snapNow": "Take a picture"
+            },
+            "backCheck": {
+                "title": "Check quality",
+                "desc": "Make sure your card is physically present, all details are clear to read with no blur or glare.",
+                "backButton": "Take a new picture"
+            },
+            "help": {
+                "title": "Having troubles?",
+                "item1": "Try to fit your document to the center of frame",
+                "item2": "Be sure to have a good lightning conditions",
+                "item3": "Remove any blur or glare on the document",
+                "item4": "Do not cover important data",
+                "submitButton": "Ok",
+                "note": "Your ID will be stored encrypted and won’t be shared with anyone else. Photos are deleted after successful verification."
+            }
+        },
+        "Idc": {
+            "info": {
+                "listItem1": "Prepare a valid personal ID",
+                "listItem1a": "Also prepare a second document like passport, driving license or insurance card (European/blue side).",
+                "listItem2": "Make sure you will allow access to your camera",
+                "listItem3": "Ensure good lighting conditions (without glare)",
+                "listItem4": "Take a photo on a neutral background",
+                "listItem5": "Do not cover important data",
+                "nextButton": "Validate my ID",
+                "note": "Your IDs will be safely stored and won’t be shared with anyone else."
+            },
+            "front": {
+                "title": "Front of your ID"
+            },
+            "frontCheck": {
+                "nextButton": "My ID is readable"
+            },
+            "back": {
+                "title": "Back of your ID"
+            },
+            "backCheck": {
+                "nextButton": "My ID is readable"
+            }
+        },
+        "Drv": {
+            "info": {
+                "listItem1": "Prepare a valid driving licence",
+                "listItem2": "Make sure you will allow access to your camera",
+                "listItem3": "Check lightning conditions",
+                "listItem4": "Take a photo on a neutral background",
+                "listItem5": "Do not cover important data",
+                "nextButton": "Validate my driving licence",
+                "note": "Your driving licence will be stored encrypted and won’t be shared with anyone else. Photos are deleted after successful verification."
+            },
+            "front": {
+                "title": "Front of driving licence"
+            },
+            "frontCheck": {
+                "nextButton": "My licence is readable"
+            }
+        },
+        "Pas": {
+            "info": {
+                "listItem1": "Prepare a valid passport",
+                "listItem2": "Make sure you will allow access to your camera",
+                "listItem3": "Check lightning conditions",
+                "listItem4": "Take a photo on a neutral background",
+                "listItem5": "Do not cover important data",
+                "nextButton": "Validate my passport",
+                "note": "Your passport will be stored encrypted and won’t be shared with anyone else. Photos are deleted after successful verification."
+            },
+            "front": {
+                "title": "Front of your passport"
+            },
+            "frontCheck": {
+                "nextButton": "My passport is readable"
+            }
+        },
+        "Sec": {
+            "front": {
+                "title": "Scan driving license, passport or insurance card (European/blue side)"
+            },
+            "frontCheck": {
+                "nextButton": "My document is readable"
+            }
+        },
+        "Filter": {
+            "info": {
+                "listItem1": "Prepare a valid document",
+                "listItem2": "Make sure you will allow access to your camera",
+                "listItem3": "Ensure good lighting conditions (without glare)",
+                "listItem4": "Take a photo on a neutral background",
+                "listItem5": "Do not cover important data",
+                "nextButton": "Validate my document",
+                "note": "Your documents will be safely stored and won’t be shared with anyone else."
+            },
+            "front": {
+                "title": "Scan your document"
+            },
+            "frontCheck": {
+                "nextButton": "My document is readable"
+            }
+        }
+    },
+    "selfie": {
+        "info": {
+            "title": "Good to know before taking a selfie",
+            "listItem1": "Position your face in the oval",
+            "listItem2": "Check lightning conditions",
+            "backButton": "Back",
+            "nextButton": "Take a selfie",
+            "note": "Your selfie will be stored encrypted and won’t be shared with anyone else. Photos are deleted after successful verification."
+        },
+        "camera": {
+            "title": "Take a nice selfie",
+            "desc": "Position your face in the oval",
+            "backButton": "Back",
+            "nextButton": "Take a picture"
+        },
+        "check": {
+            "title": "Check quality",
+            "desc": "Is your face visible and in the frame?",
+            "backButton": "Take a new picture",
+            "nextButton": "My selfie is clear"
+        }
+    },
+    "livenessCheck": {
+        "info": {
+            "title": "Prepare for a liveness check",
+            "listItem1Prefix": "You have to complete",
+            "listItem1Legacy": "{{livenessCheck.info.listItem1Prefix}} 2 tasks",
+            "listItem1": "{{livenessCheck.info.listItem1Prefix}} 5 tasks",
+            "listItem2": "Position your face in the oval",
+            "listItem3": "Follow instructions on the screen",
+            "backButton": "Back",
+            "nextButton": "Let’s do liveness check",
+            "note": "Your selfie will be stored encrypted and won’t be shared with anyone else. Photos are deleted after successful verification."
+        },
+        "camera": {
+            "backButton": "Back"
+        }
+    },
+    "cameraAccess": {
+        "title": "Camera access is required before continuing",
+        "desc": "You'll need to submit a selfie and a photo of the document before continuing. The photos will be used to verify your identity.",
+        "submitButton": "Continue"
+    },
+    "feedback": {
+        "NoMatchFound": "Searching for card",
+        "AlignCard": "Align card",
+        "HoldSteady": "Hold steady",
+        "Blurry": "Too blurry",
+        "ReflectionPresent": "Reflections are present",
+        "Ok": "It’s okay for us",
+        "Dark": "Too dark",
+        "NoFaceFound": "No face found",
+        "MoveElsewhere": "Move elsewhere",
+        "TiltLeft": "Tilt left",
+        "TiltRight": "Tilt right",
+        "TiltUp": "Tilt up",
+        "TiltDown": "Tilt down",
+        "RotateClockwise": "Rotate clock-wise",
+        "RotateCounterClockwise": "Rotate counter clock-wise",
+        "LookAtMe": "Look at me",
+        "TurnHead": "Turn head",
+        "Smile": "Smile",
+        "ConfirmingFace": "Confirming face",
+        "HoldStill": "Hold still",
+        "BadFaceAngle": "Bad face angle",
+        "Barcode": "The barcode is unreadable"
+    },
+    "loading": {
+        "title": "Loading..."
+    },
+    "analyzing": {
+        "title": "We are analyzing your data...",
+        "document": "Reading documents",
+        "selfie": "Checking selfie",
+        "liveness": "Checking liveness data",
+        "livenessLegacy": "Checking liveness data"
+    },
+    "landscapeError": {
+        "title": "We're sorry, we don't support landscape mode on mobile devices. Please turn your device back to portrait mode."
+    }
+}

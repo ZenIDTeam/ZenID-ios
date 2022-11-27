@@ -6,6 +6,7 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
+import Common
 import Foundation
 
 enum DispatchResult {

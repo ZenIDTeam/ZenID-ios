@@ -6,11 +6,10 @@
 //  Copyright © 2021 Trask, a.s. All rights reserved.
 //
 
+import Common
 import UIKit
 
-
 final class SettingsComposer {
-    
     static func compose(selfieSelectionLoader: SelfieSelectionLoader, configService: ConfigService, coordinator: SettingsCoordinable) -> SettingsViewController {
         let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         viewController.viewModel = resolve(coordinator: coordinator)
@@ -20,11 +19,11 @@ final class SettingsComposer {
         }
         return viewController
     }
-    
+
     private static func resolve(coordinator: SettingsCoordinable) -> SettingsViewModel {
         .init(coordinator: coordinator)
     }
-    
+
     private static func getSections(viewController: UIViewController, configService: ConfigService, coordinator: SettingsCoordinable, faceMode: FaceMode?) -> [TableViewSectionViewModel] {
         [
             .init(
@@ -70,5 +69,4 @@ final class SettingsComposer {
             )
         ]
     }
-    
 }

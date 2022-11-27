@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Common">
+   </FileRef>
+   <FileRef
       location = "group:RecogLib-iOS.xcodeproj">
    </FileRef>
    <FileRef

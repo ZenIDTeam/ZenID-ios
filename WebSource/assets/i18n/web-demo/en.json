@@ -1,0 +1,156 @@
+{
+    "welcome": {
+        "descMobile": "Scan QR code with your phone camera and try ZenID on Android and iOS phones.",
+        "buttonMobile": "More information",
+        "titleWebDemo": "Web SDK demo",
+        "descWebDemo": "ZenID Web SDK creates the best desktop KYC experience on the market.",
+        "buttonWebDemo": "Try Web SDK",
+        "mobile": {
+            "item1": {
+                "title": "OCR module",
+                "desc": "Automatically transfers information from personal documents and verifies their validity so that the information can be further processed."
+            },
+            "item2": {
+                "title": "Face recognition",
+                "desc": "Checks whether the scanned person is the same as the one from the scanned document."
+            },
+            "item3": {
+                "title": "Liveness check",
+                "desc": "Verifies that there is a living person in the image, including checking that the age and gender match the information in the document."
+            },
+            "submitButton": "Get started",
+            "agreement": {
+                "text1": "By tapping ‘Get started’ and using ZenID app, you’re agreeing to our ",
+                "a1": "terms of service",
+                "href1": "#",
+                "text2": " and ",
+                "a2": "privacy policy",
+                "href2": "#",
+                "text3": "."
+            }
+        },
+        "agreement": {
+            "text1": "By tapping ‘Try Web SDK’ and using ZenID app, you’re agreeing to our ",
+            "a1": "terms of service",
+            "href1": "#",
+            "text2": " and ",
+            "a2": "privacy policy",
+            "href2": "#",
+            "text3": "."
+        }
+    },
+    "home": {
+        "title": "Select document type",
+        "desc": "One last step before you’re ready to create an account. Your information will be kept safe.",
+        "menuItem1": "National ID",
+        "menuItem2": "Driving licence",
+        "menuItem3": "Passport",
+        "menuItem4": "Universal document",
+        "menuItem5": "Documents filter",
+        "buttonDemoInPractice": "Try demo in practice",
+        "titleTrask": "Trask ZenID"
+    },
+    "settings": {
+        "title": "Settings",
+        "country": "Country",
+        "selfieVerification": {
+            "title": "Selfie verification"
+        },
+        "livenessCheckVideo": "Liveness check video",
+        "documents": "Documents",
+        "documentsFilter": {
+            "title": "Documents filter",
+            "addButton": "Add new",
+            "modal": {
+                "title": "Add new document filter",
+                "country": "Country",
+                "role": "Document role",
+                "page": {
+                    "label": "Page",
+                    "any": "Any",
+                    "front": "Front",
+                    "back": "Back"
+                },
+                "save": "Save",
+                "cancel": "Cancel"
+            },
+            "invalidFilter": {
+                "invalid": {
+                    "title": "Invalid combination",
+                    "desc": "Unfortunately We do not support proposed combination."
+                },
+                "duplicit": {
+                    "title": "Filter already exists",
+                    "desc": "The selected filter is already in the list."
+                },
+                "button": "Okay"
+            }
+        },
+        "documentsVerifier": {
+            "title": "Documents verifier",
+            "specularAcceptableScore": "Specular Acceptable score",
+            "documentBlurAcceptableScore": "Document Blur acceptable score",
+            "timeToBlurMaxTolerance": "Time to Blur Max Tolerance (sec.)",
+            "readBarcode": "Read barcode",
+            "showTimer": "Show timer",
+            "enableAimingCircle": "Enable aiming circle",
+            "displaySnapNowDelay": "Display snapshot button after (sec.)",
+            "displayHelpModalDelay": "Display tutorial after (sec.)"
+        },
+        "colors": {
+            "title": "Colors",
+            "primaryColor": "Primary color",
+            "secondaryColor": "Secondary color",
+            "contrastColor": "Contrast color"
+        },
+        "darkModeColors": {
+            "title": "Dark mode colors",
+            "primaryColor": "Primary color",
+            "secondaryColor": "Secondary color",
+            "contrastColor": "Contrast color"
+        },
+        "darkMode": "Dark mode",
+        "debugMode": "Debug mode",
+        "havingQuestions": {
+            "label": "Having questions?"
+        }
+    },
+    "results": {
+        "success": {
+            "title": "Hello, {{ fullName }}",
+            "desc": "Validation was successful.",
+            "document": "Document ID",
+            "numberSign": "#",
+            "selfie": "Selfie",
+            "liveness": "Liveness",
+            "backButton": "Go to homescreen",
+            "submitButton": "Finish ID verification"
+        },
+        "warning": {
+            "title": "Checking your documents",
+            "desc": "We are currently checking your documents with the data you entered in the registration. You will be notified.",
+            "submitButton": "Finish"
+        },
+        "error": {
+            "title": "Your documents could not be verified.",
+            "document": "ID verification failed",
+            "selfie": "Selfie verification failed",
+            "liveness": "Liveness check failed",
+            "desc": "We cannot verify your documents. Please try the verification process again.",
+            "idDescription": "Please take photo of your ID again.",
+            "selfieDescription" : "Please take your selfie again.",
+            "livenessDescription" : "Please do liveness check again.",
+            "submitButton": {
+                "id": "Validate your ID",
+                "selfie": "Do selfie check again",
+                "liveness": "Do liveness check again",
+                "failed": "Start validation process again"
+            }
+        }
+    },
+    "errorGeneric": {
+        "title": "Server Unavailable",
+        "desc": "The server part of the application is unavailable. Check your internet connection, try again later or contact the administrator of the application.",
+        "submitButton": "Finish"
+    }
+}

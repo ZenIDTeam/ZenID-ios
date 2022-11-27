@@ -6,11 +6,10 @@
 //  Copyright © 2021 Trask, a.s. All rights reserved.
 //
 
+import Common
 import Foundation
 
-
 final class SelfieSelectionComposer {
-    
     static func compose(saver: SelfieSelectionSaver, coordinator: SelfieSelectionCoordinable) -> SelectionViewController {
         let viewModel = resolve(saver: saver)
         let viewController = SelectionComposer.compose(
@@ -21,7 +20,7 @@ final class SelfieSelectionComposer {
         }
         return viewController
     }
-    
+
     private static func resolve(viewModel: SelfieSelectionViewModel) -> SelectionViewModel {
         .init(
             title: NSLocalizedString("btn-face-mode", comment: ""),
@@ -29,9 +28,8 @@ final class SelfieSelectionComposer {
             delegate: viewModel
         )
     }
-    
+
     private static func resolve(saver: SelfieSelectionSaver) -> SelfieSelectionViewModel {
         .init(saver: saver)
     }
-    
 }

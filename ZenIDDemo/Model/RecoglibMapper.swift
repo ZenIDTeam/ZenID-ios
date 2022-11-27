@@ -6,11 +6,11 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
+import Common
 import Foundation
 import RecogLib_iOS
 
 final class RecoglibMapper {
-
     static func documentRole(from type: DocumentType, role: RecogLib_iOS.DocumentRole? = nil) -> RecogLib_iOS.DocumentRole? {
         switch type {
         case .idCard:

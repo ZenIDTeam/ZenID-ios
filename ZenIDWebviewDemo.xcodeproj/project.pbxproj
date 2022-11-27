@@ -8,26 +8,59 @@
 
 /* Begin PBXBuildFile section */
 		E02E791C2912F7DA005B9AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E791B2912F7DA005B9AE2 /* AppDelegate.swift */; };
-		E02E791E2912F7DA005B9AE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E791D2912F7DA005B9AE2 /* SceneDelegate.swift */; };
 		E02E79202912F7DA005B9AE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E791F2912F7DA005B9AE2 /* ViewController.swift */; };
-		E02E79232912F7DA005B9AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02E79212912F7DA005B9AE2 /* Main.storyboard */; };
 		E02E79252912F7DB005B9AE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E02E79242912F7DB005B9AE2 /* Assets.xcassets */; };
 		E02E79282912F7DB005B9AE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02E79262912F7DB005B9AE2 /* LaunchScreen.storyboard */; };
 		E02E793029130FA0005B9AE2 /* WebViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E792F29130FA0005B9AE2 /* WebViewOverlay.swift */; };
 		E02E794929131210005B9AE2 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = E02E794829131210005B9AE2 /* WebSource */; };
+		E030DFA62922820F00118A5B /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFA52922820F00118A5B /* AppManager.swift */; };
+		E030DFA82922864100118A5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFA72922864100118A5B /* SceneDelegate.swift */; };
+		E030DFAA2922A35300118A5B /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFA92922A35300118A5B /* UIView+Anchor.swift */; };
+		E030DFAC2922A4B500118A5B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFAB2922A4B500118A5B /* WebViewController.swift */; };
+		E030DFAE2922A59900118A5B /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFAD2922A59900118A5B /* AppFeature.swift */; };
+		E030DFB02922A5EB00118A5B /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFAF2922A5EB00118A5B /* GenericViewController.swift */; };
+		E030DFB22922A6D900118A5B /* ScreenConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFB12922A6D900118A5B /* ScreenConfiguration.swift */; };
+		E0C86EF829279DD100B0B888 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C86EF729279DD100B0B888 /* RecogLib_iOS.framework */; };
+		E0C86EF929279DD100B0B888 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0C86EF729279DD100B0B888 /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0C86EFC29279DDD00B0B888 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0C86EFB29279DDD00B0B888 /* LibZenid_iOS.xcframework */; };
+		E0C86EFD29279DDD00B0B888 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0C86EFB29279DDD00B0B888 /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0C86EFF2927A44000B0B888 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C86EFE2927A44000B0B888 /* QRCodeViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E0C86EFA29279DD100B0B888 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E0C86EFD29279DDD00B0B888 /* LibZenid_iOS.xcframework in Embed Frameworks */,
+				E0C86EF929279DD100B0B888 /* RecogLib_iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E02E79182912F7DA005B9AE2 /* ZenIDWebviewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenIDWebviewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02E791B2912F7DA005B9AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E02E791D2912F7DA005B9AE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E02E791F2912F7DA005B9AE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E02E79222912F7DA005B9AE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E02E79242912F7DB005B9AE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E02E79272912F7DB005B9AE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E02E79292912F7DB005B9AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E02E792F29130FA0005B9AE2 /* WebViewOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewOverlay.swift; path = ZenIDWebViewDemo/WebViewOverlay.swift; sourceTree = SOURCE_ROOT; };
 		E02E794829131210005B9AE2 /* WebSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSource; sourceTree = "<group>"; };
+		E030DFA52922820F00118A5B /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppManager.swift; path = ZenIDWebViewDemo/AppManager.swift; sourceTree = SOURCE_ROOT; };
+		E030DFA72922864100118A5B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ZenIDWebviewDemo/SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
+		E030DFA92922A35300118A5B /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Anchor.swift"; path = "ZenIDWebViewDemo/Extensions/UIView+Anchor.swift"; sourceTree = SOURCE_ROOT; };
+		E030DFAB2922A4B500118A5B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ZenIDWebViewDemo/WebViewController.swift; sourceTree = SOURCE_ROOT; };
+		E030DFAD2922A59900118A5B /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppFeature.swift; path = ZenIDWebviewDemo/AppFeature.swift; sourceTree = SOURCE_ROOT; };
+		E030DFAF2922A5EB00118A5B /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GenericViewController.swift; path = ZenIDWebViewDemo/GenericViewController.swift; sourceTree = SOURCE_ROOT; };
+		E030DFB12922A6D900118A5B /* ScreenConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenConfiguration.swift; path = ZenIDWebViewDemo/ScreenConfiguration.swift; sourceTree = SOURCE_ROOT; };
+		E0C86EF729279DD100B0B888 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecogLib_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C86EFB29279DDD00B0B888 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = Sources/LibZenid_iOS.xcframework; sourceTree = "<group>"; };
+		E0C86EFE2927A44000B0B888 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QRCodeViewController.swift; path = ZenIDWebViewDemo/QRCodeViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C86EFC29279DDD00B0B888 /* LibZenid_iOS.xcframework in Frameworks */,
+				E0C86EF829279DD100B0B888 /* RecogLib_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +82,7 @@
 				E02E794829131210005B9AE2 /* WebSource */,
 				E02E791A2912F7DA005B9AE2 /* ZenIDWebviewDemo */,
 				E02E79192912F7DA005B9AE2 /* Products */,
+				E0C86EF629279DD100B0B888 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,16 +97,39 @@
 		E02E791A2912F7DA005B9AE2 /* ZenIDWebviewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E030DF9E292276F300118A5B /* Extensions */,
+				E030DFAD2922A59900118A5B /* AppFeature.swift */,
 				E02E791B2912F7DA005B9AE2 /* AppDelegate.swift */,
-				E02E791D2912F7DA005B9AE2 /* SceneDelegate.swift */,
+				E030DFA72922864100118A5B /* SceneDelegate.swift */,
+				E030DFA52922820F00118A5B /* AppManager.swift */,
+				E030DFAF2922A5EB00118A5B /* GenericViewController.swift */,
+				E0C86EFE2927A44000B0B888 /* QRCodeViewController.swift */,
 				E02E791F2912F7DA005B9AE2 /* ViewController.swift */,
 				E02E792F29130FA0005B9AE2 /* WebViewOverlay.swift */,
-				E02E79212912F7DA005B9AE2 /* Main.storyboard */,
+				E030DFAB2922A4B500118A5B /* WebViewController.swift */,
+				E030DFB12922A6D900118A5B /* ScreenConfiguration.swift */,
 				E02E79242912F7DB005B9AE2 /* Assets.xcassets */,
 				E02E79262912F7DB005B9AE2 /* LaunchScreen.storyboard */,
 				E02E79292912F7DB005B9AE2 /* Info.plist */,
 			);
 			path = ZenIDWebviewDemo;
+			sourceTree = "<group>";
+		};
+		E030DF9E292276F300118A5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E030DFA92922A35300118A5B /* UIView+Anchor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0C86EF629279DD100B0B888 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0C86EFB29279DDD00B0B888 /* LibZenid_iOS.xcframework */,
+				E0C86EF729279DD100B0B888 /* RecogLib_iOS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +142,7 @@
 				E02E79142912F7DA005B9AE2 /* Sources */,
 				E02E79152912F7DA005B9AE2 /* Frameworks */,
 				E02E79162912F7DA005B9AE2 /* Resources */,
+				E0C86EFA29279DD100B0B888 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,7 +194,6 @@
 				E02E794929131210005B9AE2 /* WebSource in Resources */,
 				E02E79282912F7DB005B9AE2 /* LaunchScreen.storyboard in Resources */,
 				E02E79252912F7DB005B9AE2 /* Assets.xcassets in Resources */,
-				E02E79232912F7DA005B9AE2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,24 +204,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E030DFB02922A5EB00118A5B /* GenericViewController.swift in Sources */,
+				E030DFA82922864100118A5B /* SceneDelegate.swift in Sources */,
+				E0C86EFF2927A44000B0B888 /* QRCodeViewController.swift in Sources */,
+				E030DFAA2922A35300118A5B /* UIView+Anchor.swift in Sources */,
 				E02E79202912F7DA005B9AE2 /* ViewController.swift in Sources */,
+				E030DFB22922A6D900118A5B /* ScreenConfiguration.swift in Sources */,
+				E030DFA62922820F00118A5B /* AppManager.swift in Sources */,
+				E030DFAE2922A59900118A5B /* AppFeature.swift in Sources */,
+				E030DFAC2922A4B500118A5B /* WebViewController.swift in Sources */,
 				E02E791C2912F7DA005B9AE2 /* AppDelegate.swift in Sources */,
 				E02E793029130FA0005B9AE2 /* WebViewOverlay.swift in Sources */,
-				E02E791E2912F7DA005B9AE2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E02E79212912F7DA005B9AE2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E02E79222912F7DA005B9AE2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E02E79262912F7DB005B9AE2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -298,9 +356,12 @@
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZenIDWebviewDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Fotoaparát je používán pro focení dokladů";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -329,9 +390,12 @@
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZenIDWebviewDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Fotoaparát je používán pro focení dokladů";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

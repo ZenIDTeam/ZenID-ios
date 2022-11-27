@@ -6,11 +6,10 @@
 //  Copyright © 2021 Trask, a.s. All rights reserved.
 //
 
+import Common
 import Foundation
 
-
 final class UserDefaultsSelfieSelection {
-    
 }
 
 extension UserDefaultsSelfieSelection: SelfieSelectionLoader {

@@ -1,0 +1,156 @@
+{
+    "welcome": {
+        "descMobile": "Naskenujte QR kód kamerou vašeho mobilního zařízení a vyzkoušejte ZenID na Android nebo iOS.",
+        "buttonMobile": "Více informací",
+        "titleWebDemo": "Web SDK demo",
+        "descWebDemo": "ZenID Web SDK vytváří nejlepší klientský zážitek na trhu.",
+        "buttonWebDemo": "Vyzkoušet Web SDK",
+        "mobile": {
+            "item1": {
+                "title": "Modul OCR",
+                "desc": "Zajišťuje automatický převod informací z osobních dokladů a ověření jejich platnosti, aby s informacemi bylo možné dále pracovat."
+            },
+            "item2": {
+                "title": "Rozeznání obličeje",
+                "desc": "Kontroluje, zda je snímaná osoba shodná s tou ze skenovaného dokladu."
+            },
+            "item3": {
+                "title": "Kontrola živosti",
+                "desc": "Ověřuje, zda je na snímku živá osoba, včetně kontroly, zda věk a pohlaví odpovídají údajům z dokladu."
+            },
+            "submitButton": "Začínáme",
+            "agreement": {
+                "text1": "Kliknutím na ‘Začínáme’ a použitím ZenID aplikace souhlasíte s našimi ",
+                "a1": "podmínkami užívání",
+                "href1": "#",
+                "text2": " a ",
+                "a2": "zásadami soukromí",
+                "href2": "#",
+                "text3": "."
+            }
+        },
+        "agreement": {
+            "text1": "Kliknutím na ‘Vyzkoušet Web SDK’ a použitím ZenID aplikace souhlasíte s našimi ",
+            "a1": "podmínkami užívání",
+            "href1": "#",
+            "text2": " a ",
+            "a2": "zásadami soukromí",
+            "href2": "#",
+            "text3": "."
+        }
+    },
+    "home": {
+        "title": "Zvolte typ dokladu",
+        "desc": "Poslední krok, než budete připraveni vytvořit účet. Vaše informace budou v bezpečí.",
+        "menuItem1": "Občanský průkaz",
+        "menuItem2": "Řidičský průkaz",
+        "menuItem3": "Cestovní pas",
+        "menuItem4": "Obecný dokument",
+        "menuItem5": "Doklad dle filtru",
+        "buttonDemoInPractice": "Zkusit demo v praxi",
+        "titleTrask": "Trask ZenID"
+    },
+    "settings": {
+        "title": "Nastavení",
+        "country": "Země",
+        "selfieVerification": {
+            "title": "Selfie ověření"
+        },
+        "livenessCheckVideo": "Liveness check video",
+        "documents": "Dokumenty",
+        "documentsFilter": {
+            "title": "Filtr dokumentů",
+            "addButton": "Přidat nový",
+            "modal": {
+                "title": "Přidat nový filtr dokumentů",
+                "country": "Země",
+                "role": "Role dokumentu",
+                "page": {
+                    "label": "Strana dokumentu",
+                    "any": "Libovolná strana",
+                    "front": "Přední strana",
+                    "back": "Zadní strana"
+                },
+                "save": "Save",
+                "cancel": "Cancel"
+            },
+            "invalidFilter": {
+                "invalid": {
+                    "title": "Neplatná kombinace",
+                    "desc": "Bohužel nepodporujeme navrhovanou kombinaci."
+                },
+                "duplicit": {
+                    "title": "Filtr již existuje",
+                    "desc": "Vybraný filtr je již v seznamu."
+                },
+                "button": "Dobře"
+            }
+        },
+        "documentsVerifier": {
+            "title": "Validátory kvality",
+            "specularAcceptableScore": "Nastavení pro odlesky",
+            "documentBlurAcceptableScore": "Nastavení pro rozmazanost",
+            "timeToBlurMaxTolerance": "Čas pro maximální toleranci rozmazanosti (sek.)",
+            "readBarcode": "Přečíst čárový kód",
+            "showTimer": "Zobrazit časovač",
+            "enableAimingCircle": "Povolit zaměřovací kruh",
+            "displaySnapNowDelay": "Zobrazit tlačítko vyfotit po (sek.)",
+            "displayHelpModalDelay": "Zobrazit návod po (sek.)"
+        },
+        "colors": {
+            "title": "Barvy",
+            "primaryColor": "Základní barva",
+            "secondaryColor": "Sekundární barva",
+            "contrastColor": "Kontrastní barva"
+        },
+        "darkModeColors": {
+            "title": "Barvy pro dark mód",
+            "primaryColor": "Základní barva",
+            "secondaryColor": "Sekundární barva",
+            "contrastColor": "Kontrastní barva"
+        },
+        "darkMode": "Dark mód",
+        "debugMode": "Mód pro ladění",
+        "havingQuestions": {
+            "label": "Máte otázky?"
+        }
+    },
+    "results": {
+        "success": {
+            "title": "Ahoj, {{ fullName }}",
+            "desc": "Validace proběhla úspěšně.",
+            "document": "Doklad",
+            "numberSign": "č. ",
+            "selfie": "Selfie",
+            "liveness": "Liveness",
+            "backButton": "Přejít na domovskou obrazovku",
+            "submitButton": "Dokončit ověření dokladu"
+        },
+        "warning": {
+            "title": "Kontrola dokumentů",
+            "desc": "Aktuálně kontrolujeme vaše dokumenty s údaji, které jste zadali při registraci. Budete informováni.",
+            "submitButton": "Dokončit"
+        },
+        "error": {
+            "title": "Vaše dokumenty nelze ověřit.",
+            "document": "Ověření dokumentu selhalo",
+            "selfie": "Ověření selfie selhalo",
+            "liveness": "Ověření liveness selhalo",
+            "desc": "Nemůžeme ověřit vaše dokumenty. Zkuste, prosím, proces ověření znovu.",
+            "idDescription": "Prosím, vyfoťe doklad znovu.",
+            "selfieDescription" : "Prosím, vyfoťe selfie znovu.",
+            "livenessDescription" : "Prosím, proveďte liveness znovu.",
+            "submitButton": {
+                "id": "Ověřit Váš doklad",
+                "selfie": "Znovu ověřit Vaše selfie",
+                "liveness": "Znovu ověřit Vaše video",
+                "failed": "Znovu zahájit proces validace"
+            }
+        }
+    },
+    "errorGeneric": {
+        "title": "Server nedostupný",
+        "desc": "Serverová část aplikace je nedostupná. Zkontrolujte Vaše připojení k internetu, zkuste akci opakovat později nebo kontaktujte administrátora aplikace.",
+        "submitButton": "Dokončit"
+    }
+}

@@ -6,20 +6,19 @@
 //  Copyright © 2021 Trask, a.s. All rights reserved.
 //
 
+import Common
 import Foundation
 
-
 final class SelfieSelectionViewModel {
-    
     var onChange: ((FaceMode?) -> Void)?
-    
+
     let items: [SelectionItemViewModel]
-    
+
     private let saver: SelfieSelectionSaver
-    
+
     init(saver: SelfieSelectionSaver) {
         self.saver = saver
-        
+
         items = [
             .init(title: NSLocalizedString("settings-selfie-none", comment: "")),
             .init(title: NSLocalizedString("settings-selfie-match", comment: "")),
@@ -27,7 +26,6 @@ final class SelfieSelectionViewModel {
             .init(title: NSLocalizedString("settings-selfie-liveness-legacy", comment: ""))
         ]
     }
-    
 }
 
 extension SelfieSelectionViewModel: SelectionDelegate {
@@ -41,7 +39,7 @@ extension SelfieSelectionViewModel: SelectionDelegate {
             self?.handleSaveResult(result: result)
         }
     }
-    
+
     private func handleSaveResult(result: SelfieSelectionSaver.Result) {
         switch result {
         case .success:

@@ -6,38 +6,38 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
+import Common
 import Foundation
 import RecogLib_iOS
 
 /// ScanProcess represents the process of scanning a document. It handles the necessary network requests and validates the scanned document images.
 final class ScanProcess {
-    
     /// Queue for thread safe access to requestsToScan array
     private let requestsQueue = DispatchQueue(label: "cz.trask.ZenID.requestsToScan", attributes: .concurrent)
-    
+
     /// Remaining document sides / selfies to scan for the given document. This array changes during the process
     private var requestsToScan: [PhotoType] = []
-    
+
     /// IDs of successfully scanned document pages. These are sent in the final investigate request.
     private var finishedSampleIDs: [String] = []
-    
+
     /// PDF helper for sending general documents in PDF format
     private let pdfHelper = PDFHelper()
-    
+
     /// Document type that the class will process
     let documentType: DocumentType
-    
+
     /// Document country
     let country: Country
-    
+
     /// List of images already taken for uploading in a PDF format
     var pdfImages: [ImageInput] = []
-    
+
     /// Delegate that handles camera requests and UI navigation on behalf of the scan process
     weak var delegate: ScanProcessDelegate?
-    
+
     private var requestsCount: Int
-    
+
     /// Initialize the scan process with a specific document type
     ///
     /// - Parameter documentType: Document type to scan
@@ -52,42 +52,42 @@ final class ScanProcess {
         }
         requestsCount = requestsToScan.count
     }
-    
+
     deinit {
         ApplicationLogger.shared.Verbose("Scan process deinit")
         cleanUpStorage()
     }
-    
+
     /// Starts the process. This method should only be called after the delegate is set
     func start() {
         if nil == delegate {
             ApplicationLogger.shared.Error("Delegate must be set prior to calling startProcess")
             fatalError("Delegate must be set prior to calling startProcess")
         }
-        self.scanNextSample()
+        scanNextSample()
     }
-    
+
     /// Process response to a sample sent to the backend. It uses the `Dispatcher` to validate the result. If the result is not satisfactory, the request to scan is added to the end of `requestsToScan` array
     ///
     /// - Parameters:
     ///   - input: The sample that was sent
     ///   - response: The received response
     private func processSampleResponse(input: ImageInput, response: UploadSampleResponse) {
-        let dispatchResult = self.dispatch(input, response)
+        let dispatchResult = dispatch(input, response)
         switch dispatchResult {
         case .completed(let addSample):
             if let addedSample = addSample {
-                self.delegate?.didReceiveSampleResponse(scanProcess: self, result: .success)
-                self.addSuccessfulSample(addedSample)
+                delegate?.didReceiveSampleResponse(scanProcess: self, result: .success)
+                addSuccessfulSample(addedSample)
             }
         case .rescan(let photoType, let error):
             if let error = error {
-                self.delegate?.didReceiveSampleResponse(scanProcess: self, result: .error(error: error))
+                delegate?.didReceiveSampleResponse(scanProcess: self, result: .error(error: error))
             }
-            self.rescanSample(type: photoType)
+            rescanSample(type: photoType)
         }
     }
-    
+
     /// Add the sample to the end of `requestsToScan` array to be taken again
     ///
     /// - Parameter type: Type of the photo sample to take (ie. front, back or selfie)
@@ -95,9 +95,9 @@ final class ScanProcess {
         requestsQueue.async(flags: .barrier) { [unowned self] in
             self.requestsToScan.append(type)
         }
-        self.scanNextSample()
+        scanNextSample()
     }
-    
+
     /// Scan the next sample in row
     private func scanNextSample() {
         requestsQueue.async(flags: .barrier) { [unowned self] in
@@ -107,18 +107,18 @@ final class ScanProcess {
             }
         }
     }
-    
+
     /// Add an ID of a successfully processed sample to the array of resulting IDs. If enough sample IDs are added in order to represent all the scan requests, the final investigate request is sent to the backend.
     ///
     /// - Parameter sampleID: sample ID
     private func addSuccessfulSample(_ sampleID: String) {
-        self.finishedSampleIDs.append(sampleID)
+        finishedSampleIDs.append(sampleID)
         if isFinished() {
-            self.delegate?.willProcessData(scanProcess: self)
-            self.investigateSamples(self.finishedSampleIDs)
+            delegate?.willProcessData(scanProcess: self)
+            investigateSamples(finishedSampleIDs)
         }
     }
-    
+
     /// Process a document sample photo acquired using the camera
     ///
     /// - Parameters:
@@ -126,7 +126,7 @@ final class ScanProcess {
     ///   - type: photo sample type
     public func processPhoto(imageData: Data, type: PhotoType, result: RecogLib_iOS.UnifiedResult?, dataType: RecogLib_iOS.DataType) {
         checkIfIsFinishedAndCallDelegate()
-        self.scanNextSample()
+        scanNextSample()
         let imageInput = ImageInput(
             imageData: result?.signature?.image ?? imageData,
             documentType: documentType,
@@ -137,34 +137,34 @@ final class ScanProcess {
             signature: result?.signature?.signature,
             dataType: dataType
         )
-        if self.documentType == .otherDocument {
+        if documentType == .otherDocument {
             // in case of other documents we are uploading only the whole file in completion of this controller
-            self.pdfImages.append(imageInput)
-            self.pdfHelper.createPDF(from: imageData)
+            pdfImages.append(imageInput)
+            pdfHelper.createPDF(from: imageData)
         } else {
-            self.uploadSample(imageInput)
+            uploadSample(imageInput)
         }
     }
-    
+
     private func checkIfIsFinishedAndCallDelegate() {
         if isScanningFinished() {
             delegate?.didFinishAndWaiting(scanProcess: self)
         }
     }
-    
+
     private func isScanningFinished() -> Bool {
         requestsToScan.isEmpty
     }
-    
+
     private func isFinished() -> Bool {
         finishedSampleIDs.count >= requestsCount
     }
-    
+
     /// Upload general document PDF after all the samples have been taken
     public func uploadPhotosPDF() {
-        self.proceedPDFUpload()
+        proceedPDFUpload()
     }
-    
+
     /// Delete the temporary PDF files
     public func cleanUpStorage() {
         pdfHelper.cleanup()
@@ -183,16 +183,16 @@ private extension ScanProcess {
     func dispatch(_ image: ImageInput, _ response: UploadSampleResponse) -> DispatchResult {
         return Dispatcher().dispatch(image: image, response: response)
     }
-    
+
     /// Upload photo sample to the backend
     ///
     /// - Parameter image: Uploaded image data and info
     func uploadSample(_ image: ImageInput) {
-        if self.finishedSampleIDs.count + 1 >= self.requestsCount {
-            self.delegate?.willProcessData(scanProcess: self)
+        if finishedSampleIDs.count + 1 >= requestsCount {
+            delegate?.willProcessData(scanProcess: self)
         }
         Client()
-            .upload(API.uploadSample(image: image)) { [weak self] (response, error) in
+            .upload(API.uploadSample(image: image)) { [weak self] response, error in
                 guard let self = self else { return }
                 if let response = response {
                     self.processSampleResponse(input: image, response: response)
@@ -200,33 +200,31 @@ private extension ScanProcess {
                 if let error = error {
                     self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .error(error: error))
                 }
-        }
+            }
     }
-    
+
     /// Send the investigate request to the backend after required number of samples have been successfully processed. The IDs are received from backend when each sample is processed.
     ///
     /// - Parameter sampleIds: Array of the processed sample IDs.
     func investigateSamples(_ sampleIds: [String]) {
         Client()
-            .request(API.investigateSamples(sampleIds: sampleIds)) { [weak self] (response, error) in
+            .request(API.investigateSamples(sampleIds: sampleIds)) { [weak self] response, error in
                 guard let self = self else { return }
                 if let response = response {
                     if let errorCode = response.ErrorCode {
                         self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .error(error: errorCode))
-                    }
-                    else {
+                    } else {
                         self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .success(data: response, type: self.documentType))
                     }
                     return
                 }
                 if let error = error {
                     self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .error(error: error))
-                }
-                else {
+                } else {
                     // This is an unexpected error, probably there's something wrong on the backend, ie. the model has changed and decoding doesn't work anymore
                     self.delegate?.didReceiveInvestigateResponse(scanProcess: self, result: .error(error: InvestigateResponseError.invalidServerResponse))
                 }
-        }
+            }
     }
 
     /// Upload the general document PDF to the backend
@@ -234,10 +232,10 @@ private extension ScanProcess {
     /// - Parameter fileUrl: Local PDF file URL
     func uploadPdf(_ fileUrl: URL) {
         guard let data = try? Data(contentsOf: fileUrl) else {
-            self.delegate?.didUploadPDF(scanProcess: self, result: .error(error: .networkError))
+            delegate?.didUploadPDF(scanProcess: self, result: .error(error: .networkError))
             return
         }
-        Client().upload(API.uploadPDF(data: data)) { [weak self] (response, error) in
+        Client().upload(API.uploadPDF(data: data)) { [weak self] response, error in
             guard let self = self else { return }
             self.pdfHelper.cleanup()
             if let _ = response {
@@ -251,8 +249,8 @@ private extension ScanProcess {
 
     /// Called when the required pages of the PDF file have been scanned in order to finish and close the PDF file and upload it to the backend.
     func proceedPDFUpload() {
-        self.delegate?.willProcessData(scanProcess: self)
-        self.pdfHelper.merge()
-        self.uploadPdf(URL(fileURLWithPath: self.pdfHelper.finalFilePath))
+        delegate?.willProcessData(scanProcess: self)
+        pdfHelper.merge()
+        uploadPdf(URL(fileURLWithPath: pdfHelper.finalFilePath))
     }
 }
