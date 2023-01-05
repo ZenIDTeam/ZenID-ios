@@ -159,6 +159,7 @@ enum class DocumentCodes : int32_t {
 	LU_IDC_2008_13_A2 = 151,
 	NL_IDC_2014_17_21_A2 = 152,
 	CZ_BIRTH_A4 = 153,
+	SK_IDC_2022 = 154,
 };
 
 enum class PageCodes : uint8_t {

@@ -189,6 +189,7 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case LU_IDC_2008_13_A2
   case NL_IDC_2014_17_21_A2
   case CZ_BIRTH_A4
+  case SK_IDC_2022
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int

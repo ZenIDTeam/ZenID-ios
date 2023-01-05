@@ -1,8 +1,9 @@
 # Change Log
 
-# 2.0.15 2023-01-05
-* RecogLib 2.12.2
+# 2.0.15 2023-01-07
+* RecogLib 2.12.3
 * Fix bug that could cause issues in tracking especially with Birth Certificates.
+* New: Support for Slovak ID cards v2022 TRASKZENIDPV-749
 
 # 2.0.14 2022-11-28
 * RecogLib 2.11.3
