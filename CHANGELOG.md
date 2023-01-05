@@ -1,13 +1,19 @@
 # Change Log
 
+# 2.0.14 2022-11-28
+* RecogLib 2.11.3
+* Fix issue with Birth Certificate tracking. TRASKZENIDPV-588
+* FPS and resolution width of selfie video and document video can be changed in Settings and the values are exposed to SDK. TRASKZENIDPV-468
+* Important: The default value of parameter *drawOutline* in DocumentVerifierSettings changed from *false* to *true*
+
 ## 2.0.13 2022-11-07
-* Updated LibZenid 2.11.1
+* RecogLib 2.11.1
 * New: Support for Slovak residency permits v2011. TRASKZENIDPV-388
 * New: Support for Lithuanian ID cards (v2021). TRASKZENIDPV-461
 * Fixed hologram check getting stuck in the "align card" step.
 
 ## 2.0.12 2022-10-25
-* Updated LibZenid 2.10.4
+* RecogLib 2.10.4
 * Improved tracking and classification of documents.
 * Added the modelhashes.bin model, used for all countries for documents and holograms.
 * Added RO_IDC_2021sep in DocumentCodes enum.

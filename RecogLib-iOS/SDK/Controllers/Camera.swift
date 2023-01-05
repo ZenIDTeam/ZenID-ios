@@ -1,5 +1,5 @@
-import Foundation
 import AVFoundation
+import Foundation
 import UIKit
 
 struct CameraConfiguration {
@@ -27,34 +27,36 @@ protocol CameraDelegate: AnyObject {
 public final class Camera: NSObject {
     weak var delegate: CameraDelegate?
     private(set) var previewLayer: AVCaptureVideoPreviewLayer?
-    
+
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevice: AVCaptureDevice?
     private let captureSession = AVCaptureSession()
     private var cameraPhotoOutput: AVCapturePhotoOutput!
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
-    
+
     private var takePictureCompletion: ((Swift.Result<Data, Swift.Error>) -> Void)?
-    
-    public override init() {
+
+    override public init() {
         super.init()
     }
-    
+
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
         let deviceDescoverySession = AVCaptureDevice.DiscoverySession(
             deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: captureDevicePosition
         )
         captureDevice = deviceDescoverySession.devices.first
-        
+
         guard let device = captureDevice, setupCameraSession(device) else {
             throw CameraError.notInitialized
         }
         if previewLayer == nil {
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         }
+
+        captureSession.sessionPreset = .high
     }
-    
+
     func start() {
         if captureSession.isRunning {
             return
@@ -63,7 +65,7 @@ public final class Camera: NSObject {
             self?.captureSession.startRunning()
         }
     }
-    
+
     func stop() {
         try? setTorch(isOn: false)
         if !captureSession.isRunning {
@@ -73,7 +75,7 @@ public final class Camera: NSObject {
             self?.captureSession.stopRunning()
         }
     }
-    
+
     func takePicture(completion: @escaping (Swift.Result<Data, Swift.Error>) -> Void) {
         guard captureDevice != nil else {
             completion(.failure(CameraError.notInitialized))
@@ -86,7 +88,7 @@ public final class Camera: NSObject {
         takePictureCompletion = completion
         cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
-    
+
     func setOrientation(orientation: UIDeviceOrientation) {
         let isTorchOn = captureDevice?.torchMode == .on
         switch UIDevice.current.orientation {
@@ -100,27 +102,27 @@ public final class Camera: NSObject {
             previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
         default: break
         }
-        
+
         if #available(iOS 13.0, *) {
             for connection in captureSession.connections {
                 connection.videoOrientation = previewLayer?.connection?.videoOrientation ?? .portrait
             }
         }
-        
+
         DispatchQueue.main.async { [weak self] in
             if isTorchOn {
                 try? self?.setTorch(isOn: true)
             }
         }
     }
-    
+
     func setTorch(isOn: Bool) throws {
         guard let device = captureDevice, device.hasTorch else { return }
         guard isOn || device.torchMode != .off else { return }
-        
+
         let torchMode: AVCaptureDevice.TorchMode = isOn ? .on : .off
         guard device.torchMode != torchMode else { return }
-        
+
         if device.hasTorch {
             do {
                 try device.lockForConfiguration()
@@ -138,6 +140,18 @@ public final class Camera: NSObject {
         }
         let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
         return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
+    }
+
+    func getFormatResolution(_ format: AVCaptureDevice.Format) -> CGSize {
+        var resolution = CGSize(width: 0, height: 0)
+        let portraitOrientation = (UIScreen.main.bounds.height > UIScreen.main.bounds.width)
+        let dimensions = CMVideoFormatDescriptionGetDimensions(format.formatDescription)
+        resolution = CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
+
+        if !portraitOrientation {
+            resolution = CGSize(width: resolution.height, height: resolution.width)
+        }
+        return resolution
     }
 }
 
@@ -163,11 +177,11 @@ private extension Camera {
         guard let input = try? AVCaptureDeviceInput(device: device) else {
             return false
         }
-        
+
         previewLayer?.videoGravity = Defaults.videoGravity
-        
+
         captureSession.beginConfiguration()
-        
+
         if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
             for input in inputs {
                 captureSession.removeInput(input)
@@ -176,13 +190,13 @@ private extension Camera {
         for output in captureSession.outputs {
             captureSession.removeOutput(output)
         }
-        
+
         cameraPhotoOutput = AVCapturePhotoOutput()
         cameraVideoOutput = AVCaptureVideoDataOutput()
-        
+
         captureSession.addInput(input)
         captureSession.addOutput(cameraPhotoOutput)
-        cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA] as [String : Any]
+        cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_32BGRA] as [String: Any]
         cameraVideoOutput.setSampleBufferDelegate(self, queue: cameraCaptureQueue)
         captureSession.addOutput(cameraVideoOutput)
 

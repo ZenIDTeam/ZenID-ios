@@ -6,11 +6,15 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
-import UIKit
 import AVFoundation
 import MessageUI
-import RecogLib_iOS
 import os
+import RecogLib_iOS
+import UIKit
+
+#if DEBUG
+    import Photos
+#endif
 
 final class ChoiceViewController: UIViewController {
     private let countryButton = Buttons.country
@@ -25,10 +29,9 @@ final class ChoiceViewController: UIViewController {
     private let webViewButton = Buttons.webView
     private let pureVerifierButton = Buttons.pureVerifier
 
-    
     private let documentsValidator: DocumentsFilterValidator = DocumentsFilterValidatorComposer.compose()
     private var settingsCoordinator: SettingsCoordinator?
-    
+
     private lazy var documentButtons = [
         idButton,
         drivingLicenceButton,
@@ -36,28 +39,28 @@ final class ChoiceViewController: UIViewController {
 //        otherDocumentButton,
         documentsFilterButton,
         hologramButton,
-        //faceButton,
+        // faceButton,
         logsButton,
         webViewButton,
         pureVerifierButton
     ]
-    
+
     private var selectedCountry: Country {
         get { return Defaults.selectedCountry }
         set { Defaults.selectedCountry = newValue }
     }
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var scrollContentView: UIView!
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var titleLabel: UILabel!
-    
+
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var scrollContentView: UIView!
+    @IBOutlet var stackView: UIStackView!
+    @IBOutlet var titleLabel: UILabel!
+
     private lazy var toastView: ToastView = {
         let toastView = ToastView()
         toastView.toastLabel.text = "title-success".localized
         return toastView
     }()
-    
+
     private func configureTitleLabel(label: UILabel) {
         label.font = .title
         label.text = "title-select".localized
@@ -67,7 +70,7 @@ final class ChoiceViewController: UIViewController {
         label.textAlignment = .center
         label.textColor = .zenTextLight
     }
-    
+
     private let cachedCameraViewController = CameraViewController(photoType: .front, documentType: .idCard, faceMode: .faceLiveness, dataType: .picture)
     private var scanProcess: ScanProcess?
 
@@ -80,27 +83,27 @@ final class ChoiceViewController: UIViewController {
         if Defaults.firstRun {
             navigationController?.pushViewController(WalkthroughViewController(), animated: false)
         }
-        
+
         navigationItem.title = NSLocalizedString("app_name", comment: "")
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ensureCredentials()
         AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
     }
-    
+
     private func setupView() {
         // Logout button
-        //view.addSubview(logoutButton)
-        //logoutButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 30)
-        
+        // view.addSubview(logoutButton)
+        // logoutButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 30)
+
         // Title view
-        //view.addSubview(titleLabel)
-        //titleLabel.anchor(top: contactButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingLeft: 30, paddingRight: 30)
-        //titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        //titleLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
-        
+        // view.addSubview(titleLabel)
+        // titleLabel.anchor(top: contactButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingLeft: 30, paddingRight: 30)
+        // titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        // titleLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
+
         configureTitleLabel(label: titleLabel)
         setupStackView()
         stackView.addArrangedSubview(countryButton)
@@ -111,26 +114,26 @@ final class ChoiceViewController: UIViewController {
         updateCountryButton()
 
         // Toast view
-        //view.addSubview(toastView)
-        //toastView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor)
-        
+        // view.addSubview(toastView)
+        // toastView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor)
+
         cachedCameraViewController.delegate = self
-        
+
         setupScrollView()
         setupNavigationBar()
     }
-    
+
     private func setupScrollView() {
         scrollContentView.backgroundColor = .clear
     }
-    
+
     private func setupStackView() {
         stackView.backgroundColor = .clear
         stackView.distribution = .fill
         stackView.axis = .vertical
         stackView.spacing = 15.0
     }
-    
+
     private func setupNavigationBar() {
         let settingsBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .organize,
@@ -139,7 +142,7 @@ final class ChoiceViewController: UIViewController {
         )
         navigationItem.rightBarButtonItem = settingsBarButtonItem
     }
-    
+
     @objc
     private func settingsBarButtonPressed() {
         ensureCredentials { [weak self] in
@@ -148,20 +151,20 @@ final class ChoiceViewController: UIViewController {
             self.present(self.settingsCoordinator!.start(), animated: true, completion: nil)
         }
     }
-    
+
     private func setupTargets() {
         countryButton.addTarget(self, action: #selector(selectCountryAction(sender:)), for: .touchUpInside)
         documentButtons.forEach {
             $0.addTarget(self, action: #selector(selectAction(sender:)), for: .touchUpInside)
         }
     }
-    
+
     private func updateCountryButton() {
         let title = "btn-country".localized.uppercased()
         let country = selectedCountry.description.uppercased()
         countryButton.setTitle("\(title): \(country)", for: .normal)
     }
-    
+
     @objc private func selectCountryAction(sender: UIButton) {
         let popup = UIViewController()
         let countryView = SelectCountryView()
@@ -172,18 +175,18 @@ final class ChoiceViewController: UIViewController {
         popup.modalPresentationStyle = .overCurrentContext
         popup.modalTransitionStyle = .crossDissolve
         popup.definesPresentationContext = true
-        
+
         present(popup, animated: true, completion: nil)
-                
+
         countryView.completion = { [weak self] country in
             self?.selectedCountry = country
             self?.updateCountryButton()
             popup.dismiss(animated: true, completion: nil)
         }
     }
-    
+
     @objc private func selectAction(sender: UIButton) {
-        //cachedCameraViewController.removeWebViewOverlay()
+        // cachedCameraViewController.removeWebViewOverlay()
         ensureCredentials { [unowned self] in
             Haptics.shared.select()
             switch sender {
@@ -206,7 +209,7 @@ final class ChoiceViewController: UIViewController {
                 self.startProcess(.filter)
             case self.webViewButton:
                 startProcess(.idCard)
-                //cachedCameraViewController.addWebViewOverlay()
+            // cachedCameraViewController.addWebViewOverlay()
             case self.pureVerifierButton:
                 let vc = PureVerifierViewController()
                 navigationController?.pushViewController(vc, animated: true)
@@ -215,7 +218,7 @@ final class ChoiceViewController: UIViewController {
             }
         }
     }
-    
+
     private func startProcess(_ documentType: DocumentType, dataType: DataType = .picture) {
         if validateInput(documentType) {
             scanProcess = createScanProcess(documentType: documentType, country: selectedCountry)
@@ -228,27 +231,27 @@ final class ChoiceViewController: UIViewController {
             )
         }
     }
-    
+
     private func validateInput(_ documentType: DocumentType) -> Bool {
         let document = Document(
             role: RecoglibMapper.documentRole(from: documentType, role: nil),
             country: selectedCountry,
             page: nil, code: nil
         )
-       return documentsValidator.validate(input: .init(documents: [document]))
+        return documentsValidator.validate(input: .init(documents: [document]))
     }
-    
+
     private func restartProcess(currentScanProcess: ScanProcess) {
         currentScanProcess.delegate = nil
-        self.scanProcess = nil
-        self.scanProcess = createScanProcess(
+        scanProcess = nil
+        scanProcess = createScanProcess(
             documentType: currentScanProcess.documentType,
             country: currentScanProcess.country
         )
-        self.scanProcess!.delegate = self
-        self.scanProcess!.start()
+        scanProcess!.delegate = self
+        scanProcess!.start()
     }
-    
+
     private func createScanProcess(documentType: DocumentType, country: Country) -> ScanProcess {
         .init(
             documentType: documentType,
@@ -256,13 +259,13 @@ final class ChoiceViewController: UIViewController {
             selfieSelectionLoader: SelfieSelectionLoaderComposer.compose()
         )
     }
-    
+
     private func shareLogFile() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard let filePath = ZenIDLogger.shared.getLogArchivePath() else { return }
             guard Foundation.FileManager.default.fileExists(atPath: filePath) else { return }
-            
+
             let fileURL = NSURL(fileURLWithPath: filePath)
             var filesToShare = [Any]()
             filesToShare.append(fileURL)
@@ -280,37 +283,44 @@ final class ChoiceViewController: UIViewController {
     fileprivate func showSuccess() {
         toastView.show()
     }
-    
+
     fileprivate func showError(documentType: DocumentType, message: String) {
         let errorViewController = ErrorViewController()
         errorViewController.topTitle = documentType.title
         errorViewController.messageLabel.text = message
         errorViewController.documentType = documentType
-        self.navigationController?.setViewControllers([self, errorViewController], animated: true)
+        navigationController?.setViewControllers([self, errorViewController], animated: true)
     }
 }
 
 extension ChoiceViewController: CameraViewControllerDelegate {
     func didTakePhoto(_ imageData: Data?, type: PhotoType, result: UnifiedResult?) {
         if let data = imageData {
+            #if DEBUG
+                saveDocumentToAlbum(data)
+            #endif
             scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .picture)
         }
     }
-    
+
     func didTakeVideo(_ videoURL: URL?, type: PhotoType) {
         if let url = videoURL {
+            #if DEBUG
+                saveVideoToAlbum(url)
+            #endif
             if let data = try? Data(contentsOf: url) {
-                scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
+                //scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
             }
         }
     }
-    
+
     func didFinishPDF() {
         scanProcess?.uploadPhotosPDF()
     }
 }
 
-//MARK: - Credentials
+// MARK: - Credentials
+
 extension ChoiceViewController {
     private func ensureCredentials(completion: (() -> Void)? = nil) {
         if Credentials.shared.isValid() {
@@ -323,7 +333,7 @@ extension ChoiceViewController {
             }
             return
         }
-        
+
         let qrScannerController = QrScannerController()
         qrScannerController.delegate = self
         qrScannerController.successCompletion = completion
@@ -332,18 +342,18 @@ extension ChoiceViewController {
         } else {
             qrScannerController.modalPresentationStyle = .fullScreen
         }
-        self.present(qrScannerController, animated: false)
+        present(qrScannerController, animated: false)
     }
-    
+
     private func zenidAuthorize(completion: @escaping ((Bool) -> Void)) {
         let isAuthorized = ZenidSecurity.isAuthorized()
         ApplicationLogger.shared.Verbose("ZenidSecurity: isAuthorized: \(String(isAuthorized))")
-        
+
         if isAuthorized {
             completion(true)
             return
         }
-        
+
         let errorMessage: (() -> Void) = { [weak self] in
             DispatchQueue.main.async { [weak self] in
                 self?.alert(title: "title-error".localized, message: "alert-authorization-failed".localized)
@@ -351,7 +361,7 @@ extension ChoiceViewController {
         }
         if let challengeToken = ZenidSecurity.getChallengeToken() {
             Client()
-                .request(API.initSdk(token: challengeToken)) { (response, error) in
+                .request(API.initSdk(token: challengeToken)) { response, _ in
                     if let response = response, let responseToken = response.Response {
                         let authorize = ZenidSecurity.authorize(responseToken: responseToken)
                         ApplicationLogger.shared.Verbose("ZenidSecurity: authorize: \(String(authorize))")
@@ -374,13 +384,15 @@ extension ChoiceViewController {
     }
 }
 
-//MARK: - Scan process delegate
+// MARK: - Scan process delegate
+
 extension ChoiceViewController: ScanProcessDelegate {
     func willTakePhoto(scanProcess: ScanProcess, photoType: PhotoType) {
         DispatchQueue.main.async { [weak self] in
             do {
                 let documents = try DocumentsFilterLoaderComposer.compose().load()
                 let settings = try DocumentVerifierSettingsLoaderComposer.compose().load()
+                let livenessSettings = try LivenessVerifierSettingsLoaderComposer.compose().load()
                 let faceMode = try SelfieSelectionLoaderComposer.compose().load()
                 guard let self = self else { return }
                 self.cachedCameraViewController.configureController(
@@ -390,13 +402,14 @@ extension ChoiceViewController: ScanProcessDelegate {
                     faceMode: faceMode,
                     documents: documents,
                     documentSettings: settings,
+                    facelivenessSettings: livenessSettings,
                     config: ConfigServiceComposer.compose().load()
                 )
             } catch {
                 debugPrint(error)
             }
         }
-                
+
         DispatchQueue.main.async { [unowned self] in
             guard self.navigationController?.topViewController != self.cachedCameraViewController else { return }
 
@@ -407,18 +420,18 @@ extension ChoiceViewController: ScanProcessDelegate {
             }
         }
     }
-    
+
     func willProcessData(scanProcess: ScanProcess) {
         DispatchQueue.main.async { [unowned self] in
             guard !self.isBusyViewControllerPresented() else { return }
             showBusyViewController(title: scanProcess.documentType.title)
         }
     }
-    
+
     private func isBusyViewControllerPresented() -> Bool {
         navigationController?.topViewController is BusyViewController
     }
-    
+
     func didUploadPDF(scanProcess: ScanProcess, result: SampleResult) {
         // The result is always considered successful ATM
         DispatchQueue.main.async { [unowned self] in
@@ -426,7 +439,7 @@ extension ChoiceViewController: ScanProcessDelegate {
             self.showSuccess()
         }
     }
-    
+
     func didReceiveSampleResponse(scanProcess: ScanProcess, result: SampleResult) {
         switch result {
         case .error(error: let error):
@@ -447,13 +460,13 @@ extension ChoiceViewController: ScanProcessDelegate {
             }
         }
     }
-    
+
     func didReceiveInvestigateResponse(scanProcess: ScanProcess, result: ScanProcessResult) {
         DispatchQueue.main.async { [unowned self] in
             switch result {
             case .error(error: _):
                 self.popToCameraViewController()
-                self.showError(documentType: scanProcess.documentType, message:"msg-network-error".localized)
+                self.showError(documentType: scanProcess.documentType, message: "msg-network-error".localized)
             case .success(let data, let type):
                 if type == .filter {
                     self.navigationController?.popToRootViewController(animated: true)
@@ -463,21 +476,21 @@ extension ChoiceViewController: ScanProcessDelegate {
             }
         }
     }
-    
+
     private func popToCameraViewController() {
         let cameraViewController = navigationController?.viewControllers.first(where: { $0 is CameraViewController })
         if let cameraVC = cameraViewController {
             navigationController?.popToViewController(cameraVC, animated: true)
         }
     }
-    
+
     func didFinishAndWaiting(scanProcess: ScanProcess) {
         if isBusyViewControllerPresented() {
             return
         }
         showBusyViewController(title: scanProcess.documentType.title)
     }
-    
+
     private func showBusyViewController(title: String) {
         let busyViewController = BusyViewController()
         busyViewController.title = title
@@ -485,7 +498,8 @@ extension ChoiceViewController: ScanProcessDelegate {
     }
 }
 
-//MARK: - Qr scanner delegate
+// MARK: - Qr scanner delegate
+
 extension ChoiceViewController: QrScannerControllerDelegate {
     func qrSuccess(_ controller: UIViewController, scanDidComplete result: String, completion: (() -> Void)?) {
         if let qr = CredentialsQrCode(value: result), qr.isValid {
@@ -503,10 +517,57 @@ extension ChoiceViewController: QrScannerControllerDelegate {
             ApplicationLogger.shared.Verbose("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
         }
     }
-    
+
     func qrFail(_ controller: UIViewController, error: String) {
     }
-    
+
     func qrCancel(_ controller: UIViewController) {
     }
 }
+
+#if DEBUG
+    private func resolutionForLocalVideo(url: URL) -> CGSize {
+        guard let track = AVURLAsset(url: url).tracks(withMediaType: AVMediaType.video).first else { return .zero }
+        let size = track.naturalSize.applying(track.preferredTransform)
+        return CGSize(width: abs(size.width), height: abs(size.height))
+    }
+
+    func requestAuthorization(completion: @escaping () -> Void) {
+        if PHPhotoLibrary.authorizationStatus() == .notDetermined {
+            PHPhotoLibrary.requestAuthorization { _ in
+                DispatchQueue.main.async {
+                    completion()
+                }
+            }
+        } else if PHPhotoLibrary.authorizationStatus() == .authorized {
+            completion()
+        }
+    }
+
+    func saveVideoToAlbum(_ outputURL: URL) {
+        let size = resolutionForLocalVideo(url: outputURL)
+        print("VIDEO RESOLUTION: 🛠 \(size)")
+
+        requestAuthorization {
+            PHPhotoLibrary.shared().performChanges({
+                let request = PHAssetCreationRequest.forAsset()
+                request.addResource(with: .video, fileURL: outputURL, options: nil)
+            }) { _, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        print("Saved successfully")
+                    }
+                }
+            }
+        }
+    }
+
+    func saveDocumentToAlbum(_ imageData: Data) {
+        requestAuthorization {
+            guard let image = UIImage(data: imageData) else { return }
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+    }
+#endif

@@ -146,3 +146,23 @@ char* getFaceLivenessStepParameters(const void *object)
     std::string stepParametersJson = verifier->GetStepParametersJson();
     return getString(stepParametersJson);
 }
+
+int getFaceLivenessRequiredFps(const void *object)
+{
+    FaceLivenessVerifier *verifier =(FaceLivenessVerifier *)object;
+    std::optional<int> fps = verifier->GetRequiredVideoFps();
+    if (fps) {
+        return fps.value();
+    }
+    return 30;
+}
+
+int getFaceLivenessRequiredVideoResolution(const void *object)
+{
+    FaceLivenessVerifier *verifier =(FaceLivenessVerifier *)object;
+    std::optional<int> resolution = verifier->GetRequiredVideoResolution();
+    if (resolution) {
+        return  resolution.value();
+    }
+    return 0;
+}

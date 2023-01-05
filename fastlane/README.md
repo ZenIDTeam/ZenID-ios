@@ -29,7 +29,7 @@ Push a new beta build to TestFlight
 [bundle exec] fastlane ios firebase
 ```
 
-
+Upload testing build to firebase App Distribution
 
 ----
 

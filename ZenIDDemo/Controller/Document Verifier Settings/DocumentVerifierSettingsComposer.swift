@@ -12,10 +12,11 @@ import UIKit
 final class DocumentVerifierSettingsComposer {
     
     static func compose(loader: DocumentVerifierSettingsLoader, updater: DocumentVerifierSettingsUpdater) -> DocumentVerifierSettingsViewController {
-        let viewController = UIStoryboard(name: "DocumentVerifierSettings", bundle: nil).instantiateViewController(withIdentifier: "DocumentVerifierSettingsViewController") as! DocumentVerifierSettingsViewController
+        //let viewController = UIStoryboard(name: "DocumentVerifierSettings", bundle: nil).instantiateViewController(withIdentifier: "DocumentVerifierSettingsViewController") as! DocumentVerifierSettingsViewController
+        let viewController = DocumentVerifierSettingsViewController()
         viewController.viewModel = resolve(loader: loader, updater: updater)
         viewController.viewModel.onUpdate = { [weak viewController] items in
-            viewController?.contentView.tableView.sections = [
+            viewController?.tableView.sections = [
                 .init(
                     title: nil,
                     cells: items.map({ map($0) })
@@ -32,9 +33,9 @@ final class DocumentVerifierSettingsComposer {
     private static func map(_ type: DocumentVerifierSettingsType) -> TableCellController {
         switch type {
         case .interval(let viewModel):
-            return DocumentVerifierSettingsCellController(viewModel: viewModel)
+            return SettingsCellController(viewModel: viewModel)
         case .switch(let viewModel):
-            return DocumentVerifierSettingsSwitchCellController(viewModel: viewModel)
+            return SettingsSwitchCellController(viewModel: viewModel)
         }
     }
     

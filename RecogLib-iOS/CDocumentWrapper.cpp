@@ -4,6 +4,7 @@
 #include <CoreMedia/CoreMedia.h>
 #include <string>
 #include <memory>
+#include <optional>
 
 using namespace RecogLibC;
 
@@ -227,3 +228,22 @@ void setDocumentDebugInfo(const void *object,
     verifier->SetDebugVisualization(show);
 }
 
+int getDocumentRequiredFps(const void *object)
+{
+    DocumentVerifier *verifier =(DocumentVerifier *)object;
+    std::optional<int> fps = verifier->GetRequiredVideoFps();
+    if (fps) {
+        return fps.value();
+    }
+    return 30;
+}
+
+int getDocumentRequiredVideoResolution(const void *object)
+{
+    DocumentVerifier *verifier =(DocumentVerifier *)object;
+    std::optional<int> resolution = verifier->GetRequiredVideoResolution();
+    if (resolution) {
+        return  resolution.value();
+    }
+    return 0;
+}

@@ -21,3 +21,11 @@ ZipArchive*/**
 
 # bcsymbolmap files
 *.bcsymbolmap
+vendor
+.bundle
+fastlane/report.xml
+.firebase-service-account.json
+
+# archives
+ZenIDDemo_*
+ZenID.xcworkspace/xcshareddata

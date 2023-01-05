@@ -98,6 +98,9 @@ public:
 	std::optional<DocumentRole> GetDocumentRole() const;
 	// Empty if the state is NoMatchFound
 	std::optional<Country> GetCountry() const;
+
+	std::optional<int> GetRequiredVideoFps() const;
+	std::optional<int> GetRequiredVideoResolution() const;
 	
 	// Only valid if the state is OK.
 	const std::string& GetSignature() const;

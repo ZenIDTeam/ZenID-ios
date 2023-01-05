@@ -100,12 +100,17 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         config = configuration
         
         view.topLabel.text = config.page == .Back ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
-        
+
+        // Enrico: For documents, we should leave the resolution and fps fields blanks until we have test results.
+        // verifier.getRequiredResolution(), verifier.getRequiredFPS()
+
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showHelperVisualisation,
             dataType: configuration.dataType,
-            cameraType: .back
+            cameraType: .back,
+            requestedResolution: 0,
+            requestedFPS: 0
         )
         
         resetDocumentVerifier()

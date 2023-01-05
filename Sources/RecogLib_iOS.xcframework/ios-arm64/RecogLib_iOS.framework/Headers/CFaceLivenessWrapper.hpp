@@ -31,6 +31,8 @@ struct CFaceLivenessVerifierSettings {
     bool enableLegacyMode;
     int maxAuxiliaryImageSize;
     int visualizerVersion;
+    int fps;
+    int resolutionWidth;
 };
 
 typedef struct CFaceLivenessVerifierSettings CFaceLivenessVerifierSettings;
@@ -53,6 +55,10 @@ void faceLivenessVerifierReset(const void *object);
 // Visualisation
 char* getFaceLivenessRenderCommands(const void *object, int canvasWidth, int canvasHeight, CFaceLivenessInfo *faceDetector);
 void setFaceLivenessDebugInfo(const void *object, bool show);
+
+// Video settings
+int getFaceLivenessRequiredFps(const void *object);
+int getFaceLivenessRequiredVideoResolution(const void *object);
 
 #ifdef __cplusplus
 }

@@ -19,6 +19,16 @@ final class GroupedTableView: UITableView {
         }
     }
     
+    init() {
+        super.init(frame: .zero, style: .plain)
+        setup()
+        registerCells()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -33,6 +43,8 @@ final class GroupedTableView: UITableView {
     private func registerCells() {
         register(UITableViewCell.self, forCellReuseIdentifier: Self.cellIdentifier)
         register(UINib(nibName: SwitchTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SwitchTableViewCell.reuseIdentifier)
+        register(IntervalTableViewCell.self, forCellReuseIdentifier: String(describing: IntervalTableViewCell.self))
+        register(SwitchSettingsTableViewCell.self, forCellReuseIdentifier: String(describing: SwitchSettingsTableViewCell.self))
     }
     
 }

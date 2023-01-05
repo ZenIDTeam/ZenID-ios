@@ -17,21 +17,21 @@ public struct FacelivenessControllerConfiguration {
         showHelperVisualisation: true,
         showDebugVisualisation: false,
         dataType: .picture,
-        isLegacy: false
+        settings: FaceLivenessVerifierSettings()
     )
     
     public let showVisualisation: Bool
     public let showHelperVisualisation: Bool
     public let showDebugVisualisation: Bool
     public let dataType: DataType
-    public let isLegacy: Bool
+    public let settings: FaceLivenessVerifierSettings
     
-    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, isLegacy: Bool) {
+    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, settings: FaceLivenessVerifierSettings) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
         self.dataType = dataType
-        self.isLegacy = isLegacy
+        self.settings = settings
     }
 }
 
@@ -71,10 +71,12 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showHelperVisualisation,
             dataType: configuration.dataType,
-            cameraType: .front
+            cameraType: .front,
+            requestedResolution: verifier.getRequiredResolution(),
+            requestedFPS: verifier.getRequiredFPS()
         )
         
-        verifier.update(settings: .init(isLegacyModeEnabled: configuration.isLegacy))
+        verifier.update(settings: configuration.settings)
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)

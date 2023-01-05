@@ -19,11 +19,11 @@ public struct FaceLivenessAuxiliaryMetadata: Decodable {
         case date = "unixEpoch"
         case angle = "parameter"
     }
-    
+
     public let type: FaceLivenessCheckType
     public let date: Date
     public let angle: FaceLivenessAngle?
-    
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         type = try container.decode(FaceLivenessCheckType.self, forKey: .type)

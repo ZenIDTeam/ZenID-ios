@@ -6,8 +6,8 @@
 //  Copyright © 2019 Trask, a.s. All rights reserved.
 //
 
-import UIKit
 import RecogLib_iOS
+import UIKit
 
 struct AppUtility {
     static func lockOrientation(_ orientation: UIInterfaceOrientationMask) {
@@ -15,7 +15,7 @@ struct AppUtility {
             delegate.orientationLock = orientation
         }
     }
-    
+
     static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation: UIDeviceOrientation) {
         let rotation: UIInterfaceOrientation
         switch rotateOrientation {
@@ -31,17 +31,18 @@ struct AppUtility {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     var orientationLock = UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ZenIDLogger.shared.startLogging()
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+
+        window = UIWindow(frame: UIScreen.main.bounds)
         let menuViewController = UIStoryboard(name: "Menu", bundle: nil).instantiateViewController(withIdentifier: "ChoiceViewController")
-        self.window?.rootViewController = NavigationController(rootViewController: menuViewController)
-        self.window?.makeKeyAndVisible()
+//        let menuViewController = LivenessVerifierSettingsComposer.compose(loader: LivenessVerifierSettingsLoaderComposer.compose(), updater: LivenessVerifierSettingsLoaderComposer.compose())
+
+        window?.rootViewController = NavigationController(rootViewController: menuViewController)
+        window?.makeKeyAndVisible()
         configureNavigationBar()
 
         return true
@@ -54,12 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureNavigationBar() {
         // Cusomize global appearance
         let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.tintColor = .zenGreen  // Back buttons and such
+        navigationBarAppearace.tintColor = .zenGreen // Back buttons and such
         navigationBarAppearace.barStyle = .black
+        navigationBarAppearace.barTintColor = .black
+        navigationBarAppearace.isTranslucent = false
+        navigationBarAppearace.backgroundColor = .black
         navigationBarAppearace.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.zenTextLight,
             NSAttributedString.Key.font: UIFont.topLabel
         ]
     }
 }
-

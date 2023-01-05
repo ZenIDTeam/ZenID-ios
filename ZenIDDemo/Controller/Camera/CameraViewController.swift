@@ -83,7 +83,7 @@ class CameraViewController: UIViewController {
         selfieController?.stop()
     }
 
-    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, documents: [Document], documentSettings: DocumentVerifierSettings, config: Config) {
+    public func configureController(type: DocumentType, photoType: PhotoType, country: Country, faceMode: FaceMode?, documents: [Document], documentSettings: DocumentVerifierSettings, facelivenessSettings: FaceLivenessVerifierSettings, config: Config) {
         self.photoType = photoType
         self.documentType = type
         self.faceMode = faceMode
@@ -122,7 +122,7 @@ class CameraViewController: UIViewController {
                     showHelperVisualisation: true,
                     showDebugVisualisation: config.isDebugEnabled,
                     dataType: dataType,
-                    isLegacy: faceMode == .faceLivenessLegacy
+                    settings: facelivenessSettings
                 )
                 updateFacelivenessController()
             } else if faceMode == .selfie {

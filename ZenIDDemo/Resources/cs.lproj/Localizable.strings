@@ -107,7 +107,10 @@
 // Settings
 "settings-title" = "Nastavení";
 "settings-filter" = "Dokumenty Filtr";
+"settings-selfie-mode-video" = "Video selfie mode";
 "settings-document-verifier-settings" = "Document Verifier Settings";
+"settings-faceliveness-verifier-settings" = "Faceliveness Verifier Settings";
+"settings-verifier-debug" = "Debug mode";
 
 // Documents Filter
 "document-role" = "Role";
@@ -126,6 +129,10 @@
 "document-verifier-settings-circle" = "Show Aiming Circle";
 "document-verifier-settings-outline" = "Draw Outline";
 "document-verifier-settings-barcode" = "Read Barcode";
+
+// Faceliveness Verifier Settings
+"liveness-verifier-settings-max-image-size" = "Max image size";
+"liveness-verifier-settings-legacy-mode" = "Legacy mode";
 
 // Selfie Settings
 "settings-selfie-none" = "None";

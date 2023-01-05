@@ -12,6 +12,7 @@
 #include <vector>
 #include <cstdint>
 #include <string>
+#include <optional>
 
 namespace RecogLibC
 {
@@ -36,6 +37,12 @@ public:
 
 	// Show the default smile animation when the feedback is "Smile".
 	bool showSmileAnimation = true;
+
+	//FPS at which the video should be recorded
+	std::optional<int> fps;
+
+	// Resolution width with which the video should be recorded
+	std::optional<int> resolutionWidth;
 };
 
 class FaceLivenessVerifier
@@ -66,7 +73,10 @@ class FaceLivenessVerifier
 
 	// Settings that will be applied when Reset() is called.
 	FaceLivenessVerifierSettings& GetSettings();
-	
+
+	std::optional<int> GetRequiredVideoFps() const;
+	std::optional<int> GetRequiredVideoResolution() const;
+
 	void Reset();
 
 	std::string GetRenderCommands(int width, int height, SupportedLanguages language);
