@@ -1,0 +1,11 @@
+framework module RecogLib_iOS {
+  umbrella header "RecogLib_iOS.h"
+
+  export *
+  module * { export * }
+}
+
+module RecogLib_iOS.Swift {
+  header "RecogLib_iOS-Swift.h"
+  requires objc
+}
