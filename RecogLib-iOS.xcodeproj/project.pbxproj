@@ -85,7 +85,6 @@
 		6FE1D5142612741D00529241 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D5132612741D00529241 /* Logging.swift */; };
 		6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */; };
 		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
-		B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051AFDA22CA48AA007AF46E /* Enums.swift */; };
 		BABECC7928805B6200A629F3 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */; };
 		BAE07B77286DB01000E62C42 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE07B76286DB01000E62C42 /* RecogLibC.h */; };
 		D2057F9022CB8B0800EE9EE2 /* CDocumentWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -95,6 +94,8 @@
 		D296261122C265E0007B934C /* DocumentVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296261022C265E0007B934C /* DocumentVerifier.swift */; };
 		D2991DA922C3C6FD00CF40F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D261289422C370C200942D8A /* libc++.tbd */; };
 		D2BD780722C4EA25006D7974 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BD780622C4EA24006D7974 /* CoreMedia.framework */; };
+		E042B382296636C000B1E034 /* Enums+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E042B381296636C000B1E034 /* Enums+Extensions.swift */; };
+		E042B38429663C8300B1E034 /* Enums.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E042B38329663C8300B1E034 /* Enums.generated.swift */; };
 		E056A8682908838B00C8AE4F /* FaceLivenessStepParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056A8672908838B00C8AE4F /* FaceLivenessStepParameters.swift */; };
 /* End PBXBuildFile section */
 
@@ -178,7 +179,6 @@
 		6FE1D5132612741D00529241 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenidSecurity.swift; sourceTree = "<group>"; };
 		B009CF5322C4B01C00AA568C /* DocumentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResult.swift; sourceTree = "<group>"; };
-		B051AFDA22CA48AA007AF46E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = Sources/LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		BAE07B76286DB01000E62C42 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "Sources/LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
 		D2057F8F22CB8B0700EE9EE2 /* CDocumentWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CDocumentWrapper.hpp; sourceTree = "<group>"; };
@@ -192,6 +192,8 @@
 		D296261E22C3631F007B934C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D296262622C36B81007B934C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D2BD780622C4EA24006D7974 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E042B381296636C000B1E034 /* Enums+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enums+Extensions.swift"; sourceTree = "<group>"; };
+		E042B38329663C8300B1E034 /* Enums.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.generated.swift; sourceTree = "<group>"; };
 		E056A8672908838B00C8AE4F /* FaceLivenessStepParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceLivenessStepParameters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,7 +281,8 @@
 				6FE1D5122612740A00529241 /* App */,
 				6F6C26F824B87F5C0073A2CA /* Extensions */,
 				6F6C26F924B87F680073A2CA /* Utils */,
-				B051AFDA22CA48AA007AF46E /* Enums.swift */,
+				E042B38329663C8300B1E034 /* Enums.generated.swift */,
+				E042B381296636C000B1E034 /* Enums+Extensions.swift */,
 				B009CF5322C4B01C00AA568C /* DocumentResult.swift */,
 				6FE107AE24B0FAFE00610F8D /* HologramResult.swift */,
 				6F64016124C18125004A8982 /* FaceLivenessResult.swift */,
@@ -445,7 +448,8 @@
 		D264245422C11E7E00735B99 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Marek Stana";
 				TargetAttributes = {
 					D264245C22C11E7E00735B99 = {
@@ -495,6 +499,7 @@
 				6F1A6A8B251B6DB40087CC0A /* CSelfieWrapper.cpp in Sources */,
 				18371B6027C5441E002528F3 /* VerifierRenderable.swift in Sources */,
 				18371AF727C2437B002528F3 /* BaseController.swift in Sources */,
+				E042B38429663C8300B1E034 /* Enums.generated.swift in Sources */,
 				18371AF627C2437B002528F3 /* Camera.swift in Sources */,
 				18ED9F6A26B2B4A900AFF48B /* DocumentSignatureMapper.swift in Sources */,
 				18371B2927C24834002528F3 /* UIFont+Styles.swift in Sources */,
@@ -533,7 +538,6 @@
 				18371B2627C2473E002528F3 /* UIImageView+Clipping.swift in Sources */,
 				18ED9F6726B2B46C00AFF48B /* CImageSignature.cpp in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
-				B051AFDB22CA48AA007AF46E /* Enums.swift in Sources */,
 				18371B0627C2443C002528F3 /* Renderable.swift in Sources */,
 				18371B2B27C26A51002528F3 /* DocumentState+Localised.swift in Sources */,
 				18371AF527C2437B002528F3 /* FacelivenessController.swift in Sources */,
@@ -546,6 +550,7 @@
 				1848AC712805D449001A8C9A /* CZenidLogWrapper.cpp in Sources */,
 				6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */,
 				18371B0827C2443C002528F3 /* Ellipse.swift in Sources */,
+				E042B382296636C000B1E034 /* Enums+Extensions.swift in Sources */,
 				181AB22E26F9856C0081420D /* VerifierModels.swift in Sources */,
 				18C1A3952680F4D80047FDD3 /* Document.swift in Sources */,
 				18371B2127C246B5002528F3 /* Defaults.swift in Sources */,
@@ -639,12 +644,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -705,7 +711,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -754,7 +760,7 @@
 				HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/LibZenid_iOS/Headers";
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,7 +815,7 @@
 				HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/LibZenid_iOS/Headers";
 				INFOPLIST_FILE = "RecogLib-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

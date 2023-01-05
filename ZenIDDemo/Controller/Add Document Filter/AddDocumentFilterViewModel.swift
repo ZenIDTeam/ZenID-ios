@@ -18,7 +18,7 @@ final class AddDocumentFilterViewModel {
     
     var role: RecogLib_iOS.DocumentRole?
     var country: RecogLib_iOS.Country?
-    var page: RecogLib_iOS.PageCode?
+    var page: RecogLib_iOS.PageCodes?
     
     private let saver: DocumentsFilterSaver
     private let validator: DocumentsFilterValidator

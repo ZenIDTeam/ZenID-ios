@@ -309,7 +309,7 @@ extension ChoiceViewController: CameraViewControllerDelegate {
                 saveVideoToAlbum(url)
             #endif
             if let data = try? Data(contentsOf: url) {
-                //scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
+                scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
             }
         }
     }

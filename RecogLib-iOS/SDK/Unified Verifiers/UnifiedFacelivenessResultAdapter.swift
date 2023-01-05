@@ -5,8 +5,8 @@ public final class UnifiedFacelivenessResultAdapter: UnifiedResult {
     public let state: UnifiedState
     public let role: RecogLib_iOS.DocumentRole?
     public let country: RecogLib_iOS.Country?
-    public let code: RecogLib_iOS.DocumentCode?
-    public let page: RecogLib_iOS.PageCode?
+    public let code: RecogLib_iOS.DocumentCodes?
+    public let page: RecogLib_iOS.PageCodes?
     public let signature: ImageSignature?
     
     public init(result: FaceLivenessResult) {
@@ -20,7 +20,7 @@ public final class UnifiedFacelivenessResultAdapter: UnifiedResult {
     
 }
 
-extension FaceLivenessState {
+extension FaceLivenessVerifierState {
     func toDomain() -> UnifiedState {
         switch self {
         case .LookAtMe:
@@ -31,11 +31,11 @@ extension FaceLivenessState {
             return .smile
         case .Ok:
             return .ok
-        case .blurry:
+        case .Blurry:
             return .blurry
-        case .dark:
+        case .Dark:
             return .dark
-        case .holdStill:
+        case .HoldStill:
             return .holdSteady
         }
     }

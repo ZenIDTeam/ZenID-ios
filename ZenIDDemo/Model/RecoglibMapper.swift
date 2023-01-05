@@ -32,12 +32,12 @@ final class RecoglibMapper {
         }
     }
 
-    static func pageCode(from photoType: PhotoType) -> RecogLib_iOS.PageCode? {
+    static func pageCode(from photoType: PhotoType) -> RecogLib_iOS.PageCodes? {
         switch photoType {
         case .front:
-            return .Front
+            return .F
         case .back:
-            return .Back
+            return .B
         case .face:
             return nil
         }

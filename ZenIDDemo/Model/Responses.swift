@@ -54,8 +54,8 @@ struct InvestigationIssueResponse: Decodable {
     var PageCode: String?
     var SampleType: SampleType?
     
-    var documentCode: RecogLib_iOS.DocumentCode? {
-        RecogLib_iOS.DocumentCode(stringValue: DocumentCode ?? "")
+    var documentCode: RecogLib_iOS.DocumentCodes? {
+        RecogLib_iOS.DocumentCodes(stringValue: DocumentCode ?? "")
     }
 }
 
