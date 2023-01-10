@@ -21,3 +21,4 @@ ZipArchive*/**
 
 # bcsymbolmap files
 *.bcsymbolmap
+.firebase-service-account.json
