@@ -9,7 +9,7 @@
 import Foundation
 import RecogLib_iOS
 
-public enum SampleType: String, Decodable {
+enum SampleType: String, Decodable {
     case documentPicture = "DocumentPicture"
     case selfie = "Selfie"
     case selfieVideo = "SelfieVideo"
@@ -18,7 +18,7 @@ public enum SampleType: String, Decodable {
     case unknown = "Unknown"
 }
 
-public enum SampleItemState: String, Decodable {
+enum SampleItemState: String, Decodable {
     case notDone = "NotDone"
     case done = "Done"
     case error = "Error"
@@ -26,7 +26,7 @@ public enum SampleItemState: String, Decodable {
     case rejected = "Rejected"
 }
 
-public enum MrzType: String, Decodable {
+enum MrzType: String, Decodable {
     case idV2000 = "ID_v2000"
     case idV2012 = "ID_v2012"
     case pasV2006 = "PAS_v2006"
@@ -41,7 +41,7 @@ public enum MrzType: String, Decodable {
     case czeRes2011 = "CZE_RES_2011_14"
 }
 
-public enum MrzSubtype: String, Decodable {
+enum MrzSubtype: String, Decodable {
     case op = "OP"
     case r = "R"
     case d = "D"
@@ -50,121 +50,123 @@ public enum MrzSubtype: String, Decodable {
     case unknown = "Unknown"
 }
 
-public extension RecogLib_iOS.DocumentCode {
+extension RecogLib_iOS.DocumentCodes {
     func isTypeOfDocument(type: DocumentType) -> Bool {
         let typeUpper = type.rawValue.uppercased()
-        return description.uppercased().contains(typeUpper)
+        return self.description.uppercased().contains(typeUpper)
     }
-
+    
     func isTypeOfDocument(type: String) -> Bool {
         let typeUpper = type.uppercased()
-        return description.uppercased().contains(typeUpper)
+        return self.description.uppercased().contains(typeUpper)
     }
-
+    
     var documentType: DocumentType {
-        for tp in [DocumentType.drivingLicence, .idCard, .passport] {
-            if isTypeOfDocument(type: tp) {
-                return tp
+        get {
+            for tp in [DocumentType.drivingLicence, .idCard, .passport] {
+                if self.isTypeOfDocument(type: tp) {
+                    return tp
+                }
             }
+            return .idCard // This shoudn't happen
         }
-        return .idCard // This shoudn't happen
     }
 }
 
-public enum PageCode: String, Decodable {
+enum PageCode: String, Decodable {
     case front = "F"
     case back = "B"
 }
 
-public enum ValidatorCodes: Int {
+enum ValidatorCodes: Int {
     case selfie = 6
     case ministry = 19
 }
 
-public struct Hash: Decodable {
-    public var AsText: String?
-    public var IsNull: Bool?
+struct Hash: Decodable {
+    var AsText: String?
+    var IsNull: Bool?
 }
 
-public struct MineAllResult: Decodable {
-    public var FirstName: MinedText?
-    public var LastName: MinedText?
-    public var Address: MinedAddress?
-    public var BirthAddress: MinedText?
-    public var BirthLastName: MinedText?
-    public var BirthNumber: MinedRc?
-    public var BirthDate: MinedDate?
-    public var ExpiryDate: MinedDate?
-    public var IssueDate: MinedDate?
-    public var IdcardNumber: MinedText?
-    public var DrivinglicenseNumber: MinedText?
-    public var PassportNumber: MinedText?
-    public var Sex: MinedSex?
-    public var Nationality: MinedText?
-    public var Authority: MinedText?
-    public var MaritalStatus: MinedMaritalStatus?
-    public var Photo: MinedPhoto?
-    public var Mrz: MinedMrz?
-    public var DocumentCode: String?
-    public var PageCode: PageCode?
-    public var Height: MinedText?
-    public var EyesColor: MinedText?
-
-    public var documentCode: RecogLib_iOS.DocumentCode? {
-        RecogLib_iOS.DocumentCode(stringValue: DocumentCode ?? "")
+struct MineAllResult: Decodable {
+    var FirstName: MinedText?
+    var LastName: MinedText?
+    var Address: MinedAddress?
+    var BirthAddress: MinedText?
+    var BirthLastName: MinedText?
+    var BirthNumber: MinedRc?
+    var BirthDate: MinedDate?
+    var ExpiryDate: MinedDate?
+    var IssueDate: MinedDate?
+    var IdcardNumber: MinedText?
+    var DrivinglicenseNumber: MinedText?
+    var PassportNumber: MinedText?
+    var Sex: MinedSex?
+    var Nationality: MinedText?
+    var Authority: MinedText?
+    var MaritalStatus: MinedMaritalStatus?
+    var Photo: MinedPhoto?
+    var Mrz: MinedMrz?
+    var DocumentCode: String?
+    var PageCode: PageCode?
+    var Height: MinedText?
+    var EyesColor: MinedText?
+    
+    var documentCode: RecogLib_iOS.DocumentCodes? {
+        RecogLib_iOS.DocumentCodes(stringValue: DocumentCode ?? "")
     }
 }
 
-public struct MinedText: Decodable {
-    public var Text: String?
-    public var Confidence: Int?
+struct MinedText: Decodable {
+    var Text: String?
+    var Confidence: Int?
 }
 
-public struct MinedAddress: Decodable {
-    public var A1: String?
-    public var A2: String?
-    public var A3: String?
-    public var AdministrativeAreaLevel1: String?
-    public var AdministrativeAreaLevel2: String?
-    public var Locality: String?
-    public var Sublocality: String?
-    public var Street: String?
-    public var HouseNumber: String?
-    public var StreetNumber: String?
-    public var PostalCode: String?
-    public var Text: String?
-    public var Confidence: Int?
+struct MinedAddress: Decodable {
+    var A1: String?
+    var A2: String?
+    var A3: String?
+    var AdministrativeAreaLevel1: String?
+    var AdministrativeAreaLevel2: String?
+    var Locality: String?
+    var Sublocality: String?
+    var Street: String?
+    var HouseNumber: String?
+    var StreetNumber: String?
+    var PostalCode: String?
+    var Text: String?
+    var Confidence: Int?
 }
 
-public struct MinedRc: Decodable {
-    public var BirthDate: String?
-    public var Checksum: Int?
-    public var Sex: String?
-    public var Text: String?
-    public var Confidence: Int?
+struct MinedRc: Decodable {
+    var BirthDate: String?
+    var Checksum: Int?
+    var Sex: String?
+    var Text: String?
+    var Confidence: Int?
 }
 
-public struct MinedDate: Decodable {
-    public var Date: String?
-    public var Format: String?
-    public var Text: String?
-    public var Confidence: Int?
+struct MinedDate: Decodable {
+    var Date: String?
+    var Format: String?
+    var Text: String?
+    var Confidence: Int?
 }
 
-public struct MinedSex: Decodable {
-    public var Sex: String?
-    public var Text: String?
-    public var Confidence: Int?
+struct MinedSex: Decodable {
+    var Sex: String?
+    var Text: String?
+    var Confidence: Int?
 }
 
-public struct MinedMaritalStatus: Decodable {
+struct MinedMaritalStatus: Decodable {
     var MaritalStatus: String?
     var ImpliedSex: String?
     var Text: String?
     var Confidence: Int?
 }
 
-public struct MinedPhoto: Decodable {
+struct MinedPhoto: Decodable {
     var ImageData: LazyMatImage?
     var EstimatedAge: Int?
     var EstimatedSex: String?
@@ -172,17 +174,17 @@ public struct MinedPhoto: Decodable {
     var Confidence: Int?
 }
 
-public struct MinedMrz: Decodable {
+struct MinedMrz: Decodable {
     var Mrz: Mrz?
     var Text: String?
     var Confidence: Int?
 }
 
-public struct LazyMatImage: Decodable {
+struct LazyMatImage: Decodable {
     var ImageHash: Hash?
 }
 
-public struct Mrz: Decodable {
+struct Mrz: Decodable {
     var MrzType: MrzType?
     var Subtype: MrzSubtype?
     var BirthDate: String?
@@ -205,7 +207,7 @@ public struct Mrz: Decodable {
     var ExpiryChecksum: Int?
     var BirthDateParsed: String?
     var ExpiryDateParsed: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case MrzType = "Type"
         case Subtype

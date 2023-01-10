@@ -8,23 +8,15 @@
 
 import UIKit
 
-
-final class DocumentVerifierSettingsViewController: UIViewController {
-    
+final class DocumentVerifierSettingsViewController: BaseSettingsViewController {
     var viewModel: DocumentVerifierSettingsViewModel!
-    
-    var contentView: DocumentVerifierSettingsView {
-        view as! DocumentVerifierSettingsView
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         viewModel.reloadData()
     }
-    
-    private func setupNavigationBar() {
+
+    override func setupNavigationBar() {
         title = NSLocalizedString("settings-document-verifier-settings", comment: "")
     }
-    
 }

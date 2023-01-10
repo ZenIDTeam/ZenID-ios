@@ -132,7 +132,7 @@ final class ScanProcess {
             documentType: documentType,
             documentRole: RecoglibMapper.documentRole(from: documentType, role: result?.role),
             documentCode: result?.code == nil ? documentType.rawValue : String(describing: result!.code!),
-            photoType: result?.page == nil ? type : (result!.page == .Back ? .back : .front),
+            photoType: result?.page == nil ? type : (result!.page == .B ? .back : .front),
             country: result?.country ?? country,
             signature: result?.signature?.signature,
             dataType: dataType

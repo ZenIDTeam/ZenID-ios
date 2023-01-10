@@ -6,8 +6,8 @@ public class DocumentVerifier {
     
     public var documentRole: DocumentRole?
     public var country: Country?
-    public var page: PageCode?
-    public var code: DocumentCode?
+    public var page: PageCodes?
+    public var code: DocumentCodes?
     public let settings: DocumentVerifierSettings?
     
     public var documentsInput: DocumentsInput? {
@@ -26,7 +26,7 @@ public class DocumentVerifier {
     
     private var acceptableInputJson: String?
 
-    public init(role: DocumentRole?, country: Country?, page: PageCode?, code: DocumentCode?, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
+    public init(role: DocumentRole?, country: Country?, page: PageCodes?, code: DocumentCodes?, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
         self.documentRole = role
         self.country = country
         self.page = page
@@ -145,5 +145,15 @@ public class DocumentVerifier {
             drawOutline: settings?.drawOutline ?? false,
             readBarcode: settings?.readBarcode ?? true
         )
+    }
+    
+    public func getRequiredFPS() -> Int {
+        let fps = RecogLib_iOS.getDocumentRequiredFps(cppObject)
+        return Int(fps)
+    }
+
+    public func getRequiredResolution() -> Int {
+        let resolution = RecogLib_iOS.getDocumentRequiredVideoResolution(cppObject)
+        return Int(resolution)
     }
 }

@@ -21,12 +21,12 @@ public struct DocumentControllerConfiguration {
     public let dataType: DataType
     public let role: RecogLib_iOS.DocumentRole?
     public let country: RecogLib_iOS.Country?
-    public let page: RecogLib_iOS.PageCode?
-    public let code: RecogLib_iOS.DocumentCode?
+    public let page: RecogLib_iOS.PageCodes?
+    public let code: RecogLib_iOS.DocumentCodes?
     public let documents: [Document]?
     public let settings: DocumentVerifierSettings?
     
-    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCode?, code: RecogLib_iOS.DocumentCode?, documents: [Document]?, settings: DocumentVerifierSettings?) {
+    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, documents: [Document]?, settings: DocumentVerifierSettings?) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
@@ -42,7 +42,7 @@ public struct DocumentControllerConfiguration {
 
 extension DocumentResult: ResultState {
     public var isOk: Bool {
-        state == .Ok || hologremState == .ok
+        state == .Ok || hologremState == .Ok
     }
     
     public var description: String {
@@ -80,7 +80,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         verifier = .init(
             role: RecogLib_iOS.DocumentRole.Idc,
             country: RecogLib_iOS.Country.Cz,
-            page: RecogLib_iOS.PageCode.Front,
+            page: RecogLib_iOS.PageCodes.F,
             code: nil,
             language: .English
         )
@@ -99,13 +99,18 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         let oldConfig = self.config
         config = configuration
         
-        view.topLabel.text = config.page == .Back ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
-        
+        view.topLabel.text = config.page == .B ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
+
+        // Enrico: For documents, we should leave the resolution and fps fields blanks until we have test results.
+        // verifier.getRequiredResolution(), verifier.getRequiredFPS()
+
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showHelperVisualisation,
             dataType: configuration.dataType,
-            cameraType: .back
+            cameraType: .back,
+            requestedResolution: 0,
+            requestedFPS: 0
         )
         
         resetDocumentVerifier()
@@ -124,7 +129,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         if let country = config.country {
             verifier.country = country
         }
-        if let code = previousResult?.code, config.page == .Back {
+        if let code = previousResult?.code, config.page == .B {
             verifier.code = code
         }
         if let documents = config.documents {

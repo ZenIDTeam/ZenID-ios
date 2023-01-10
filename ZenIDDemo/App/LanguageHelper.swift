@@ -18,6 +18,8 @@ final class LanguageHelper {
             return .Polish
         case "EN":
             return .English
+        case "DE":
+            return .German
         default:
             return .English
         }

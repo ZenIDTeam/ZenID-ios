@@ -46,6 +46,14 @@ final class SettingsComposer {
             .init(
                 title: nil,
                 cells: [
+                    BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-faceliveness-verifier-settings", comment: ""), action: {
+                        coordinator.settingsOpenFaceLivenessVerifierSettings()
+                    }))
+                ]
+            ),
+            .init(
+                title: nil,
+                cells: [
                     BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-filter", comment: ""), action: {
                         coordinator.settingsOpenDocumentsFilter()
                     }))

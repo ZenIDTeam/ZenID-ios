@@ -16,7 +16,7 @@ public struct Configuration {
         dataType: .picture,
         role: .Idc,
         country: .Cz,
-        page: .Front,
+        page: .F,
         code: nil,
         documents: nil,
         settings: nil
@@ -26,8 +26,8 @@ public struct Configuration {
     public let dataType: DataType
     public let role: RecogLib_iOS.DocumentRole?
     public let country: RecogLib_iOS.Country?
-    public let page: RecogLib_iOS.PageCode?
-    public let code: RecogLib_iOS.DocumentCode?
+    public let page: RecogLib_iOS.PageCodes?
+    public let code: RecogLib_iOS.DocumentCodes?
     public let documents: [Document]?
     public let settings: DocumentVerifierSettings?
 }
@@ -50,7 +50,7 @@ final class PureVerifierViewController: UIViewController {
         verifier = .init(
             role: RecogLib_iOS.DocumentRole.Idc,
             country: RecogLib_iOS.Country.Cz,
-            page: RecogLib_iOS.PageCode.Front,
+            page: RecogLib_iOS.PageCodes.F,
             code: nil,
             language: .Czech
         )

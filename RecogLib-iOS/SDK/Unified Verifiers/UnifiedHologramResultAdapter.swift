@@ -5,8 +5,8 @@ public final class UnifiedHologramResultAdapter: UnifiedResult {
     public let state: UnifiedState
     public let role: RecogLib_iOS.DocumentRole?
     public let country: RecogLib_iOS.Country?
-    public let code: RecogLib_iOS.DocumentCode?
-    public let page: RecogLib_iOS.PageCode?
+    public let code: RecogLib_iOS.DocumentCodes?
+    public let page: RecogLib_iOS.PageCodes?
     public let signature: ImageSignature?
     
     public init(result: HologramResult) {
@@ -23,13 +23,13 @@ public final class UnifiedHologramResultAdapter: UnifiedResult {
 public extension HologramState {
     func toDomain() -> UnifiedState {
         switch self {
-        case .center:
+        case .Center:
             return .center
-        case .tiltUpAndDown:
+        case .TiltUpAndDown:
             return .tiltUpAndDown
-        case .tiltLeftAndRight:
+        case .TiltLeftAndRight:
             return .tiltLeftAndRight
-        case .ok:
+        case .Ok:
             return .ok
         }
     }

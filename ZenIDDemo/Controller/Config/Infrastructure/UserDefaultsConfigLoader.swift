@@ -1,14 +1,14 @@
 
 import Foundation
 
-
 final class UserDefaultsConfigLoader {
     private enum Keys: String {
         case debug = "IsDebugEnabled"
         case livenessMode = "IsLivenessVideo"
     }
+
     private let userDefaults: UserDefaults
-    
+
     init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
     }
@@ -27,7 +27,7 @@ extension UserDefaultsConfigLoader: ConfigUpdater {
     func update(isDebugEnabled: Bool) throws {
         userDefaults.setValue(isDebugEnabled, forKey: Keys.debug.rawValue)
     }
-    
+
     func update(isLivenessVideo: Bool) throws {
         userDefaults.setValue(isLivenessVideo, forKey: Keys.livenessMode.rawValue)
     }

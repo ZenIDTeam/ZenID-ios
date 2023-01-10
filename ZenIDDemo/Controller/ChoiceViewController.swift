@@ -13,6 +13,10 @@ import os
 import RecogLib_iOS
 import UIKit
 
+#if DEBUG
+    import Photos
+#endif
+
 final class ChoiceViewController: UIViewController {
     private let countryButton = Buttons.country
     private let idButton = Buttons.id
@@ -293,12 +297,18 @@ final class ChoiceViewController: UIViewController {
 extension ChoiceViewController: CameraViewControllerDelegate {
     func didTakePhoto(_ imageData: Data?, type: PhotoType, result: UnifiedResult?) {
         if let data = imageData {
+            #if DEBUG
+                saveDocumentToAlbum(data)
+            #endif
             scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .picture)
         }
     }
 
     func didTakeVideo(_ videoURL: URL?, type: PhotoType) {
         if let url = videoURL {
+            #if DEBUG
+                saveVideoToAlbum(url)
+            #endif
             if let data = try? Data(contentsOf: url) {
                 scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
             }
@@ -383,6 +393,7 @@ extension ChoiceViewController: ScanProcessDelegate {
             do {
                 let documents = try DocumentsFilterLoaderComposer.compose().load()
                 let settings = try DocumentVerifierSettingsLoaderComposer.compose().load()
+                let livenessSettings = try LivenessVerifierSettingsLoaderComposer.compose().load()
                 let faceMode = try SelfieSelectionLoaderComposer.compose().load()
                 guard let self = self else { return }
                 self.cachedCameraViewController.configureController(
@@ -392,6 +403,7 @@ extension ChoiceViewController: ScanProcessDelegate {
                     faceMode: faceMode,
                     documents: documents,
                     documentSettings: settings,
+                    facelivenessSettings: livenessSettings,
                     config: ConfigServiceComposer.compose().load()
                 )
             } catch {
@@ -513,3 +525,50 @@ extension ChoiceViewController: QrScannerControllerDelegate {
     func qrCancel(_ controller: UIViewController) {
     }
 }
+
+#if DEBUG
+    private func resolutionForLocalVideo(url: URL) -> CGSize {
+        guard let track = AVURLAsset(url: url).tracks(withMediaType: AVMediaType.video).first else { return .zero }
+        let size = track.naturalSize.applying(track.preferredTransform)
+        return CGSize(width: abs(size.width), height: abs(size.height))
+    }
+
+    func requestAuthorization(completion: @escaping () -> Void) {
+        if PHPhotoLibrary.authorizationStatus() == .notDetermined {
+            PHPhotoLibrary.requestAuthorization { _ in
+                DispatchQueue.main.async {
+                    completion()
+                }
+            }
+        } else if PHPhotoLibrary.authorizationStatus() == .authorized {
+            completion()
+        }
+    }
+
+    func saveVideoToAlbum(_ outputURL: URL) {
+        let size = resolutionForLocalVideo(url: outputURL)
+        print("VIDEO RESOLUTION: 🛠 \(size)")
+
+        requestAuthorization {
+            PHPhotoLibrary.shared().performChanges({
+                let request = PHAssetCreationRequest.forAsset()
+                request.addResource(with: .video, fileURL: outputURL, options: nil)
+            }) { _, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        print("Saved successfully")
+                    }
+                }
+            }
+        }
+    }
+
+    func saveDocumentToAlbum(_ imageData: Data) {
+        requestAuthorization {
+            guard let image = UIImage(data: imageData) else { return }
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+    }
+#endif

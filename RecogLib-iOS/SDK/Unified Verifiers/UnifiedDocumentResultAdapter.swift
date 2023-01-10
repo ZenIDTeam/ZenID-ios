@@ -5,8 +5,8 @@ public final class UnifiedDocumentResultAdapter: UnifiedResult {
     public let state: UnifiedState
     public let role: RecogLib_iOS.DocumentRole?
     public let country: RecogLib_iOS.Country?
-    public let code: RecogLib_iOS.DocumentCode?
-    public let page: RecogLib_iOS.PageCode?
+    public let code: RecogLib_iOS.DocumentCodes?
+    public let page: RecogLib_iOS.PageCodes?
     public let signature: ImageSignature?
     
     public init(result: DocumentResult) {
@@ -20,7 +20,7 @@ public final class UnifiedDocumentResultAdapter: UnifiedResult {
     
 }
 
-public extension DocumentState {
+public extension DocumentVerifierState {
     func toDomain() -> UnifiedState {
         switch self {
         case .AlignCard:
