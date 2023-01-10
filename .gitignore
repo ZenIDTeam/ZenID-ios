@@ -22,3 +22,4 @@ ZipArchive*/**
 # bcsymbolmap files
 *.bcsymbolmap
 .firebase-service-account.json
+ZenIDDemo_
