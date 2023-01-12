@@ -2,15 +2,27 @@ import AVFoundation
 import Foundation
 import UIKit
 
-struct CameraConfiguration {
+public struct CameraConfiguration {
+    public enum OutputVariant {
+        case photo
+        case qrCode
+    }
+
     public let type: CameraType
+    public let variant: OutputVariant
+
+    public init(type: CameraType, variant: OutputVariant = .photo) {
+        self.type = type
+        self.variant = variant
+    }
 }
 
-enum CameraError: Error {
+public enum CameraError: Error {
     case notInitialized
+    case invalidVariant
 }
 
-enum CameraType {
+public enum CameraType {
     case front
     case back
 }
@@ -26,21 +38,25 @@ protocol CameraDelegate: AnyObject {
 
 public final class Camera: NSObject {
     weak var delegate: CameraDelegate?
-    private(set) var previewLayer: AVCaptureVideoPreviewLayer?
+    public private(set) var previewLayer: AVCaptureVideoPreviewLayer?
 
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     private var captureDevice: AVCaptureDevice?
     private let captureSession = AVCaptureSession()
-    private var cameraPhotoOutput: AVCapturePhotoOutput!
-    private var cameraVideoOutput: AVCaptureVideoDataOutput!
+    private var cameraPhotoOutput: AVCapturePhotoOutput?
+    private var metadataOutput: AVCaptureMetadataOutput?
+    private var cameraVideoOutput: AVCaptureVideoDataOutput?
+    private var variant: CameraConfiguration.OutputVariant = .photo
 
     private var takePictureCompletion: ((Swift.Result<Data, Swift.Error>) -> Void)?
+    public var takeQrCodeCompletion: ((AVMetadataMachineReadableCodeObject) -> Void)?
 
     override public init() {
         super.init()
     }
 
-    func configure(with configuration: CameraConfiguration) throws {
+    public func configure(with configuration: CameraConfiguration) throws {
+        variant = configuration.variant
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
         let deviceDescoverySession = AVCaptureDevice.DiscoverySession(
             deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: captureDevicePosition
@@ -53,11 +69,9 @@ public final class Camera: NSObject {
         if previewLayer == nil {
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         }
-
-        captureSession.sessionPreset = .high
     }
 
-    func start() {
+    public func start() {
         if captureSession.isRunning {
             return
         }
@@ -66,7 +80,7 @@ public final class Camera: NSObject {
         }
     }
 
-    func stop() {
+    public func stop() {
         try? setTorch(isOn: false)
         if !captureSession.isRunning {
             return
@@ -76,7 +90,7 @@ public final class Camera: NSObject {
         }
     }
 
-    func takePicture(completion: @escaping (Swift.Result<Data, Swift.Error>) -> Void) {
+    public func takePicture(completion: @escaping (Swift.Result<Data, Swift.Error>) -> Void) {
         guard captureDevice != nil else {
             completion(.failure(CameraError.notInitialized))
             return
@@ -85,11 +99,16 @@ public final class Camera: NSObject {
             completion(.failure(CameraError.notInitialized))
             return
         }
+        guard let cameraPhotoOutput = cameraPhotoOutput else {
+            completion(.failure(CameraError.invalidVariant))
+            return
+        }
+
         takePictureCompletion = completion
         cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
 
-    func setOrientation(orientation: UIDeviceOrientation) {
+    public func setOrientation(orientation: UIDeviceOrientation) {
         let isTorchOn = captureDevice?.torchMode == .on
         switch UIDevice.current.orientation {
         case .portrait:
@@ -116,7 +135,7 @@ public final class Camera: NSObject {
         }
     }
 
-    func setTorch(isOn: Bool) throws {
+    public func setTorch(isOn: Bool) throws {
         guard let device = captureDevice, device.hasTorch else { return }
         guard isOn || device.torchMode != .off else { return }
 
@@ -134,24 +153,12 @@ public final class Camera: NSObject {
         device.unlockForConfiguration()
     }
 
-    func getCurrentResolution() -> CGSize {
+    public func getCurrentResolution() -> CGSize {
         guard let formatDescription = captureDevice?.activeFormat.formatDescription else {
             return .zero
         }
         let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
         return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
-    }
-
-    func getFormatResolution(_ format: AVCaptureDevice.Format) -> CGSize {
-        var resolution = CGSize(width: 0, height: 0)
-        let portraitOrientation = (UIScreen.main.bounds.height > UIScreen.main.bounds.width)
-        let dimensions = CMVideoFormatDescriptionGetDimensions(format.formatDescription)
-        resolution = CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
-
-        if !portraitOrientation {
-            resolution = CGSize(width: resolution.height, height: resolution.width)
-        }
-        return resolution
     }
 }
 
@@ -182,26 +189,56 @@ private extension Camera {
 
         captureSession.beginConfiguration()
 
+        // Inputs
+
         if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
             for input in inputs {
                 captureSession.removeInput(input)
             }
         }
+        captureSession.addInput(input)
+
+        // Outputs
+
         for output in captureSession.outputs {
             captureSession.removeOutput(output)
         }
 
-        cameraPhotoOutput = AVCapturePhotoOutput()
-        cameraVideoOutput = AVCaptureVideoDataOutput()
+        switch variant {
+        case .photo:
+            let cameraPhotoOutput = AVCapturePhotoOutput()
+            self.cameraPhotoOutput = cameraPhotoOutput
+            captureSession.addOutput(cameraPhotoOutput)
 
-        captureSession.addInput(input)
-        captureSession.addOutput(cameraPhotoOutput)
-        cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_32BGRA] as [String: Any]
-        cameraVideoOutput.setSampleBufferDelegate(self, queue: cameraCaptureQueue)
-        captureSession.addOutput(cameraVideoOutput)
+            let cameraVideoOutput = AVCaptureVideoDataOutput()
+            cameraVideoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_32BGRA] as [String: Any]
+            cameraVideoOutput.setSampleBufferDelegate(self, queue: cameraCaptureQueue)
+            self.cameraVideoOutput = cameraVideoOutput
+            captureSession.addOutput(cameraVideoOutput)
+        case .qrCode:
+            let metadataOutput = AVCaptureMetadataOutput()
+            metadataOutput.metadataObjectTypes = metadataOutput.availableMetadataObjectTypes
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            captureSession.addOutput(metadataOutput)
+            self.metadataOutput = metadataOutput
+        }
 
         captureSession.commitConfiguration()
 
         return true
+    }
+}
+
+extension Camera: AVCaptureMetadataOutputObjectsDelegate {
+    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        for data in metadataObjects {
+            let transformed = previewLayer?.transformedMetadataObject(for: data) as? AVMetadataMachineReadableCodeObject
+            if let unwraped = transformed {
+                takeQrCodeCompletion?(unwraped)
+                DispatchQueue.global(qos: .default).async { [weak self] in
+                    self?.stop()
+                }
+            }
+        }
     }
 }

@@ -4,7 +4,8 @@ import RecogLib_iOS
 import UIKit
 
 open class WebViewController: UIViewController {
-    var webViewOverlay: WebViewOverlay?
+    var webViewOverlay: WebViewOverlay!
+    var loadingView: UIView!
 
     // MARK: - Init
 
@@ -12,8 +13,12 @@ open class WebViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    required public init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override open var prefersStatusBarHidden: Bool {
+        return true
     }
 
     // MARK: - Lifecycle
@@ -22,6 +27,7 @@ open class WebViewController: UIViewController {
         super.viewDidLoad()
         addWebViewOverlay()
         webViewOverlay?.loadOffline()
+        addLoadingView()
     }
 
     func addWebViewOverlay() {
@@ -31,6 +37,19 @@ open class WebViewController: UIViewController {
         view.addSubview(webView)
         webView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         webViewOverlay = webView
+        webViewOverlay.isHidden = true
+    }
+
+    func addLoadingView() {
+        if let loadingView {
+            loadingView.removeFromSuperview()
+            self.loadingView = nil
+        }
+
+//        let loadingView = UIView()
+//        loadingView.backgroundColor = .white
+//        view.addSubview(loadingView)
+//        self.loadingView = loadingView
     }
 
     func removeWebViewOverlay() {
@@ -40,9 +59,20 @@ open class WebViewController: UIViewController {
 
     func sendEvent(_ event: String) {
         webViewOverlay?.sendEvent(event)
+        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+            if let webViewOverlay  = self?.webViewOverlay {
+                self?.setView(view: webViewOverlay, hidden: false)
+            }
+        }
     }
 
     func didReceiveEvent(_ event: WebEvent) {
+    }
+
+    func setView(view: UIView, hidden: Bool) {
+        UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            view.isHidden = hidden
+        })
     }
 }
 
@@ -60,11 +90,44 @@ extension WebViewController: WebEventDelegate {
     }
 }
 
-struct WebEvent: Codable {
-    struct Event: Codable {
+struct WebEvent: Decodable {
+    struct PreviousEvent: Decodable {
         let feature: AppFeature
-        let base64: String
+        let role: String?
+
+        init(feature: AppFeature, role: String? = nil) {
+            self.feature = feature
+            self.role = role
+        }
     }
 
-    let previousEvent: Event
+    struct NextEvent: Decodable {
+        let feature: AppFeature?
+        let role: String?
+        let data: SettingsData?
+    }
+
+    let previousEvent: PreviousEvent
+    let nextEvent: NextEvent?
+}
+
+struct SettingsData: Decodable {
+    struct DocumentsVerifierSettings: Decodable {
+        let specularAcceptableScore: String
+        let documentBlurAcceptableScore: String
+        let timeToBlurMaxTolerance: String
+        let showTimer: String
+    }
+
+    struct ColorsSettins: Decodable {
+        let primaryColor: String
+        let contrastColor: String
+    }
+
+    let country: String
+    let selfieVerification: String
+    let DocumentsFilter: [String]
+    let DocumentsVerifier: DocumentsVerifierSettings
+    let Colors: ColorsSettins
+    let debugMode: String
 }

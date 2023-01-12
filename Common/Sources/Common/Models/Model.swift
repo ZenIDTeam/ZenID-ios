@@ -9,7 +9,7 @@
 import Foundation
 import RecogLib_iOS
 
-enum SampleType: String, Decodable {
+public enum SampleType: String, Decodable {
     case documentPicture = "DocumentPicture"
     case selfie = "Selfie"
     case selfieVideo = "SelfieVideo"
@@ -18,7 +18,7 @@ enum SampleType: String, Decodable {
     case unknown = "Unknown"
 }
 
-enum SampleItemState: String, Decodable {
+public enum SampleItemState: String, Decodable {
     case notDone = "NotDone"
     case done = "Done"
     case error = "Error"
@@ -26,7 +26,7 @@ enum SampleItemState: String, Decodable {
     case rejected = "Rejected"
 }
 
-enum MrzType: String, Decodable {
+public enum MrzType: String, Decodable {
     case idV2000 = "ID_v2000"
     case idV2012 = "ID_v2012"
     case pasV2006 = "PAS_v2006"
@@ -41,7 +41,7 @@ enum MrzType: String, Decodable {
     case czeRes2011 = "CZE_RES_2011_14"
 }
 
-enum MrzSubtype: String, Decodable {
+public enum MrzSubtype: String, Decodable {
     case op = "OP"
     case r = "R"
     case d = "D"
@@ -73,22 +73,22 @@ extension RecogLib_iOS.DocumentCodes {
     }
 }
 
-enum PageCode: String, Decodable {
+public enum PageCode: String, Decodable {
     case front = "F"
     case back = "B"
 }
 
-enum ValidatorCodes: Int {
+public enum ValidatorCodes: Int {
     case selfie = 6
     case ministry = 19
 }
 
-struct Hash: Decodable {
+public struct Hash: Decodable {
     var AsText: String?
     var IsNull: Bool?
 }
 
-struct MineAllResult: Decodable {
+public struct MineAllResult: Decodable {
     var FirstName: MinedText?
     var LastName: MinedText?
     var Address: MinedAddress?
@@ -117,12 +117,12 @@ struct MineAllResult: Decodable {
     }
 }
 
-struct MinedText: Decodable {
+public struct MinedText: Decodable {
     var Text: String?
     var Confidence: Int?
 }
 
-struct MinedAddress: Decodable {
+public struct MinedAddress: Decodable {
     var A1: String?
     var A2: String?
     var A3: String?
@@ -138,7 +138,7 @@ struct MinedAddress: Decodable {
     var Confidence: Int?
 }
 
-struct MinedRc: Decodable {
+public struct MinedRc: Decodable {
     var BirthDate: String?
     var Checksum: Int?
     var Sex: String?
@@ -146,27 +146,27 @@ struct MinedRc: Decodable {
     var Confidence: Int?
 }
 
-struct MinedDate: Decodable {
+public struct MinedDate: Decodable {
     var Date: String?
     var Format: String?
     var Text: String?
     var Confidence: Int?
 }
 
-struct MinedSex: Decodable {
+public struct MinedSex: Decodable {
     var Sex: String?
     var Text: String?
     var Confidence: Int?
 }
 
-struct MinedMaritalStatus: Decodable {
+public struct MinedMaritalStatus: Decodable {
     var MaritalStatus: String?
     var ImpliedSex: String?
     var Text: String?
     var Confidence: Int?
 }
 
-struct MinedPhoto: Decodable {
+public struct MinedPhoto: Decodable {
     var ImageData: LazyMatImage?
     var EstimatedAge: Int?
     var EstimatedSex: String?
@@ -174,17 +174,17 @@ struct MinedPhoto: Decodable {
     var Confidence: Int?
 }
 
-struct MinedMrz: Decodable {
+public struct MinedMrz: Decodable {
     var Mrz: Mrz?
     var Text: String?
     var Confidence: Int?
 }
 
-struct LazyMatImage: Decodable {
+public struct LazyMatImage: Decodable {
     var ImageHash: Hash?
 }
 
-struct Mrz: Decodable {
+public struct Mrz: Decodable {
     var MrzType: MrzType?
     var Subtype: MrzSubtype?
     var BirthDate: String?
@@ -208,7 +208,7 @@ struct Mrz: Decodable {
     var BirthDateParsed: String?
     var ExpiryDateParsed: String?
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case MrzType = "Type"
         case Subtype
         case BirthDate

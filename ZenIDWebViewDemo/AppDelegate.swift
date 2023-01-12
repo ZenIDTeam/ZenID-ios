@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RecogLib_iOS
 import UIKit
 
 @main
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        guard let windowScene = (application.connectedScenes.first as? UIWindowScene) else { return true }
 
+        ZenIDLogger.shared.startLogging()
+
         let navigationController = UINavigationController()
         navigationController.isNavigationBarHidden = true
         let appManager = AppManager(navigationController: navigationController)
@@ -25,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = navigationController
         self.window = window
         window.makeKeyAndVisible()
-        
+
         appManager.start()
         return true
     }

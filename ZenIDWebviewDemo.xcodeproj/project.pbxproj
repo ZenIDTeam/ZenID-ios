@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E01B929A296E122B008D1CBE /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B9299296E122B008D1CBE /* AuthManager.swift */; };
+		E01B929C296E1276008D1CBE /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = E01B929B296E1276008D1CBE /* Common */; };
+		E01B92A0296E17DC008D1CBE /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = E01B929E296E17DC008D1CBE /* Settings.plist */; };
+		E01B92A1296E17DC008D1CBE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E01B929F296E17DC008D1CBE /* Settings.bundle */; };
+		E01B92A3296E1A7E008D1CBE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B92A2296E1A7E008D1CBE /* Logger.swift */; };
+		E01B92AF296E1B7C008D1CBE /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = E01B92AE296E1B7C008D1CBE /* ZipArchive */; };
+		E01B92B2296E1BBB008D1CBE /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = E01B92B1296E1BBB008D1CBE /* CocoaLumberjack */; };
+		E01B92B4296E1BBB008D1CBE /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E01B92B3296E1BBB008D1CBE /* CocoaLumberjackSwift */; };
 		E02E791C2912F7DA005B9AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E791B2912F7DA005B9AE2 /* AppDelegate.swift */; };
 		E02E79202912F7DA005B9AE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E791F2912F7DA005B9AE2 /* ViewController.swift */; };
 		E02E79252912F7DB005B9AE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E02E79242912F7DB005B9AE2 /* Assets.xcassets */; };
 		E02E79282912F7DB005B9AE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02E79262912F7DB005B9AE2 /* LaunchScreen.storyboard */; };
 		E02E793029130FA0005B9AE2 /* WebViewOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02E792F29130FA0005B9AE2 /* WebViewOverlay.swift */; };
 		E02E794929131210005B9AE2 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = E02E794829131210005B9AE2 /* WebSource */; };
+		E02EB185296F66DA00D1B06C /* sample-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E02EB184296F66DA00D1B06C /* sample-bg.jpg */; };
 		E030DFA62922820F00118A5B /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFA52922820F00118A5B /* AppManager.swift */; };
 		E030DFA82922864100118A5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFA72922864100118A5B /* SceneDelegate.swift */; };
 		E030DFAA2922A35300118A5B /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DFA92922A35300118A5B /* UIView+Anchor.swift */; };
@@ -43,6 +52,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E01B9299296E122B008D1CBE /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = ZenIDWebViewDemo/AuthManager.swift; sourceTree = SOURCE_ROOT; };
+		E01B929E296E17DC008D1CBE /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		E01B929F296E17DC008D1CBE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		E01B92A2296E1A7E008D1CBE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ZenIDWebViewDemo/Logger.swift; sourceTree = SOURCE_ROOT; };
+		E01B92A4296E1ABE008D1CBE /* ZipArchive.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZipArchive.xcframework; path = Carthage/Build/ZipArchive.xcframework; sourceTree = "<group>"; };
+		E01B92A7296E1AC7008D1CBE /* CocoaLumberjackSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjackSwift.xcframework; path = Carthage/Build/CocoaLumberjackSwift.xcframework; sourceTree = "<group>"; };
+		E01B92AA296E1ACA008D1CBE /* CocoaLumberjack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CocoaLumberjack.xcframework; path = Carthage/Build/CocoaLumberjack.xcframework; sourceTree = "<group>"; };
 		E02E79182912F7DA005B9AE2 /* ZenIDWebviewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenIDWebviewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02E791B2912F7DA005B9AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E02E791F2912F7DA005B9AE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +67,7 @@
 		E02E79292912F7DB005B9AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E02E792F29130FA0005B9AE2 /* WebViewOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewOverlay.swift; path = ZenIDWebViewDemo/WebViewOverlay.swift; sourceTree = SOURCE_ROOT; };
 		E02E794829131210005B9AE2 /* WebSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSource; sourceTree = "<group>"; };
+		E02EB184296F66DA00D1B06C /* sample-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sample-bg.jpg"; sourceTree = "<group>"; };
 		E030DFA52922820F00118A5B /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppManager.swift; path = ZenIDWebViewDemo/AppManager.swift; sourceTree = SOURCE_ROOT; };
 		E030DFA72922864100118A5B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ZenIDWebviewDemo/SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
 		E030DFA92922A35300118A5B /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Anchor.swift"; path = "ZenIDWebViewDemo/Extensions/UIView+Anchor.swift"; sourceTree = SOURCE_ROOT; };
@@ -70,15 +87,31 @@
 			files = (
 				E0C86EFC29279DDD00B0B888 /* LibZenid_iOS.xcframework in Frameworks */,
 				E0C86EF829279DD100B0B888 /* RecogLib_iOS.framework in Frameworks */,
+				E01B92B4296E1BBB008D1CBE /* CocoaLumberjackSwift in Frameworks */,
+				E01B929C296E1276008D1CBE /* Common in Frameworks */,
+				E01B92B2296E1BBB008D1CBE /* CocoaLumberjack in Frameworks */,
+				E01B92AF296E1B7C008D1CBE /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E01B929D296E1777008D1CBE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E02EB184296F66DA00D1B06C /* sample-bg.jpg */,
+				E01B929F296E17DC008D1CBE /* Settings.bundle */,
+				E01B929E296E17DC008D1CBE /* Settings.plist */,
+			);
+			name = Resources;
+			path = ZenIDWebViewDemo/Resources;
+			sourceTree = "<group>";
+		};
 		E02E790F2912F7DA005B9AE2 = {
 			isa = PBXGroup;
 			children = (
+				E01B929D296E1777008D1CBE /* Resources */,
 				E02E794829131210005B9AE2 /* WebSource */,
 				E02E791A2912F7DA005B9AE2 /* ZenIDWebviewDemo */,
 				E02E79192912F7DA005B9AE2 /* Products */,
@@ -98,16 +131,18 @@
 			isa = PBXGroup;
 			children = (
 				E030DF9E292276F300118A5B /* Extensions */,
-				E030DFAD2922A59900118A5B /* AppFeature.swift */,
 				E02E791B2912F7DA005B9AE2 /* AppDelegate.swift */,
-				E030DFA72922864100118A5B /* SceneDelegate.swift */,
+				E030DFAD2922A59900118A5B /* AppFeature.swift */,
 				E030DFA52922820F00118A5B /* AppManager.swift */,
+				E01B9299296E122B008D1CBE /* AuthManager.swift */,
+				E030DFA72922864100118A5B /* SceneDelegate.swift */,
 				E030DFAF2922A5EB00118A5B /* GenericViewController.swift */,
 				E0C86EFE2927A44000B0B888 /* QRCodeViewController.swift */,
 				E02E791F2912F7DA005B9AE2 /* ViewController.swift */,
 				E02E792F29130FA0005B9AE2 /* WebViewOverlay.swift */,
 				E030DFAB2922A4B500118A5B /* WebViewController.swift */,
 				E030DFB12922A6D900118A5B /* ScreenConfiguration.swift */,
+				E01B92A2296E1A7E008D1CBE /* Logger.swift */,
 				E02E79242912F7DB005B9AE2 /* Assets.xcassets */,
 				E02E79262912F7DB005B9AE2 /* LaunchScreen.storyboard */,
 				E02E79292912F7DB005B9AE2 /* Info.plist */,
@@ -126,6 +161,9 @@
 		E0C86EF629279DD100B0B888 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E01B92AA296E1ACA008D1CBE /* CocoaLumberjack.xcframework */,
+				E01B92A7296E1AC7008D1CBE /* CocoaLumberjackSwift.xcframework */,
+				E01B92A4296E1ABE008D1CBE /* ZipArchive.xcframework */,
 				E0C86EFB29279DDD00B0B888 /* LibZenid_iOS.xcframework */,
 				E0C86EF729279DD100B0B888 /* RecogLib_iOS.framework */,
 			);
@@ -149,6 +187,12 @@
 			dependencies = (
 			);
 			name = ZenIDWebviewDemo;
+			packageProductDependencies = (
+				E01B929B296E1276008D1CBE /* Common */,
+				E01B92AE296E1B7C008D1CBE /* ZipArchive */,
+				E01B92B1296E1BBB008D1CBE /* CocoaLumberjack */,
+				E01B92B3296E1BBB008D1CBE /* CocoaLumberjackSwift */,
+			);
 			productName = ZenIDWebviewDemo;
 			productReference = E02E79182912F7DA005B9AE2 /* ZenIDWebviewDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +221,10 @@
 				Base,
 			);
 			mainGroup = E02E790F2912F7DA005B9AE2;
+			packageReferences = (
+				E01B92AD296E1B7C008D1CBE /* XCRemoteSwiftPackageReference "ZipArchive" */,
+				E01B92B0296E1BBB008D1CBE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+			);
 			productRefGroup = E02E79192912F7DA005B9AE2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,7 +240,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E02E794929131210005B9AE2 /* WebSource in Resources */,
+				E01B92A0296E17DC008D1CBE /* Settings.plist in Resources */,
+				E01B92A1296E17DC008D1CBE /* Settings.bundle in Resources */,
 				E02E79282912F7DB005B9AE2 /* LaunchScreen.storyboard in Resources */,
+				E02EB185296F66DA00D1B06C /* sample-bg.jpg in Resources */,
 				E02E79252912F7DB005B9AE2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E030DFB02922A5EB00118A5B /* GenericViewController.swift in Sources */,
+				E01B929A296E122B008D1CBE /* AuthManager.swift in Sources */,
 				E030DFA82922864100118A5B /* SceneDelegate.swift in Sources */,
 				E0C86EFF2927A44000B0B888 /* QRCodeViewController.swift in Sources */,
 				E030DFAA2922A35300118A5B /* UIView+Anchor.swift in Sources */,
@@ -212,6 +264,7 @@
 				E030DFB22922A6D900118A5B /* ScreenConfiguration.swift in Sources */,
 				E030DFA62922820F00118A5B /* AppManager.swift in Sources */,
 				E030DFAE2922A59900118A5B /* AppFeature.swift in Sources */,
+				E01B92A3296E1A7E008D1CBE /* Logger.swift in Sources */,
 				E030DFAC2922A4B500118A5B /* WebViewController.swift in Sources */,
 				E02E791C2912F7DA005B9AE2 /* AppDelegate.swift in Sources */,
 				E02E793029130FA0005B9AE2 /* WebViewOverlay.swift in Sources */,
@@ -436,6 +489,47 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E01B92AD296E1B7C008D1CBE /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		E01B92B0296E1BBB008D1CBE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E01B929B296E1276008D1CBE /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+		E01B92AE296E1B7C008D1CBE /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E01B92AD296E1B7C008D1CBE /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
+		};
+		E01B92B1296E1BBB008D1CBE /* CocoaLumberjack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E01B92B0296E1BBB008D1CBE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjack;
+		};
+		E01B92B3296E1BBB008D1CBE /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E01B92B0296E1BBB008D1CBE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E02E79102912F7DA005B9AE2 /* Project object */;
 }

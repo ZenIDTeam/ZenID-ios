@@ -1,65 +1,84 @@
 import AVFoundation
-import UIKit
+import Common
 import RecogLib_iOS
+import UIKit
 
-final class QRCodeViewController: WebViewController {
+class SimulatorCamera {
+    func start() {}
+    func stop() {}
+}
+
+enum QRViewEvent {
+    case qrAuthorized(code: String)
+    case qrFailed
+}
+
+final class QRCodeViewController: GenericViewController {
     private let configuration: ScreenConfiguration
-    private let onEvent: EventCallback
-    private var previewLayer: AVCaptureVideoPreviewLayer?
-    private let camera = Camera()
-#if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
-    private var imagePicker = UIImagePickerController()
-#endif
+    private let onEvent: EventCallback // (QRViewEvent) -> Void
+
+    #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
+        private let imagePicker = UIImagePickerController()
+        private let camera = SimulatorCamera()
+        private var previewLayer: UIImageView?
+    #else
+        private let camera = Camera()
+        private var previewLayer: AVCaptureVideoPreviewLayer?
+    #endif
     private var delayCounter: Int = 0
     // This is for adding delay so user will get sufficient time for align QR within frame
     private let delayCount: Int = 15
-    
+
     public init(onEvent: @escaping EventCallback) {
         configuration = ScreenConfiguration(feature: .scan)
         self.onEvent = onEvent
-        super.init()
+        super.init(configuration: configuration, onEvent: onEvent)
     }
-    
-    required public init?(coder: NSCoder) {
+
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-#if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
-    addGalleryPickerButton(view)
-#endif
-        
-        Task {
-            let hasCameraPermission = await requestCameraPermission()
-            if hasCameraPermission {
-                try? camera.configure(with: CameraConfiguration(type: .back, variant: .qrCode))
-                camera.takeQrCodeCompletion = { [weak self] qrCode in
-                    self?.processQr(qrCode)
+        #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
+            addGalleryPickerButton(view)
+            let imgPath = Bundle.main.path(forResource: "sample-bg", ofType: ".jpg")!
+            let previewLayer = UIImageView(image: UIImage(named: imgPath))
+            self.previewLayer = previewLayer
+            view.layer.insertSublayer(previewLayer.layer, at: 0)
+            loadWebView()
+        #else
+            Task {
+                let hasCameraPermission = await requestCameraPermission()
+                if hasCameraPermission {
+                    try? camera.configure(with: CameraConfiguration(type: .back, variant: .qrCode))
+                    camera.takeQrCodeCompletion = { [weak self] qrCode in
+                        self?.processQr(qrCode)
+                    }
+                    previewLayer = camera.previewLayer
+                    if let previewLayer {
+                        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                        view.layer.insertSublayer(previewLayer, at: 0)
+                        // view.layer.addSublayer(previewLayer)
+                        // addWebViewOverlay()
+                        loadWebView()
+                    }
+                    view.setNeedsLayout()
+                    camera.start()
                 }
-                previewLayer = camera.previewLayer
-                if let previewLayer {
-                    previewLayer.videoGravity  = AVLayerVideoGravity.resizeAspectFill
-                    view.layer.insertSublayer(previewLayer, at: 0)
-                    //view.layer.addSublayer(previewLayer)
-                    //addWebViewOverlay()
-                    loadWebView()
-                }
-                view.setNeedsLayout()
-                camera.start()
             }
-            
-        }
+        #endif
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if let previewLayer = previewLayer {
             previewLayer.frame = view.bounds
         }
     }
-    
+
     private func requestCameraPermission() async -> Bool {
         await withCheckedContinuation { continuation in
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
@@ -67,11 +86,12 @@ final class QRCodeViewController: WebViewController {
             })
         }
     }
-    
+
     override func didReceiveEvent(_ event: WebEvent) {
-        onEvent(AppEvent(feature: event.previousEvent.feature, data: event.previousEvent.base64))
+        // TODO: handle and process generic events
+        // onEvent(AppEvent(feature: event.previousEvent.feature, data: event.previousEvent.base64))
     }
-    
+
     private func loadWebView() {
         do {
             let event = try configuration.toJson()
@@ -82,53 +102,75 @@ final class QRCodeViewController: WebViewController {
             print(error)
         }
     }
-    
+
     private func processQr(_ qrCode: AVMetadataMachineReadableCodeObject) {
         if view.bounds.contains(qrCode.bounds) {
             delayCounter = delayCounter + 1
             if delayCounter > delayCount {
                 if let unwrapedStringValue = qrCode.stringValue {
-                    //delegate?.qrSuccess(self, scanDidComplete: unwrapedStringValue, completion: successCompletion)
+                    qrSuccess(result: unwrapedStringValue, completion: { [weak self] in
+                        self?.onEvent(WebEvent(previousEvent: .init(feature: .scan), nextEvent: nil))
+                        // self?.onEvent(.qrAuthorized(code: unwrapedStringValue))
+                    })
+                    // delegate?.qrSuccess(self, scanDidComplete: unwrapedStringValue, completion: successCompletion)
                 } else {
-                    //delegate?.qrFail(self, error: "Empty string found")
+                    onEvent(WebEvent(previousEvent: .init(feature: .scan), nextEvent: nil))
+                    // onEvent(.qrFailed)
+                    // delegate?.qrFail(self, error: "Empty string found")
                 }
-                //dismiss(animated: true, completion: nil)
+                // dismiss(animated: true, completion: nil)
             }
         }
     }
 
-#if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
-    private func addGalleryPickerButton(_ view: UIView) {
-        let height: CGFloat = 44.0
-        let btnWidth: CGFloat = 320.0
-
-        // Pick image from gallery button
-        let pickerButton = UIButton()
-        pickerButton.frame = CGRect(
-            x: view.frame.width / 2 - btnWidth / 2,
-            y: view.frame.height - 120,
-            width: btnWidth,
-            height: height)
-        pickerButton.setTitle("debug: login-qr-gallery", for: .normal)
-        pickerButton.contentMode = .scaleAspectFit
-        pickerButton.addTarget(self, action: #selector(openGalleryVC), for: .touchUpInside)
-        view.addSubview(pickerButton)
-    }
-
-    @objc func openGalleryVC() {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            print("Button capture")
-
-            imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum
-            imagePicker.allowsEditing = false
-
-            present(imagePicker, animated: true, completion: nil)
+    func qrSuccess(result: String, completion: (() -> Void)?) {
+        if let qr = CredentialsQrCode(value: result), qr.isValid {
+            Credentials.shared.update(apiURL: qr.apiURL!, apiKey: qr.apiKey!)
+            // Haptics.shared.success()
+            if let completion = completion {
+                AuthManager.zenidAuthorize(completion: { isAuthorized in
+                    if !isAuthorized {
+                        Credentials.shared.clear()
+                    } else {
+                        completion()
+                    }
+                })
+            }
+            ApplicationLogger.shared.Verbose("Credentials updated, apiURL: \(Credentials.shared.apiURL?.absoluteString ?? ""), apiKey: \(Credentials.shared.apiKey ?? "")")
         }
     }
-#endif
-}
 
+    #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
+        private func addGalleryPickerButton(_ view: UIView) {
+            let height: CGFloat = 44.0
+            let btnWidth: CGFloat = 320.0
+
+            // Pick image from gallery button
+            let pickerButton = UIButton()
+            pickerButton.frame = CGRect(
+                x: view.frame.width / 2 - btnWidth / 2,
+                y: view.frame.height - 120,
+                width: btnWidth,
+                height: height)
+            pickerButton.setTitle("debug: login-qr-gallery", for: .normal)
+            pickerButton.contentMode = .scaleAspectFit
+            pickerButton.addTarget(self, action: #selector(openGalleryVC), for: .touchUpInside)
+            view.addSubview(pickerButton)
+        }
+
+        @objc func openGalleryVC() {
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+                print("Button capture")
+
+                imagePicker.delegate = self
+                imagePicker.sourceType = .savedPhotosAlbum
+                imagePicker.allowsEditing = false
+
+                present(imagePicker, animated: true, completion: nil)
+            }
+        }
+    #endif
+}
 
 #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
     extension QRCodeViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -137,9 +179,12 @@ final class QRCodeViewController: WebViewController {
 
             guard let image = info[.originalImage] as? UIImage else { return }
             if let text = getTextFromQR(from: image) {
-                //delegate?.qrSuccess(self, scanDidComplete: text, completion: successCompletion)
+                qrSuccess(result: text, completion: { [weak self] in
+                    self?.onEvent(.init(previousEvent: .init(feature: .scan), nextEvent: nil))
+                    // self?.onEvent(.qrAuthorized(code: text))
+                })
                 camera.stop()
-                //dismiss(animated: true, completion: nil)
+                // dismiss(animated: true, completion: nil)
             }
         }
 
