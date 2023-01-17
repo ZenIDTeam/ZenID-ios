@@ -77,8 +77,10 @@ final class WebViewOverlay: WKWebView {
 //    }
 
     func sendEvent(_ event: String) {
-        let command = "const event = new CustomEvent('webview', \(event) ); window.dispatchEvent(event);"
-        evaluateJavaScript(command, completionHandler: nil)
+        let command = "var event = new CustomEvent('webview', \(event) ); window.dispatchEvent(event);"
+        evaluateJavaScript(command, completionHandler: { data, error in
+            print("webView completionHandler: data: \(data), error: \(error)")
+        })
     }
 }
 

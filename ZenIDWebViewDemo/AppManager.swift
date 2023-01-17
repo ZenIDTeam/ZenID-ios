@@ -6,43 +6,56 @@ protocol AppManagerDelegate {
 
 class AppManager {
     private let navigationController: UINavigationController
+    private let rootViewController: GenericViewController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        rootViewController = GenericViewController()
     }
 
     func start() {
-        showWelcome()
+        rootViewController.setEventCallback(onEvent: handleAppEvent)
+        navigationController.viewControllers = [rootViewController]
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            self?.showDocumentScanScreen(role: .Idc, page: .F)
+            //self?.showWelcome()
+        }
     }
 
     func showWelcome() {
-        let vc = GenericViewController(configuration: ScreenConfiguration(feature: .welcome), onEvent: handleAppEvent)
-        navigationController.viewControllers = [vc]
+        rootViewController.loadConfiguration(configuration: ScreenConfiguration(feature: .welcome))
+//        let vc = GenericViewController(configuration: ScreenConfiguration(feature: .welcome), onEvent: handleAppEvent)
+//        navigationController.viewControllers = [vc]
     }
 
     func swowQrCodeSetup() {
         let vc = QRCodeViewController(onEvent: handleAppEvent)
-        navigationController.viewControllers = [vc]
+        navigationController.pushViewController(vc, animated: true)
+        // navigationController.viewControllers = [vc]
     }
 
     func showHome() {
-        let vc = GenericViewController(configuration: ScreenConfiguration(feature: .home), onEvent: handleAppEvent)
-        navigationController.viewControllers = [vc]
+        rootViewController.loadConfiguration(configuration: ScreenConfiguration(feature: .home))
+//        let vc = GenericViewController(configuration: ScreenConfiguration(feature: .home), onEvent: handleAppEvent)
+//        navigationController.viewControllers = [vc]
     }
 
     func showFeatureScreen(_ feature: AppFeature) {
-        let vc = GenericViewController(configuration: ScreenConfiguration(feature: feature), onEvent: handleAppEvent)
-        navigationController.viewControllers = [vc]
+        rootViewController.loadConfiguration(configuration: ScreenConfiguration(feature: feature))
+//        let vc = GenericViewController(configuration: ScreenConfiguration(feature: feature), onEvent: handleAppEvent)
+//        navigationController.viewControllers = [vc]
     }
 
     func showDocumentPromoScreen(role: DocumentScreenConfiguration.Detail.Role) {
-        let vc = GenericViewController(configuration: DocumentScreenConfiguration(role: role, page: nil, feedback: nil), onEvent: handleDocumentPromoEvents)
-        navigationController.viewControllers = [vc]
+        rootViewController.loadConfiguration(configuration: DocumentScreenConfiguration(role: role, page: nil, feedback: nil))
+//        let vc = GenericViewController(configuration: DocumentScreenConfiguration(role: role, page: nil, feedback: nil), onEvent: handleDocumentPromoEvents)
+//        navigationController.viewControllers = [vc]
     }
 
     func showDocumentScanScreen(role: DocumentScreenConfiguration.Detail.Role, page: DocumentScreenConfiguration.Detail.Page, feedback: String? = nil) {
-        let vc = GenericViewController(configuration: DocumentScreenConfiguration(role: role, page: page, feedback: feedback), onEvent: handleDocumentScanEvents)
-        navigationController.viewControllers = [vc]
+        rootViewController.loadConfiguration(configuration: DocumentScreenConfiguration(role: role, page: page, feedback: feedback))
+//        let vc = GenericViewController(configuration: DocumentScreenConfiguration(role: role, page: page, feedback: feedback), onEvent: handleDocumentScanEvents)
+//        navigationController.viewControllers = [vc]
     }
 }
 
@@ -53,50 +66,78 @@ extension AppManager {
 
             switch event.previousEvent.feature {
             case .welcome:
-                self?.swowQrCodeSetup()
+                self?.handleWelcomeScreenEvents(event)
             case .scan:
-                self?.showFeatureScreen(.home)
+                self?.navigationController.popViewController(animated: false)
+                self?.handleQRScanScreenEvents(event)
             case .home:
-                if let next = event.nextEvent, let feature = next.feature {
-                    switch feature {
-                    case .document:
-                        guard let rawRole = next.role,
-                              let role = DocumentScreenConfiguration.Detail.Role(rawValue: rawRole) else { return }
-                        self?.showDocumentPromoScreen(role: role)
-                    default:
-                        break
-                    }
-                }
+                self?.handleHomeScreenEvents(event)
             case .document:
-                break
-
+                self?.handleDocumentScreenEvents(event)
             case .settings:
-                if let next = event.nextEvent, let data = next.data {
-                    print(data)
-                }
-                self?.showFeatureScreen(.home)
+                self?.handleSettingsScreenEvents(event)
             }
         }
     }
 
-    func handleDocumentPromoEvents(_ event: WebEvent) {
-        guard let rawRole = event.previousEvent.role, let role = DocumentScreenConfiguration.Detail.Role(rawValue: rawRole) else { return }
-        showDocumentScanScreen(role: role, page: .F)
+    func handleWelcomeScreenEvents(_ event: WebEvent) {
+        swowQrCodeSetup()
     }
 
-    func handleDocumentScanEvents(_ event: WebEvent) {
+    func handleQRScanScreenEvents(_ event: WebEvent) {
         showFeatureScreen(.home)
     }
 
-    func handleQREvents(_ event: QRViewEvent) {
-        DispatchQueue.main.async { [weak self] in
-            switch event {
-            case .qrAuthorized(let code):
-                print("authorized, open next screen")
-                self?.showHome()
-            case .qrFailed:
-                print("authoruzation failed")
+    func handleHomeScreenEvents(_ event: WebEvent) {
+        if let next = event.nextEvent, let feature = next.feature {
+            switch feature {
+            case .document:
+                guard let rawRole = next.role,
+                      let role = DocumentScreenConfiguration.Detail.Role(rawValue: rawRole) else { return }
+                showDocumentPromoScreen(role: role)
+            case .settings:
+                showFeatureScreen(.settings)
+            default:
+                break
             }
         }
     }
+
+    func handleDocumentScreenEvents(_ event: WebEvent) {
+        if let rawRole = event.previousEvent.role, let role = DocumentScreenConfiguration.Detail.Role(rawValue: rawRole) {
+            if let page = event.previousEvent.page {
+                showFeatureScreen(.home)
+                return
+            }
+            showDocumentScanScreen(role: role, page: .F)
+        }
+    }
+
+    func handleSettingsScreenEvents(_ event: WebEvent) {
+        if let next = event.nextEvent, let data = next.data {
+            print(data)
+        }
+        showFeatureScreen(.home)
+    }
+
+//    func handleDocumentPromoEvents(_ event: WebEvent) {
+//        guard let rawRole = event.previousEvent.role, let role = DocumentScreenConfiguration.Detail.Role(rawValue: rawRole) else { return }
+//        showDocumentScanScreen(role: role, page: .F)
+//    }
+//
+//    func handleDocumentScanEvents(_ event: WebEvent) {
+//        showFeatureScreen(.home)
+//    }
+//
+//    func handleQREvents(_ event: QRViewEvent) {
+//        DispatchQueue.main.async { [weak self] in
+//            switch event {
+//            case .qrAuthorized(let code):
+//                print("authorized, open next screen")
+//                self?.showHome()
+//            case .qrFailed:
+//                print("authoruzation failed")
+//            }
+//        }
+//    }
 }

@@ -37,7 +37,6 @@ open class WebViewController: UIViewController {
         view.addSubview(webView)
         webView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         webViewOverlay = webView
-        webViewOverlay.isHidden = true
     }
 
     func addLoadingView() {
@@ -58,12 +57,14 @@ open class WebViewController: UIViewController {
     }
 
     func sendEvent(_ event: String) {
-        webViewOverlay?.sendEvent(event)
-        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
-            if let webViewOverlay  = self?.webViewOverlay {
-                self?.setView(view: webViewOverlay, hidden: false)
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            self?.webViewOverlay?.sendEvent(event)
         }
+//        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+//            if let webViewOverlay  = self?.webViewOverlay {
+//                self?.setView(view: webViewOverlay, hidden: false)
+//            }
+//        }
     }
 
     func didReceiveEvent(_ event: WebEvent) {
@@ -94,10 +95,12 @@ struct WebEvent: Decodable {
     struct PreviousEvent: Decodable {
         let feature: AppFeature
         let role: String?
+        let page: String?
 
-        init(feature: AppFeature, role: String? = nil) {
+        init(feature: AppFeature, role: String? = nil, page: String? = nil) {
             self.feature = feature
             self.role = role
+            self.page = page
         }
     }
 

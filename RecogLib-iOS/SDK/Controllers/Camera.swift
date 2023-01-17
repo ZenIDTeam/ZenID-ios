@@ -32,7 +32,7 @@ public enum DataType {
     case video
 }
 
-protocol CameraDelegate: AnyObject {
+public protocol CameraDelegate: AnyObject {
     func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer)
 }
 
@@ -240,5 +240,39 @@ extension Camera: AVCaptureMetadataOutputObjectsDelegate {
                 }
             }
         }
+    }
+}
+
+extension Camera {
+    public func getCroppedImageRect(width: Int, height: Int, targetFrame: CGRect) -> CGRect {
+        let gravity = Defaults.videoGravity
+        switch gravity {
+        case .resizeAspect:
+            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
+            let layerRect = imageRect.rectThatFitsRect(targetFrame)
+            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect
+        case .resizeAspectFill:
+            let layerRect = targetFrame
+            let metadataRect = previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
+            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
+            return cropRect
+        default:
+            return .zero
+        }
+    }
+
+    public func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer, targetFrame: CGRect) -> CVPixelBuffer? {
+        // camera frame size
+        let width = CVPixelBufferGetWidth(pixelBuffer)
+        let height = CVPixelBufferGetHeight(pixelBuffer)
+
+        // find cropping
+        let cropRect = getCroppedImageRect(width: width, height: height, targetFrame: targetFrame)
+
+        // create (cropped) image
+        let image = UIImage(pixelBuffer: pixelBuffer, crop: cropRect)
+        return image?.toCVPixelBuffer()
     }
 }

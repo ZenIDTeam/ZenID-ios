@@ -287,7 +287,7 @@ extension BaseController: VideoWriterDelegate {
 }
 
 extension BaseController: CameraDelegate {
-    func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
+    public func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
         guard isRunning else { return }
         guard targetFrame.width > 0 else { return }
 
