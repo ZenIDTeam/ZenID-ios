@@ -55,11 +55,21 @@ final class PureVerifierViewController: UIViewController {
             language: .Czech
         )
         verifier.showDebugInfo = true
+
         super.init(nibName: nil, bundle: nil)
+
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(orientationChanged),
+            name: UIDevice.orientationDidChangeNotification, object: nil
+        )
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Lifecycle
@@ -108,6 +118,13 @@ final class PureVerifierViewController: UIViewController {
 
     // MARK: - Private functions
 
+    @objc
+    private func orientationChanged() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            self.setOrientation(orientation: UIDevice.current.orientation)
+        }
+    }
+
     private func loadModels(url: URL) {
         guard let models = DocumentVerifierModels(url: url) else {
             return
@@ -116,6 +133,12 @@ final class PureVerifierViewController: UIViewController {
     }
 
     private func verifyImage(buffer: CMSampleBuffer) {
+        // test code to verify that the image orientation is always correct
+//        if #available(iOS 13.0, *) {
+//            if let ib = buffer.imageBuffer {
+//                let debugImage = UIImage(pixelBuffer: ib)
+//            }
+//        }
         let result = verifier.verify(buffer: buffer)
         // process the verifier result here
     }
@@ -207,7 +230,7 @@ extension PureVerifierViewController {
         self.previewLayer = previewLayer
 
         captureSession.beginConfiguration()
-        captureSession.sessionPreset = .hd1920x1080
+        captureSession.sessionPreset = .high
         if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
             for input in inputs {
                 captureSession.removeInput(input)
@@ -231,21 +254,24 @@ extension PureVerifierViewController {
     }
 
     func setOrientation(orientation: UIDeviceOrientation) {
-        switch UIDevice.current.orientation {
-        case .portrait:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        case .landscapeRight:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-        case .landscapeLeft:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-        case .portraitUpsideDown:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
-        default: break
-        }
-
         if #available(iOS 13.0, *) {
             for connection in captureSession.connections {
-                connection.videoOrientation = previewLayer?.connection?.videoOrientation ?? .portrait
+                switch UIDevice.current.orientation {
+                case .portrait:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .portrait
+                case .landscapeRight:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .landscapeLeft
+                case .landscapeLeft:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .landscapeRight
+                case .portraitUpsideDown:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .portraitUpsideDown
+                default:
+                    break
+                }
             }
         }
     }
