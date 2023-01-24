@@ -50,7 +50,7 @@ enum MrzSubtype: String, Decodable {
     case unknown = "Unknown"
 }
 
-extension RecogLib_iOS.DocumentCode {
+extension RecogLib_iOS.DocumentCodes {
     func isTypeOfDocument(type: DocumentType) -> Bool {
         let typeUpper = type.rawValue.uppercased()
         return self.description.uppercased().contains(typeUpper)
@@ -112,8 +112,8 @@ struct MineAllResult: Decodable {
     var Height: MinedText?
     var EyesColor: MinedText?
     
-    var documentCode: RecogLib_iOS.DocumentCode? {
-        RecogLib_iOS.DocumentCode(stringValue: DocumentCode ?? "")
+    var documentCode: RecogLib_iOS.DocumentCodes? {
+        RecogLib_iOS.DocumentCodes(stringValue: DocumentCode ?? "")
     }
 }
 

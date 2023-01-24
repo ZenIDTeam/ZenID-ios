@@ -42,8 +42,14 @@ public final class Camera: NSObject {
 
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
+        var deviceTypes: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera]
+        if #available(iOS 13.0, *) {
+            if UIDevice.isProModel {
+                deviceTypes = [.builtInTripleCamera, .builtInDualCamera, .builtInWideAngleCamera]
+            }
+        }
         let deviceDescoverySession = AVCaptureDevice.DiscoverySession(
-            deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: captureDevicePosition
+            deviceTypes: deviceTypes, mediaType: .video, position: captureDevicePosition
         )
         captureDevice = deviceDescoverySession.devices.first
 
@@ -205,3 +211,33 @@ private extension Camera {
         return true
     }
 }
+
+#if os(iOS)
+    public extension UIDevice {
+        static let isProModel: Bool = {
+            var systemInfo = utsname()
+            uname(&systemInfo)
+            let machineMirror = Mirror(reflecting: systemInfo.machine)
+            let identifier = machineMirror.children.reduce("") { identifier, element in
+                guard let value = element.value as? Int8, value != 0 else { return identifier }
+                return identifier + String(UnicodeScalar(UInt8(value)))
+            }
+
+            // Camera selection oon iPhone 12 Pro is ok, not needed to detect
+            func mapProDevices(identifier: String) -> Bool { // swiftlint:disable:this cyclomatic_complexity
+                switch identifier {
+                // "iPhone 13 Pro"
+                case "iPhone14,2": return true
+                // "iPhone 13 Pro Max"
+                case "iPhone14,3": return true
+                // "iPhone 14 Pro"
+                case "iPhone15,2": return true
+                // "iPhone 14 Pro Max"
+                case "iPhone15,3": return true
+                default: return false
+                }
+            }
+            return mapProDevices(identifier: identifier)
+        }()
+    }
+#endif

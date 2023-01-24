@@ -18,8 +18,8 @@ struct UserDefaultsDocument: Codable {
         .init(
             role: role == nil ? nil : RecogLib_iOS.DocumentRole(rawValue: role!),
             country: country == nil ? nil : RecogLib_iOS.Country(rawValue: country!),
-            page: page == nil ? nil : RecogLib_iOS.PageCode(rawValue: page!),
-            code: code == nil ? nil : RecogLib_iOS.DocumentCode(rawValue: code!)
+            page: page == nil ? nil : RecogLib_iOS.PageCodes(rawValue: page!),
+            code: code == nil ? nil : RecogLib_iOS.DocumentCodes(rawValue: code!)
         )
     }
 }

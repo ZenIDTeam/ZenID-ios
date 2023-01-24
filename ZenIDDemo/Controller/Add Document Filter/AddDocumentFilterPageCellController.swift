@@ -12,10 +12,10 @@ import RecogLib_iOS
 
 final class AddDocumentFilterPageCellController: BasicTableCellController {
     
-    private let onSelection: (RecogLib_iOS.PageCode) -> Void
+    private let onSelection: (RecogLib_iOS.PageCodes) -> Void
     private let coordinator: AddDocumentFilterCoordinable
     
-    init(onSelection: @escaping (RecogLib_iOS.PageCode) -> Void, coordinator: AddDocumentFilterCoordinable) {
+    init(onSelection: @escaping (RecogLib_iOS.PageCodes) -> Void, coordinator: AddDocumentFilterCoordinable) {
         self.onSelection = onSelection
         self.coordinator = coordinator
         super.init(viewModel: .init(title: "", action: nil))
@@ -32,17 +32,17 @@ final class AddDocumentFilterPageCellController: BasicTableCellController {
     
     private func getSelectionOptions() -> [SelectionItemViewModel] {
         [
-            SelectionItemViewModel(title: RecogLib_iOS.PageCode.Front.description),
-            SelectionItemViewModel(title: RecogLib_iOS.PageCode.Back.description)
+            SelectionItemViewModel(title: RecogLib_iOS.PageCodes.F.description),
+            SelectionItemViewModel(title: RecogLib_iOS.PageCodes.B.description)
         ]
     }
     
     private func didSelect(item: SelectionItemViewModel) {
         update(viewModel: getViewModel(item: item))
-        if item.title == RecogLib_iOS.PageCode.Front.description {
-            onSelection(.Front)
-        } else if item.title == RecogLib_iOS.PageCode.Back.description {
-            onSelection(.Back)
+        if item.title == RecogLib_iOS.PageCodes.F.description {
+            onSelection(.F)
+        } else if item.title == RecogLib_iOS.PageCodes.B.description {
+            onSelection(.B)
         }
     }
     

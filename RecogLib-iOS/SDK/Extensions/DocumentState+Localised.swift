@@ -1,6 +1,6 @@
 import Foundation
 
-extension DocumentState {
+extension DocumentVerifierState {
     var localizedDescription: String {
         switch self {
         case .Ok:

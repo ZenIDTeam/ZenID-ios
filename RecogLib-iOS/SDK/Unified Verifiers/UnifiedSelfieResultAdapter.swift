@@ -5,8 +5,8 @@ public final class UnifiedSelfieResultAdapter: UnifiedResult {
     public let state: UnifiedState
     public let role: RecogLib_iOS.DocumentRole?
     public let country: RecogLib_iOS.Country?
-    public let code: RecogLib_iOS.DocumentCode?
-    public let page: RecogLib_iOS.PageCode?
+    public let code: RecogLib_iOS.DocumentCodes?
+    public let page: RecogLib_iOS.PageCodes?
     public let signature: ImageSignature?
     
     public init(result: SelfieResult) {
@@ -20,7 +20,7 @@ public final class UnifiedSelfieResultAdapter: UnifiedResult {
     
 }
 
-public extension SelfieState {
+public extension SelfieVerifierState {
     func toDomain() -> UnifiedState {
         switch self {
         case .ConfirmingFace:
@@ -33,7 +33,7 @@ public extension SelfieState {
             return .notFound
         case .Ok:
             return .ok
-        case .badFaceAngle:
+        case .BadFaceAngle:
             return .badFaceAngle
         }
     }

@@ -109,7 +109,7 @@ class CameraViewController: UIViewController {
                 dataType: dataType,
                 role: RecoglibMapper.documentRole(from: type),
                 country: country,
-                page: photoType == .front ? .Front : .Back,
+                page: photoType == .front ? .F : .B,
                 code: nil,
                 documents: type == .filter ? documents : nil,
                 settings: documentSettings

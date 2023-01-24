@@ -1,27 +1,27 @@
-import AVFoundation
-import CoreGraphics
 import Foundation
+import CoreGraphics
+import AVFoundation
 import UIKit
 
 public struct DocumentResult {
-    public var state: DocumentState
+    public var state: DocumentVerifierState
     public var role: DocumentRole?
     public var country: Country?
-    public var code: DocumentCode?
-    public var page: PageCode?
+    public var code: DocumentCodes?
+    public var page: PageCodes?
     public var hologremState: HologramState?
-
+    
     public var signature: ImageSignature?
-
+        
     init?(document: CDocumentInfo) {
-        guard let state = DocumentState(rawValue: Int(document.state)) else { return nil }
-
-        page = PageCode(rawValue: Int(document.page))
-        role = DocumentRole(rawValue: Int(document.role))
-        code = DocumentCode(rawValue: Int(document.code))
-        country = Country(rawValue: Int(document.country))
+        guard let state = DocumentVerifierState(rawValue: Int(document.state)) else { return nil }
+                
+        self.page = PageCodes(rawValue: Int(document.page))
+        self.role = DocumentRole(rawValue: Int(document.role))
+        self.code = DocumentCodes(rawValue: Int(document.code))
+        self.country = Country(rawValue: Int(document.country))
         self.state = state
-        hologremState = HologramState(rawValue: Int(document.hologramState))
-        signature = DocumentSignatureMapper.map(document.signature)
+        self.hologremState = HologramState(rawValue: Int(document.hologramState))
+        self.signature = DocumentSignatureMapper.map(document.signature)
     }
 }
