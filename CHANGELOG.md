@@ -1,14 +1,16 @@
 # Change Log
 
 # 2.0.16 02/2023
-* RecogLib 3.1.2
+* RecogLib 3.2.2
+* SDK: When the image is blurry, an animation is shown to the user to indicate that he should move the phone further away from the card.
+* SDK: The SDK won't take a picture of the card when it's too far outside the outline.
 * New: Support for Swedish ID cards v2022.
 * New: Support for Indian passports v2000/2013.
 * New: Support for Swedish passports v2022.
 * New: Support for Danish passports v2021.
 * New: Support for Swiss passports v2022.
 * New: Support for Vietnamese passports v2022.
-* Improvement: Support for new variant of Montenegrin passport. TRASKZENIDPV-821
+* Improvement: Support for new variant of Montenegrin passport.
 * API: Added SE_IDC_2022, SE_PAS_2022, DK_PAS_2021, CH_PAS_2022, ME_PAS_2008_A2 and VN_PAS_2022 in DocumentCodes enum.
 * Added usurf_in_pas_2000_13_f.bin
 * Added usurf_se_idc_2022_f.bin
