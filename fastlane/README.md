@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Push a new beta build to TestFlight
 
+### ios setup
+
+```sh
+[bundle exec] fastlane ios setup
+```
+
+Download certificate and provisioning profile from apple
+
 ### ios firebase
 
 ```sh
