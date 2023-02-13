@@ -1,5 +1,16 @@
 # Change Log
 
+# 2.0.16 02/2023
+* RecogLib 3.1.1
+* New: Support for Swedish ID cards v2022.
+* New: Support for Indian passports v2000/2013.
+* API: Added SE_IDC_2022 and SE_PAS_2022 in DocumentCodes enum.
+* Added usurf_in_pas_2000_13_f.bin
+* Added usurf_se_idc_2022_f.bin
+* Added usurf_se_idc_2022_b.bin
+* Updated modelhashes.bin
+
+
 # 2.0.15 2023-01-07
 * RecogLib 2.12.3
 * Fix bug that could cause issues in tracking especially with Birth Certificates.

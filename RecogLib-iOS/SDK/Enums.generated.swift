@@ -153,6 +153,8 @@ public enum DocumentCodes : Int, CaseIterable {
     case NL_IDC_2014_17_21_A2 = 152
     case CZ_BIRTH_A4 = 153
     case SK_IDC_2022 = 154
+    case SE_IDC_2022 = 155
+    case SE_PAS_2022 = 156
 }
 
 public enum PageCodes : Int, CaseIterable { 
