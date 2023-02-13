@@ -1,14 +1,22 @@
 # Change Log
 
 # 2.0.16 02/2023
-* RecogLib 3.1.1
+* RecogLib 3.1.2
 * New: Support for Swedish ID cards v2022.
 * New: Support for Indian passports v2000/2013.
-* API: Added SE_IDC_2022 and SE_PAS_2022 in DocumentCodes enum.
+* New: Support for Swedish passports v2022.
+* New: Support for Danish passports v2021.
+* New: Support for Swiss passports v2022.
+* New: Support for Vietnamese passports v2022.
+* Improvement: Support for new variant of Montenegrin passport. TRASKZENIDPV-821
+* API: Added SE_IDC_2022, SE_PAS_2022, DK_PAS_2021, CH_PAS_2022, ME_PAS_2008_A2 and VN_PAS_2022 in DocumentCodes enum.
 * Added usurf_in_pas_2000_13_f.bin
 * Added usurf_se_idc_2022_f.bin
 * Added usurf_se_idc_2022_b.bin
-* Updated modelhashes.bin
+* Added usurf_se_pas_2022_f.bin
+* Added usurf_dk_pas_2021_f.bin
+* Added usurf_ch_pas_2022_f.bin
+* Added usurf_vn_pas_2022_f.bin
 
 
 # 2.0.15 2023-01-07
