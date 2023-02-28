@@ -1,7 +1,8 @@
 # Change Log
 
-# 2.0.16 02/2023
-* RecogLib 3.2.2
+# 2.0.16 03/2023
+* RecogLib 3.2.4
+* Fix tracking issues when the card is far from the center.
 * SDK: When the image is blurry, an animation is shown to the user to indicate that he should move the phone further away from the card.
 * SDK: The SDK won't take a picture of the card when it's too far outside the outline.
 * New: Support for Swedish ID cards v2022.
