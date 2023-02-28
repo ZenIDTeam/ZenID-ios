@@ -11,7 +11,7 @@ struct BaseControllerConfiguration {
     static let DEFAULT_VIDEO_RESOLUTION = 1920
     static let DEFAULT_VIDEO_FPS = 30 // FPS not used for now
 
-    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back, requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION, requestedFPS: Self.DEFAULT_VIDEO_FPS)
+    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back, requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION, requestedFPS: Self.DEFAULT_VIDEO_FPS, legacyVisualiser: false)
 
     public let showVisualisation: Bool
     public let showHelperVisualisation: Bool
@@ -19,8 +19,9 @@ struct BaseControllerConfiguration {
     public let cameraType: CameraType
     public let requestedResolution: Int
     public let requestedFPS: Int
+    public let legacyVisualiser: Bool
 
-    init(showVisualisation: Bool, showHelperVisualisation: Bool, dataType: DataType, cameraType: CameraType, requestedResolution: Int, requestedFPS: Int) {
+    init(showVisualisation: Bool, showHelperVisualisation: Bool, dataType: DataType, cameraType: CameraType, requestedResolution: Int, requestedFPS: Int, legacyVisualiser: Bool = false) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.dataType = dataType
@@ -39,6 +40,8 @@ struct BaseControllerConfiguration {
         } else {
             self.requestedResolution = requestedResolution
         }
+        
+        self.legacyVisualiser = legacyVisualiser
     }
 }
 
@@ -102,6 +105,10 @@ public class BaseController<ResultType: ResultState> {
         }
 
         view.showInstructionView = canShowInstructionView()
+        
+        if configuration.legacyVisualiser == false {
+            view.addWebViewOverlay()
+        }
 
         previousResult = nil
         orientationChanged()
@@ -239,6 +246,19 @@ extension BaseController {
         if !baseConfig.showHelperVisualisation {
             return
         }
+        
+        if let firstChar = commands.first?.description, firstChar == "[" {
+            drawRenderables(commands: commands)
+        } else {
+            drawRenderablesLegacy(commands: commands)
+        }
+    }
+    
+    private func drawRenderables(commands: String) {
+        view.webViewOverlay?.drawRenderables(commands: commands)
+    }
+
+    private func drawRenderablesLegacy(commands: String) {
         guard let previewLayer = camera.previewLayer else {
             return
         }

@@ -32,10 +32,23 @@ final class WebViewOverlay: WKWebView {
         load(request)
     }
     
+    func loadVisualiser() {
+        configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+        let fileUrl = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "WebVisualiser")!
+        loadFileURL(fileUrl, allowingReadAccessTo: fileUrl)
+    }
+    
     func updateState(state: WebViewOverlayState) {
         print(state.state)
         let rect = state.frame
         let command = "const event = new CustomEvent('document', { detail: { page: '\(state.page)', feedback: '\(state.state)', viewPort: { topLeft: { x: \(Int(rect.minX)), y: \(Int(rect.minY)) }, bottomRight: { x: \(Int(rect.maxX)), y: \(Int(rect.maxY)) }}}});window.dispatchEvent(event);"
         evaluateJavaScript(command, completionHandler: nil)
+    }
+    
+    func drawRenderables(commands: String) {
+        var safeCommands = commands.replacingOccurrences(of: "\\n", with: "")
+        let command = "drawCommands('" + safeCommands + "');"
+        evaluateJavaScript(command, completionHandler: nil)
+        
     }
 }
