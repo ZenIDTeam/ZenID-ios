@@ -190,6 +190,12 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case NL_IDC_2014_17_21_A2
   case CZ_BIRTH_A4
   case SK_IDC_2022
+  case SE_IDC_2022
+  case SE_PAS_2022
+  case DK_PAS_2021
+  case CH_PAS_2022
+  case VN_PAS_2022
+  case ME_PAS_2008_A2
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int
@@ -410,6 +416,9 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
 }
 extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public static let isProModel: Swift.Bool
 }
 public enum ZenFont {
 }

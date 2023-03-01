@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		g2ibQSO5gWHoO1Tqdwqs0zmNnPo=
+		HHloirjXScAraRaGHZuaJ64NgsU=
 		</data>
 		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yiBN322M80pbjzN8mTdR6TCcqmvf8z+GZgKrIkVD6HY=
+			mr/MNqCPJhUEfwOU8ckZlI4okWvHz8xJyTab1MiTytM=
 			</data>
 		</dict>
 		<key>Headers/RecogLib_iOS.h</key>
@@ -100,21 +100,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			n1O2+7yGw+dpai1hdoxZuO1Cuj9OhLKRsfGCz9mpV08=
+			IvaS4YKY5pWOXR10P8dN0h0lxaiHmeKZ8lCZAahSsjQ=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XmQTdx/pC8Ma65wXcVBbr8njKWICK5jDYNQdGCRSt88=
+			95wkkT1oI+HmQg3+P+Jq2lRbG+5UcYNK4XMdsRjazKI=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9UfpIvKlINpwjO/SWSUkse4vcJkbBT0SL7Pvbcv++Mk=
+			Q8TVe9rmmKEaTHSLNxG7dHDjTABJYMI3AVClqbd046E=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
@@ -128,14 +128,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9UfpIvKlINpwjO/SWSUkse4vcJkbBT0SL7Pvbcv++Mk=
+			Q8TVe9rmmKEaTHSLNxG7dHDjTABJYMI3AVClqbd046E=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iIc0dLLt8ggqYgY9ei+0EghmAfrrVWoAFxQ3o1mMjSQ=
+			j99rNiMqMZFIlZ1QPnMfbAGXZ3fTY4jaikRHL1qMEFY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -156,7 +156,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ctbKv7kYoZ08V5JDyUZeqzAab5/RehlJaZl6eadIU1I=
+			5gNdt9UHCIMPRSsRApOnbZEyDY78N6oMR2akAotGFHQ=
 			</data>
 		</dict>
 		<key>Resources/cs.lproj/Localizable.strings</key>

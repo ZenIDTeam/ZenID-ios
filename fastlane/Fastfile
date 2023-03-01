@@ -22,6 +22,13 @@ platform :ios do
     upload_to_testflight
   end
 
+
+  desc "Download certificate and provisioning profile from apple"
+  lane :setup do
+    get_certificates
+    get_provisioning_profile
+  end
+
   desc "Upload testing build to firebase App Distribution"
   lane :firebase do
     versionNumber = get_version_number_from_xcodeproj(scheme: "ZenIDDemo")
@@ -37,11 +44,17 @@ platform :ios do
       workspace: "ZenID.xcworkspace",
       scheme: "ZenIDDemo",
       export_method: "ad-hoc",
-      output_name: ipaName
+      output_name: ipaName,
+      export_options: {
+        provisioningProfiles: {
+        "cz.trask.ZenID" => "Distriburion: ZenID Demo AdHoc"
+        }
+      }
     )
+
     firebase_app_distribution(
       app: "1:308002022528:ios:36531d62e268b7432df265",
-      testers: "Inhouse",
+      groups: "Inhouse",
       release_notes_file: "CHANGELOG.md",
       service_credentials_file: ".firebase-service-account.json"
     )

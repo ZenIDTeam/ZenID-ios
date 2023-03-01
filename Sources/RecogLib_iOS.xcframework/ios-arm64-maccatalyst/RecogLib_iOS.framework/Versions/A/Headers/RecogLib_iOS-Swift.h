@@ -302,6 +302,7 @@ SWIFT_CLASS("_TtC12RecogLib_iOS12DrawingLayer")
 
 
 
+
 #endif
 #if defined(__cplusplus)
 #endif

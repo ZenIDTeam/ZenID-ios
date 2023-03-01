@@ -302,6 +302,7 @@ SWIFT_CLASS("_TtC12RecogLib_iOS12DrawingLayer")
 
 
 
+
 #endif
 #if defined(__cplusplus)
 #endif
@@ -609,6 +610,7 @@ SWIFT_CLASS("_TtC12RecogLib_iOS12DrawingLayer")
 - (nonnull instancetype)initWithLayer:(id _Nonnull)layer OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
