@@ -1,6 +1,11 @@
 # Change Log
 
-# 2.0.16 03/2023
+# 2.0.17 2023-03-07
+* RecogLib 3.3.1
+* The face liveness check takes a selfie picture at a random point while performing the steps.
+* The face liveness check retakes a new selfie picture after a failed attempt.
+
+# 2.0.16 2023-03-01
 * RecogLib 3.2.4
 * Fix tracking issues when the card is far from the center.
 * SDK: When the image is blurry, an animation is shown to the user to indicate that he should move the phone further away from the card.

@@ -9,7 +9,7 @@ def check_extract_files(sdk_root, version):
     print("1️⃣. Checking and extracting required archives ...")
     models = os.path.join(sdk_root, 'sdk_ZenidModels_{0}.zip'.format(version))
     sdk = os.path.join(sdk_root, 'sdk_iOS_{0}.zip'.format(version))
-    signature = os.path.join(sdk_root, 'signature.zip')
+    signature = os.path.join(sdk_root, 'sdk_{0}.signature.zip'.format(version))
 
     for file_name in [models, sdk, signature]:
         if not os.path.isfile(file_name):

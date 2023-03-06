@@ -100,14 +100,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IvaS4YKY5pWOXR10P8dN0h0lxaiHmeKZ8lCZAahSsjQ=
+			310eg49aZKYSB/yBkdfGrM2m1lPj7YGVTWinhT3/f0o=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			95wkkT1oI+HmQg3+P+Jq2lRbG+5UcYNK4XMdsRjazKI=
+			HqEMIxRLXZIgLSEmEdnIGqXklT3G00+mgEKbh1Ukzh8=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
@@ -135,7 +135,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			j99rNiMqMZFIlZ1QPnMfbAGXZ3fTY4jaikRHL1qMEFY=
+			mvMktKlc3N690mB9WYkbpc3+jxJ/3pzLtq/pz0Efnn4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
