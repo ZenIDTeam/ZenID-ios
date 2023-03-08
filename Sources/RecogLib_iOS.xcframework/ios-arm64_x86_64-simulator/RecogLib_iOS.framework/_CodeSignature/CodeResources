@@ -50,15 +50,15 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		Kl2bmAOv779k9RpKgSf3H3SfuRs=
+		d3Xaq8rsjfq1yP8UYxV+BC8cKOQ=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		AjNhnf8lq5uRan/z+xCGKAjxOTM=
+		9b1zs4BjGiy83kMTL9F16VKiS8Q=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		0Q+wyAddUWUAGGEtAFHmMZgOUTs=
+		9doAOcrgh755XI4m4/nRp2cpliE=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -74,11 +74,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		aj2cusUVn71aZFTSmAo8roqPaCY=
+		WPwb6x+yjlM7qyX5U8e5jTxlFCM=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		0Q+wyAddUWUAGGEtAFHmMZgOUTs=
+		9doAOcrgh755XI4m4/nRp2cpliE=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		2lWT1CjrA9mO4gonr6Wplypt0mM=
+		WxlIECne70ujhHuZen69X1fZRCU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -195,21 +195,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EJwSSIoPVZ+93hGZsVbSJx98d3WiAR10j7WnLSJ7Hh4=
+			XDibNp9lWJgoUk+SZ24MkEmO6iN1Jd003z/aRF2+Ab0=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lRHq+RVqsuK/nZCG0LkQUZ9njXfB3omjOfh8FnonPLY=
+			y3NeMfL4o7K/fyMRQ8d3XLGHq3XISpvU7xjqLtZ69DY=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1RzRLxqFpDZoGmXEMEriR9+4gE/YCbQ+fFvqY0SMKxw=
+			dvP13CJWdAdkc/47KbYHhCFG0LgAy4OCiCanFp9WRiE=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -237,14 +237,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SOMFbKas4Q6KCT/z2WbN+IlgX4Php8hOLSAm3j2dxa0=
+			mJq+Tj4njl3rieXEZO0ggFhAIJ2T6YMiFN6TK5cC2I4=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1RzRLxqFpDZoGmXEMEriR9+4gE/YCbQ+fFvqY0SMKxw=
+			dvP13CJWdAdkc/47KbYHhCFG0LgAy4OCiCanFp9WRiE=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -272,7 +272,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CJwzxV2qsKVvzi47D+z903xp1rQlgrkPv6OJC786fog=
+			zhBDRKujPjBdD6qUy4toa/SpM4ByOCjOMp8GMGB733M=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
