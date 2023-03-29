@@ -73,7 +73,8 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
             dataType: configuration.dataType,
             cameraType: .front,
             requestedResolution: verifier.getRequiredResolution(),
-            requestedFPS: verifier.getRequiredFPS()
+            requestedFPS: verifier.getRequiredFPS(),
+            legacyVisualiser: false
         )
         
         verifier.update(settings: configuration.settings)

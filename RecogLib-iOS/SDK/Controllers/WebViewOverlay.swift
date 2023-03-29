@@ -46,9 +46,10 @@ final class WebViewOverlay: WKWebView {
     }
     
     func drawRenderables(commands: String) {
-        var safeCommands = commands.replacingOccurrences(of: "\\n", with: "")
-        let command = "drawCommands('" + safeCommands + "');"
-        evaluateJavaScript(command, completionHandler: nil)
-        
+        DispatchQueue.main.async { [weak self] in
+            let safeCommands = commands.replacingOccurrences(of: "\\n", with: "")
+            let command = "drawCommands('" + safeCommands + "');"
+            self?.evaluateJavaScript(command, completionHandler: nil)
+        }
     }
 }

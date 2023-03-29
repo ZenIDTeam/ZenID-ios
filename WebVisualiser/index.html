@@ -33,21 +33,39 @@
     // Create a visualizer with options
     const visualizer = new Visualizer({
         // Let Zenid draw the feedback text. Set to false if we want to display feedback ourselves.
-        drawText: true,
+        drawText: false
         // See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font for font syntax.
-        font: "24px sans-serif"
+        //font: "24px sans-serif"
     });
     
     window.lastTimestamp = -1;
+    
+    function setup() {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var canvas = document.getElementsByTagName("canvas")[0]
+        canvas.setAttribute("width", width);
+        canvas.setAttribute("height", height);
+        canvas.setAttribute("style", "position: fixed; top:0; left:0; height: "+width+" ;");
+    }
 
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    var canvas = document.getElementsByTagName("canvas")[0]
-    canvas.setAttribute("width", width);
-    canvas.setAttribute("height", height);
-    canvas.setAttribute("style", "position: fixed; top:0; left:0; height: "+width+" ;");
+    var filterStrength = 20;
+    var frameTime = 0, lastLoop = new Date, thisLoop;
 
+    function countFrame(){
+      var thisFrameTime = (thisLoop=new Date) - lastLoop;
+      frameTime+= (thisFrameTime - frameTime) / filterStrength;
+      lastLoop = thisLoop;
+    }
+    
+    setInterval(function(){
+      var fps = (1000/frameTime).toFixed(1) + " fps";
+      var canvas = document.getElementsByTagName("canvas")[0]
+      canvas.setAttribute("data-fps", fps);
+    }, 1000);
+    
     function drawCommands(renderCommands) {
+        countFrame()
         var renderCommands = renderCommands.replace("\\n", "");
         var ageMs = 0;
 
@@ -59,6 +77,8 @@
         visualizer.drawOverlay(canvas, ageMs, renderCommands);
         window.lastTimestamp = Date.now();
     }
+    
+    setup();
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 
 const visualizerScriptSrc = document.currentScript.src;
-const visualizerScriptDir = visualizerScriptSrc.substr(0, visualizerScriptSrc.lastIndexOf("/") + 1);
+const visualizerScriptDir = visualizerScriptSrc.substr(0, visualizerScriptSrc.lastIndexOf("/"));
 
 function Visualizer(options = {}) {
 

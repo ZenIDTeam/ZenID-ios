@@ -40,7 +40,7 @@ struct BaseControllerConfiguration {
         } else {
             self.requestedResolution = requestedResolution
         }
-        
+
         self.legacyVisualiser = legacyVisualiser
     }
 }
@@ -105,7 +105,7 @@ public class BaseController<ResultType: ResultState> {
         }
 
         view.showInstructionView = canShowInstructionView()
-        
+
         if configuration.legacyVisualiser == false {
             view.addWebViewOverlay()
         }
@@ -124,13 +124,32 @@ public class BaseController<ResultType: ResultState> {
 
     public func start() {
         camera.start()
+        intensiveRenderCommands()
     }
 
     public func stop() {
+        isRunning = false
+        timer?.invalidate()
+        timer = nil
         camera.stop()
         videoWriter?.delegate = nil
         videoWriter?.stop()
         videoWriter = nil
+    }
+
+    var sharedImageRect: CGRect?
+    var sharedPixelBuffer: CVImageBuffer?
+    var timer: Timer?
+    
+    func intensiveRenderCommands() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+            guard let sharedImageRect = self?.sharedImageRect, let sharedPixelBuffer = self?.sharedPixelBuffer, self?.isRunning == true else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                guard let canvasSize = self.camera.previewLayer?.frame.size, let commands = self.getRenderCommands(size: canvasSize) else { return }
+                self.renderCommands(commands: commands, imageRect: sharedImageRect, pixelBuffer: sharedPixelBuffer)
+            }
+        }
     }
 
     func verify(pixelBuffer: CVPixelBuffer) -> ResultType? {
@@ -246,14 +265,14 @@ extension BaseController {
         if !baseConfig.showHelperVisualisation {
             return
         }
-        
+
         if let firstChar = commands.first?.description, firstChar == "[" {
             drawRenderables(commands: commands)
         } else {
             drawRenderablesLegacy(commands: commands)
         }
     }
-    
+
     private func drawRenderables(commands: String) {
         view.webViewOverlay?.drawRenderables(commands: commands)
     }
@@ -320,21 +339,24 @@ extension BaseController: CameraDelegate {
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
 
+        // set value to shared properties
+        sharedImageRect = imageRect
+        sharedPixelBuffer = pixelBuffer
+
+//        DispatchQueue.main.async { [weak self] in
+//            guard let canvasSize = camera.previewLayer?.frame.size, let commands = self?.getRenderCommands(size: canvasSize) else { return }
+//            self?.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
+//        }
+//
+
         if let videoWriter = videoWriter, baseConfig.dataType == .video, videoWriter.isRecording {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }
-        guard let result = verify(pixelBuffer: croppedBuffer) else {
-            return
-        }
+
+        guard let result = verify(pixelBuffer: croppedBuffer) else { return }
         callUpdateDelegate(with: result)
-        DispatchQueue.main.async { [unowned self] in
-            self.updateView(with: result, buffer: croppedBuffer)
-        }
-        guard let canvasSize = camera.previewLayer?.frame.size, let commands = getRenderCommands(size: canvasSize) else {
-            return
-        }
-        DispatchQueue.main.async {
-            self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        DispatchQueue.main.async { [weak self] in
+            self?.updateView(with: result, buffer: croppedBuffer)
         }
     }
 }

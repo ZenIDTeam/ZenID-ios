@@ -110,6 +110,8 @@ public final class CameraView: UIView {
         default:
             overlay.setupImage()
         }
+        
+        webViewOverlay?.loadVisualiser()
     }
     
     func addWebViewOverlay() {
