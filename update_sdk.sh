@@ -2,7 +2,10 @@
 
 set -e
 
-sudo ./scripts/verify_extract_sdk.sh $1
+sudo chown -R $(whoami):staff $1
+sudo chmod -R 0775 $1
+
+./scripts/verify_extract_sdk.sh $1 $2
 
 echo "Generating enums to the file 'RecogLib-iOS/SDK/Enums.generated.swift' ..."
 

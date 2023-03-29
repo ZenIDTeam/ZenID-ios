@@ -141,12 +141,11 @@ extension PhotoType {
 }
 
 public enum FaceMode: String {
-    case faceLivenessLegacy = "FaceLivenessLegacy"
     case faceLiveness = "FaceLiveness"
     case selfie = "Selfie"
     
     var isFaceliveness: Bool {
-        self == .faceLivenessLegacy || self == .faceLiveness
+        self == .faceLiveness
     }
     
     init?(index: Int) {
@@ -154,8 +153,6 @@ public enum FaceMode: String {
             self = .selfie
         } else if index == 1 {
             self = .faceLiveness
-        } else if index == 2 {
-            self = .faceLivenessLegacy
         } else {
             return nil
         }

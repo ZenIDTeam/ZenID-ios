@@ -24,7 +24,6 @@ final class SelfieSelectionViewModel {
             .init(title: NSLocalizedString("settings-selfie-none", comment: "")),
             .init(title: NSLocalizedString("settings-selfie-match", comment: "")),
             .init(title: NSLocalizedString("settings-selfie-liveness", comment: "")),
-            .init(title: NSLocalizedString("settings-selfie-liveness-legacy", comment: ""))
         ]
     }
     

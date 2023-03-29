@@ -4,11 +4,12 @@ import hashlib
 import shutil
 
 
-def check_extract_files(sdk_root):
+
+def check_extract_files(sdk_root, version):
     print("1️⃣. Checking and extracting required archives ...")
-    models = os.path.join(sdk_root, 'Models.zip')
-    sdk = os.path.join(sdk_root, 'ZenidMobileSdk.zip')
-    signature = os.path.join(sdk_root, 'signature.zip')
+    models = os.path.join(sdk_root, 'sdk_ZenidModels_{0}.zip'.format(version))
+    sdk = os.path.join(sdk_root, 'sdk_iOS_{0}.zip'.format(version))
+    signature = os.path.join(sdk_root, 'sdk_{0}.signature.zip'.format(version))
 
     for file_name in [models, sdk, signature]:
         if not os.path.isfile(file_name):
@@ -17,13 +18,14 @@ def check_extract_files(sdk_root):
 
     for file_name in [models, sdk, signature]:
         print("Extracting {0}".format(file_name))
-        os.system('unzip -o {0} -d {1}'.format(file_name, sdk_root))
+        #os.system('unzip -o {0} -d {1}'.format(file_name, sdk_root))
+        shutil.unpack_archive(file_name, sdk_root)
 
 
-def checksum_verification(sdk_root):
+def checksum_verification(sdk_root, version):
     print()
     print("2️⃣. Verification of checksums ...")
-    checksum_filename = os.path.join(sdk_root, 'checksums.txt')
+    checksum_filename = os.path.join(sdk_root, 'signature', 'checksums.txt')
     checksum_file = open(checksum_filename, 'r')
     checksum_file_content = checksum_file.readlines()
     verified_filenames = []
@@ -31,10 +33,13 @@ def checksum_verification(sdk_root):
     for check_line in checksum_file_content:
         # print(check_line)
         file_checksum, file_name = check_line.rstrip().replace('\n', '').replace('  ', ' ').split(' ')
+        if 'android' in file_name:
+            continue
         checked_filename = os.path.join(sdk_root, file_name)
         verified_filenames.append(checked_filename)
         if not os.path.isfile(checked_filename):
-            exit()
+            print("{0} file not found.".format(checked_filename))
+            exit(1)
         else:
             sha256_hash = hashlib.sha256()
             with open(checked_filename,"rb") as f:
@@ -126,28 +131,31 @@ def replace_sdk(sdk_root, project_root, libzen_archive):
     shutil.move(xcframework, project_xcframework)
 
 
-def process_update(sdk_root, project_root):
+def process_update(sdk_root, project_root, version):
     print("Processing SDK update")
+    print(" version: {0}".format(version))
     print(" update source dir: {0}".format(sdk_root))
     print(" target project dir: {0}".format(project_root))
     print()
 
-    check_extract_files(sdk_root)
+    check_extract_files(sdk_root, version)
     
-    verified_files = checksum_verification(sdk_root)
+    verified_files = checksum_verification(sdk_root, version)
     
-    models_archive = [ j for j in verified_files if j.find("ZenidModels_")!=-1 ][0]
+    models_archive = [ j for j in verified_files if j.find("sdk_ZenidModels_")!=-1 ][0]
     extract_models(sdk_root, models_archive)
     replace_models(sdk_root, project_root)
 
     # LibZenid xcproject
-    libzen_archive = [ j for j in verified_files if j.find("LibZenid-iOS_")!=-1 ][0]
+    libzen_archive = [ j for j in verified_files if j.find("sdk_iOS_")!=-1 ][0]
     replace_sdk(sdk_root, project_root, libzen_archive)
     print()
 
 
 def main():
     parser = argparse.ArgumentParser(description='Extract and verify signature of ZenID SDK update.')
+    parser.add_argument('version', metavar='sdk-version', type=str,
+                    help='SDK version')
     parser.add_argument('path', metavar='path-to-downloaded-sdk', type=str,
                     help='Directory with Models.zip, signature.zip, ZenidMobileSdk.zip downloaded')
     parser.add_argument('project_path', metavar='project_path', type=str,
@@ -155,10 +163,11 @@ def main():
 
     args = parser.parse_args()
 
+    sdk_version = args.version
     sdk_root = args.path
     project_path = args.project_path
 
-    process_update(sdk_root, project_path)
+    process_update(sdk_root, project_path, sdk_version)
 
 
 if __name__ == '__main__':
