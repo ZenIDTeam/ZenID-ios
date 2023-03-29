@@ -93,7 +93,12 @@ public class BaseController<ResultType: ResultState> {
         view.onFrameChange = { [weak self] in
             self?.orientationChanged()
         }
-        view.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        
+        if configuration.legacyVisualiser == false {
+            view.addWebViewOverlay()
+        }
+        
+        //view.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         view.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
 
         targetFrame = view.overlay?.bounds ?? .zero
@@ -105,10 +110,6 @@ public class BaseController<ResultType: ResultState> {
         }
 
         view.showInstructionView = canShowInstructionView()
-
-        if configuration.legacyVisualiser == false {
-            view.addWebViewOverlay()
-        }
 
         previousResult = nil
         orientationChanged()
@@ -165,7 +166,7 @@ public class BaseController<ResultType: ResultState> {
     }
 
     func canShowInstructionView() -> Bool {
-        baseConfig.dataType != .video && canShowStaticOverlay()
+        baseConfig.dataType != .video && (baseConfig.legacyVisualiser == false || canShowStaticOverlay())
     }
 
     func callDelegate(with result: ResultType) {
