@@ -10,6 +10,33 @@
       }
     },
     {
+      "identity" : "mrzparser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pykaso/MRZParser",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "64b73fae8092b31d0a378f0d000c244470c7ac44"
+      }
+    },
+    {
+      "identity" : "nfcpassportreader",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pykaso/NFCPassportReader/",
+      "state" : {
+        "branch" : "main",
+        "revision" : "60976259809238d31151ac475391b95c715c862e"
+      }
+    },
+    {
+      "identity" : "openssl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/OpenSSL.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "87f41bf9488e7dd2b0de2ab97cb3eafc7304e0e6"
+      }
+    },
+    {
       "identity" : "swift-log",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",

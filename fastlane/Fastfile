@@ -27,6 +27,9 @@ platform :ios do
   lane :setup do
     get_certificates
     get_provisioning_profile
+    get_provisioning_profile(
+      adhoc: true
+    )
   end
 
   desc "Upload testing build to firebase App Distribution"
@@ -47,7 +50,7 @@ platform :ios do
       output_name: ipaName,
       export_options: {
         provisioningProfiles: {
-        "cz.trask.ZenID" => "Distriburion: ZenID Demo AdHoc"
+        "cz.trask.ZenID" => "cz.trask.ZenID AdHoc"
         }
       }
     )
