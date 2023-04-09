@@ -119,6 +119,7 @@
 "settings-title" = "Settings";
 "settings-filter" = "Documents Filter";
 "settings-selfie-mode-video" = "Video selfie mode";
+"settings-nfc-enabled" = "Read NFC data";
 "settings-document-verifier-settings" = "Document Verifier Settings";
 "settings-faceliveness-verifier-settings" = "Faceliveness Verifier Settings";
 "settings-verifier-debug" = "Debug mode";
@@ -150,7 +151,6 @@
 "settings-selfie-match" = "Selfie Match";
 "settings-selfie-liveness" = "Selfie Liveness";
 "settings-selfie-liveness-legacy" = "Selfie Liveness Legacy";
-"settings-selfie-mode-video" = "Liveness Mode Video";
 
 // Debug
 "settings-verifier-debug" = "Debug Mode";

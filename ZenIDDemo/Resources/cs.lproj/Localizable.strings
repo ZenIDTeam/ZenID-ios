@@ -108,6 +108,7 @@
 "settings-title" = "Nastavení";
 "settings-filter" = "Dokumenty Filtr";
 "settings-selfie-mode-video" = "Video selfie mode";
+"settings-nfc-enabled" = "Read NFC data";
 "settings-document-verifier-settings" = "Document Verifier Settings";
 "settings-faceliveness-verifier-settings" = "Faceliveness Verifier Settings";
 "settings-verifier-debug" = "Debug mode";

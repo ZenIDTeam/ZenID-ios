@@ -45,7 +45,7 @@
 		01859B0622C4863C005B7E36 /* UIDevice+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01859B0522C4863C005B7E36 /* UIDevice+Size.swift */; };
 		01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8F88522B92BE100D8B75E /* MessagesView.swift */; };
 		180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */; };
-		18153CC427A434BE0066FDF2 /* DataTypeTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */; };
+		18153CC427A434BE0066FDF2 /* LivenessVideoModeTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18153CC327A434BE0066FDF2 /* LivenessVideoModeTableViewCellController.swift */; };
 		181AB23426F9A2870081420D /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 181AB23326F9A2870081420D /* Models */; };
 		182D63DD26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DC26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift */; };
 		182D63DF26FDA83A004289A3 /* SettingsSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182D63DE26FDA83A004289A3 /* SettingsSwitchViewModel.swift */; };
@@ -129,6 +129,20 @@
 		18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */; };
 		18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDC33C2795C3E40016AAF6 /* WebKit.framework */; };
 		18BDC36927983D920016AAF6 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = 18BDC36827983D920016AAF6 /* WebSource */; };
+		195F33FA29E1D4880020CF0B /* ReadNfcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F33F929E1D4880020CF0B /* ReadNfcViewModel.swift */; };
+		195F33FC29E1D5010020CF0B /* NfcUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F33FB29E1D5010020CF0B /* NfcUtils.swift */; };
+		195F33FE29E220A70020CF0B /* NFCDocumentReader in Frameworks */ = {isa = PBXBuildFile; productRef = 195F33FD29E220A70020CF0B /* NFCDocumentReader */; };
+		195F340229E236F00020CF0B /* NfcState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F340129E236F00020CF0B /* NfcState.swift */; };
+		195F340529E237610020CF0B /* NfcStateLoaderComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F340429E237610020CF0B /* NfcStateLoaderComposer.swift */; };
+		195F340729E237CA0020CF0B /* UserDefaultsNfcState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195F340629E237CA0020CF0B /* UserDefaultsNfcState.swift */; };
+		19D8FE6B29E0B15A00A0044B /* MRZParser in Frameworks */ = {isa = PBXBuildFile; productRef = 19D8FE6A29E0B15A00A0044B /* MRZParser */; };
+		19D8FE7629E0C44900A0044B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FE7529E0C44900A0044B /* ViewController.swift */; };
+		19D8FE7829E0C46900A0044B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FE7729E0C46900A0044B /* PreviewView.swift */; };
+		19D8FE7A29E0C48E00A0044B /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FE7929E0C48E00A0044B /* VisionViewController.swift */; };
+		19D8FE7C29E0C4F000A0044B /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FE7B29E0C4F000A0044B /* StringUtils.swift */; };
+		19D8FE8029E0E64300A0044B /* ReadMrzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FE7F29E0E64300A0044B /* ReadMrzViewController.swift */; };
+		19D8FE8229E0ED4B00A0044B /* ReadNfcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8FE8129E0ED4B00A0044B /* ReadNfcViewController.swift */; };
+		19D8FE8429E0F33500A0044B /* masterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = 19D8FE8329E0F33500A0044B /* masterList.pem */; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
 		6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536D246970DC001C3544 /* QrScannerController.swift */; };
 		6F2D53712469A937001C3544 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D53702469A937001C3544 /* Credentials.swift */; };
@@ -230,7 +244,7 @@
 		01859B0522C4863C005B7E36 /* UIDevice+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Size.swift"; sourceTree = "<group>"; };
 		01B8F88522B92BE100D8B75E /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		180DA011276A3083006A90CC /* DocumentsFilterValidatorComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFilterValidatorComposer.swift; sourceTree = "<group>"; };
-		18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypeTableViewCellController.swift; sourceTree = "<group>"; };
+		18153CC327A434BE0066FDF2 /* LivenessVideoModeTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivenessVideoModeTableViewCellController.swift; sourceTree = "<group>"; };
 		181AB23326F9A2870081420D /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		182D63DC26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		182D63DE26FDA83A004289A3 /* SettingsSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchViewModel.swift; sourceTree = "<group>"; };
@@ -314,6 +328,18 @@
 		18953DE52689959F0077F976 /* RecogLibDocumentsFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecogLibDocumentsFilterValidator.swift; sourceTree = "<group>"; };
 		18BDC33C2795C3E40016AAF6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		18BDC36827983D920016AAF6 /* WebSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSource; sourceTree = "<group>"; };
+		195F33F929E1D4880020CF0B /* ReadNfcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNfcViewModel.swift; sourceTree = "<group>"; };
+		195F33FB29E1D5010020CF0B /* NfcUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcUtils.swift; sourceTree = "<group>"; };
+		195F340129E236F00020CF0B /* NfcState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcState.swift; sourceTree = "<group>"; };
+		195F340429E237610020CF0B /* NfcStateLoaderComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcStateLoaderComposer.swift; sourceTree = "<group>"; };
+		195F340629E237CA0020CF0B /* UserDefaultsNfcState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsNfcState.swift; sourceTree = "<group>"; };
+		19D8FE7529E0C44900A0044B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		19D8FE7729E0C46900A0044B /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		19D8FE7929E0C48E00A0044B /* VisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
+		19D8FE7B29E0C4F000A0044B /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		19D8FE7F29E0E64300A0044B /* ReadMrzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMrzViewController.swift; sourceTree = "<group>"; };
+		19D8FE8129E0ED4B00A0044B /* ReadNfcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNfcViewController.swift; sourceTree = "<group>"; };
+		19D8FE8329E0F33500A0044B /* masterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = masterList.pem; sourceTree = "<group>"; };
 		6F2D536B24696A2A001C3544 /* QrSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrSquareView.swift; sourceTree = "<group>"; };
 		6F2D536D246970DC001C3544 /* QrScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerController.swift; sourceTree = "<group>"; };
 		6F2D53702469A937001C3544 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -366,8 +392,10 @@
 			files = (
 				BABECC73288059D600A629F3 /* CocoaLumberjack in Frameworks */,
 				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
+				195F33FE29E220A70020CF0B /* NFCDocumentReader in Frameworks */,
 				BABECC75288059D600A629F3 /* CocoaLumberjackSwift in Frameworks */,
 				BA775B4628CB79E9006278DE /* RecogLib_iOS.framework in Frameworks */,
+				19D8FE6B29E0B15A00A0044B /* MRZParser in Frameworks */,
 				BABECC7E28805DE600A629F3 /* LibZenid_iOS.xcframework in Frameworks */,
 				BABECC7828805A2700A629F3 /* ZipArchive in Frameworks */,
 			);
@@ -395,6 +423,8 @@
 		012F7B44228553AE00B0BBB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				19D8FE7429E0C43300A0044B /* MrzScanner */,
+				19D8FE6F29E0BFB900A0044B /* Nfc */,
 				188422E92728066D002BD366 /* Config */,
 				01859B0722C48A0B005B7E36 /* Camera */,
 				6FFC82C0247F020C00CB4979 /* Qr */,
@@ -411,6 +441,7 @@
 				18953D4E268242720077F976 /* Grouped Table View */,
 				18953D472682418B0077F976 /* Settings */,
 				18953D592682468E0077F976 /* Selection */,
+				195F33FF29E236C40020CF0B /* NfcState */,
 				18953DCF2684E3980077F976 /* Selfie Selection */,
 				18953D702682E4BB0077F976 /* Documents Filter */,
 				18953D912682F48F0077F976 /* Add Document Filter */,
@@ -480,6 +511,7 @@
 		0134751E21ECB3FB004EE4E5 /* ZenIDDemo */ = {
 			isa = PBXGroup;
 			children = (
+				19D8FE8329E0F33500A0044B /* masterList.pem */,
 				BAF9E49D284F6CF10030212D /* ZenIDDemo.entitlements */,
 				0131CE9E22045E8200DBA4C4 /* App */,
 				6F2D536F2469A922001C3544 /* Auth */,
@@ -585,7 +617,7 @@
 				18953DA426833DED0077F976 /* ContactTableCellController.swift */,
 				18953DA626833F250077F976 /* LogoutTableCellController.swift */,
 				188422E7272802D1002BD366 /* DebugTableViewCellController.swift */,
-				18153CC327A434BE0066FDF2 /* DataTypeTableViewCellController.swift */,
+				18153CC327A434BE0066FDF2 /* LivenessVideoModeTableViewCellController.swift */,
 				18953D572682454E0077F976 /* SettingsComposer.swift */,
 			);
 			path = Settings;
@@ -734,6 +766,54 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		195F33FF29E236C40020CF0B /* NfcState */ = {
+			isa = PBXGroup;
+			children = (
+				195F340329E237440020CF0B /* Infrastructure */,
+				195F340029E236DE0020CF0B /* Domain */,
+			);
+			path = NfcState;
+			sourceTree = "<group>";
+		};
+		195F340029E236DE0020CF0B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				195F340129E236F00020CF0B /* NfcState.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		195F340329E237440020CF0B /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				195F340429E237610020CF0B /* NfcStateLoaderComposer.swift */,
+				195F340629E237CA0020CF0B /* UserDefaultsNfcState.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		19D8FE6F29E0BFB900A0044B /* Nfc */ = {
+			isa = PBXGroup;
+			children = (
+				19D8FE7F29E0E64300A0044B /* ReadMrzViewController.swift */,
+				19D8FE8129E0ED4B00A0044B /* ReadNfcViewController.swift */,
+				195F33F929E1D4880020CF0B /* ReadNfcViewModel.swift */,
+				195F33FB29E1D5010020CF0B /* NfcUtils.swift */,
+			);
+			path = Nfc;
+			sourceTree = "<group>";
+		};
+		19D8FE7429E0C43300A0044B /* MrzScanner */ = {
+			isa = PBXGroup;
+			children = (
+				19D8FE7529E0C44900A0044B /* ViewController.swift */,
+				19D8FE7729E0C46900A0044B /* PreviewView.swift */,
+				19D8FE7929E0C48E00A0044B /* VisionViewController.swift */,
+				19D8FE7B29E0C4F000A0044B /* StringUtils.swift */,
+			);
+			path = MrzScanner;
+			sourceTree = "<group>";
+		};
 		6F2D536F2469A922001C3544 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -866,6 +946,8 @@
 				BABECC72288059D600A629F3 /* CocoaLumberjack */,
 				BABECC74288059D600A629F3 /* CocoaLumberjackSwift */,
 				BABECC7728805A2700A629F3 /* ZipArchive */,
+				19D8FE6A29E0B15A00A0044B /* MRZParser */,
+				195F33FD29E220A70020CF0B /* NFCDocumentReader */,
 			);
 			productName = ZenIDDemo;
 			productReference = 0134751C21ECB3FB004EE4E5 /* ZenIDDemo.app */;
@@ -900,6 +982,8 @@
 			packageReferences = (
 				BABECC71288059D600A629F3 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 				BABECC7628805A2700A629F3 /* XCRemoteSwiftPackageReference "ZipArchive" */,
+				19D8FE6929E0B15A00A0044B /* XCRemoteSwiftPackageReference "MRZParser" */,
+				195F33F629E1D3920020CF0B /* XCRemoteSwiftPackageReference "NFCPassportReader" */,
 			);
 			productRefGroup = 0134751D21ECB3FB004EE4E5 /* Products */;
 			projectDirPath = "";
@@ -921,6 +1005,7 @@
 				6F556FFE2573C92900E7C0B8 /* CHANGELOG.md in Resources */,
 				18953D46268233AD0077F976 /* Menu.storyboard in Resources */,
 				012559D922C2233400B4DEB6 /* Settings.plist in Resources */,
+				19D8FE8429E0F33500A0044B /* masterList.pem in Resources */,
 				0131CE9B2204415C00DBA4C4 /* Localizable.strings in Resources */,
 				18BDC36927983D920016AAF6 /* WebSource in Resources */,
 				18953D722682E4E90077F976 /* DocumentsFilter.storyboard in Resources */,
@@ -961,10 +1046,12 @@
 				0134756121F5BF90004EE4E5 /* Defaults.swift in Sources */,
 				18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */,
 				6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */,
+				19D8FE8229E0ED4B00A0044B /* ReadNfcViewController.swift in Sources */,
 				011C6A8622BCEF070053ABF6 /* ScanProcessDelegate.swift in Sources */,
 				01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */,
 				6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */,
 				18953D6B26824AF10077F976 /* BasicTableCellController.swift in Sources */,
+				19D8FE7829E0C46900A0044B /* PreviewView.swift in Sources */,
 				188422F9272926FD002BD366 /* ConfigServiceComposer.swift in Sources */,
 				18953D562682444E0077F976 /* SettingsViewModel.swift in Sources */,
 				E0B921FF293532FE00E75886 /* UIView+Constraints.swift in Sources */,
@@ -972,6 +1059,7 @@
 				18953DA1268314850077F976 /* AddDocumentFilterCountryCellController.swift in Sources */,
 				18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */,
 				18953DA3268328EC0077F976 /* AddDocumentFilterPageCellController.swift in Sources */,
+				19D8FE7A29E0C48E00A0044B /* VisionViewController.swift in Sources */,
 				18953D6F2682E42B0077F976 /* SettingsCoordinable.swift in Sources */,
 				18953D742682E4F20077F976 /* DocumentsFilterViewController.swift in Sources */,
 				D2CB351C22BA78E500453DB8 /* String+localized.swift in Sources */,
@@ -989,9 +1077,10 @@
 				D2CB352722BB84CA00453DB8 /* DispatchError.swift in Sources */,
 				188422EE272806C6002BD366 /* Config.swift in Sources */,
 				18953DBE26846F930077F976 /* IntervalTableViewCell.swift in Sources */,
+				195F340729E237CA0020CF0B /* UserDefaultsNfcState.swift in Sources */,
 				18953D952682F4AD0077F976 /* AddDocumentFilterViewController.swift in Sources */,
 				18953D8E2682F1810077F976 /* DocumentsFilterLoaderComposer.swift in Sources */,
-				18153CC427A434BE0066FDF2 /* DataTypeTableViewCellController.swift in Sources */,
+				18153CC427A434BE0066FDF2 /* LivenessVideoModeTableViewCellController.swift in Sources */,
 				D2CB351622BA76F900453DB8 /* UIViewController+Gradient.swift in Sources */,
 				18953D7E2682E6110077F976 /* DocumentViewModel.swift in Sources */,
 				188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */,
@@ -1013,8 +1102,10 @@
 				0134755F21F5BE2A004EE4E5 /* Manager.swift in Sources */,
 				1861947326FC28D500B8B395 /* URL+Models.swift in Sources */,
 				18953D67268248C60077F976 /* SelectionItemViewModel.swift in Sources */,
+				195F340529E237610020CF0B /* NfcStateLoaderComposer.swift in Sources */,
 				E0B921F42935245C00E75886 /* LivenessVerifierSettingsComposer.swift in Sources */,
 				18953D7C2682E6000077F976 /* DocumentsFilterComposer.swift in Sources */,
+				195F340229E236F00020CF0B /* NfcState.swift in Sources */,
 				012F7B6B2292743000B0BBB6 /* ErrorViewController.swift in Sources */,
 				18953D8C2682F14B0077F976 /* DocumentsFilterCoordinator.swift in Sources */,
 				D2CB352522BB7BA900453DB8 /* Responses.swift in Sources */,
@@ -1025,6 +1116,7 @@
 				18953D4B268241CC0077F976 /* SettingsView.swift in Sources */,
 				182D63DD26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift in Sources */,
 				18953DD12684E3B10077F976 /* SelfieSelectionComposer.swift in Sources */,
+				195F33FC29E1D5010020CF0B /* NfcUtils.swift in Sources */,
 				18953D502682428F0077F976 /* GroupedTableView.swift in Sources */,
 				180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */,
 				011C6A8A22BCF8A80053ABF6 /* CameraViewControllerDelegate.swift in Sources */,
@@ -1050,6 +1142,7 @@
 				18953DB6268467EC0077F976 /* DocumentVerifierSettingsViewController.swift in Sources */,
 				18953D7A2682E55B0077F976 /* DocumentsFilterCoordinable.swift in Sources */,
 				18953D5D268246A30077F976 /* SelectionViewController.swift in Sources */,
+				19D8FE8029E0E64300A0044B /* ReadMrzViewController.swift in Sources */,
 				18953D5F268246BA0077F976 /* SelectionView.swift in Sources */,
 				D2CB351822BA776600453DB8 /* UIView+Extension.swift in Sources */,
 				18953DCE2684E1F70077F976 /* SelfieTableViewModel.swift in Sources */,
@@ -1058,6 +1151,7 @@
 				0134756521F5F0E2004EE4E5 /* Model.swift in Sources */,
 				6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */,
 				6F2D53762469D242001C3544 /* Haptics.swift in Sources */,
+				19D8FE7C29E0C4F000A0044B /* StringUtils.swift in Sources */,
 				E0B921F22934D65C00E75886 /* LivenessVerifierSettingsViewModel.swift in Sources */,
 				0134754F21EE0325004EE4E5 /* Endpoint.swift in Sources */,
 				D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */,
@@ -1072,6 +1166,7 @@
 				18953D61268246C70077F976 /* SelectionViewModel.swift in Sources */,
 				E0B921F02934D5FF00E75886 /* LivenessVerifierSettingsViewController.swift in Sources */,
 				6F2D53712469A937001C3544 /* Credentials.swift in Sources */,
+				19D8FE7629E0C44900A0044B /* ViewController.swift in Sources */,
 				0140263D22B3A76300CF60AD /* ResultsViewModel.swift in Sources */,
 				188422F72729242C002BD366 /* Reusable.swift in Sources */,
 				0134756721F75C9C004EE4E5 /* ImageInput.swift in Sources */,
@@ -1080,6 +1175,7 @@
 				18953DD82685E8360077F976 /* UserDefaultsSelfieSelection.swift in Sources */,
 				012F7B5A2285C1E000B0BBB6 /* ChoiceViewController.swift in Sources */,
 				0134755121EE0DBA004EE4E5 /* API.swift in Sources */,
+				195F33FA29E1D4880020CF0B /* ReadNfcViewModel.swift in Sources */,
 				18953D6D26824B0B0077F976 /* BasicTableCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1153,7 +1249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1212,7 +1308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1243,13 +1339,11 @@
 					"NO_OPENCV=1",
 				);
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0.18;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1283,13 +1377,11 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "NO_OPENCV=1";
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0.18;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1328,6 +1420,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		195F33F629E1D3920020CF0B /* XCRemoteSwiftPackageReference "NFCPassportReader" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pykaso/NFCPassportReader/";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		19D8FE6929E0B15A00A0044B /* XCRemoteSwiftPackageReference "MRZParser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pykaso/MRZParser";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		BABECC71288059D600A629F3 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack";
@@ -1347,6 +1455,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		195F33FD29E220A70020CF0B /* NFCDocumentReader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 195F33F629E1D3920020CF0B /* XCRemoteSwiftPackageReference "NFCPassportReader" */;
+			productName = NFCDocumentReader;
+		};
+		19D8FE6A29E0B15A00A0044B /* MRZParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19D8FE6929E0B15A00A0044B /* XCRemoteSwiftPackageReference "MRZParser" */;
+			productName = MRZParser;
+		};
 		BABECC72288059D600A629F3 /* CocoaLumberjack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BABECC71288059D600A629F3 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;

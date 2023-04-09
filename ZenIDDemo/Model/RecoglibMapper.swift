@@ -38,7 +38,7 @@ final class RecoglibMapper {
             return .F
         case .back:
             return .B
-        case .face:
+        case .face, .nfc:
             return nil
         }
     }

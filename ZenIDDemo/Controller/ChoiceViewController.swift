@@ -8,6 +8,7 @@
 
 import AVFoundation
 import MessageUI
+import NFCDocumentReader
 import os
 import RecogLib_iOS
 import UIKit
@@ -42,7 +43,7 @@ final class ChoiceViewController: UIViewController {
         // faceButton,
         logsButton,
         webViewButton,
-        pureVerifierButton
+        pureVerifierButton,
     ]
 
     private var selectedCountry: Country {
@@ -256,7 +257,8 @@ final class ChoiceViewController: UIViewController {
         .init(
             documentType: documentType,
             country: country,
-            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose()
+            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose(),
+            nfcStateLoader: NfcStateLoaderComposer.compose()
         )
     }
 
@@ -395,28 +397,42 @@ extension ChoiceViewController: ScanProcessDelegate {
                 let livenessSettings = try LivenessVerifierSettingsLoaderComposer.compose().load()
                 let faceMode = try SelfieSelectionLoaderComposer.compose().load()
                 guard let self = self else { return }
-                self.cachedCameraViewController.configureController(
-                    type: scanProcess.documentType,
-                    photoType: photoType,
-                    country: scanProcess.country,
-                    faceMode: faceMode,
-                    documents: documents,
-                    documentSettings: settings,
-                    facelivenessSettings: livenessSettings,
-                    config: ConfigServiceComposer.compose().load()
-                )
+
+                var vc: UIViewController?
+                if photoType == .nfc {
+                    if #available(iOS 13.0, *) {
+//                        let vm = ReadNfcViewModel(mrzKey: "41672413<284030652311137")
+//                        vc = ReadNfcViewController(viewModel: vm)
+                        let nfcVC = ReadMrzViewController()
+                        nfcVC.delegate = self
+                        vc = nfcVC
+                    }
+                } else {
+                    self.cachedCameraViewController.configureController(
+                        type: scanProcess.documentType,
+                        photoType: photoType,
+                        country: scanProcess.country,
+                        faceMode: faceMode,
+                        documents: documents,
+                        documentSettings: settings,
+                        facelivenessSettings: livenessSettings,
+                        config: ConfigServiceComposer.compose().load()
+                    )
+                    vc = self.cachedCameraViewController
+                }
+
+                guard let vc, self.navigationController?.topViewController != vc else { return }
+
+                if self.isBusyViewControllerPresented() {
+                    self.navigationController?.popViewController(animated: true)
+                } else if self.isNfcViewControllerPresented() {
+                    self.navigationController?.popToViewController(self.cachedCameraViewController, animated: true)
+                } else {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+
             } catch {
                 debugPrint(error)
-            }
-        }
-
-        DispatchQueue.main.async { [unowned self] in
-            guard self.navigationController?.topViewController != self.cachedCameraViewController else { return }
-
-            if self.isBusyViewControllerPresented() {
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                self.navigationController?.pushViewController(self.cachedCameraViewController, animated: true)
             }
         }
     }
@@ -432,6 +448,10 @@ extension ChoiceViewController: ScanProcessDelegate {
         navigationController?.topViewController is BusyViewController
     }
 
+    private func isNfcViewControllerPresented() -> Bool {
+        navigationController?.topViewController is ReadMrzViewController || navigationController?.topViewController is ReadNfcViewController
+    }
+
     func didUploadPDF(scanProcess: ScanProcess, result: SampleResult) {
         // The result is always considered successful ATM
         DispatchQueue.main.async { [unowned self] in
@@ -442,7 +462,7 @@ extension ChoiceViewController: ScanProcessDelegate {
 
     func didReceiveSampleResponse(scanProcess: ScanProcess, result: SampleResult) {
         switch result {
-        case .error(error: let error):
+        case let .error(error: error):
             DispatchQueue.main.async { [weak self] in
                 if self?.isBusyViewControllerPresented() ?? false {
                     self?.popToCameraViewController()
@@ -467,7 +487,7 @@ extension ChoiceViewController: ScanProcessDelegate {
             case .error(error: _):
                 self.popToCameraViewController()
                 self.showError(documentType: scanProcess.documentType, message: "msg-network-error".localized)
-            case .success(let data, let type):
+            case let .success(data, type):
                 if type == .filter {
                     self.navigationController?.popToRootViewController(animated: true)
                 } else {
@@ -522,6 +542,13 @@ extension ChoiceViewController: QrScannerControllerDelegate {
     }
 
     func qrCancel(_ controller: UIViewController) {
+    }
+}
+
+extension ChoiceViewController: ReadMrzViewControllerDelegate {
+    func didReadNfcData(_ data: NFCDocumentModel) {
+        // TODO: send real data
+        scanProcess?.uploadNfcData()
     }
 }
 

@@ -79,4 +79,15 @@ final class Defaults {
             defaults.synchronize()
         }
     }
+    
+    static var isNfcEnabled: Bool {
+        get {
+            let rawValue: Bool? = defaults[#function]
+            if let value = rawValue {
+                return value
+            }
+            return false
+        }
+        set { defaults[#function] = newValue }
+    }
 }

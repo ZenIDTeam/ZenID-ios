@@ -41,14 +41,20 @@ final class ScanProcess {
     /// Initialize the scan process with a specific document type
     ///
     /// - Parameter documentType: Document type to scan
-    init(documentType: DocumentType, country: Country, selfieSelectionLoader: SelfieSelectionLoader) {
+    init(documentType: DocumentType, country: Country, selfieSelectionLoader: SelfieSelectionLoader, nfcStateLoader: NfcStateLoader) {
         self.documentType = documentType
         self.country = country
         requestsToScan = documentType.scanRequests
         requestsCount = requestsToScan.count
+        
         let faceMode = try? selfieSelectionLoader.load()
         if faceMode == nil {
             requestsToScan = requestsToScan.filter({ $0 != .face })
+        }
+        
+        let isNfc = (try? nfcStateLoader.load()) ?? false
+        if isNfc == false {
+            requestsToScan = requestsToScan.filter({ $0 != .nfc })
         }
         requestsCount = requestsToScan.count
     }
@@ -168,6 +174,11 @@ final class ScanProcess {
     /// Delete the temporary PDF files
     public func cleanUpStorage() {
         pdfHelper.cleanup()
+    }
+    
+    public func uploadNfcData() {
+        // TODO
+        self.scanNextSample()
     }
 }
 

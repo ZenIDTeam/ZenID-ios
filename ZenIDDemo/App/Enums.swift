@@ -15,6 +15,7 @@ public enum UploadedSampleType: String {
     case faceVideo = "SelfieVideo"
     case facePicture = "Selfie"
     case otherDocument = "Archived"
+    case nfcData = "NfcData"
     
     static func from(photoType: PhotoType, documentType: DocumentType, dataType: DataType) -> UploadedSampleType {
         if case .otherDocument = documentType {
@@ -31,6 +32,8 @@ public enum UploadedSampleType: String {
                 return .faceVideo
             }
             return .facePicture
+        case .nfc:
+            return .nfcData
         }
     }
 }
@@ -74,11 +77,11 @@ extension DocumentType {
         get {
             switch self {
             case .idCard:
-                return [.front, .back, .face]
+                return [.front, .back, .nfc, .face]
             case .drivingLicence:
                 return [.front, .face]
             case .passport:
-                return [.front, .face]
+                return [.front, .nfc, .face]
             case .unspecifiedDocument:
                 return [.front, .face]
             case .otherDocument:
@@ -119,6 +122,7 @@ public enum PhotoType {
     case front
     case back
     case face
+    case nfc
     
     var isDocument: Bool {
         self == .front || self == .back
@@ -135,6 +139,8 @@ extension PhotoType {
                 return "B"
             case .face:
                 return "F"
+            case .nfc:
+                return "N"
             }
         }
     }

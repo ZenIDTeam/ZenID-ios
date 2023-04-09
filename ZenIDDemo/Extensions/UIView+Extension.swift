@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     func createGradientLayer(colors: [CGColor], angle: Float = 0) -> CAGradientLayer {
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = self.bounds
+        gradient.frame = bounds
         gradient.colors = colors
 
         let alpha: Float = angle / 360
@@ -32,9 +32,9 @@ extension UIView {
             2
         )
 
-        gradient.endPoint = CGPoint(x: CGFloat(endPointX),y: CGFloat(endPointY))
+        gradient.endPoint = CGPoint(x: CGFloat(endPointX), y: CGFloat(endPointY))
         gradient.startPoint = CGPoint(x: CGFloat(startPointX), y: CGFloat(startPointY))
-        self.layer.insertSublayer(gradient, at: 0)
+        layer.insertSublayer(gradient, at: 0)
         return gradient
     }
 
@@ -42,7 +42,7 @@ extension UIView {
         let gradient = createGradientLayer(colors: colors, angle: angle)
 
         let path = UIBezierPath()
-        let w = self.frame.width, h = self.frame.height
+        let w = frame.width, h = frame.height
         path.move(to: CGPoint(x: 0.0, y: start))
         path.addLine(to: CGPoint(x: w, y: end))
         path.addLine(to: CGPoint(x: w, y: h))
@@ -55,7 +55,7 @@ extension UIView {
         fillLayer.fillColor = UIColor.white.cgColor
         fillLayer.opacity = 1
         gradient.addSublayer(fillLayer)
-        
+
         return gradient
     }
 
@@ -80,16 +80,16 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
 
         if let top = top {
-            self.topAnchor.constraint(equalTo: top, constant: paddingTop+topInset).isActive = true
+            topAnchor.constraint(equalTo: top, constant: paddingTop + topInset).isActive = true
         }
         if let left = left {
-            self.leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
+            leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
         }
         if let right = right {
             rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
         }
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom-bottomInset).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom - bottomInset).isActive = true
         }
         if height != 0 {
             heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -97,17 +97,47 @@ extension UIView {
         if width != 0 {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
+    }
 
+    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, paddingTop: CGFloat = 0, paddingLeft: CGFloat = 0, paddingBottom: CGFloat = 0, paddingRight: CGFloat = 0, width: CGFloat = 0, height: CGFloat = 0, enableInsets: Bool = false) {
+        var topInset = CGFloat(0)
+        var bottomInset = CGFloat(0)
+
+        if #available(iOS 11, *), enableInsets {
+            let insets = self.safeAreaInsets
+            topInset = insets.top
+            bottomInset = insets.bottom
+        }
+
+        translatesAutoresizingMaskIntoConstraints = false
+
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: paddingTop + topInset).isActive = true
+        }
+        if let leading {
+            leadingAnchor.constraint(equalTo: leading, constant: paddingLeft).isActive = true
+        }
+        if let trailing {
+            trailing.constraint(equalTo: trailing, constant: -paddingRight).isActive = true
+        }
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom - bottomInset).isActive = true
+        }
+        if height != 0 {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        if width != 0 {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
     }
-    
+
     func centerX(to view: UIView, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: constant).isActive = true
     }
-    
+
     func centerY(to view: UIView, constant: CGFloat = 0) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
+        translatesAutoresizingMaskIntoConstraints = false
+        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
     }
 }
-

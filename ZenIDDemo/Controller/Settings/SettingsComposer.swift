@@ -11,12 +11,12 @@ import UIKit
 
 final class SettingsComposer {
     
-    static func compose(selfieSelectionLoader: SelfieSelectionLoader, configService: ConfigService, coordinator: SettingsCoordinable) -> SettingsViewController {
+    static func compose(selfieSelectionLoader: SelfieSelectionLoader, nfcStateProvider: NfcStateProvider, configService: ConfigService, coordinator: SettingsCoordinable) -> SettingsViewController {
         let viewController = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         viewController.viewModel = resolve(coordinator: coordinator)
         viewController.viewModel.onChange = { [unowned viewController] in
             let faceMode = try? selfieSelectionLoader.load()
-            viewController.contentView.tableView.sections = getSections(viewController: viewController, configService: configService, coordinator: coordinator, faceMode: faceMode)
+            viewController.contentView.tableView.sections = getSections(viewController: viewController, configService: configService, nfcStateProvider: nfcStateProvider, coordinator: coordinator, faceMode: faceMode)
         }
         return viewController
     }
@@ -25,7 +25,7 @@ final class SettingsComposer {
         .init(coordinator: coordinator)
     }
     
-    private static func getSections(viewController: UIViewController, configService: ConfigService, coordinator: SettingsCoordinable, faceMode: FaceMode?) -> [TableViewSectionViewModel] {
+    private static func getSections(viewController: UIViewController, configService: ConfigService, nfcStateProvider: NfcStateProvider, coordinator: SettingsCoordinable, faceMode: FaceMode?) -> [TableViewSectionViewModel] {
         [
             .init(
                 title: nil,
@@ -33,7 +33,8 @@ final class SettingsComposer {
                     SelfieTableCellController(viewModel: .init(name: faceMode?.rawValue.uppercased(), action: {
                         coordinator.settingsOpenSelfieSelection()
                     })),
-                    DataTypeTableViewCellController(service: configService)
+                    LivenessVideoModeTableViewCellController(service: configService),
+                    NfcReaderTableViewCellController(nfcStateProvider: nfcStateProvider)
                 ]
             ),
             .init(
