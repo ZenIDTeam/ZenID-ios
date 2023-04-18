@@ -53,7 +53,9 @@ final class ScanProcess {
         }
         
         let isNfc = (try? nfcStateLoader.load()) ?? false
-        if isNfc == false {
+        let supportedCountry = [.Cz, .Sk, .Hr].contains(country)
+        
+        if isNfc == false || !supportedCountry {
             requestsToScan = requestsToScan.filter({ $0 != .nfc })
         }
         requestsCount = requestsToScan.count
