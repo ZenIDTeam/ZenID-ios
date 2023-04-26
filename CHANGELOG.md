@@ -1,6 +1,6 @@
 # Change Log
 
-# 2.0.18 XXXX-XX-XX
+# 2.0.18 2023-04-30
 * Added CZ_RES_2020_A2 in DocumentCodes enum.
 * Added OL_IDC_2022 in DocumentCodes enum, Exp (Experimental card) to DocumentRole and Ol (Olympus, experimental) to Country.
 * Support for experimental 'Olympus' ID card v2022.
