@@ -1,7 +1,7 @@
 #pragma once
 
 #ifdef __ANDROID__
-#include "jni.h"
+#include <jni.h>
 #endif
 
 #include <string>

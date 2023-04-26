@@ -1,5 +1,10 @@
 # Change Log
 
+# 2.0.18 XXXX-XX-XX
+* Added CZ_RES_2020_A2 in DocumentCodes enum.
+* Added OL_IDC_2022 in DocumentCodes enum, Exp (Experimental card) to DocumentRole and Ol (Olympus, experimental) to Country.
+* Support for experimental 'Olympus' ID card v2022.
+
 # 2.0.17 2023-03-07
 * RecogLib 3.3.1
 * The face liveness check takes a selfie picture at a random point while performing the steps.
