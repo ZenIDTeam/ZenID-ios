@@ -746,6 +746,9 @@
 		19B85F0A29A6B2F200E95AD0 /* WebVisualiser */ = {
 			isa = PBXGroup;
 			children = (
+				19B85F0D29A6B33B00E95AD0 /* Status=Error, Background=Fill.svg */,
+				19B85F0E29A6B33B00E95AD0 /* Status=Waiting, Background=Transparent.svg */,
+				19B85F0F29A6B33B00E95AD0 /* Status=Success, Background=Fill.svg */,
 				19B85F0C29A6B33B00E95AD0 /* images */,
 				19B85F1029A6B33B00E95AD0 /* index.html */,
 				19B85F0B29A6B33B00E95AD0 /* zenid-visualizer.js */,
@@ -756,9 +759,6 @@
 		19B85F0C29A6B33B00E95AD0 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				19B85F0D29A6B33B00E95AD0 /* Status=Error, Background=Fill.svg */,
-				19B85F0E29A6B33B00E95AD0 /* Status=Waiting, Background=Transparent.svg */,
-				19B85F0F29A6B33B00E95AD0 /* Status=Success, Background=Fill.svg */,
 			);
 			path = images;
 			sourceTree = "<group>";

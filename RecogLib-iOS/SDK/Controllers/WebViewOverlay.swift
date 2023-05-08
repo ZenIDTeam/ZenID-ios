@@ -15,6 +15,11 @@ final class WebViewOverlay: WKWebView {
         backgroundColor = .clear
         scrollView.backgroundColor = .clear
         isOpaque = false
+        
+        if #available(iOS 16.4, *) {
+            isInspectable = true
+        } else {
+        }
     }
     
     required init?(coder: NSCoder) {

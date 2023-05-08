@@ -147,7 +147,20 @@ public class BaseController<ResultType: ResultState> {
             guard let sharedImageRect = self?.sharedImageRect, let sharedPixelBuffer = self?.sharedPixelBuffer, self?.isRunning == true else { return }
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                guard let canvasSize = self.camera.previewLayer?.frame.size, let commands = self.getRenderCommands(size: canvasSize) else { return }
+                let scale = UIScreen.main.scale
+                
+                //Normal Bounds - Detect Screen size in Points.
+                    let width  = UIScreen.main.bounds.width
+                    let height = UIScreen.main.bounds.height
+
+                // Native Bounds - Detect Screen size in Pixels.
+                    let nWidth  = UIScreen.main.nativeBounds.width
+                    let nHeight = UIScreen.main.nativeBounds.height
+                
+                let wScale = nWidth / width
+                let hScale = nHeight / height
+                    
+                guard let canvasSize = self.camera.previewLayer?.frame.size, let commands = self.getRenderCommands(size: CGSize(width: canvasSize.width * wScale, height: canvasSize.height * hScale)) else { return }
                 self.renderCommands(commands: commands, imageRect: sharedImageRect, pixelBuffer: sharedPixelBuffer)
             }
         }
