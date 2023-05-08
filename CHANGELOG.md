@@ -1,9 +1,10 @@
 # Change Log
 
-# 2.0.18 2023-04-30
+# 2.0.18 2023-05-10
 * Added CZ_RES_2020_A2 in DocumentCodes enum.
 * Added OL_IDC_2022 in DocumentCodes enum, Exp (Experimental card) to DocumentRole and Ol (Olympus, experimental) to Country.
 * Support for experimental 'Olympus' ID card v2022.
+* Fixed a crash that could happen when resetting face liveness workflow with debug visualization enabled.
 
 # 2.0.17 2023-03-07
 * RecogLib 3.3.1
