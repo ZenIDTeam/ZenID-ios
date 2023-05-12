@@ -159,6 +159,8 @@ public enum DocumentCodes : Int, CaseIterable {
     case CH_PAS_2022 = 158
     case VN_PAS_2022 = 159
     case ME_PAS_2008_A2 = 160
+    case CZ_RES_2020_A2 = 161
+    case OL_IDC_2022 = 162
 }
 
 public enum PageCodes : Int, CaseIterable { 
@@ -210,6 +212,7 @@ public enum Country : Int, CaseIterable {
     case Tr = 44
     case Vn = 46
     case In = 47
+    case Ol = 57
 }
 
 public enum DocumentRole : Int, CaseIterable { 
@@ -225,6 +228,7 @@ public enum DocumentRole : Int, CaseIterable {
     case Add = 9
     case Ide = 10
     case Vis = 11
+    case Exp = 12
 }
 
 public enum SupportedLanguages : Int, CaseIterable { 

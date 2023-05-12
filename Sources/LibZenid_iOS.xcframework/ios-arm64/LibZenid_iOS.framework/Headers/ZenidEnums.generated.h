@@ -166,6 +166,8 @@ enum class DocumentCodes : int32_t {
 	CH_PAS_2022 = 158,
 	VN_PAS_2022 = 159,
 	ME_PAS_2008_A2 = 160,
+	CZ_RES_2020_A2 = 161,
+	OL_IDC_2022 = 162,
 };
 
 enum class PageCodes : uint8_t {
@@ -217,6 +219,7 @@ enum class Country : uint8_t {
 	Tr = 44,
 	Vn = 46,
 	In = 47,
+	Ol = 57,
 };
 
 enum class DocumentRole : uint8_t {
@@ -232,6 +235,7 @@ enum class DocumentRole : uint8_t {
 	Add = 9,
 	Ide = 10,
 	Vis = 11,
+	Exp = 12,
 };
 
 enum class SupportedLanguages : uint8_t {

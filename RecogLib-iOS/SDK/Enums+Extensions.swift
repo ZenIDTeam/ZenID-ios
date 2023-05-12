@@ -64,6 +64,8 @@ extension DocumentRole {
             return "Ide"
         case .Vis:
             return "Vis"
+        case .Exp:
+            return "Exp"
         }
     }
 }
