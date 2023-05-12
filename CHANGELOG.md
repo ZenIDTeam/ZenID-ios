@@ -1,6 +1,7 @@
 # Change Log
 
 # 2.0.18 2023-05-12
+* RecogLib 3.5.1
 * Added CZ_RES_2020_A2 in DocumentCodes enum.
 * Added OL_IDC_2022 in DocumentCodes enum, Exp (Experimental card) to DocumentRole and Ol (Olympus, experimental) to Country.
 * Support for experimental 'Olympus' ID card v2022.
