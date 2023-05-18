@@ -10,6 +10,7 @@ struct WebViewOverlayState {
 final class WebViewOverlay: WKWebView {
     init() {
         let configuration = WKWebViewConfiguration()
+        configuration.ignoresViewportScaleLimits = true
         super.init(frame: .zero, configuration: configuration)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear

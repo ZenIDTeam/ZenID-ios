@@ -97,8 +97,7 @@ public class BaseController<ResultType: ResultState> {
         if configuration.legacyVisualiser == false {
             view.addWebViewOverlay()
         }
-        
-        //view.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+
         view.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
 
         targetFrame = view.overlay?.bounds ?? .zero
@@ -148,19 +147,9 @@ public class BaseController<ResultType: ResultState> {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 let scale = UIScreen.main.scale
-                
-                //Normal Bounds - Detect Screen size in Points.
-                    let width  = UIScreen.main.bounds.width
-                    let height = UIScreen.main.bounds.height
-
-                // Native Bounds - Detect Screen size in Pixels.
-                    let nWidth  = UIScreen.main.nativeBounds.width
-                    let nHeight = UIScreen.main.nativeBounds.height
-                
-                let wScale = nWidth / width
-                let hScale = nHeight / height
-                    
-                guard let canvasSize = self.camera.previewLayer?.frame.size, let commands = self.getRenderCommands(size: CGSize(width: canvasSize.width * wScale, height: canvasSize.height * hScale)) else { return }
+                guard let canvasSize = self.camera.previewLayer?.frame.size else { return }
+                let size = CGSize(width: canvasSize.width * scale, height: canvasSize.height * scale)
+                guard let commands = self.getRenderCommands(size: size) else { return }
                 self.renderCommands(commands: commands, imageRect: sharedImageRect, pixelBuffer: sharedPixelBuffer)
             }
         }
