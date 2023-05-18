@@ -5,7 +5,7 @@
 #include "Image.h"
 
 #ifndef NO_OPENCV
-#include "opencv2/core.hpp"
+#include <opencv2/core.hpp>
 #endif
 
 #include <memory>

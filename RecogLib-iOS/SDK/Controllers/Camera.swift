@@ -35,6 +35,10 @@ public final class Camera: NSObject {
     private var cameraVideoOutput: AVCaptureVideoDataOutput!
 
     private var takePictureCompletion: ((Swift.Result<Data, Swift.Error>) -> Void)?
+    
+    public var isCaptureSessionRunning: Bool {
+        captureSession.isRunning
+    }
 
     override public init() {
         super.init()
