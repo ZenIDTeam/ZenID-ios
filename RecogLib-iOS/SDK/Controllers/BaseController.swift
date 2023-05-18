@@ -11,7 +11,7 @@ struct BaseControllerConfiguration {
     static let DEFAULT_VIDEO_RESOLUTION = 1920
     static let DEFAULT_VIDEO_FPS = 30 // FPS not used for now
 
-    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back, requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION, requestedFPS: Self.DEFAULT_VIDEO_FPS)
+    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back, requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION, requestedFPS: Self.DEFAULT_VIDEO_FPS, legacyVisualiser: false)
 
     public let showVisualisation: Bool
     public let showHelperVisualisation: Bool
@@ -19,8 +19,9 @@ struct BaseControllerConfiguration {
     public let cameraType: CameraType
     public let requestedResolution: Int
     public let requestedFPS: Int
+    public let legacyVisualiser: Bool
 
-    init(showVisualisation: Bool, showHelperVisualisation: Bool, dataType: DataType, cameraType: CameraType, requestedResolution: Int, requestedFPS: Int) {
+    init(showVisualisation: Bool, showHelperVisualisation: Bool, dataType: DataType, cameraType: CameraType, requestedResolution: Int, requestedFPS: Int, legacyVisualiser: Bool = false) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.dataType = dataType
@@ -39,6 +40,8 @@ struct BaseControllerConfiguration {
         } else {
             self.requestedResolution = requestedResolution
         }
+
+        self.legacyVisualiser = legacyVisualiser
     }
 }
 
@@ -90,7 +93,11 @@ public class BaseController<ResultType: ResultState> {
         view.onFrameChange = { [weak self] in
             self?.orientationChanged()
         }
-        view.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        
+        if configuration.legacyVisualiser == false {
+            view.addWebViewOverlay()
+        }
+
         view.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
 
         targetFrame = view.overlay?.bounds ?? .zero
@@ -117,13 +124,35 @@ public class BaseController<ResultType: ResultState> {
 
     public func start() {
         camera.start()
+        intensiveRenderCommands()
     }
 
     public func stop() {
+        isRunning = false
+        timer?.invalidate()
+        timer = nil
         camera.stop()
         videoWriter?.delegate = nil
         videoWriter?.stop()
         videoWriter = nil
+    }
+
+    var sharedImageRect: CGRect?
+    var sharedPixelBuffer: CVImageBuffer?
+    var timer: Timer?
+    
+    func intensiveRenderCommands() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+            guard let sharedImageRect = self?.sharedImageRect, let sharedPixelBuffer = self?.sharedPixelBuffer, self?.isRunning == true else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                let scale = UIScreen.main.scale
+                guard let canvasSize = self.camera.previewLayer?.frame.size else { return }
+                let size = CGSize(width: canvasSize.width * scale, height: canvasSize.height * scale)
+                guard let commands = self.getRenderCommands(size: size) else { return }
+                self.renderCommands(commands: commands, imageRect: sharedImageRect, pixelBuffer: sharedPixelBuffer)
+            }
+        }
     }
 
     func verify(pixelBuffer: CVPixelBuffer) -> ResultType? {
@@ -139,7 +168,7 @@ public class BaseController<ResultType: ResultState> {
     }
 
     func canShowInstructionView() -> Bool {
-        baseConfig.dataType != .video && canShowStaticOverlay()
+        baseConfig.dataType != .video && (baseConfig.legacyVisualiser == false || canShowStaticOverlay())
     }
 
     func callDelegate(with result: ResultType) {
@@ -239,6 +268,19 @@ extension BaseController {
         if !baseConfig.showHelperVisualisation {
             return
         }
+
+        if let firstChar = commands.first?.description, firstChar == "[" {
+            drawRenderables(commands: commands)
+        } else {
+            drawRenderablesLegacy(commands: commands)
+        }
+    }
+
+    private func drawRenderables(commands: String) {
+        view.webViewOverlay?.drawRenderables(commands: commands)
+    }
+
+    private func drawRenderablesLegacy(commands: String) {
         guard let previewLayer = camera.previewLayer else {
             return
         }
@@ -300,21 +342,24 @@ extension BaseController: CameraDelegate {
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
 
+        // set value to shared properties
+        sharedImageRect = imageRect
+        sharedPixelBuffer = pixelBuffer
+
+//        DispatchQueue.main.async { [weak self] in
+//            guard let canvasSize = camera.previewLayer?.frame.size, let commands = self?.getRenderCommands(size: canvasSize) else { return }
+//            self?.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
+//        }
+//
+
         if let videoWriter = videoWriter, baseConfig.dataType == .video, videoWriter.isRecording {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }
-        guard let result = verify(pixelBuffer: croppedBuffer) else {
-            return
-        }
+
+        guard let result = verify(pixelBuffer: croppedBuffer) else { return }
         callUpdateDelegate(with: result)
-        DispatchQueue.main.async { [unowned self] in
-            self.updateView(with: result, buffer: croppedBuffer)
-        }
-        guard let canvasSize = camera.previewLayer?.frame.size, let commands = getRenderCommands(size: canvasSize) else {
-            return
-        }
-        DispatchQueue.main.async {
-            self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        DispatchQueue.main.async { [weak self] in
+            self?.updateView(with: result, buffer: croppedBuffer)
         }
     }
 }
