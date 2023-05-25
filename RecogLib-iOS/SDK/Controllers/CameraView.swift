@@ -110,15 +110,12 @@ public final class CameraView: UIView {
         default:
             overlay.setupImage()
         }
-        
-        webViewOverlay?.loadVisualiser()
     }
     
     func addWebViewOverlay() {
         webViewOverlay?.removeFromSuperview()
         let webView = WebViewOverlay()
-        webView.loadVisualiser()
-        //webView.loadOnline()
+        webView.loadOnline()
         addSubview(webView)
         leftAnchor.constraint(equalTo: webView.leftAnchor).isActive = true
         bottomAnchor.constraint(equalTo: webView.bottomAnchor).isActive = true

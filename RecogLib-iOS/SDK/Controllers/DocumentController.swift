@@ -110,8 +110,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
             dataType: configuration.dataType,
             cameraType: .back,
             requestedResolution: 0,
-            requestedFPS: 0,
-            legacyVisualiser: configuration.settings?.visualizerVersion == 1
+            requestedFPS: 0
         )
         
         resetDocumentVerifier()

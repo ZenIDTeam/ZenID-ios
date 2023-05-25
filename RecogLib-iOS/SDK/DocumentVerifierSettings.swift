@@ -10,7 +10,7 @@ public struct DocumentVerifierSettings: Equatable {
     public let readBarcode: Bool
     public let visualizerVersion: Int
 
-    public init(specularAcceptableScore: Int = 50, documentBlurAcceptableScore: Int = 50, timeToBlurMaxToleranceInSeconds: Int = 10, showTimer: Bool = false, showAimingCircle: Bool = false, drawOutline: Bool = true, readBarcode: Bool = true, visualizerVersion: Int = 2
+    public init(specularAcceptableScore: Int = 50, documentBlurAcceptableScore: Int = 50, timeToBlurMaxToleranceInSeconds: Int = 10, showTimer: Bool = false, showAimingCircle: Bool = false, drawOutline: Bool = true, readBarcode: Bool = true, visualizerVersion: Int = 1
 ) {
         self.specularAcceptableScore = specularAcceptableScore
         self.documentBlurAcceptableScore = documentBlurAcceptableScore

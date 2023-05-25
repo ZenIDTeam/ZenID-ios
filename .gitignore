@@ -29,5 +29,3 @@ fastlane/report.xml
 # archives
 ZenIDDemo_*
 ZenID.xcworkspace/xcshareddata
-*.mobileprovision
-*.cer
