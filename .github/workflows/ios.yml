@@ -2,9 +2,9 @@ name: iOS starter workflow
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "release" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "release" ]
 
 jobs:
   build:
@@ -18,3 +18,10 @@ jobs:
         run: |
           gem install bundle
           bundle install
+          bundle exec fastlane setup
+      - name: Build
+        run: |
+          bundle exec fastlane build
+      - name: Distribute
+        run: |
+          bundle exec fastlane firebase
