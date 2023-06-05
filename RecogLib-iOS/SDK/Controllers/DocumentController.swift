@@ -91,6 +91,8 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     
     deinit {
         verifier.endHologramVerification()
+        verifier.reset()
+        resetDocumentVerifier()
     }
     
     public func configure(configuration: DocumentControllerConfiguration = .default) throws {

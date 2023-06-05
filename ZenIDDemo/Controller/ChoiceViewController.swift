@@ -395,6 +395,7 @@ extension ChoiceViewController: ScanProcessDelegate {
                 let livenessSettings = try LivenessVerifierSettingsLoaderComposer.compose().load()
                 let faceMode = try SelfieSelectionLoaderComposer.compose().load()
                 guard let self = self else { return }
+                
                 self.cachedCameraViewController.configureController(
                     type: scanProcess.documentType,
                     photoType: photoType,
