@@ -10,6 +10,7 @@ jobs:
   build:
     name: Build and Test release
     runs-on: macos-latest
+    environment: DeployEnv
 
     steps:
       - name: Checkout
