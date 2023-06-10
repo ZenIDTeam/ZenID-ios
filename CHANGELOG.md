@@ -1,5 +1,8 @@
 # Change Log
 
+# 2.0.19 2023-06-10
+* Fixed a memory issue in demo app
+
 # 2.0.18 2023-05-12
 * RecogLib 3.5.1
 * Added CZ_RES_2020_A2 in DocumentCodes enum.
