@@ -96,10 +96,6 @@ class CameraViewController: UIViewController {
 
         startSession()
 
-        documentController = nil
-        facelivenessController = nil
-        selfieController = nil
-
         documentControllerConfig = nil
         facelivenessControllerConfig = nil
         selfieControllerConfig = nil
@@ -148,6 +144,10 @@ class CameraViewController: UIViewController {
         contentView.layer.addSublayer(messageView.layer)
     }
 
+    public var isCaptureSessionRunning: Bool {
+        camera.isCaptureSessionRunning
+    }
+    
     private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {
         if documentType == .documentVideo || photoType == .face && isLivenessVideo {
             return .video

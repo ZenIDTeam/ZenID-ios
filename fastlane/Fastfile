@@ -23,15 +23,24 @@ platform :ios do
   end
 
 
-  desc "Download certificate and provisioning profile from apple"
+  desc "Download certificates and provisioning profiles from apple"
   lane :setup do
+
+    app_store_connect_api_key(
+      key_id: ENV["APPSTORE_KEY_ID"],
+      issuer_id: ENV["APPSTORE_ISSUER_ID"],
+      key_content: ENV["APPSTORE_API_KEY"],
+      duration: 1200, # optional (maximum 1200)
+      in_house: false # optional but may be required if using match/sigh
+    )
+
     get_certificates
     get_provisioning_profile
   end
 
-  desc "Upload testing build to firebase App Distribution"
-  lane :firebase do
-    versionNumber = get_version_number_from_xcodeproj(scheme: "ZenIDDemo")
+  desc "Build ad-hoc"
+  lane :build do
+    versionNumber = git_branch() #get_version_number_from_xcodeproj(xcodeproj: "ZenIDDemo.xcodeproj", scheme: "ZenIDDemo")
     buildNumber =  number_of_commits
     ipaName = "ZenIDDemo_#{versionNumber}(#{buildNumber})"
 
@@ -51,7 +60,10 @@ platform :ios do
         }
       }
     )
+  end
 
+  desc "Upload testing build to firebase App Distribution"
+  lane :firebase do
     firebase_app_distribution(
       app: "1:308002022528:ios:36531d62e268b7432df265",
       groups: "Inhouse",
