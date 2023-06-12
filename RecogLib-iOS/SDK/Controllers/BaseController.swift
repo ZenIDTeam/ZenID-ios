@@ -98,7 +98,7 @@ public class BaseController<ResultType: ResultState> {
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
             videoWriter?.delegate = self
-            startVideoWriter()
+//            startVideoWriter()
         }
 
         view.showInstructionView = canShowInstructionView()
@@ -167,9 +167,9 @@ public class BaseController<ResultType: ResultState> {
 
         if let videoWriter = videoWriter, videoWriter.isRecording {
             videoWriter.stopAndCancel()
-            DispatchQueue.main.async { [weak self] in
-                self?.startVideoWriter()
-            }
+//            DispatchQueue.main.async { [weak self] in
+//                self?.startVideoWriter()
+//            }
         }
     }
 
@@ -300,12 +300,23 @@ extension BaseController: CameraDelegate {
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
 
-        if let videoWriter = videoWriter, baseConfig.dataType == .video, videoWriter.isRecording {
+        if baseConfig.dataType == .video, let videoWriter = videoWriter, videoWriter.canWrite() {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }
+
         guard let result = verify(pixelBuffer: croppedBuffer) else {
             return
         }
+
+        // SZENID-2123 - defer the start of the video after the ID was aligned
+        if baseConfig.dataType == .video, let documentResult = result as? DocumentResult, let hologramState = documentResult.hologremState {
+            if videoWriter?.isRecording == false && [.TiltLeftAndRight, .TiltUpAndDown].contains(hologramState) {
+                DispatchQueue.main.async { [weak self] in
+                    self?.startVideoWriter()
+                }
+            }
+        }
+
         callUpdateDelegate(with: result)
         DispatchQueue.main.async { [unowned self] in
             self.updateView(with: result, buffer: croppedBuffer)

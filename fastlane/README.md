@@ -29,7 +29,15 @@ Push a new beta build to TestFlight
 [bundle exec] fastlane ios setup
 ```
 
-Download certificate and provisioning profile from apple
+Download certificates and provisioning profiles from apple
+
+### ios build
+
+```sh
+[bundle exec] fastlane ios build
+```
+
+Build ad-hoc
 
 ### ios firebase
 

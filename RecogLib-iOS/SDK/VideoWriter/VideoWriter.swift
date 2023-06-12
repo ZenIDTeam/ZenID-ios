@@ -120,7 +120,7 @@ extension VideoWriter {
         return documentsDirectory
     }
 
-    private func canWrite() -> Bool {
+    func canWrite() -> Bool {
         return isRecording
             && videoWriter != nil
             && videoWriter.status == .writing
