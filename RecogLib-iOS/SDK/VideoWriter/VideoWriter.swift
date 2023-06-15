@@ -6,7 +6,13 @@ enum VideoWriterError: Error {
 
 final class VideoWriter: NSObject {
     public weak var delegate: VideoWriterDelegate?
-    private(set) var isRecording = false
+    private(set) var isRecording = false {
+        didSet {
+            #if DEBUG
+                print("isRecording=\(isRecording)")
+            #endif
+        }
+    }
 
     private let filePrefix = "VideoSample-"
 
@@ -96,7 +102,7 @@ extension VideoWriter {
                 AVVideoCodecKey: AVVideoCodecType.h264,
                 AVVideoWidthKey: isPortrait ? outputVideoHeight : outputVideoWidth,
                 AVVideoHeightKey: isPortrait ? outputVideoWidth : outputVideoHeight,
-                AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 1000000]
+                AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 1000000],
             ])
             videoWriterInput.expectsMediaDataInRealTime = true
 

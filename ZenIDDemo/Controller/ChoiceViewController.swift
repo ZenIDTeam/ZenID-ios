@@ -39,7 +39,7 @@ final class ChoiceViewController: UIViewController {
 //        otherDocumentButton,
         documentsFilterButton,
         hologramButton,
-        // faceButton,
+        faceButton,
         logsButton,
         webViewButton,
         pureVerifierButton
