@@ -412,9 +412,7 @@ public enum DataType {
   }
 }
 @objc @_inheritsConvenienceInitializers final public class Camera : ObjectiveC.NSObject {
-  final public var isCaptureSessionRunning: Swift.Bool {
-    get
-  }
+  final public func isCaptureSessionRunning() -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
 }

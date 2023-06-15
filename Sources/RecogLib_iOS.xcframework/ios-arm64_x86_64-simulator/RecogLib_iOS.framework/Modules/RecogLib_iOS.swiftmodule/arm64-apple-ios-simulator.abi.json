@@ -12903,9 +12903,9 @@
         "printedName": "Camera",
         "children": [
           {
-            "kind": "Var",
+            "kind": "Function",
             "name": "isCaptureSessionRunning",
-            "printedName": "isCaptureSessionRunning",
+            "printedName": "isCaptureSessionRunning()",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -12914,37 +12914,15 @@
                 "usr": "s:Sb"
               }
             ],
-            "declKind": "Var",
-            "usr": "s:12RecogLib_iOS6CameraC23isCaptureSessionRunningSbvp",
-            "mangledName": "$s12RecogLib_iOS6CameraC23isCaptureSessionRunningSbvp",
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS6CameraC23isCaptureSessionRunningSbyF",
+            "mangledName": "$s12RecogLib_iOS6CameraC23isCaptureSessionRunningSbyF",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "Final",
               "AccessControl"
             ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12RecogLib_iOS6CameraC23isCaptureSessionRunningSbvg",
-                "mangledName": "$s12RecogLib_iOS6CameraC23isCaptureSessionRunningSbvg",
-                "moduleName": "RecogLib_iOS",
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Constructor",
@@ -34909,119 +34887,119 @@
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 2327,
+      "offset": 2332,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 4096,
+      "offset": 4101,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 5163,
+      "offset": 5168,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 5174,
+      "offset": 5179,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 6515,
+      "offset": 6520,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 7442,
+      "offset": 7447,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 7740,
+      "offset": 7745,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 7836,
+      "offset": 7841,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8231,
+      "offset": 8236,
       "length": 12,
       "value": "\"iPhone14,2\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8252,
+      "offset": 8257,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8317,
+      "offset": 8322,
       "length": 12,
       "value": "\"iPhone14,3\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8338,
+      "offset": 8343,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8399,
+      "offset": 8404,
       "length": 12,
       "value": "\"iPhone15,2\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8420,
+      "offset": 8425,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8485,
+      "offset": 8490,
       "length": 12,
       "value": "\"iPhone15,3\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8506,
+      "offset": 8511,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8543,
+      "offset": 8548,
       "length": 5,
       "value": "false"
     },
