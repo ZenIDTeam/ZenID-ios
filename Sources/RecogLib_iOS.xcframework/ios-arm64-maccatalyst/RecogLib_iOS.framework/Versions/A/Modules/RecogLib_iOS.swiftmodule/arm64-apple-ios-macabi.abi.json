@@ -12903,6 +12903,28 @@
         "printedName": "Camera",
         "children": [
           {
+            "kind": "Function",
+            "name": "isCaptureSessionRunning",
+            "printedName": "isCaptureSessionRunning()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS6CameraC23isCaptureSessionRunningSbyF",
+            "mangledName": "$s12RecogLib_iOS6CameraC23isCaptureSessionRunningSbyF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -29324,177 +29346,184 @@
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 227,
+      "offset": 316,
       "length": 4,
       "value": "1920"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 267,
+      "offset": 356,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 369,
+      "offset": 458,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 400,
+      "offset": 489,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1170,
+      "offset": 1388,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1372,
+      "offset": 1590,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1741,
+      "offset": 1959,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "StringLiteral",
-      "offset": 1828,
+      "offset": 2046,
       "length": 16,
       "value": "\"targettingRect\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2312,
+      "offset": 2530,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2523,
+      "offset": 2741,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2779,
+      "offset": 2997,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3636,
+      "offset": 4058,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "FloatLiteral",
-      "offset": 4715,
+      "offset": 5137,
       "length": 4,
       "value": "0.15"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "Array",
-      "offset": 4990,
+      "offset": 5412,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6802,
+      "offset": 7224,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6808,
+      "offset": 7230,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "StringLiteral",
-      "offset": 7680,
+      "offset": 8102,
       "length": 31,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "StringLiteral",
-      "offset": 7710,
+      "offset": 8132,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "StringLiteral",
-      "offset": 8497,
+      "offset": 8919,
       "length": 12,
       "value": "\"nil result\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 8616,
+      "offset": 9038,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 8863,
+      "offset": 9285,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 8970,
+      "offset": 9392,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9498,
+      "offset": 9920,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9926,
+      "offset": 10348,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9932,
+      "offset": 10354,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 10935,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
@@ -34861,119 +34890,119 @@
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 2236,
+      "offset": 2332,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 4005,
+      "offset": 4101,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 5072,
+      "offset": 5168,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 5083,
+      "offset": 5179,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 6424,
+      "offset": 6520,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 7351,
+      "offset": 7447,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 7649,
+      "offset": 7745,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 7745,
+      "offset": 7841,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8140,
+      "offset": 8236,
       "length": 12,
       "value": "\"iPhone14,2\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8161,
+      "offset": 8257,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8226,
+      "offset": 8322,
       "length": 12,
       "value": "\"iPhone14,3\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8247,
+      "offset": 8343,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8308,
+      "offset": 8404,
       "length": 12,
       "value": "\"iPhone15,2\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8329,
+      "offset": 8425,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 8394,
+      "offset": 8490,
       "length": 12,
       "value": "\"iPhone15,3\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8415,
+      "offset": 8511,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 8452,
+      "offset": 8548,
       "length": 5,
       "value": "false"
     },
@@ -35540,42 +35569,42 @@
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 3501,
+      "offset": 3558,
       "length": 15,
       "value": "\"msg-scan-back\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 3527,
+      "offset": 3584,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 3549,
+      "offset": 3606,
       "length": 16,
       "value": "\"msg-scan-front\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 3576,
+      "offset": 3633,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4072,
+      "offset": 4129,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4101,
+      "offset": 4158,
       "length": 1,
       "value": "0"
     },
@@ -36884,14 +36913,14 @@
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3590,
+      "offset": 3622,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3668,
+      "offset": 3700,
       "length": 5,
       "value": "false"
     },
@@ -37724,14 +37753,14 @@
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3046,
+      "offset": 3080,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3124,
+      "offset": 3158,
       "length": 5,
       "value": "false"
     },
@@ -37752,105 +37781,105 @@
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 239,
+      "offset": 367,
       "length": 14,
       "value": "\"VideoSample-\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 638,
+      "offset": 766,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "FloatLiteral",
-      "offset": 718,
+      "offset": 846,
       "length": 6,
       "value": "0.5625"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 1055,
+      "offset": 1183,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 1616,
+      "offset": 1744,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 1740,
+      "offset": 1868,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 1795,
+      "offset": 1923,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 2566,
+      "offset": 2694,
       "length": 66,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 2580,
+      "offset": 2708,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 2627,
+      "offset": 2755,
       "length": 1,
       "value": "\".mp4\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3249,
+      "offset": 3377,
       "length": 7,
       "value": "1000000"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 3331,
+      "offset": 3460,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "IntegerLiteral",
-      "offset": 3942,
+      "offset": 4071,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 4416,
+      "offset": 4537,
       "length": 16,
       "value": "\"^\""
     },
     {
       "filePath": "\/Users\/pykaso\/Development\/personal\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 4431,
+      "offset": 4552,
       "length": 83,
       "value": "\"\""
     },

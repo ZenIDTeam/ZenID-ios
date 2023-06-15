@@ -112,7 +112,8 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
             dataType: configuration.dataType,
             cameraType: .back,
             requestedResolution: 0,
-            requestedFPS: 0
+            requestedFPS: 0,
+            processType: .document
         )
         
         resetDocumentVerifier()

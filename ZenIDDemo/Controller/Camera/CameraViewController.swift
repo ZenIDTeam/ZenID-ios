@@ -145,7 +145,7 @@ class CameraViewController: UIViewController {
     }
 
     public var isCaptureSessionRunning: Bool {
-        camera.isCaptureSessionRunning
+        camera.isCaptureSessionRunning()
     }
     
     private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {

@@ -8,10 +8,15 @@ public protocol ResultState {
 }
 
 struct BaseControllerConfiguration {
+    enum ProcessType {
+        case document
+        case face
+        case selfie
+    }
     static let DEFAULT_VIDEO_RESOLUTION = 1920
     static let DEFAULT_VIDEO_FPS = 30 // FPS not used for now
 
-    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back, requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION, requestedFPS: Self.DEFAULT_VIDEO_FPS)
+    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back, requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION, requestedFPS: Self.DEFAULT_VIDEO_FPS, processType: .document)
 
     public let showVisualisation: Bool
     public let showHelperVisualisation: Bool
@@ -19,12 +24,14 @@ struct BaseControllerConfiguration {
     public let cameraType: CameraType
     public let requestedResolution: Int
     public let requestedFPS: Int
+    public let processType: ProcessType
 
-    init(showVisualisation: Bool, showHelperVisualisation: Bool, dataType: DataType, cameraType: CameraType, requestedResolution: Int, requestedFPS: Int) {
+    init(showVisualisation: Bool, showHelperVisualisation: Bool, dataType: DataType, cameraType: CameraType, requestedResolution: Int, requestedFPS: Int, processType: ProcessType) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.dataType = dataType
         self.cameraType = cameraType
+        self.processType = processType
 
         // 0 - not configured on BE
         if requestedFPS == 0 {
@@ -98,7 +105,11 @@ public class BaseController<ResultType: ResultState> {
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
             videoWriter?.delegate = self
-            startVideoWriter()
+            
+            // start camera for face liveness and don't defer the start of the video after the ID was aligned (SZENID-2123)
+            if baseConfig.processType == .face {
+                startVideoWriter()
+            }
         }
 
         view.showInstructionView = canShowInstructionView()
@@ -300,12 +311,23 @@ extension BaseController: CameraDelegate {
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
         let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
 
-        if let videoWriter = videoWriter, baseConfig.dataType == .video, videoWriter.isRecording {
+        if baseConfig.dataType == .video, let videoWriter = videoWriter, videoWriter.canWrite() {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }
+
         guard let result = verify(pixelBuffer: croppedBuffer) else {
             return
         }
+
+        // SZENID-2123 - defer the start of the video after the ID was aligned
+        if baseConfig.dataType == .video, let documentResult = result as? DocumentResult, let hologramState = documentResult.hologremState {
+            if videoWriter?.isRecording == false && [.TiltLeftAndRight, .TiltUpAndDown].contains(hologramState) {
+                DispatchQueue.main.async { [weak self] in
+                    self?.startVideoWriter()
+                }
+            }
+        }
+
         callUpdateDelegate(with: result)
         DispatchQueue.main.async { [unowned self] in
             self.updateView(with: result, buffer: croppedBuffer)

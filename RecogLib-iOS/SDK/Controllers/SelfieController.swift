@@ -70,7 +70,8 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
             dataType: configuration.dataType,
             cameraType: .front,
             requestedResolution: 0,
-            requestedFPS: 0
+            requestedFPS: 0,
+            processType: .selfie
         )
         
         verifier.showDebugInfo = config.showDebugVisualisation
