@@ -1294,7 +1294,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Distriburion: ZenID Demo AdHoc";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "cz.trask.ZenID AdHoc";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
