@@ -36,7 +36,7 @@ platform :ios do
 
     #get_certificates
     
-
+    sh("echo $APPLE_DIST_CERT | base64 -d")
     sh("echo $APPLE_DIST_CERT | base64 -d > trask_distribution.cer")
 
     import_certificate(
