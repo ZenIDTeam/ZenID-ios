@@ -36,7 +36,7 @@ public final class Camera: NSObject {
 
     private var takePictureCompletion: ((Swift.Result<Data, Swift.Error>) -> Void)?
     
-    public var isCaptureSessionRunning: Bool {
+    public func isCaptureSessionRunning() -> Bool {
         captureSession.isRunning
     }
 

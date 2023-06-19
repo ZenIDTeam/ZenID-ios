@@ -1,5 +1,9 @@
 # Change Log
 
+# 2.0.20 2023-06-15
+* Hologram length video reducing
+* Fixed issue when completing the face-liveness verification proces  
+
 # 2.0.19 2023-06-10
 * Fixed a memory issue in demo app
 
