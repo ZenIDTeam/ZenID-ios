@@ -25,7 +25,8 @@ platform :ios do
 
   desc "Download certificates and provisioning profiles from apple"
   lane :setup do
-
+    setup_ci
+    
     app_store_connect_api_key(
       key_id: ENV["APPSTORE_KEY_ID"],
       issuer_id: ENV["APPSTORE_ISSUER_ID"],
