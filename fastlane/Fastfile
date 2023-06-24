@@ -39,6 +39,11 @@ platform :ios do
     #sh("echo $APPLE_DIST_CERT | base64 -d > ./trask_distribution.cer")
 
     import_certificate(
+      certificate_path: "./AppleWWDRCA.cer",
+      keychain_name: "fastlane_tmp_keychain"
+    )
+
+    import_certificate(
       certificate_path: "./trask_distribution.cer",
       keychain_name: "fastlane_tmp_keychain",
       keychain_password: ""
