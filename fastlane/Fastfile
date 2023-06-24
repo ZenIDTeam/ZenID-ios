@@ -43,7 +43,8 @@ platform :ios do
     )
 
     get_provisioning_profile(
-      adhoc: true
+      adhoc: true,
+      force: false
     )
 
   end

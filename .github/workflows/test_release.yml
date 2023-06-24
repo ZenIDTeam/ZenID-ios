@@ -25,7 +25,6 @@ jobs:
         shell: bash
         run: |
           echo $APPLE_DIST_CERT | base64 -d > ./trask_distribution.cer
-          cat ./trask_distribution.cer
       - name: Setup
         run: |
           gem install bundle
