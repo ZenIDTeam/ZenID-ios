@@ -1,20 +1,23 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.120.7 clang-1500.0.34.3)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import CoreGraphics
 import CoreMedia
 import CoreVideo
+import DeveloperToolsSupport
 import Foundation
 @_exported import RecogLib_iOS
 import Swift
+import SwiftUI
 import UIKit.UIImage
 import UIKit
 import VideoToolbox
 import WebKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 public protocol UnifiedVerifier {
   func verify(image: CoreVideo.CVPixelBuffer) -> (any RecogLib_iOS.UnifiedResult)?
 }

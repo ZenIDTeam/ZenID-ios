@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		PPUgJbLSUmo08/ZfL7xhaGx6VgQ=
+		3lwSfmqaMJk0WcPT3ZGl4Yi6YEk=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		vNAhltxMVYKjIhKoZnJMxFnyRKU=
+		fu2N4vhthigz9WJTCocXbiF/QjE=
 		</data>
 		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uKVAovLSj8Of2rPlZJHVuvofALqweqlVCSd8/M2j3as=
+			lip39HyvdZSPHp4qBPytoHR/0JOAQabAdCW3Ty/1Rrc=
 			</data>
 		</dict>
 		<key>Headers/RecogLib_iOS.h</key>
@@ -100,63 +100,63 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Cx/usQ8MG2XeJbLTbLZPSgdo314i2yTlA3sVerK/QnI=
+			oZOmkGGj1WzlCPFVQ+I4EhFLgzgVr0xgSfdZnWj/Fx0=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6DI0hjOVhD2nTfwbh1OYPeNRDXfsZ8m5ZXKVi1rxNrI=
+			uYEOMyARTdGMt2dX+kqec2fxmRGpQQnH95U5ynNvQxU=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mVfCvDCDPnEEv+euMb7Gy5R3gYxGw8ETqS655Bi57u4=
+			vadHVaqTKmdp6iPMmSkxcA5xbHixJqj2PTWodKxqgiA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xcnjogDnhhkAgolRYaX1moHlOwmi+t1XBrRF98aaOSs=
+			TZ4YycTr4SzuyqdyBasU17PfvVD3m/MmoqbLgR7SWEQ=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mVfCvDCDPnEEv+euMb7Gy5R3gYxGw8ETqS655Bi57u4=
+			vadHVaqTKmdp6iPMmSkxcA5xbHixJqj2PTWodKxqgiA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9pTL5oumHW0LLYj3UMnAdd6GqCaym+7cNjK3qj8t9Lk=
+			u9BjVO0gY8cADiOY1ZvdLQLs4YFg1Z8UlbRtHYX6nnQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SB9hyi+zVKOqjKSSgi0D7xl9VP1PJbWI3Ug9dOi65B0=
+			H9vqgXlaeHu9hx4PbAJX6PMM75c1llB5hmyBMqVD6r4=
 			</data>
 		</dict>
 		<key>Resources/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RYpth+l/Az/eLKwD70FbDVoJqvW0PQR0+CoznFlmydg=
+			zmTFPAqFixCR1eLF0C/lwKIrGGcNPRUO6VOKitlC+Uw=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JjP0YV3/JpVkb3t6G3pNe38PMtMeaDKIH8bsgTOapTo=
+			UkwqSRyhPUEfPNjB9D2PpoQH6M04fkEd098xSgQ2DqU=
 			</data>
 		</dict>
 		<key>Resources/cs.lproj/Localizable.strings</key>

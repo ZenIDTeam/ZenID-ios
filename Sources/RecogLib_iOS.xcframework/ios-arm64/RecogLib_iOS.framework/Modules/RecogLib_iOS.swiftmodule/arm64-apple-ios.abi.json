@@ -22083,6 +22083,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "UITraitChangeObservable",
+            "printedName": "UITraitChangeObservable",
+            "usr": "s:5UIKit23UITraitChangeObservableP",
+            "mangledName": "$s5UIKit23UITraitChangeObservableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "__DefaultCustomPlaygroundQuickLookable",
             "printedName": "__DefaultCustomPlaygroundQuickLookable",
             "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
@@ -28352,6 +28359,34 @@
             "mangledName": "$s12RecogLib_iOS14VerifierModelsP"
           }
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS"
+      },
+      {
+        "kind": "Import",
+        "name": "DeveloperToolsSupport",
+        "printedName": "DeveloperToolsSupport",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS"
       },
       {
         "kind": "TypeDecl",
@@ -38054,6 +38089,20 @@
       "offset": 1908,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/pykaso\/Library\/Developer\/Xcode\/DerivedData\/RecogLib-iOS-gfhthklxsifoxecripdnibmoxbyh\/Build\/Intermediates.noindex\/RecogLib-iOS.build\/Release-iphoneos\/RecogLib-iOS.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 741,
+      "length": 16,
+      "value": "\"targettingRect\""
+    },
+    {
+      "filePath": "\/Users\/pykaso\/Library\/Developer\/Xcode\/DerivedData\/RecogLib-iOS-gfhthklxsifoxecripdnibmoxbyh\/Build\/Intermediates.noindex\/RecogLib-iOS.build\/Release-iphoneos\/RecogLib-iOS.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 901,
+      "length": 19,
+      "value": "\"targettingRectPas\""
     }
   ]
 }
