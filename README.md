@@ -2,7 +2,6 @@
 # RecogLib
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
-
 Recoglib is capable of recognizing types that include:
 - Identity card
 - Driving license
@@ -15,7 +14,39 @@ Recoglib is capable of recognizing types that include:
 - Face liveness
 - EU VISA
 
+## Table of contents
 
+  * [Changelog](#changelog)
+  * [Installation](#installation)
+    + [Installation with SPM](#installation-with-spm)
+    + [Statically link the frameworks](#statically-link-the-frameworks)
+    + [Models](#models)
+    + [Authorization](#authorization)
+  * [Migration](#migration)
+    + [old -> to the version 2.0.14 (RecogLib 2.11.3)](#old-to-the-version-2014-recoglib-2113)
+    + [old -> to the version 2.0.0](#old-to-the-version-200)
+    + [old -> to the version 1.9.0](#old-to-the-version-190)
+    + [old -> to the version 1.7.0](#old-to-the-version-170)
+  * [Usage](#usage)
+    + [Lightweight integration](#lightweight-integration)
+      - [DocumentController](#documentcontroller)
+      - [FacelivenessController ](#facelivenesscontroller)
+      - [SelfieController ](#selfiecontroller)
+    + [From Scratch](#from-scratch)
+      - [DocumentVerifier](#documentverifier)
+        * [Models](#models-1)
+        * [Verifier Settings](#verifier-settings)
+        * [Draw renderables](#draw-renderables)
+      - [Face liveness verifier](#face-liveness-verifier)
+        * [Face liveness step parameters](#face-liveness-step-parameters)
+        * [Models](#models-2)
+      - [Holograms](#holograms)
+      - [Selfie verifier](#selfie-verifier)
+        * [Auxiliary Images](#auxiliary-images)
+        * [Legacy mode](#legacy-mode)
+      - [Result](#result)
+  * [Signature](#signature)
+  * [Open Source](#open-source)
 
 ## Changelog
 If you are looking for information about new features, check the [changelog](./CHANGELOG.md).
@@ -171,7 +202,7 @@ Do not forget to add/link models into your Xcode project. Check out the document
 ## Usage
 The SDK provides two options how to handle the scanning process. First of them is lightweight, where everything is provided to you and you can have running code with the logic and UI in just a couple lines of code. Second of them is more complicated where you have to implement everything from the scratch by yourself if needed. Let's have a look at those options. 
 
-## Lightweight integration
+### Lightweight integration
 Ready-to-use controllers like `DocumentController`, `FacelivenessController` and `SelfieController` are available for lightweight integration.
 
 You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
@@ -180,7 +211,7 @@ Add the `CameraView` into your view hierarchy in order to see the camera's UI an
 
 You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
 
-### DocumentController
+#### DocumentController
 Use [DocumentController](https://github.com/ZenIDTeam/ZenID-ios/blob/master/RecogLib-iOS/SDK/Controllers/DocumentController.swift) for scanning documents. You can configure the behaviour with `DocumentControllerConfiguration` and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
 
 ```swift
@@ -227,7 +258,7 @@ public protocol DocumentControllerDelegate: AnyObject {
 You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
 The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
-### FacelivenessController 
+#### FacelivenessController 
 Use `FacelivenessController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
 
 ```swift
@@ -260,7 +291,7 @@ public protocol FacelivenessControllerDelegate: AnyObject {
 You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
 The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
-### SelfieController 
+#### SelfieController 
 Use `SelfieController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
 
 ```swift
@@ -294,11 +325,11 @@ You can implement the delegate to be able to receive a message when scanning was
 The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
 
-## Usage - From Scratch
+### From Scratch
 You are free to implement everything from the scratch, without use our controller classes. The SDK provides three classes for you: `DocumentVerifier`, `SelfierVerifier`, and `FacelivenessVerifier`.
 Example of an implementation from scratch [PureVerifierViewController.swift(./ZenIDDemo/Controller/PureVerifierViewController.swift)]
 
-### `DocumentVerifier`
+#### DocumentVerifier
 Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
 
 1. Recognizing only one specific document
@@ -334,7 +365,7 @@ For example, if you want to scan all Czech documents available, just pass nil to
 let verifier = DocumentVerifier(role: nil, country: .Cz, page: nil, language: .Language)
 ```
 
-#### Models
+##### Models
 You have to load models that you would like to support.
 URL is the path to your folder that contains files or other folders, such as CZ, SK, etc. You have to pass url that is a folder, not a single file. 
 ```swift
@@ -344,7 +375,7 @@ if let models = DocumentVerifierModels(url: url) {
 }
 ```
 
-#### Verifier Settings
+##### Verifier Settings
 You can tune a couple of parameters of document verifier.
 
 ```swift
@@ -408,7 +439,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 ```
 
-#### Draw renderables
+##### Draw renderables
 In case you want to add an information layer with objects that the verifier has detected, you can use the `verifier.getRenderCommands(canvasWidth:Int, canvasHeight:Int)` method. This method returns a string representation of the detected objects. This string is converted into a collection of drawable objects implementing `Renderable` protocol using `RenderableFactory.createRenderables(commands: String)`.
 The types of renderable objects are the classes `Line`,`Rectangle`,`Circle`,`Ellipse`,`Text`,`Triangle`.
 
@@ -443,11 +474,11 @@ private func drawRenderables(buffer: CMSampleBuffer) {
 ```
 
 
-### Face liveness verifier
+#### Face liveness verifier
 You can use  `FaceLivenessVerifier` to verify face liveness from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `FaceLivenessVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
 
-#### Face liveness step parameters
+##### Face liveness step parameters
 
 > Available since version 2.0.12
 
@@ -478,7 +509,7 @@ The object `FaceLivenessStepParameters` has the following properties:
 
 
 
-#### Models
+##### Models
 You have to load models that you would like to support.
 URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
 ```Swift
@@ -489,19 +520,19 @@ if let models = FaceVerifierModels(url: url) {
 }
 ```
 
-### Holograms
+#### Holograms
 You can use  `DocumentVerifier` to detect 2D holograms on cards.
 To do that, you can use this object the same way like to detect documents and call method `beginHologramVerification` and endHologramVerification. You can record video for selfie and faceliveness, however, there is no need to call any methods on their verifiers.
 
 Detection logic in `captureOutput(_: ,didOutput: ,from:)` is almost the same but in case of holograms you can easily add reconrding video with `VideoWriter` class.
 This video can be uploaded to the backend after successful detection of hologram.
 
-### Selfie verifier
+#### Selfie verifier
 You can use  `SelfieVerifier` to verify selfie (human face picture) from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `SelfieVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)`.
 
 
-#### Auxiliary Images
+##### Auxiliary Images
 You can get all images that have been taken during the Faceliveness process.
 ```Swift
 let verifier = FaceLivenessVerifier(...)
@@ -515,7 +546,7 @@ for metadata in info.metadata {
 }
 ```
 
-#### Legacy mode
+##### Legacy mode
 Faceliveness verifier has two modes. First is the new one and second one is the legacy. You can choose which one you want by using FaceLivenessVerifierSettings in constructor or `update` method of the verifier class. Moreover, you can specify the qualify of those pictures. Be default the legacy mode is disabled.
 
 Constructor method
@@ -541,7 +572,7 @@ verifier.update(settings: settings)
 let info = verifier.getAuxiliaryInfo()
 ```
  
-### Result
+#### Result
 The returning value of the `verify()` or `verifyImage(imageBuffer: )` methods is a struct of type `DocumentResult` for documents, `HologramResult` for holograms or `FaceResult` for face liveness.
 
 It contains all the information found describing currently analysed document/face.
@@ -563,7 +594,7 @@ Selfie detection result contains state of currently analysed image.
 Face liveness detection result contains state of currently analysed image.
 `FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile`, `Blurry`, `Dark` and finally  `Ok`
 
-### Signature
+## Signature
 The SDK now generates a signature for the snapshots it takes. The backend uses the signature to verify picture origin and integrity. The signature lets you upload the final frame instead of the whole video for verification. The SDK only generates a signature when the result state is OK. 
 
 The SDK provides the signature as an attribute inside of the result objects of verifiers, such as `DocumentResult`, `FaceLivenessResult`, and `SelfieResult`. Hologram does not support the signature. 
@@ -577,7 +608,7 @@ struct ImageSignature {
 ```
 Where the `image` attribute is binary data of the image that contains the SDK signature. You have to send this binary data to the backend if you want to have your signature to be validated. The `signature` attribute is a string that represents the signature itself that you should send to the backend in your investigation sample HTTP REST call. 
 
-### Open Source
+## Open Source
 
 Zenid is powered by Open Source libraries.
 
