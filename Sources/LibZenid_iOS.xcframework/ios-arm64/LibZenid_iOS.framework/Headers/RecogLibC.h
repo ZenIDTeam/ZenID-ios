@@ -1,11 +1,14 @@
 #pragma once
 
+#include "AcceptableInput.h"
 #include "DocumentVerifier.h"
 #include "FaceLivenessVerifier.h"
+#include "Image.h"
+#include "IQSHologramVerifier.h"
 #include "RecogLibCException.h"
 #include "SelfieVerifier.h"
-#include "Image.h"
+#include "SerializableInterop.generated.h"
+#include "Version.h"
 #include "ZenidEnums.generated.h"
-#include "ZenidSecurity.h"
-#include "AcceptableInput.h"
 #include "ZenidLog.h"
+#include "ZenidSecurity.h"

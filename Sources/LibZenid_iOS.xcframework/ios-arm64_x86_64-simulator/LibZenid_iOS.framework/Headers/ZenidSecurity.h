@@ -1,23 +1,26 @@
 #pragma once
 
+#include "RecogLibCApi.h"
+
 #ifdef __ANDROID__
 #include <jni.h>
 #endif
 
 #include <string>
 
-namespace RecogLibC::Security
+namespace RecogLibC::Security RECOGLIBC_PUBLIC
 {
 
-std::string GetChallengeToken();
-bool IsAuthorized();
-void CheckAuthorization();
+RECOGLIBC_PUBLIC std::string GetChallengeToken();
+RECOGLIBC_PUBLIC bool IsAuthorized();
+RECOGLIBC_PUBLIC void CheckAuthorization();
+RECOGLIBC_PUBLIC bool SelectProfile(const std::string& profileName);
 
 
 #ifdef __ANDROID__
-bool Authorize(JNIEnv* env, jobject _context, jstring responseToken);
+RECOGLIBC_PUBLIC bool Authorize(JNIEnv* env, jobject _context, jstring responseToken);
 #else
-bool Authorize(const std::string& responseToken);
+RECOGLIBC_PUBLIC bool Authorize(const std::string& responseToken);
 #endif
-void Unauthorize();
+RECOGLIBC_PUBLIC void Unauthorize();
 }

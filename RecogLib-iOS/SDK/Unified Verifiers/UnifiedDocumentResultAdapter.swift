@@ -41,6 +41,10 @@ public extension DocumentVerifierState {
             return .reflectionPresent
         case .Barcode:
             return .barcode
+        case .TextNotReadable:
+            return .textNotReadable
+        case .Nfc:
+            return .nfc
         }
     }
 }

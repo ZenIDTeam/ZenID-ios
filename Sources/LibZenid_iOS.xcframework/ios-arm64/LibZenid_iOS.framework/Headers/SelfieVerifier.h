@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RecogLibCApi.h"
 #include "ZenidEnums.generated.h"
 
 #include "Image.h"
@@ -14,7 +15,7 @@
 #include <cstdint>
 
 
-class SelfieVerifierSettings
+class RECOGLIBC_PUBLIC SelfieVerifierSettings
 {
 public:
 	SelfieVerifierSettings() = default;
@@ -26,7 +27,7 @@ public:
 	int visualizerVersion = 2;
 };
 
-namespace RecogLibC
+namespace RecogLibC RECOGLIBC_PUBLIC
 {
 class Image;
 class SelfieVerifier
@@ -44,11 +45,12 @@ class SelfieVerifier
 	void SetDebugVisualization(bool isEnabled);
 	// Only valid if the state is OK.
 	const std::string& GetSignature() const;
+	SelfieVerifierSettings& GetSettings() const;
 	// Only valid if the state is OK.
 	const std::vector<uint8_t>& GetSignedImage() const;
 	void Reset();
 	~SelfieVerifier();
-	class Impl;
+	class RECOGLIBC_PRIVATE Impl;
 
    private:
 	std::unique_ptr<Impl> pImpl;

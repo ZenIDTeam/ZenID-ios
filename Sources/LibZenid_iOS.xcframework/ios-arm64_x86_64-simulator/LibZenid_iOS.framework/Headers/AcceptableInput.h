@@ -1,14 +1,13 @@
 #pragma once
 
+#include "RecogLibCApi.h"
 #include "ZenidEnums.generated.h"
-
 
 #include <vector>
 #include <string>
 #include <optional>
 
-
-namespace RecogLibC
+namespace RecogLibC RECOGLIBC_PUBLIC
 {
 class DocumentFilter
 {
@@ -18,6 +17,18 @@ public:
 	std::optional<PageCodes> Page;
 	std::optional<DocumentCodes> DocumentCode;
 	std::optional<std::string> ModelID;
+
+	bool operator==(const DocumentFilter& other) const {
+		return Role == other.Role 
+			&& Country == other.Country 
+			&& Page == other.Page
+			&& DocumentCode == other.DocumentCode
+			&& ModelID == other.ModelID;
+	}
+
+	bool operator!=(const DocumentFilter& other) const {
+		return !(*this == other);
+	}
 };
 
 class AcceptableInput
@@ -32,7 +43,8 @@ public:
 
 	AcceptableInput(DocumentFilter filter)
 	{
-		PossibleDocuments.push_back(filter);
+		if (filter.Country || filter.Page || filter.Role || filter.DocumentCode || filter.ModelID)
+			PossibleDocuments.push_back(filter);
 	}
 
 	AcceptableInput(std::initializer_list<DocumentCodes> documentCodes)

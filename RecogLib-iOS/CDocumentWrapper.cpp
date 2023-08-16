@@ -75,12 +75,9 @@ static void processFrame(const void *object,
 const void * getDocumentVerifier(CDocumentVerifierSettings *settings)
 {
     DocumentVerifierSettings verifierSettings = DocumentVerifierSettings();
-    verifierSettings.specularAcceptableScore = settings->specularAcceptableScore;
-    verifierSettings.documentBlurAcceptableScore = settings->documentBlurAcceptableScore;
     verifierSettings.timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
     verifierSettings.showTimer = settings->showTimer;
     verifierSettings.drawOutline = settings->drawOutline;
-    verifierSettings.readBarcode = settings->readBarcode;
     verifierSettings.visualizerVersion = settings->visualizerVersion;
     DocumentVerifier *verifier = new DocumentVerifier(std::make_shared<DocumentVerifierSettings>(verifierSettings));
     return (void *)verifier;
@@ -150,13 +147,10 @@ bool verifyImage(const void *object,
 
 void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSettings *settings) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
-    verifier->GetSettings().specularAcceptableScore = settings->specularAcceptableScore;
-    verifier->GetSettings().documentBlurAcceptableScore = settings->documentBlurAcceptableScore;
     verifier->GetSettings().timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
     verifier->GetSettings().showTimer = settings->showTimer;
     verifier->GetSettings().enableAimingCircle = settings->enableAimingCircle;
     verifier->GetSettings().drawOutline = settings->drawOutline;
-    verifier->GetSettings().readBarcode = settings->readBarcode;
     verifier->GetSettings().visualizerVersion = settings->visualizerVersion;
 }
 

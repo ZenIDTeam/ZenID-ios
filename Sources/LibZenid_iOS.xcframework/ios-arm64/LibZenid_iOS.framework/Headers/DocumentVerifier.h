@@ -1,6 +1,8 @@
 #pragma once
 
+#include "RecogLibCApi.h"
 #include "ZenidEnums.generated.h"
+#include "SerializableInterop.generated.h"
 
 #ifndef NO_OPENCV
 #include <opencv2/core.hpp>
@@ -11,7 +13,8 @@
 #include <string>
 #include <utility>
 
-namespace RecogLibC
+
+namespace RecogLibC RECOGLIBC_PUBLIC
 {
 class Image;
 class AcceptableInput;
@@ -19,15 +22,12 @@ class AcceptableInput;
 class DocumentVerifierSettings
 {
 public:
-	DocumentVerifierSettings() = default;
+	DocumentVerifierSettings();
 	DocumentVerifierSettings(const std::optional<float>& viewportHeightCm,
 	                         bool enableAimingCircle,
 	                         bool showTimer,
-	                         const std::optional<int>& specularAcceptableScore,
-	                         const std::optional<int>& documentBlurAcceptableScore,
 	                         const std::optional<int>& timeToBlurMaxToleranceInSeconds,
-	                         bool drawOutline,
-	                         bool readBarcode);
+	                         bool drawOutline);
 
 	// Height of the visible area seen by the camera, in cm.
 	// If set, the outlines will be adjusted to match the actual document sizes.
@@ -41,17 +41,14 @@ public:
 	// Toggles displaying timer that shows seconds remaining for the validators to become max tolerant. 
 	bool showTimer = false;
 
-	//Can be used for fine tuning the sensitivity of the specular validator. Value range 0-100. Default value is 50.
-	std::optional<int> specularAcceptableScore;
-	//Can be used for fine tuning the sensitivity of the document blur validator. Value range 0-100. Default value is 50.
-	std::optional<int> documentBlurAcceptableScore;
 	//The time delay for the blur validator to become max tolerant. Default value is 10.
 	std::optional<int> timeToBlurMaxToleranceInSeconds;
 
 	// Draw the card outline
 	bool drawOutline = true;
-	// Read the barcode
-	bool readBarcode = true;
+	
+	// Device can read NFC, i.e. identify and read MRZ, and read NFC chip
+	bool platformSupportsNfcFeature = true;
 	
 	// Selects the format of GetRenderCommands.
 	// Version 1 is the procedural version wih semicolon-separated parameters.
@@ -88,6 +85,8 @@ public:
 	                  const std::optional<DocumentCodes> documentCode = {});
 #endif
 
+	void ProcessNfcResult(const std::string& dataJson, NfcStatus status);
+	
 	State GetState() const;
 	float GetSecondsToMaxTolerance() const;
 	// Empty if the state is NoMatchFound
@@ -99,18 +98,23 @@ public:
 	// Empty if the state is NoMatchFound
 	std::optional<Country> GetCountry() const;
 
+	std::string GetNfcKeyJson() const;
+	
 	std::optional<int> GetRequiredVideoFps() const;
 	std::optional<int> GetRequiredVideoResolution() const;
 	
 	// Only valid if the state is OK.
 	const std::string& GetSignature() const;
+
 	// Only valid if the state is OK.
 	const std::vector<uint8_t>& GetSignedImage() const;
-
+	std::vector<uint8_t> GetImagePreview() const;
+	
 	HologramState GetHologramState() const;
 
 	void LoadModel(const char* buffer, size_t size);
-	
+	void LoadTesseractModel(const std::string& resourcePath);
+
 	void BeginHologramVerification();
 
 	void EndHologramVerification();
@@ -124,7 +128,8 @@ public:
 	~DocumentVerifier();
 
 	DocumentVerifierSettings& GetSettings() const;
-
+	NfcValidatorConfig GetSdkConfig() const;
+	
 	// Returns pairs of enabled DocumentCodes/PageCodes taking into account AcceptableInput and the license. Has to be run after Authorize.
 	std::vector<std::pair<DocumentCodes, PageCodes>> GetEnabledModels(const AcceptableInput& acceptableInput) const;
 	
@@ -135,7 +140,7 @@ public:
 	// Resets the state. The state will go back as though no picture was found. Models will stay loaded.
 	void Reset();
 
-	class Impl;
+	class RECOGLIBC_PRIVATE Impl;
 
 private:
 	std::unique_ptr<Impl> pImpl;

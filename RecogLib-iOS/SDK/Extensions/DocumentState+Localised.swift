@@ -21,6 +21,10 @@ extension DocumentVerifierState {
             return LocalizedString("document.state.dark", comment: "")
         case .Barcode:
             return LocalizedString("document.state.barcode", comment: "")
+        case .TextNotReadable:
+            return LocalizedString("document.state.text_not_readable", comment: "")
+        case .Nfc:
+            return LocalizedString("document.state.nfc", comment: "")
         }
     }
 }

@@ -1,10 +1,11 @@
 #pragma once
 
+#include "RecogLibCApi.h"
 #include <string>
 #include <exception>
 #include <utility>
 
-namespace RecogLibC
+namespace RecogLibC RECOGLIBC_PUBLIC
 {
 class RecogLibCException : public std::exception
 {
@@ -20,7 +21,7 @@ class RecogLibCException : public std::exception
 class NoSuitableModelException: public RecogLibCException
 {
 	public:
-		explicit NoSuitableModelException() : RecogLibCException{std::move("No model matches the selected filter.")} {}
+		explicit NoSuitableModelException() : RecogLibCException{"No model matches the selected filter."} {}
 	
 };
 
