@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		3lwSfmqaMJk0WcPT3ZGl4Yi6YEk=
+		o0bbmiVE5IauwBmT3IJTmUgAw+Q=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		fu2N4vhthigz9WJTCocXbiF/QjE=
+		/OHcvkYJO8XZw/WCZnlmgd2UGXk=
 		</data>
 		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			lip39HyvdZSPHp4qBPytoHR/0JOAQabAdCW3Ty/1Rrc=
+			ozEcQDIY2yEZJ6qhuQl3pt0p23HKnMk5TQ5QwtGlLYw=
 			</data>
 		</dict>
 		<key>Headers/RecogLib_iOS.h</key>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oZOmkGGj1WzlCPFVQ+I4EhFLgzgVr0xgSfdZnWj/Fx0=
+			Dp5Sx3taYFWmuOLtMZU6fS0u1Gj54CO6+bjM34LqRRU=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
@@ -114,28 +114,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vadHVaqTKmdp6iPMmSkxcA5xbHixJqj2PTWodKxqgiA=
+			+iT3aO8SHHjr3YyeSGz/CXZ7s/4WCNZNzC3HXLnTLuA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TZ4YycTr4SzuyqdyBasU17PfvVD3m/MmoqbLgR7SWEQ=
+			qr3RYxJYfOg4J91D6K6b5ZpLfdFz2tXkhhTt05nrtOc=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vadHVaqTKmdp6iPMmSkxcA5xbHixJqj2PTWodKxqgiA=
+			+iT3aO8SHHjr3YyeSGz/CXZ7s/4WCNZNzC3HXLnTLuA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u9BjVO0gY8cADiOY1ZvdLQLs4YFg1Z8UlbRtHYX6nnQ=
+			dvw6lysbAHVzvBoj1jLCsNKDmtrhS7bqbTiauUjg9ZE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -149,14 +149,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zmTFPAqFixCR1eLF0C/lwKIrGGcNPRUO6VOKitlC+Uw=
+			BniKpRsmYLj/2/gQhALsxAwLgs2eK9KbmLrumUsvmo0=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UkwqSRyhPUEfPNjB9D2PpoQH6M04fkEd098xSgQ2DqU=
+			o/+bpws3Dq5FdMB3ao2mEYME1NKyHgxIfrwrLRn6p6Q=
 			</data>
 		</dict>
 		<key>Resources/cs.lproj/Localizable.strings</key>
