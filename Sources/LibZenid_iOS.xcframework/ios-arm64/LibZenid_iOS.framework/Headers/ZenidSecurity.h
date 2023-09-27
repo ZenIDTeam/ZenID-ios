@@ -8,7 +8,9 @@
 
 #include <string>
 
-namespace RecogLibC::Security RECOGLIBC_PUBLIC
+namespace RecogLibC RECOGLIBC_NONE
+{
+namespace Security RECOGLIBC_PUBLIC
 {
 
 RECOGLIBC_PUBLIC std::string GetChallengeToken();
@@ -23,4 +25,5 @@ RECOGLIBC_PUBLIC bool Authorize(JNIEnv* env, jobject _context, jstring responseT
 RECOGLIBC_PUBLIC bool Authorize(const std::string& responseToken);
 #endif
 RECOGLIBC_PUBLIC void Unauthorize();
+}
 }

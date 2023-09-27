@@ -32,6 +32,7 @@ class CameraViewController: UIViewController {
     private var selfieControllerConfig: SelfieControllerConfiguration?
     private var facelivenessController: FacelivenessController?
     private var facelivenessControllerConfig: FacelivenessControllerConfiguration?
+    private var nfcViewControler: ReadNfcViewController?
 
     init(photoType: PhotoType, documentType: DocumentType, faceMode: FaceMode, dataType: DataType) {
         self.photoType = photoType
@@ -147,7 +148,7 @@ class CameraViewController: UIViewController {
     public var isCaptureSessionRunning: Bool {
         camera.isCaptureSessionRunning()
     }
-    
+
     private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {
         if documentType == .documentVideo || photoType == .face && isLivenessVideo {
             return .video
@@ -193,7 +194,14 @@ class CameraViewController: UIViewController {
                 }
             }
 
-            present(preview, animated: true, completion: nil)
+            if let nfcViewControler {
+                nfcViewControler.dismiss(animated: true) { [weak self] in
+                    self?.present(preview, animated: true, completion: nil)
+                }
+            } else {
+                present(preview, animated: true, completion: nil)
+            }
+
         } else {
             delegate?.didTakePhoto(nil, type: photoType, result: nil)
             navigationController?.popViewController(animated: true)
@@ -205,7 +213,7 @@ class CameraViewController: UIViewController {
 extension CameraViewController {
     func setupDocumentController() {
         if documentController != nil { return }
-        documentController = DocumentController(camera: camera, view: contentView, modelsUrl: URL.modelsDocuments)
+        documentController = DocumentController(camera: camera, view: contentView, modelsUrl: URL.modelsDocuments, mrzModelsUrl: URL.mrzModelsDocuments)
         documentController?.delegate = self
     }
 
@@ -249,7 +257,39 @@ extension CameraViewController {
     }
 }
 
+extension CameraViewController: NfcReadCompletionDelegate {
+    func didCancel() {
+        if let nfcViewControler {
+            nfcViewControler.dismiss(animated: false) { [weak self] in
+                self?.delegate?.didCancel()
+                self?.nfcViewControler = nil
+            }
+        } else {
+            delegate?.didCancel()
+        }
+    }
+
+    func didSkipNfc() {
+        guard let documentResult = documentController?.skipNfcResult() else { return }
+        returnImage(nil, UnifiedDocumentResultAdapter(result: documentResult))
+    }
+
+    func didReadNfcData(data: NfcData) {
+        guard let documentResult = documentController?.processNfcResult(nfcData: data, status: .OK) else { return }
+        returnImage(nil, UnifiedDocumentResultAdapter(result: documentResult))
+    }
+}
+
 extension CameraViewController: DocumentControllerDelegate {
+    func controller(_ controller: DocumentController, didReadMrz result: DocumentResult, mrzCode: String) {
+        let configuration = controller.getSdkConfiguration()
+        let vm = ReadNfcViewModel(nfcReader: NfcDocumentReader(mrzKey: mrzCode), configuration: configuration)
+        vm.delegate = self
+        let vc = ReadNfcViewController(viewModel: vm)
+        nfcViewControler = vc
+        present(vc, animated: true)
+    }
+
     func controller(_ controller: DocumentController, didScan result: DocumentResult) {
         returnImage(nil, UnifiedDocumentResultAdapter(result: result))
     }

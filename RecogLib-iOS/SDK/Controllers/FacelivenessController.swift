@@ -32,6 +32,7 @@ public struct FacelivenessControllerConfiguration {
         self.showDebugVisualisation = showDebugVisualisation
         self.dataType = dataType
         self.settings = settings
+
     }
 }
 

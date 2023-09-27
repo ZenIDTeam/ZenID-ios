@@ -99,6 +99,16 @@ enum Buttons {
             return button
         }
     }
+
+    static var nfc: UIButton {
+        get {
+            let button = ZenButton()
+            button.setTitle("btn-nfc".localized.uppercased(), for: .normal)
+            button.backgroundColor = .zenGreen
+            return button
+        }
+    }
+    
     
     static var drivingLicence: UIButton {
         get {

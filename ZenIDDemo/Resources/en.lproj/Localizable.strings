@@ -154,3 +154,4 @@
 
 // Debug
 "settings-verifier-debug" = "Debug Mode";
+"nfc-feature-enabled" = "NFC reading enabled";

@@ -5,6 +5,7 @@
 #include "FaceLivenessVerifier.h"
 #include "Image.h"
 #include "IQSHologramVerifier.h"
+#include "RecogLibCApi.h"
 #include "RecogLibCException.h"
 #include "SelfieVerifier.h"
 #include "SerializableInterop.generated.h"

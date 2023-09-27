@@ -1,6 +1,6 @@
 import UIKit
 
-final class DataTypeTableViewCellController: TableCellController {
+final class DataTypeTableViewCellController: NSObject, TableCellController{
     private let service: ConfigService
     
     init(service: ConfigService) {

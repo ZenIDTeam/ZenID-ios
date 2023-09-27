@@ -48,7 +48,7 @@ extension API {
     /// - Parameter image: Image info and data
     /// - Returns: Endpoint of the UploadResponse type
     static func uploadSample(image: ImageInput) -> UploadEndpoint<UploadSampleResponse> {
-        let data = image.imageData
+        var data = image.imageData
         let typeKey = "expectedSampleType"
         let roleKey = "role"
         let countryKey = "country"
@@ -62,8 +62,9 @@ extension API {
                           pageKey: image.photoType.pageCode,
                           documentCodeKey : image.documentCode
         ]
-        if let signature = image.signature {
-            parameters[signatureKey] = signature.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+        if let signature = image.signature, let signatureData = signature.data(using: .utf8) {
+            //parameters[signatureKey] = signature.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
+            data.append(signatureData)
         }
 
         return UploadEndpoint<UploadSampleResponse>(path: "sample", data: data, parameters: parameters)

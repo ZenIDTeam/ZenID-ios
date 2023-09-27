@@ -13,6 +13,7 @@ struct BaseControllerConfiguration {
         case face
         case selfie
     }
+
     static let DEFAULT_VIDEO_RESOLUTION = 1920
     static let DEFAULT_VIDEO_FPS = 30 // FPS not used for now
 
@@ -88,7 +89,7 @@ public class BaseController<ResultType: ResultState> {
         isRunning = false
         view.layoutIfNeeded()
 
-        try camera.configure(with: .init(type: configuration.cameraType))
+        try? camera.configure(with: .init(type: configuration.cameraType))
 
         view.previewLayer = camera.previewLayer
         view.setup()
@@ -97,6 +98,7 @@ public class BaseController<ResultType: ResultState> {
         view.onFrameChange = { [weak self] in
             self?.orientationChanged()
         }
+
         view.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
         view.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
 
@@ -105,7 +107,7 @@ public class BaseController<ResultType: ResultState> {
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
             videoWriter?.delegate = self
-            
+
             // start camera for face liveness and don't defer the start of the video after the ID was aligned (SZENID-2123)
             if baseConfig.processType == .face {
                 startVideoWriter()
@@ -220,6 +222,9 @@ extension BaseController {
     }
 
     func getCroppedImageRect(width: Int, height: Int) -> CGRect {
+        #if targetEnvironment(simulator)
+            return CGRect(x: 0, y: 0, width: width, height: height)
+        #endif
         let gravity = Defaults.videoGravity
         switch gravity {
         case .resizeAspect:
@@ -320,7 +325,7 @@ extension BaseController: CameraDelegate {
         }
 
         // SZENID-2123 - defer the start of the video after the ID was aligned
-        if baseConfig.dataType == .video, let documentResult = result as? DocumentResult, let hologramState = documentResult.hologremState {
+        if baseConfig.dataType == .video, let documentResult = result as? DocumentResult, let hologramState = documentResult.hologramState {
             if videoWriter?.isRecording == false && [.TiltLeftAndRight, .TiltUpAndDown].contains(hologramState) {
                 DispatchQueue.main.async { [weak self] in
                     self?.startVideoWriter()
@@ -332,9 +337,13 @@ extension BaseController: CameraDelegate {
         DispatchQueue.main.async { [unowned self] in
             self.updateView(with: result, buffer: croppedBuffer)
         }
-        guard let canvasSize = camera.previewLayer?.frame.size, let commands = getRenderCommands(size: canvasSize) else {
-            return
-        }
+        #if targetEnvironment(simulator)
+            let canvasSize = CGSize(width: imageWidth, height: imageHeight)
+        #else
+            guard let canvasSize = camera.previewLayer?.frame.size else { return }
+        #endif
+
+        guard let commands = getRenderCommands(size: canvasSize) else { return }
         DispatchQueue.main.async {
             self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
         }
