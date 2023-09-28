@@ -1,7 +1,8 @@
 # Change Log
 
-# 2.0.22 2023-09-30
+# 2.0.22 2023-10-12
 * RecogLib 3.8.5
+* New: Added support for iPhone 15 line
 * Turkish passports v2023 are enabled for NFC reading.
 * API: Added DO_IDC_2014 to DocumentCodes enum.
 * New: Support for Dominican ID cards v2014.
