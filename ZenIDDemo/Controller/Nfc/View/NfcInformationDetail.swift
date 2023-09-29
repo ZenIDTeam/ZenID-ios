@@ -50,37 +50,37 @@ class NfcInformationDetail: UIView {
         }
 
         // personal information
-        sections.append("Personal information")
+        sections.append(NSLocalizedString("nfc-data-personal-information", comment: ""))
         items.append([
-            .text("Full name", "\(data.firstName) \(data.lastName)"),
-            .text("Given names", "\(data.firstName)"),
-            .text("Name", "\(data.lastName)"),
-            .text("Gender", "\(data.gender)"),
-            .text("Nationality", "\(data.nationality)"),
-            .text("Date of birth", "\(data.dateOfBirth)"),
-            .text("Personal number", "\(data.personalNumber ?? "")"),
+            .text(NSLocalizedString("nfc-data-fullname", comment: ""), "\(data.firstName) \(data.lastName)"),
+            .text(NSLocalizedString("nfc-data-given-names", comment: ""), "\(data.firstName)"),
+            .text(NSLocalizedString("nfc-data-surname", comment: ""), "\(data.lastName)"),
+            .text(NSLocalizedString("nfc-data-gender", comment: ""), "\(data.gender)"),
+            .text(NSLocalizedString("nfc-data-nationality", comment: ""), "\(data.nationality)"),
+            .text(NSLocalizedString("nfc-data-date-of-birth", comment: ""), "\(data.dateOfBirth)"),
+            .text(NSLocalizedString("nfc-data-personal-number", comment: ""), "\(data.personalNumber ?? "")"),
         ])
 
         // validity
-        sections.append("Chip information")
+        sections.append(NSLocalizedString("nfc-data-chip-information", comment: ""))
         items.append(getChipInfoSection(data))
 
         // Verification
-        sections.append("Verification")
+        sections.append(NSLocalizedString("nfc-data-verification", comment: ""))
         items.append(getVerificationDetailsSection(data))
 
         // document information
-        sections.append("Document information")
+        sections.append(NSLocalizedString("nfc-data-document-information", comment: ""))
         items.append([
-            .text("Document type", data.documentType),
-            .text("Document subType", data.documentSubType),
-            .text("Document number", data.documentNumber),
-            .text("Document country", data.issuingAuthority),
-            .text("Date of expiry", data.documentExpiryDate),
+            .text(NSLocalizedString("nfc-data-document-type", comment: ""), data.documentType),
+            .text(NSLocalizedString("nfc-data-document-subtype", comment: ""), data.documentSubType),
+            .text(NSLocalizedString("nfc-data-document-number", comment: ""), data.documentNumber),
+            .text(NSLocalizedString("nfc-data-document-country", comment: ""), data.issuingAuthority),
+            .text(NSLocalizedString("nfc-data-date-of-expiry", comment: ""), data.documentExpiryDate),
         ])
 
         // MRZ
-        sections.append("MRZ from chip")
+        sections.append(NSLocalizedString("nfc-data-mrz-info", comment: ""))
         items.append([
             .data(data.passportMRZ),
         ])
@@ -91,15 +91,15 @@ class NfcInformationDetail: UIView {
     // Build Chip info section
     func getChipInfoSection(_ data: NFCDocumentModelType) -> [DataObject] {
         [
-            .text("LDS Version", data.LDSVersion),
-            .text("Data groups present", data.dataGroupsPresent.joined(separator: ", ")),
-            .text("Data groups read", data.dataGroupsAvailable.map { $0.getName() }.joined(separator: ", ")),
+            .text(NSLocalizedString("nfc-data-lds-version", comment: ""), data.LDSVersion),
+            .text(NSLocalizedString("nfc-data-data-groups-present", comment: ""), data.dataGroupsPresent.joined(separator: ", ")),
+            .text(NSLocalizedString("nfc-data-data-groups-read", comment: ""), data.dataGroupsAvailable.map { $0.name }.joined(separator: ", ")),
         ]
     }
 
     func getVerificationDetailsSection(_ data: NFCDocumentModelType) -> [DataObject] {
 
-        var authType: String = "Authentication not done"
+        var authType: String = NSLocalizedString("nfc-data-auth-not-done", comment: "")
         if data.PACEAuthStatus == .success {
             authType = "PACE"
         } else if data.BACAuthStatus == .success {
@@ -107,7 +107,7 @@ class NfcInformationDetail: UIView {
         }
 
         // Do PACE Info
-        var paceStatus = "Not Supported"
+        var paceStatus = NSLocalizedString("nfc-data-not-supported", comment: "")
         if data.isPACESupported {
             switch data.PACEAuthStatus {
             case .notDone:
@@ -116,11 +116,13 @@ class NfcInformationDetail: UIView {
                 paceStatus = "SUCCESS"
             case .failed:
                 paceStatus = "FAILED"
+            @unknown default:
+                paceStatus = "@unknown"
             }
         }
 
         return [
-            .text("Access Control", authType),
+            .text(NSLocalizedString("nfc-data-access-control", comment: ""), authType),
             .text("PACE", paceStatus)
         ]
     }

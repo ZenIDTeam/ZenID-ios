@@ -60,6 +60,7 @@ public class BaseController<ResultType: ResultState> {
     var isRunning: Bool = false
 
     var previousResult: ResultType?
+    var latestSuccessfullBuffer: CVPixelBuffer?
 
     var overlayImageName: String {
         "targettingRect"
@@ -323,6 +324,9 @@ extension BaseController: CameraDelegate {
         guard let result = verify(pixelBuffer: croppedBuffer) else {
             return
         }
+
+        // temporary workaround when resolving issue with Recoglib.getPreview dealocating of the std::vector type
+        latestSuccessfullBuffer = result.isOk ? croppedBuffer : nil
 
         // SZENID-2123 - defer the start of the video after the ID was aligned
         if baseConfig.dataType == .video, let documentResult = result as? DocumentResult, let hologramState = documentResult.hologramState {

@@ -1,8 +1,10 @@
-public typealias NfcDisplayMessageProvider = (NFCDisplayMessage) -> String?
+public protocol NfcDisplayMessageProvider {
+    func message(for: NFCDisplayMessage) -> String
+}
 
-public struct DefaultMesageProvider {
-    /// Method to 
-    public static func provide(_ displayMessage: NFCDisplayMessage) -> String? {
+public struct DefaultMesageProvider: NfcDisplayMessageProvider {
+    /// Method to
+    public func message(for displayMessage: NFCDisplayMessage) -> String {
         switch displayMessage {
         case .requestPresent:
             return "Hold your iPhone near an NFC enabled document."
@@ -36,7 +38,7 @@ public struct DefaultMesageProvider {
         }
     }
 
-    public static func handleProgress(percentualProgress: Int) -> String {
+    public func handleProgress(percentualProgress: Int) -> String {
         let p = (percentualProgress / 20)
         let full = String(repeating: "🟦 ", count: p)
         let empty = String(repeating: "⬜️ ", count: 5 - p)

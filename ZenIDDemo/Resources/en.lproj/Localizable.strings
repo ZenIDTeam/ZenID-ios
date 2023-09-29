@@ -151,7 +151,49 @@
 "settings-selfie-liveness" = "Selfie Liveness";
 "settings-selfie-liveness-legacy" = "Selfie Liveness Legacy";
 "settings-selfie-mode-video" = "Liveness Mode Video";
+"settings-nfc-profile-preview" = "Show NFC settings for selected profile";
 
 // Debug
 "settings-verifier-debug" = "Debug Mode";
+
 "nfc-feature-enabled" = "NFC reading enabled";
+"nfc-intro-title" = "Co je dobré vědět před čtením NFC";
+"nfc-intro-valid-id" = "• Prepare a valid personal ID";
+"nfc-intro-nfc-reading" = "• Hold identity document on back of your phone until you receive confirmation of success";
+"nfc-reading-title" = "Reading NFC chip";
+"nfc-reading-subtitle" = "Hold identity document on back of your phone and dont take it off before success confirmed";
+"nfc-not-supported-title" = "NFC reader is not supported";
+"nfc-not-supported-subtitle" = "Choose another type of verifiation";
+"nfc-unexpected-error-title" = "Unexpected error";
+"nfc-reading-skip-title" = "Skip NFC reading?";
+"nfc-reading-button-ok" = "OK";
+"nfc-reading-button-next" = "Next";
+"nfc-reading-button-cancel" = "Cancel";
+"nfc-reading-button-continue" = "Continue";
+"nfc-reading-button-skip" = "Skip";
+"nfc-reading-button-restart" = "Restart";
+"nfc-reading-error-connection-lost" = "Connection lost";
+
+"ndf-data-personal-information"="Personal information";
+"ndf-data-fullname"="Full name";
+"ndf-data-given-names"="Given names";
+"ndf-data-surname"="Name";
+"ndf-data-gender"="Gender";
+"ndf-data-nationality"="Nationality";
+"ndf-data-date-of-birth"="Date of birth";
+"ndf-data-personal-number"="Personal number";
+"ndf-data-chip-information"="Chip information";
+"ndf-data-verification"="Verification";
+"ndf-data-document-information"="Document information";
+"ndf-data-document-type"="Document type";
+"ndf-data-document-subtype"="Document subType";
+"ndf-data-document-number"="Document number";
+"ndf-data-document-country"="Document country";
+"ndf-data-date-of-expiry"="Date of expiry";
+"nfc-data-mrz-info"="MRZ info";
+"nfc-data-lds-version"="LDS Version";
+"nfc-data-data-groups-present"="Data groups present";
+"nfc-data-data-groups-read"="Data groups read";
+"nfc-data-auth-not-done"="Authentication not done";
+"nfc-data-not-supported"="Not Supported";
+"nfc-data-access-control"="Access Control";

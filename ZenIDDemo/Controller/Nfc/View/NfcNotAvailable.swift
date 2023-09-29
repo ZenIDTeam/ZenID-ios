@@ -16,9 +16,9 @@ final class NfcNotAvailable: UIView {
         let contentView = ImageWithLabels(
             image: UIImage(systemName: "exclamationmark.circle.fill"),
             imageColor: .red,
-            title: "NFC reader is not supported",
+            title: NSLocalizedString("nfc-not-supported-title", comment: ""),
             subtitles: [
-                "Choose another type of verifiation"
+                NSLocalizedString("nfc-not-supported-subtitle", comment: "")
             ],
             subtitlesAlignment: .center
         )

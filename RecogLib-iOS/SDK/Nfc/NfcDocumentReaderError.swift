@@ -1,4 +1,4 @@
- public enum NfcDocumentReaderError: Error, Equatable {
+public enum NfcDocumentReaderError: Error, Equatable {
     case ResponseError(String, UInt8, UInt8)
     case InvalidResponse
     case UnexpectedError
@@ -29,6 +29,15 @@
     case InvalidDataPassed(String)
     case NotYetSupported(String)
     case LostConnection
+    case NativeNfcError(NSError)
+
+    init(from error: NSError) {
+        if error.code == 102 {
+            self = .LostConnection
+        } else {
+            self = .NativeNfcError(error)
+        }
+    }
 
     var value: String {
         switch self {
@@ -62,6 +71,7 @@
         case let .InvalidDataPassed(reason): return "Invalid data passed - \(reason)"
         case let .NotYetSupported(reason): return "Not yet supported - \(reason)"
         case .LostConnection: return "LostConnection"
+        case let .NativeNfcError(nsError): return nsError.localizedDescription
         }
     }
 
@@ -125,6 +135,8 @@
             return lhsData == rhsData
         case let (.NotYetSupported(lhsMessage), .NotYetSupported(rhsMessage)):
             return lhsMessage == rhsMessage
+        case let (.NativeNfcError(lhsError), .NativeNfcError(rhsError)):
+            return lhsError.code == rhsError.code
         default:
             return false
         }

@@ -89,7 +89,8 @@ CNfcValidatorConfig getSdkConfig(const void *object);
 // Get state
 int getState(const void *object);
 void getDocumentResult(const void *object,  CDocumentInfo *document);
-CPreviewData getImagePreview(const void *object);
+//CPreviewData getImagePreview(const void *object, CPreviewData *preview);
+CDocumentVerifierSettings getDocumentSettings(const void *object);
 
 #ifdef __cplusplus
 }

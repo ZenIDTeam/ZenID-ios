@@ -1,7 +1,8 @@
 import Foundation
 
-public struct DocumentVerifierNfcValidatorConfig {
-    public let nfcChipReadingTimeoutSeconds: Int
+public struct DocumentVerifierNfcValidatorSettings {
+//    timeout not supported on Apple devices
+//    public let nfcChipReadingTimeoutSeconds: Int
     public let numberOfReadingAttempts: Int
     public let skipNfcAllowed: Bool
     public let noNfcMeansError: Bool

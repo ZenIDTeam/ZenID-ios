@@ -8,15 +8,20 @@ class ReadNfcViewController: UIViewController {
     private let readingView = NfcReadingView()
     private let dataView = NfcInformationDetail()
     private let errorView = NfcReadingError()
-    private let questionView = NfcReadingQuestion("Skip NFC reading?")
+    private let questionView = NfcReadingQuestion(NSLocalizedString("nfc-reading-skip-title", comment: ""))
     private let cancelButton = UIButton(type: .roundedRect)
     private let nextButton = UIButton(type: .system)
+
+    private var cancelButtonButtonTitle: String? {
+        get { cancelButton.titleLabel?.text }
+        set { cancelButton.setTitle(newValue, for: .normal) }
+    }
 
     private var buttonTitle: String? {
         get { nextButton.titleLabel?.text }
         set { nextButton.setTitle(newValue, for: .normal) }
     }
-
+    
     init(viewModel: ReadNfcViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -65,7 +70,7 @@ class ReadNfcViewController: UIViewController {
         dataView.isHidden = true
         dataView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, paddingTop: 32, paddingBottom: 72)
 
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle(NSLocalizedString("nfc-reading-button-next", comment: ""), for: .normal)
         nextButton.backgroundColor = view.tintColor
         nextButton.layer.cornerRadius = 10
         nextButton.tintColor = .white
@@ -74,7 +79,7 @@ class ReadNfcViewController: UIViewController {
         nextButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, paddingLeft: 24, paddingBottom: 24, paddingRight: 24, height: 48)
 
         cancelButton.isHidden = true
-        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitle(NSLocalizedString("nfc-reading-button-cancel", comment: ""), for: .normal)
         cancelButton.layer.cornerRadius = 10
         cancelButton.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
         view.addSubview(cancelButton)
@@ -99,34 +104,36 @@ extension ReadNfcViewController: ReadNfcViewModelViewStateListener {
         errorView.isHidden = true
         questionView.isHidden = true
         cancelButton.isHidden = true
+        cancelButtonButtonTitle = NSLocalizedString("nfc-reading-button-cancel", comment: "")
 
         switch new {
         case .initial:
             infoView.isHidden = false
-            buttonTitle = "Next"
+            buttonTitle = NSLocalizedString("nfc-reading-button-next", comment: "")
         case .notSupported:
             infoView.isHidden = false
-            buttonTitle = "OK"
+            buttonTitle = NSLocalizedString("nfc-reading-button-ok", comment: "")
             presentNotSupported()
         case .reading:
             readingView.isHidden = false
-            buttonTitle = "Cancel"
+            buttonTitle = NSLocalizedString("nfc-reading-button-cancel", comment: "")
         case let .completed(document):
             dataView.setupContent(document)
             dataView.isHidden = false
-            buttonTitle = "Continue"
+            buttonTitle = NSLocalizedString("nfc-reading-button-continue", comment: "")
         case let .error(error):
             errorView.setupView(with: error.localizedDescription)
             errorView.isHidden = false
-            buttonTitle = "Cancel"
+            buttonTitle = NSLocalizedString("nfc-reading-button-cancel", comment: "")
         case .waitForAnswer:
             cancelButton.isHidden = false
             questionView.isHidden = false
-            buttonTitle = "Skip"
+            buttonTitle = NSLocalizedString("nfc-reading-button-skip", comment: "")
+            cancelButtonButtonTitle = NSLocalizedString("nfc-reading-button-restart", comment: "")
         case .lostConnection:
             errorView.isHidden = false
-            errorView.setupView(with: "Connection lost")
-            buttonTitle = "Restart"
+            errorView.setupView(with: NSLocalizedString("nfc-reading-error-connection-lost", comment: ""))
+            buttonTitle = NSLocalizedString("nfc-reading-button-restart", comment: "")
         }
     }
 

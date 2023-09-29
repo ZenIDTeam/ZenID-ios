@@ -361,8 +361,6 @@
 				196A42C62AB53B6500D5A0A4 /* Errors.swift */,
 				196A42BE2AB53B6500D5A0A4 /* NFCDocumentModel.swift */,
 				196A42A82AB53B6500D5A0A4 /* PACEHandler.swift */,
-				196A42C12AB53B6500D5A0A4 /* NfcDocumentReader.swift */,
-				19CD7BEE2A993764007AE0F3 /* NfcDocumentReaderProtocol.swift */,
 				196A42C82AB53B6500D5A0A4 /* ResponseAPDU.swift */,
 				196A42C32AB53B6500D5A0A4 /* SecureMessaging.swift */,
 				196A42A62AB53B6500D5A0A4 /* SecureMessagingSessionKeyGenerator.swift */,
@@ -401,14 +399,16 @@
 			isa = PBXGroup;
 			children = (
 				196A42792AB5390A00D5A0A4 /* module */,
-				196EE0452A9136E3009DD7B7 /* NfcStatus.swift */,
-				19CD7BEB2A98FCEB007AE0F3 /* NfcUtils.swift */,
-				193B1BAB2AAA5F6900479994 /* NfcDocumentReaderError.swift */,
 				19CD7BF02A993793007AE0F3 /* MrzFields.swift */,
 				19CD7BFD2A99D34E007AE0F3 /* NfcData.swift */,
 				1957B9E52AA45A2D00EEF19D /* NfcDisplayMessage.swift */,
 				1957B9E72AA45CC900EEF19D /* NfcDisplayMessageProvider.swift */,
 				1966FEEF2AA9DED1004763C3 /* NFCDocumentModelType.swift */,
+				196A42C12AB53B6500D5A0A4 /* NfcDocumentReader.swift */,
+				193B1BAB2AAA5F6900479994 /* NfcDocumentReaderError.swift */,
+				19CD7BEE2A993764007AE0F3 /* NfcDocumentReaderProtocol.swift */,
+				196EE0452A9136E3009DD7B7 /* NfcStatus.swift */,
+				19CD7BEB2A98FCEB007AE0F3 /* NfcUtils.swift */,
 			);
 			path = Nfc;
 			sourceTree = "<group>";
@@ -962,7 +962,7 @@
 					"$(PROJECT_DIR)/RecogLib-iOS/openssl",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 1.17.2;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1020,7 +1020,7 @@
 					"$(PROJECT_DIR)/RecogLib-iOS/openssl",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 1.17.2;
+				MARKETING_VERSION = 3.8.1;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

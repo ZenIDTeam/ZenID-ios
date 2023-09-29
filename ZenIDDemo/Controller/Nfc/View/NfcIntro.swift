@@ -15,10 +15,10 @@ final class NfcIntroView: UIView {
         
         let contentView = ImageWithLabels(
             image: UIImage(systemName: "esim"),
-            title: "Good to know before reading NFC",
+            title: NSLocalizedString("nfc-intro-title", comment: ""),
             subtitles: [
-                "• Prepare a valid personal ID",
-                "• Hold identity document on back of your phone until you receive confirmation of success"
+                NSLocalizedString("nfc-intro-valid-id", comment: ""),
+                NSLocalizedString("nfc-intro-nfc-reading", comment: "")
             ]
         )
 

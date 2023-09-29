@@ -15,9 +15,9 @@ final class NfcReadingView: UIView {
         
         let contentView = ImageWithLabels(
             image: UIImage(systemName: "iphone.radiowaves.left.and.right"),
-            title: "Reading NFC chip",
+            title: NSLocalizedString("nfc-reading-title", comment: ""),
             subtitles: [
-                "Hold identity document on back of your phone and dont take it off before success confirmed"
+                NSLocalizedString("nfc-reading-subtitle", comment: "")
             ]
         )
 

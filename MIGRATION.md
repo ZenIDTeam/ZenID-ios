@@ -1,16 +1,70 @@
-## Migration
+# Migration
 
 
-### Update to release version 2.0.21 (RecogLib 3.8.1)
+## Update to the version 2.0.21 (RecogLib 3.8.1)
 
 
-#### Signature
+### Signature
 
-Signature should now be sent as second file in multipart body. If you don't use multipart body, you can append signature to raw data content of raw byte body. Signature can be too big to fit URL parameters.
+Because signature can be too big to fit URL parameters, should now be sent as second file in multipart body. If you don't use multipart body, you can append signature to raw data content of raw byte body. 
 
-#### SelectProfile
-There is now `SelectProfile` method in interface. This should be called before verifier ... TBD
-If no profile is selected (no SelectProfile called), default profile is used.
+**Sample request** - Signature added to the end of the body of the message
+
+```swift
+func sendImageWithSignature(imageData: Data, signature: String) {
+    let urlString = "https://your-server/sample?country=&expectedSampleType=DocumentPicture&documentCode=&pageCode=&role="
+    guard let url = URL(string: urlString) else { return }
+    
+    var httpBodyData = imageData
+    
+    // Append the signature data to the imageData
+    if let signatureData = signature.data(using: .utf8) {
+        httpBodyData.append(signatureData)
+    }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+    request.setValue("\(httpBodyData.count)", forHTTPHeaderField: "Content-Length")
+    request.httpBody = httpBodyData
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error { return }
+        if let data = data { return }
+    }
+    task.resume()
+}
+```
+
+
+
+### NFC document reading support
+
+
+
+#### New SDK method `SelectProfile`
+
+There is new  `SelectProfile` method in interface. This should be called before verifier initialization.
+If no profile is selected (no SelectProfile called), default profile is used. Profiles (names) are defined on backend.
+The return value indicates whether the profile was successfully selected.
+
+
+```swift
+
+let profileSelected = ZenidSecurity.selectProfile(name: profileName)
+
+```
+
+Example:
+```swift
+
+ZenidSecurity.selectProfile(name: "") // default profile
+ZenidSecurity.selectProfile(name: "NFC") // NFC profile
+
+
+```
+
+
 
 #### New files/models
 
@@ -18,14 +72,41 @@ New file `mrz.traineddata` is required by `DocumentVerifier`. To conserve the si
 
 New file `face_segmentation.tflite.bin` is required by SelfieLivenessVerifier
 
-#### Remove of settings for DocumentVerifier
+
+
+#### DocumentVerifier
+
+Added new methods related to NFC document reading support
+
+| method | result  | comment |
+| ------ | ------- | ------- |
+| getNfcKey() | String? | After taking a picture and processing the corresponding side of the document with the MRZ zone,  it returns the code needed to enable communication with the NFC chip |
+| getMrzFields() | MrzFields? | After taking a picture and processing the corresponding side of the document with the MRZ zone, it returns a structure with the items needed to calculate the code required to enable communication with the NFC chip |
+| processNfc(jsonData: String?, status: NfcStatus) | | Sends the data read by NFC to the SDK for processing. |
+| getState() | DocumentVerifierState? | A method that returns the current state of the document being verified. |
+| getSignedImage() | ImageSignature? | Returns the last processed image and its signature. |
+| getNfcValidatorSettings() | DocumentVerifierNfcValidatorSettings | Returns the NFC validator settings read from the backend. |
+| getDocumentResult(orientation: UIInterfaceOrientation) | DocumentResult? | A method that returns the current result of the document being verified. |
+| getSettings() | DocumentVerifierSettings | A method that returns the current settings of the document verifier. |
+
+
+
+#### Remove of attributes from struct DocumentVerifierSettings
+
 Some of the settings that used to be parameters of document verifier are now handled by profiles on backend and can no longer be passed to the verifier directly.
 
 Removed attributes `specularAcceptableScore`, `documentBlurAcceptableScore` and `readBarcode` from struct `DocumentVerifierSettings`
 
-#### SelfieVerifier
-- new method GetSettings()
-SelfieVerifierSettings can be obtained by calling GetSettings() method of SelfieVerifier.
+
+
+### SelfieVerifier
+
+New method `GetSettings()`
+
+| method | result  | comment |
+| ------ | ------- | ------- |
+|  GetSettings() | SelfieVerifierSettings | | 
+
 
 
 

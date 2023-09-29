@@ -27,13 +27,12 @@ final class ReadNfcViewModel {
     }
 
     private let nfcReader: NfcDocumentReaderProtocol
-    private let configuration: DocumentVerifierNfcValidatorConfig
+    private let configuration: DocumentVerifierNfcValidatorSettings
 
     weak var viewStateListener: ReadNfcViewModelViewStateListener?
 
     var nfcData: NfcData?
     var skipNfcAllowed: Bool {
-        return true
         configuration.skipNfcAllowed
     }
 
@@ -51,11 +50,11 @@ final class ReadNfcViewModel {
         }
     }
 
-    init(nfcReader: NfcDocumentReaderProtocol, configuration: DocumentVerifierNfcValidatorConfig) {
+    init(nfcReader: NfcDocumentReaderProtocol, configuration: DocumentVerifierNfcValidatorSettings) {
         self.nfcReader = nfcReader
         self.configuration = configuration
     }
-    
+
     deinit {
         ApplicationLogger.shared.Debug("ReadNfcViewModel.deinit()")
     }
@@ -67,7 +66,7 @@ final class ReadNfcViewModel {
                 starReadingInSimulator()
             #else
                 if NFCNDEFReaderSession.readingAvailable {
-                    starReading()
+                    startReading()
                 } else {
                     showReadingNotAvailable()
                 }
@@ -83,16 +82,21 @@ final class ReadNfcViewModel {
             break
         }
     }
-    
+
     func didTapCancel() {
-        delegate?.didCancel()
+        if case .waitForAnswer = viewState {
+            viewState = .initial
+            didTapNext()
+        } else {
+            delegate?.didCancel()
+        }
     }
 
     private func showReadingNotAvailable() {
         viewState = .notSupported
     }
 
-    private func starReading() {
+    private func startReading() {
         viewState = .reading
 
         Task {
@@ -118,7 +122,7 @@ final class ReadNfcViewModel {
                         break
                     }
                 }
-                
+
                 if let readerError = error as? NfcDocumentReaderError, case .LostConnection = readerError {
                     viewState = .lostConnection
                     return

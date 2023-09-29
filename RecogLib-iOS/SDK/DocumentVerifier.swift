@@ -141,12 +141,16 @@ public class DocumentVerifier {
         return Int(resolution)
     }
 
+    /// After taking a picture and processing the corresponding side of the document with the MRZ zone, 
+    /// it returns the code needed to enable communication with the NFC chip
     public func getNfcKey() -> String? {
         guard let mrzFields = getMrzFields() else { return nil }
         let code = NfcUtils.getMRZKey(documentNumber: mrzFields.DocumentNumber, dateOfBirth: mrzFields.BirthDate, dateOfExpiry: mrzFields.ExpiryDate)
         return code
     }
-
+    
+    /// After taking a picture and processing the corresponding side of the document with the MRZ zone,
+    /// it returns a structure with the items needed to calculate the code required to enable communication with the NFC chip
     public func getMrzFields() -> MrzFields? {
         let code = RecogLib_iOS.getNfcKey(cppObject)
         defer { free(code) }
@@ -159,7 +163,11 @@ public class DocumentVerifier {
         return nil
     }
 
-    public func processNfc(jsonData: String?, status: NfcStatus) {
+    /// Sends the data read by NFC to the SDK for processing.
+    ///   - jsonData: String  - The data is in JSON format.
+    ///   The NfcData.encodeToJson() method must be used to ensure the correct format when encoding.
+    ///   - status: NfcStatus - Result of NFC reading process
+    public func processNfc(jsonData: String, status: NfcStatus) {
         var cStatus: CNfcStatus
         switch status {
         case .DEVICE_DOES_NOT_SUPPORT_NFC:
@@ -171,26 +179,30 @@ public class DocumentVerifier {
         case .OK:
             cStatus = Ok
         }
-        RecogLib_iOS.processNfcResult(cppObject, jsonData?.toUnsafeMutablePointer(), cStatus)
+        RecogLib_iOS.processNfcResult(cppObject, jsonData.toUnsafeMutablePointer(), cStatus)
     }
 
+    /// A method that returns the current state of the document being verified.
+    /// It is usually called to check the status after sending NFC data for processing `verifier.processNfc(..)`
     public func getState() -> DocumentVerifierState? {
         let cState = RecogLib_iOS.getState(cppObject)
         let state = DocumentVerifierState(rawValue: Int(cState))
         return state
     }
 
+    /// Returns the last processed image and its signature.
+    /// Warning. ImageSignature  is returned only if processing is complete and the status is `.Ok` Otherwise returns nil.
     public func getSignedImage() -> ImageSignature? {
         let cSignature = RecogLib_iOS.getSignedImage(cppObject)
         let signature = DocumentSignatureMapper.map(cSignature)
         return signature
     }
 
-    public func getNfcValidatorConfig() -> DocumentVerifierNfcValidatorConfig {
+    /// Returns the NFC validator settings read from the backend.
+    public func getNfcValidatorSettings() -> DocumentVerifierNfcValidatorSettings {
         let cConfig = RecogLib_iOS.getSdkConfig(cppObject)
 
-        return DocumentVerifierNfcValidatorConfig(
-            nfcChipReadingTimeoutSeconds: Int(cConfig.nfcChipReadingTimeoutSeconds),
+        return DocumentVerifierNfcValidatorSettings(
             numberOfReadingAttempts: Int(cConfig.numberOfReadingAttempts),
             skipNfcAllowed: cConfig.skipNfcAllowed,
             noNfcMeansError: cConfig.noNfcMeansError,
@@ -201,17 +213,33 @@ public class DocumentVerifier {
         )
     }
 
+    /// A method that returns the current result of the document being verified.
+    /// It is usually called to check the status after sending NFC data for processing `verifier.processNfc(..)`
     public func getDocumentResult(orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
         var document = createDocumentInfo(orientation: orientation)
         RecogLib_iOS.getDocumentResult(cppObject, &document)
         return DocumentResult(document: document)
     }
-
-    public func getImagePreview() -> Data? {
-        let preview = RecogLib_iOS.getImagePreview(cppObject)
-        if let image = preview.image {
-            return Data(bytes: image, count: Int(preview.imageSize))
-        }
-        return nil
+    
+    /// A method that returns the current settings of the document verifier.
+    public func getSettings() -> DocumentVerifierSettings {
+        let csettings: CDocumentVerifierSettings = RecogLib_iOS.getDocumentSettings(cppObject);
+        let settings: DocumentVerifierSettings = .init(
+            timeToBlurMaxToleranceInSeconds: Int(csettings.timeToBlurMaxToleranceInSeconds),
+            showTimer: csettings.showTimer,
+            showAimingCircle: csettings.enableAimingCircle,
+            drawOutline: csettings.drawOutline,
+            visualizerVersion: Int(csettings.visualizerVersion)
+        )
+        return settings
     }
+
+//    public func getImagePreview() -> Data? {
+//        var preview = CPreviewData()
+//        let _ = RecogLib_iOS.getImagePreview(cppObject, &preview)
+//        if let image = preview.image {
+//            return Data(bytes: image, count: Int(preview.imageSize))
+//        }
+//        return nil
+//    }
 }

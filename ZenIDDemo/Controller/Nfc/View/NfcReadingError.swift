@@ -4,7 +4,7 @@ import UIKit
 final class NfcReadingError: UIView {
     init(_ errorMessage: String? = nil) {
         super.init(frame: .zero)
-        
+
         if let errorMessage, !errorMessage.isEmpty {
             setupView(with: errorMessage)
         }
@@ -18,15 +18,14 @@ final class NfcReadingError: UIView {
         for child in subviews {
             child.removeFromSuperview()
         }
-        
+
         let contentView = ImageWithLabels(
             image: UIImage(systemName: "exclamationmark.circle.fill"),
             imageColor: .red,
-            title: "Unexpected error",
-            subtitles: [ error ],
+            title: NSLocalizedString("nfc-unexpected-error-title", comment: ""),
+            subtitles: [error],
             subtitlesAlignment: .center
         )
-        
 
         addSubview(contentView)
         contentView.anchor(
@@ -37,7 +36,6 @@ final class NfcReadingError: UIView {
             paddingLeft: 32,
             paddingRight: 32
         )
-
     }
 }
 
@@ -46,4 +44,3 @@ struct NfcReadingErrorPreview: PreviewProvider {
         Preview(NfcReadingError("Test chyby"))
     }
 }
-

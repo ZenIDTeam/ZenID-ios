@@ -179,12 +179,6 @@ final class ChoiceViewController: UIViewController {
             case self.passportButton:
                 selectProfile(config)
                 self.startProcess(.passport)
-//            case self.nfcButton:
-//                let verifier = DocumentVerifier(input: DocumentsInput(documents: []), language: SupportedLanguages.Czech)
-//                let nfcSettings = verifier.getNfcValidatorConfig()
-//                //let mrzKey = NfcUtils.getMRZKey(documentNumber: "41672413", dateOfBirth: "06031984", dateOfExpiry: "13112023")
-//                let vc = ReadNfcViewController(viewModel: ReadNfcViewModel(nfcReader: NfcDocumentReader(mrzKey: "41672413<284030652311137"), configuration: nfcSettings))
-//                navigationController?.pushViewController(vc, animated: true)
             case self.otherDocumentButton:
                 self.startProcess(.otherDocument)
             case self.hologramButton:
@@ -225,9 +219,9 @@ final class ChoiceViewController: UIViewController {
 
         let profileSelected = ZenidSecurity.selectProfile(name: profileName)
         if profileSelected {
-            ApplicationLogger.shared.Verbose("✅ Profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" selected.")
+            ApplicationLogger.shared.Debug("✅ Profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" selected.")
         } else {
-            ApplicationLogger.shared.Verbose("❌ Setting profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" failed.")
+            ApplicationLogger.shared.Debug("❌ Setting profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" failed.")
         }
     }
 
@@ -297,7 +291,7 @@ extension ChoiceViewController: CameraViewControllerDelegate {
     func didTakePhoto(_ imageData: Data?, type: PhotoType, result: UnifiedResult?) {
         if let data = imageData {
             #if DEBUG
-                saveDocumentToAlbum(data)
+                //saveDocumentToAlbum(data)
             #endif
             scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .picture)
         }

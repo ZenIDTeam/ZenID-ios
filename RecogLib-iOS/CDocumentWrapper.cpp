@@ -335,12 +335,13 @@ CImageSignature getSignedImage(const void *object) {
     return CImageSignature();
 }
 
-CPreviewData getImagePreview(const void *object) {
+CPreviewData getImagePreview(const void *object, CPreviewData *preview) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
-    CPreviewData preview = CPreviewData();
-    preview.image = verifier->GetImagePreview().data();
-    preview.imageSize = static_cast<int>(verifier->GetImagePreview().size());
-    return  preview;
+    CPreviewData _unusedPreview;
+    // I'm trying to solve the deallocation exception by passing the object as an external reference but it didn't solve the problem.
+    preview->image = verifier->GetImagePreview().data();
+    preview->imageSize = static_cast<int>(verifier->GetImagePreview().size());
+    return  _unusedPreview;
 }
 
 CNfcValidatorConfig getSdkConfig(const void *object) {
@@ -356,4 +357,18 @@ CNfcValidatorConfig getSdkConfig(const void *object) {
     config.scoreStep = origConfig.ScoreStep;
     config.skipNfcAllowed = origConfig.SkipNfcAllowed;
     return  config;
+}
+
+
+CDocumentVerifierSettings getDocumentSettings(const void *object) {
+    DocumentVerifier *verifier = (DocumentVerifier *)object;
+    DocumentVerifierSettings& verifierSettings = verifier->GetSettings();
+    CDocumentVerifierSettings settings = CDocumentVerifierSettings();
+    settings.drawOutline = verifierSettings.drawOutline;
+    settings.enableAimingCircle = verifierSettings.enableAimingCircle;
+    settings.showTimer = verifierSettings.showTimer;
+    settings.timeToBlurMaxToleranceInSeconds = static_cast<int>(verifierSettings.timeToBlurMaxToleranceInSeconds.value());
+    //settings.platformSupportsNfcFeature = verifierSettings.platformSupportsNfcFeature;
+    settings.visualizerVersion = verifierSettings.visualizerVersion;
+    return settings;
 }

@@ -51,20 +51,28 @@ extension DocumentResult: ResultState {
 }
 
 public protocol DocumentControllerDelegate: AnyObject {
-    func controller(_ controller: DocumentController, didReadMrz result: DocumentResult, mrzCode: String)
+    func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)
     func controller(_ controller: DocumentController, didScan result: DocumentResult)
     func controller(_ controller: DocumentController, didRecord videoURL: URL)
     func controller(_ controller: DocumentController, didUpdate result: DocumentResult)
 }
 
+#if targetEnvironment(simulator)
+    public protocol SimulatorHelperDelegate: AnyObject {
+        func provideDebugImage(for id: String, completion: @escaping (UIImage) -> Void)
+    }
+#endif
+
 public protocol DocumentControllerAbstraction {
     var delegate: DocumentControllerDelegate? { get set }
-
     func configure(configuration: DocumentControllerConfiguration) throws
 }
 
 public final class DocumentController: BaseController<DocumentResult>, DocumentControllerAbstraction {
     public weak var delegate: DocumentControllerDelegate?
+    #if targetEnvironment(simulator)
+        public weak var debugDelegate: SimulatorHelperDelegate?
+    #endif
 
     override var overlayImageName: String {
         if config.role == .Pas {
@@ -108,17 +116,16 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
                 cameraDelegate(camera: camera, onOutput: buffer)
 
             case "id-back":
-                guard let image = UIImage(named: "vzor-id-nfc-back") else { return }
-                guard let buffer = image.toCMSampleBuffer() else { return }
-                isRunning = true
-                targetFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-                cameraDelegate(camera: camera, onOutput: buffer)
-
+                debugDelegate?.provideDebugImage(for: "id-back") { [weak self] image in
+                    guard let self, let buffer = image.toCMSampleBuffer() else { return }
+                    self.isRunning = true
+                    self.targetFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                    self.cameraDelegate(camera: camera, onOutput: buffer)
+                }
             default:
                 break
             }
         }
-
     #endif
 
     public init(camera: Camera, view: CameraView, modelsUrl: URL, mrzModelsUrl: URL?) {
@@ -224,38 +231,24 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         ApplicationLogger.shared.Debug("calling processNfc()")
         verifier.processNfc(jsonData: jsonString, status: status)
 
-        guard let state = verifier.getState() else {
-            ApplicationLogger.shared.Debug("❌ Failed to read verifier state.")
-            return nil
-        }
-        guard let signedImage = verifier.getSignedImage() else {
-            ApplicationLogger.shared.Debug("❌ Failed to get signed image data. Verifier state != OK ?")
-            return nil
-        }
-        return DocumentResult(signature: signedImage, state: state)
+        let result = verifier.getDocumentResult()
+        return result
     }
 
     public func skipNfcResult() -> DocumentResult? {
         ApplicationLogger.shared.Debug("calling skipNfcResult()")
         verifier.processNfc(jsonData: "", status: .USER_SKIPPED)
 
-        guard let state = verifier.getState() else {
-            ApplicationLogger.shared.Debug("❌ Failed to read verifier state.")
-            return nil
-        }
-        guard let signedImage = verifier.getSignedImage() else {
-            ApplicationLogger.shared.Debug("❌ Failed to get signed image data. Verifier state != OK ?")
-            return nil
-        }
-        return DocumentResult(signature: signedImage, state: state)
+        let result = verifier.getDocumentResult()
+        return result
     }
-    
+
     public func getSignedImage() -> ImageSignature? {
         verifier.getSignedImage()
     }
 
-    public func getSdkConfiguration() -> DocumentVerifierNfcValidatorConfig {
-        verifier.getNfcValidatorConfig()
+    public func getNfcSettings() -> DocumentVerifierNfcValidatorSettings {
+        verifier.getNfcValidatorSettings()
     }
 
     public func getDocumentResult(orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
@@ -272,7 +265,18 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
 
     override func callDelegate(with result: DocumentResult) {
         if result.state == .Nfc, let mrzCode = verifier.getNfcKey() {
-            delegate?.controller(self, didReadMrz: result, mrzCode: mrzCode)
+            var mutableResult = result
+            //let preview = verifier.getImagePreview()   // TODO: it's crashing now
+            var previewImageData: Data = UIImage().pngData() ?? Data()
+            if let latestSuccessfullBuffer {
+                let previewImage = UIImage(pixelBuffer: latestSuccessfullBuffer)
+                if let data = previewImage?.pngData() {
+                    previewImageData = data
+                }
+            }
+            mutableResult.signature = ImageSignature(image: previewImageData, signature: "")
+            
+            delegate?.controller(self, didScan: mutableResult, nfcCode: mrzCode)
         } else {
             delegate?.controller(self, didScan: result)
         }

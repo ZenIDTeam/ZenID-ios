@@ -90,12 +90,14 @@ final class PreviewViewController: UIViewController {
     }
     
     @objc func close(sender: UIButton) {
-        if sender == saveButton {
-            saveAction?()
+        dismiss(animated: true) { [weak self] in
+            guard let self else { return }
+            if sender == self.saveButton {
+                self.saveAction?()
+            }
+            else {
+                self.dismissAction?()
+            }
         }
-        else {
-            dismissAction?()
-        }
-        dismiss(animated: true, completion: nil)
     }
 }

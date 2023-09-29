@@ -8,7 +8,6 @@
 
 import Foundation
 
-@available(iOS 13, macOS 10.15, *)
 public enum DataGroupId : Int, CaseIterable {
     case COM = 0x60
     case DG1 = 0x61
@@ -30,7 +29,7 @@ public enum DataGroupId : Int, CaseIterable {
     case SOD = 0x77
     case Unknown = 0x00
     
-    public func getName() -> String {
+    public var name: String {
         switch( self ) {
             case .COM: return "COM"
             case .DG1: return "DG1"
@@ -54,7 +53,7 @@ public enum DataGroupId : Int, CaseIterable {
         }
     }
     
-    static public func getIDFromName( name: String ) -> DataGroupId {
+    static func getIDFromName( name: String ) -> DataGroupId {
         switch( name ) {
             case "COM": return .COM
             case "DG1": return .DG1
