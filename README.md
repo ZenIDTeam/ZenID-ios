@@ -48,7 +48,11 @@ For compilation, running and deployment of the application following tools are r
 
 Link your project against `RecogLib.xcframework` and `LibZenid.xcframework` frameworks. Frameworks are located in [Sources](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Sources) directory. )
 
-Go to your project and click on the `Project detail -> General` and under `Embeded binaries` add `RecogLib_iOS.xcframework` and `LibZenid_iOS.xcframework`. Both framework have to be in the `Embedded Binaries` and `Linked Frameworks and Libraries` section.
+- Hardware:
+    - iOS real device with camera for testing (simulator doesn't support the camera)
+    - macBook for development
+- Software (required for development and deployment):
+    - Xcode
 
 ### Installation with SPM
 
@@ -172,6 +176,7 @@ let documentControllerConfig = DocumentControllerConfiguration(
     documents: nil,
     settings: nil
 )
+
 // Controller
 let camera = Camera()
 Let cameraView = CameraView()
@@ -426,6 +431,17 @@ Define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared 
 > More complex `AVCaptureSession` setup can be found in our examples
 > [PureVerifierViewController.swift](./ZenIDDemo/Controller/PureVerifierViewController.swift) or [PureSelfieVerifierViewController](./ZenIDDemo/Controller/PureSelfieVerifierViewController.swift)
 
+| Property Name                   | Default   | Range              |
+|---------------------------------|-----------|--------------------|
+| specularAcceptableScore         | 50        | <0; 100>           |
+| documentBlurAcceptableScore     | 50        | <0; 100>           |
+| timeToBlurMaxToleranceInSeconds | 10        | <0; undefined>     |
+| showAimingCircle                | True      |                    |
+| drawOutline                     | False     |                    |
+| readBarcode                     | True      |                    |
+
+
+Each initializer has optional `settings` parameter.
 ```swift
 import AVFoundation
 
@@ -597,7 +613,7 @@ private func drawRenderables(buffer: CMSampleBuffer) {
 You can use  `FaceLivenessVerifier` to verify face liveness from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `FaceLivenessVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
 
-#### Face liveness step parameters
+##### Face liveness step parameters
 
 > Available since version 2.0.12
 
