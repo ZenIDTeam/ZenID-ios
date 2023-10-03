@@ -27,6 +27,8 @@ final class ChoiceViewController: UIViewController {
 
     private let documentsValidator: DocumentsFilterValidator = DocumentsFilterValidatorComposer.compose()
     private var settingsCoordinator: SettingsCoordinator?
+    
+    private var selectedProfile: String = ""
 
     private lazy var documentButtons = [
         idButton,
@@ -219,6 +221,7 @@ final class ChoiceViewController: UIViewController {
 
         let profileSelected = ZenidSecurity.selectProfile(name: profileName)
         if profileSelected {
+            selectedProfile = profileName
             ApplicationLogger.shared.Debug("✅ Profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" selected.")
         } else {
             ApplicationLogger.shared.Debug("❌ Setting profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" failed.")
@@ -250,7 +253,8 @@ final class ChoiceViewController: UIViewController {
         .init(
             documentType: documentType,
             country: country,
-            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose()
+            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose(),
+            profileName: selectedProfile
         )
     }
 
@@ -297,13 +301,13 @@ extension ChoiceViewController: CameraViewControllerDelegate {
         }
     }
 
-    func didTakeVideo(_ videoURL: URL?, type: PhotoType) {
+    func didTakeVideo(_ videoURL: URL?, type: PhotoType, result: UnifiedResult?) {
         if let url = videoURL {
             #if DEBUG
-                saveVideoToAlbum(url)
+                //saveVideoToAlbum(url)
             #endif
             if let data = try? Data(contentsOf: url) {
-                scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
+                scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .video)
             }
         }
     }

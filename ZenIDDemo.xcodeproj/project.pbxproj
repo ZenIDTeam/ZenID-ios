@@ -148,6 +148,7 @@
 		1966FEE42AA9BBA5004763C3 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3CB048286CD76F00C7C08D /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1966FEE52AA9BBB4004763C3 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1966FEE22AA9BB63004763C3 /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		196EE0482A93FB0E009DD7B7 /* DebugAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196EE0472A93FB0E009DD7B7 /* DebugAssets.xcassets */; };
+		196F75A92ACC7749001B156B /* MultipartFormDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F75A82ACC7749001B156B /* MultipartFormDataRequest.swift */; };
 		19CD7BFC2A99D2B2007AE0F3 /* ReadNfcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD7BFB2A99D2B2007AE0F3 /* ReadNfcViewController.swift */; };
 		19CD7C022A99DB5F007AE0F3 /* ReadNfcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD7C012A99DB5F007AE0F3 /* ReadNfcViewModel.swift */; };
 		19CD7C0A2A99E9E4007AE0F3 /* masterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = 19CD7C092A99E9E4007AE0F3 /* masterList.pem */; };
@@ -349,6 +350,7 @@
 		195B69332AC72D4B0024AB6C /* MIGRATION.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = MIGRATION.md; sourceTree = "<group>"; };
 		1966FEE22AA9BB63004763C3 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecogLib_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		196EE0472A93FB0E009DD7B7 /* DebugAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DebugAssets.xcassets; sourceTree = "<group>"; };
+		196F75A82ACC7749001B156B /* MultipartFormDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataRequest.swift; sourceTree = "<group>"; };
 		19CD7BFB2A99D2B2007AE0F3 /* ReadNfcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNfcViewController.swift; sourceTree = "<group>"; };
 		19CD7C012A99DB5F007AE0F3 /* ReadNfcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNfcViewModel.swift; sourceTree = "<group>"; };
 		19CD7C092A99E9E4007AE0F3 /* masterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = masterList.pem; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				0134755021EE0DBA004EE4E5 /* API.swift */,
 				0134755921EE2179004EE4E5 /* Client.swift */,
 				0134755E21F5BE2A004EE4E5 /* Manager.swift */,
+				196F75A82ACC7749001B156B /* MultipartFormDataRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1055,6 +1058,7 @@
 				18953D562682444E0077F976 /* SettingsViewModel.swift in Sources */,
 				E0B921FF293532FE00E75886 /* UIView+Constraints.swift in Sources */,
 				01859B0422C360CE005B7E36 /* ToastView.swift in Sources */,
+				196F75A92ACC7749001B156B /* MultipartFormDataRequest.swift in Sources */,
 				18953DA1268314850077F976 /* AddDocumentFilterCountryCellController.swift in Sources */,
 				18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */,
 				18953DA3268328EC0077F976 /* AddDocumentFilterPageCellController.swift in Sources */,

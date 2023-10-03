@@ -98,6 +98,15 @@ public class FaceLivenessVerifier {
         return Int(resolution)
     }
     
+    /// A method that returns the current result of the face liveness video being verified.
+    /// It is usually called to check the status after sending NFC data for processing `verifier.processNfc(..)`
+    public func getLivenessResult(orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
+        var face = createFaceLivenessInfo(orientation: orientation)
+        RecogLib_iOS.getFaceLivenessResult(cppObject, &face)
+        let result = FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
+        return result
+    }
+    
     private func createFaceLivenessInfo(orientation: UIInterfaceOrientation) -> CFaceLivenessInfo {
         return CFaceLivenessInfo(
             state: -1,

@@ -758,7 +758,7 @@ Signature now contain "--ZENID_SIGNATURE--" prefix. The new recommended way of s
 
 ```swift
 func sendImageWithSignature(imageData: Data, signature: String) {
-    let urlString = "https://your-server/sample?country=&expectedSampleType=DocumentPicture&documentCode=&pageCode=&role="
+    let urlString = "https://your-server/sample?country=&expectedSampleType=DocumentPicture&documentCode=&pageCode=&role=&profile="
     guard let url = URL(string: urlString) else { return }
 
     var httpBodyData = imageData
