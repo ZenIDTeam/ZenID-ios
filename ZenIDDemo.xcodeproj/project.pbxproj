@@ -130,6 +130,28 @@
 		18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BDC33C2795C3E40016AAF6 /* WebKit.framework */; };
 		18BDC36927983D920016AAF6 /* WebSource in Resources */ = {isa = PBXBuildFile; fileRef = 18BDC36827983D920016AAF6 /* WebSource */; };
 		19382F252A3B2CB700C4D9FC /* PureSelfieVerifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19382F242A3B2CB700C4D9FC /* PureSelfieVerifierViewController.swift */; };
+		193B1BAE2AAA668C00479994 /* NfcReadingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193B1BAD2AAA668C00479994 /* NfcReadingQuestion.swift */; };
+		194172152AA9A34A00B9529E /* NfcEnabledTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194172142AA9A34A00B9529E /* NfcEnabledTableViewCellController.swift */; };
+		1957B9D42AA299BA00EEF19D /* NfcIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9D32AA299BA00EEF19D /* NfcIntro.swift */; };
+		1957B9D62AA2A08100EEF19D /* UIView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9D52AA2A08100EEF19D /* UIView+Preview.swift */; };
+		1957B9D82AA2A35A00EEF19D /* ImageWithLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9D72AA2A35A00EEF19D /* ImageWithLabels.swift */; };
+		1957B9DA2AA2A3B200EEF19D /* NfcNotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9D92AA2A3B200EEF19D /* NfcNotAvailable.swift */; };
+		1957B9DC2AA2A6A900EEF19D /* NfcInformationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9DB2AA2A6A900EEF19D /* NfcInformationDetail.swift */; };
+		1957B9DE2AA2AF0D00EEF19D /* UIVIew+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9DD2AA2AF0D00EEF19D /* UIVIew+Layout.swift */; };
+		1957B9E02AA2B14D00EEF19D /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9DF2AA2B14D00EEF19D /* SheetViewController.swift */; };
+		1957B9E22AA2BA1100EEF19D /* NfcReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9E12AA2BA1100EEF19D /* NfcReading.swift */; };
+		1957B9E42AA2BFC600EEF19D /* NfcReadingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957B9E32AA2BFC600EEF19D /* NfcReadingError.swift */; };
+		195B69302AC70F130024AB6C /* NfcSettingsPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B692F2AC70F130024AB6C /* NfcSettingsPreviewViewController.swift */; };
+		195B69322AC7102E0024AB6C /* DocumentVerifierNfcValidatorSettingsComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195B69312AC7102E0024AB6C /* DocumentVerifierNfcValidatorSettingsComposer.swift */; };
+		195B69342AC72D4B0024AB6C /* MIGRATION.md in Resources */ = {isa = PBXBuildFile; fileRef = 195B69332AC72D4B0024AB6C /* MIGRATION.md */; };
+		1966FEE32AA9BB63004763C3 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1966FEE22AA9BB63004763C3 /* RecogLib_iOS.framework */; };
+		1966FEE42AA9BBA5004763C3 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3CB048286CD76F00C7C08D /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1966FEE52AA9BBB4004763C3 /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1966FEE22AA9BB63004763C3 /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		196EE0482A93FB0E009DD7B7 /* DebugAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196EE0472A93FB0E009DD7B7 /* DebugAssets.xcassets */; };
+		196F75A92ACC7749001B156B /* MultipartFormDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F75A82ACC7749001B156B /* MultipartFormDataRequest.swift */; };
+		19CD7BFC2A99D2B2007AE0F3 /* ReadNfcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD7BFB2A99D2B2007AE0F3 /* ReadNfcViewController.swift */; };
+		19CD7C022A99DB5F007AE0F3 /* ReadNfcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD7C012A99DB5F007AE0F3 /* ReadNfcViewModel.swift */; };
+		19CD7C0A2A99E9E4007AE0F3 /* masterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = 19CD7C092A99E9E4007AE0F3 /* masterList.pem */; };
 		6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536B24696A2A001C3544 /* QrSquareView.swift */; };
 		6F2D536E246970DC001C3544 /* QrScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D536D246970DC001C3544 /* QrScannerController.swift */; };
 		6F2D53712469A937001C3544 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2D53702469A937001C3544 /* Credentials.swift */; };
@@ -143,13 +165,9 @@
 		6FD5BDFF26409471001943DD /* ZenIDLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5BDFE26409471001943DD /* ZenIDLogger.swift */; };
 		6FF5E9CD2468ACF20077980C /* CredentialsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */; };
 		6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */; };
-		BA775B4628CB79E9006278DE /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA775B4528CB79E9006278DE /* RecogLib_iOS.framework */; };
-		BA775B4728CB79E9006278DE /* RecogLib_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA775B4528CB79E9006278DE /* RecogLib_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BABECC73288059D600A629F3 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = BABECC72288059D600A629F3 /* CocoaLumberjack */; };
 		BABECC75288059D600A629F3 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BABECC74288059D600A629F3 /* CocoaLumberjackSwift */; };
 		BABECC7828805A2700A629F3 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = BABECC7728805A2700A629F3 /* ZipArchive */; };
-		BABECC7E28805DE600A629F3 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3CB048286CD76F00C7C08D /* LibZenid_iOS.xcframework */; };
-		BABECC7F28805DE600A629F3 /* LibZenid_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA3CB048286CD76F00C7C08D /* LibZenid_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C3C7522CA540A00585770 /* DocumentState+Localized.swift */; };
 		D293FE1A22CA393D00FC49D0 /* RecoglibMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D293FE1922CA393D00FC49D0 /* RecoglibMapper.swift */; };
 		D2AB79EB22B904F800F1D7AA /* PDFHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB79EA22B904F800F1D7AA /* PDFHelper.swift */; };
@@ -181,8 +199,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BABECC7F28805DE600A629F3 /* LibZenid_iOS.xcframework in Embed Frameworks */,
-				BA775B4728CB79E9006278DE /* RecogLib_iOS.framework in Embed Frameworks */,
+				1966FEE52AA9BBB4004763C3 /* RecogLib_iOS.framework in Embed Frameworks */,
+				1966FEE42AA9BBA5004763C3 /* LibZenid_iOS.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +334,26 @@
 		18BDC33C2795C3E40016AAF6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		18BDC36827983D920016AAF6 /* WebSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSource; sourceTree = "<group>"; };
 		19382F242A3B2CB700C4D9FC /* PureSelfieVerifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureSelfieVerifierViewController.swift; sourceTree = "<group>"; };
+		193B1BAD2AAA668C00479994 /* NfcReadingQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcReadingQuestion.swift; sourceTree = "<group>"; };
+		194172142AA9A34A00B9529E /* NfcEnabledTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcEnabledTableViewCellController.swift; sourceTree = "<group>"; };
+		1957B9D32AA299BA00EEF19D /* NfcIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcIntro.swift; sourceTree = "<group>"; };
+		1957B9D52AA2A08100EEF19D /* UIView+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Preview.swift"; sourceTree = "<group>"; };
+		1957B9D72AA2A35A00EEF19D /* ImageWithLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithLabels.swift; sourceTree = "<group>"; };
+		1957B9D92AA2A3B200EEF19D /* NfcNotAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcNotAvailable.swift; sourceTree = "<group>"; };
+		1957B9DB2AA2A6A900EEF19D /* NfcInformationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcInformationDetail.swift; sourceTree = "<group>"; };
+		1957B9DD2AA2AF0D00EEF19D /* UIVIew+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Layout.swift"; sourceTree = "<group>"; };
+		1957B9DF2AA2B14D00EEF19D /* SheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewController.swift; sourceTree = "<group>"; };
+		1957B9E12AA2BA1100EEF19D /* NfcReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcReading.swift; sourceTree = "<group>"; };
+		1957B9E32AA2BFC600EEF19D /* NfcReadingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcReadingError.swift; sourceTree = "<group>"; };
+		195B692F2AC70F130024AB6C /* NfcSettingsPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcSettingsPreviewViewController.swift; sourceTree = "<group>"; };
+		195B69312AC7102E0024AB6C /* DocumentVerifierNfcValidatorSettingsComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifierNfcValidatorSettingsComposer.swift; sourceTree = "<group>"; };
+		195B69332AC72D4B0024AB6C /* MIGRATION.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = MIGRATION.md; sourceTree = "<group>"; };
+		1966FEE22AA9BB63004763C3 /* RecogLib_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecogLib_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		196EE0472A93FB0E009DD7B7 /* DebugAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DebugAssets.xcassets; sourceTree = "<group>"; };
+		196F75A82ACC7749001B156B /* MultipartFormDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataRequest.swift; sourceTree = "<group>"; };
+		19CD7BFB2A99D2B2007AE0F3 /* ReadNfcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNfcViewController.swift; sourceTree = "<group>"; };
+		19CD7C012A99DB5F007AE0F3 /* ReadNfcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNfcViewModel.swift; sourceTree = "<group>"; };
+		19CD7C092A99E9E4007AE0F3 /* masterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = masterList.pem; sourceTree = "<group>"; };
 		6F2D536B24696A2A001C3544 /* QrSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrSquareView.swift; sourceTree = "<group>"; };
 		6F2D536D246970DC001C3544 /* QrScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerController.swift; sourceTree = "<group>"; };
 		6F2D53702469A937001C3544 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -368,9 +406,8 @@
 			files = (
 				BABECC73288059D600A629F3 /* CocoaLumberjack in Frameworks */,
 				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
+				1966FEE32AA9BB63004763C3 /* RecogLib_iOS.framework in Frameworks */,
 				BABECC75288059D600A629F3 /* CocoaLumberjackSwift in Frameworks */,
-				BA775B4628CB79E9006278DE /* RecogLib_iOS.framework in Frameworks */,
-				BABECC7E28805DE600A629F3 /* LibZenid_iOS.xcframework in Frameworks */,
 				BABECC7828805A2700A629F3 /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,14 +434,15 @@
 		012F7B44228553AE00B0BBB6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				19CD7BFA2A99D2A9007AE0F3 /* Nfc */,
 				188422E92728066D002BD366 /* Config */,
 				01859B0722C48A0B005B7E36 /* Camera */,
 				6FFC82C0247F020C00CB4979 /* Qr */,
 				D2CB352322BA829100453DB8 /* Results */,
 				012F7B5F2285E6F600B0BBB6 /* BaseInfoViewController.swift */,
-				012F7B5D2285E6BC00B0BBB6 /* BusyViewController.swift */,
 				012F7B592285C1E000B0BBB6 /* ChoiceViewController.swift */,
 				18953D45268233AD0077F976 /* Menu.storyboard */,
+				012F7B5D2285E6BC00B0BBB6 /* BusyViewController.swift */,
 				012F7B6A2292743000B0BBB6 /* ErrorViewController.swift */,
 				012F7B65228B14FF00B0BBB6 /* PreviewViewController.swift */,
 				012F7B49228557BE00B0BBB6 /* WalkthroughViewController.swift */,
@@ -413,6 +451,7 @@
 				19382F242A3B2CB700C4D9FC /* PureSelfieVerifierViewController.swift */,
 				18953D4E268242720077F976 /* Grouped Table View */,
 				18953D472682418B0077F976 /* Settings */,
+				195B692E2AC70F020024AB6C /* Nfc */,
 				18953D592682468E0077F976 /* Selection */,
 				18953DCF2684E3980077F976 /* Selfie Selection */,
 				18953D702682E4BB0077F976 /* Documents Filter */,
@@ -467,6 +506,7 @@
 				0134751E21ECB3FB004EE4E5 /* ZenIDDemo */,
 				6F8EEF2024C4ECA600208223 /* README.md */,
 				6F556FFD2573C92900E7C0B8 /* CHANGELOG.md */,
+				195B69332AC72D4B0024AB6C /* MIGRATION.md */,
 				0134751D21ECB3FB004EE4E5 /* Products */,
 				0134753121ECBC2D004EE4E5 /* Frameworks */,
 			);
@@ -483,6 +523,7 @@
 		0134751E21ECB3FB004EE4E5 /* ZenIDDemo */ = {
 			isa = PBXGroup;
 			children = (
+				19CD7C092A99E9E4007AE0F3 /* masterList.pem */,
 				BAF9E49D284F6CF10030212D /* ZenIDDemo.entitlements */,
 				0131CE9E22045E8200DBA4C4 /* App */,
 				6F2D536F2469A922001C3544 /* Auth */,
@@ -504,6 +545,7 @@
 		0134753121ECBC2D004EE4E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1966FEE22AA9BB63004763C3 /* RecogLib_iOS.framework */,
 				BA775B4528CB79E9006278DE /* RecogLib_iOS.framework */,
 				18BDC33C2795C3E40016AAF6 /* WebKit.framework */,
 				6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */,
@@ -520,6 +562,7 @@
 				0134755021EE0DBA004EE4E5 /* API.swift */,
 				0134755921EE2179004EE4E5 /* Client.swift */,
 				0134755E21F5BE2A004EE4E5 /* Manager.swift */,
+				196F75A82ACC7749001B156B /* MultipartFormDataRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -737,6 +780,42 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		1957B9D22AA2998800EEF19D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1957B9D72AA2A35A00EEF19D /* ImageWithLabels.swift */,
+				1957B9D32AA299BA00EEF19D /* NfcIntro.swift */,
+				1957B9E12AA2BA1100EEF19D /* NfcReading.swift */,
+				1957B9D92AA2A3B200EEF19D /* NfcNotAvailable.swift */,
+				1957B9DB2AA2A6A900EEF19D /* NfcInformationDetail.swift */,
+				1957B9DF2AA2B14D00EEF19D /* SheetViewController.swift */,
+				1957B9E32AA2BFC600EEF19D /* NfcReadingError.swift */,
+				193B1BAD2AAA668C00479994 /* NfcReadingQuestion.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		195B692E2AC70F020024AB6C /* Nfc */ = {
+			isa = PBXGroup;
+			children = (
+				194172142AA9A34A00B9529E /* NfcEnabledTableViewCellController.swift */,
+				195B692F2AC70F130024AB6C /* NfcSettingsPreviewViewController.swift */,
+				195B69312AC7102E0024AB6C /* DocumentVerifierNfcValidatorSettingsComposer.swift */,
+			);
+			name = Nfc;
+			path = Settings/Nfc;
+			sourceTree = "<group>";
+		};
+		19CD7BFA2A99D2A9007AE0F3 /* Nfc */ = {
+			isa = PBXGroup;
+			children = (
+				1957B9D22AA2998800EEF19D /* View */,
+				19CD7BFB2A99D2B2007AE0F3 /* ReadNfcViewController.swift */,
+				19CD7C012A99DB5F007AE0F3 /* ReadNfcViewModel.swift */,
+			);
+			path = Nfc;
+			sourceTree = "<group>";
+		};
 		6F2D536F2469A922001C3544 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +852,7 @@
 				0131CE9D2204415C00DBA4C4 /* Localizable.strings */,
 				012559D822C2233400B4DEB6 /* Settings.plist */,
 				6F64016324C19E95004A8982 /* Settings.bundle */,
+				196EE0472A93FB0E009DD7B7 /* DebugAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -792,6 +872,8 @@
 				6F6BC6DE24B8AAAC00D7AF34 /* UIViewController+Alert.swift */,
 				D2CB351522BA76F900453DB8 /* UIViewController+Gradient.swift */,
 				1861947226FC28D500B8B395 /* URL+Models.swift */,
+				1957B9D52AA2A08100EEF19D /* UIView+Preview.swift */,
+				1957B9DD2AA2AF0D00EEF19D /* UIVIew+Layout.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -925,10 +1007,13 @@
 				18953D46268233AD0077F976 /* Menu.storyboard in Resources */,
 				012559D922C2233400B4DEB6 /* Settings.plist in Resources */,
 				0131CE9B2204415C00DBA4C4 /* Localizable.strings in Resources */,
+				195B69342AC72D4B0024AB6C /* MIGRATION.md in Resources */,
 				18BDC36927983D920016AAF6 /* WebSource in Resources */,
 				18953D722682E4E90077F976 /* DocumentsFilter.storyboard in Resources */,
 				012F7B8C2292FB4500B0BBB6 /* Apache License.txt in Resources */,
+				196EE0482A93FB0E009DD7B7 /* DebugAssets.xcassets in Resources */,
 				012F7B822292FB4500B0BBB6 /* Roboto-Bold.ttf in Resources */,
+				19CD7C0A2A99E9E4007AE0F3 /* masterList.pem in Resources */,
 				6F64016424C19E95004A8982 /* Settings.bundle in Resources */,
 				181AB23426F9A2870081420D /* Models in Resources */,
 				18953D5B2682469A0077F976 /* Selection.storyboard in Resources */,
@@ -965,6 +1050,7 @@
 				18953DE4268994D60077F976 /* DocumentsFilterValidator.swift in Sources */,
 				6FAE47882520AB1700A92876 /* SelectFaceModeView.swift in Sources */,
 				011C6A8622BCEF070053ABF6 /* ScanProcessDelegate.swift in Sources */,
+				1957B9E02AA2B14D00EEF19D /* SheetViewController.swift in Sources */,
 				01B8F88622B92BE100D8B75E /* MessagesView.swift in Sources */,
 				6FBEFB8124A60EFD00099A38 /* LanguageHelper.swift in Sources */,
 				18953D6B26824AF10077F976 /* BasicTableCellController.swift in Sources */,
@@ -972,6 +1058,7 @@
 				18953D562682444E0077F976 /* SettingsViewModel.swift in Sources */,
 				E0B921FF293532FE00E75886 /* UIView+Constraints.swift in Sources */,
 				01859B0422C360CE005B7E36 /* ToastView.swift in Sources */,
+				196F75A92ACC7749001B156B /* MultipartFormDataRequest.swift in Sources */,
 				18953DA1268314850077F976 /* AddDocumentFilterCountryCellController.swift in Sources */,
 				18953DE62689959F0077F976 /* RecogLibDocumentsFilterValidator.swift in Sources */,
 				18953DA3268328EC0077F976 /* AddDocumentFilterPageCellController.swift in Sources */,
@@ -994,7 +1081,9 @@
 				18953DBE26846F930077F976 /* IntervalTableViewCell.swift in Sources */,
 				18953D952682F4AD0077F976 /* AddDocumentFilterViewController.swift in Sources */,
 				18953D8E2682F1810077F976 /* DocumentsFilterLoaderComposer.swift in Sources */,
+				19CD7BFC2A99D2B2007AE0F3 /* ReadNfcViewController.swift in Sources */,
 				18153CC427A434BE0066FDF2 /* DataTypeTableViewCellController.swift in Sources */,
+				195B69322AC7102E0024AB6C /* DocumentVerifierNfcValidatorSettingsComposer.swift in Sources */,
 				D2CB351622BA76F900453DB8 /* UIViewController+Gradient.swift in Sources */,
 				18953D7E2682E6110077F976 /* DocumentViewModel.swift in Sources */,
 				188422E8272802D1002BD366 /* DebugTableViewCellController.swift in Sources */,
@@ -1003,6 +1092,7 @@
 				6F2D536C24696A2A001C3544 /* QrSquareView.swift in Sources */,
 				0134756921FB538D004EE4E5 /* Dispatcher.swift in Sources */,
 				18953DC426847DD50077F976 /* InMemoryDocumentVerifierSettings.swift in Sources */,
+				1957B9DA2AA2A3B200EEF19D /* NfcNotAvailable.swift in Sources */,
 				188422F127280779002BD366 /* UserDefaultsConfigLoader.swift in Sources */,
 				18953D992682F4C20077F976 /* AddDocumentFilterViewModel.swift in Sources */,
 				012F7B66228B14FF00B0BBB6 /* PreviewViewController.swift in Sources */,
@@ -1021,19 +1111,25 @@
 				012F7B6B2292743000B0BBB6 /* ErrorViewController.swift in Sources */,
 				18953D8C2682F14B0077F976 /* DocumentsFilterCoordinator.swift in Sources */,
 				D2CB352522BB7BA900453DB8 /* Responses.swift in Sources */,
+				1957B9D82AA2A35A00EEF19D /* ImageWithLabels.swift in Sources */,
 				0134755A21EE2179004EE4E5 /* Client.swift in Sources */,
 				0134753721ECBD1F004EE4E5 /* Enums.swift in Sources */,
 				0141C02823A38AAF00566078 /* SelectCountryView.swift in Sources */,
 				182D63E126FDB80E004289A3 /* SettingsSwitchCellController.swift in Sources */,
 				18953D4B268241CC0077F976 /* SettingsView.swift in Sources */,
 				182D63DD26FD99BA004289A3 /* SwitchSettingsTableViewCell.swift in Sources */,
+				1957B9E42AA2BFC600EEF19D /* NfcReadingError.swift in Sources */,
 				18953DD12684E3B10077F976 /* SelfieSelectionComposer.swift in Sources */,
 				18953D502682428F0077F976 /* GroupedTableView.swift in Sources */,
 				180DA012276A3083006A90CC /* DocumentsFilterValidatorComposer.swift in Sources */,
 				011C6A8A22BCF8A80053ABF6 /* CameraViewControllerDelegate.swift in Sources */,
+				194172152AA9A34A00B9529E /* NfcEnabledTableViewCellController.swift in Sources */,
+				195B69302AC70F130024AB6C /* NfcSettingsPreviewViewController.swift in Sources */,
 				D2CB351E22BA792400453DB8 /* Data+resizing.swift in Sources */,
 				012F7B62228AA85700B0BBB6 /* CameraViewController.swift in Sources */,
+				1957B9D42AA299BA00EEF19D /* NfcIntro.swift in Sources */,
 				18953D492682419A0077F976 /* SettingsViewController.swift in Sources */,
+				1957B9D62AA2A08100EEF19D /* UIView+Preview.swift in Sources */,
 				6F2D53732469B24B001C3544 /* CredentialsQrCode.swift in Sources */,
 				18953DBC268468180077F976 /* DocumentVerifierSettingsComposer.swift in Sources */,
 				18953D782682E5220077F976 /* DocumentsFilterViewModel.swift in Sources */,
@@ -1046,6 +1142,7 @@
 				E0B921FA2935268300E75886 /* LivenessVerifierSettingsLoaderComposer.swift in Sources */,
 				18953DDC2685EC530077F976 /* SelfieSelectionLoaderComposer.swift in Sources */,
 				18953D52268242BA0077F976 /* TableViewSectionViewModel.swift in Sources */,
+				1957B9DE2AA2AF0D00EEF19D /* UIVIew+Layout.swift in Sources */,
 				E0B92201293605B800E75886 /* BaseSettingsViewController.swift in Sources */,
 				18953D972682F4B70077F976 /* AddDocumentFilterContentView.swift in Sources */,
 				6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */,
@@ -1064,8 +1161,10 @@
 				E0B921F22934D65C00E75886 /* LivenessVerifierSettingsViewModel.swift in Sources */,
 				0134754F21EE0325004EE4E5 /* Endpoint.swift in Sources */,
 				D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */,
+				1957B9E22AA2BA1100EEF19D /* NfcReading.swift in Sources */,
 				18953D902682F33A0077F976 /* SettingsCoordinator.swift in Sources */,
 				19382F252A3B2CB700C4D9FC /* PureSelfieVerifierViewController.swift in Sources */,
+				1957B9DC2AA2A6A900EEF19D /* NfcInformationDetail.swift in Sources */,
 				D2CB351A22BA784400453DB8 /* ZenConstants.swift in Sources */,
 				6F6BC6DF24B8AAAC00D7AF34 /* UIViewController+Alert.swift in Sources */,
 				6FD5BDFF26409471001943DD /* ZenIDLogger.swift in Sources */,
@@ -1075,9 +1174,11 @@
 				18953DA526833DED0077F976 /* ContactTableCellController.swift in Sources */,
 				18953D61268246C70077F976 /* SelectionViewModel.swift in Sources */,
 				E0B921F02934D5FF00E75886 /* LivenessVerifierSettingsViewController.swift in Sources */,
+				193B1BAE2AAA668C00479994 /* NfcReadingQuestion.swift in Sources */,
 				6F2D53712469A937001C3544 /* Credentials.swift in Sources */,
 				0140263D22B3A76300CF60AD /* ResultsViewModel.swift in Sources */,
 				188422F72729242C002BD366 /* Reusable.swift in Sources */,
+				19CD7C022A99DB5F007AE0F3 /* ReadNfcViewModel.swift in Sources */,
 				0134756721F75C9C004EE4E5 /* ImageInput.swift in Sources */,
 				18953D9F26830F6E0077F976 /* AddDocumentFilterRoleCellController.swift in Sources */,
 				18953DA726833F250077F976 /* LogoutTableCellController.swift in Sources */,
@@ -1235,6 +1336,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 162;
+				DEVELOPMENT_ASSET_PATHS = ZenIDDemo/Resources/DebugAssets.xcassets;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -1247,14 +1349,14 @@
 					"NO_OPENCV=1",
 				);
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.0.20;
+				MARKETING_VERSION = 2.0.21;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1276,6 +1378,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 162;
+				DEVELOPMENT_ASSET_PATHS = ZenIDDemo/Resources/DebugAssets.xcassets;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FQAZ2Y87Y2;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
@@ -1287,14 +1390,14 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "NO_OPENCV=1";
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.0.20;
+				MARKETING_VERSION = 2.0.21;
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

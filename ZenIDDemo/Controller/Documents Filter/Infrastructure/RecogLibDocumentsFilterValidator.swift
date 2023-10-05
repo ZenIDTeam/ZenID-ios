@@ -16,7 +16,7 @@ final class RecogLibDocumentsFilterValidator: DocumentsFilterValidator {
     
     init() {
         documentVerifier = DocumentVerifier(role: nil, country: nil, page: nil, code: nil, language: .Czech)
-        documentVerifier.loadModels(.init(url: URL.modelsDocuments)!)
+        documentVerifier.loadModels(.init(url: URL.modelsDocuments)!, mrzModelsPath: nil)
     }
     
     func validate(input: DocumentsInput) -> Bool {

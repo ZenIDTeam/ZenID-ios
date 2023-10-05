@@ -1,7 +1,6 @@
 #pragma once
 
-#ifndef NO_FACE
-
+#include "RecogLibCApi.h"
 #include "ZenidEnums.generated.h"
 
 #ifndef NO_OPENCV
@@ -14,7 +13,7 @@
 #include <string>
 #include <optional>
 
-namespace RecogLibC
+namespace RecogLibC RECOGLIBC_PUBLIC
 {
 enum class Orientation;
 class Image;
@@ -85,9 +84,7 @@ class FaceLivenessVerifier
 	~FaceLivenessVerifier();
 
    private:
-	class Impl;
+	class RECOGLIBC_PRIVATE Impl;
 	std::unique_ptr<Impl> pImpl;
 };
 }
-
-#endif

@@ -1,8 +1,9 @@
 #pragma once
 
+#include "RecogLibCApi.h"
 #include <memory>
 
-namespace RecogLibC
+namespace RecogLibC RECOGLIBC_PUBLIC
 {
 
 enum class ImageFormat
@@ -65,7 +66,7 @@ class Image
 	int GetWidth() const;
 	int GetHeight() const;
 
-	class Impl;
+	class RECOGLIBC_PRIVATE Impl;
 
    private:
 	std::unique_ptr<Impl> pImpl;

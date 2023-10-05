@@ -2,8 +2,7 @@
 //  ChoiceViewController.swift
 //  ZenIDDemo
 //
-//  Created by František Kratochvíl on 10/05/2019.
-//  Copyright © 2019 Trask, a.s. All rights reserved.
+//  Copyright © Trask, a.s. All rights reserved.
 //
 
 import AVFoundation
@@ -12,15 +11,12 @@ import os
 import RecogLib_iOS
 import UIKit
 
-#if DEBUG
-    import Photos
-#endif
-
 final class ChoiceViewController: UIViewController {
     private let countryButton = Buttons.country
     private let idButton = Buttons.id
     private let drivingLicenceButton = Buttons.drivingLicence
     private let passportButton = Buttons.passport
+//    private let nfcButton = Buttons.nfc
     private let documentsFilterButton = Buttons.documentsFilter
     private let otherDocumentButton = Buttons.otherDocument
     private let hologramButton = Buttons.hologram
@@ -31,18 +27,20 @@ final class ChoiceViewController: UIViewController {
 
     private let documentsValidator: DocumentsFilterValidator = DocumentsFilterValidatorComposer.compose()
     private var settingsCoordinator: SettingsCoordinator?
+    
+    private var selectedProfile: String = ""
 
     private lazy var documentButtons = [
         idButton,
         drivingLicenceButton,
         passportButton,
-//        otherDocumentButton,
+//        nfcButton,
         documentsFilterButton,
         hologramButton,
         faceButton,
         logsButton,
         webViewButton,
-        pureVerifierButton
+        pureVerifierButton,
     ]
 
     private var selectedCountry: Country {
@@ -94,16 +92,6 @@ final class ChoiceViewController: UIViewController {
     }
 
     private func setupView() {
-        // Logout button
-        // view.addSubview(logoutButton)
-        // logoutButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 30)
-
-        // Title view
-        // view.addSubview(titleLabel)
-        // titleLabel.anchor(top: contactButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingLeft: 30, paddingRight: 30)
-        // titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-        // titleLabel.setContentHuggingPriority(UILayoutPriority(249), for: .vertical)
-
         configureTitleLabel(label: titleLabel)
         setupStackView()
         stackView.addArrangedSubview(countryButton)
@@ -112,15 +100,10 @@ final class ChoiceViewController: UIViewController {
             stackView.addArrangedSubview(button)
         }
         updateCountryButton()
-
-        // Toast view
-        // view.addSubview(toastView)
-        // toastView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor)
-
-        cachedCameraViewController.delegate = self
-
         setupScrollView()
         setupNavigationBar()
+
+        cachedCameraViewController.delegate = self
     }
 
     private func setupScrollView() {
@@ -186,16 +169,17 @@ final class ChoiceViewController: UIViewController {
     }
 
     @objc private func selectAction(sender: UIButton) {
-        // cachedCameraViewController.removeWebViewOverlay()
         ensureCredentials { [unowned self] in
             Haptics.shared.select()
+            let config = ConfigServiceComposer.compose().load()
             switch sender {
             case self.idButton:
-                let isLivenessVideo = ConfigServiceComposer.compose().load().isLivenessVideo
-                self.startProcess(.idCard, dataType: isLivenessVideo ? .video : .picture)
+                selectProfile(config)
+                self.startProcess(.idCard, dataType: config.isLivenessVideo ? .video : .picture)
             case self.drivingLicenceButton:
                 self.startProcess(.drivingLicence)
             case self.passportButton:
+                selectProfile(config)
                 self.startProcess(.passport)
             case self.otherDocumentButton:
                 self.startProcess(.otherDocument)
@@ -206,10 +190,10 @@ final class ChoiceViewController: UIViewController {
             case self.logsButton:
                 self.shareLogFile()
             case self.documentsFilterButton:
+                selectProfile(config)
                 self.startProcess(.filter)
             case self.webViewButton:
                 startProcess(.idCard)
-            // cachedCameraViewController.addWebViewOverlay()
             case self.pureVerifierButton:
                 let vc = PureVerifierViewController()
                 navigationController?.pushViewController(vc, animated: true)
@@ -232,7 +216,20 @@ final class ChoiceViewController: UIViewController {
         }
     }
 
+    private func selectProfile(_ config: Config) {
+        let profileName = config.isNfcEnabled ? "NFC" : ZenidSecurity.DEFAULT_PROFILE_NAME
+
+        let profileSelected = ZenidSecurity.selectProfile(name: profileName)
+        if profileSelected {
+            selectedProfile = profileName
+            ApplicationLogger.shared.Debug("✅ Profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" selected.")
+        } else {
+            ApplicationLogger.shared.Debug("❌ Setting profile \"\(profileName == ZenidSecurity.DEFAULT_PROFILE_NAME ? "default" : profileName)\" failed.")
+        }
+    }
+
     private func validateInput(_ documentType: DocumentType) -> Bool {
+//        if [.nfcId,.nfcPassport].contains(documentType) { return true }
         let document = Document(
             role: RecoglibMapper.documentRole(from: documentType, role: nil),
             country: selectedCountry,
@@ -256,7 +253,8 @@ final class ChoiceViewController: UIViewController {
         .init(
             documentType: documentType,
             country: country,
-            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose()
+            selfieSelectionLoader: SelfieSelectionLoaderComposer.compose(),
+            profileName: selectedProfile
         )
     }
 
@@ -297,25 +295,30 @@ extension ChoiceViewController: CameraViewControllerDelegate {
     func didTakePhoto(_ imageData: Data?, type: PhotoType, result: UnifiedResult?) {
         if let data = imageData {
             #if DEBUG
-                saveDocumentToAlbum(data)
+                //saveDocumentToAlbum(data)
             #endif
             scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .picture)
         }
     }
 
-    func didTakeVideo(_ videoURL: URL?, type: PhotoType) {
+    func didTakeVideo(_ videoURL: URL?, type: PhotoType, result: UnifiedResult?) {
         if let url = videoURL {
             #if DEBUG
-                saveVideoToAlbum(url)
+                //saveVideoToAlbum(url)
             #endif
             if let data = try? Data(contentsOf: url) {
-                scanProcess?.processPhoto(imageData: data, type: type, result: nil, dataType: .video)
+                scanProcess?.processPhoto(imageData: data, type: type, result: result, dataType: .video)
             }
         }
     }
 
     func didFinishPDF() {
         scanProcess?.uploadPhotosPDF()
+    }
+
+    func didCancel() {
+        scanProcess = nil
+        navigationController?.popToRootViewController(animated: false)
     }
 }
 
@@ -395,7 +398,7 @@ extension ChoiceViewController: ScanProcessDelegate {
                 let livenessSettings = try LivenessVerifierSettingsLoaderComposer.compose().load()
                 let faceMode = try SelfieSelectionLoaderComposer.compose().load()
                 guard let self = self else { return }
-                
+
                 self.cachedCameraViewController.configureController(
                     type: scanProcess.documentType,
                     photoType: photoType,
@@ -443,7 +446,7 @@ extension ChoiceViewController: ScanProcessDelegate {
 
     func didReceiveSampleResponse(scanProcess: ScanProcess, result: SampleResult) {
         switch result {
-        case .error(error: let error):
+        case let .error(error: error):
             DispatchQueue.main.async { [weak self] in
                 if self?.isBusyViewControllerPresented() ?? false {
                     self?.popToCameraViewController()
@@ -468,7 +471,7 @@ extension ChoiceViewController: ScanProcessDelegate {
             case .error(error: _):
                 self.popToCameraViewController()
                 self.showError(documentType: scanProcess.documentType, message: "msg-network-error".localized)
-            case .success(let data, let type):
+            case let .success(data, type):
                 if type == .filter {
                     self.navigationController?.popToRootViewController(animated: true)
                 } else {
@@ -527,6 +530,8 @@ extension ChoiceViewController: QrScannerControllerDelegate {
 }
 
 #if DEBUG
+    import Photos
+
     private func resolutionForLocalVideo(url: URL) -> CGSize {
         guard let track = AVURLAsset(url: url).tracks(withMediaType: AVMediaType.video).first else { return .zero }
         let size = track.naturalSize.applying(track.preferredTransform)

@@ -16,4 +16,5 @@ protocol SettingsCoordinable {
     func settingsOpenDocumentVerifierSettings()
     func settingsOpenFaceLivenessVerifierSettings()
     func settingsDidLogout()
+    func settingsNfcSettingsPreview()
 }

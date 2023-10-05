@@ -101,3 +101,12 @@ void setSelfieDebugInfo(const void *object,
     SelfieVerifier *verifier = (SelfieVerifier *)object;
     verifier->SetDebugVisualization(show);
 }
+
+CSelfieVerifierSettings getSelfieSettings(const void *object) {
+    SelfieVerifier *verifier = (SelfieVerifier *)object;
+    SelfieVerifierSettings& verifierSettings = verifier->GetSettings();
+    
+    CSelfieVerifierSettings settings = CSelfieVerifierSettings();
+    settings.visualizerVersion = verifierSettings.visualizerVersion;
+    return settings;
+}

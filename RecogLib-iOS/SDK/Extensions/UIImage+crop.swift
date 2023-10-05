@@ -1,6 +1,6 @@
 import AVFoundation
-import VideoToolbox
 import UIKit
+import VideoToolbox
 
 public enum ImageFlip: Int {
     case none
@@ -12,44 +12,61 @@ extension UIImage {
     public convenience init?(pixelBuffer: CVPixelBuffer, crop: CGRect? = nil) {
         var cgImage: CGImage?
         VTCreateCGImageFromCVPixelBuffer(pixelBuffer, options: nil, imageOut: &cgImage)
-        
+
         if let cropRect = crop {
             cgImage = cgImage?.cropping(to: cropRect)
         }
-        
+
         if let cgImage = cgImage {
             self.init(cgImage: cgImage)
         } else {
             return nil
         }
     }
-    
+
     func toCVPixelBuffer() -> CVPixelBuffer? {
-        guard let image = self.cgImage else {
+        guard let image = cgImage else {
             return nil
         }
         let frameSize = CGSize(width: image.width, height: image.height)
-        
-        var pixelBuffer:CVPixelBuffer? = nil
+
+        var pixelBuffer: CVPixelBuffer?
         let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(frameSize.width), Int(frameSize.height), kCVPixelFormatType_32BGRA, nil, &pixelBuffer)
-        
+
         if status != kCVReturnSuccess {
             return nil
         }
-        
-        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags.init(rawValue: 0))
+
+        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
         let data = CVPixelBufferGetBaseAddress(pixelBuffer!)
         let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(rawValue: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
         let context = CGContext(data: data, width: Int(frameSize.width), height: Int(frameSize.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: bitmapInfo.rawValue)
-        
+
         context?.draw(image, in: CGRect(x: 0, y: 0, width: image.width, height: image.height))
-        
+
         CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        
+
         return pixelBuffer
     }
-    
+
+    func toCMSampleBuffer() -> CMSampleBuffer? {
+        let pixelBuffer = toCVPixelBuffer()
+        var newSampleBuffer: CMSampleBuffer?
+        var timimgInfo: CMSampleTimingInfo = .init(duration: CMTime(seconds: 1, preferredTimescale: 1), presentationTimeStamp: CMTime(seconds: 1, preferredTimescale: 1), decodeTimeStamp: CMTime(seconds: 1, preferredTimescale: 1))
+        var videoInfo: CMVideoFormatDescription?
+        CMVideoFormatDescriptionCreateForImageBuffer(allocator: nil, imageBuffer: pixelBuffer!, formatDescriptionOut: &videoInfo)
+        CMSampleBufferCreateForImageBuffer(allocator: kCFAllocatorDefault,
+                                           imageBuffer: pixelBuffer!,
+                                           dataReady: true,
+                                           makeDataReadyCallback: nil,
+                                           refcon: nil,
+                                           formatDescription: videoInfo!,
+                                           sampleTiming: &timimgInfo,
+                                           sampleBufferOut: &newSampleBuffer)
+        return newSampleBuffer!
+    }
+
     func cropCameraImage(previewLayer: AVCaptureVideoPreviewLayer) -> UIImage? {
         var image = UIImage()
 
@@ -94,15 +111,15 @@ extension UIImage {
             height: metaRect.size.width * originalSize.width).integral
 
         return UIImage(cgImage: cgImage!.cropping(to: cropRect)!,
-                       scale:1,
+                       scale: 1,
                        orientation: imageOrientation)
     }
-    
+
     func flip(_ flipMethod: ImageFlip) -> UIImage {
         guard let cgImage = cgImage else {
             return self
         }
-        
+
         switch flipMethod {
         case .fromPortrait:
             return UIImage(cgImage: cgImage, scale: scale, orientation: .leftMirrored)

@@ -76,6 +76,45 @@ final class Client: ClientProtocol {
             }.resume()
     }
     
+    func upload<T>(_ endpoint: MultipartUploadEndpoint<T>, completion: ((T?, Error?) -> Void)?) {
+        guard var request = self.request(path: endpoint.path,
+                                         method: endpoint.method,
+                                         parameters: endpoint.parameters,
+                                         headers: [:])
+        else {
+            ApplicationLogger.shared.Verbose("Wrong request")
+            return
+        }
+        
+        let multipartRequest = MultipartFormDataRequest()
+        for part in endpoint.dataParts {
+            if part.type == .signature {
+                multipartRequest.addTextField(named: part.type.name, value: String(data: part.data, encoding: .utf8)!)
+            } else {
+                multipartRequest.addDataField(named: part.type.name, data: part.data, mimeType: part.type.rawValue)
+            }
+        }
+        multipartRequest.configureRequest(request: &request)
+        
+        self.session.dataTask(with: request) { (data, response, error) in
+            var result : T? = nil
+            if let error = error {
+                if let respAsString = String(data:data ?? Data(), encoding: .utf8) {
+                    ApplicationLogger.shared.Verbose("Response error \(error.localizedDescription): \ndata: \(respAsString))")
+                }
+            }
+            if let data = data {
+                do {
+                    result = try endpoint.decode(data)
+                }
+                catch {
+                    ApplicationLogger.shared.Verbose("Decoding error: \(error.localizedDescription))")
+                }
+            }
+            completion?(result, error)
+            }.resume()
+    }
+    
     private func url(path: Path) -> URL {
         return baseURL.appendingPathComponent(path)
     }
@@ -110,4 +149,3 @@ final class Client: ClientProtocol {
             .compactMap { $0 }
     }
 }
-

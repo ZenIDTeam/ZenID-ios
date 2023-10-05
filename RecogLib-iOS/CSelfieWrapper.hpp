@@ -36,6 +36,8 @@ void selfieVerifierReset(const void *object);
 char* getSelfieRenderCommands(const void *object, int canvasWidth, int canvasHeight, CSelfieInfo *selfie);
 void setSelfieDebugInfo(const void *object, bool show);
 
+CSelfieVerifierSettings getSelfieSettings(const void *object);
+
 #ifdef __cplusplus
 }
 #endif

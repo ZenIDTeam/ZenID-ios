@@ -130,9 +130,11 @@ public final class CameraView: UIView {
     }
     
     private func configurePreviewLayer() {
-        previewLayer!.videoGravity = Defaults.videoGravity
-        previewLayer!.frame = cameraView.layer.bounds
-        cameraView.layer.addSublayer(previewLayer!)
+        if let previewLayer {
+            previewLayer.videoGravity = Defaults.videoGravity
+            previewLayer.frame = cameraView.layer.bounds
+            cameraView.layer.addSublayer(previewLayer)
+        }
     }
 
     private func configureDrawingLayer() {

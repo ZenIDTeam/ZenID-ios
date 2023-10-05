@@ -106,6 +106,10 @@ extension DocumentVerifierState {
             return "Too dark"
         case .Barcode:
             return "Barcode not readable"
+        case .TextNotReadable:
+            return "TextNotReadable"
+        case .Nfc:
+            return "Nfc"
         }
     }
 }
@@ -142,6 +146,10 @@ extension FaceLivenessVerifierState {
             return "Dark"
         case .HoldStill:
             return "Hold Still"
+        case .Reseting:
+            return "Reseting"
+        case .DontSmile:
+            return "Don't smile"
         }
     }
 }

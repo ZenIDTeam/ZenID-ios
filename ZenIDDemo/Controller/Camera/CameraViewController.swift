@@ -32,6 +32,11 @@ class CameraViewController: UIViewController {
     private var selfieControllerConfig: SelfieControllerConfiguration?
     private var facelivenessController: FacelivenessController?
     private var facelivenessControllerConfig: FacelivenessControllerConfiguration?
+    private var nfcViewControler: ReadNfcViewController?
+
+    #if targetEnvironment(simulator)
+        var pickerCallback: ((UIImage) -> Void)?
+    #endif
 
     init(photoType: PhotoType, documentType: DocumentType, faceMode: FaceMode, dataType: DataType) {
         self.photoType = photoType
@@ -147,7 +152,7 @@ class CameraViewController: UIViewController {
     public var isCaptureSessionRunning: Bool {
         camera.isCaptureSessionRunning()
     }
-    
+
     private func dataType(of documentType: DocumentType, photoType: PhotoType, isLivenessVideo: Bool) -> DataType {
         if documentType == .documentVideo || photoType == .face && isLivenessVideo {
             return .video
@@ -193,7 +198,14 @@ class CameraViewController: UIViewController {
                 }
             }
 
-            present(preview, animated: true, completion: nil)
+            if let nfcViewControler {
+                nfcViewControler.dismiss(animated: true) { [weak self] in
+                    self?.present(preview, animated: true, completion: nil)
+                }
+            } else {
+                present(preview, animated: true, completion: nil)
+            }
+
         } else {
             delegate?.didTakePhoto(nil, type: photoType, result: nil)
             navigationController?.popViewController(animated: true)
@@ -205,8 +217,11 @@ class CameraViewController: UIViewController {
 extension CameraViewController {
     func setupDocumentController() {
         if documentController != nil { return }
-        documentController = DocumentController(camera: camera, view: contentView, modelsUrl: URL.modelsDocuments)
+        documentController = DocumentController(camera: camera, view: contentView, modelsUrl: URL.modelsDocuments, mrzModelsUrl: URL.mrzModelsDocuments)
         documentController?.delegate = self
+        #if targetEnvironment(simulator)
+            documentController?.debugDelegate = self
+        #endif
     }
 
     func setupFacelivenessController() {
@@ -250,12 +265,49 @@ extension CameraViewController {
 }
 
 extension CameraViewController: DocumentControllerDelegate {
+    func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String) {
+        if let signatureImageData = result.signature?.image, let signatureImage = UIImage(data: signatureImageData) {
+            let preview = PreviewViewController(title: title ?? "", image: signatureImage)
+            preview.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            preview.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+
+            let unifiedResult = UnifiedDocumentResultAdapter(result: result)
+            preview.saveAction = { [weak self] in
+                let configuration = controller.getNfcSettings()
+                self?.startNfcReading(mrzCode: nfcCode, configuration: configuration)
+            }
+            preview.dismissAction = { [unowned self] in
+                if self.photoType.isDocument {
+                    self.updateDocumentController()
+                } else {
+                    self.updateSelfieController()
+                }
+            }
+
+            if let nfcViewControler {
+                nfcViewControler.dismiss(animated: true) { [weak self] in
+                    self?.present(preview, animated: true, completion: nil)
+                }
+            } else {
+                present(preview, animated: true, completion: nil)
+            }
+        }
+    }
+
+    func startNfcReading(mrzCode: String, configuration: DocumentVerifierNfcValidatorSettings) {
+        let vm = ReadNfcViewModel(nfcReader: NfcDocumentReader(mrzKey: mrzCode), configuration: configuration)
+        vm.delegate = self
+        let vc = ReadNfcViewController(viewModel: vm)
+        nfcViewControler = vc
+        present(vc, animated: true)
+    }
+
     func controller(_ controller: DocumentController, didScan result: DocumentResult) {
         returnImage(nil, UnifiedDocumentResultAdapter(result: result))
     }
 
     func controller(_ controller: DocumentController, didRecord videoURL: URL) {
-        delegate?.didTakeVideo(videoURL, type: photoType)
+        delegate?.didTakeVideo(videoURL, type: photoType, result: nil)
     }
 
     func controller(_ controller: DocumentController, didUpdate result: DocumentResult) {
@@ -271,8 +323,8 @@ extension CameraViewController: FacelivenessControllerDelegate {
         returnImage(nil, UnifiedFacelivenessResultAdapter(result: result))
     }
 
-    func controller(_ controller: FacelivenessController, didRecord videoURL: URL) {
-        delegate?.didTakeVideo(videoURL, type: photoType)
+    func controller(_ controller: FacelivenessController, didRecord videoURL: URL, result: FaceLivenessResult) {
+        delegate?.didTakeVideo(videoURL, type: photoType, result: UnifiedFacelivenessResultAdapter(result: result))
     }
 
     func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult) {
@@ -295,11 +347,44 @@ extension CameraViewController: SelfieControllerDelegate {
     }
 
     func controller(_ controller: SelfieController, didRecord videoURL: URL) {
-        delegate?.didTakeVideo(videoURL, type: photoType)
+        delegate?.didTakeVideo(videoURL, type: photoType, result: nil)
     }
 
     func controller(_ controller: SelfieController, didUpdate result: SelfieResult) {
         debugPrint(result)
+    }
+}
+
+// MARK: NFC
+
+extension CameraViewController: NfcReadCompletionDelegate {
+    func didCancel() {
+        if let nfcViewControler {
+            nfcViewControler.dismiss(animated: false) { [weak self] in
+                self?.delegate?.didCancel()
+                self?.nfcViewControler = nil
+            }
+        } else {
+            delegate?.didCancel()
+        }
+    }
+
+    func didSkipNfc() {
+        guard let documentResult = documentController?.skipNfcResult() else { return }
+        let docUnifiedResult = UnifiedDocumentResultAdapter(result: documentResult)
+        nfcViewControler?.dismiss(animated: false) { [weak self] in
+            guard let self else { return }
+            self.delegate?.didTakePhoto(documentResult.signature?.image, type: self.photoType, result: docUnifiedResult)
+        }
+    }
+
+    func didReadNfcData(data: NfcData) {
+        guard let documentResult = documentController?.processNfcResult(nfcData: data, status: .OK) else { return }
+        let docUnifiedResult = UnifiedDocumentResultAdapter(result: documentResult)
+        nfcViewControler?.dismiss(animated: false) { [weak self] in
+            guard let self else { return }
+            self.delegate?.didTakePhoto(documentResult.signature?.image, type: self.photoType, result: docUnifiedResult)
+        }
     }
 }
 
@@ -325,3 +410,32 @@ private extension CameraViewController {
         })
     }
 }
+
+#if targetEnvironment(simulator)
+    extension CameraViewController: SimulatorHelperDelegate {
+        func provideDebugImage(for id: String, completion: @escaping (UIImage) -> Void) {
+            pickerCallback = completion
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+
+    extension CameraViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                pickerCallback?(image)
+                picker.dismiss(animated: true) { [weak self] in
+                    self?.pickerCallback = nil
+                }
+            }
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true) { [weak self] in
+                self?.pickerCallback = nil
+            }
+        }
+    }
+#endif

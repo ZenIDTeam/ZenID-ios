@@ -11,4 +11,5 @@ protocol ConfigLoader {
 protocol ConfigUpdater {
     func update(isDebugEnabled: Bool) throws
     func update(isLivenessVideo: Bool) throws
+    func update(isNfcEnabled: Bool) throws
 }

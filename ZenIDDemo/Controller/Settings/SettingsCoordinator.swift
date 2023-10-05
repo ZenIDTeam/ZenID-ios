@@ -12,7 +12,6 @@ import UIKit
 final class SettingsCoordinator {
     
     private var rootViewController: NavigationController!
-    
     private var documentsFilterCoordinator: DocumentsFilterCoordinator?
     
     init() {
@@ -80,6 +79,12 @@ extension SettingsCoordinator: SettingsCoordinable {
     
     func settingsDidLogout() {
         dismissViewController()
+    }
+    
+    func settingsNfcSettingsPreview() { 
+        let settings = DocumentVerifierNfcValidatorSettingsComposer().compose()
+        let viewController = NfcSettingsPreviewViewController(settings: settings)
+        show(viewController: viewController)
     }
 }
 

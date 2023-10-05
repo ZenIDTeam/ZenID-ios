@@ -32,12 +32,13 @@ public struct FacelivenessControllerConfiguration {
         self.showDebugVisualisation = showDebugVisualisation
         self.dataType = dataType
         self.settings = settings
+
     }
 }
 
 public protocol FacelivenessControllerDelegate: AnyObject {
     func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult)
-    func controller(_ controller: FacelivenessController, didRecord videoURL: URL)
+    func controller(_ controller: FacelivenessController, didRecord videoURL: URL, result: FaceLivenessResult)
     func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult)
 }
 
@@ -108,7 +109,11 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     }
     
     override func callDelegate(with videoUrl: URL) {
-        delegate?.controller(self, didRecord: videoUrl)
+        guard let result = verifier.getLivenessResult() else {
+            ApplicationLogger.shared.Warn("Failed to get face liveness result.")
+            return
+        }
+        delegate?.controller(self, didRecord: videoUrl, result: result)
     }
     
     override func callUpdateDelegate(with result: FaceLivenessResult) {

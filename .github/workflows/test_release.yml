@@ -16,6 +16,7 @@ jobs:
       APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
       APPSTORE_API_KEY: ${{ secrets.APPSTORE_API_KEY }}
       FIREBASE_CRED_FILE_CONTENT: ${{ secrets.FIREBASE_CRED_FILE_CONTENT }}
+      APPLE_DIST_CERT: ${{ secrets.APPLE_DIST_CERT }}
 
     steps:
       - name: Checkout

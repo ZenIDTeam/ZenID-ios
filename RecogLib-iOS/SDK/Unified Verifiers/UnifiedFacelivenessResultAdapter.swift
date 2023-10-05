@@ -37,6 +37,10 @@ extension FaceLivenessVerifierState {
             return .dark
         case .HoldStill:
             return .holdSteady
+        case .Reseting:
+            return .reseting
+        case .DontSmile:
+            return .dontSmile
         }
     }
 }

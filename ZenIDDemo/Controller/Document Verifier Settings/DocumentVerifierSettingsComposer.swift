@@ -12,7 +12,6 @@ import UIKit
 final class DocumentVerifierSettingsComposer {
     
     static func compose(loader: DocumentVerifierSettingsLoader, updater: DocumentVerifierSettingsUpdater) -> DocumentVerifierSettingsViewController {
-        //let viewController = UIStoryboard(name: "DocumentVerifierSettings", bundle: nil).instantiateViewController(withIdentifier: "DocumentVerifierSettingsViewController") as! DocumentVerifierSettingsViewController
         let viewController = DocumentVerifierSettingsViewController()
         viewController.viewModel = resolve(loader: loader, updater: updater)
         viewController.viewModel.onUpdate = { [weak viewController] items in

@@ -24,9 +24,19 @@ typedef struct CImageSignature CImageSignature;
 typedef struct CDocumentInfo CDocumentInfo;
 typedef struct CDocumentVerifierSettings CDocumentVerifierSettings;
 
+enum CNfcStatus {
+  DeviceDoesNotSupportNfc = 0,
+  InvalidNfcKey = 1,
+  UserSkipped = 2,
+  Ok = 3,
+};
+
+
+
 // Initialisation and loading models
 const void * getDocumentVerifier(CDocumentVerifierSettings *settings);
 void loadModel(const void *object, const char* buffer, size_t size);
+void loadTesseractModel(const void *object, const char* resourcePath);
 
 // Verifying documents
 bool verify(const void *object, CMSampleBufferRef _mat, CDocumentInfo *document, const char *acceptableInputJson);
@@ -53,6 +63,11 @@ void setDocumentDebugInfo(const void *object, bool show);
 int getDocumentRequiredFps(const void *object);
 int getDocumentRequiredVideoResolution(const void *object);
 
+// Nfc
+char* getNfcKey(const void *object);
+void processNfcResult(const void *object, char *data, enum CNfcStatus status);
+int getState(const void *object);
+CImageSignature getSignedImage(const void *object);
 
 #ifdef __cplusplus
 }

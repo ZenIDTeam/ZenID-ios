@@ -1,10 +1,12 @@
 #pragma once
 
+#include "RecogLibCApi.h"
+
 #include <memory>
 #include <string>
 #include <functional>
 
-namespace RecogLibC
+namespace RecogLibC RECOGLIBC_PUBLIC
 {
 enum class LogLevel
 {
@@ -36,7 +38,7 @@ public:
 	// Clears all registered listeners. Can also be used to clear the default listener which sends the log to standard output and standard error.
 	void ClearListeners();
 
-	class Impl;
+	class RECOGLIBC_PRIVATE Impl;
 	
 private:
 	std::unique_ptr<Impl> pImpl;

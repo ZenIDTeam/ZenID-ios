@@ -23,14 +23,6 @@ extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsLoader {
 }
 
 extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsUpdater {
-    func update(specularAcceptableScore: Int) {
-        settings = settings.update(specularAcceptableScore: specularAcceptableScore)
-    }
-    
-    func update(documentBlurAcceptableScore: Int) {
-        settings = settings.update(documentBlurAcceptableScore: documentBlurAcceptableScore)
-    }
-    
     func update(timeToBlurMaxToleranceInSeconds: Int) {
         settings = settings.update(timeToBlurMaxToleranceInSeconds: timeToBlurMaxToleranceInSeconds)
     }
@@ -46,22 +38,15 @@ extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsUpdater {
     func update(drawOutline: Bool) {
         settings = settings.update(drawOutline: drawOutline)
     }
-    
-    func update(readBarcode: Bool) {
-        settings = settings.update(readBarcode: readBarcode)
-    }
 }
 
 private extension DocumentVerifierSettings {
-    func update(specularAcceptableScore: Int? = nil, documentBlurAcceptableScore: Int? = nil, timeToBlurMaxToleranceInSeconds: Int? = nil, showTimer: Bool? = nil, showAimingCircle: Bool? = nil, drawOutline: Bool? = nil, readBarcode: Bool? = nil) -> DocumentVerifierSettings {
+    func update(timeToBlurMaxToleranceInSeconds: Int? = nil, showTimer: Bool? = nil, showAimingCircle: Bool? = nil, drawOutline: Bool? = nil) -> DocumentVerifierSettings {
         .init(
-            specularAcceptableScore: specularAcceptableScore ?? self.specularAcceptableScore,
-            documentBlurAcceptableScore: documentBlurAcceptableScore ?? self.documentBlurAcceptableScore,
             timeToBlurMaxToleranceInSeconds: timeToBlurMaxToleranceInSeconds ?? self.timeToBlurMaxToleranceInSeconds,
             showTimer: showTimer ?? self.showTimer,
             showAimingCircle: showAimingCircle ?? self.showAimingCircle,
-            drawOutline: drawOutline ?? self.drawOutline,
-            readBarcode: readBarcode ?? self.readBarcode
+            drawOutline: drawOutline ?? self.drawOutline
         )
     }
 }

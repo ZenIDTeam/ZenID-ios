@@ -33,7 +33,11 @@ final class SettingsComposer {
                     SelfieTableCellController(viewModel: .init(name: faceMode?.rawValue.uppercased(), action: {
                         coordinator.settingsOpenSelfieSelection()
                     })),
-                    DataTypeTableViewCellController(service: configService)
+                    DataTypeTableViewCellController(service: configService),
+                    NfcTableViewCellController(service: configService),
+                    BasicTableCellController(viewModel: .init(title: NSLocalizedString("settings-nfc-profile-preview", comment: ""), action: {
+                        coordinator.settingsNfcSettingsPreview()
+                    }))
                 ]
             ),
             .init(

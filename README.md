@@ -1,8 +1,19 @@
-
 # RecogLib
+
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
+ 
+
+## Migration
+
+Take a look at the [MIGRATION.md](./MIGRATION.md) file
+
+
+
+## Document types
+
 Recoglib is capable of recognizing types that include:
+
 - Identity card
 - Driving license
 - Passport
@@ -14,48 +25,28 @@ Recoglib is capable of recognizing types that include:
 - Face liveness
 - EU VISA
 
-## Table of contents
+ 
 
-  * [Changelog](#changelog)
-  * [Installation](#installation)
-    + [Installation with SPM](#installation-with-spm)
-    + [Statically link the frameworks](#statically-link-the-frameworks)
-    + [Models](#models)
-    + [Authorization](#authorization)
-  * [Migration](#migration)
-    + [old -> to the version 2.0.14 (RecogLib 2.11.3)](#old-to-the-version-2014-recoglib-2113)
-    + [old -> to the version 2.0.0](#old-to-the-version-200)
-    + [old -> to the version 1.9.0](#old-to-the-version-190)
-    + [old -> to the version 1.7.0](#old-to-the-version-170)
-  * [Usage](#usage)
-    + [Lightweight integration](#lightweight-integration)
-      - [DocumentController](#documentcontroller)
-      - [FacelivenessController ](#facelivenesscontroller)
-      - [SelfieController ](#selfiecontroller)
-    + [From Scratch](#from-scratch)
-      - [DocumentVerifier](#documentverifier)
-        * [Models](#models-1)
-        * [Verifier Settings](#verifier-settings)
-        * [Draw renderables](#draw-renderables)
-      - [Face liveness verifier](#face-liveness-verifier)
-        * [Face liveness step parameters](#face-liveness-step-parameters)
-        * [Models](#models-2)
-      - [Holograms](#holograms)
-      - [Selfie verifier](#selfie-verifier)
-        * [Auxiliary Images](#auxiliary-images)
-        * [Legacy mode](#legacy-mode)
-      - [Result](#result)
-  * [Signature](#signature)
-  * [Open Source](#open-source)
+## Configuration management
 
-## Changelog
-If you are looking for information about new features, check the [changelog](./CHANGELOG.md).
+For compilation, running and deployment of the application following tools are required. Newer versions of the tools should work, these were tested to work and used during the development:
 
+- Hardware:
+  - iOS device with camera for testing
+  - macOS device for development
+- Software (required for development and deployment):
+  - macOS
+  - Xcode 14
+- Minimal supported iOS version:
+  - iOS 13.0
 
+ 
 
 ## Installation
 
-For compilation, running and deployment of the application following tools are required. Newer versions of the tools should work, these were tested to work and used during the development:
+### Statically link the frameworks
+
+Link your project against `RecogLib.xcframework` and `LibZenid.xcframework` frameworks. Frameworks are located in [Sources](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Sources) directory. )
 
 - Hardware:
     - iOS real device with camera for testing (simulator doesn't support the camera)
@@ -63,26 +54,73 @@ For compilation, running and deployment of the application following tools are r
 - Software (required for development and deployment):
     - Xcode
 
-
 ### Installation with SPM
 
 1. Open your Xcode project.
 2. Add remote package dependency https://github.com/ZenIDTeam/ZenID-ios.git
 3. In your app target, General tab add **LibZenid_iOS** and **Recoglib_iOS** frameworks 
 
+ 
 
-### Statically link the frameworks
-Clone the repository and copy the two frameworks **RecogLib.xcframework** and **LibZenid.xcframework** from the `Sources` directory to your project.
-Link your project with these frameworks.
+## Authorization
 
-Go to your project and click on the `Project detail -> General` and under `Frameworks and Libraries` add `RecogLib_iOS.xcframework` and `LibZenid_iOS.xcframework`. Both framework must have `Embed & sign` selected.
+The SDK has to be authorized, otherwise it is not going to work. 
 
+1. Contact your manager and get information of initSDK API Endpoint and access to the ZenID system where you have to set your bundle ids. The api key you receive must be inserted into the request using the Cookie header
 
-### Models
+```swift
+let configuration = URLSessionConfiguration.default
+configuration.timeoutIntervalForRequest = 600
+configuration.timeoutIntervalForResource = 600
 
-The library works with local data models together with BE. 
-You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support. The selected models must also be embedded in the target application.
+if let cookie = HTTPCookie(properties: [
+    HTTPCookiePropertyKey.name : "api_key",
+    HTTPCookiePropertyKey.value : _YOUR_API_KEY_,
+    HTTPCookiePropertyKey.originURL : apiURL,
+    HTTPCookiePropertyKey.path : apiURL.path
+]) {
 
+    configuration.httpCookieStorage?.setCookie(cookie)
+
+}
+```
+
+2. Fetch your challenge token from SDK:
+
+```swift
+import RecogLib_iOS
+
+let challengeToken = ZenidSecurity.getChallengeToken()
+```
+
+3. Send the `challengeToken` to the initSDK API endpoint.
+
+```swift
+GET https://{''your-api-url''}/initSdk?token={challengeToken}
+
+Response:
+
+{
+  "Response": "......."
+}
+```
+
+4. Use response token, returned from initSDK API Endpoint, to initialize the SDK:
+
+```swift
+let responseToken = ... // backend response - initSDK API Endpoint
+let success = ZenidSecurity.authorize(responseToken: responseToken)
+```
+
+ 
+
+5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialised and is ready to be used, otherwise response token is not valid.
+
+ 
+
+## Models
+
+You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support.
 You can find all models available in the [Models](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models) folder in the root of this repository.
 
 If you want to support Selfie, add/link this folder and all files included: [Models/face](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models/face) into your Xcode project.
@@ -97,122 +135,32 @@ If you want to support Documents, such as ID, Passport and so on, or different c
 4. Link/add all selected folders with your Xcode project.
 
 
-### Authorization
-The SDK has to be authorized, otherwise it is not going to work. 
-
-1. Contact your manager and get information of initSDK API Endpoint and access to the ZenID system where you have to set your bundle ids.
-2. Fetch your challenge token from SDK:
-
-```swift
-import RecogLib_iOS
-
-let challengeToken = ZenidSecurity.getChallengeToken()
-```
-
-3. Send the `challengeToken` to the initSDK API Endpoint mentioned earlier.
-Sample implementation:
-
-```swift
-struct InitSdkResponse: Decodable {
-    var Response: String?
-    var ErrorCode: String?
-    var ErrorText: String?
-    var MessageType: String?
-}
-
-    let url = URL(string: "https://customer.backend/initSdk")!
-    var request = URLRequest(url: url)
-    request.httpMethod = "POST"
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    
-    let jsonDictionary = ["token": challengeToken]
-    let jsonData = try! JSONSerialization.data(withJSONObject: jsonDictionary)
-    request.httpBody = jsonData
-    
-    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        if let data = data {
-            do {
-                let decoder = JSONDecoder()
-                let responseData = try decoder.decode(InitSdkResponse.self, from: data)
-            } catch {
-                print("Error decoding response: \(error)")
-            }
-        }
-    }
-    
-    task.resume()
-    
-```
-
-4. Use response token, returned from initSDK API Endpoint, to initialize the SDK:
-
-```swift
-let responseToken = responseData.Response ... // backend response - initSDK API Endpoint
-let success = ZenidSecurity.authorize(responseToken: responseToken)
-```
-5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialised and is ready to be used, otherwise response token is not valid.
-
-
-## Migration
-In case you are using a very old version of the library.
-
-### old -> to the version 2.0.14 (RecogLib 2.11.3)
-The default value of parameter *drawOutline* in DocumentVerifierSettings changed from *false* to *true*
-
-### old -> to the version 2.0.0
-When calling `verifyImage` method of all verifiers, pass the orientation of the device. There is no need to transform/map the orientation anymore. 
-
-### old -> to the version 1.9.0
-1. We removed `Models/face/haarcascade_frontalface_alt2.xml` and `Models/face/lbfmodel.yaml.bin`. The models were replace by new models. Please do not use an individual file anymore. Use the `Models/face` folder to load models for Selfie or Faceliveness. Check the Faceliveness Verifier sections for more information.
-
-### old -> to the version 1.7.0
-1. We removed models from RecogLib framework, therefore, you can now configure which models you want to use by yourself. It will help you to reduce the final size of your app binary.
-How to load models by yourself?
-Document Verifier:
-```Swift
-let verifier = DocumentVerifier(...)
-let url = Bundle.main.bundleURL.appendingPathComponent("documents")
-if let models = DocumentVerifierModels(url: url) {
-    verifier.loadModels(models)
-}
-```
-Selfie Verifier:
-```Swift
-let verifier = SelfieVerifier(...)
-let url = Bundle.main.bundleURL.appendingPathComponent("haarcascade_frontalface_alt2.xml")
-if let models = FaceVerifierModels(url: url) {
-    verifier.loadModels(models)
-}
-```
-Faceliveness Verifier:
-```Swift
-let verifier = FaceLivenessVerifier(...)
-let url = Bundle.main.bundleURL.appendingPathComponent("lbfmodel.yaml.bin")
-if let models = FaceVerifierModels(url: url) {
-    verifier.loadModels(models)
-}
-```
-Do not forget to add/link models into your Xcode project. Check out the documentation below for instructions.
-
-2. We changed format of RecogLib and LibZenid frameworks to XCFrameworks. Please, unlink your old RecogLib and LibZenid frameworks from your Xcode project add link the new ones. That means `LibZenid_iOS.xcframework` and `RecogLib_iOS.xcframework`, you do not have to change anything else.
-
-
-
 
 ## Usage
+
 The SDK provides two options how to handle the scanning process. First of them is lightweight, where everything is provided to you and you can have running code with the logic and UI in just a couple lines of code. Second of them is more complicated where you have to implement everything from the scratch by yourself if needed. Let's have a look at those options. 
 
-### Lightweight integration
-Ready-to-use controllers like `DocumentController`, `FacelivenessController` and `SelfieController` are available for lightweight integration.
 
-You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
 
-Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
+## Select profile
 
-You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+The `SelectProfile` method allows you to set the frontend validator configuration on the backend. The SDK receives a list of profiles and their respective configurations when Init() is called. Calling `SelectProfile()` sets the profile to be used for subsequent use of the verifier.
 
-#### DocumentController
-Use [DocumentController](https://github.com/ZenIDTeam/ZenID-ios/blob/master/RecogLib-iOS/SDK/Controllers/DocumentController.swift) for scanning documents. You can configure the behaviour with `DocumentControllerConfiguration` and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
+```swift
+let profileSelected = ZenidSecurity.selectProfile(name: profileName)
+
+let profileSelected = ZenidSecurity.selectProfile(name: ""). // default profile
+let profileSelected = ZenidSecurity.selectProfile(name: "NFC"). // select profile named NFC (defined on backed)
+
+```
+
+## Usage - Lightweight
+
+
+
+### DocumentController
+
+Use `DocumentController` for scanning documents. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
 
 ```swift
 // Configuration
@@ -232,12 +180,19 @@ let documentControllerConfig = DocumentControllerConfiguration(
 // Controller
 let camera = Camera()
 Let cameraView = CameraView()
-let documentController = DocumentController(camera: camera, view: cameraView, modelsUrl: URL.modelsDocuments)
-documentController.configure(configuration: documentControllerConfig)
+let urlPathOfModels =  URL.modelsDocuments
+let urlPathOfMrzModels = URL.mrzModels // models used for reading MRZ zone from document
+
+let documentController = DocumentController(camera: camera, view: cameraView, modelsUrl: urlPathOfModels, mrzModelsUrl: urlPathOfMrzModels)
 documentController.delegate = self
 
+
+// configure and start reading
+documentController.configure(configuration: documentControllerConfig)
 ```
-You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
+
+> [!IMPORTANT]
+> You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
 
 Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
 
@@ -245,20 +200,48 @@ You can pass role, country, page, and code if you want to scan only one document
 
 You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
 
-
 The delegate of the controller is following:
+
 ```swift
 public protocol DocumentControllerDelegate: AnyObject {
+    func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)
     func controller(_ controller: DocumentController, didScan result: DocumentResult)
     func controller(_ controller: DocumentController, didRecord videoURL: URL)
     func controller(_ controller: DocumentController, didUpdate result: DocumentResult)
 }
-
 ```
+
 You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
 The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
-#### FacelivenessController 
+
+
+#### NFC
+
+The SDK allows you to read NFC data from supported documents. NFC support must be configured on the backend, the mrz models must be loaded and the `SelectProfile("NFC")` method must be called on the SDK side.
+
+The delegate method named `func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)` is called if the MRZ zone is successfully scanned and decoded on the document.
+
+At this point you must start and finish reading the NFC document.  The `NfcDocumentReader` class is used for this purpose.  Due to the variability of the customer UI, the SDK does not provide a ready-made UIViewController solution to completely handle all NFC chip reading states. However, you can take inspiration from the `ReadNfcViewController` file in our demo application.
+
+The result of calling the `processNfcResult` method is the same `DocumentResult` object as in the case of normal document verification. The next step is to send the captured and signed image to the backend.
+
+
+
+```swift
+func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String) {
+   Task {
+      let nfcReader = NfcDocumentReader(mrzKey: nfcCode)
+      let nfcData:NfcData = try await nfcReader.read()
+      let documentResult = documentController?.processNfcResult(nfcData: nfcData, status: .OK)
+   }
+}
+```
+
+
+
+### FacelivenessController
+
 Use `FacelivenessController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
 
 ```swift
@@ -273,25 +256,34 @@ let faceLivenessControllerConfig = FacelivenessControllerConfiguration(
 // Controller
 let camera = Camera()
 Let cameraView = CameraView()
-let facelivenessController = FacelivenessController(camera: camera, view: contentView, modelsUrl: URL.modelsFolder.appendingPathComponent("face"))
-facelivenessController.configura(configuration: faceLivenessControllerConfig)
+let urlPathOfModels = URL.modelsFolder.appendingPathComponent("face")
+let facelivenessController = FacelivenessController(camera: camera, view: contentView, modelsUrl: urlPathOfModels)
 facelivenessController.delegate = self
-
+facelivenessController.configure(configuration: faceLivenessControllerConfig)
 ```
 
+> [!IMPORTANT]
+> You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
+
+Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
+
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+
 The delegate of the controller is following:
+
 ```swift
 public protocol FacelivenessControllerDelegate: AnyObject {
     func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult)
     func controller(_ controller: FacelivenessController, didRecord videoURL: URL)
     func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult)
 }
-
 ```
+
 You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
 The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
-#### SelfieController 
+### SelfieController
+
 Use `SelfieController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
 
 ```swift
@@ -306,44 +298,83 @@ let selfieControllerConfig = SelfieControllerConfiguration(
 let camera = Camera()
 Let cameraView = CameraView()
 let selfieController = SelfieController(camera: camera, view: contentView, modelsUrl: URL.modelsFolder.appendingPathComponent("face"))
-selfieController.configure(configuration: selfieControllerConfig)
 selfieController.delegate = self
-
+selfieController.configure(configuration: selfieControllerConfig)
 ```
 
-The delegate of the controller is following:
-```swift
+> [!IMPORTANT]
+> You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
 
+Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
+
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+
+The delegate of the controller is following:
+
+```swift
 public protocol SelfieControllerDelegate: AnyObject {
     func controller(_ controller: SelfieController, didScan result: SelfieResult)
     func controller(_ controller: SelfieController, didRecord videoURL: URL)
     func controller(_ controller: SelfieController, didUpdate result: SelfieResult)
 }
-
 ```
+
 You can implement the delegate to be able to receive a message when scanning was successful or when the state of the scan has been changed.
 The `didUpdate` method could be used for building your custom UI. The method is called every single time when there is an update of the state of scanning process.
 
+## Usage - From Scratch
 
-### From Scratch
 You are free to implement everything from the scratch, without use our controller classes. The SDK provides three classes for you: `DocumentVerifier`, `SelfierVerifier`, and `FacelivenessVerifier`.
-Example of an implementation from scratch [PureVerifierViewController.swift(./ZenIDDemo/Controller/PureVerifierViewController.swift)]
 
-#### DocumentVerifier
-Recoglib comes with `DocumentVerifier` that makes it really easy to use recoglib in your project.
+> [!NOTE]
+> Sample implementation
+> [PureVerifierViewController.swift](./ZenIDDemo/Controller/PureVerifierViewController.swift) or [PureSelfieVerifierViewController](./ZenIDDemo/Controller/PureSelfieVerifierViewController.swift)
 
-1. Recognizing only one specific document
-First you initialize `DocumentVerifier` with expected role, country, page and language.
-For example, Front side of Czech Identity card looks like this.
+### `DocumentVerifier`
+
+Recoglib comes with `DocumentVerifier` that makes scanning documents really easy to use.
+
+#### Initialization
+
+##### Verifier settings
+
+You can tune a couple of parameters of document verifier. Each initializer has optional `settings` parameter.
+
+```swift
+let settings = DocumentVerifierSettings(
+    timeToBlurMaxToleranceInSeconds: 10,
+    showAimingCircle: false,
+    drawOutline: true,
+)
+```
+
+| parameter name                  | default value | range          |
+| ------------------------------- | ------------- | -------------- |
+| timeToBlurMaxToleranceInSeconds | 10            | <0; undefined) |
+| showAimingCircle                | true          | Bool           |
+| drawOutline                     | false         | Bool           |
+
+```swift
+let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language, settings: settings)
+```
+
+> [!NOTE]
+> Properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
+
+##### 1. Recognizing only one specific document
+
+First you initialize `DocumentVerifier` with expected role, country, page and language. For example, Front side of Czech Identity card looks like this.
+
 ```Swift
 let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language)
 ```
 
-2. Recognizing multiple predefined documents
-Alternativally you can initialize `DocumentVerifier` with `DocumentsInput` that needs array of `Document` structures. 
-`Document` structure is a structure that consists of `role: DocumentRole`, `country: Country`, `page: PageCode`, and `DocumentCode`.
+##### 2. Recognizing multiple predefined documents
+
+Alternativally you can initialize `DocumentVerifier` with `DocumentsInput` that needs array of `Document` structures.  `Document` structure is a structure that consists of `role: DocumentRole`, `country: Country`, `page: PageCode`, and `DocumentCode`.
 
 For example, if you want to scan Front side of Czech Identity card and Front side of Slovak driving license the setup looks like this.
+
 ```swift
 let documentsInput = DocumentsInput(documents: [
     Document(role: .Idc, country: .Cz, page: .Front, code: nil),
@@ -352,42 +383,53 @@ let documentsInput = DocumentsInput(documents: [
 let verifier = DocumentVerifier(input: documentsInput, language: .Czech)
 ```
 
-3. Recognizing multiple undefined documents 
-The parameters of `DocumentVerifier` initializer are optional, you can always pass nil value. 
+##### 3. Recognizing multiple undefined documents.
 
+The parameters of `DocumentVerifier` initializer are optional, you can always pass nil value. 
 For example, if you want to scan all documents available, just pass nil to every parameter.
+
 ```swift
 let verifier = DocumentVerifier(role: nil, country: nil, page: nil, language: .Language)
 ```
 
 For example, if you want to scan all Czech documents available, just pass nil to every parameter except `country`, that will be `Czech`.
+
 ```swift
 let verifier = DocumentVerifier(role: nil, country: .Cz, page: nil, language: .Language)
 ```
 
-##### Models
-You have to load models that you would like to support.
-URL is the path to your folder that contains files or other folders, such as CZ, SK, etc. You have to pass url that is a folder, not a single file. 
+#### Models
+
+You have to load models that you would like to support. `URL` is the path to your folder that contains files or other folders, such as CZ, SK, etc. You have to pass url that is a folder, not a single file. 
+
 ```swift
-let url = Bundle.main.bundleURL.appendingPathComponent("Models/documents")
-if let models = DocumentVerifierModels(url: url) {
+let urlOfFolderWithModels = Bundle.main.bundleURL.appendingPathComponent("Models/documents")
+if let models = DocumentVerifierModels(url: urlOfFolderWithModels) {
     verifier.loadModels(models)
 }
 ```
 
-##### Verifier Settings
-You can tune a couple of parameters of document verifier.
+#### Image processing
 
-```swift
-let settings = DocumentVerifierSettings(
-    specularAcceptableScore: 50,
-    documentBlurAcceptableScore: 50,
-    timeToBlurMaxToleranceInSeconds: 10,
-    showAimingCircle: false,
-    drawOutline: true,
-    readBarcode: true
-)
-```
+##### Prerequirements - Camera session
+
+Request Camera Permission
+
+Open your project's `Info.plist` file and add the following key:
+
+- `NSCameraUsageDescription`: A message explaining why you need access to the camera.
+
+Create an instance of `AVCaptureSession` and `AVCaptureVideoDataOutput`. These will allow you to capture video frames from the camera.
+Define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate` and call the `verify(buffer: )` method of `DocumentVerifier`. 
+
+> [!IMPORTANT]
+> Please note this delegate method **is called from background thread**. If you desire to update your view from this method, you **need** to do so from the main thread as shown below.
+> 
+> It is important to set the correct device orientation and send correctly oriented images for verification
+
+> [!NOTE]
+> More complex `AVCaptureSession` setup can be found in our examples
+> [PureVerifierViewController.swift](./ZenIDDemo/Controller/PureVerifierViewController.swift) or [PureSelfieVerifierViewController](./ZenIDDemo/Controller/PureSelfieVerifierViewController.swift)
 
 | Property Name                   | Default   | Range              |
 |---------------------------------|-----------|--------------------|
@@ -401,32 +443,85 @@ let settings = DocumentVerifierSettings(
 
 Each initializer has optional `settings` parameter.
 ```swift
-let verifier = DocumentVerifier(role: .Idc, country: .Cz, page: .Front, language: .Language, settings: settings)
-```
+import AVFoundation
 
-Note that properties `role`, `country`,  `page` , an `language` are public and can be changed whenever you like.
+class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    private let captureSession = AVCaptureSession()
+    private let videoDataOutput = AVCaptureVideoDataOutput()
+    private(set) var previewLayer: AVCaptureVideoPreviewLayer?
 
-Than you define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate`
-```swift
-extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // Recoglib magic happens here
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupCamera()
+
+        // ! Note that set proper orientation is important
+        setOrientation(orientation: UIDevice.current.orientation)
     }
-}
-```
-Lastly call the `verify(buffer: )` method of `DocumentVerifier`. Please note this delegate method **is called from background thread**. If you desire to update your view from this method, you **need** to do so from the main thread as shown below.
-```swift
-extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+
+    // Function to set up the camera
+    private func setupCamera() {
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else {
+            fatalError("Camera not available.")
+        }
+
+        do {
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+            if captureSession.canAddInput(input) {
+                captureSession.addInput(input)
+            }
+
+            if captureSession.canAddOutput(videoDataOutput) {
+                captureSession.addOutput(videoDataOutput)
+                videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
+            }
+
+            let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            previewLayer.videoGravity = .resizeAspectFill
+            self.previewLayer = previewLayer
+
+            captureSession.startRunning()
+        } catch {
+            print("Error setting up camera: \(error.localizedDescription)")
+        }
+    }
+
+    // AVCaptureVideoDataOutputSampleBufferDelegate methods
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // Process each video frame here
+
         let result = verifier.verify(buffer: sampleBuffer)
+
         DispatchQueue.main.async {
-            self.updateView(with: result)
+            // update your view here
+        }
+    }
+
+    func setOrientation(orientation: UIDeviceOrientation) {
+        for connection in captureSession.connections {
+            switch UIDevice.current.orientation {
+            case .portrait:
+                previewLayer?.connection?.videoOrientation = .portrait
+                connection.videoOrientation = .portrait
+            case .landscapeRight:
+                previewLayer?.connection?.videoOrientation = .portrait
+                connection.videoOrientation = .landscapeLeft
+            case .landscapeLeft:
+                previewLayer?.connection?.videoOrientation = .portrait
+                connection.videoOrientation = .landscapeRight
+            case .portraitUpsideDown:
+                previewLayer?.connection?.videoOrientation = .portrait
+                connection.videoOrientation = .portraitUpsideDown
+            default:
+                break
+            }
         }
     }
 }
 ```
+
 Alternatively you can use the `verifyImage(imageBuffer: )` with CVImageBuffer of media data as shown below.
+
 ```swift
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -439,7 +534,46 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 ```
 
-##### Draw renderables
+
+
+#### NFC
+
+If the validation state of `DocumentVerifierState` is `.Nfc`, it should start reading NFC data from the document.
+
+```swift
+Task {
+   let nfcCode = verifier.getNfcKey()
+   let nfcReader = NfcDocumentReader(mrzKey: nfcCode)
+   do {
+      let nfcData = try await nfcReader.read()
+      let jsonString = nfcData.encodeToJson()
+      
+      verifier.processNfc(jsonData: jsonString, status: .OK)
+
+   } catch {
+    
+   }
+}
+```
+
+
+
+The `processNfc` method must be called even if the NFC data reading from the document fails. For example, if the user cancels the read. 
+
+```swift
+Task {
+   let nfcCode = verifier.getNfcKey()
+   let nfcReader = NfcDocumentReader(mrzKey: nfcCode)
+   do {
+      let nfcData = try await nfcReader.read()
+   } catch {
+      verifier.processNfc(jsonData: "", status: .USER_SKIPPED)    
+   }
+}
+```
+
+#### Draw renderables
+
 In case you want to add an information layer with objects that the verifier has detected, you can use the `verifier.getRenderCommands(canvasWidth:Int, canvasHeight:Int)` method. This method returns a string representation of the detected objects. This string is converted into a collection of drawable objects implementing `Renderable` protocol using `RenderableFactory.createRenderables(commands: String)`.
 The types of renderable objects are the classes `Line`,`Rectangle`,`Circle`,`Ellipse`,`Text`,`Triangle`.
 
@@ -470,11 +604,10 @@ private func drawRenderables(buffer: CMSampleBuffer) {
         self?.drawingLayer.setRenderables(renderables)
     }
 }
-
 ```
 
+## Face liveness verifier
 
-#### Face liveness verifier
 You can use  `FaceLivenessVerifier` to verify face liveness from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `FaceLivenessVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)` .
 
@@ -486,32 +619,32 @@ During the face liveness check, additional parameters (`FaceLivenessStepParamete
 The object is only available during the liveness part of the process. It is null during the preliminary quality check.
 
 Sample:
+
 ```Swift
 let verifierResult = verifier.verifyImage(imageBuffer: pixelBuffer)
 let parameters:FaceLivenessStepParameters = verifier.getStepParameters()
 ```
 
 The object `FaceLivenessStepParameters` has the following properties:
+| Property         | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| name             | Name of the step. It can be `CenteredCheck`, `AngleCheck Left`, `AngleCheck Right`, `AngleCheck Up`, `AngleCheck Down`, `LegacyAngleCheck`, or `SmileCheck`. CenteredCheck requires the user to look at the camera. The AngleCheck steps require the user to turn their head in a specific direction. The LegacyAngleCheck requires the user to turn his head in any direction. It's only used when legacy mode is enabled. SmileCheck requires the user to smile. |
+| totalCheckCount  | The total number of the checks the user has to pass, including the ones that were already passed. |
+| passedCheckCount | The number of checks the user has passed.                    |
+| hasFailed        | Flag that is true if the user has failed the most recent check. After the failed check, a few seconds pass and the check process is restarted - the flag is set to false and passedCheckCount goes back to 0. |
+| headYaw          | Euler angles of the head in degrees. Only defined if a face is visible. |
+| headPitch        | Euler angles of the head in degrees. Only defined if a face is visible. |
+| headRoll         | Euler angles of the head in degrees. Only defined if a face is visible. |
+| faceCenterX      | Coordinates of the center of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
+| faceCenterY      | Coordinates of the center of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
+| faceWidth        | Size of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
+| faceHeight       | Size of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible. |
 
-| Property Name    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name             | Name of the step. It can be `CenteredCheck`, `AngleCheck Left`, `AngleCheck Right`, `AngleCheck Up`, `AngleCheck Down`, `LegacyAngleCheck`, or `SmileCheck`. `CenteredCheck` requires the user to look at the camera. The `AngleCheck` steps require the user to turn their head in a specific direction. The `LegacyAngleCheck` requires the user to turn their head in any direction. It's only used when legacy mode is enabled. `SmileCheck` requires the user to smile. |
-| totalCheckCount  | The total number of checks the user has to pass, including the ones that were already passed.                                                                                                                                                                                                                                                                                                                                                                                |
-| passedCheckCount | The number of checks the user has passed.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| hasFailed        | Flag that is true if the user has failed the most recent check. After the failed check, a few seconds pass and the check process is restarted - the flag is set to false and `passedCheckCount` goes back to 0.                                                                                                                                                                                                                                                              |
-| headYaw          | Euler angles of the head in degrees. Only defined if a face is visible.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| headPitch        | Euler angles of the head in degrees. Only defined if a face is visible.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| headRoll         | Euler angles of the head in degrees. Only defined if a face is visible.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| faceCenterX      | Coordinates of the center of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible.                                                                                                                                                                                                                                                                                                     |
-| faceCenterY      | Coordinates of the center of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible.                                                                                                                                                                                                                                                                                                     |
-| faceWidth        | Size of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible.                                                                                                                                                                                                                                                                                                                          |
-| faceHeight       | Size of the face in relative units. Multiply by the width or height of the camera preview to get absolute units. Only defined if a face is visible.                                                                                                                                                                                                                                                                                                                          |
+#### Models
 
-
-
-##### Models
 You have to load models that you would like to support.
 URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
+
 ```Swift
 let verifier = FaceLivenessVerifier(...)
 let url = Bundle.main.bundleURL.appendingPathComponent("Models/face")
@@ -520,20 +653,23 @@ if let models = FaceVerifierModels(url: url) {
 }
 ```
 
-#### Holograms
+### Holograms
+
 You can use  `DocumentVerifier` to detect 2D holograms on cards.
 To do that, you can use this object the same way like to detect documents and call method `beginHologramVerification` and endHologramVerification. You can record video for selfie and faceliveness, however, there is no need to call any methods on their verifiers.
 
 Detection logic in `captureOutput(_: ,didOutput: ,from:)` is almost the same but in case of holograms you can easily add reconrding video with `VideoWriter` class.
 This video can be uploaded to the backend after successful detection of hologram.
 
-#### Selfie verifier
+### Selfie verifier
+
 You can use  `SelfieVerifier` to verify selfie (human face picture) from short video. Human faces are to be identified in video frames.
 Interface is very similar to  `DocumentVerifier`, first you initialize `SelfieVerifier` and then call the `verify(buffer: )` or `verifyImage(imageBuffer: )` method in `func captureOutput(_: ,didOutput: ,from:)`.
 
+#### Auxiliary Images
 
-##### Auxiliary Images
 You can get all images that have been taken during the Faceliveness process.
+
 ```Swift
 let verifier = FaceLivenessVerifier(...)
 let info = verifier.getAuxiliaryInfo()
@@ -546,10 +682,12 @@ for metadata in info.metadata {
 }
 ```
 
-##### Legacy mode
+#### Legacy mode
+
 Faceliveness verifier has two modes. First is the new one and second one is the legacy. You can choose which one you want by using FaceLivenessVerifierSettings in constructor or `update` method of the verifier class. Moreover, you can specify the qualify of those pictures. Be default the legacy mode is disabled.
 
 Constructor method
+
 ```Swift
 let settings = FaceLivenessVerifierSettings(
     isLegacyModeEnabled: true,
@@ -560,6 +698,7 @@ let verifier = FaceLivenessVerifier(language: .Czech, settings: settings)
 ```
 
 Update method
+
 ```Swift
 let verifier = FaceLivenessVerifier(...)
 ...
@@ -571,13 +710,15 @@ let settings = FaceLivenessVerifierSettings(
 verifier.update(settings: settings)
 let info = verifier.getAuxiliaryInfo()
 ```
- 
-#### Result
+
+### Result
+
 The returning value of the `verify()` or `verifyImage(imageBuffer: )` methods is a struct of type `DocumentResult` for documents, `HologramResult` for holograms or `FaceResult` for face liveness.
 
 It contains all the information found describing currently analysed document/face.
 
 `DocumentResult` contains following values:
+
 - `state` - state of currently analysed image (e.g. `NoMatchFound`, `Blurry` or `ReflectionPresent` etc.)
 - `code` - version of a document (e.g. new or old version of Slovakia identity card). This attribute can be `nil` when state is equal to `NoMatchFound`
 - `role` - specified type of a document
@@ -594,40 +735,73 @@ Selfie detection result contains state of currently analysed image.
 Face liveness detection result contains state of currently analysed image.
 `FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile`, `Blurry`, `Dark` and finally  `Ok`
 
-## Signature
+### Signature
+
 The SDK now generates a signature for the snapshots it takes. The backend uses the signature to verify picture origin and integrity. The signature lets you upload the final frame instead of the whole video for verification. The SDK only generates a signature when the result state is OK. 
 
 The SDK provides the signature as an attribute inside of the result objects of verifiers, such as `DocumentResult`, `FaceLivenessResult`, and `SelfieResult`. Hologram does not support the signature. 
 
 This is what `ImageSignature` structure looks like:
+
 ```swift
 struct ImageSignature {
     let image: Data
     let signature: String
 }
 ```
+
 Where the `image` attribute is binary data of the image that contains the SDK signature. You have to send this binary data to the backend if you want to have your signature to be validated. The `signature` attribute is a string that represents the signature itself that you should send to the backend in your investigation sample HTTP REST call. 
 
-## Open Source
+Signature now contain "--ZENID_SIGNATURE--" prefix. The new recommended way of sending signature is by adding it as a second file to multipart upload of sample (first file being the image or video itself). Alternative method, if you are uploading image/file as binary body in POST request is to append signature to binary data of image/video as is. Old way of sending signature as request parameter in URL still works, but you can encounter issues due to URL size limits so it is recommended to switch to the new method.
+
+**Sample request** - Signature added to the end of the body of the message
+
+```swift
+func sendImageWithSignature(imageData: Data, signature: String) {
+    let urlString = "https://your-server/sample?country=&expectedSampleType=DocumentPicture&documentCode=&pageCode=&role=&profile="
+    guard let url = URL(string: urlString) else { return }
+
+    var httpBodyData = imageData
+
+    // Append the signature data to the imageData
+    if let signatureData = signature.data(using: .utf8) {
+        httpBodyData.append(signatureData)
+    }
+
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+    request.setValue("\(httpBodyData.count)", forHTTPHeaderField: "Content-Length")
+    request.httpBody = httpBodyData
+
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error { return }
+        if let data = data { return }
+    }
+    task.resume()
+}
+```
+
+### Open Source
 
 Zenid is powered by Open Source libraries.
 
- * AHEasing (WTFPL)
- * Catch2 (Boost Software License 1.0)
- * cppcodec (MIT License)
- * cvui (MIT License)
- * cxxopts (MIT License)
- * fmt (MIT License)
- * gmath (MIT License)
- * hedley (Creative Commons Zero v1.0 Universal)
- * imgui (MIT License)
- * implot (MIT License)
- * JSON for Modern C++ (Creative Commons Zero v1.0 Universal)
- * Magic Enum C++ (MIT License)
- * nameof (MIT License)
- * OpenCV  (Apache License 2.0)
- * PicoSHA2 (MIT License)
- * plusaes (Boost Software License 1.0)
- * Rapidcsv (BSD 3-Clause license)
- * Tensorflow Lite (Apache License 2.0)
- * TooJpeg (zlib License)
+* AHEasing (WTFPL)
+* Catch2 (Boost Software License 1.0)
+* cppcodec (MIT License)
+* cvui (MIT License)
+* cxxopts (MIT License)
+* fmt (MIT License)
+* gmath (MIT License)
+* hedley (Creative Commons Zero v1.0 Universal)
+* imgui (MIT License)
+* implot (MIT License)
+* JSON for Modern C++ (Creative Commons Zero v1.0 Universal)
+* Magic Enum C++ (MIT License)
+* nameof (MIT License)
+* OpenCV  (Apache License 2.0)
+* PicoSHA2 (MIT License)
+* plusaes (Boost Software License 1.0)
+* Rapidcsv (BSD 3-Clause license)
+* Tensorflow Lite (Apache License 2.0)
+* TooJpeg (zlib License)

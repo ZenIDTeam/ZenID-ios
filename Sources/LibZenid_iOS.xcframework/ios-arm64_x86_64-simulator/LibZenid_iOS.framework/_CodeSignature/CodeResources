@@ -6,47 +6,63 @@
 	<dict>
 		<key>Headers/AcceptableInput.h</key>
 		<data>
-		+xKZkpar6IZzUlekB2PaOYR/c4w=
+		1pk/iTSMmMnBVJhNkkim2aT1ZdY=
 		</data>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		T+eyT/zzYj3+utZURKsUPrOl2FY=
+		rwaUnzS1Z/STtZ6hfqzsKFVFsWA=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
-		ZHBE0qHEOsip6/PZXd/uM2ZpUD8=
+		bZoGc4r8NQnPBBaDLwf9B5EobrE=
+		</data>
+		<key>Headers/IQSHologramVerifier.h</key>
+		<data>
+		VlyjOkayK+mzp0MltKk8Z4LwUHc=
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
-		btlccf9eLdv+wcW8Lm/2sykEnmA=
+		bnD/ZlnoBpMqNcen7lPhusaxnIM=
 		</data>
 		<key>Headers/RecogLibC.h</key>
 		<data>
-		SDGjZwVOnEmuAOK4QB4xJmdfuxQ=
+		oeZfMQr0yFB69Kqfo2SZsC8hDZo=
+		</data>
+		<key>Headers/RecogLibCApi.h</key>
+		<data>
+		Ga89zx+zsxK/qzUkf1Qz82TBTZI=
 		</data>
 		<key>Headers/RecogLibCException.h</key>
 		<data>
-		njvA9soYQj6vBdXZ2D+GVHAQe7E=
+		+r5oSb9ueqvSLWYbVXtm2ZNQ5zA=
 		</data>
 		<key>Headers/SelfieVerifier.h</key>
 		<data>
-		NyfMCoOdaA30ykTG76x+xOuiSQE=
+		VfaH7rUr/o3axzyvzjeZsb5rFtQ=
+		</data>
+		<key>Headers/SerializableInterop.generated.h</key>
+		<data>
+		Zj2xygPHN34OlaYiRsfJVBTxeaA=
+		</data>
+		<key>Headers/Version.h</key>
+		<data>
+		qwhybtlHCAmmpNhW4IuNeThxwU4=
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		v0amse3JZIhwxoVFSA90HVmNxoI=
+		l/4zKpVn4hPmRoYQeHgwb00BYaY=
 		</data>
 		<key>Headers/ZenidLog.h</key>
 		<data>
-		nbsqDXHJ+mJ9ESqwKGy+pWpDYps=
+		HfBZdP2eS3yz4wParKeczAS+uGY=
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
-		QBk3wWRhAAnVFBhxWW2LIhgXK3I=
+		AiplFwYcVRLi0uE6kmooV27j5KU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		CQ684V2Ip9awJncf0QktINl/K9o=
+		bzP94EGnDT4O6iVw9T6C7Xf0SLQ=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -55,70 +71,98 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Sws+uALaqdJAhZtJihYDUOPCZ7Nv6iQp66BcAdSM5Oc=
+			hZE666PNkXo9m5jfalWQcgwFVoRxT0eY2ttgEVTH4WQ=
 			</data>
 		</dict>
 		<key>Headers/DocumentVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WwC6udb2O6GC/NAo4z7SXp4BYSls/LTPOlj0QT2gmPU=
+			5n5hQkrKdrjuVU3YAo1FIOsj1tQAsj5CrRDKv8+x4oM=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tAY1QlNn5yTgbqSLPOP2euN+FRYcTpj3DnzOK5FKZyg=
+			/ZeFDhW9cwMNj6kcs9rkXJg7qBObSUPZFKjKU9GgnyE=
+			</data>
+		</dict>
+		<key>Headers/IQSHologramVerifier.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Z36DmOKE1TLTtCYluf0c7rIZSnaeZ3umtLwVgPcF+l0=
 			</data>
 		</dict>
 		<key>Headers/Image.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XBYN7eJmTQotKWxdZBcYP6ru+YW27OVA3SPvIRBDFq0=
+			r3x0LyYEycsXN1kiU7xfXL0K6FUTqPWb25RFe6b9krg=
 			</data>
 		</dict>
 		<key>Headers/RecogLibC.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ekh9oCdOBXaGTpNj3TJPK+LDuUs1J5zIdfz5lj4XQpI=
+			rQXDxKgCqLJ7Q4fncr7fhifAHEJChsaD9OaOH/jSvMs=
+			</data>
+		</dict>
+		<key>Headers/RecogLibCApi.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/C7y3fhoNEfg0oyQHCVLKRdUEycFZWZCUAcFA8bp9LQ=
 			</data>
 		</dict>
 		<key>Headers/RecogLibCException.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			stADKQWOJ2/ac+Pi56UjEMuMfQ7NHRLJvSAqNQ41Z+U=
+			8kgMkWZroMeukdV7ZDqrG15uNq0hGbfx9ikXORBCqMU=
 			</data>
 		</dict>
 		<key>Headers/SelfieVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mLdmJuRqmYLNSKVZR4PqyzAJQKzVAPQ/cgk4bYIwNYM=
+			ZNwoKIZdi5YWWPjZKbaCODLSHNlWKOOfd2G7KFW1pHU=
+			</data>
+		</dict>
+		<key>Headers/SerializableInterop.generated.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Ybj7wHvcYizDOddjHvR4CfF6dOIkxS6/QaIMIVaD9X0=
+			</data>
+		</dict>
+		<key>Headers/Version.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			WRfk9PYald0obCD7ScBxRd+R/Z9zsqLrT3KBHY5gHlI=
 			</data>
 		</dict>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k5UfrlR4ZtzZxPvY6CuaK298nNF7C/GGt9rv+5sYRTE=
+			r6UFd4owFAH3gEFSKepvdnQJgfI4uJmMICkBwH+1L8A=
 			</data>
 		</dict>
 		<key>Headers/ZenidLog.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YaRAZ8NjrNR6JLzOcUIOdXXMJ+Mf0DAWFqyLWkDrdU8=
+			hA+Vzdq5giIhjJCdgDWv9npUMB1s5ovEvus0U9xPTa4=
 			</data>
 		</dict>
 		<key>Headers/ZenidSecurity.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			582NbNhl1zpFEuGnpC92huYPYxvy/wQq2sSXjeU7Nl0=
+			TQ++WQ+9IHWUl60NfZKQfNGcO4TNFnTiHe/JfQly06Q=
 			</data>
 		</dict>
 	</dict>

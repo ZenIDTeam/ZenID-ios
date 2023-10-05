@@ -1,5 +1,15 @@
 # Change Log
 
+# 2.0.21 2023-30-09
+* RecogLib 3.8.1
+* New support for NFC document reading (see MIGRATION.md)
+* New `DocumentControllerDelegate` method `func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)`
+* New `NfcDocumentReader` class
+* New SelectProfile feature that allows customers to set frontend validator configs on the backend.
+* New states for DocumentVerifierState and FaceLivenessVerifierState.
+* Removed attributes `specularAcceptableScore`, `documentBlurAcceptableScore` and `readBarcode` from struct `DocumentVerifierSettings`
+
+
 # 2.0.20 2023-06-15
 * Hologram length video reducing
 * Fixed issue when completing the face-liveness verification proces  

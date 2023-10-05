@@ -68,7 +68,7 @@ platform :ios do
       output_name: ipaName,
       export_options: {
         provisioningProfiles: {
-        "cz.trask.ZenID" => "Distriburion: ZenID Demo AdHoc"
+        "cz.trask.ZenID" => "cz.trask.ZenID AdHoc"
         }
       }
     )

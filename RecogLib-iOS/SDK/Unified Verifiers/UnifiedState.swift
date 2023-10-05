@@ -18,4 +18,8 @@ public enum UnifiedState {
     case tiltUpAndDown
     case center
     case barcode
+    case textNotReadable
+    case nfc
+    case reseting
+    case dontSmile
 }
