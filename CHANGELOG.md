@@ -1,6 +1,6 @@
 # Change Log
 
-# 2.0.21 2023-30-09
+# 2.0.21 2023-09-30
 * RecogLib 3.8.1
 * New support for NFC document reading (see MIGRATION.md)
 * New `DocumentControllerDelegate` method `func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)`
