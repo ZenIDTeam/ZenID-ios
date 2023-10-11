@@ -23,10 +23,6 @@ extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsLoader {
 }
 
 extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsUpdater {
-    func update(timeToBlurMaxToleranceInSeconds: Int) {
-        settings = settings.update(timeToBlurMaxToleranceInSeconds: timeToBlurMaxToleranceInSeconds)
-    }
-    
     func update(showTimer: Bool) {
         settings = settings.update(showTimer: showTimer)
     }
@@ -41,9 +37,8 @@ extension InMemoryDocumentVerifierSettings: DocumentVerifierSettingsUpdater {
 }
 
 private extension DocumentVerifierSettings {
-    func update(timeToBlurMaxToleranceInSeconds: Int? = nil, showTimer: Bool? = nil, showAimingCircle: Bool? = nil, drawOutline: Bool? = nil) -> DocumentVerifierSettings {
+    func update(showTimer: Bool? = nil, showAimingCircle: Bool? = nil, drawOutline: Bool? = nil) -> DocumentVerifierSettings {
         .init(
-            timeToBlurMaxToleranceInSeconds: timeToBlurMaxToleranceInSeconds ?? self.timeToBlurMaxToleranceInSeconds,
             showTimer: showTimer ?? self.showTimer,
             showAimingCircle: showAimingCircle ?? self.showAimingCircle,
             drawOutline: drawOutline ?? self.drawOutline

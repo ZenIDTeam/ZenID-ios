@@ -30,6 +30,7 @@ class SelfieLivenessSdkValidatorConfig
 {
 public:
   std::vector<std::vector<SdkLivenessSteps>> RandomSequences;
+  inline static float SmileThreshold = 0.82f;
   int ScoreStep = 100;
   std::vector<SdkLivenessSteps> AllowedSteps;
   bool StepUpPerspective = true;
@@ -83,6 +84,14 @@ public:
 class SdkPictureQualityValidatorConfig
 {
 public:
+  int OverallTimeToMaxTolerance = 10;
+  int TimeToMaxToleranceForBlur = 10;
+  int TimeToMaxToleranceForSpecular = 10;
+  int TimeToMaxToleranceForDarkness = 10;
+  int TimeToMaxToleranceForAlignment = 10;
+  int TimeToMaxToleranceForBorderDistance = 10;
+  int TimeToMaxToleranceForLinearFit = 5;
+  int TimeToMaxToleranceForStability = 10;
   int MinDarkness = 80;
   int MaxDarkness = 100;
   int MinAlignment = 50;
@@ -97,6 +106,21 @@ public:
   int ScoreStep = 100;
   bool IsTestEnabled = true;
 };
+class IQSHologramValidatorConfig
+{
+public:
+  int RequiredHorizontalRangeTR = 20;
+  int RequiredVerticalRangeTR = 20;
+  int MinimumUniqueMatchesTR = 0;
+  int TimeoutTR = 0;
+  int RequiredHorizontalRangeOL = 6;
+  int RequiredVerticalRangeOL = 7;
+  int MinimumUniqueMatchesOL = 0;
+  int TimeoutOL = 0;
+  int AcceptScore = 100;
+  bool IsTestEnabled = true;
+  int ScoreStep = 1;
+};
 class SdkProfileConfigs
 {
 public:
@@ -106,6 +130,7 @@ public:
   SpecularImageValidatorConfig SpecularImageValidatorConfig;
   BarcodeValidatorConfig BarcodeValidatorConfig;
   SdkPictureQualityValidatorConfig SdkPictureQualityValidatorConfig;
+  IQSHologramValidatorConfig IQSHologramValidatorConfig;
 };
 class SdkMasterConfig
 {
@@ -183,6 +208,7 @@ enum class ValidatorType
   SelfieLivenessSdk = 66,
   Nfc = 67,
   SdkPictureQuality = 68,
+  IQSHologram = 69,
 };
 
 class ValidatorResultInfo

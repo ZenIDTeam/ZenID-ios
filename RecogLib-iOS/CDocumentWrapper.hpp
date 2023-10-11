@@ -16,7 +16,7 @@ struct CDocumentInfo {
 };
 
 struct CDocumentVerifierSettings {
-    int timeToBlurMaxToleranceInSeconds, visualizerVersion;
+    int visualizerVersion;
     bool showTimer, enableAimingCircle, drawOutline;
 };
 

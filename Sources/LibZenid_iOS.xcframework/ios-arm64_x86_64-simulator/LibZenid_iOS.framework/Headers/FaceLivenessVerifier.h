@@ -36,12 +36,6 @@ public:
 
 	// Show the default smile animation when the feedback is "Smile".
 	bool showSmileAnimation = true;
-
-	//FPS at which the video should be recorded
-	std::optional<int> fps;
-
-	// Resolution width with which the video should be recorded
-	std::optional<int> resolutionWidth;
 };
 
 class FaceLivenessVerifier
