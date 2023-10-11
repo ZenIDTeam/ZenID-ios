@@ -107,8 +107,8 @@ def replace_models(sdk_root, project_root):
     update_models_dir = os.path.join(sdk_root, 'Models')
     
     print("Moving new models into project at {0}".format(project_models_dir))
-    shutil.rmtree(project_models_dir)
-    shutil.move(update_models_dir, project_models_dir)
+    #shutil.rmtree(project_models_dir)
+    #shutil.move(update_models_dir, project_models_dir)
 
 
 def replace_sdk(sdk_root, project_root, libzen_archive):
@@ -125,7 +125,7 @@ def replace_sdk(sdk_root, project_root, libzen_archive):
     os.system('chmod -R 0755 {0}'.format(xcframework))
 
     project_xcframework = os.path.join(project_root, 'Sources', 'LibZenid_iOS.xcframework')
-    print("Relpacing SDK on path {0}".format(project_xcframework))
+    print("Replacing SDK on path {0}".format(project_xcframework))
 
     shutil.rmtree(project_xcframework)
     shutil.move(xcframework, project_xcframework)
