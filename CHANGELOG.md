@@ -1,6 +1,6 @@
 # Change Log
 
-# 2.0.22 2023-10-12
+# 2.0.22 2023-10-13
 * RecogLib 3.8.5
 * New: Added support for iPhone 15 line
 * Turkish passports v2023 are enabled for NFC reading.
