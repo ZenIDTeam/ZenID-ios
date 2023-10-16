@@ -24,7 +24,7 @@ public final class DocumentVerifierModels: VerifierModels {
             let fileUrl = url.appendingPathComponent(content)
             if isDirectory(url: fileUrl) {
                 load(url: fileUrl, onLoad: onLoad)
-            } else if isBinFile(url: fileUrl) {
+            } else if isBinFile(url: fileUrl), notIQS(filename: content) {
                 onLoad(loadData(url: fileUrl), fileUrl.lastPathComponent)
             }
         }
@@ -41,6 +41,11 @@ public final class DocumentVerifierModels: VerifierModels {
     private func isDirectory(url: URL) -> Bool {
         var isDirectory: ObjCBool = false
         return fileManager.fileExists(atPath: url.path, isDirectory: &isDirectory) && isDirectory.boolValue
+    }
+    
+    @inline(__always)
+    private func notIQS(filename: String) -> Bool {
+        !filename.hasPrefix("iqs_")
     }
     
     @inline(__always)
