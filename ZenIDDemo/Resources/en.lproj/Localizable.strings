@@ -107,6 +107,7 @@
 "document.state.no.match.found" = "No match found";
 "document.state.reflection.present" = "Drop reflection please";
 "document.state.hologram.error" = "Hologram error";
+"document.state.text_not_readable" = "Text isn't readable";
 "document.state.dark" = "Image too dark";
 "document.state.barcode" = "Barcode not readable";
 
