@@ -258,11 +258,13 @@ extension PureVerifierViewController {
 
         captureSession.commitConfiguration()
         
+        // Zoom factor is necessary only for multifocal systems.
+        guard device.deviceType != .builtInWideAngleCamera else { return true }
         if #available(iOS 13.0, *) {
             do {
                 try device.lockForConfiguration()
                 device.videoZoomFactor =
-                CGFloat(device.virtualDeviceSwitchOverVideoZoomFactors.first?.floatValue ?? 2)
+                CGFloat(device.virtualDeviceSwitchOverVideoZoomFactors.first?.floatValue ?? 1)
                 device.unlockForConfiguration()
             } catch {
                 // Let it gracefully be.

@@ -65,11 +65,13 @@ public final class Camera: NSObject {
 
         captureSession.sessionPreset = .high
         
+        // Zoom factor is necessary only for multifocal systems.
+        guard device.deviceType != .builtInWideAngleCamera else { return }
         if #available(iOS 13.0, *) {
             do {
                 try captureDevice?.lockForConfiguration()
                 captureDevice?.videoZoomFactor =
-                    CGFloat(captureDevice?.virtualDeviceSwitchOverVideoZoomFactors.first?.floatValue ?? 2)
+                    CGFloat(captureDevice?.virtualDeviceSwitchOverVideoZoomFactors.first?.floatValue ?? 1)
                 captureDevice?.unlockForConfiguration()
             } catch {
                 // Let it gracefully be.
