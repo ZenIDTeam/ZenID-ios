@@ -37,11 +37,12 @@ final class ScanProcess {
     weak var delegate: ScanProcessDelegate?
     
     private var requestsCount: Int
+    private let profileName: String
     
     /// Initialize the scan process with a specific document type
     ///
     /// - Parameter documentType: Document type to scan
-    init(documentType: DocumentType, country: Country, selfieSelectionLoader: SelfieSelectionLoader) {
+    init(documentType: DocumentType, country: Country, selfieSelectionLoader: SelfieSelectionLoader, profileName: String) {
         self.documentType = documentType
         self.country = country
         requestsToScan = documentType.scanRequests
@@ -51,6 +52,7 @@ final class ScanProcess {
             requestsToScan = requestsToScan.filter({ $0 != .face })
         }
         requestsCount = requestsToScan.count
+        self.profileName = profileName
     }
     
     deinit {
@@ -127,8 +129,9 @@ final class ScanProcess {
     public func processPhoto(imageData: Data, type: PhotoType, result: RecogLib_iOS.UnifiedResult?, dataType: RecogLib_iOS.DataType) {
         checkIfIsFinishedAndCallDelegate()
         self.scanNextSample()
+        let data: Data = dataType == .video ? imageData : result?.signature?.image ?? imageData
         let imageInput = ImageInput(
-            imageData: result?.signature?.image ?? imageData,
+            imageData: data,
             documentType: documentType,
             documentRole: RecoglibMapper.documentRole(from: documentType, role: result?.role),
             documentCode: result?.code == nil ? documentType.rawValue : String(describing: result!.code!),
@@ -192,7 +195,7 @@ private extension ScanProcess {
             self.delegate?.willProcessData(scanProcess: self)
         }
         Client()
-            .upload(API.uploadSample(image: image)) { [weak self] (response, error) in
+            .upload(API.uploadSampleMultipart(image: image, profile: profileName)) { [weak self] (response, error) in
                 guard let self = self else { return }
                 if let response = response {
                     self.processSampleResponse(input: image, response: response)
@@ -208,7 +211,7 @@ private extension ScanProcess {
     /// - Parameter sampleIds: Array of the processed sample IDs.
     func investigateSamples(_ sampleIds: [String]) {
         Client()
-            .request(API.investigateSamples(sampleIds: sampleIds)) { [weak self] (response, error) in
+            .request(API.investigateSamples(sampleIds: sampleIds, profile: profileName)) { [weak self] (response, error) in
                 guard let self = self else { return }
                 if let response = response {
                     if let errorCode = response.ErrorCode {

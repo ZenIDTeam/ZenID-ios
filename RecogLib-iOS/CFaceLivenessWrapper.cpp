@@ -166,3 +166,19 @@ int getFaceLivenessRequiredVideoResolution(const void *object)
     }
     return 0;
 }
+
+void getFaceLivenessResult(const void *object, CFaceLivenessInfo *face) {
+    FaceLivenessVerifier *verifier =(FaceLivenessVerifier *)object;
+    
+    const auto state = verifier->GetStage();
+    
+    if (state == FaceLivenessVerifierState::Ok) {
+        CImageSignature signature = CImageSignature();
+        signature.signature = verifier->GetSignature().c_str();
+        signature.signatureSize = static_cast<int>(verifier->GetSignature().size());
+        signature.image = verifier->GetSignedImage().data();
+        signature.imageSize = static_cast<int>(verifier->GetSignedImage().size());
+        face->signature = signature;
+    }
+    face->state = static_cast<int>(state);
+}

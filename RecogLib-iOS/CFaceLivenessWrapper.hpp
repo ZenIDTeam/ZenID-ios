@@ -60,6 +60,8 @@ void setFaceLivenessDebugInfo(const void *object, bool show);
 int getFaceLivenessRequiredFps(const void *object);
 int getFaceLivenessRequiredVideoResolution(const void *object);
 
+void getFaceLivenessResult(const void *object, CFaceLivenessInfo *face);
+
 #ifdef __cplusplus
 }
 #endif

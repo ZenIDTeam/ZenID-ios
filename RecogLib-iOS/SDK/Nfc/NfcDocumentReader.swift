@@ -270,6 +270,10 @@ extension NfcDocumentReader {
 
         if DGsToRead.contains(.DG14) {
             DGsToRead.removeAll { $0 == .DG14 }
+            
+            if let dg14 = try await readDataGroup(tagReader: tagReader, dgId: .DG14) as? DataGroup14 {
+                passport.addDataGroup(.DG14, dataGroup: dg14)
+            }
         }
 
         // If we are skipping secure elements then remove .DG3 and .DG4
