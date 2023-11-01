@@ -26,7 +26,6 @@ public:
 	DocumentVerifierSettings(const std::optional<float>& viewportHeightCm,
 	                         bool enableAimingCircle,
 	                         bool showTimer,
-	                         const std::optional<int>& timeToBlurMaxToleranceInSeconds,
 	                         bool drawOutline);
 
 	// Height of the visible area seen by the camera, in cm.
@@ -40,9 +39,6 @@ public:
 
 	// Toggles displaying timer that shows seconds remaining for the validators to become max tolerant. 
 	bool showTimer = false;
-
-	//The time delay for the blur validator to become max tolerant. Default value is 10.
-	std::optional<int> timeToBlurMaxToleranceInSeconds;
 
 	// Draw the card outline
 	bool drawOutline = true;

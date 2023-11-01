@@ -68,7 +68,7 @@ platform :ios do
       output_name: ipaName,
       export_options: {
         provisioningProfiles: {
-        "cz.trask.ZenID" => "cz.trask.ZenID AdHoc"
+        "cz.trask.ZenID" => "ZenID AdHoc (Vláďa)"
         }
       }
     )
@@ -80,7 +80,7 @@ platform :ios do
       app: "1:308002022528:ios:36531d62e268b7432df265",
       groups: "Inhouse",
       release_notes_file: "CHANGELOG.md",
-      service_credentials_file: ".firebase-service-account.json"
+      service_credentials_file: "firebase-service-account.json"
     )
   end
 end

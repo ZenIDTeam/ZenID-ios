@@ -15,7 +15,6 @@ protocol DocumentVerifierSettingsLoader {
 }
 
 protocol DocumentVerifierSettingsUpdater {
-    func update(timeToBlurMaxToleranceInSeconds: Int)
     func update(showTimer: Bool)
     func update(showAimingCircle: Bool)
     func update(drawOutline: Bool)

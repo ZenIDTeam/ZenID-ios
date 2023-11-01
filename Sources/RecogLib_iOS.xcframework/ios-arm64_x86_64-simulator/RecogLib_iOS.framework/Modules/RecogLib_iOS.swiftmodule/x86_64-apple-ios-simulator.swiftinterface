@@ -1,20 +1,27 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
+import CommonCrypto
 import CoreGraphics
 import CoreMedia
+import CoreNFC
 import CoreVideo
+import CryptoKit
+import CryptoTokenKit
+import DeveloperToolsSupport
 import Foundation
 @_exported import RecogLib_iOS
 import Swift
+import SwiftUI
 import UIKit.UIImage
 import UIKit
 import VideoToolbox
 import WebKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 public protocol UnifiedVerifier {
   func verify(image: CoreVideo.CVPixelBuffer) -> (any RecogLib_iOS.UnifiedResult)?
 }
@@ -24,6 +31,39 @@ public struct FaceLivenessResult {
 }
 public protocol VerifierRenderable {
   func getRenderCommands(canvasSize: CoreFoundation.CGSize) -> Swift.String?
+}
+public enum DataGroupId : Swift.Int, Swift.CaseIterable {
+  case COM
+  case DG1
+  case DG2
+  case DG3
+  case DG4
+  case DG5
+  case DG6
+  case DG7
+  case DG8
+  case DG9
+  case DG10
+  case DG11
+  case DG12
+  case DG13
+  case DG14
+  case DG15
+  case DG16
+  case SOD
+  case Unknown
+  public var name: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.DataGroupId]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.DataGroupId] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 public protocol ResultState {
   var isOk: Swift.Bool { get }
@@ -36,6 +76,44 @@ public protocol ResultState {
 }
 extension RecogLib_iOS.BaseController : RecogLib_iOS.VideoWriterDelegate {
   public func didTakeVideo(_ videoAsset: AVFoundation.AVURLAsset)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class COM : RecogLib_iOS.DataGroup {
+  public var version: Swift.String {
+    get
+  }
+  public var unicodeVersion: Swift.String {
+    get
+  }
+  public var dataGroupsPresent: [Swift.String] {
+    get
+  }
+  @objc deinit
+}
+public enum OpenSSLError : Swift.Error {
+  case UnableToGetX509CertificateFromPKCS7(Swift.String)
+  case UnableToVerifyX509CertificateForSOD(Swift.String)
+  case VerifyAndReturnSODEncapsulatedData(Swift.String)
+  case UnableToReadECPublicKey(Swift.String)
+  case UnableToExtractSignedDataFromPKCS7(Swift.String)
+  case VerifySignedAttributes(Swift.String)
+  case UnableToParseASN1(Swift.String)
+  case UnableToDecryptRSASignature(Swift.String)
+}
+extension RecogLib_iOS.OpenSSLError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum PassiveAuthenticationError : Swift.Error {
+  case UnableToParseSODHashes(Swift.String)
+  case InvalidDataGroupHash(Swift.String)
+  case SODMissing(Swift.String)
+}
+extension RecogLib_iOS.PassiveAuthenticationError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
 }
 public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case IDC1
@@ -203,6 +281,7 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case BE_PAS_2022
   case RU_PAS_2006_10
   case TR_PAS_2023
+  case DO_IDC_2014
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int
@@ -473,6 +552,23 @@ public enum FaceLivenessVerifierState : Swift.Int, Swift.CaseIterable {
     get
   }
 }
+public enum SampleType : Swift.Int, Swift.CaseIterable {
+  case DocumentPicture
+  case Selfie
+  case SelfieVideo
+  case DocumentVideo
+  case Archived
+  case Unknown
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.SampleType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.SampleType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public enum SdkSignatureProblem : Swift.Int, Swift.CaseIterable {
   case HashDiffers
   case TimeDiffers
@@ -513,6 +609,28 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBuffe
 extension UIKit.UIDevice {
   @_Concurrency.MainActor(unsafe) public static let isProModel: Swift.Bool
 }
+@_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class DataGroup {
+  public var datagroupType: RecogLib_iOS.DataGroupId
+  public var body: [Swift.UInt8] {
+    get
+  }
+  public var data: [Swift.UInt8] {
+    get
+  }
+  public func hash(_ hashAlgorythm: Swift.String) -> [Swift.UInt8]
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class DataGroup7 : RecogLib_iOS.DataGroup {
+  public var imageData: [Swift.UInt8] {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class DataGroup14 : RecogLib_iOS.DataGroup {
+  @objc deinit
+}
 public enum ZenFont {
 }
 extension UIKit.UIFont {
@@ -528,6 +646,26 @@ extension UIKit.UIFont {
   public static let pagesCountLabel: UIKit.UIFont
   public static let resultTitle: UIKit.UIFont
   public static let resultValue: UIKit.UIFont
+}
+@objc public class NfcDocumentReader : ObjectiveC.NSObject, RecogLib_iOS.NfcDocumentReaderProtocol {
+  public init(mrzKey: Swift.String, displayMessageProvider: (any RecogLib_iOS.NfcDisplayMessageProvider)? = nil)
+  @objc deinit
+  #if compiler(>=5.3) && $AsyncAwait
+  public func read() async throws -> RecogLib_iOS.NfcData
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func read(skipSecureElements: Swift.Bool = true, skipPACE: Swift.Bool = false) async throws -> RecogLib_iOS.NfcData
+  #endif
+}
+@available(iOS 13, *)
+extension RecogLib_iOS.NfcDocumentReader : CoreNFC.NFCTagReaderSessionDelegate {
+  public func tagReaderSessionDidBecomeActive(_ session: CoreNFC.NFCTagReaderSession)
+  public func tagReaderSession(_ session: CoreNFC.NFCTagReaderSession, didInvalidateWithError error: any Swift.Error)
+  public func tagReaderSession(_ session: CoreNFC.NFCTagReaderSession, didDetect tags: [CoreNFC.NFCTag])
+}
+@available(iOS 13, *)
+extension RecogLib_iOS.NfcDocumentReader {
+  public func invalidateSession(errorMessage: RecogLib_iOS.NFCDisplayMessage, error: RecogLib_iOS.NfcDocumentReaderError)
 }
 public struct MrzFields : Swift.Decodable {
   public let BirthDate: Swift.String
@@ -564,6 +702,10 @@ public class SelfieVerifier {
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
   public func reset()
   public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class DataGroup15 : RecogLib_iOS.DataGroup {
   @objc deinit
 }
 public struct FaceLivenessStepParameters : Swift.Decodable {
@@ -650,22 +792,125 @@ public class DocumentVerifier {
   public func getRequiredResolution() -> Swift.Int
   public func getNfcKey() -> Swift.String?
   public func getMrzFields() -> RecogLib_iOS.MrzFields?
-  public func processNfc(jsonData: Swift.String?, status: RecogLib_iOS.NfcStatus)
-  public func getDocumentResult() -> RecogLib_iOS.DocumentResult?
+  public func processNfc(jsonData: Swift.String, status: RecogLib_iOS.NfcStatus)
   public func getState() -> RecogLib_iOS.DocumentVerifierState?
   public func getSignedImage() -> RecogLib_iOS.ImageSignature?
+  public func getNfcValidatorSettings() -> RecogLib_iOS.DocumentVerifierNfcValidatorSettings
+  public func getDocumentResult(orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
+  public func getSettings() -> RecogLib_iOS.DocumentVerifierSettings
   @objc deinit
 }
 public struct NfcUtils {
   public static func getMRZKey(documentNumber: Swift.String, dateOfBirth: Swift.String, dateOfExpiry: Swift.String) -> Swift.String
-  public static func pad(_ value: Swift.String, fieldLength: Swift.Int) -> Swift.String
-  public static func calcCheckSum(_ checkString: Swift.String) -> Swift.Int
+}
+public class NFCDocumentModel : RecogLib_iOS.NFCDocumentModelType {
+  public var documentType: Swift.String {
+    get
+  }
+  public var documentSubType: Swift.String {
+    get
+  }
+  public var documentNumber: Swift.String {
+    get
+  }
+  public var issuingAuthority: Swift.String {
+    get
+  }
+  public var documentExpiryDate: Swift.String {
+    get
+  }
+  public var dateOfBirth: Swift.String {
+    get
+  }
+  public var gender: Swift.String {
+    get
+  }
+  public var nationality: Swift.String {
+    get
+  }
+  public var lastName: Swift.String {
+    get
+  }
+  public var firstName: Swift.String {
+    get
+  }
+  public var passportMRZ: Swift.String {
+    get
+  }
+  public var placeOfBirth: Swift.String? {
+    get
+  }
+  public var residenceAddress: Swift.String? {
+    get
+  }
+  public var phoneNumber: Swift.String? {
+    get
+  }
+  public var personalNumber: Swift.String? {
+    get
+  }
+  public var LDSVersion: Swift.String {
+    get
+  }
+  public var dataGroupsPresent: [Swift.String] {
+    get
+  }
+  public var dataGroupsAvailable: [RecogLib_iOS.DataGroupId] {
+    get
+  }
+  public var dataGroupsRead: [RecogLib_iOS.DataGroupId : RecogLib_iOS.DataGroup] {
+    get
+  }
+  public var BACAuthStatus: RecogLib_iOS.AuthenticationStatus {
+    get
+  }
+  public var PACEAuthStatus: RecogLib_iOS.AuthenticationStatus {
+    get
+  }
+  public var chipAuthenticationStatus: RecogLib_iOS.AuthenticationStatus {
+    get
+  }
+  public var passportCorrectlySigned: Swift.Bool {
+    get
+  }
+  public var documentSigningCertificateVerified: Swift.Bool {
+    get
+  }
+  public var passportDataNotTampered: Swift.Bool {
+    get
+  }
+  public var activeAuthenticationPassed: Swift.Bool {
+    get
+  }
+  public var activeAuthenticationChallenge: [Swift.UInt8] {
+    get
+  }
+  public var activeAuthenticationSignature: [Swift.UInt8] {
+    get
+  }
+  public var verificationErrors: [any Swift.Error] {
+    get
+  }
+  public var isPACESupported: Swift.Bool {
+    get
+  }
+  public var passportImage: UIKit.UIImage? {
+    get
+  }
+  public var signatureImage: UIKit.UIImage? {
+    get
+  }
+  public init()
+  public func addDataGroup(_ id: RecogLib_iOS.DataGroupId, dataGroup: RecogLib_iOS.DataGroup)
+  public func getDataGroupData(_ groupId: RecogLib_iOS.DataGroupId) -> [Swift.UInt8]?
+  public func getEncodedDataGroup(_ groupId: RecogLib_iOS.DataGroupId) -> Swift.String?
+  @objc deinit
 }
 public struct NfcData {
-  public let DataGroups: [RecogLib_iOS.NfcData.DGName : Swift.String]
+  public let DataGroups: [RecogLib_iOS.DataGroupId : Swift.String]
   public let ProtocolUsed: RecogLib_iOS.NfcData.NfcProtocol
-  public let document: RecogLib_iOS.NFCDocumentModel?
-  public init(document: RecogLib_iOS.NFCDocumentModel)
+  public let document: (any RecogLib_iOS.NFCDocumentModelType)?
+  public init(document: any RecogLib_iOS.NFCDocumentModelType)
 }
 extension RecogLib_iOS.NfcData : Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
@@ -740,10 +985,13 @@ extension RecogLib_iOS.DocumentResult : RecogLib_iOS.ResultState {
   }
 }
 public protocol DocumentControllerDelegate : AnyObject {
-  func controller(_ controller: RecogLib_iOS.DocumentController, didReadMrz result: RecogLib_iOS.DocumentResult, mrzCode: Swift.String)
+  func controller(_ controller: RecogLib_iOS.DocumentController, didScan result: RecogLib_iOS.DocumentResult, nfcCode: Swift.String)
   func controller(_ controller: RecogLib_iOS.DocumentController, didScan result: RecogLib_iOS.DocumentResult)
   func controller(_ controller: RecogLib_iOS.DocumentController, didRecord videoURL: Foundation.URL)
   func controller(_ controller: RecogLib_iOS.DocumentController, didUpdate result: RecogLib_iOS.DocumentResult)
+}
+public protocol SimulatorHelperDelegate : AnyObject {
+  func provideDebugImage(for id: Swift.String, completion: @escaping (UIKit.UIImage) -> Swift.Void)
 }
 public protocol DocumentControllerAbstraction {
   var delegate: (any RecogLib_iOS.DocumentControllerDelegate)? { get set }
@@ -751,10 +999,55 @@ public protocol DocumentControllerAbstraction {
 }
 @_hasMissingDesignatedInitializers final public class DocumentController : RecogLib_iOS.BaseController<RecogLib_iOS.DocumentResult>, RecogLib_iOS.DocumentControllerAbstraction {
   weak final public var delegate: (any RecogLib_iOS.DocumentControllerDelegate)?
+  weak final public var debugDelegate: (any RecogLib_iOS.SimulatorHelperDelegate)?
   public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, mrzModelsUrl: Foundation.URL?)
   @objc deinit
   final public func configure(configuration: RecogLib_iOS.DocumentControllerConfiguration = .default) throws
   final public func processNfcResult(nfcData: RecogLib_iOS.NfcData, status: RecogLib_iOS.NfcStatus) -> RecogLib_iOS.DocumentResult?
+  final public func skipNfcResult() -> RecogLib_iOS.DocumentResult?
+  final public func getSignedImage() -> RecogLib_iOS.ImageSignature?
+  final public func getNfcSettings() -> RecogLib_iOS.DocumentVerifierNfcValidatorSettings
+  final public func getDocumentResult(orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class DataGroup11 : RecogLib_iOS.DataGroup {
+  public var fullName: Swift.String? {
+    get
+  }
+  public var personalNumber: Swift.String? {
+    get
+  }
+  public var dateOfBirth: Swift.String? {
+    get
+  }
+  public var placeOfBirth: Swift.String? {
+    get
+  }
+  public var address: Swift.String? {
+    get
+  }
+  public var telephone: Swift.String? {
+    get
+  }
+  public var profession: Swift.String? {
+    get
+  }
+  public var title: Swift.String? {
+    get
+  }
+  public var personalSummary: Swift.String? {
+    get
+  }
+  public var proofOfCitizenship: Swift.String? {
+    get
+  }
+  public var tdNumbers: Swift.String? {
+    get
+  }
+  public var custodyInfo: Swift.String? {
+    get
+  }
+  @objc deinit
 }
 public protocol LoggerProtocol {
   func Error(_ message: Swift.String)
@@ -781,6 +1074,44 @@ public struct FaceLivenessVerifierSettings : Swift.Equatable {
   public let visualizerVersion: Swift.Int
   public init(isLegacyModeEnabled: Swift.Bool = false, maxAuxiliaryImageSize: Swift.Int = 300, visualizerVersion: Swift.Int = 1)
   public static func == (a: RecogLib_iOS.FaceLivenessVerifierSettings, b: RecogLib_iOS.FaceLivenessVerifierSettings) -> Swift.Bool
+}
+public enum AuthenticationStatus {
+  case notDone
+  case success
+  case failed
+  public static func == (a: RecogLib_iOS.AuthenticationStatus, b: RecogLib_iOS.AuthenticationStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol NFCDocumentModelType {
+  var activeAuthenticationPassed: Swift.Bool { get }
+  var BACAuthStatus: RecogLib_iOS.AuthenticationStatus { get }
+  var isPACESupported: Swift.Bool { get }
+  var PACEAuthStatus: RecogLib_iOS.AuthenticationStatus { get }
+  var passportCorrectlySigned: Swift.Bool { get }
+  var documentSigningCertificateVerified: Swift.Bool { get }
+  var passportDataNotTampered: Swift.Bool { get }
+  var passportMRZ: Swift.String { get }
+  var passportImage: UIKit.UIImage? { get }
+  var signatureImage: UIKit.UIImage? { get }
+  var firstName: Swift.String { get }
+  var lastName: Swift.String { get }
+  var nationality: Swift.String { get }
+  var gender: Swift.String { get }
+  var dateOfBirth: Swift.String { get }
+  var personalNumber: Swift.String? { get }
+  var documentExpiryDate: Swift.String { get }
+  var documentNumber: Swift.String { get }
+  var documentType: Swift.String { get }
+  var documentSubType: Swift.String { get }
+  var issuingAuthority: Swift.String { get }
+  var LDSVersion: Swift.String { get }
+  var dataGroupsPresent: [Swift.String] { get }
+  var dataGroupsAvailable: [RecogLib_iOS.DataGroupId] { get }
+  func getDataGroupData(_ groupId: RecogLib_iOS.DataGroupId) -> [Swift.UInt8]?
+  func getEncodedDataGroup(_ groupId: RecogLib_iOS.DataGroupId) -> Swift.String?
 }
 public protocol VideoWriterDelegate : AnyObject {
   func didTakeVideo(_ videoAsset: AVFoundation.AVURLAsset)
@@ -838,17 +1169,26 @@ extension RecogLib_iOS.UnifiedFacelivenessVerifierAdapter : RecogLib_iOS.Verifie
   final public func getRenderCommands(canvasSize: CoreFoundation.CGSize) -> Swift.String?
 }
 public struct DocumentVerifierSettings : Swift.Equatable {
-  public let specularAcceptableScore: Swift.Int
-  public let documentBlurAcceptableScore: Swift.Int
-  public let timeToBlurMaxToleranceInSeconds: Swift.Int
   public let showTimer: Swift.Bool
   public let showAimingCircle: Swift.Bool
   public let drawOutline: Swift.Bool
-  public let readBarcode: Swift.Bool
   public let visualizerVersion: Swift.Int
-  public init(specularAcceptableScore: Swift.Int = 50, documentBlurAcceptableScore: Swift.Int = 50, timeToBlurMaxToleranceInSeconds: Swift.Int = 10, showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = true, readBarcode: Swift.Bool = true, visualizerVersion: Swift.Int = 1)
+  public init(showTimer: Swift.Bool = false, showAimingCircle: Swift.Bool = false, drawOutline: Swift.Bool = true, visualizerVersion: Swift.Int = 1)
   public static func == (a: RecogLib_iOS.DocumentVerifierSettings, b: RecogLib_iOS.DocumentVerifierSettings) -> Swift.Bool
 }
+public func AESEncrypt(key: [Swift.UInt8], message: [Swift.UInt8], iv: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func AESDecrypt(key: [Swift.UInt8], message: [Swift.UInt8], iv: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func AESECBEncrypt(key: [Swift.UInt8], message: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func tripleDESEncrypt(key: [Swift.UInt8], message: [Swift.UInt8], iv: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func tripleDESDecrypt(key: [Swift.UInt8], message: [Swift.UInt8], iv: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func DESEncrypt(key: [Swift.UInt8], message: [Swift.UInt8], iv: [Swift.UInt8], options: Swift.UInt32 = 0) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func DESDecrypt(key: [Swift.UInt8], message: [Swift.UInt8], iv: [Swift.UInt8], options: Swift.UInt32 = 0) -> [Swift.UInt8]
 public enum RenderableType : Swift.String {
   case line
   case rectangle
@@ -895,6 +1235,83 @@ public enum NfcStatus : Swift.Int {
   }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TagReader {
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class DataGroup2 : RecogLib_iOS.DataGroup {
+  public var nrImages: Swift.Int {
+    get
+  }
+  public var versionNumber: Swift.Int {
+    get
+  }
+  public var lengthOfRecord: Swift.Int {
+    get
+  }
+  public var numberOfFacialImages: Swift.Int {
+    get
+  }
+  public var facialRecordDataLength: Swift.Int {
+    get
+  }
+  public var nrFeaturePoints: Swift.Int {
+    get
+  }
+  public var gender: Swift.Int {
+    get
+  }
+  public var eyeColor: Swift.Int {
+    get
+  }
+  public var hairColor: Swift.Int {
+    get
+  }
+  public var featureMask: Swift.Int {
+    get
+  }
+  public var expression: Swift.Int {
+    get
+  }
+  public var poseAngle: Swift.Int {
+    get
+  }
+  public var poseAngleUncertainty: Swift.Int {
+    get
+  }
+  public var faceImageType: Swift.Int {
+    get
+  }
+  public var imageDataType: Swift.Int {
+    get
+  }
+  public var imageWidth: Swift.Int {
+    get
+  }
+  public var imageHeight: Swift.Int {
+    get
+  }
+  public var imageColorSpace: Swift.Int {
+    get
+  }
+  public var sourceType: Swift.Int {
+    get
+  }
+  public var deviceType: Swift.Int {
+    get
+  }
+  public var quality: Swift.Int {
+    get
+  }
+  public var imageData: [Swift.UInt8] {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class NotImplementedDG : RecogLib_iOS.DataGroup {
   @objc deinit
 }
 public enum RenderingPriority {
@@ -956,11 +1373,65 @@ public class DocumentsInput {
 public enum NFCDisplayMessage {
   case requestPresent
   case authenticatingWith(Swift.Int)
-  case readingDataGroupProgress(RecogLib_iOS.NfcData.DGName, Swift.Int)
-  case error(RecogLib_iOS.NFCReaderError)
+  case readingDataGroupProgress(RecogLib_iOS.DataGroupId, Swift.Int)
+  case error(RecogLib_iOS.NfcDocumentReaderError)
   case successfullRead
 }
-public enum NFCReaderError : Swift.Error {
+public struct DocumentResult {
+  public var state: RecogLib_iOS.DocumentVerifierState
+  public var role: RecogLib_iOS.DocumentRole?
+  public var country: RecogLib_iOS.Country?
+  public var code: RecogLib_iOS.DocumentCodes?
+  public var page: RecogLib_iOS.PageCodes?
+  public var hologramState: RecogLib_iOS.HologramState?
+  public var signature: RecogLib_iOS.ImageSignature?
+}
+final public class UnifiedSelfieVerifierAdapter : RecogLib_iOS.UnifiedVerifier {
+  public init(verifier: RecogLib_iOS.SelfieVerifier)
+  final public func verify(image: CoreVideo.CVPixelBuffer) -> (any RecogLib_iOS.UnifiedResult)?
+  @objc deinit
+}
+extension RecogLib_iOS.UnifiedSelfieVerifierAdapter : RecogLib_iOS.VerifierRenderable {
+  final public func getRenderCommands(canvasSize: CoreFoundation.CGSize) -> Swift.String?
+}
+final public class DocumentVerifierModels : RecogLib_iOS.VerifierModels {
+  final public let url: Foundation.URL
+  public init?(url: Foundation.URL, fileManager: Foundation.FileManager = .default)
+  final public func load(onLoad: (Foundation.Data, Swift.String) -> Swift.Void)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class DataGroup12 : RecogLib_iOS.DataGroup {
+  public var issuingAuthority: Swift.String? {
+    get
+  }
+  public var dateOfIssue: Swift.String? {
+    get
+  }
+  public var otherPersonsDetails: Swift.String? {
+    get
+  }
+  public var endorsementsOrObservations: Swift.String? {
+    get
+  }
+  public var taxOrExitRequirements: Swift.String? {
+    get
+  }
+  public var frontImage: [Swift.UInt8]? {
+    get
+  }
+  public var rearImage: [Swift.UInt8]? {
+    get
+  }
+  public var personalizationTime: Swift.String? {
+    get
+  }
+  public var personalizationDeviceSerialNr: Swift.String? {
+    get
+  }
+  @objc deinit
+}
+public enum NfcDocumentReaderError : Swift.Error, Swift.Equatable {
   case ResponseError(Swift.String, Swift.UInt8, Swift.UInt8)
   case InvalidResponse
   case UnexpectedError
@@ -990,124 +1461,18 @@ public enum NFCReaderError : Swift.Error {
   case ChipAuthenticationFailed
   case InvalidDataPassed(Swift.String)
   case NotYetSupported(Swift.String)
+  case LostConnection
+  case NativeNfcError(Foundation.NSError)
+  public static func == (lhs: RecogLib_iOS.NfcDocumentReaderError, rhs: RecogLib_iOS.NfcDocumentReaderError) -> Swift.Bool
 }
-public struct DocumentResult {
-  public var state: RecogLib_iOS.DocumentVerifierState
-  public var role: RecogLib_iOS.DocumentRole?
-  public var country: RecogLib_iOS.Country?
-  public var code: RecogLib_iOS.DocumentCodes?
-  public var page: RecogLib_iOS.PageCodes?
-  public var hologramState: RecogLib_iOS.HologramState?
-  public var signature: RecogLib_iOS.ImageSignature?
-}
-final public class UnifiedSelfieVerifierAdapter : RecogLib_iOS.UnifiedVerifier {
-  public init(verifier: RecogLib_iOS.SelfieVerifier)
-  final public func verify(image: CoreVideo.CVPixelBuffer) -> (any RecogLib_iOS.UnifiedResult)?
-  @objc deinit
-}
-extension RecogLib_iOS.UnifiedSelfieVerifierAdapter : RecogLib_iOS.VerifierRenderable {
-  final public func getRenderCommands(canvasSize: CoreFoundation.CGSize) -> Swift.String?
-}
-public struct NFCDocumentModel {
-  public enum AuthenticationStatus {
-    case notDone
-    case success
-    case failed
-    public static func == (a: RecogLib_iOS.NFCDocumentModel.AuthenticationStatus, b: RecogLib_iOS.NFCDocumentModel.AuthenticationStatus) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  public func getEncodedDataGroup(_ groupId: RecogLib_iOS.NfcData.DGName) -> Swift.String?
-  public func getDataGroup(_ groupId: RecogLib_iOS.NfcData.DGName) -> [Swift.UInt8]?
-  public var activeAuthenticationPassed: Swift.Bool {
-    get
-  }
-  public var isChipAuthenticationSupported: Swift.Bool {
-    get
-  }
-  public var chipAuthenticationStatus: RecogLib_iOS.NFCDocumentModel.AuthenticationStatus {
-    get
-  }
-  public var bacAuthStatus: RecogLib_iOS.NFCDocumentModel.AuthenticationStatus {
-    get
-  }
-  public var isPACESupported: Swift.Bool {
-    get
-  }
-  public var paceAuthStatus: RecogLib_iOS.NFCDocumentModel.AuthenticationStatus {
-    get
-  }
-  public var passportCorrectlySigned: Swift.Bool {
-    get
-  }
-  public var documentSigningCertificateVerified: Swift.Bool {
-    get
-  }
-  public var passportDataNotTampered: Swift.Bool {
-    get
-  }
-  public var passportMRZ: Swift.String {
-    get
-  }
-  public var passportImage: UIKit.UIImage? {
-    get
-  }
-  public var signatureImage: UIKit.UIImage? {
-    get
-  }
-  public var firstName: Swift.String {
-    get
-  }
-  public var lastName: Swift.String {
-    get
-  }
-  public var nationality: Swift.String {
-    get
-  }
-  public var gender: Swift.String {
-    get
-  }
-  public var dateOfBirth: Swift.String {
-    get
-  }
-  public var personalNumber: Swift.String? {
-    get
-  }
-  public var documentExpiryDate: Swift.String {
-    get
-  }
-  public var documentNumber: Swift.String {
-    get
-  }
-  public var documentType: Swift.String {
-    get
-  }
-  public var documentSubType: Swift.String {
-    get
-  }
-  public var issuingAuthority: Swift.String {
-    get
-  }
-  public var LDSVersion: Swift.String {
-    get
-  }
-  public var dataGroupsPresent: [Swift.String] {
-    get
-  }
-  public var dataGroupsAvailable: [RecogLib_iOS.NfcData.DGName] {
-    get
-  }
-  public var activeAuthenticationSupported: Swift.Bool {
-    get
-  }
-}
-final public class DocumentVerifierModels : RecogLib_iOS.VerifierModels {
-  final public let url: Foundation.URL
-  public init?(url: Foundation.URL, fileManager: Foundation.FileManager = .default)
-  final public func load(onLoad: (Foundation.Data, Swift.String) -> Swift.Void)
-  @objc deinit
+public struct DocumentVerifierNfcValidatorSettings {
+  public let numberOfReadingAttempts: Swift.Int
+  public let skipNfcAllowed: Swift.Bool
+  public let noNfcMeansError: Swift.Bool
+  public let isEnabled: Swift.Bool
+  public let acceptScore: Swift.Int
+  public let scoreStep: Swift.Int
+  public let isTestEnabled: Swift.Bool
 }
 extension RecogLib_iOS.DocumentCodes {
   public init?(stringValue: Swift.String)
@@ -1168,12 +1533,8 @@ public protocol NfcDocumentReaderProtocol {
   #if compiler(>=5.3) && $AsyncAwait
   func read() async throws -> RecogLib_iOS.NfcData
   #endif
-}
-public struct NfcDocumentReader : RecogLib_iOS.NfcDocumentReaderProtocol {
-  public init(nfcKey: Swift.String, masterListFile: Foundation.URL? = nil, displayMessageProvider: @escaping RecogLib_iOS.NfcDisplayMessageProvider = DefaultMesageProvider.provide)
-  public init(mrzFields: RecogLib_iOS.MrzFields, masterListFile: Foundation.URL? = nil, displayMessageProvider: @escaping RecogLib_iOS.NfcDisplayMessageProvider = DefaultMesageProvider.provide)
   #if compiler(>=5.3) && $AsyncAwait
-  public func read() async throws -> RecogLib_iOS.NfcData
+  func read(skipSecureElements: Swift.Bool, skipPACE: Swift.Bool) async throws -> RecogLib_iOS.NfcData
   #endif
 }
 public struct Document : Swift.Comparable {
@@ -1185,6 +1546,45 @@ public struct Document : Swift.Comparable {
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?)
   public static func == (a: RecogLib_iOS.Document, b: RecogLib_iOS.Document) -> Swift.Bool
 }
+public func binToHexRep(_ val: [Swift.UInt8], asArray: Swift.Bool = false) -> Swift.String
+public func binToHexRep(_ val: Swift.UInt8) -> Swift.String
+public func binToHex(_ val: Swift.UInt8) -> Swift.Int
+public func binToHex(_ val: [Swift.UInt8]) -> Swift.UInt64
+public func binToHex(_ val: Swift.ArraySlice<Swift.UInt8>) -> Swift.UInt64
+public func hexToBin(_ val: Swift.UInt64) -> [Swift.UInt8]
+public func binToInt(_ val: Swift.ArraySlice<Swift.UInt8>) -> Swift.Int
+public func binToInt(_ val: [Swift.UInt8]) -> Swift.Int
+public func intToBin(_ data: Swift.Int, pad: Swift.Int = 2) -> [Swift.UInt8]
+public func hexRepToBin(_ val: Swift.String) -> [Swift.UInt8]
+public func xor(_ kifd: [Swift.UInt8], _ response_kicc: [Swift.UInt8]) -> [Swift.UInt8]
+public func generateRandomUInt8Array(_ size: Swift.Int) -> [Swift.UInt8]
+public func pad(_ toPad: [Swift.UInt8], blockSize: Swift.Int) -> [Swift.UInt8]
+public func unpad(_ tounpad: [Swift.UInt8]) -> [Swift.UInt8]
+public func mac(algoName: RecogLib_iOS.SecureMessagingSupportedAlgorithms, key: [Swift.UInt8], msg: [Swift.UInt8]) -> [Swift.UInt8]
+public func desMAC(key: [Swift.UInt8], msg: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func wrapDO(b: Swift.UInt8, arr: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func unwrapDO(tag: Swift.UInt8, wrappedData: [Swift.UInt8]) throws -> [Swift.UInt8]
+public func intToBytes(val: Swift.Int, removePadding: Swift.Bool) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func asn1Length(_ data: Swift.ArraySlice<Swift.UInt8>) throws -> (Swift.Int, Swift.Int)
+@available(iOS 13, macOS 10.15, *)
+public func asn1Length(_ data: [Swift.UInt8]) throws -> (Swift.Int, Swift.Int)
+@available(iOS 13, macOS 10.15, *)
+public func toAsn1Length(_ data: Swift.Int) throws -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func calcHash(data: [Swift.UInt8], hashAlgorithm: Swift.String) throws -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func calcSHA1Hash(_ data: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func calcSHA224Hash(_ data: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func calcSHA256Hash(_ data: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func calcSHA512Hash(_ data: [Swift.UInt8]) -> [Swift.UInt8]
+@available(iOS 13, macOS 10.15, *)
+public func calcSHA384Hash(_ data: [Swift.UInt8]) -> [Swift.UInt8]
 public enum ImageFlip : Swift.Int {
   case none
   case fromLandScape
@@ -1198,18 +1598,67 @@ public enum ImageFlip : Swift.Int {
 extension UIKit.UIImage {
   convenience public init?(pixelBuffer: CoreVideo.CVPixelBuffer, crop: CoreFoundation.CGRect? = nil)
 }
+public enum SecureMessagingSupportedAlgorithms {
+  case DES
+  public static func == (a: RecogLib_iOS.SecureMessagingSupportedAlgorithms, b: RecogLib_iOS.SecureMessagingSupportedAlgorithms) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class SecureMessaging {
+  public init(encryptionAlgorithm: RecogLib_iOS.SecureMessagingSupportedAlgorithms = .DES, ksenc: [Swift.UInt8], ksmac: [Swift.UInt8], ssc: [Swift.UInt8])
+  @objc deinit
+}
 public struct ImageSignature {
   public let image: Foundation.Data
   public let signature: Swift.String
 }
-public typealias NfcDisplayMessageProvider = (RecogLib_iOS.NFCDisplayMessage) -> Swift.String?
-public struct DefaultMesageProvider {
-  public static func provide(_ displayMessage: RecogLib_iOS.NFCDisplayMessage) -> Swift.String?
-  public static func handleProgress(percentualProgress: Swift.Int) -> Swift.String
+public protocol NfcDisplayMessageProvider {
+  func message(for: RecogLib_iOS.NFCDisplayMessage) -> Swift.String
+}
+public struct DefaultMesageProvider : RecogLib_iOS.NfcDisplayMessageProvider {
+  public func message(for displayMessage: RecogLib_iOS.NFCDisplayMessage) -> Swift.String
+  public func handleProgress(percentualProgress: Swift.Int) -> Swift.String
+}
+@available(iOS 13, macOS 10.15, *)
+public enum DocTypeEnum : Swift.String {
+  case TD1
+  case TD2
+  case OTHER
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
+public class DataGroup1 : RecogLib_iOS.DataGroup {
+  public var elements: [Swift.String : Swift.String] {
+    get
+  }
+  @objc deinit
+}
+public class BACHandler {
+  public var ksenc: [Swift.UInt8]
+  public var ksmac: [Swift.UInt8]
+  public var kifd: [Swift.UInt8]
+  public init(tagReader: RecogLib_iOS.TagReader)
+  #if compiler(>=5.3) && $AsyncAwait
+  public func performBACAndGetSessionKeys(mrzKey: Swift.String) async throws
+  #endif
+  public func sessionKeys(data: [Swift.UInt8]) throws -> ([Swift.UInt8], [Swift.UInt8], [Swift.UInt8])
+  @objc deinit
 }
 public struct SelfieResult {
   public var selfieState: RecogLib_iOS.SelfieVerifierState
   public let signature: RecogLib_iOS.ImageSignature?
+}
+public struct ResponseAPDU {
+  public var data: [Swift.UInt8]
+  public var sw1: Swift.UInt8
+  public var sw2: Swift.UInt8
+  public init(data: [Swift.UInt8], sw1: Swift.UInt8, sw2: Swift.UInt8)
 }
 extension RecogLib_iOS.SelfieResult : RecogLib_iOS.ResultState {
   public var isOk: Swift.Bool {
@@ -1300,6 +1749,9 @@ final public class FaceVerifierModels : RecogLib_iOS.VerifierModels {
   final public func load(onLoad: (Foundation.Data, Swift.String) -> Swift.Void)
   @objc deinit
 }
+extension RecogLib_iOS.DataGroupId : Swift.Equatable {}
+extension RecogLib_iOS.DataGroupId : Swift.Hashable {}
+extension RecogLib_iOS.DataGroupId : Swift.RawRepresentable {}
 extension RecogLib_iOS.DocumentCodes : Swift.Equatable {}
 extension RecogLib_iOS.DocumentCodes : Swift.Hashable {}
 extension RecogLib_iOS.DocumentCodes : Swift.RawRepresentable {}
@@ -1327,6 +1779,9 @@ extension RecogLib_iOS.HologramState : Swift.RawRepresentable {}
 extension RecogLib_iOS.FaceLivenessVerifierState : Swift.Equatable {}
 extension RecogLib_iOS.FaceLivenessVerifierState : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessVerifierState : Swift.RawRepresentable {}
+extension RecogLib_iOS.SampleType : Swift.Equatable {}
+extension RecogLib_iOS.SampleType : Swift.Hashable {}
+extension RecogLib_iOS.SampleType : Swift.RawRepresentable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Equatable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Hashable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.RawRepresentable {}
@@ -1338,6 +1793,8 @@ extension RecogLib_iOS.NfcData.NfcProtocol : Swift.RawRepresentable {}
 extension RecogLib_iOS.NfcData.DGName : Swift.Equatable {}
 extension RecogLib_iOS.NfcData.DGName : Swift.Hashable {}
 extension RecogLib_iOS.NfcData.DGName : Swift.RawRepresentable {}
+extension RecogLib_iOS.AuthenticationStatus : Swift.Equatable {}
+extension RecogLib_iOS.AuthenticationStatus : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessCheckType : Swift.Equatable {}
 extension RecogLib_iOS.FaceLivenessCheckType : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessCheckType : Swift.RawRepresentable {}
@@ -1352,10 +1809,16 @@ extension RecogLib_iOS.NfcStatus : Swift.Hashable {}
 extension RecogLib_iOS.NfcStatus : Swift.RawRepresentable {}
 extension RecogLib_iOS.RenderingPriority : Swift.Equatable {}
 extension RecogLib_iOS.RenderingPriority : Swift.Hashable {}
-extension RecogLib_iOS.NFCDocumentModel.AuthenticationStatus : Swift.Equatable {}
-extension RecogLib_iOS.NFCDocumentModel.AuthenticationStatus : Swift.Hashable {}
 extension RecogLib_iOS.ImageFlip : Swift.Equatable {}
 extension RecogLib_iOS.ImageFlip : Swift.Hashable {}
 extension RecogLib_iOS.ImageFlip : Swift.RawRepresentable {}
+extension RecogLib_iOS.SecureMessagingSupportedAlgorithms : Swift.Equatable {}
+extension RecogLib_iOS.SecureMessagingSupportedAlgorithms : Swift.Hashable {}
+@available(iOS 13, macOS 10.15, *)
+extension RecogLib_iOS.DocTypeEnum : Swift.Equatable {}
+@available(iOS 13, macOS 10.15, *)
+extension RecogLib_iOS.DocTypeEnum : Swift.Hashable {}
+@available(iOS 13, macOS 10.15, *)
+extension RecogLib_iOS.DocTypeEnum : Swift.RawRepresentable {}
 extension RecogLib_iOS.UnifiedState : Swift.Equatable {}
 extension RecogLib_iOS.UnifiedState : Swift.Hashable {}

@@ -45,7 +45,6 @@ class IQSHologramVerifier
 	void ProcessFrame(const Image& frame, const AcceptableInput& acceptableInput);
 	void ProcessFrame(const Image& frame, const std::string& acceptableInputJson);
 
-	static bool SupportsHologram(DocumentCodes documentCode, PageCodes pageCode);
 
 	HologramState GetState() const;
 	void Reset();

@@ -35,15 +35,6 @@ final class DocumentVerifierSettingsViewModel {
     }
 
     private func update(settings: DocumentVerifierSettings) {
-        let intervalItems: [SettingsValueViewModel] = [
-            .init(
-                title: NSLocalizedString("document-verifier-settings-blur-tolerance", comment: ""),
-                value: Float(settings.timeToBlurMaxToleranceInSeconds), min: 0.0, max: 100.0,
-                onChange: { [weak self] value in
-                    self?.updater.update(timeToBlurMaxToleranceInSeconds: Int(value))
-                }
-            ),
-        ]
         let switchItems: [SettingsSwitchViewModel] = [
             .init(
                 title: NSLocalizedString("document-verifier-settings-timer", comment: ""),
@@ -68,6 +59,6 @@ final class DocumentVerifierSettingsViewModel {
             )
         ]
 
-        onUpdate?(intervalItems.map({ .interval($0) }) + switchItems.map({ .switch($0) }))
+        onUpdate?(switchItems.map({ .switch($0) }))
     }
 }

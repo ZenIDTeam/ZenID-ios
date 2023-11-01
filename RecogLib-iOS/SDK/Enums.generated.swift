@@ -166,6 +166,7 @@ public enum DocumentCodes : Int, CaseIterable {
     case BE_PAS_2022 = 165
     case RU_PAS_2006_10 = 166
     case TR_PAS_2023 = 167
+    case DO_IDC_2014 = 168
 }
 
 public enum PageCodes : Int, CaseIterable { 
@@ -362,6 +363,15 @@ public enum FaceLivenessVerifierState : Int, CaseIterable {
     case HoldStill = 6
     case Reseting = 7
     case DontSmile = 8
+}
+
+public enum SampleType : Int, CaseIterable { 
+    case DocumentPicture = 0
+    case Selfie = 1
+    case SelfieVideo = 2
+    case DocumentVideo = 3
+    case Archived = 4
+    case Unknown = 5
 }
 
 public enum SdkSignatureProblem : Int, CaseIterable { 

@@ -342,7 +342,6 @@ You can tune a couple of parameters of document verifier. Each initializer has o
 
 ```swift
 let settings = DocumentVerifierSettings(
-    timeToBlurMaxToleranceInSeconds: 10,
     showAimingCircle: false,
     drawOutline: true,
 )
@@ -350,7 +349,6 @@ let settings = DocumentVerifierSettings(
 
 | parameter name                  | default value | range          |
 | ------------------------------- | ------------- | -------------- |
-| timeToBlurMaxToleranceInSeconds | 10            | <0; undefined) |
 | showAimingCircle                | true          | Bool           |
 | drawOutline                     | false         | Bool           |
 
@@ -435,7 +433,6 @@ Define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared 
 |---------------------------------|-----------|--------------------|
 | specularAcceptableScore         | 50        | <0; 100>           |
 | documentBlurAcceptableScore     | 50        | <0; 100>           |
-| timeToBlurMaxToleranceInSeconds | 10        | <0; undefined>     |
 | showAimingCircle                | True      |                    |
 | drawOutline                     | False     |                    |
 | readBarcode                     | True      |                    |

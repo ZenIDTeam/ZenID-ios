@@ -124,8 +124,8 @@ public class DocumentVerifier {
 
     private func createDocumentVerifierSettings(settings: DocumentVerifierSettings?) -> CDocumentVerifierSettings {
         return CDocumentVerifierSettings(
-            timeToBlurMaxToleranceInSeconds: Int32(settings?.timeToBlurMaxToleranceInSeconds ?? 10),
-            visualizerVersion: Int32(settings?.visualizerVersion ?? 1), showTimer: settings?.showTimer ?? false,
+            visualizerVersion: Int32(settings?.visualizerVersion ?? 1),
+            showTimer: settings?.showTimer ?? false,
             enableAimingCircle: settings?.showAimingCircle ?? false,
             drawOutline: settings?.drawOutline ?? false
         )
@@ -225,7 +225,6 @@ public class DocumentVerifier {
     public func getSettings() -> DocumentVerifierSettings {
         let csettings: CDocumentVerifierSettings = RecogLib_iOS.getDocumentSettings(cppObject);
         let settings: DocumentVerifierSettings = .init(
-            timeToBlurMaxToleranceInSeconds: Int(csettings.timeToBlurMaxToleranceInSeconds),
             showTimer: csettings.showTimer,
             showAimingCircle: csettings.enableAimingCircle,
             drawOutline: csettings.drawOutline,

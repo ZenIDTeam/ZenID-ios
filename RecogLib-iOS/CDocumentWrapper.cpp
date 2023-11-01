@@ -109,7 +109,6 @@ void getDocumentResult(const void *object,  CDocumentInfo *document) {
 const void * getDocumentVerifier(CDocumentVerifierSettings *settings)
 {
     DocumentVerifierSettings verifierSettings = DocumentVerifierSettings();
-    verifierSettings.timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
     verifierSettings.showTimer = settings->showTimer;
     verifierSettings.drawOutline = settings->drawOutline;
     verifierSettings.visualizerVersion = settings->visualizerVersion;
@@ -183,7 +182,6 @@ bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *
 
 void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSettings *settings) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
-    verifier->GetSettings().timeToBlurMaxToleranceInSeconds = settings->timeToBlurMaxToleranceInSeconds;
     verifier->GetSettings().showTimer = settings->showTimer;
     verifier->GetSettings().enableAimingCircle = settings->enableAimingCircle;
     verifier->GetSettings().drawOutline = settings->drawOutline;
@@ -367,7 +365,6 @@ CDocumentVerifierSettings getDocumentSettings(const void *object) {
     settings.drawOutline = verifierSettings.drawOutline;
     settings.enableAimingCircle = verifierSettings.enableAimingCircle;
     settings.showTimer = verifierSettings.showTimer;
-    settings.timeToBlurMaxToleranceInSeconds = static_cast<int>(verifierSettings.timeToBlurMaxToleranceInSeconds.value());
     //settings.platformSupportsNfcFeature = verifierSettings.platformSupportsNfcFeature;
     settings.visualizerVersion = verifierSettings.visualizerVersion;
     return settings;

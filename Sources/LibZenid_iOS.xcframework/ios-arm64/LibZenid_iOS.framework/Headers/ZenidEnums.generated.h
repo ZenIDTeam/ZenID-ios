@@ -173,6 +173,7 @@ enum class DocumentCodes : int32_t {
 	BE_PAS_2022 = 165,
 	RU_PAS_2006_10 = 166,
 	TR_PAS_2023 = 167,
+	DO_IDC_2014 = 168,
 };
 
 enum class PageCodes : uint8_t {
@@ -477,6 +478,15 @@ enum class FieldID : int {
 	MothersSurnameBirthSurname = 102,
 	Authority3 = 103,
 	Sex2 = 104,
+};
+
+enum class SampleType : int {
+	DocumentPicture = 0,
+	Selfie = 1,
+	SelfieVideo = 2,
+	DocumentVideo = 3,
+	Archived = 4,
+	Unknown = 5,
 };
 
 enum class SdkSignatureProblem : int {

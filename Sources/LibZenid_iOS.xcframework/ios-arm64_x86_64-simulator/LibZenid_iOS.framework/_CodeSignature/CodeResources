@@ -10,15 +10,15 @@
 		</data>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		rwaUnzS1Z/STtZ6hfqzsKFVFsWA=
+		lQvz/pJ1D6PbOef5gpMtoCxYNCY=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
-		bZoGc4r8NQnPBBaDLwf9B5EobrE=
+		fJTl5ULDmPRQ7F02OEsAR9YB8MU=
 		</data>
 		<key>Headers/IQSHologramVerifier.h</key>
 		<data>
-		VlyjOkayK+mzp0MltKk8Z4LwUHc=
+		TN8DkV5KHkmCct87LvYV0qA2jjc=
 		</data>
 		<key>Headers/Image.h</key>
 		<data>
@@ -42,15 +42,15 @@
 		</data>
 		<key>Headers/SerializableInterop.generated.h</key>
 		<data>
-		Zj2xygPHN34OlaYiRsfJVBTxeaA=
+		i/YkVdbSx2WEif1UQvyTI3u6gAw=
 		</data>
 		<key>Headers/Version.h</key>
 		<data>
-		qwhybtlHCAmmpNhW4IuNeThxwU4=
+		uX6NisbYSiE+ZUW6eTFvAP0UO8s=
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		l/4zKpVn4hPmRoYQeHgwb00BYaY=
+		AfANWGe5K9RL866AN8xjXxmA630=
 		</data>
 		<key>Headers/ZenidLog.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bzP94EGnDT4O6iVw9T6C7Xf0SLQ=
+		XdrSBgYI9WMSLwhvPpN5uSWgGHc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -78,21 +78,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5n5hQkrKdrjuVU3YAo1FIOsj1tQAsj5CrRDKv8+x4oM=
+			exoX5KWESAbMzPOSrsocRc2KOl6bMsiNKKzBdOyzKJ8=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/ZeFDhW9cwMNj6kcs9rkXJg7qBObSUPZFKjKU9GgnyE=
+			WA2FTyFABOvZObPiwRhag5Xn4TF9N/AQYdmk93hM57A=
 			</data>
 		</dict>
 		<key>Headers/IQSHologramVerifier.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z36DmOKE1TLTtCYluf0c7rIZSnaeZ3umtLwVgPcF+l0=
+			wJ7kA3AuIUWFrWLJA1QkD9JVX1N6O/yBvenUfygU1M8=
 			</data>
 		</dict>
 		<key>Headers/Image.h</key>
@@ -134,21 +134,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ybj7wHvcYizDOddjHvR4CfF6dOIkxS6/QaIMIVaD9X0=
+			f/Ang9vx51F5FoEIJxRzsG8XO0qv5N18rWuQgBOBqYs=
 			</data>
 		</dict>
 		<key>Headers/Version.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WRfk9PYald0obCD7ScBxRd+R/Z9zsqLrT3KBHY5gHlI=
+			EawI1JFduLqUoVwFF7XdxqHdbJJVZge9QebEhztJB7o=
 			</data>
 		</dict>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r6UFd4owFAH3gEFSKepvdnQJgfI4uJmMICkBwH+1L8A=
+			sPHfK3x8G/D0IZObTVGbl6aWVC3mT+SGPEDRazYFOzw=
 			</data>
 		</dict>
 		<key>Headers/ZenidLog.h</key>

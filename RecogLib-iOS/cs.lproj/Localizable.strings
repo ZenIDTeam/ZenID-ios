@@ -11,5 +11,6 @@
 "document.state.no.match.found" = "Žádna shoda nenalezena";
 "document.state.reflection.present" = "Příliš mnoho odlesků";
 "document.state.hologram.error" = "Chybný hologram";
+"document.state.text_not_readable" = "Text není čitelný";
 "document.state.dark" = "Fotka je příliš tmavá";
 "document.state.barcode" = "Barcode není čítelný";

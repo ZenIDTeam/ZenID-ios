@@ -1,5 +1,18 @@
 # Change Log
 
+# 2.0.22 2023-10-13
+* RecogLib 3.8.5
+* New: Added support for iPhone 15 line
+* Turkish passports v2023 are enabled for NFC reading.
+* API: Added DO_IDC_2014 to DocumentCodes enum.
+* New: Support for Dominican ID cards v2014.
+* Improvement: Dominican ID card MRZ reading.
+* Don't show card outline after card is removed from frame in IQS verifier.
+* New: Possibility to change time delay to become max tolerant for multiple FE validators has been added to SDK picture quality validator on the Sensitivity page.
+* New: Added WebView visualizer files to SDK releases.
+* SDK: Allow setting IQS verifier settings in backend validator sensitivity.
+
+
 # 2.0.21 2023-09-30
 * RecogLib 3.8.1
 * New support for NFC document reading (see MIGRATION.md)
