@@ -606,9 +606,6 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
 extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
 }
-extension UIKit.UIDevice {
-  @_Concurrency.MainActor(unsafe) public static let isProModel: Swift.Bool
-}
 @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
 public class DataGroup {
   public var datagroupType: RecogLib_iOS.DataGroupId
@@ -752,6 +749,7 @@ public class FaceLivenessVerifier {
   public func getStepParameters() -> RecogLib_iOS.FaceLivenessStepParameters?
   public func getRequiredFPS() -> Swift.Int
   public func getRequiredResolution() -> Swift.Int
+  public func getLivenessResult(orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
   @objc deinit
 }
 public protocol UnifiedResult {
@@ -1352,7 +1350,7 @@ public struct FacelivenessControllerConfiguration {
 }
 public protocol FacelivenessControllerDelegate : AnyObject {
   func controller(_ controller: RecogLib_iOS.FacelivenessController, didScan result: RecogLib_iOS.FaceLivenessResult)
-  func controller(_ controller: RecogLib_iOS.FacelivenessController, didRecord videoURL: Foundation.URL)
+  func controller(_ controller: RecogLib_iOS.FacelivenessController, didRecord videoURL: Foundation.URL, result: RecogLib_iOS.FaceLivenessResult)
   func controller(_ controller: RecogLib_iOS.FacelivenessController, didUpdate result: RecogLib_iOS.FaceLivenessResult)
 }
 public protocol FacelivenessControllerAbstraction {

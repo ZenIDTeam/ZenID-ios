@@ -311,18 +311,18 @@ SWIFT_CLASS("_TtC12RecogLib_iOS6Camera")
 @end
 
 
-@class AVCaptureOutput;
-@class AVCaptureConnection;
-
-@interface Camera (SWIFT_EXTENSION(RecogLib_iOS)) <AVCaptureVideoDataOutputSampleBufferDelegate>
-- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
-@end
-
 @class AVCapturePhotoOutput;
 @class AVCapturePhoto;
 
 @interface Camera (SWIFT_EXTENSION(RecogLib_iOS)) <AVCapturePhotoCaptureDelegate>
 - (void)captureOutput:(AVCapturePhotoOutput * _Nonnull)output didFinishProcessingPhoto:(AVCapturePhoto * _Nonnull)photo error:(NSError * _Nullable)error;
+@end
+
+@class AVCaptureOutput;
+@class AVCaptureConnection;
+
+@interface Camera (SWIFT_EXTENSION(RecogLib_iOS)) <AVCaptureVideoDataOutputSampleBufferDelegate>
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
 @class NSCoder;
@@ -352,7 +352,6 @@ SWIFT_CLASS("_TtC12RecogLib_iOS17NfcDocumentReader")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 

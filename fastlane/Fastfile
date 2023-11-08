@@ -52,14 +52,9 @@ platform :ios do
 
   desc "Build ad-hoc"
   lane :build do
-    versionNumber = git_branch() #get_version_number_from_xcodeproj(xcodeproj: "ZenIDDemo.xcodeproj", scheme: "ZenIDDemo")
-    buildNumber =  number_of_commits
+    versionNumber = get_version_number_from_xcodeproj(xcodeproj: "ZenIDDemo.xcodeproj", scheme: "ZenIDDemo")
+    buildNumber = get_build_number_from_xcodeproj(xcodeproj: "ZenIDDemo.xcodeproj", scheme: "ZenIDDemo")
     ipaName = "ZenIDDemo_#{versionNumber}(#{buildNumber})"
-
-    increment_build_number_in_plist(
-      build_number: "#{number_of_commits}",
-      xcodeproj: "ZenIDDemo.xcodeproj"
-    )
 
     build_app(
       workspace: "ZenID.xcworkspace",
