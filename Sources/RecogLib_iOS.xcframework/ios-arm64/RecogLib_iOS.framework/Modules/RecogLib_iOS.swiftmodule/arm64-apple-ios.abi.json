@@ -8657,6 +8657,80 @@
             "moduleName": "RecogLib_iOS"
           },
           {
+            "kind": "Var",
+            "name": "LI_PAS_2006",
+            "printedName": "LI_PAS_2006",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DocumentCodes.Type) -> RecogLib_iOS.DocumentCodes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DocumentCodes",
+                    "printedName": "RecogLib_iOS.DocumentCodes",
+                    "usr": "s:12RecogLib_iOS13DocumentCodesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DocumentCodes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DocumentCodes",
+                        "printedName": "RecogLib_iOS.DocumentCodes",
+                        "usr": "s:12RecogLib_iOS13DocumentCodesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS13DocumentCodesO11LI_PAS_2006yA2CmF",
+            "mangledName": "$s12RecogLib_iOS13DocumentCodesO11LI_PAS_2006yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "VA_PAS_2013",
+            "printedName": "VA_PAS_2013",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DocumentCodes.Type) -> RecogLib_iOS.DocumentCodes",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DocumentCodes",
+                    "printedName": "RecogLib_iOS.DocumentCodes",
+                    "usr": "s:12RecogLib_iOS13DocumentCodesO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DocumentCodes.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DocumentCodes",
+                        "printedName": "RecogLib_iOS.DocumentCodes",
+                        "usr": "s:12RecogLib_iOS13DocumentCodesO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS13DocumentCodesO11VA_PAS_2013yA2CmF",
+            "mangledName": "$s12RecogLib_iOS13DocumentCodesO11VA_PAS_2013yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(rawValue:)",
@@ -16578,6 +16652,43 @@
             "declKind": "EnumElement",
             "usr": "s:12RecogLib_iOS13HologramStateO2OkyA2CmF",
             "mangledName": "$s12RecogLib_iOS13HologramStateO2OkyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "TimedOut",
+            "printedName": "TimedOut",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.HologramState.Type) -> RecogLib_iOS.HologramState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "HologramState",
+                    "printedName": "RecogLib_iOS.HologramState",
+                    "usr": "s:12RecogLib_iOS13HologramStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.HologramState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "HologramState",
+                        "printedName": "RecogLib_iOS.HologramState",
+                        "usr": "s:12RecogLib_iOS13HologramStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS13HologramStateO8TimedOutyA2CmF",
+            "mangledName": "$s12RecogLib_iOS13HologramStateO8TimedOutyA2CmF",
             "moduleName": "RecogLib_iOS"
           },
           {
@@ -35114,6 +35225,202 @@
         "children": [
           {
             "kind": "Var",
+            "name": "videoGravity",
+            "printedName": "videoGravity",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AVLayerVideoGravity",
+                "printedName": "AVFoundation.AVLayerVideoGravity",
+                "usr": "c:@T@AVLayerVideoGravity"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avp",
+            "mangledName": "$s12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avp",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "Custom",
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AVLayerVideoGravity",
+                    "printedName": "AVFoundation.AVLayerVideoGravity",
+                    "usr": "c:@T@AVLayerVideoGravity"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avg",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AVLayerVideoGravity",
+                    "printedName": "AVFoundation.AVLayerVideoGravity",
+                    "usr": "c:@T@AVLayerVideoGravity"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avs",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avs",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avM",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC12videoGravitySo012AVLayerVideoG0avM",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ignoreSafeArea",
+            "printedName": "ignoreSafeArea",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvp",
+            "mangledName": "$s12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvp",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "Custom",
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvg",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvs",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvs",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvM",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvM",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "frame",
             "printedName": "frame",
             "children": [
@@ -47798,6 +48105,43 @@
             "moduleName": "RecogLib_iOS"
           },
           {
+            "kind": "Var",
+            "name": "timedOut",
+            "printedName": "timedOut",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.UnifiedState.Type) -> RecogLib_iOS.UnifiedState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnifiedState",
+                    "printedName": "RecogLib_iOS.UnifiedState",
+                    "usr": "s:12RecogLib_iOS12UnifiedStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.UnifiedState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UnifiedState",
+                        "printedName": "RecogLib_iOS.UnifiedState",
+                        "usr": "s:12RecogLib_iOS12UnifiedStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS12UnifiedStateO8timedOutyA2CmF",
+            "mangledName": "$s12RecogLib_iOS12UnifiedStateO8timedOutyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
             "kind": "Function",
             "name": "==",
             "printedName": "==(_:_:)",
@@ -51884,6 +52228,20 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
+      "offset": 4686,
+      "length": 3,
+      "value": "169"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4713,
+      "length": 3,
+      "value": "170"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
       "offset": 139,
       "length": 1,
       "value": "0"
@@ -53046,6 +53404,20 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
+      "offset": 4686,
+      "length": 3,
+      "value": "169"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4713,
+      "length": 3,
+      "value": "170"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
       "offset": 139,
       "length": 1,
       "value": "0"
@@ -54208,3864 +54580,3899 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4724,
+      "offset": 4686,
+      "length": 3,
+      "value": "169"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4713,
+      "length": 3,
+      "value": "170"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4778,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4739,
+      "offset": 4793,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4724,
+      "offset": 4778,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4739,
+      "offset": 4793,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4724,
+      "offset": 4778,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4739,
+      "offset": 4793,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4801,
+      "offset": 4855,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4817,
+      "offset": 4871,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4833,
+      "offset": 4887,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4849,
+      "offset": 4903,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4865,
+      "offset": 4919,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4881,
+      "offset": 4935,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4897,
+      "offset": 4951,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4913,
+      "offset": 4967,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4929,
+      "offset": 4983,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4945,
+      "offset": 4999,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4961,
+      "offset": 5015,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4978,
+      "offset": 5032,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4995,
+      "offset": 5049,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5012,
+      "offset": 5066,
       "length": 2,
       "value": "13"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5029,
+      "offset": 5083,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5046,
+      "offset": 5100,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5063,
+      "offset": 5117,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5080,
+      "offset": 5134,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5097,
+      "offset": 5151,
       "length": 2,
       "value": "18"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5114,
+      "offset": 5168,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5131,
+      "offset": 5185,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5148,
+      "offset": 5202,
       "length": 2,
       "value": "21"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5165,
+      "offset": 5219,
       "length": 2,
       "value": "22"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5182,
+      "offset": 5236,
       "length": 2,
       "value": "23"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5199,
+      "offset": 5253,
       "length": 2,
       "value": "24"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5216,
+      "offset": 5270,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5233,
+      "offset": 5287,
       "length": 2,
       "value": "26"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5250,
+      "offset": 5304,
       "length": 2,
       "value": "27"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5267,
+      "offset": 5321,
       "length": 2,
       "value": "28"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5284,
+      "offset": 5338,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5301,
+      "offset": 5355,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5318,
+      "offset": 5372,
       "length": 2,
       "value": "31"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5335,
+      "offset": 5389,
       "length": 2,
       "value": "32"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5352,
+      "offset": 5406,
       "length": 2,
       "value": "33"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5369,
+      "offset": 5423,
       "length": 2,
       "value": "34"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5386,
+      "offset": 5440,
       "length": 2,
       "value": "35"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5403,
+      "offset": 5457,
       "length": 2,
       "value": "36"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5420,
+      "offset": 5474,
       "length": 2,
       "value": "37"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5437,
+      "offset": 5491,
       "length": 2,
       "value": "38"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5454,
+      "offset": 5508,
       "length": 2,
       "value": "39"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5471,
+      "offset": 5525,
       "length": 2,
       "value": "40"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5488,
+      "offset": 5542,
       "length": 2,
       "value": "41"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5505,
+      "offset": 5559,
       "length": 2,
       "value": "42"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5522,
+      "offset": 5576,
       "length": 2,
       "value": "43"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5539,
+      "offset": 5593,
       "length": 2,
       "value": "44"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5556,
+      "offset": 5610,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5573,
+      "offset": 5627,
       "length": 2,
       "value": "46"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5590,
+      "offset": 5644,
       "length": 2,
       "value": "47"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5607,
+      "offset": 5661,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5624,
+      "offset": 5678,
       "length": 2,
       "value": "49"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5641,
+      "offset": 5695,
       "length": 2,
       "value": "50"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5658,
+      "offset": 5712,
       "length": 2,
       "value": "51"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5675,
+      "offset": 5729,
       "length": 2,
       "value": "52"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5692,
+      "offset": 5746,
       "length": 2,
       "value": "53"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5709,
+      "offset": 5763,
       "length": 2,
       "value": "54"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5726,
+      "offset": 5780,
       "length": 2,
       "value": "55"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5743,
+      "offset": 5797,
       "length": 2,
       "value": "56"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5760,
+      "offset": 5814,
       "length": 2,
       "value": "57"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5777,
+      "offset": 5831,
       "length": 2,
       "value": "58"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5794,
+      "offset": 5848,
       "length": 2,
       "value": "59"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5811,
+      "offset": 5865,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5828,
+      "offset": 5882,
       "length": 2,
       "value": "61"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5845,
+      "offset": 5899,
       "length": 2,
       "value": "62"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5862,
+      "offset": 5916,
       "length": 2,
       "value": "63"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5879,
+      "offset": 5933,
       "length": 2,
       "value": "64"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5896,
+      "offset": 5950,
       "length": 2,
       "value": "65"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5913,
+      "offset": 5967,
       "length": 2,
       "value": "66"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5930,
+      "offset": 5984,
       "length": 2,
       "value": "67"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5947,
+      "offset": 6001,
       "length": 2,
       "value": "68"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5964,
+      "offset": 6018,
       "length": 2,
       "value": "69"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5981,
+      "offset": 6035,
       "length": 2,
       "value": "70"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5998,
+      "offset": 6052,
       "length": 2,
       "value": "71"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6015,
+      "offset": 6069,
       "length": 2,
       "value": "72"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6032,
+      "offset": 6086,
       "length": 2,
       "value": "73"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6049,
+      "offset": 6103,
       "length": 2,
       "value": "74"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6066,
+      "offset": 6120,
       "length": 2,
       "value": "75"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6083,
+      "offset": 6137,
       "length": 2,
       "value": "76"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6100,
+      "offset": 6154,
       "length": 2,
       "value": "77"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6117,
+      "offset": 6171,
       "length": 2,
       "value": "78"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6134,
+      "offset": 6188,
       "length": 2,
       "value": "79"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6151,
+      "offset": 6205,
       "length": 2,
       "value": "80"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6168,
+      "offset": 6222,
       "length": 2,
       "value": "81"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6185,
+      "offset": 6239,
       "length": 2,
       "value": "82"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6202,
+      "offset": 6256,
       "length": 2,
       "value": "83"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6219,
+      "offset": 6273,
       "length": 2,
       "value": "84"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6236,
+      "offset": 6290,
       "length": 2,
       "value": "85"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6253,
+      "offset": 6307,
       "length": 2,
       "value": "86"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6270,
+      "offset": 6324,
       "length": 2,
       "value": "87"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6287,
+      "offset": 6341,
       "length": 2,
       "value": "88"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6304,
+      "offset": 6358,
       "length": 2,
       "value": "89"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6321,
+      "offset": 6375,
       "length": 2,
       "value": "90"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6338,
+      "offset": 6392,
       "length": 2,
       "value": "91"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6355,
+      "offset": 6409,
       "length": 2,
       "value": "92"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6372,
+      "offset": 6426,
       "length": 2,
       "value": "93"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6389,
+      "offset": 6443,
       "length": 2,
       "value": "94"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6406,
+      "offset": 6460,
       "length": 2,
       "value": "95"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6423,
+      "offset": 6477,
       "length": 2,
       "value": "96"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6440,
+      "offset": 6494,
       "length": 2,
       "value": "97"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6457,
+      "offset": 6511,
       "length": 2,
       "value": "98"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6474,
+      "offset": 6528,
       "length": 2,
       "value": "99"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6491,
+      "offset": 6545,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6509,
+      "offset": 6563,
       "length": 3,
       "value": "101"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6527,
+      "offset": 6581,
       "length": 3,
       "value": "102"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6545,
+      "offset": 6599,
       "length": 3,
       "value": "103"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6563,
+      "offset": 6617,
       "length": 3,
       "value": "104"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6581,
+      "offset": 6635,
       "length": 3,
       "value": "105"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6599,
+      "offset": 6653,
       "length": 3,
       "value": "106"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6617,
+      "offset": 6671,
       "length": 3,
       "value": "107"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6635,
+      "offset": 6689,
       "length": 3,
       "value": "108"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6653,
+      "offset": 6707,
       "length": 3,
       "value": "109"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6671,
+      "offset": 6725,
       "length": 3,
       "value": "110"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6689,
+      "offset": 6743,
       "length": 3,
       "value": "111"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6707,
+      "offset": 6761,
       "length": 3,
       "value": "112"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6725,
+      "offset": 6779,
       "length": 3,
       "value": "113"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6743,
+      "offset": 6797,
       "length": 3,
       "value": "114"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6761,
+      "offset": 6815,
       "length": 3,
       "value": "115"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6779,
+      "offset": 6833,
       "length": 3,
       "value": "116"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6797,
+      "offset": 6851,
       "length": 3,
       "value": "117"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6815,
+      "offset": 6869,
       "length": 3,
       "value": "118"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6833,
+      "offset": 6887,
       "length": 3,
       "value": "119"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6851,
+      "offset": 6905,
       "length": 3,
       "value": "120"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6869,
+      "offset": 6923,
       "length": 3,
       "value": "121"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6887,
+      "offset": 6941,
       "length": 3,
       "value": "122"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4801,
+      "offset": 4855,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4817,
+      "offset": 4871,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4833,
+      "offset": 4887,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4849,
+      "offset": 4903,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4865,
+      "offset": 4919,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4881,
+      "offset": 4935,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4897,
+      "offset": 4951,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4913,
+      "offset": 4967,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4929,
+      "offset": 4983,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4945,
+      "offset": 4999,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4961,
+      "offset": 5015,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4978,
+      "offset": 5032,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4995,
+      "offset": 5049,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5012,
+      "offset": 5066,
       "length": 2,
       "value": "13"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5029,
+      "offset": 5083,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5046,
+      "offset": 5100,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5063,
+      "offset": 5117,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5080,
+      "offset": 5134,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5097,
+      "offset": 5151,
       "length": 2,
       "value": "18"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5114,
+      "offset": 5168,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5131,
+      "offset": 5185,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5148,
+      "offset": 5202,
       "length": 2,
       "value": "21"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5165,
+      "offset": 5219,
       "length": 2,
       "value": "22"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5182,
+      "offset": 5236,
       "length": 2,
       "value": "23"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5199,
+      "offset": 5253,
       "length": 2,
       "value": "24"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5216,
+      "offset": 5270,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5233,
+      "offset": 5287,
       "length": 2,
       "value": "26"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5250,
+      "offset": 5304,
       "length": 2,
       "value": "27"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5267,
+      "offset": 5321,
       "length": 2,
       "value": "28"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5284,
+      "offset": 5338,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5301,
+      "offset": 5355,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5318,
+      "offset": 5372,
       "length": 2,
       "value": "31"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5335,
+      "offset": 5389,
       "length": 2,
       "value": "32"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5352,
+      "offset": 5406,
       "length": 2,
       "value": "33"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5369,
+      "offset": 5423,
       "length": 2,
       "value": "34"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5386,
+      "offset": 5440,
       "length": 2,
       "value": "35"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5403,
+      "offset": 5457,
       "length": 2,
       "value": "36"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5420,
+      "offset": 5474,
       "length": 2,
       "value": "37"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5437,
+      "offset": 5491,
       "length": 2,
       "value": "38"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5454,
+      "offset": 5508,
       "length": 2,
       "value": "39"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5471,
+      "offset": 5525,
       "length": 2,
       "value": "40"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5488,
+      "offset": 5542,
       "length": 2,
       "value": "41"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5505,
+      "offset": 5559,
       "length": 2,
       "value": "42"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5522,
+      "offset": 5576,
       "length": 2,
       "value": "43"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5539,
+      "offset": 5593,
       "length": 2,
       "value": "44"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5556,
+      "offset": 5610,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5573,
+      "offset": 5627,
       "length": 2,
       "value": "46"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5590,
+      "offset": 5644,
       "length": 2,
       "value": "47"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5607,
+      "offset": 5661,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5624,
+      "offset": 5678,
       "length": 2,
       "value": "49"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5641,
+      "offset": 5695,
       "length": 2,
       "value": "50"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5658,
+      "offset": 5712,
       "length": 2,
       "value": "51"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5675,
+      "offset": 5729,
       "length": 2,
       "value": "52"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5692,
+      "offset": 5746,
       "length": 2,
       "value": "53"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5709,
+      "offset": 5763,
       "length": 2,
       "value": "54"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5726,
+      "offset": 5780,
       "length": 2,
       "value": "55"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5743,
+      "offset": 5797,
       "length": 2,
       "value": "56"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5760,
+      "offset": 5814,
       "length": 2,
       "value": "57"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5777,
+      "offset": 5831,
       "length": 2,
       "value": "58"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5794,
+      "offset": 5848,
       "length": 2,
       "value": "59"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5811,
+      "offset": 5865,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5828,
+      "offset": 5882,
       "length": 2,
       "value": "61"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5845,
+      "offset": 5899,
       "length": 2,
       "value": "62"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5862,
+      "offset": 5916,
       "length": 2,
       "value": "63"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5879,
+      "offset": 5933,
       "length": 2,
       "value": "64"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5896,
+      "offset": 5950,
       "length": 2,
       "value": "65"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5913,
+      "offset": 5967,
       "length": 2,
       "value": "66"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5930,
+      "offset": 5984,
       "length": 2,
       "value": "67"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5947,
+      "offset": 6001,
       "length": 2,
       "value": "68"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5964,
+      "offset": 6018,
       "length": 2,
       "value": "69"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5981,
+      "offset": 6035,
       "length": 2,
       "value": "70"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5998,
+      "offset": 6052,
       "length": 2,
       "value": "71"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6015,
+      "offset": 6069,
       "length": 2,
       "value": "72"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6032,
+      "offset": 6086,
       "length": 2,
       "value": "73"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6049,
+      "offset": 6103,
       "length": 2,
       "value": "74"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6066,
+      "offset": 6120,
       "length": 2,
       "value": "75"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6083,
+      "offset": 6137,
       "length": 2,
       "value": "76"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6100,
+      "offset": 6154,
       "length": 2,
       "value": "77"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6117,
+      "offset": 6171,
       "length": 2,
       "value": "78"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6134,
+      "offset": 6188,
       "length": 2,
       "value": "79"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6151,
+      "offset": 6205,
       "length": 2,
       "value": "80"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6168,
+      "offset": 6222,
       "length": 2,
       "value": "81"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6185,
+      "offset": 6239,
       "length": 2,
       "value": "82"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6202,
+      "offset": 6256,
       "length": 2,
       "value": "83"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6219,
+      "offset": 6273,
       "length": 2,
       "value": "84"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6236,
+      "offset": 6290,
       "length": 2,
       "value": "85"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6253,
+      "offset": 6307,
       "length": 2,
       "value": "86"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6270,
+      "offset": 6324,
       "length": 2,
       "value": "87"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6287,
+      "offset": 6341,
       "length": 2,
       "value": "88"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6304,
+      "offset": 6358,
       "length": 2,
       "value": "89"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6321,
+      "offset": 6375,
       "length": 2,
       "value": "90"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6338,
+      "offset": 6392,
       "length": 2,
       "value": "91"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6355,
+      "offset": 6409,
       "length": 2,
       "value": "92"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6372,
+      "offset": 6426,
       "length": 2,
       "value": "93"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6389,
+      "offset": 6443,
       "length": 2,
       "value": "94"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6406,
+      "offset": 6460,
       "length": 2,
       "value": "95"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6423,
+      "offset": 6477,
       "length": 2,
       "value": "96"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6440,
+      "offset": 6494,
       "length": 2,
       "value": "97"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6457,
+      "offset": 6511,
       "length": 2,
       "value": "98"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6474,
+      "offset": 6528,
       "length": 2,
       "value": "99"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6491,
+      "offset": 6545,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6509,
+      "offset": 6563,
       "length": 3,
       "value": "101"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6527,
+      "offset": 6581,
       "length": 3,
       "value": "102"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6545,
+      "offset": 6599,
       "length": 3,
       "value": "103"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6563,
+      "offset": 6617,
       "length": 3,
       "value": "104"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6581,
+      "offset": 6635,
       "length": 3,
       "value": "105"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6599,
+      "offset": 6653,
       "length": 3,
       "value": "106"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6617,
+      "offset": 6671,
       "length": 3,
       "value": "107"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6635,
+      "offset": 6689,
       "length": 3,
       "value": "108"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6653,
+      "offset": 6707,
       "length": 3,
       "value": "109"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6671,
+      "offset": 6725,
       "length": 3,
       "value": "110"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6689,
+      "offset": 6743,
       "length": 3,
       "value": "111"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6707,
+      "offset": 6761,
       "length": 3,
       "value": "112"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6725,
+      "offset": 6779,
       "length": 3,
       "value": "113"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6743,
+      "offset": 6797,
       "length": 3,
       "value": "114"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6761,
+      "offset": 6815,
       "length": 3,
       "value": "115"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6779,
+      "offset": 6833,
       "length": 3,
       "value": "116"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6797,
+      "offset": 6851,
       "length": 3,
       "value": "117"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6815,
+      "offset": 6869,
       "length": 3,
       "value": "118"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6833,
+      "offset": 6887,
       "length": 3,
       "value": "119"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6851,
+      "offset": 6905,
       "length": 3,
       "value": "120"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6869,
+      "offset": 6923,
       "length": 3,
       "value": "121"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6887,
+      "offset": 6941,
       "length": 3,
       "value": "122"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4801,
+      "offset": 4855,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4817,
+      "offset": 4871,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4833,
+      "offset": 4887,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4849,
+      "offset": 4903,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4865,
+      "offset": 4919,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4881,
+      "offset": 4935,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4897,
+      "offset": 4951,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4913,
+      "offset": 4967,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4929,
+      "offset": 4983,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4945,
+      "offset": 4999,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4961,
+      "offset": 5015,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4978,
+      "offset": 5032,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 4995,
+      "offset": 5049,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5012,
+      "offset": 5066,
       "length": 2,
       "value": "13"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5029,
+      "offset": 5083,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5046,
+      "offset": 5100,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5063,
+      "offset": 5117,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5080,
+      "offset": 5134,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5097,
+      "offset": 5151,
       "length": 2,
       "value": "18"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5114,
+      "offset": 5168,
       "length": 2,
       "value": "19"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5131,
+      "offset": 5185,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5148,
+      "offset": 5202,
       "length": 2,
       "value": "21"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5165,
+      "offset": 5219,
       "length": 2,
       "value": "22"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5182,
+      "offset": 5236,
       "length": 2,
       "value": "23"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5199,
+      "offset": 5253,
       "length": 2,
       "value": "24"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5216,
+      "offset": 5270,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5233,
+      "offset": 5287,
       "length": 2,
       "value": "26"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5250,
+      "offset": 5304,
       "length": 2,
       "value": "27"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5267,
+      "offset": 5321,
       "length": 2,
       "value": "28"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5284,
+      "offset": 5338,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5301,
+      "offset": 5355,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5318,
+      "offset": 5372,
       "length": 2,
       "value": "31"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5335,
+      "offset": 5389,
       "length": 2,
       "value": "32"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5352,
+      "offset": 5406,
       "length": 2,
       "value": "33"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5369,
+      "offset": 5423,
       "length": 2,
       "value": "34"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5386,
+      "offset": 5440,
       "length": 2,
       "value": "35"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5403,
+      "offset": 5457,
       "length": 2,
       "value": "36"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5420,
+      "offset": 5474,
       "length": 2,
       "value": "37"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5437,
+      "offset": 5491,
       "length": 2,
       "value": "38"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5454,
+      "offset": 5508,
       "length": 2,
       "value": "39"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5471,
+      "offset": 5525,
       "length": 2,
       "value": "40"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5488,
+      "offset": 5542,
       "length": 2,
       "value": "41"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5505,
+      "offset": 5559,
       "length": 2,
       "value": "42"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5522,
+      "offset": 5576,
       "length": 2,
       "value": "43"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5539,
+      "offset": 5593,
       "length": 2,
       "value": "44"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5556,
+      "offset": 5610,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5573,
+      "offset": 5627,
       "length": 2,
       "value": "46"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5590,
+      "offset": 5644,
       "length": 2,
       "value": "47"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5607,
+      "offset": 5661,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5624,
+      "offset": 5678,
       "length": 2,
       "value": "49"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5641,
+      "offset": 5695,
       "length": 2,
       "value": "50"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5658,
+      "offset": 5712,
       "length": 2,
       "value": "51"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5675,
+      "offset": 5729,
       "length": 2,
       "value": "52"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5692,
+      "offset": 5746,
       "length": 2,
       "value": "53"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5709,
+      "offset": 5763,
       "length": 2,
       "value": "54"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5726,
+      "offset": 5780,
       "length": 2,
       "value": "55"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5743,
+      "offset": 5797,
       "length": 2,
       "value": "56"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5760,
+      "offset": 5814,
       "length": 2,
       "value": "57"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5777,
+      "offset": 5831,
       "length": 2,
       "value": "58"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5794,
+      "offset": 5848,
       "length": 2,
       "value": "59"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5811,
+      "offset": 5865,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5828,
+      "offset": 5882,
       "length": 2,
       "value": "61"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5845,
+      "offset": 5899,
       "length": 2,
       "value": "62"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5862,
+      "offset": 5916,
       "length": 2,
       "value": "63"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5879,
+      "offset": 5933,
       "length": 2,
       "value": "64"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5896,
+      "offset": 5950,
       "length": 2,
       "value": "65"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5913,
+      "offset": 5967,
       "length": 2,
       "value": "66"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5930,
+      "offset": 5984,
       "length": 2,
       "value": "67"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5947,
+      "offset": 6001,
       "length": 2,
       "value": "68"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5964,
+      "offset": 6018,
       "length": 2,
       "value": "69"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5981,
+      "offset": 6035,
       "length": 2,
       "value": "70"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 5998,
+      "offset": 6052,
       "length": 2,
       "value": "71"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6015,
+      "offset": 6069,
       "length": 2,
       "value": "72"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6032,
+      "offset": 6086,
       "length": 2,
       "value": "73"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6049,
+      "offset": 6103,
       "length": 2,
       "value": "74"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6066,
+      "offset": 6120,
       "length": 2,
       "value": "75"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6083,
+      "offset": 6137,
       "length": 2,
       "value": "76"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6100,
+      "offset": 6154,
       "length": 2,
       "value": "77"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6117,
+      "offset": 6171,
       "length": 2,
       "value": "78"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6134,
+      "offset": 6188,
       "length": 2,
       "value": "79"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6151,
+      "offset": 6205,
       "length": 2,
       "value": "80"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6168,
+      "offset": 6222,
       "length": 2,
       "value": "81"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6185,
+      "offset": 6239,
       "length": 2,
       "value": "82"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6202,
+      "offset": 6256,
       "length": 2,
       "value": "83"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6219,
+      "offset": 6273,
       "length": 2,
       "value": "84"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6236,
+      "offset": 6290,
       "length": 2,
       "value": "85"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6253,
+      "offset": 6307,
       "length": 2,
       "value": "86"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6270,
+      "offset": 6324,
       "length": 2,
       "value": "87"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6287,
+      "offset": 6341,
       "length": 2,
       "value": "88"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6304,
+      "offset": 6358,
       "length": 2,
       "value": "89"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6321,
+      "offset": 6375,
       "length": 2,
       "value": "90"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6338,
+      "offset": 6392,
       "length": 2,
       "value": "91"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6355,
+      "offset": 6409,
       "length": 2,
       "value": "92"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6372,
+      "offset": 6426,
       "length": 2,
       "value": "93"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6389,
+      "offset": 6443,
       "length": 2,
       "value": "94"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6406,
+      "offset": 6460,
       "length": 2,
       "value": "95"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6423,
+      "offset": 6477,
       "length": 2,
       "value": "96"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6440,
+      "offset": 6494,
       "length": 2,
       "value": "97"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6457,
+      "offset": 6511,
       "length": 2,
       "value": "98"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6474,
+      "offset": 6528,
       "length": 2,
       "value": "99"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6491,
+      "offset": 6545,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6509,
+      "offset": 6563,
       "length": 3,
       "value": "101"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6527,
+      "offset": 6581,
       "length": 3,
       "value": "102"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6545,
+      "offset": 6599,
       "length": 3,
       "value": "103"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6563,
+      "offset": 6617,
       "length": 3,
       "value": "104"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6581,
+      "offset": 6635,
       "length": 3,
       "value": "105"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6599,
+      "offset": 6653,
       "length": 3,
       "value": "106"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6617,
+      "offset": 6671,
       "length": 3,
       "value": "107"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6635,
+      "offset": 6689,
       "length": 3,
       "value": "108"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6653,
+      "offset": 6707,
       "length": 3,
       "value": "109"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6671,
+      "offset": 6725,
       "length": 3,
       "value": "110"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6689,
+      "offset": 6743,
       "length": 3,
       "value": "111"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6707,
+      "offset": 6761,
       "length": 3,
       "value": "112"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6725,
+      "offset": 6779,
       "length": 3,
       "value": "113"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6743,
+      "offset": 6797,
       "length": 3,
       "value": "114"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6761,
+      "offset": 6815,
       "length": 3,
       "value": "115"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6779,
+      "offset": 6833,
       "length": 3,
       "value": "116"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6797,
+      "offset": 6851,
       "length": 3,
       "value": "117"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6815,
+      "offset": 6869,
       "length": 3,
       "value": "118"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6833,
+      "offset": 6887,
       "length": 3,
       "value": "119"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6851,
+      "offset": 6905,
       "length": 3,
       "value": "120"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6869,
+      "offset": 6923,
       "length": 3,
       "value": "121"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6887,
+      "offset": 6941,
       "length": 3,
       "value": "122"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6957,
+      "offset": 7011,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6974,
+      "offset": 7028,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6991,
+      "offset": 7045,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7008,
+      "offset": 7062,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7025,
+      "offset": 7079,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7042,
+      "offset": 7096,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7059,
+      "offset": 7113,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7076,
+      "offset": 7130,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7095,
+      "offset": 7149,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7112,
+      "offset": 7166,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7129,
+      "offset": 7183,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7147,
+      "offset": 7201,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7165,
+      "offset": 7219,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6957,
+      "offset": 7011,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6974,
+      "offset": 7028,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6991,
+      "offset": 7045,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7008,
+      "offset": 7062,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7025,
+      "offset": 7079,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7042,
+      "offset": 7096,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7059,
+      "offset": 7113,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7076,
+      "offset": 7130,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7095,
+      "offset": 7149,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7112,
+      "offset": 7166,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7129,
+      "offset": 7183,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7147,
+      "offset": 7201,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7165,
+      "offset": 7219,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6957,
+      "offset": 7011,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6974,
+      "offset": 7028,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 6991,
+      "offset": 7045,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7008,
+      "offset": 7062,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7025,
+      "offset": 7079,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7042,
+      "offset": 7096,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7059,
+      "offset": 7113,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7076,
+      "offset": 7130,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7095,
+      "offset": 7149,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7112,
+      "offset": 7166,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7129,
+      "offset": 7183,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7147,
+      "offset": 7201,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7165,
+      "offset": 7219,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7244,
+      "offset": 7298,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7263,
+      "offset": 7317,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7283,
+      "offset": 7337,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7303,
+      "offset": 7357,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7244,
+      "offset": 7298,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7263,
+      "offset": 7317,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7283,
+      "offset": 7337,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7303,
+      "offset": 7357,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7244,
+      "offset": 7298,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7263,
+      "offset": 7317,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7283,
+      "offset": 7337,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7303,
+      "offset": 7357,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7389,
+      "offset": 7443,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7412,
+      "offset": 7466,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7436,
+      "offset": 7490,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7456,
+      "offset": 7510,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7487,
+      "offset": 7541,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7503,
+      "offset": 7557,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7525,
+      "offset": 7579,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7543,
+      "offset": 7597,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7564,
+      "offset": 7618,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7593,
+      "offset": 7647,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7610,
+      "offset": 7664,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7389,
+      "offset": 7443,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7412,
+      "offset": 7466,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7436,
+      "offset": 7490,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7456,
+      "offset": 7510,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7487,
+      "offset": 7541,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7503,
+      "offset": 7557,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7525,
+      "offset": 7579,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7543,
+      "offset": 7597,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7564,
+      "offset": 7618,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7593,
+      "offset": 7647,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7610,
+      "offset": 7664,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7389,
+      "offset": 7443,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7412,
+      "offset": 7466,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7436,
+      "offset": 7490,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7456,
+      "offset": 7510,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7487,
+      "offset": 7541,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7503,
+      "offset": 7557,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7525,
+      "offset": 7579,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7543,
+      "offset": 7597,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7564,
+      "offset": 7618,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7593,
+      "offset": 7647,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7610,
+      "offset": 7664,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7685,
+      "offset": 7739,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7710,
+      "offset": 7764,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7730,
+      "offset": 7784,
       "length": 1,
       "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7748,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7776,
-      "length": 1,
-      "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
       "offset": 7802,
       "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7830,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7856,
+      "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7685,
+      "offset": 7739,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7710,
+      "offset": 7764,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7730,
+      "offset": 7784,
       "length": 1,
       "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7748,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7776,
-      "length": 1,
-      "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
       "offset": 7802,
       "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7830,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7856,
+      "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7685,
+      "offset": 7739,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7710,
+      "offset": 7764,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7730,
+      "offset": 7784,
       "length": 1,
       "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7748,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7776,
-      "length": 1,
-      "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
       "offset": 7802,
       "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7874,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7904,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7931,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7947,
-      "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 7874,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7904,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7931,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7947,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7874,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7904,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7931,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7947,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8033,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8055,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8074,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8090,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8110,
+      "offset": 7830,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8128,
+      "offset": 7856,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8151,
+      "offset": 7928,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7958,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7985,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8001,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8023,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7928,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7958,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7985,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8001,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8023,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7928,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7958,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7985,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8001,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8023,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8109,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8131,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8150,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8166,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8186,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8204,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8227,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8173,
+      "offset": 8249,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8196,
+      "offset": 8272,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8033,
+      "offset": 8109,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8055,
+      "offset": 8131,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8074,
+      "offset": 8150,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8090,
+      "offset": 8166,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8110,
+      "offset": 8186,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8128,
+      "offset": 8204,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8151,
+      "offset": 8227,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8173,
+      "offset": 8249,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8196,
+      "offset": 8272,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8033,
+      "offset": 8109,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8055,
+      "offset": 8131,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8074,
+      "offset": 8150,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8090,
+      "offset": 8166,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8110,
+      "offset": 8186,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8128,
+      "offset": 8204,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8151,
+      "offset": 8227,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8173,
+      "offset": 8249,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8196,
+      "offset": 8272,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8274,
+      "offset": 8350,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8294,
+      "offset": 8370,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8319,
+      "offset": 8395,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8346,
+      "offset": 8422,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8368,
+      "offset": 8444,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8389,
+      "offset": 8465,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8274,
+      "offset": 8350,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8294,
+      "offset": 8370,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8319,
+      "offset": 8395,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8346,
+      "offset": 8422,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8368,
+      "offset": 8444,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8389,
+      "offset": 8465,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8274,
+      "offset": 8350,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8294,
+      "offset": 8370,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8319,
+      "offset": 8395,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8346,
+      "offset": 8422,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8368,
+      "offset": 8444,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8389,
+      "offset": 8465,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8472,
+      "offset": 8548,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8497,
+      "offset": 8573,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8529,
+      "offset": 8605,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8567,
+      "offset": 8643,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8600,
+      "offset": 8676,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8630,
+      "offset": 8706,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8472,
+      "offset": 8548,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8497,
+      "offset": 8573,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8529,
+      "offset": 8605,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8567,
+      "offset": 8643,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8600,
+      "offset": 8676,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8630,
+      "offset": 8706,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8472,
+      "offset": 8548,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8497,
+      "offset": 8573,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8529,
+      "offset": 8605,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8567,
+      "offset": 8643,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8600,
+      "offset": 8676,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 8630,
+      "offset": 8706,
       "length": 1,
       "value": "5"
     },
@@ -62012,120 +62419,120 @@
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 318,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "FloatLiteral",
-      "offset": 347,
+      "offset": 597,
       "length": 3,
       "value": "0.7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 458,
+      "offset": 708,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 501,
+      "offset": 751,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "FloatLiteral",
-      "offset": 674,
+      "offset": 924,
       "length": 4,
       "value": "15.0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 748,
+      "offset": 998,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1035,
+      "offset": 1285,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "StringLiteral",
-      "offset": 1517,
-      "length": 39,
-      "value": "\"init(coder:) has not been implemented\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2346,
+      "offset": 2899,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2363,
+      "offset": 2916,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2382,
+      "offset": 2935,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2400,
+      "offset": 2953,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3026,
+      "offset": 3579,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3040,
+      "offset": 3593,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3817,
+      "offset": 4323,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3896,
+      "offset": 4402,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3973,
+      "offset": 4479,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4046,
+      "offset": 4552,
       "length": 4,
       "value": "true"
     },
@@ -64764,105 +65171,112 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3004,
+      "offset": 2888,
+      "length": 11,
+      "value": "\"Timed out\""
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
+      "kind": "StringLiteral",
+      "offset": 3059,
       "length": 20,
       "value": "\"Look at the camera\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3068,
+      "offset": 3123,
       "length": 32,
       "value": "\"Turn head slowly towards arrow\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3141,
+      "offset": 3196,
       "length": 7,
       "value": "\"Smile\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3186,
+      "offset": 3241,
       "length": 4,
       "value": "\"Ok\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3232,
+      "offset": 3287,
       "length": 8,
       "value": "\"Blurry\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3280,
+      "offset": 3335,
       "length": 6,
       "value": "\"Dark\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3331,
+      "offset": 3386,
       "length": 12,
       "value": "\"Hold Still\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3387,
+      "offset": 3442,
       "length": 10,
       "value": "\"Reseting\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3442,
+      "offset": 3497,
       "length": 13,
       "value": "\"Don't smile\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3603,
+      "offset": 3658,
       "length": 4,
       "value": "\"Ok\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3654,
+      "offset": 3709,
       "length": 15,
       "value": "\"No face found\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3711,
+      "offset": 3766,
       "length": 8,
       "value": "\"Blurry\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3759,
+      "offset": 3814,
       "length": 6,
       "value": "\"Dark\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3815,
+      "offset": 3870,
       "length": 17,
       "value": "\"Confirming face\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
       "kind": "StringLiteral",
-      "offset": 3880,
+      "offset": 3935,
       "length": 16,
       "value": "\"Bad face angle\""
     },

@@ -174,6 +174,8 @@ enum class DocumentCodes : int32_t {
 	RU_PAS_2006_10 = 166,
 	TR_PAS_2023 = 167,
 	DO_IDC_2014 = 168,
+	LI_PAS_2006 = 169,
+	VA_PAS_2013 = 170,
 };
 
 enum class PageCodes : uint8_t {
@@ -358,6 +360,7 @@ enum class HologramState : int {
 	TiltLeftAndRight = 1,
 	TiltUpAndDown = 2,
 	Ok = 3,
+	TimedOut = 4,
 };
 
 enum class FaceLivenessVerifierState : int {

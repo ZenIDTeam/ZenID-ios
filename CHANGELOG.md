@@ -1,17 +1,34 @@
 # Change Log
 
+# 2.0.23 2023-12-08
+* RecogLib 3.9.6
+* New: Support for Vaticanian passports v2013 (NFC only).
+* New: Support for Liechtensteiner passports v2006 (NFC only).
+* Improvement: Improved wording of Normalization parameters on Settings page.
+* Improvement: Retrained Mask on selfie validator.
+* New: Support for Andorran passports v2017 (NFC only).
+* New: Support for Sanmarinese passports v2006 (NFC only).
+* New: System updated to enable support for documents with just extracting its NFC data.
+* Improvement: Description of ZenidWebSdk.snapNow() method in manual. This function skips validators and signature is not created.
+* New: Support for Belgian Passport v2022.
+* Improvement: Signature is copied to clipboard with prefix.
+* Hide current step UI during TimedOut state.
+* Improvement: *Italian ID cards suppord broadened: Italian ID cards v2016/2022.
+* Add HologramState::TimedOut to expose timeout condition in IQS hologram flow.
+* New: `CameraView` class can be initialized from XIB or Storyboard.
+* New: You can override default videogravity using parameter in `CameraView`.
+* New: Parameter `ignoreSafeArea` in `CameraView` will stretch video view to fill whole UIView and ignore safe areas. 
+
 # 2.0.22 2023-10-13
 * RecogLib 3.8.5
 * New: Added support for iPhone 15 line
 * Turkish passports v2023 are enabled for NFC reading.
-* API: Added DO_IDC_2014 to DocumentCodes enum.
 * New: Support for Dominican ID cards v2014.
 * Improvement: Dominican ID card MRZ reading.
 * Don't show card outline after card is removed from frame in IQS verifier.
 * New: Possibility to change time delay to become max tolerant for multiple FE validators has been added to SDK picture quality validator on the Sensitivity page.
 * New: Added WebView visualizer files to SDK releases.
 * SDK: Allow setting IQS verifier settings in backend validator sensitivity.
-
 
 # 2.0.21 2023-09-30
 * RecogLib 3.8.1
@@ -21,7 +38,6 @@
 * New SelectProfile feature that allows customers to set frontend validator configs on the backend.
 * New states for DocumentVerifierState and FaceLivenessVerifierState.
 * Removed attributes `specularAcceptableScore`, `documentBlurAcceptableScore` and `readBarcode` from struct `DocumentVerifierSettings`
-
 
 # 2.0.20 2023-06-15
 * Hologram length video reducing

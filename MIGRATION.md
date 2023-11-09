@@ -1,5 +1,9 @@
 # Migration
 
+## Update to the version 2.0.23 (RecogLib 3.9.4)
+
+There is a new state `Hologram State.timeout` that the application must respond to.
+
 
 ## Update to the version 2.0.21 (RecogLib 3.8.1)
 

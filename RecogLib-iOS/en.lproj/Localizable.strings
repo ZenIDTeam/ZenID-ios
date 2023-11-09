@@ -13,3 +13,4 @@
 "document.state.text_not_readable" = "Text isn't readable";
 "document.state.dark" = "Image too dark";
 "document.state.barcode" = "Barcode not readable";
+"document.state.timedout" = "The time limit has expired";
