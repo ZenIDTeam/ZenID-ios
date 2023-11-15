@@ -16,13 +16,9 @@ struct CDocumentInfo {
 };
 
 struct CDocumentVerifierSettings {
-    int specularAcceptableScore, documentBlurAcceptableScore, timeToBlurMaxToleranceInSeconds, visualizerVersion;
-    bool showTimer, enableAimingCircle, drawOutline, readBarcode;
+    int timeToBlurMaxToleranceInSeconds, visualizerVersion;
+    bool showTimer, enableAimingCircle, drawOutline;
 };
-
-typedef struct CImageSignature CImageSignature;
-typedef struct CDocumentInfo CDocumentInfo;
-typedef struct CDocumentVerifierSettings CDocumentVerifierSettings;
 
 enum CNfcStatus {
   DeviceDoesNotSupportNfc = 0,
@@ -31,7 +27,28 @@ enum CNfcStatus {
   Ok = 3,
 };
 
+struct CNfcValidatorConfig {
+    int nfcChipReadingTimeoutSeconds;
+    int numberOfReadingAttempts;
+    bool skipNfcAllowed;
+    bool noNfcMeansError;
+    bool isEnabled;
+    int acceptScore;
+    int scoreStep;
+    bool isTestEnabled;
+};
 
+struct CPreviewData {
+    const uint8_t *image;
+    int imageSize;
+};
+    
+typedef struct CImageSignature CImageSignature;
+typedef struct CDocumentInfo CDocumentInfo;
+typedef struct CDocumentVerifierSettings CDocumentVerifierSettings;
+typedef struct CNfcValidatorConfig CNfcValidatorConfig;
+typedef struct CPreviewData CPreviewData;
+    
 
 // Initialisation and loading models
 const void * getDocumentVerifier(CDocumentVerifierSettings *settings);
@@ -66,8 +83,14 @@ int getDocumentRequiredVideoResolution(const void *object);
 // Nfc
 char* getNfcKey(const void *object);
 void processNfcResult(const void *object, char *data, enum CNfcStatus status);
-int getState(const void *object);
 CImageSignature getSignedImage(const void *object);
+CNfcValidatorConfig getSdkConfig(const void *object);
+
+// Get state
+int getState(const void *object);
+void getDocumentResult(const void *object,  CDocumentInfo *document);
+//CPreviewData getImagePreview(const void *object, CPreviewData *preview);
+CDocumentVerifierSettings getDocumentSettings(const void *object);
 
 #ifdef __cplusplus
 }

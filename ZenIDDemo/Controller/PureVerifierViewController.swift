@@ -102,7 +102,7 @@ final class PureVerifierViewController: UIViewController {
         if captureSession.isRunning {
             return
         }
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.captureSession.startRunning()
         }
     }
@@ -111,7 +111,7 @@ final class PureVerifierViewController: UIViewController {
         if !captureSession.isRunning {
             return
         }
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.captureSession.stopRunning()
         }
     }
@@ -224,6 +224,15 @@ extension PureVerifierViewController {
 extension PureVerifierViewController {
     func setupCameraSession() -> Bool {
         guard let device = AVCaptureDevice.default(for: .video) else { return false }
+        var deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
+        if #available(iOS 13.0, *) {
+            deviceTypes.append(.builtInDualWideCamera)
+            deviceTypes.append(.builtInTripleCamera)
+        }
+        let deviceDescoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
+                                                                      mediaType: .video,
+                                                                      position: .back)
+        guard let device = deviceDescoverySession.devices.last else { return false }
 
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = .resizeAspectFill
@@ -249,6 +258,19 @@ extension PureVerifierViewController {
         captureSession.addOutput(cameraVideoOutput)
 
         captureSession.commitConfiguration()
+        
+        // Zoom factor is necessary only for multifocal systems.
+        guard device.deviceType != .builtInWideAngleCamera else { return true }
+        if #available(iOS 13.0, *) {
+            do {
+                try device.lockForConfiguration()
+                device.videoZoomFactor =
+                CGFloat(device.virtualDeviceSwitchOverVideoZoomFactors.first?.floatValue ?? 1)
+                device.unlockForConfiguration()
+            } catch {
+                // Let it gracefully be.
+            }
+        }
 
         return true
     }
