@@ -1,20 +1,23 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import CoreGraphics
 import CoreMedia
 import CoreVideo
+import DeveloperToolsSupport
 import Foundation
 @_exported import RecogLib_iOS
 import Swift
+import SwiftUI
 import UIKit.UIImage
 import UIKit
 import VideoToolbox
 import WebKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 public protocol UnifiedVerifier {
   func verify(image: CoreVideo.CVPixelBuffer) -> (any RecogLib_iOS.UnifiedResult)?
 }
@@ -421,9 +424,6 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
 }
 extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
-}
-extension UIKit.UIDevice {
-  @_Concurrency.MainActor(unsafe) public static let isProModel: Swift.Bool
 }
 public enum ZenFont {
 }
