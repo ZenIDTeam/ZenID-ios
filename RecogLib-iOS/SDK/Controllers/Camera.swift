@@ -46,16 +46,16 @@ public final class Camera: NSObject {
 
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
-        var deviceTypes: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera]
+        var deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
         if #available(iOS 13.0, *) {
-            if UIDevice.isProModel {
-                deviceTypes = [.builtInTripleCamera, .builtInDualCamera, .builtInWideAngleCamera]
-            }
+            deviceTypes.append(.builtInDualWideCamera)
+            deviceTypes.append(.builtInTripleCamera)
+            
         }
-        let deviceDescoverySession = AVCaptureDevice.DiscoverySession(
-            deviceTypes: deviceTypes, mediaType: .video, position: captureDevicePosition
-        )
-        captureDevice = deviceDescoverySession.devices.first
+        let deviceDescoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
+                                                                      mediaType: .video,
+                                                                      position: captureDevicePosition)
+        captureDevice = deviceDescoverySession.devices.last
 
         guard let device = captureDevice, setupCameraSession(device) else {
             throw CameraError.notInitialized
@@ -65,13 +65,26 @@ public final class Camera: NSObject {
         }
 
         captureSession.sessionPreset = .high
+        
+        // Zoom factor is necessary only for multifocal systems.
+        guard device.deviceType != .builtInWideAngleCamera else { return }
+        if #available(iOS 13.0, *) {
+            do {
+                try captureDevice?.lockForConfiguration()
+                captureDevice?.videoZoomFactor =
+                CGFloat(captureDevice?.virtualDeviceSwitchOverVideoZoomFactors.first?.floatValue ?? 1)
+                captureDevice?.unlockForConfiguration()
+            } catch {
+                // Let it gracefully be.
+            }
+        }
     }
 
     func start() {
         if captureSession.isRunning {
             return
         }
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.captureSession.startRunning()
         }
     }
@@ -81,7 +94,7 @@ public final class Camera: NSObject {
         if !captureSession.isRunning {
             return
         }
-        DispatchQueue.global().async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.captureSession.stopRunning()
         }
     }
@@ -216,32 +229,3 @@ private extension Camera {
     }
 }
 
-#if os(iOS)
-    public extension UIDevice {
-        static let isProModel: Bool = {
-            var systemInfo = utsname()
-            uname(&systemInfo)
-            let machineMirror = Mirror(reflecting: systemInfo.machine)
-            let identifier = machineMirror.children.reduce("") { identifier, element in
-                guard let value = element.value as? Int8, value != 0 else { return identifier }
-                return identifier + String(UnicodeScalar(UInt8(value)))
-            }
-
-            // Camera selection oon iPhone 12 Pro is ok, not needed to detect
-            func mapProDevices(identifier: String) -> Bool { // swiftlint:disable:this cyclomatic_complexity
-                switch identifier {
-                // "iPhone 13 Pro"
-                case "iPhone14,2": return true
-                // "iPhone 13 Pro Max"
-                case "iPhone14,3": return true
-                // "iPhone 14 Pro"
-                case "iPhone15,2": return true
-                // "iPhone 14 Pro Max"
-                case "iPhone15,3": return true
-                default: return false
-                }
-            }
-            return mapProDevices(identifier: identifier)
-        }()
-    }
-#endif
