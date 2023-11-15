@@ -1,7 +1,7 @@
 framework module RecogLib_iOS {
   umbrella header "RecogLib_iOS.h"
-
   export *
+
   module * { export * }
 }
 

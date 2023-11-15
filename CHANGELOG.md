@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2023-11-15
+* Fixed camera focus on iPhone 14 and 15 series.
+
 # 2.0.18 2023-05-12
 * RecogLib 3.5.1
 * Added CZ_RES_2020_A2 in DocumentCodes enum.
