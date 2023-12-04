@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2023-11-15
+* Fixed camera focus on iPhone 14 and 15 series.
+
 # 2.0.19 2023-06-10
 * Fixed a memory issue in demo app
 
