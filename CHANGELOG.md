@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2023-11-15
+* Fixed camera focus on iPhone 14 and 15 series.
+
 # 2.0.20 2023-06-15
 * Hologram length video reducing
 * Fixed issue when completing the face-liveness verification proces  
