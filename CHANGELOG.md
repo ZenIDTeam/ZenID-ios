@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2023-11-15
+* Fixed camera focus on iPhone 14 and 15 series.
+
 # 2.0.21 2023-09-30
 * RecogLib 3.8.1
 * New support for NFC document reading (see MIGRATION.md)
