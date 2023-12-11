@@ -164,15 +164,15 @@ extension PureFaceLivenessVerifierViewController {
 
 extension PureFaceLivenessVerifierViewController {
     func setupCameraSession() -> Bool {
-        var deviceTypes: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera]
+        var deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
         if #available(iOS 13.0, *) {
-            if UIDevice.isProModel {
-                deviceTypes = [.builtInTripleCamera, .builtInDualCamera, .builtInWideAngleCamera]
-            }
+            deviceTypes.append(.builtInDualWideCamera)
+            deviceTypes.append(.builtInTripleCamera)
+            
         }
-        let deviceDescoverySession = AVCaptureDevice.DiscoverySession(
-            deviceTypes: deviceTypes, mediaType: .video, position: .front
-        )
+        let deviceDescoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
+                                                                      mediaType: .video,
+                                                                      position: .front)
         
         guard let device = deviceDescoverySession.devices.first else { return false }
 
