@@ -17,7 +17,8 @@
 * Add HologramState::TimedOut to expose timeout condition in IQS hologram flow.
 * New: `CameraView` class can be initialized from XIB or Storyboard.
 * New: You can override default videogravity using parameter in `CameraView`.
-* New: Parameter `ignoreSafeArea` in `CameraView` will stretch video view to fill whole UIView and ignore safe areas. 
+* New: Parameter `ignoreSafeArea` in `CameraView` will stretch video view to fill whole UIView and ignore safe areas.
+* New: Video recording reset together with Liveness verifier to reduce video length.  
 
 # 2.0.22 2023-10-13
 * RecogLib 3.8.5

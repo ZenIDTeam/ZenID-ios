@@ -179,16 +179,21 @@ public class BaseController<ResultType: ResultState> {
         view.drawLayer?.setRenderables([])
         view.rotateOverlay(targetFrame: getOverlayTargetFrame())
 
-        if let videoWriter = videoWriter, videoWriter.isRecording {
-            videoWriter.stopAndCancel()
-            DispatchQueue.main.async { [weak self] in
-                self?.startVideoWriter()
-            }
-        }
+        restartVideoWriter()
     }
 
     private func isVisualisationAllowed() -> Bool {
         baseConfig.showVisualisation
+    }
+    
+    /// Restart video recording.
+    func restartVideoWriter() {
+        guard let videoWriter = videoWriter, videoWriter.isRecording else { return }
+        
+        videoWriter.stopAndCancel()
+        DispatchQueue.main.async { [weak self] in
+            self?.startVideoWriter()
+        }
     }
 
     private func startVideoWriter() {
@@ -271,15 +276,15 @@ extension BaseController {
     }
 
     func updateView(with result: ResultType?, buffer: CVPixelBuffer) {
-        guard let unwrappedResult = result else {
+        guard let result else {
             view.statusButton.setTitle("nil result", for: .normal)
             return
         }
-        guard unwrappedResult.isOk, !(previousResult?.isOk ?? false) else {
-            view.statusButton.setTitle(String(describing: unwrappedResult.description), for: .normal)
+        guard result.isOk, !(previousResult?.isOk ?? false) else {
+            view.statusButton.setTitle(String(describing: result.description), for: .normal)
             return
         }
-        previousResult = unwrappedResult
+        previousResult = result
 
         guard isRunning else { return }
         isRunning = false
@@ -289,7 +294,7 @@ extension BaseController {
             setTorch(on: false)
             return
         }
-        callDelegate(with: unwrappedResult)
+        callDelegate(with: result)
     }
 
     func canShowVisualisation() -> Bool {
@@ -321,9 +326,7 @@ extension BaseController: CameraDelegate {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }
 
-        guard let result = verify(pixelBuffer: croppedBuffer) else {
-            return
-        }
+        guard let result = verify(pixelBuffer: croppedBuffer) else { return }
 
         // temporary workaround when resolving issue with Recoglib.getPreview dealocating of the std::vector type
         latestSuccessfullBuffer = result.isOk ? croppedBuffer : nil

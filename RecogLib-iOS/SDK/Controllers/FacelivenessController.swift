@@ -117,6 +117,11 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     }
     
     override func callUpdateDelegate(with result: FaceLivenessResult) {
+        // When reseting liveness verifier reset video recording too.
+        if result.faceLivenessState == .Reseting, previousResult?.faceLivenessState != .Reseting {
+            restartVideoWriter()
+        }
+        
         delegate?.controller(self, didUpdate: result)
     }
     
