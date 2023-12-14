@@ -53,7 +53,7 @@ public:
   int NumberOfReadingAttempts = 1;
   bool SkipNfcAllowed = false;
   bool NoNfcMeansError = false;
-  bool IsEnabled = false;
+  bool IsEnabled = true;
   int AcceptScore = 100;
   int ScoreStep = 100;
   bool IsTestEnabled = true;

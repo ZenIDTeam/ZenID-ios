@@ -22,4 +22,5 @@ public enum UnifiedState {
     case nfc
     case reseting
     case dontSmile
+    case timedOut
 }

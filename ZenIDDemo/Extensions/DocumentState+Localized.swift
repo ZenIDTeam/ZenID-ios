@@ -30,6 +30,8 @@ extension UnifiedState {
             return "document.state.dark".localized
         case .barcode:
             return "document.state.barcode".localized
+        case .timedOut:
+            return "document.state.timedout".localized
         default:
             return String(describing: self)
         }

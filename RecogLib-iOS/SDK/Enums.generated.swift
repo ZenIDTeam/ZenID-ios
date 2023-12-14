@@ -167,6 +167,8 @@ public enum DocumentCodes : Int, CaseIterable {
     case RU_PAS_2006_10 = 166
     case TR_PAS_2023 = 167
     case DO_IDC_2014 = 168
+    case LI_PAS_2006 = 169
+    case VA_PAS_2013 = 170
 }
 
 public enum PageCodes : Int, CaseIterable { 
@@ -351,6 +353,7 @@ public enum HologramState : Int, CaseIterable {
     case TiltLeftAndRight = 1
     case TiltUpAndDown = 2
     case Ok = 3
+    case TimedOut = 4
 }
 
 public enum FaceLivenessVerifierState : Int, CaseIterable { 
