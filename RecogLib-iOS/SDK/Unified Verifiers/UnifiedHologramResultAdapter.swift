@@ -31,6 +31,8 @@ public extension HologramState {
             return .tiltLeftAndRight
         case .Ok:
             return .ok
+        case .TimedOut:
+            return .timedOut
         }
     }
 }

@@ -36,7 +36,7 @@ For compilation, running and deployment of the application following tools are r
   - macOS device for development
 - Software (required for development and deployment):
   - macOS
-  - Xcode 14
+  - Xcode 15
 - Minimal supported iOS version:
   - iOS 13.0
 

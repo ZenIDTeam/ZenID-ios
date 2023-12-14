@@ -3,6 +3,12 @@ import AVFoundation
 
 public final class CameraView: UIView {
     
+    /// Video gravity. Default value is `.resizeAspectFill`
+    public var videoGravity = Defaults.videoGravity
+    
+    /// If set `true` it stretch view to hosting UIView bounds ignoring safe areas.
+    public var ignoreSafeArea: Bool = false
+    
     let statusButton = Buttons.Camera.status
     let instructionView: UIStackView = {
         let stack = UIStackView()
@@ -52,7 +58,7 @@ public final class CameraView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     public override func layoutSubviews() {
@@ -65,7 +71,11 @@ public final class CameraView: UIView {
     func setup() {
         // Camera view
         addSubview(cameraView)
-        cameraView.anchor(top: safeAreaLayoutGuide.topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor)
+        if ignoreSafeArea {
+            cameraView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        } else {
+            cameraView.anchor(top: safeAreaLayoutGuide.topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor)
+        }
         
         // Control view
         setupControlView()
@@ -98,9 +108,8 @@ public final class CameraView: UIView {
         if !supportChangedOrientation() {
             return
         }
-        
-        let gravity = Defaults.videoGravity
-        switch gravity {
+
+        switch videoGravity {
         case .resizeAspect:
             overlay.setupImage(rect: targetFrame)
             
@@ -131,7 +140,7 @@ public final class CameraView: UIView {
     
     private func configurePreviewLayer() {
         if let previewLayer {
-            previewLayer.videoGravity = Defaults.videoGravity
+            previewLayer.videoGravity = videoGravity
             previewLayer.frame = cameraView.layer.bounds
             cameraView.layer.addSublayer(previewLayer)
         }

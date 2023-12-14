@@ -125,6 +125,8 @@ extension HologramState {
             return "Tilt up and down"
         case .Ok:
             return "Ok"
+        case .TimedOut:
+            return "Timed out"
         }
     }
 }

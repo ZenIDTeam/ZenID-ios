@@ -282,6 +282,8 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case RU_PAS_2006_10
   case TR_PAS_2023
   case DO_IDC_2014
+  case LI_PAS_2006
+  case VA_PAS_2013
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int
@@ -522,6 +524,7 @@ public enum HologramState : Swift.Int, Swift.CaseIterable {
   case TiltLeftAndRight
   case TiltUpAndDown
   case Ok
+  case TimedOut
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.HologramState]
   public typealias RawValue = Swift.Int
@@ -1223,6 +1226,8 @@ public enum NfcStatus : Swift.Int {
   }
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class CameraView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public var videoGravity: AVFoundation.AVLayerVideoGravity
+  @_Concurrency.MainActor(unsafe) final public var ignoreSafeArea: Swift.Bool
   @_Concurrency.MainActor(unsafe) @objc override final public var frame: CoreFoundation.CGRect {
     @objc get
     @objc set
@@ -1723,6 +1728,7 @@ public enum UnifiedState {
   case nfc
   case reseting
   case dontSmile
+  case timedOut
   public static func == (a: RecogLib_iOS.UnifiedState, b: RecogLib_iOS.UnifiedState) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
