@@ -1,5 +1,10 @@
 # Change Log
 
+# 2.0.24 2023-12-08
+* RecogLib 3.10.1
+* Added new possible values to HologramState enum: TiltLeft, TiltRight, TiltUp, TiltDown. Those represent the states of the new IQS hologram UI.
+* Improve compatibility with future iOS SDKs.
+
 # 2.0.23 2023-12-08
 * RecogLib 3.9.6
 * New: Support for Vaticanian passports v2013 (NFC only).
