@@ -325,6 +325,7 @@ SWIFT_CLASS("_TtC12RecogLib_iOS6Camera")
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 @end
 
+
 @class NSCoder;
 
 SWIFT_CLASS("_TtC12RecogLib_iOS10CameraView")

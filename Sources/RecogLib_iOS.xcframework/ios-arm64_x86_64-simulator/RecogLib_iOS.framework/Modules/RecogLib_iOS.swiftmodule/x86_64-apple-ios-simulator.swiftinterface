@@ -688,6 +688,10 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
 extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
 }
+extension RecogLib_iOS.Camera {
+  @available(iOS 15.0, *)
+  public static func setRecommendedZoomFactor(for device: AVFoundation.AVCaptureDevice, subjectSize: Swift.Float = 110)
+}
 @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
 public class DataGroup {
   public var datagroupType: RecogLib_iOS.DataGroupId

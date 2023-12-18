@@ -779,6 +779,18 @@ func sendImageWithSignature(imageData: Data, signature: String) {
 }
 ```
 
+#### How to fix focusing problem with new iPhone Pro models.
+
+You must zoom in on the video stream to compensate for the minimum focus distance and required magnification. 
+We created a method which do exactly this, so you don't have to write your own. This method is available since
+iOS 15 which covers iPhone 13 Pro and newer.
+
+```swift
+if #available(iOS 15.0, *) {
+    Camera.setRecommendedZoomFactor(for: device) // AVCaptureDevice
+}
+```
+
 ### Open Source
 
 Zenid is powered by Open Source libraries.
