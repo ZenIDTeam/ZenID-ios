@@ -198,10 +198,21 @@ public class BaseController<ResultType: ResultState> {
 
     private func startVideoWriter() {
         let orientation: UIInterfaceOrientation
-        if #available(iOS 13.0, *) {
-            orientation = UIApplication.shared.keyWindow?.windowScene?.interfaceOrientation ?? .portrait
+        orientation = if #available(iOS 15.0, *) {
+            UIApplication
+                .shared
+                .connectedScenes
+                .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+                .last?.windowScene?.interfaceOrientation ?? .portrait
+        } else if #available(iOS 13.0, *) {
+            UIApplication
+                .shared
+                .connectedScenes
+                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                .last { $0.isKeyWindow }?
+                .windowScene?.interfaceOrientation ?? .portrait
         } else {
-            orientation = UIApplication.shared.statusBarOrientation
+            UIApplication.shared.statusBarOrientation
         }
         videoWriter?.start(isPortrait: orientation.isPortrait, requestedWidth: baseConfig.requestedResolution, requestedFPS: baseConfig.requestedFPS)
     }
@@ -332,8 +343,13 @@ extension BaseController: CameraDelegate {
         latestSuccessfullBuffer = result.isOk ? croppedBuffer : nil
 
         // SZENID-2123 - defer the start of the video after the ID was aligned
-        if baseConfig.dataType == .video, let documentResult = result as? DocumentResult, let hologramState = documentResult.hologramState {
-            if videoWriter?.isRecording == false && [.TiltLeftAndRight, .TiltUpAndDown].contains(hologramState) {
+        if baseConfig.dataType == .video, 
+            let documentResult = result as? DocumentResult,
+            let hologramState = documentResult.hologramState
+        {
+            if videoWriter?.isRecording == false,
+               [.TiltLeftAndRight, .TiltUpAndDown, .TiltUp, .TiltDown, .TiltLeft, .TiltRight].contains(hologramState)
+            {
                 DispatchQueue.main.async { [weak self] in
                     self?.startVideoWriter()
                 }

@@ -117,6 +117,7 @@ public:
   int RequiredVerticalRangeOL = 7;
   int MinimumUniqueMatchesOL = 0;
   int TimeoutOL = 0;
+  bool UseAlternativeTiltVisualisation = false;
   int AcceptScore = 100;
   bool IsTestEnabled = true;
   int ScoreStep = 1;

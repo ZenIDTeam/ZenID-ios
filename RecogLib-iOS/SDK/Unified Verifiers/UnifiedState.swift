@@ -23,4 +23,8 @@ public enum UnifiedState {
     case reseting
     case dontSmile
     case timedOut
+    case tiltLeft
+    case tiltRight
+    case tiltUp
+    case tiltDown
 }
