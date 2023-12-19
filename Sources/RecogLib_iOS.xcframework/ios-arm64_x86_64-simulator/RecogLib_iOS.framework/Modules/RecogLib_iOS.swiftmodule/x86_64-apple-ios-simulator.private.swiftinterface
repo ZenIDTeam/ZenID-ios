@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -431,6 +431,81 @@ public enum Country : Swift.Int, Swift.CaseIterable {
   case Do
   case Az
   case Il
+  case Tj
+  case Hn
+  case Ae
+  case Sl
+  case Tg
+  case La
+  case Kg
+  case Tm
+  case Ly
+  case Sv
+  case Ni
+  case Py
+  case Cg
+  case Sg
+  case Cf
+  case Lb
+  case Ps
+  case Cr
+  case Lr
+  case Nz
+  case Om
+  case Kw
+  case Mr
+  case Pa
+  case Er
+  case Ge
+  case Uy
+  case Mn
+  case Am
+  case Jm
+  case Qa
+  case Na
+  case Gm
+  case Bw
+  case Ls
+  case Ga
+  case Gw
+  case Xk
+  case Bh
+  case Gq
+  case Tt
+  case Tl
+  case Mu
+  case Sz
+  case Dj
+  case Fj
+  case Bt
+  case Km
+  case Gy
+  case Sb
+  case Sr
+  case Cv
+  case Bn
+  case Bz
+  case Bs
+  case Mv
+  case Vu
+  case Bb
+  case St
+  case Ws
+  case Lc
+  case Ki
+  case Gd
+  case Vt
+  case Fm
+  case Ag
+  case Sc
+  case To
+  case Dm
+  case Kn
+  case Mh
+  case Pw
+  case Nr
+  case Tv
+  case Pg
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.Country]
   public typealias RawValue = Swift.Int
@@ -525,6 +600,10 @@ public enum HologramState : Swift.Int, Swift.CaseIterable {
   case TiltUpAndDown
   case Ok
   case TimedOut
+  case TiltLeft
+  case TiltRight
+  case TiltUp
+  case TiltDown
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.HologramState]
   public typealias RawValue = Swift.Int
@@ -608,6 +687,10 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
 }
 extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+}
+extension RecogLib_iOS.Camera {
+  @available(iOS 15.0, *)
+  public static func setRecommendedZoomFactor(for device: AVFoundation.AVCaptureDevice, subjectSize: Swift.Float = 110)
 }
 @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
 public class DataGroup {
@@ -1733,6 +1816,10 @@ public enum UnifiedState {
   case reseting
   case dontSmile
   case timedOut
+  case tiltLeft
+  case tiltRight
+  case tiltUp
+  case tiltDown
   public static func == (a: RecogLib_iOS.UnifiedState, b: RecogLib_iOS.UnifiedState) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {

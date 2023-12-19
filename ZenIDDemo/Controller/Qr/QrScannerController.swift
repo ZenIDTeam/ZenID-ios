@@ -38,14 +38,8 @@ public class QrScannerController: UIViewController, UINavigationBarDelegate {
 
     // Initialise front CaptureDevice
     lazy var frontDevice: AVCaptureDevice? = {
-        if #available(iOS 10, *) {
-            if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
-                return device
-            }
-        } else {
-            for device in AVCaptureDevice.devices(for: .video) {
-                if device.position == .front { return device }
-            }
+        if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
+            return device
         }
         return nil
     }()
