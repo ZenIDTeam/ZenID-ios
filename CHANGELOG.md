@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2023-12-28
+* Fixed camera focus on iPhone 14 and 15 series with better solution.
+
 # 2.0.23 2023-12-08
 * RecogLib 3.9.6
 * New: Support for Vaticanian passports v2013 (NFC only).
