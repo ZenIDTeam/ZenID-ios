@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2023-12-28
+* Fixed camera focus on iPhone 14 and 15 series with better solution.
+
 # hotfix 2023-11-15
 * Fixed camera focus on iPhone 14 and 15 series.
 

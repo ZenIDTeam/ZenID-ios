@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
@@ -415,7 +415,9 @@ public enum DataType {
   }
 }
 @objc @_inheritsConvenienceInitializers final public class Camera : ObjectiveC.NSObject {
-  final public func isCaptureSessionRunning() -> Swift.Bool
+  final public var isCaptureSessionRunning: Swift.Bool {
+    get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -424,6 +426,10 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
 }
 extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
   @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+}
+extension RecogLib_iOS.Camera {
+  @available(iOS 15.0, *)
+  public static func setRecommendedZoomFactor(for device: AVFoundation.AVCaptureDevice, subjectSize: Swift.Float = 110)
 }
 public enum ZenFont {
 }
