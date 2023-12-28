@@ -223,7 +223,6 @@ extension PureVerifierViewController {
 
 extension PureVerifierViewController {
     func setupCameraSession() -> Bool {
-        guard let device = AVCaptureDevice.default(for: .video) else { return false }
         let deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
         let deviceDescoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
                                                                       mediaType: .video,

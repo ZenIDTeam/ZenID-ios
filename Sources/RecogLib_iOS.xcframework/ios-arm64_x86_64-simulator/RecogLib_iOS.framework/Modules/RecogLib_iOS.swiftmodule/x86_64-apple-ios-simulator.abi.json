@@ -18197,6 +18197,44 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setRecommendedZoomFactor",
+            "printedName": "setRecommendedZoomFactor(for:subjectSize:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AVCaptureDevice",
+                "printedName": "AVFoundation.AVCaptureDevice",
+                "usr": "c:objc(cs)AVCaptureDevice"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "hasDefaultArg": true,
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS6CameraC24setRecommendedZoomFactor3for11subjectSizeySo15AVCaptureDeviceC_SftFZ",
+            "mangledName": "$s12RecogLib_iOS6CameraC24setRecommendedZoomFactor3for11subjectSizeySo15AVCaptureDeviceC_SftFZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "intro_iOS": "15.0",
+            "declAttributes": [
+              "Final",
+              "Available",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -57699,52 +57737,94 @@
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2484,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4274,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 2569,
+      "offset": 5341,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5352,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6693,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7620,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8129,
+      "length": 3,
+      "value": "110"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8256,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8621,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2994,
-      "length": 5,
-      "value": "false"
+      "kind": "StringLiteral",
+      "offset": 8990,
+      "length": 44,
+      "value": "\"Could not lock for configuration: \""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4784,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5851,
-      "length": 1,
-      "value": "0"
+      "kind": "StringLiteral",
+      "offset": 9033,
+      "length": 2,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 5862,
+      "offset": 9731,
       "length": 1,
-      "value": "0"
+      "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7203,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 8130,
-      "length": 4,
-      "value": "true"
+      "kind": "IntegerLiteral",
+      "offset": 10108,
+      "length": 3,
+      "value": "180"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/DataGroups\/DataGroup.swift",
