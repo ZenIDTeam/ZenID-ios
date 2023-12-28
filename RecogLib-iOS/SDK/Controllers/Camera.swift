@@ -46,12 +46,7 @@ public final class Camera: NSObject {
 
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
-        var deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
-        if #available(iOS 13.0, *) {
-            deviceTypes.append(.builtInDualWideCamera)
-            deviceTypes.append(.builtInTripleCamera)
-            
-        }
+        let deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
         let deviceDescoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
                                                                       mediaType: .video,
                                                                       position: captureDevicePosition)
@@ -66,17 +61,9 @@ public final class Camera: NSObject {
 
         captureSession.sessionPreset = .high
         
-        // Zoom factor is necessary only for multifocal systems.
-        guard device.deviceType != .builtInWideAngleCamera else { return }
-        if #available(iOS 13.0, *) {
-            do {
-                try captureDevice?.lockForConfiguration()
-                captureDevice?.videoZoomFactor =
-                CGFloat(captureDevice?.virtualDeviceSwitchOverVideoZoomFactors.first?.floatValue ?? 1)
-                captureDevice?.unlockForConfiguration()
-            } catch {
-                // Let it gracefully be.
-            }
+        // Zoom factor is necessary to compensate minimal focus distance by newer iphones (13 Pro +)
+        if #available(iOS 15.0, *) {
+            Camera.setRecommendedZoomFactor(for: device)
         }
     }
 
@@ -227,4 +214,60 @@ private extension Camera {
 
         return true
     }
+}
+
+// This extension include all methods necessary for zoom compensation to fix minimal focus distance on newer devices.
+public extension Camera {
+    
+    /// Zoom video feed to compensate for minimal focus distance.
+    /// - Parameters:
+    ///   - device: Device that is compensated.
+    ///   - subjectSize: Minimal object size to focus on in milimeters. (default is 110mm)
+    @available(iOS 15.0, *)
+    static func setRecommendedZoomFactor(for device: AVCaptureDevice, subjectSize: Float = 110) {
+        let deviceMinimumFocusDistance = Float(device.minimumFocusDistance)
+        guard deviceMinimumFocusDistance != -1 else { return }
+        
+        let deviceFieldOfView = device.activeFormat.videoFieldOfView
+        let minimumSubjectDistance = minimumSubjectDistance(fieldOfView: deviceFieldOfView,
+                                                            minimumSubjectSize: subjectSize,
+                                                            previewFillPercentage: 1)
+        if minimumSubjectDistance < deviceMinimumFocusDistance {
+            let zoomFactor = deviceMinimumFocusDistance / minimumSubjectDistance
+            do {
+                try device.lockForConfiguration()
+                device.videoZoomFactor = CGFloat(zoomFactor)
+                device.unlockForConfiguration()
+            } catch {
+                print("Could not lock for configuration: \(error)")
+            }
+        }
+    }
+    
+    /// Given the camera horizontal field of view, we can compute the distance (mm) to make a code
+    /// of minimumCodeSize (mm) fill the previewFillPercentage.
+    ///
+    /// - Parameters:
+    ///   - fieldOfView: Field of view in degree.
+    ///   - minimumSubjectSize: Minimal subject size to focus on in milimeters.
+    ///   - previewFillPercentage: How much it shall fill the frame.
+    /// - Returns: Required distance as fraction.
+    static private func minimumSubjectDistance(
+        fieldOfView: Float,
+        minimumSubjectSize: Float,
+        previewFillPercentage: Float
+    ) -> Float {
+        let radians = degreesToRadians(fieldOfView / 2)
+        let filledCodeSize = minimumSubjectSize / previewFillPercentage
+        return filledCodeSize / tan(radians)
+    }
+    
+    /// Convert degrees to radians.
+    ///
+    /// - Parameter degrees: Value representing degrees.
+    /// - Returns: Calculated radians.
+    static private func degreesToRadians(_ degrees: Float) -> Float {
+        return degrees * Float.pi / 180
+    }
+    
 }
