@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2023-12-28
+* Fixed camera focus on iPhone 14 and 15 series with better solution.
+
 # 2.0.22 2023-10-13
 * RecogLib 3.8.5
 * New: Added support for iPhone 15 line
