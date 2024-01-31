@@ -55,8 +55,8 @@ public class DocumentVerifier {
 
     public func loadModels(_ loader: DocumentVerifierModels, mrzModelsPath: URL? = nil) {
         loader.loadPointer { pointer, data, modelName in
+            ApplicationLogger.shared.Info("Loading model: \(modelName)")
             RecogLib_iOS.loadModel(self.cppObject, pointer, data.count)
-            ApplicationLogger.shared.Info("Loaded model: \(modelName)")
         }
 
         if let mrzModelsPath {
