@@ -22,7 +22,8 @@ struct CSelfieVerifierSettings {
 
 typedef struct CSelfieVerifierSettings CSelfieVerifierSettings;
 // Initialisation and loading models
-const void * getSelfieVerifier(CSelfieVerifierSettings *settings);
+void * getSelfieVerifier(CSelfieVerifierSettings *settings);
+void deleteSelfieVerifier(void *verifier);
 void loadSelfie(const void *object, const char* modelPath);
 
 // Verifying faces

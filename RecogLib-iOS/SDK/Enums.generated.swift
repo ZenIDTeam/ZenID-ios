@@ -169,6 +169,9 @@ public enum DocumentCodes : Int, CaseIterable {
     case DO_IDC_2014 = 168
     case LI_PAS_2006 = 169
     case VA_PAS_2013 = 170
+    case US_PAS_2006 = 171
+    case JP_PAS_2013 = 172
+    case PK_PAS_2022 = 173
 }
 
 public enum PageCodes : Int, CaseIterable { 
@@ -284,7 +287,7 @@ public enum Country : Int, CaseIterable {
     case So = 104
     case Sn = 105
     case Gt = 106
-    case Tf = 107
+    case Td = 107
     case Kh = 108
     case Zw = 109
     case Ss = 110
@@ -363,7 +366,7 @@ public enum Country : Int, CaseIterable {
     case Lc = 183
     case Ki = 184
     case Gd = 185
-    case Vt = 186
+    case Vc = 186
     case Fm = 187
     case Ag = 188
     case Sc = 189

@@ -2,7 +2,7 @@ import CoreMedia
 import Foundation
 
 public class DocumentVerifier {
-    private var cppObject: UnsafeRawPointer?
+    private var cppObject: UnsafeMutableRawPointer?
 
     public var documentRole: DocumentRole?
     public var country: Country?
@@ -46,6 +46,12 @@ public class DocumentVerifier {
         var verifierSettings = createDocumentVerifierSettings(settings: settings)
         cppObject = getDocumentVerifier(&verifierSettings)
     }
+    
+    deinit {
+        if cppObject != nil {
+            deleteDocumentVerifier(cppObject)
+        }
+    }
 
     public func loadModels(_ loader: DocumentVerifierModels, mrzModelsPath: URL? = nil) {
         loader.loadPointer { pointer, data, modelName in
@@ -55,9 +61,13 @@ public class DocumentVerifier {
 
         if let mrzModelsPath {
             var absolutePath = mrzModelsPath.absoluteString
-            absolutePath = absolutePath.replacingOccurrences(of: "file://", with: "")
-            let path = absolutePath.toUnsafeMutablePointer()
-            RecogLib_iOS.loadTesseractModel(cppObject, path)
+            if let absolutePath = absolutePath
+                .replacingOccurrences(of: "file://", with: "")
+                .removingPercentEncoding 
+            {
+                let path = absolutePath.toUnsafeMutablePointer()
+                RecogLib_iOS.loadTesseractModel(cppObject, path)
+            }
         }
     }
 
