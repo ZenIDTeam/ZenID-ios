@@ -1,12 +1,18 @@
 # Change Log
 
+# 2.0.25 2024-02-01
+* RecogLib 3.10.4
+* Improvement: Camera and CameraView are now public and can be mutated in VerifierControllers.
+* Improvement: CameraView is no longer in strong relationship and it is app responsibility to keep reference.
+* New: SDK has three new functions in ZenidSecurity that list and check countries and documents enabled by licence.
+* Fix: SDK has better memory management. 
+* Improvement: NFC dialog support Czech locale.
+
 # 2.0.24 2023-12-18
 * RecogLib 3.10.1
 * Added new possible values to HologramState enum: TiltLeft, TiltRight, TiltUp, TiltDown. Those represent the states of the new IQS hologram UI.
 * Improve compatibility with future iOS SDKs.
 * Improve camera focusing (without image juping) on new iPhone Pro models.
-* Camera and CameraView are now public and can be mutated in VerifierControllers.
-* CameraView is no longer in strong relationship and it is app responsibility to keep reference.
 
 # 2.0.23 2023-12-08
 * RecogLib 3.9.6
