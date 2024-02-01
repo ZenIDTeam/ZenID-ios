@@ -287,7 +287,7 @@ public enum Country : Int, CaseIterable {
     case So = 104
     case Sn = 105
     case Gt = 106
-    case Td = 107
+    case Tf = 107
     case Kh = 108
     case Zw = 109
     case Ss = 110

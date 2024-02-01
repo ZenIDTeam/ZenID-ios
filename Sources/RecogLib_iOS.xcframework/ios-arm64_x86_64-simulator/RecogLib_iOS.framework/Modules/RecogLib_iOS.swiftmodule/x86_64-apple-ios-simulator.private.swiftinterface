@@ -284,6 +284,9 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case DO_IDC_2014
   case LI_PAS_2006
   case VA_PAS_2013
+  case US_PAS_2006
+  case JP_PAS_2013
+  case PK_PAS_2022
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int
@@ -494,7 +497,7 @@ public enum Country : Swift.Int, Swift.CaseIterable {
   case Lc
   case Ki
   case Gd
-  case Vt
+  case Vc
   case Fm
   case Ag
   case Sc
@@ -781,11 +784,11 @@ public class SelfieVerifier {
   }
   public init(language: RecogLib_iOS.SupportedLanguages)
   public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
+  @objc deinit
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
   public func reset()
   public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
-  @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
 public class DataGroup15 : RecogLib_iOS.DataGroup {
@@ -825,6 +828,7 @@ public class FaceLivenessVerifier {
     set
   }
   public init(language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.FaceLivenessVerifierSettings? = nil)
+  @objc deinit
   public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
@@ -836,7 +840,6 @@ public class FaceLivenessVerifier {
   public func getRequiredFPS() -> Swift.Int
   public func getRequiredResolution() -> Swift.Int
   public func getLivenessResult(orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
-  @objc deinit
 }
 public protocol UnifiedResult {
   var state: RecogLib_iOS.UnifiedState { get }
@@ -863,6 +866,7 @@ public class DocumentVerifier {
   }
   public init(role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
   public init(input: RecogLib_iOS.DocumentsInput, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
+  @objc deinit
   public func loadModels(_ loader: RecogLib_iOS.DocumentVerifierModels, mrzModelsPath: Foundation.URL? = nil)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
@@ -882,7 +886,6 @@ public class DocumentVerifier {
   public func getNfcValidatorSettings() -> RecogLib_iOS.DocumentVerifierNfcValidatorSettings
   public func getDocumentResult(orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func getSettings() -> RecogLib_iOS.DocumentVerifierSettings
-  @objc deinit
 }
 public struct NfcUtils {
   public static func getMRZKey(documentNumber: Swift.String, dateOfBirth: Swift.String, dateOfExpiry: Swift.String) -> Swift.String
