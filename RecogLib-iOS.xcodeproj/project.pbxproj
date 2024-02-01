@@ -125,6 +125,7 @@
 		6FE1D5142612741D00529241 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE1D5132612741D00529241 /* Logging.swift */; };
 		6FF4F19624B88D6F00567B31 /* ZenidSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */; };
 		7B2339382B6AAA2300A163A5 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2339372B6AAA2300A163A5 /* Bundle+Extensions.swift */; };
+		7B23393A2B6BDFFF00A163A5 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2339392B6BDFFF00A163A5 /* Array+Extensions.swift */; };
 		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
 		BABECC7928805B6200A629F3 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */; };
 		BAE07B77286DB01000E62C42 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE07B76286DB01000E62C42 /* RecogLibC.h */; };
@@ -260,6 +261,7 @@
 		6FE1D5132612741D00529241 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		6FF4F19524B88D6F00567B31 /* ZenidSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenidSecurity.swift; sourceTree = "<group>"; };
 		7B2339372B6AAA2300A163A5 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		7B2339392B6BDFFF00A163A5 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		B009CF5322C4B01C00AA568C /* DocumentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResult.swift; sourceTree = "<group>"; };
 		BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = Sources/LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		BAE07B76286DB01000E62C42 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "Sources/LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				18371B2827C24834002528F3 /* UIFont+Styles.swift */,
 				18371B2A27C26A51002528F3 /* DocumentState+Localised.swift */,
 				7B2339372B6AAA2300A163A5 /* Bundle+Extensions.swift */,
+				7B2339392B6BDFFF00A163A5 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				18371B1D27C24639002528F3 /* CGRect+Flip.swift in Sources */,
 				1848AC712805D449001A8C9A /* CZenidLogWrapper.cpp in Sources */,
 				6F6C270024B8805E0073A2CA /* CZenidSecurityWrapper.cpp in Sources */,
+				7B23393A2B6BDFFF00A163A5 /* Array+Extensions.swift in Sources */,
 				18371B0827C2443C002528F3 /* Ellipse.swift in Sources */,
 				193B1BAA2AAA5B7100479994 /* DocumentVerifierNfcValidatorConfig.swift in Sources */,
 				E042B382296636C000B1E034 /* Enums+Extensions.swift in Sources */,

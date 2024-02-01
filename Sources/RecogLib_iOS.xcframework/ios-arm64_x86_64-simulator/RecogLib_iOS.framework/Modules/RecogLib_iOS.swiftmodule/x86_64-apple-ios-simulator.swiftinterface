@@ -12,6 +12,7 @@ import CryptoKit
 import CryptoTokenKit
 import DeveloperToolsSupport
 import Foundation
+import OSLog
 @_exported import RecogLib_iOS
 import Swift
 import SwiftUI
@@ -70,6 +71,8 @@ public protocol ResultState {
   var description: Swift.String { get }
 }
 @_hasMissingDesignatedInitializers public class BaseController<ResultType> where ResultType : RecogLib_iOS.ResultState {
+  public var camera: RecogLib_iOS.Camera
+  weak public var view: RecogLib_iOS.CameraView?
   @objc deinit
   public func start()
   public func stop()
@@ -764,7 +767,11 @@ public struct MrzFields : Swift.Decodable {
   public static func authorize(responseToken: Swift.String) -> Swift.Bool
   public static func isAuthorized() -> Swift.Bool
   public static func selectProfile(name: Swift.String) -> Swift.Bool
+  public static func supportedCountries() -> [RecogLib_iOS.Country]?
+  public static func supportedDocuments(for country: RecogLib_iOS.Country) -> [RecogLib_iOS.DocumentRole]?
+  public static func supportedDocumentPageCodes(for country: RecogLib_iOS.Country, documentRole: RecogLib_iOS.DocumentRole) -> [RecogLib_iOS.PageCodes]?
   public static let DEFAULT_PROFILE_NAME: Swift.String
+  public static let NFC_PROFILE_NAME: Swift.String
   @objc deinit
 }
 final public class UnifiedDocumentVerifierAdapter : RecogLib_iOS.UnifiedVerifier {
