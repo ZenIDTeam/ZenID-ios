@@ -11,6 +11,7 @@ char* getChallengeToken();
 bool authorize(const char* responseToken);
 bool isAuthorized();
 bool selectProfile(const char* profileName);
+char* getEnabledFeaturesJson();
 
 #ifdef __cplusplus
 }

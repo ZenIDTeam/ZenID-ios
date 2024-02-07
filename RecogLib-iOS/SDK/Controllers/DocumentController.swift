@@ -158,7 +158,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         let oldConfig = config
         config = configuration
 
-        view.topLabel.text = config.page == .B ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
+        view?.topLabel.text = config.page == .B ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
 
         // Enrico: For documents, we should leave the resolution and fps fields blanks until we have test results.
         // verifier.getRequiredResolution(), verifier.getRequiredFPS()
@@ -205,7 +205,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         try configure(configuration: baseConfig)
 
         #if targetEnvironment(simulator)
-            if let overlay = view.overlay {
+            if let overlay = view?.overlay {
                 overlay.addSubview(debugButton)
                 debugButton.heightAnchor.constraint(equalToConstant: 48.0).isActive = true
                 debugButton.centerX(to: overlay)
@@ -290,7 +290,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         delegate?.controller(self, didUpdate: result)
     }
 
-    private func loadModels(url: URL, mrzURL: URL?) {
+    private func loadModels(url: URL, mrzURL: URL?) {   
         verifier.loadModels(.init(url: url)!, mrzModelsPath: mrzURL)
     }
 

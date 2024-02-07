@@ -176,6 +176,9 @@ enum class DocumentCodes : int32_t {
 	DO_IDC_2014 = 168,
 	LI_PAS_2006 = 169,
 	VA_PAS_2013 = 170,
+	US_PAS_2006 = 171,
+	JP_PAS_2013 = 172,
+	PK_PAS_2022 = 173,
 };
 
 enum class PageCodes : uint8_t {
@@ -370,7 +373,7 @@ enum class Country : uint8_t {
 	Lc = 183,
 	Ki = 184,
 	Gd = 185,
-	Vt = 186,
+	Vc = 186,
 	Fm = 187,
 	Ag = 188,
 	Sc = 189,

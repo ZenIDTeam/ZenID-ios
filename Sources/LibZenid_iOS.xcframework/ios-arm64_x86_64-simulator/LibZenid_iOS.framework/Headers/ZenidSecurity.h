@@ -17,6 +17,7 @@ RECOGLIBC_PUBLIC std::string GetChallengeToken();
 RECOGLIBC_PUBLIC bool IsAuthorized();
 RECOGLIBC_PUBLIC void CheckAuthorization();
 RECOGLIBC_PUBLIC bool SelectProfile(const std::string& profileName);
+RECOGLIBC_PUBLIC std::string GetEnabledFeaturesJson();
 
 
 #ifdef __ANDROID__

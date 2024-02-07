@@ -2,7 +2,7 @@ import CoreMedia
 import Foundation
 
 public class FaceLivenessVerifier {
-    private var cppObject: UnsafeRawPointer?
+    private var cppObject: UnsafeMutableRawPointer?
 
     public var language: SupportedLanguages
     private let settings: FaceLivenessVerifierSettings?
@@ -16,6 +16,12 @@ public class FaceLivenessVerifier {
     public init(language: SupportedLanguages, settings: FaceLivenessVerifierSettings? = nil) {
         self.language = language
         self.settings = settings
+    }
+    
+    deinit {
+        if cppObject != nil {
+            deleteFaceLivenessVerifier(cppObject)
+        }
     }
 
     public func loadModels(_ loader: FaceVerifierModels) {

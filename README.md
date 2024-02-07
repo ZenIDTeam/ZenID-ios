@@ -154,6 +154,21 @@ let profileSelected = ZenidSecurity.selectProfile(name: "NFC"). // select profil
 
 ```
 
+## List countries and documents enabled by licence
+
+If your use case requires the user to select which document to validate then you can ask the backend what
+countries, documents and document pages are supported.
+
+```swift
+// Get supported countries
+let country = ZenidSecurity.supportedCountries()
+// Get supported documents for the country
+let documents = ZenidSecurity.supportedDocuments(for: country)
+// Get supported pages for the document and country
+let pages = ZenidSecurity.supportedDocumentPageCodes(for: country, documentRole: documentRole)
+
+```
+
 ## Usage - Lightweight
 
 

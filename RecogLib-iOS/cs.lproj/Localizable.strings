@@ -4,6 +4,19 @@
 "msg-scan-face" = "Vyfoťte se.";
 "msg-scan-hologram" = "Nahrajte video hologramu.";
 
+"nfc-RequestPresent" = "Přidržte iPhone blízko dokumentu opatřeného NFC.";
+"nfc-Authenticating" = "Ověřování .....\n\n%@";
+"nfc-Reading" = "Čtu %@.....\n\n%@";
+"nfc-Error-InvalidTag" = "Tag není validní.";
+"nfc-Error-MoreTags" = "Bylo nalezeno více NFC tagů. Je třeba omezit přítomnost NFC čipů na jeden.";
+"nfc-Error-Connection" = "Chyba spojení. Prosím zkuste to znovu.";
+"nfc-Error-InvalidMRZ" = "MRZ klíč není validní pro tento dokument.";
+"nfc-Error-CantReadFormat" = "Omlouváme se, při čtení dokumentu došlo k potížím. %@ - (0x%f, 0x%f)";
+"nfc-Error-CantRead" = "Omlouváme se, při čtení dokumentu došlo k potížím. Prosím zkuste to znovu.";
+"nfc-Success" = "Dokument byl úspěšně přečten";
+"nfc-Data-Personal" = "osobní údaje";
+"nfc-Data-Photo" = "fotografii";
+
 "document.state.ok" = "Ok ";
 "document.state.align.card" = "Zarovnejte průkaz v rámečku";
 "document.state.blurry" = "Fotka je rozmazaná";

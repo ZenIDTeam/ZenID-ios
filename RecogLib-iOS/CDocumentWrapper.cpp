@@ -106,7 +106,7 @@ void getDocumentResult(const void *object,  CDocumentInfo *document) {
 }
 
 
-const void * getDocumentVerifier(CDocumentVerifierSettings *settings)
+void * getDocumentVerifier(CDocumentVerifierSettings *settings)
 {
     DocumentVerifierSettings verifierSettings = DocumentVerifierSettings();
     verifierSettings.showTimer = settings->showTimer;
@@ -114,6 +114,11 @@ const void * getDocumentVerifier(CDocumentVerifierSettings *settings)
     verifierSettings.visualizerVersion = settings->visualizerVersion;
     DocumentVerifier *verifier = new DocumentVerifier(std::make_shared<DocumentVerifierSettings>(verifierSettings));
     return (void *)verifier;
+}
+
+void deleteDocumentVerifier(void *verifier)
+{
+    delete ((DocumentVerifier *) verifier);
 }
                                                       
 void loadModel(const void *object, const char* buffer, size_t size)

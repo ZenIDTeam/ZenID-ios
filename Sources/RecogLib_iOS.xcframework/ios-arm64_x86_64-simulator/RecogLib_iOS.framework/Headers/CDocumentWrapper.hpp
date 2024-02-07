@@ -51,7 +51,8 @@ typedef struct CPreviewData CPreviewData;
     
 
 // Initialisation and loading models
-const void * getDocumentVerifier(CDocumentVerifierSettings *settings);
+void * getDocumentVerifier(CDocumentVerifierSettings *settings);
+void deleteDocumentVerifier(void *verifier);
 void loadModel(const void *object, const char* buffer, size_t size);
 void loadTesseractModel(const void *object, const char* resourcePath);
 

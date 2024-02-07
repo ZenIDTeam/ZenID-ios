@@ -59,7 +59,7 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
     }
     
     public func configure(configuration: SelfieControllerConfiguration = .default) throws {
-        view.topLabel.text = LocalizedString("msg-scan-face", comment: "")
+        view?.topLabel.text = LocalizedString("msg-scan-face", comment: "")
         
         verifier.reset()
         config = configuration

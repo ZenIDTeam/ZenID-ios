@@ -6,7 +6,7 @@
 
 using namespace RecogLibC;
 
-const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings)
+void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings)
 {
     FaceLivenessVerifierSettings verifierSettings = FaceLivenessVerifierSettings();
     verifierSettings.enableLegacyMode = settings->enableLegacyMode;
@@ -14,6 +14,11 @@ const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVer
     verifierSettings.visualizerVersion = settings->visualizerVersion;
     FaceLivenessVerifier *verifier = new FaceLivenessVerifier(resourcesPath, std::make_shared<FaceLivenessVerifierSettings>(verifierSettings));
     return (void *)verifier;
+}
+
+void deleteFaceLivenessVerifier(void *verifier)
+{
+    delete ((FaceLivenessVerifier *) verifier);
 }
 
 bool verifyFaceLiveness(const void *object,
