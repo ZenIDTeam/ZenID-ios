@@ -2,7 +2,7 @@ import Foundation
 import CoreMedia
 
 public class SelfieVerifier {
-    private var cppObject: UnsafeRawPointer?
+    private var cppObject: UnsafeMutableRawPointer?
     
     public var language: SupportedLanguages
     
@@ -20,6 +20,12 @@ public class SelfieVerifier {
         var settings = CSelfieVerifierSettings(visualizerVersion: 1)
         cppObject = RecogLib_iOS.getSelfieVerifier(&settings)
         RecogLib_iOS.loadSelfie(cppObject, loader.url.path.toUnsafeMutablePointer()!)
+    }
+    
+    deinit {
+        if cppObject != nil {
+            deleteSelfieVerifier(cppObject)
+        }
     }
     
     public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> SelfieResult? {

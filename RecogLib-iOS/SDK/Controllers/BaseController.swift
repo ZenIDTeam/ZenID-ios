@@ -51,8 +51,8 @@ struct BaseControllerConfiguration {
 }
 
 public class BaseController<ResultType: ResultState> {
-    let camera: Camera
-    let view: CameraView
+    public var camera: Camera
+    public weak var view: CameraView?
 
     var videoWriter: VideoWriter?
 
@@ -88,22 +88,22 @@ public class BaseController<ResultType: ResultState> {
         camera.delegate = self
         baseConfig = configuration
         isRunning = false
-        view.layoutIfNeeded()
+        view?.layoutIfNeeded()
 
         try? camera.configure(with: .init(type: configuration.cameraType))
 
-        view.previewLayer = camera.previewLayer
-        view.setup()
-        view.setupControlView()
-        view.supportChangedOrientation = { true }
-        view.onFrameChange = { [weak self] in
+        view?.previewLayer = camera.previewLayer
+        view?.setup()
+        view?.setupControlView()
+        view?.supportChangedOrientation = { true }
+        view?.onFrameChange = { [weak self] in
             self?.orientationChanged()
         }
 
-        view.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
-        view.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view.bounds), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        view?.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        view?.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
 
-        targetFrame = view.overlay?.bounds ?? .zero
+        targetFrame = view?.overlay?.bounds ?? .zero
 
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
@@ -115,7 +115,7 @@ public class BaseController<ResultType: ResultState> {
             }
         }
 
-        view.showInstructionView = canShowInstructionView()
+        view?.showInstructionView = canShowInstructionView()
 
         previousResult = nil
         orientationChanged()
@@ -174,10 +174,10 @@ public class BaseController<ResultType: ResultState> {
 
     @objc
     private func updateOrientation() {
-        targetFrame = view.overlay?.bounds ?? .zero
+        targetFrame = view?.overlay?.bounds ?? .zero
         camera.setOrientation(orientation: UIDevice.current.orientation)
-        view.drawLayer?.setRenderables([])
-        view.rotateOverlay(targetFrame: getOverlayTargetFrame())
+        view?.drawLayer?.setRenderables([])
+        view?.rotateOverlay(targetFrame: getOverlayTargetFrame())
 
         restartVideoWriter()
     }
@@ -222,7 +222,7 @@ extension BaseController {
     func getOverlayTargetFrame() -> CGRect {
         let size = camera.getCurrentResolution()
         let imageRect = CGRect(origin: .zero, size: size)
-        return imageRect.rectThatFitsRect(view.overlay?.frame ?? .zero)
+        return imageRect.rectThatFitsRect(view?.overlay?.frame ?? .zero)
     }
 
     func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer? {
@@ -279,7 +279,7 @@ extension BaseController {
             return
         }
         let commandsRect = previewLayer.frame
-        if let drawLayer = view.drawLayer {
+        if let drawLayer = view?.drawLayer {
             let renderables = RenderableFactory.createRenderables(commands: commands)
             drawLayer.frame = commandsRect
             drawLayer.setRenderables(renderables)
@@ -288,11 +288,11 @@ extension BaseController {
 
     func updateView(with result: ResultType?, buffer: CVPixelBuffer) {
         guard let result else {
-            view.statusButton.setTitle("nil result", for: .normal)
+            view?.statusButton.setTitle("nil result", for: .normal)
             return
         }
         guard result.isOk, !(previousResult?.isOk ?? false) else {
-            view.statusButton.setTitle(String(describing: result.description), for: .normal)
+            view?.statusButton.setTitle(String(describing: result.description), for: .normal)
             return
         }
         previousResult = result
@@ -309,7 +309,7 @@ extension BaseController {
     }
 
     func canShowVisualisation() -> Bool {
-        view.webViewOverlay == nil
+        view?.webViewOverlay == nil
     }
 }
 

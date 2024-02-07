@@ -1,5 +1,11 @@
 # Migration
 
+## Update to the version 2.0.25 (RecogLib 3.10.4)
+
+If you use build in `Camera` and `CameraView` objects then please ensure yourself that your App is owner of the instances.
+From now on, the ZenID SDK does'nt keep strong references to this object instances. If you use the controllers you might
+be pleased that you can reassing this objects to validator Controllers if you need reusability of the controllers.
+
 ## Update to the version 2.0.23 (RecogLib 3.9.4)
 
 There is a new state `Hologram State.timeout` that the application must respond to.

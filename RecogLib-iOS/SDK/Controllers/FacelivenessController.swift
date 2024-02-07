@@ -63,7 +63,7 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     }
     
     public func configure(configuration: FacelivenessControllerConfiguration = .default) throws {
-        view.topLabel.text = LocalizedString("msg-scan-face", comment: "")
+        view?.topLabel.text = LocalizedString("msg-scan-face", comment: "")
         
         verifier.reset()
         config = configuration

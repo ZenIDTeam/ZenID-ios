@@ -38,7 +38,8 @@ struct CFaceLivenessVerifierSettings {
 typedef struct CFaceLivenessVerifierSettings CFaceLivenessVerifierSettings;
 
 // Initialisation and loading models
-const void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings);
+void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings);
+void deleteFaceLivenessVerifier(void *verifier);
 
 // Verifying faces
 bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector);

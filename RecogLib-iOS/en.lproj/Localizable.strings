@@ -3,6 +3,19 @@
 "msg-scan-face" = "Please take a photo of yourself.";
 "msg-scan-hologram" = "Please take a video of the hologram.";
 
+"nfc-RequestPresent" = "Hold your iPhone near an NFC enabled document.";
+"nfc-Authenticating" = "Authenticating .....\n\n%@";
+"nfc-Reading" = "Reading %@.....\n\n%@";
+"nfc-Error-InvalidTag" = "Tag not valid.";
+"nfc-Error-MoreTags" = "More than 1 tags was found. Please present only 1 tag.";
+"nfc-Error-Connection" = "Connection error. Please try again.";
+"nfc-Error-InvalidMRZ" = "MRZ Key not valid for this document.";
+"nfc-Error-CantReadFormat" = "Sorry, there was a problem reading the document. %@ - (0x%f, 0x%f)";
+"nfc-Error-CantRead" = "Sorry, there was a problem reading the document. Please try again";
+"nfc-Success" = "Document read successfully";
+"nfc-Data-Personal" = "personal data";
+"nfc-Data-Photo" = "photo";
+
 "document.state.ok" = "Ok ";
 "document.state.align.card" = "Align card";
 "document.state.blurry" = "Image is blurry";

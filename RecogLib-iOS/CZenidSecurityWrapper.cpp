@@ -42,4 +42,10 @@ bool selectProfile(const char* profileName)
     return result;
 }
 
+char* getEnabledFeaturesJson()
+{
+    std::string json = RecogLibC::Security::GetEnabledFeaturesJson();
+    return getString(json);
+}
+
 
