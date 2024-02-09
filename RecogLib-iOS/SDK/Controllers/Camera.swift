@@ -42,7 +42,7 @@ public final class Camera: NSObject {
 
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
-        var deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
+        let deviceTypes = [AVCaptureDevice.DeviceType.builtInWideAngleCamera]
         let deviceDescoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
                                                                       mediaType: .video,
                                                                       position: captureDevicePosition)
@@ -94,23 +94,32 @@ public final class Camera: NSObject {
         takePictureCompletion = completion
         cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
-
-    func setOrientation(orientation: UIDeviceOrientation) {
+        
+    public func setOrientation(orientation: UIInterfaceOrientation? = nil) {
         let isTorchOn = captureDevice?.torchMode == .on
-        switch UIDevice.current.orientation {
+        let uiOrientation = orientation ?? UIApplication.shared.connectedScenes
+            .first(where: { $0 is UIWindowScene })
+            .flatMap({ $0 as? UIWindowScene })?
+            .interfaceOrientation
+        
+        switch uiOrientation {
         case .portrait:
             previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
         case .landscapeRight:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-        case .landscapeLeft:
             previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+        case .landscapeLeft:
+            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
         case .portraitUpsideDown:
             previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
         default: break
         }
 
-        for connection in captureSession.connections {
-            connection.videoOrientation = previewLayer?.connection?.videoOrientation ?? .portrait
+        if let previewOrientation = previewLayer?.connection?.videoOrientation {
+            for connection in captureSession.connections {
+                if connection.videoOrientation != previewOrientation {
+                    connection.videoOrientation = previewOrientation
+                }
+            }
         }
 
         DispatchQueue.main.async { [weak self] in

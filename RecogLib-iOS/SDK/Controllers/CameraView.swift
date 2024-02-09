@@ -42,14 +42,8 @@ public final class CameraView: UIView {
         }
     }
     
-    public override var frame: CGRect {
-        didSet {
-            onFrameChange?()
-        }
-    }
-    
     var supportChangedOrientation: (() -> Bool)!
-    var onFrameChange: (() -> Void)?
+    var onLayoutChange: (() -> Void)?
     
     private(set) var webViewOverlay: WebViewOverlay?
     
@@ -66,6 +60,8 @@ public final class CameraView: UIView {
         if let previewLayer = previewLayer {
             previewLayer.frame = cameraView.bounds
         }
+        
+        onLayoutChange?()
     }
     
     func setup() {

@@ -71,11 +71,6 @@ public class BaseController<ResultType: ResultState> {
     init(camera: Camera, view: CameraView) {
         self.camera = camera
         self.view = view
-
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(orientationChanged),
-            name: UIDevice.orientationDidChangeNotification, object: nil
-        )
     }
 
     deinit {
@@ -96,7 +91,7 @@ public class BaseController<ResultType: ResultState> {
         view?.setup()
         view?.setupControlView()
         view?.supportChangedOrientation = { true }
-        view?.onFrameChange = { [weak self] in
+        view?.onLayoutChange = { [weak self] in
             self?.orientationChanged()
         }
 
@@ -165,21 +160,22 @@ public class BaseController<ResultType: ResultState> {
     func callUpdateDelegate(with result: ResultType) {
     }
 
-    @objc
     private func orientationChanged() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+        DispatchQueue.main.async {
             self.updateOrientation()
         }
     }
 
-    @objc
     private func updateOrientation() {
         targetFrame = view?.overlay?.bounds ?? .zero
-        camera.setOrientation(orientation: UIDevice.current.orientation)
         view?.drawLayer?.setRenderables([])
         view?.rotateOverlay(targetFrame: getOverlayTargetFrame())
 
-        restartVideoWriter()
+        camera.setOrientation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
+            self?.restartVideoWriter()
+        }
     }
 
     private func isVisualisationAllowed() -> Bool {
