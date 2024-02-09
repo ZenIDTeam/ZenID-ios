@@ -421,7 +421,7 @@ public enum Country : Swift.Int, Swift.CaseIterable {
   case So
   case Sn
   case Gt
-  case Tf
+  case Td
   case Kh
   case Zw
   case Ss
@@ -685,6 +685,7 @@ public enum DataType {
 }
 @objc @_inheritsConvenienceInitializers final public class Camera : ObjectiveC.NSObject {
   final public func isCaptureSessionRunning() -> Swift.Bool
+  final public func setOrientation(orientation: UIKit.UIInterfaceOrientation? = nil)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1325,10 +1326,6 @@ public enum NfcStatus : Swift.Int {
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class CameraView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) final public var videoGravity: AVFoundation.AVLayerVideoGravity
   @_Concurrency.MainActor(unsafe) final public var ignoreSafeArea: Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public var frame: CoreFoundation.CGRect {
-    @objc get
-    @objc set
-  }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   @objc deinit

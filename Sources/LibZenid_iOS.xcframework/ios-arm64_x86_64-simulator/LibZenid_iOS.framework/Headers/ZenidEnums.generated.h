@@ -294,7 +294,7 @@ enum class Country : uint8_t {
 	So = 104,
 	Sn = 105,
 	Gt = 106,
-	Tf = 107,
+	Td = 107,
 	Kh = 108,
 	Zw = 109,
 	Ss = 110,

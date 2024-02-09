@@ -331,7 +331,6 @@ SWIFT_CLASS("_TtC12RecogLib_iOS6Camera")
 
 SWIFT_CLASS("_TtC12RecogLib_iOS10CameraView")
 @interface CameraView : UIView
-@property (nonatomic) CGRect frame;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)layoutSubviews;
