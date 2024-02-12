@@ -1,18 +1,21 @@
-// swift-tools-version: 5.6
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-    name: "RecogLib_iOS",
+    name: "ZenID iOS SDK",
+    /*platforms: [
+        .iOS(.v13)
+    ],*/
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "RecogLib_iOS",
-            targets: ["RecogLib_iOS"]),
-        .library(
-            name: "LibZenid_iOS",
-            targets: ["LibZenid_iOS"]),
+            name: "ZenID SDK",
+            targets: ["RecogLib_iOS"])//,
+        /*.plugin(
+            name: "Czech documents",
+            targets: ["CZ"]) */
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -23,9 +26,17 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(
             name: "RecogLib_iOS",
-            path: "./Sources/RecogLib_iOS.xcframework"),
+            path: "./Sources/RecogLib_iOS.xcframework",
+            dependencies: ["LibZenid_iOS"]),
         .binaryTarget(
             name: "LibZenid_iOS",
-            path: "./Sources/LibZenid_iOS.xcframework"),
+            path: "./Sources/LibZenid_iOS.xcframework")//,
+        /*.target(
+            name: "Hashes",
+            resources: [.copy("Models/documents/DOCUMENTVIDEO")]),
+        .target(
+            name: "CZ", 
+            dependencies: ["RecogLib_iOS", "Hashes"],
+            resources: [.copy("Models/documents/CZ")]) */
     ]
 )
