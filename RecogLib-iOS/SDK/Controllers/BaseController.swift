@@ -58,13 +58,12 @@ public class BaseController<ResultType: ResultState> {
 
     var targetFrame: CGRect = .zero
     var isRunning: Bool = false
+    var torchEnabled: Bool = false
 
     var previousResult: ResultType?
     var latestSuccessfullBuffer: CVPixelBuffer?
 
-    var overlayImageName: String {
-        "targettingRect"
-    }
+    var overlayImageName: String { "targettingRect" }
 
     private(set) var baseConfig: BaseControllerConfiguration = .default
 
@@ -74,9 +73,9 @@ public class BaseController<ResultType: ResultState> {
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self)
-        setTorch(on: false)
         videoWriter?.stop()
+        torchEnabled = false
+        camera.setTorch(isOn: false)
     }
 
     func configure(configuration: BaseControllerConfiguration = .default) throws {
@@ -86,7 +85,10 @@ public class BaseController<ResultType: ResultState> {
         view?.layoutIfNeeded()
 
         try? camera.configure(with: .init(type: configuration.cameraType))
-
+                
+        torchEnabled = baseConfig.dataType == .video
+        camera.setTorch(isOn: torchEnabled)
+        
         view?.previewLayer = camera.previewLayer
         view?.setup()
         view?.setupControlView()
@@ -95,8 +97,12 @@ public class BaseController<ResultType: ResultState> {
             self?.orientationChanged()
         }
 
-        view?.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
-        view?.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
+        view?.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), 
+                               showStaticOverlay: canShowStaticOverlay(),
+                               targetFrame: getOverlayTargetFrame())
+        view?.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), 
+                                   showStaticOverlay: canShowStaticOverlay(),
+                                   targetFrame: getOverlayTargetFrame())
 
         targetFrame = view?.overlay?.bounds ?? .zero
 
@@ -118,9 +124,9 @@ public class BaseController<ResultType: ResultState> {
         isRunning = true
 
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             self.orientationChanged()
-            self.setTorch(on: self.baseConfig.dataType == .video)
+            self.camera.setTorch(isOn: self.torchEnabled)
         }
     }
 
@@ -133,6 +139,8 @@ public class BaseController<ResultType: ResultState> {
         videoWriter?.delegate = nil
         videoWriter?.stop()
         videoWriter = nil
+        torchEnabled = false
+        camera.setTorch(isOn: self.torchEnabled)
     }
 
     func verify(pixelBuffer: CVPixelBuffer) -> ResultType? {
@@ -161,21 +169,19 @@ public class BaseController<ResultType: ResultState> {
     }
 
     private func orientationChanged() {
-        DispatchQueue.main.async {
-            self.updateOrientation()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
+            self?.updateOrientation()
         }
     }
 
     private func updateOrientation() {
         targetFrame = view?.overlay?.bounds ?? .zero
+        camera.setOrientation()
+        camera.setTorch(isOn: torchEnabled)
         view?.drawLayer?.setRenderables([])
         view?.rotateOverlay(targetFrame: getOverlayTargetFrame())
-
-        camera.setOrientation()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
-            self?.restartVideoWriter()
-        }
+        restartVideoWriter()
     }
 
     private func isVisualisationAllowed() -> Bool {
@@ -193,8 +199,7 @@ public class BaseController<ResultType: ResultState> {
     }
 
     private func startVideoWriter() {
-        let orientation: UIInterfaceOrientation
-        orientation = if #available(iOS 15.0, *) {
+        let orientation = if #available(iOS 15.0, *) {
             UIApplication
                 .shared
                 .connectedScenes
@@ -256,14 +261,6 @@ extension BaseController {
         }
     }
 
-    func setTorch(on: Bool) {
-        do {
-            try camera.setTorch(isOn: on)
-        } catch {
-            ApplicationLogger.shared.Verbose("\(error.localizedDescription)")
-        }
-    }
-
     func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
         if !baseConfig.showHelperVisualisation {
             return
@@ -298,7 +295,8 @@ extension BaseController {
 
         if baseConfig.dataType == .video {
             videoWriter?.stop()
-            setTorch(on: false)
+            torchEnabled = false
+            camera.setTorch(isOn: torchEnabled)
             return
         }
         callDelegate(with: result)

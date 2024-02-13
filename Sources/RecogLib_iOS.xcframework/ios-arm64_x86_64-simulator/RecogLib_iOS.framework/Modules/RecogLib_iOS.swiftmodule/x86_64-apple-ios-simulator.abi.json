@@ -21928,7 +21928,8 @@
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -54169,155 +54170,162 @@
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2015,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "StringLiteral",
-      "offset": 2115,
+      "offset": 2142,
       "length": 16,
       "value": "\"targettingRect\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2408,
+      "offset": 2405,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2619,
+      "offset": 2441,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2881,
+      "offset": 2624,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3008,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3957,
+      "offset": 4218,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "Array",
-      "offset": 5190,
-      "length": 2,
-      "value": "[]"
+      "kind": "BooleanLiteral",
+      "offset": 4646,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "FloatLiteral",
-      "offset": 5359,
+      "offset": 5350,
       "length": 4,
       "value": "0.15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "Array",
-      "offset": 6382,
+      "offset": 5636,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
+      "kind": "Array",
+      "offset": 6651,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7599,
+      "offset": 7868,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7605,
+      "offset": 7874,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7788,
+      "offset": 8057,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7794,
+      "offset": 8063,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "StringLiteral",
-      "offset": 8666,
-      "length": 31,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "StringLiteral",
-      "offset": 8696,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "StringLiteral",
-      "offset": 9467,
+      "offset": 9538,
       "length": 12,
       "value": "\"nil result\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 9577,
+      "offset": 9648,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 9807,
+      "offset": 9878,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 9914,
+      "offset": 9987,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 10434,
+      "offset": 10554,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 10862,
+      "offset": 10982,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "IntegerLiteral",
-      "offset": 10868,
+      "offset": 10988,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11645,
+      "offset": 11765,
       "length": 5,
       "value": "false"
     },
@@ -63977,91 +63985,126 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 2427,
+      "offset": 1076,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 4549,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5616,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5627,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6968,
+      "offset": 2465,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "BooleanLiteral",
-      "offset": 7895,
+      "offset": 2494,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "Array",
+      "offset": 3958,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "StringLiteral",
+      "offset": 5783,
+      "length": 18,
+      "value": "\"Torch is enabled\""
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "StringLiteral",
+      "offset": 5804,
+      "length": 19,
+      "value": "\"Torch is disabled\""
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "StringLiteral",
+      "offset": 6051,
+      "length": 18,
+      "value": "\"Torch failed: %@\""
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6562,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6573,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7914,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8841,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 8409,
+      "offset": 9355,
       "length": 3,
       "value": "110"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 8536,
+      "offset": 9482,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 8901,
+      "offset": 9847,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 9270,
+      "offset": 10216,
       "length": 44,
       "value": "\"Could not lock for configuration: \""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
-      "offset": 9313,
+      "offset": 10259,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 10011,
+      "offset": 10957,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 10388,
+      "offset": 11334,
       "length": 3,
       "value": "180"
     },

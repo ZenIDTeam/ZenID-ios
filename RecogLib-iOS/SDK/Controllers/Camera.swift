@@ -39,6 +39,8 @@ public final class Camera: NSObject {
     public func isCaptureSessionRunning() -> Bool {
         captureSession.isRunning
     }
+    
+    private var torchShouldBeOn: Bool = false
 
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
@@ -64,19 +66,16 @@ public final class Camera: NSObject {
     }
 
     func start() {
-        if captureSession.isRunning {
-            return
-        }
+        guard !captureSession.isRunning else { return }
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.captureSession.startRunning()
         }
     }
 
     func stop() {
-        try? setTorch(isOn: false)
-        if !captureSession.isRunning {
-            return
-        }
+        torchShouldBeOn = false
+        setTorch(isOn: false)
+        guard captureSession.isRunning else { return }
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.captureSession.stopRunning()
         }
@@ -94,13 +93,29 @@ public final class Camera: NSObject {
         takePictureCompletion = completion
         cameraPhotoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
-        
+
+    
+    /// Set video preview layer orientation.
+    ///
+    /// - Parameter orientation: Optional parameter to force orientation.
     public func setOrientation(orientation: UIInterfaceOrientation? = nil) {
-        let isTorchOn = captureDevice?.torchMode == .on
-        let uiOrientation = orientation ?? UIApplication.shared.connectedScenes
-            .first(where: { $0 is UIWindowScene })
-            .flatMap({ $0 as? UIWindowScene })?
-            .interfaceOrientation
+        let uiOrientation = orientation ?? { if #available(iOS 15.0, *) {
+                UIApplication
+                    .shared
+                    .connectedScenes
+                    .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+                    .last?.windowScene?.interfaceOrientation ?? .portrait
+            } else if #available(iOS 13.0, *) {
+                UIApplication
+                    .shared
+                    .connectedScenes
+                    .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                    .last { $0.isKeyWindow }?
+                    .windowScene?.interfaceOrientation ?? .portrait
+            } else {
+                UIApplication.shared.statusBarOrientation
+            }
+        }()
         
         switch uiOrientation {
         case .portrait:
@@ -123,34 +138,35 @@ public final class Camera: NSObject {
         }
 
         DispatchQueue.main.async { [weak self] in
-            if isTorchOn {
-                try? self?.setTorch(isOn: true)
-            }
+            self?.setTorch()
         }
     }
-
-    func setTorch(isOn: Bool) throws {
-        guard let device = captureDevice, device.hasTorch else { return }
-        guard isOn || device.torchMode != .off else { return }
-
+    
+    /// Set camera torch on or off.
+    ///
+    /// - Parameter isOn: When `true` then camera torch is set on. If `nil` then used last state.
+    func setTorch(isOn: Bool? = nil) {
+        let isOn = isOn ?? torchShouldBeOn
+        guard let captureDevice, captureDevice.hasTorch else { return }
+        
+        torchShouldBeOn = isOn
+        
         let torchMode: AVCaptureDevice.TorchMode = isOn ? .on : .off
-        guard device.torchMode != torchMode else { return }
+        guard captureDevice.torchMode != torchMode else { return }
 
-        if device.hasTorch {
-            do {
-                try device.lockForConfiguration()
-            } catch {
-                throw error
-            }
-            device.torchMode = torchMode
+        do {
+            try captureDevice.lockForConfiguration()
+            ApplicationLogger.shared.Debug(isOn ? "Torch is enabled" : "Torch is disabled")
+            captureDevice.torchMode = torchMode
+            captureDevice.unlockForConfiguration()
+        } catch {
+            captureDevice.unlockForConfiguration()
+            ApplicationLogger.shared.Error(String(format: "Torch failed: %@", error.localizedDescription))
         }
-        device.unlockForConfiguration()
     }
 
     func getCurrentResolution() -> CGSize {
-        guard let formatDescription = captureDevice?.activeFormat.formatDescription else {
-            return .zero
-        }
+        guard let formatDescription = captureDevice?.activeFormat.formatDescription else { return .zero }
         let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
         return CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
     }

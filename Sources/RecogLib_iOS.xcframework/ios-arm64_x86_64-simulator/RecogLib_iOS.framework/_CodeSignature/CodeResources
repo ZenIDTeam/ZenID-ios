@@ -46,19 +46,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		QFj+1EHDImGL0oYF6UaKwQvWQ3Q=
+		WTxAKIz9r8Se/ACJQVhnjQghz1k=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		OrSfOEqj7smLff7pVAX4k4L3Erg=
+		iqIA96FDenAzPsKYpzsoPDzvBlI=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		v6Pp/T7pqEGfhkByGOCaX9CrP9M=
+		4P0+TK5WQzjc0dMD7BzEM18kD1A=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		IhhlvB2CkzQfX1M+mpZUaKcZgW0=
+		mapVQ5G0Rd6cF9LwKCAWF+/PjnA=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		IUiOiDLqejUb3L91zpC52pGvMrE=
+		nAxtbVcDIqwaS944iPPw9S/u3Ao=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
@@ -74,11 +74,11 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		2TTE4J/W77l7LSVfi4tGx83R4pI=
+		GQqNmZjc44UEG5z6+Mfz7jemAlE=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		IhhlvB2CkzQfX1M+mpZUaKcZgW0=
+		mapVQ5G0Rd6cF9LwKCAWF+/PjnA=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		TY4LIeCucRme+RpjvPyTJ+Ha2dQ=
+		IvLM64KxfThSGr66xvosCeyUIZU=
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		sMeqfOdW/4hsYnSmfYJjsnH/Mdo=
+		j+5JalJEQumy+fxDA/6IklAoIyU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -195,21 +195,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IMNFkth+w2NejnwdJERoMlmDPif3s1/fsdmhYfuW45c=
+			zLIy/mjJa+vY4poMKiBAI7pyxVo2cwrEfpah2rMVOv8=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ln8OyHsVOjFUtY9EGv63pmZ7BS27rfgvg+oS49cTb2w=
+			W9oxWcY8EOfeVtQ4CReClndJ+VClqtvcgWaigNMuUfc=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xWoqBUjkum+EUK5YquXY2iir8y2VC1ivLs+uL/AiJ9E=
+			Xt7ycaEcX5L/FpLNtb8jQ36wHaizmGWIB7sZYNI2Sag=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -223,7 +223,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			A4JvPjDC0eseBGrJ5OjtJILu28MM8B4kCGP53+cAxF8=
+			HULvchTHTMz4AcHBaWcGX2/C5lUn/+NuglENfuIEwJo=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
@@ -237,14 +237,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LQXE3Dun58HDWnY/QdjBrHMyBYt1nMtOqB3wef/kjso=
+			5Ml9WNYi6vmSRkSV0UWjwV7XsTLfU55XU9iUabepqhY=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xWoqBUjkum+EUK5YquXY2iir8y2VC1ivLs+uL/AiJ9E=
+			Xt7ycaEcX5L/FpLNtb8jQ36wHaizmGWIB7sZYNI2Sag=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -258,7 +258,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ed2HBN/IzCJsbCtktwqI3jWvWSvoiP3ISfR4eFrgDi0=
+			HB/JTN6VgHaExQGk4jOIIq05sZ8ylMTLgpNhnl5ti1A=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
@@ -272,7 +272,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xj0vjWo7tBxUdJZIgHwLoAJA+6rS6qsGCr70AasXAbk=
+			ayMwXTzm0zN/Tk93JGNfE/wSb9b56N5dD0G47obOQLE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
