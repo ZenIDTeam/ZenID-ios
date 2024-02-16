@@ -1,8 +1,11 @@
 import Foundation
 
 public struct NfcData {
+    
     public let DataGroups: [DataGroupId: String]
+    
     public let ProtocolUsed: NfcProtocol
+    
     public let document: NFCDocumentModelType?
 
     public init(document: NFCDocumentModelType) {
@@ -34,6 +37,7 @@ public struct NfcData {
 }
 
 extension NfcData: Encodable {
+    
     enum CodingKeys: String, CodingKey {
         case DataGroups
         case ProtocolUsed
@@ -65,6 +69,7 @@ extension NfcData: Encodable {
 }
 
 extension DataGroup {
+    
     func getContentEncoded() -> String {
         let data = Data(data)
         let encoded = data.base64EncodedString()
@@ -73,6 +78,7 @@ extension DataGroup {
 }
 
 extension NfcData {
+    
     public enum NfcProtocol: Int, Encodable {
         case PACE
         case BAC
@@ -80,6 +86,7 @@ extension NfcData {
 }
 
 extension NfcData {
+    
     public enum DGName: Int, CaseIterable {
         case COM = 0
         case SOD = 1
@@ -108,6 +115,7 @@ extension NfcData {
 }
 
 extension NfcData.DGName {
+    
     init(from external: DataGroupId) {
         switch external {
         case .COM:
@@ -196,6 +204,7 @@ extension NfcData.DGName {
 }
 
 extension NfcData.DGName: Encodable {
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode(String(describing: self))

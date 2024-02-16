@@ -9,6 +9,7 @@ public enum ImageFlip: Int {
 }
 
 extension UIImage {
+    
     public convenience init?(pixelBuffer: CVPixelBuffer, crop: CGRect? = nil) {
         var cgImage: CGImage?
         VTCreateCGImageFromCVPixelBuffer(pixelBuffer, options: nil, imageOut: &cgImage)

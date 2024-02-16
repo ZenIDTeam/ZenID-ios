@@ -18,6 +18,7 @@ public final class UnifiedFacelivenessVerifierAdapter: UnifiedVerifier {
 }
 
 extension UnifiedFacelivenessVerifierAdapter: VerifierRenderable {
+    
     public func getRenderCommands(canvasSize: CGSize) -> String? {
         verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height))
     }

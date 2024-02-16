@@ -7,34 +7,34 @@ public struct DefaultMesageProvider: NfcDisplayMessageProvider {
     public func message(for displayMessage: NFCDisplayMessage) -> String {
         switch displayMessage {
         case .requestPresent:
-            return NSLocalizedString("nfc-RequestPresent", bundle: Bundle.recogLib, comment: "")
+            return LocalizedString("nfc-RequestPresent", comment: "")
         case let .authenticatingWith(progress):
             let progressString = handleProgress(percentualProgress: progress)
-            return String(format: NSLocalizedString("nfc-Authenticating", bundle: Bundle.recogLib, comment: ""), progressString)
+            return String(format: LocalizedString("nfc-Authenticating", comment: ""), progressString)
         case let .readingDataGroupProgress(dataGroup, progress):
             let progressString = handleProgress(percentualProgress: progress)
-            var groupName = NSLocalizedString("nfc-Data-Personal", bundle: Bundle.recogLib, comment: "")
+            var groupName = LocalizedString("nfc-Data-Personal", comment: "")
             if dataGroup == .DG2 {
-                groupName = NSLocalizedString("nfc-Data-Photo", bundle: Bundle.recogLib, comment: "")
+                groupName = LocalizedString("nfc-Data-Photo", comment: "")
             }
-            return String(format: NSLocalizedString("nfc-Reading", bundle: Bundle.recogLib, comment: ""), groupName, progressString)
+            return String(format: LocalizedString("nfc-Reading", comment: ""), groupName, progressString)
         case let .error(tagError):
             switch tagError {
             case .TagNotValid:
-                return NSLocalizedString("nfc-Error-InvalidTag", bundle: Bundle.recogLib, comment: "")
+                return LocalizedString("nfc-Error-InvalidTag", comment: "")
             case .MoreThanOneTagFound:
-                return NSLocalizedString("nfc-Error-MoreTags", bundle: Bundle.recogLib, comment: "")
+                return LocalizedString("nfc-Error-MoreTags", comment: "")
             case .ConnectionError:
-                return NSLocalizedString("nfc-Error-Connection", bundle: Bundle.recogLib, comment: "")
+                return LocalizedString("nfc-Error-Connection", comment: "")
             case .InvalidMRZKey:
-                return NSLocalizedString("nfc-Error-InvalidMRZ", bundle: Bundle.recogLib, comment: "")
+                return LocalizedString("nfc-Error-InvalidMRZ", comment: "")
             case let .ResponseError(description, sw1, sw2):
-                return String(format: NSLocalizedString("nfc-Error-CantReadFormat", bundle: Bundle.recogLib, comment: ""), description, sw1, sw2)
+                return String(format: LocalizedString("nfc-Error-CantReadFormat", comment: ""), description, sw1, sw2)
             default:
-                return NSLocalizedString("nfc-Error-CantRead", bundle: Bundle.recogLib, comment: "")
+                return LocalizedString("nfc-Error-CantRead", comment: "")
             }
         case .successfullRead:
-            return NSLocalizedString("nfc-Success", bundle: Bundle.recogLib, comment: "")
+            return LocalizedString("nfc-Success", comment: "")
         }
     }
 

@@ -1,8 +1,11 @@
 import UIKit
 
 class Rectangle: Renderable {
+    
     var rect: CGRect
+    
     let color: CGColor
+    
     let thickness: CGFloat
     
     var fill: Bool {

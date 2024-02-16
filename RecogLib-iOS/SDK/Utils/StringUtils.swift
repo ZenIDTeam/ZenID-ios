@@ -1,6 +1,7 @@
 import Foundation
 
 final class StringUtils {
+    
     static func AsString(_ cString: UnsafeMutablePointer<Int8>?) -> String? {
         defer { free(cString) }
         

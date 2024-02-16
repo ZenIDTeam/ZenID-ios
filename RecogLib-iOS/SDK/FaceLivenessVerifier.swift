@@ -2,9 +2,11 @@ import CoreMedia
 import Foundation
 
 public class FaceLivenessVerifier {
+    
     private var cppObject: UnsafeMutableRawPointer?
 
     public var language: SupportedLanguages
+    
     private let settings: FaceLivenessVerifierSettings?
 
     public var showDebugInfo: Bool = false {
@@ -38,7 +40,10 @@ public class FaceLivenessVerifier {
         return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
     }
 
-    public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
+    public func verifyImage(
+        imageBuffer: CVPixelBuffer,
+        orientation: UIInterfaceOrientation = .portrait
+    ) -> FaceLivenessResult? {
         var face = createFaceLivenessInfo(orientation: orientation)
         RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
         return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
@@ -62,7 +67,11 @@ public class FaceLivenessVerifier {
         RecogLib_iOS.faceLivenessVerifierReset(cppObject)
     }
 
-    public func getRenderCommands(canvasWidth: Int, canvasHeight: Int, orientation: UIInterfaceOrientation = .portrait) -> String? {
+    public func getRenderCommands(
+        canvasWidth: Int,
+        canvasHeight: Int,
+        orientation: UIInterfaceOrientation = .portrait
+    ) -> String? {
         var face = createFaceLivenessInfo(orientation: orientation)
         let cString = RecogLib_iOS.getFaceLivenessRenderCommands(cppObject, Int32(canvasWidth), Int32(canvasHeight), &face)
         defer { free(cString) }

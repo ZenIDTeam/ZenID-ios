@@ -5,7 +5,9 @@ enum VideoWriterError: Error {
 }
 
 final class VideoWriter: NSObject {
+    
     public weak var delegate: VideoWriterDelegate?
+    
     private(set) var isRecording = false {
         didSet {
             #if DEBUG
@@ -17,14 +19,18 @@ final class VideoWriter: NSObject {
     private let filePrefix = "VideoSample-"
 
     private var videoWriter: AVAssetWriter!
+    
     private var videoWriterInput: AVAssetWriterInput!
+    
     private var audioWriterInput: AVAssetWriterInput!
+    
     private var sessionAtSourceTime: CMTime?
 }
 
 // MARK: - Public
 
 extension VideoWriter {
+    
     func start(isPortrait: Bool, requestedWidth: Int, requestedFPS: Int) {
         guard !isRecording else { return }
         isRecording = true
@@ -42,6 +48,7 @@ extension VideoWriter {
     func stop() {
         guard isRecording else { return }
         isRecording = false
+        
         videoWriter.finishWriting { [weak self] in
             self?.sessionAtSourceTime = nil
             guard let self = self else { return }
@@ -90,6 +97,7 @@ extension VideoWriter {
 // MARK: - Private
 
 extension VideoWriter {
+    
     private func setupWriter(isPortrait: Bool, outputVideoWidth: Double, outputVideoHeight: Double) {
         do {
             let outputFileName = "\(filePrefix)\(ProcessInfo.processInfo.globallyUniqueString).mp4"

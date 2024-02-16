@@ -9,25 +9,35 @@ import Foundation
 import UIKit
 
 public class NfcDocumentReader: NSObject, NfcDocumentReaderProtocol {
+    
     private typealias NFCCheckedContinuation = CheckedContinuation<NfcData, Error>
+    
     private var nfcContinuation: NFCCheckedContinuation?
 
     private var passport: NFCDocumentModel = NFCDocumentModel()
 
     private var readerSession: NFCTagReaderSession?
+    
     private var currentlyReadingDataGroup: DataGroupId?
 
     private var dataGroupsToRead: [DataGroupId] = []
+    
     private var readAllDatagroups = false
+    
     private var skipSecureElements = true
+    
     private var skipPACE = false
 
     private var bacHandler: BACHandler?
+    
     private var paceHandler: PACEHandler?
+    
     private var mrzKey: String = ""
 
     private var scanCompletedHandler: ((NFCDocumentModel?, NfcDocumentReaderError?) -> Void)!
+    
     private var displayMessageProvider: NfcDisplayMessageProvider
+    
     private var shouldNotReportNextReaderSessionInvalidationErrorUserCanceled: Bool = false
 
     public init(mrzKey: String, displayMessageProvider: NfcDisplayMessageProvider? = nil) {

@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 public struct DocumentControllerConfiguration {
+    
     public static let `default` = DocumentControllerConfiguration(
         showVisualisation: true,
         showHelperVisualisation: true,
@@ -12,21 +13,40 @@ public struct DocumentControllerConfiguration {
         page: nil,
         code: nil,
         documents: nil,
-        settings: nil
-    )
+        settings: nil)
 
     public let showVisualisation: Bool
+    
     public let showHelperVisualisation: Bool
+    
     public let showDebugVisualisation: Bool
+    
     public let dataType: DataType
+    
     public let role: RecogLib_iOS.DocumentRole?
+    
     public let country: RecogLib_iOS.Country?
+    
     public let page: RecogLib_iOS.PageCodes?
+    
     public let code: RecogLib_iOS.DocumentCodes?
+    
     public let documents: [Document]?
+    
     public let settings: DocumentVerifierSettings?
 
-    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, documents: [Document]?, settings: DocumentVerifierSettings?) {
+    public init(
+        showVisualisation: Bool,
+        showHelperVisualisation: Bool,
+        showDebugVisualisation: Bool,
+        dataType: DataType,
+        role: RecogLib_iOS.DocumentRole?,
+        country: RecogLib_iOS.Country?,
+        page: RecogLib_iOS.PageCodes?,
+        code: RecogLib_iOS.DocumentCodes?,
+        documents: [Document]?,
+        settings: DocumentVerifierSettings?
+    ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
@@ -41,6 +61,7 @@ public struct DocumentControllerConfiguration {
 }
 
 extension DocumentResult: ResultState {
+    
     public var isOk: Bool {
         state == .Ok || hologramState == .Ok || state == .Nfc
     }
@@ -51,9 +72,13 @@ extension DocumentResult: ResultState {
 }
 
 public protocol DocumentControllerDelegate: AnyObject {
+    
     func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)
+    
     func controller(_ controller: DocumentController, didScan result: DocumentResult)
+    
     func controller(_ controller: DocumentController, didRecord videoURL: URL)
+    
     func controller(_ controller: DocumentController, didUpdate result: DocumentResult)
 }
 
@@ -69,16 +94,14 @@ public protocol DocumentControllerAbstraction {
 }
 
 public final class DocumentController: BaseController<DocumentResult>, DocumentControllerAbstraction {
+    
     public weak var delegate: DocumentControllerDelegate?
     #if targetEnvironment(simulator)
         public weak var debugDelegate: SimulatorHelperDelegate?
     #endif
 
     override var overlayImageName: String {
-        if config.role == .Pas {
-            return "targettingRectPas"
-        }
-        return "targettingRect"
+        return config.role == .Pas ? "targettingRectPas" : "targettingRect"
     }
 
     private let verifier: DocumentVerifier
@@ -158,7 +181,9 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         let oldConfig = config
         config = configuration
 
-        view?.topLabel.text = config.page == .B ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
+        view?.topLabel.text = config.page == .B 
+            ? LocalizedString("msg-scan-back", comment: "")
+            : LocalizedString("msg-scan-front", comment: "")
 
         // Enrico: For documents, we should leave the resolution and fps fields blanks until we have test results.
         // verifier.getRequiredResolution(), verifier.getRequiredFPS()

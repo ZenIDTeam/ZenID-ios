@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 extension SelfieResult: ResultState {
+    
     public var isOk: Bool {
         selfieState == .Ok
     }
@@ -12,19 +13,27 @@ extension SelfieResult: ResultState {
 }
 
 public struct SelfieControllerConfiguration {
+    
     public static let `default` = SelfieControllerConfiguration(
         showVisualisation: true,
         showHelperVisualisation: true,
         showDebugVisualisation: false,
-        dataType: .picture
-    )
+        dataType: .picture)
     
     public let showVisualisation: Bool
+    
     public let showHelperVisualisation: Bool
+    
     public let showDebugVisualisation: Bool
+    
     public let dataType: DataType
     
-    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType) {
+    public init(
+        showVisualisation: Bool,
+        showHelperVisualisation: Bool,
+        showDebugVisualisation: Bool,
+        dataType: DataType
+    ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
@@ -33,18 +42,23 @@ public struct SelfieControllerConfiguration {
 }
 
 public protocol SelfieControllerDelegate: AnyObject {
+    
     func controller(_ controller: SelfieController, didScan result: SelfieResult)
+    
     func controller(_ controller: SelfieController, didRecord videoURL: URL)
+    
     func controller(_ controller: SelfieController, didUpdate result: SelfieResult)
 }
 
 public protocol SelfieControllerAbstraction {
+    
     var delegate: SelfieControllerDelegate? { get set }
     
     func configure(configuration: SelfieControllerConfiguration) throws
 }
 
 public final class SelfieController: BaseController<SelfieResult>, SelfieControllerAbstraction {
+    
     public weak var delegate: SelfieControllerDelegate?
     
     private let verifier: SelfieVerifier
@@ -87,13 +101,9 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
         verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
     }
     
-    override func canShowStaticOverlay() -> Bool {
-        false
-    }
+    override func canShowStaticOverlay() -> Bool { false }
     
-    override func canShowInstructionView() -> Bool {
-        false
-    }
+    override func canShowInstructionView() -> Bool { false }
     
     override func callDelegate(with result: SelfieResult) {
         delegate?.controller(self, didScan: result)

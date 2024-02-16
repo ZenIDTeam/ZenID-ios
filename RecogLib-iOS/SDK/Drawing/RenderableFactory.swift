@@ -10,11 +10,14 @@ public enum RenderableType: String {
 }
 
 public class RenderableFactory {
+    
     public static func createRenderables(commands: String) -> [Renderable] {
         //ApplicationLogger.shared.Debug("Render:\n\(commands)")
-        return commands
+        let result = commands
             .split(separator: "\n")
             .compactMap(createRenderable(command:))
+        
+        return result
     }
         
     public static func createRenderable<T>(command: T) -> Renderable? where T: StringProtocol {
@@ -42,6 +45,7 @@ public class RenderableFactory {
 }
 
 extension RenderableFactory {
+
     static func split(command: String) -> [String] {
         command.split(separator: ";").map { String($0) }
     }

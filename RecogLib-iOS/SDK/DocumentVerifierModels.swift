@@ -1,7 +1,9 @@
 import Foundation
 
 public final class DocumentVerifierModels: VerifierModels {
+    
     public let url: URL
+    
     private let fileManager: FileManager
     
     public init?(url: URL, fileManager: FileManager = .default) {

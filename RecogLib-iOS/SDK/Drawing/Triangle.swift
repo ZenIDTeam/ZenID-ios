@@ -1,14 +1,19 @@
 import UIKit
 
 final class Triangle: Renderable {
+    
     var priority: RenderingPriority {
         .high
     }
     
     private let aPoint: CGPoint
+    
     private let bPoint: CGPoint
+    
     private let cPoint: CGPoint
+    
     private let color: CGColor
+    
     private let thickness: CGFloat
     
     private var canFill: Bool {

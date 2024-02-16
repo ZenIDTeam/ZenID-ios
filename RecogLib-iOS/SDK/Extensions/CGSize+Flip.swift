@@ -1,6 +1,7 @@
 import Foundation
 
 extension CGSize {
+    
     func flip() -> CGSize {
         return CGSize(width: height, height: width)
     }

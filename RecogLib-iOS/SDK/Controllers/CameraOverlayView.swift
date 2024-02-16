@@ -1,6 +1,7 @@
 import UIKit
 
 final class CameraOverlayView: UIView {
+    
     private let imageName: String
     
     lazy var frameImageView: UIImageView = {
@@ -55,7 +56,7 @@ final class CameraOverlayView: UIView {
             let croppedFrame = self.frame.flip().rectThatFitsRect(targetFrame);
             let scale = croppedFrame.height / targetFrame.width
             // adding 10% and -10% to scale because of DL snapping https://support.trask.cz/browse/MRZENID-228
-            if UIDevice.current.orientation == .portrait {
+            if UIInterfaceOrientation.current.isPortrait {
                 transform = CGAffineTransform(rotationAngle: 90.0 * .pi / 180.0).scaledBy(x: scale * 1.10, y: scale * 1.10)
             } else {
                 transform = CGAffineTransform(rotationAngle: 90.0 * .pi / 180.0).scaledBy(x: scale * 0.9 , y: scale * 0.9)

@@ -2,6 +2,7 @@ import Foundation
 import CoreMedia
 
 public class SelfieVerifier {
+    
     private var cppObject: UnsafeMutableRawPointer?
     
     public var language: SupportedLanguages

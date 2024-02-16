@@ -10,6 +10,7 @@ public final class CameraView: UIView {
     public var ignoreSafeArea: Bool = false
     
     let statusButton = Buttons.Camera.status
+    
     let instructionView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -31,10 +32,16 @@ public final class CameraView: UIView {
     }()
 
     private var controlView = UIView()
-    let cameraView = UIView()
+    
     private(set) var overlay: CameraOverlayView?
-    var previewLayer: AVCaptureVideoPreviewLayer?
+    
     private(set) var drawLayer: DrawingLayer?
+    
+    private(set) var webViewOverlay: WebViewOverlay?
+    
+    let cameraView = UIView()
+    
+    var previewLayer: AVCaptureVideoPreviewLayer?
     
     var showInstructionView: Bool = false {
         didSet {
@@ -45,7 +52,6 @@ public final class CameraView: UIView {
     var supportChangedOrientation: (() -> Bool)!
     var onLayoutChange: (() -> Void)?
     
-    private(set) var webViewOverlay: WebViewOverlay?
     
     public init() {
         super.init(frame: .zero)
@@ -57,8 +63,9 @@ public final class CameraView: UIView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        if let previewLayer = previewLayer {
-            previewLayer.frame = cameraView.bounds
+        
+        if let previewLayer {
+            previewLayer.setFrameWithoutAnimation(cameraView.bounds)
         }
         
         onLayoutChange?()
@@ -80,7 +87,14 @@ public final class CameraView: UIView {
         let topLabelWrapper = UIView()
         topLabelWrapper.backgroundColor = .clear
         topLabelWrapper.addSubview(topLabel)
-        topLabel.anchor(top: topLabelWrapper.topAnchor, left: topLabelWrapper.leftAnchor, bottom: topLabelWrapper.bottomAnchor, right: topLabelWrapper.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10)
+        topLabel.anchor(top: topLabelWrapper.topAnchor, 
+                        left: topLabelWrapper.leftAnchor,
+                        bottom: topLabelWrapper.bottomAnchor,
+                        right: topLabelWrapper.rightAnchor,
+                        paddingTop: 10,
+                        paddingLeft: 10,
+                        paddingBottom: 10,
+                        paddingRight: 10)
 
         // Instructions view
         instructionView.addArrangedSubview(statusButton)
@@ -94,7 +108,10 @@ public final class CameraView: UIView {
         controlView.removeFromSuperview()
         controlView = UIView()
         addSubview(controlView)
-        controlView.anchor(top: cameraView.bottomAnchor, left: leftAnchor, bottom: layoutMarginsGuide.bottomAnchor, right: rightAnchor)
+        controlView.anchor(top: cameraView.bottomAnchor, 
+                           left: leftAnchor,
+                           bottom: layoutMarginsGuide.bottomAnchor,
+                           right: rightAnchor)
         controlView.heightAnchor.constraint(equalToConstant: 0).isActive = true
     }
     
@@ -135,15 +152,16 @@ public final class CameraView: UIView {
     }
     
     private func configurePreviewLayer() {
-        if let previewLayer {
-            previewLayer.videoGravity = videoGravity
-            previewLayer.frame = cameraView.layer.bounds
-            cameraView.layer.addSublayer(previewLayer)
-        }
+        guard let previewLayer else { return }
+        
+        previewLayer.videoGravity = videoGravity
+        previewLayer.setFrameWithoutAnimation(cameraView.layer.bounds)
+        cameraView.layer.addSublayer(previewLayer)
     }
 
     private func configureDrawingLayer() {
-        guard let previewLayer = previewLayer else { return }
+        guard let previewLayer else { return }
+        
         drawLayer?.removeFromSuperlayer()
         drawLayer = DrawingLayer()
         previewLayer.addSublayer(drawLayer!)
@@ -153,8 +171,12 @@ public final class CameraView: UIView {
         self.overlay?.removeFromSuperview()
         self.overlay = overlay
         if let overlay = self.overlay {
+            overlay.frame = cameraView.frame
             cameraView.addSubview(overlay)
-            overlay.anchor(top: cameraView.topAnchor, left: cameraView.leftAnchor, bottom: cameraView.bottomAnchor, right: cameraView.rightAnchor)
+            overlay.anchor(top: cameraView.topAnchor, 
+                           left: cameraView.leftAnchor,
+                           bottom: cameraView.bottomAnchor,
+                           right: cameraView.rightAnchor)
             overlay.isHidden = !showStaticOverlay
             overlay.setupSafeArea(layoutGuide: safeAreaLayoutGuide)
             rotateOverlay(targetFrame: targetFrame)
@@ -166,5 +188,4 @@ public final class CameraView: UIView {
         configureDrawingLayer()
         configureOverlay(overlay: overlay, showStaticOverlay: showStaticOverlay, targetFrame: targetFrame)
     }
-    
 }

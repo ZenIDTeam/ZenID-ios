@@ -1,6 +1,7 @@
 import UIKit
 
 extension UIImageView {
+    
     var contentClippingRect: CGRect {
         guard let image = image else { return bounds }
         guard contentMode == .scaleAspectFit else { return bounds }

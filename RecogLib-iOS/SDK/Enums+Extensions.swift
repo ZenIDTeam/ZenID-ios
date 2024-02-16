@@ -1,6 +1,7 @@
 import Foundation
 
 public extension DocumentCodes {
+    
     init?(stringValue: String) {
         for code in DocumentCodes.allCases {
             if code.description.uppercased() == stringValue.uppercased() {
@@ -13,6 +14,7 @@ public extension DocumentCodes {
 }
 
 extension DocumentCodes {
+    
     public var description: String {
         return String(describing: self).uppercased()
     }
@@ -20,12 +22,14 @@ extension DocumentCodes {
 
 
 extension PageCodes {
+    
     public var description: String {
         return String(describing: self).uppercased()
     }
 }
 
 extension Country {
+    
     public var description: String {
         return String(describing: self)
     }
@@ -58,6 +62,7 @@ extension DocumentRole {
 }
 
 extension SupportedLanguages {
+    
     public var description: String {
         return switch self {
         case .Czech: "Cs"
@@ -69,6 +74,7 @@ extension SupportedLanguages {
 }
 
 extension DocumentVerifierState {
+    
     public var description: String {
         return switch self {
         case .NoMatchFound: "No match found"
@@ -87,6 +93,7 @@ extension DocumentVerifierState {
 }
 
 extension HologramState {
+    
     public var description: String {
         return switch self {
         case .Center: "Center"
@@ -103,6 +110,7 @@ extension HologramState {
 }
 
 extension FaceLivenessVerifierState {
+    
     public var description: String {
         return switch self {
         case .LookAtMe: "Look at the camera"
@@ -119,6 +127,7 @@ extension FaceLivenessVerifierState {
 }
 
 extension SelfieVerifierState {
+    
     public var description: String {
         return switch self {
         case .Ok: "Ok"

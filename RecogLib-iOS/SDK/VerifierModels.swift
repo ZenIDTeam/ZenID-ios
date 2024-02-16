@@ -1,12 +1,14 @@
 import Foundation
 
 public protocol VerifierModels {
+    
     var url: URL { get }
     
     func load(onLoad: (Data, String) -> Void)
 }
 
 extension VerifierModels {
+    
     func loadPointer(onLoad: (UnsafePointer<CChar>, Data, String) -> Void) {
         load { data, modelName in
             guard let pointer = getPointer(data: data) else {

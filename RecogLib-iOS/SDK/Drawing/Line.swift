@@ -1,9 +1,13 @@
 import UIKit
 
 class Line: Renderable {
+    
     var a: CGPoint
+    
     var b: CGPoint
+    
     let color: CGColor
+    
     let thickness: CGFloat
     
     required init?(_ renderCommand: String) {

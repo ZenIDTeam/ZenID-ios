@@ -14,6 +14,7 @@ public enum FaceLivenessAngle: String, Decodable {
 }
 
 public struct FaceLivenessAuxiliaryMetadata: Decodable {
+    
     enum CodingKeys: String, CodingKey {
         case type = "checkName"
         case date = "unixEpoch"
@@ -21,7 +22,9 @@ public struct FaceLivenessAuxiliaryMetadata: Decodable {
     }
 
     public let type: FaceLivenessCheckType
+    
     public let date: Date
+    
     public let angle: FaceLivenessAngle?
 
     public init(from decoder: Decoder) throws {
