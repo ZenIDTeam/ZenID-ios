@@ -95,6 +95,8 @@ public class BaseController<ResultType: ResultState> {
     var overlayImageName: String { "targettingRect" }
 
     private(set) var baseConfig: BaseControllerConfiguration = .default
+    
+    private var isVisualisationAllowed: Bool { baseConfig.showVisualisation }
 
     init(camera: Camera, view: CameraView) {
         self.camera = camera
@@ -121,9 +123,9 @@ public class BaseController<ResultType: ResultState> {
         view?.previewLayer = camera.previewLayer
         view?.setup()
         view?.setupControlView()
-        view?.supportChangedOrientation = { true }
+        view?.supportChangedOrientation = true
         view?.onLayoutChange = { [weak self] in
-            self?.orientationChanged()
+            self?.layoutViews()
         }
 
         view?.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), 
@@ -148,13 +150,12 @@ public class BaseController<ResultType: ResultState> {
         view?.showInstructionView = canShowInstructionView()
 
         previousResult = nil
-        orientationChanged()
         start()
         isRunning = true
 
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
             guard let self else { return }
-            self.orientationChanged()
+            self.layoutViews()
             self.camera.setTorch(isOn: self.torchEnabled)
         }
     }
@@ -177,7 +178,7 @@ public class BaseController<ResultType: ResultState> {
     func getRenderCommands(size: CGSize) -> String? { nil }
 
     func canShowStaticOverlay() -> Bool {
-        canShowVisualisation() && isVisualisationAllowed()
+        canShowVisualisation() && isVisualisationAllowed
     }
 
     func canShowInstructionView() -> Bool {
@@ -190,23 +191,20 @@ public class BaseController<ResultType: ResultState> {
 
     func callUpdateDelegate(with result: ResultType) { }
 
-    private func updateOrientation() {
+    /// Layout all views and its layers like preview and overlay layer.
+    private func layoutViews() {
         targetFrame = view?.overlay?.bounds ?? .zero
         camera.setOrientation()
         camera.setTorch(isOn: torchEnabled)
-        view?.drawLayer?.setRenderables([])
         view?.rotateOverlay(targetFrame: getOverlayTargetFrame())
         
+        // TODO: This might cause problems during hologram check.
         restartVideoWriter()
-    }
-
-    private func isVisualisationAllowed() -> Bool {
-        baseConfig.showVisualisation
     }
     
     /// Restart video recording.
     func restartVideoWriter() {
-        guard let videoWriter = videoWriter, videoWriter.isRecording else { return }
+        guard let videoWriter, videoWriter.isRecording else { return }
         
         videoWriter.stopAndCancel()
         DispatchQueue.main.async { [weak self] in
@@ -215,23 +213,9 @@ public class BaseController<ResultType: ResultState> {
     }
 
     private func startVideoWriter() {
-        let orientation = if #available(iOS 15.0, *) {
-            UIApplication
-                .shared
-                .connectedScenes
-                .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-                .last?.windowScene?.interfaceOrientation ?? .portrait
-        } else if #available(iOS 13.0, *) {
-            UIApplication
-                .shared
-                .connectedScenes
-                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-                .last { $0.isKeyWindow }?
-                .windowScene?.interfaceOrientation ?? .portrait
-        } else {
-            UIApplication.shared.statusBarOrientation
-        }
-        videoWriter?.start(isPortrait: orientation.isPortrait, requestedWidth: baseConfig.requestedResolution, requestedFPS: baseConfig.requestedFPS)
+        videoWriter?.start(isPortrait: UIInterfaceOrientation.current.isPortrait,
+                           requestedWidth: baseConfig.requestedResolution,
+                           requestedFPS: baseConfig.requestedFPS)
     }
 }
 
@@ -258,10 +242,10 @@ extension BaseController {
 
     func getCroppedImageRect(width: Int, height: Int) -> CGRect {
         #if targetEnvironment(simulator)
-            return CGRect(x: 0, y: 0, width: width, height: height)
-        #endif
-        let gravity = Defaults.videoGravity
-        switch gravity {
+        return CGRect(x: 0, y: 0, width: width, height: height)
+        
+        #else
+        switch Defaults.videoGravity {
         case .resizeAspect:
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
             let layerRect = imageRect.rectThatFitsRect(targetFrame)
@@ -276,6 +260,8 @@ extension BaseController {
         default:
             return .zero
         }
+        
+        #endif
     }
 
     func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {

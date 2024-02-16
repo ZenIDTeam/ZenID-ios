@@ -49,7 +49,8 @@ public final class CameraView: UIView {
         }
     }
     
-    var supportChangedOrientation: (() -> Bool)!
+    var supportChangedOrientation: Bool = false
+    
     var onLayoutChange: (() -> Void)?
     
     
@@ -116,21 +117,13 @@ public final class CameraView: UIView {
     }
     
     func rotateOverlay(targetFrame: CGRect) {
-        guard let overlay = self.overlay else { return }
-        
-        if !supportChangedOrientation() {
-            return
-        }
+        guard let overlay else { return }
+        guard supportChangedOrientation else { return }
 
         switch videoGravity {
-        case .resizeAspect:
-            overlay.setupImage(rect: targetFrame)
-            
-        case .resizeAspectFill:
-            overlay.setupImage(rect: targetFrame)
-            
-        default:
-            overlay.setupImage()
+        case .resizeAspect: overlay.setupImage(rect: targetFrame)
+        case .resizeAspectFill: overlay.setupImage(rect: targetFrame)
+        default: overlay.setupImage()
         }
     }
     
