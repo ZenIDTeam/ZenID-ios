@@ -274,7 +274,7 @@ extension BaseController {
         let commandsRect = previewLayer.frame
         if let drawLayer = view?.drawLayer {
             let renderables = RenderableFactory.createRenderables(commands: commands)
-            drawLayer.frame = commandsRect
+            drawLayer.setFrameWithoutAnimation(commandsRect)
             drawLayer.setRenderables(renderables)
         }
     }

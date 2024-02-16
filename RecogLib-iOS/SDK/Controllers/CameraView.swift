@@ -157,6 +157,7 @@ public final class CameraView: UIView {
         
         drawLayer?.removeFromSuperlayer()
         drawLayer = DrawingLayer()
+        drawLayer?.setFrameWithoutAnimation(previewLayer.frame)
         previewLayer.addSublayer(drawLayer!)
     }
     
