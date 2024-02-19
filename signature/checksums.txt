@@ -1,0 +1,1 @@
+be1a79cfc67e846208bf5400d92dcceed0256c8863ff4773bdd7924763eae97f  sdk_iOS_3.8.1.1.zip
