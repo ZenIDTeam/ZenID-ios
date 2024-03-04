@@ -258,7 +258,7 @@ public extension Camera {
                 device.videoZoomFactor = CGFloat(zoomFactor)
                 device.unlockForConfiguration()
             } catch {
-                print("Could not lock for configuration: \(error)")
+                ApplicationLogger.shared.Debug("Could not lock for configuration: \(error)")
             }
         }
     }

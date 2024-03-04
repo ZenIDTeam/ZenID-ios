@@ -1,7 +1,11 @@
+// Scanner titles
+
 "msg-scan-front" = "Please take a photo of the front side.";
 "msg-scan-back" = "Please take a photo of the rear side.";
 "msg-scan-face" = "Please take a photo of yourself.";
 "msg-scan-hologram" = "Please take a video of the hologram.";
+
+// Texts for NFC dialog
 
 "nfc-RequestPresent" = "Hold your iPhone near an NFC enabled document.";
 "nfc-Authenticating" = "Authenticating .....\n\n%@";
@@ -16,14 +20,58 @@
 "nfc-Data-Personal" = "personal data";
 "nfc-Data-Photo" = "photo";
 
-"document.state.ok" = "Ok ";
-"document.state.align.card" = "Align card";
-"document.state.blurry" = "Image is blurry";
-"document.state.hold.steady" = "Hold steady";
-"document.state.no.match.found" = "No match found";
-"document.state.reflection.present" = "Drop reflection please";
-"document.state.hologram.error" = "Hologram error";
-"document.state.text_not_readable" = "Text isn't readable";
-"document.state.dark" = "Image too dark";
-"document.state.barcode" = "Barcode not readable";
-"document.state.timedout" = "The time limit has expired";
+// Optional translation for enums
+
+"document-role-Idc" = "Identity card";
+"document-role-Drv" = "Driving licence";
+"document-role-Pas" = "Passport";
+"document-role-Res" = "Residency permit";
+"document-role-Gun" = "Gun licence";
+"document-role-Hic" = "European health insurance";
+"document-role-Std" = "Student card";
+"document-role-Car" = "Vehicle certification";
+"document-role-Birth" = "Birth certificate";
+"document-role-Add" = "Address card";
+"document-role-Ide" = "Auxiliary identity card";
+"document-role-Vis" = "Visum";
+"document-role-Exp" = "Experimental document";
+
+"document-state-Ok" = "Ok ";
+"document-state-AlignCard" = "Align card";
+"document-state-Blurry" = "Image is blurry";
+"document-state-HoldSteady" = "Hold steady";
+"document-state-NoMatchFound" = "No match found";
+"document-state-ReflectionPresent" = "Drop reflection please";
+"document-state-HologramError" = "Hologram error";
+"document-state-TextNotReadable" = "Text isn't readable";
+"document-state-Dark" = "Image too dark";
+"document-state-Barcode" = "Barcode not readable";
+"document-state-Timedout" = "The time limit has expired";
+"document-state-Nfc" = "Nfc";
+
+"hologram-Center" = "Center";
+"hologram-TiltLeftAndRight" = "Tilt left and right";
+"hologram-TiltUpAndDown" = "Tilt up and down";
+"hologram-Ok" = "Ok";
+"hologram-TimedOut" = "Timed out";
+"hologram-TiltLeft" = "Tilt left";
+"hologram-TiltRight" = "Tilt right";
+"hologram-TiltUp" = "Tilt up";
+"hologram-TiltDown" = "Tilt down";
+
+"faceliveness-state-LookAtMe" = "Look at the camera";
+"faceliveness-state-TurnHead" = "Turn head slowly towards arrow";
+"faceliveness-state-Smile" = "Smile";
+"faceliveness-state-Ok" = "Ok";
+"faceliveness-state-Blurry" = "Blurry";
+"faceliveness-state-Dark" = "Dark";
+"faceliveness-state-HoldStill" = "Hold Still";
+"faceliveness-state-Reseting" = "Reseting";
+"faceliveness-state-DontSmile" = "Don't smile";
+
+"selfie-state-Ok" = "Ok";
+"selfie-state-NoFaceFound" = "No face found";
+"selfie-state-Blurry" = "Blurry";
+"selfie-state-Dark" = "Dark";
+"selfie-state-ConfirmingFace" = "Confirming face";
+"selfie-state-BadFaceAngle" = "Bad face angle";

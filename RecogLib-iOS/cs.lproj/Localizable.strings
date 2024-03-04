@@ -1,8 +1,11 @@
+// Scanner titles
 
 "msg-scan-front" = "Vyfoťte přední stranu.";
 "msg-scan-back" = "Vyfoťte zadní stranu.";
 "msg-scan-face" = "Vyfoťte se.";
 "msg-scan-hologram" = "Nahrajte video hologramu.";
+
+// Texts for NFC dialog
 
 "nfc-RequestPresent" = "Přidržte iPhone blízko dokumentu opatřeného NFC.";
 "nfc-Authenticating" = "Ověřování .....\n\n%@";
@@ -17,14 +20,58 @@
 "nfc-Data-Personal" = "osobní údaje";
 "nfc-Data-Photo" = "fotografii";
 
-"document.state.ok" = "Ok ";
-"document.state.align.card" = "Zarovnejte průkaz v rámečku";
-"document.state.blurry" = "Fotka je rozmazaná";
-"document.state.hold.steady" = "Držte ješte chvíli bez pohybu";
-"document.state.no.match.found" = "Žádna shoda nenalezena";
-"document.state.reflection.present" = "Příliš mnoho odlesků";
-"document.state.hologram.error" = "Chybný hologram";
-"document.state.text_not_readable" = "Text není čitelný";
-"document.state.dark" = "Fotka je příliš tmavá";
-"document.state.barcode" = "Barcode není čítelný";
-"document.state.timedout" = "Časový limit vypršel";
+// Optional translation for enums
+
+"document-role-Idc" = "Občanský průkaz";
+"document-role-Drv" = "Řidičský průkaz";
+"document-role-Pas" = "Cestovní pas";
+"document-role-Res" = "Povolení k pobytu";
+"document-role-Gun" = "Zbrojní průkaz";
+"document-role-Hic" = "Evropské zdravotní pojištění";
+"document-role-Std" = "Studentská karta";
+"document-role-Car" = "Certifikace vozidla";
+"document-role-Birth" = "Rodný list";
+"document-role-Add" = "Adresní karta";
+"document-role-Ide" = "Pomocný průkaz totožnosti";
+"document-role-Vis" = "Vízum";
+"document-role-Exp" = "Experimentální doklad";
+
+"document-state-Ok" = "Ok ";
+"document-state-AlignCard" = "Zarovnejte průkaz v rámečku";
+"document-state-Blurry" = "Fotka je rozmazaná";
+"document-state-HoldSteady" = "Držte ješte chvíli bez pohybu";
+"document-state-NoMatchFound" = "Žádna shoda nenalezena";
+"document-state-ReflectionPresent" = "Příliš mnoho odlesků";
+"document-state-HologramError" = "Chybný hologram";
+"document-state-TextNotReadable" = "Text není čitelný";
+"document-state-Dark" = "Fotka je příliš tmavá";
+"document-state-Barcode" = "Barcode není čítelný";
+"document-state-Timedout" = "Časový limit vypršel";
+"document-state-Nfc" = "Nfc";
+
+"hologram-Center" = "Vycentrujte doklad";
+"hologram-TiltLeftAndRight" = "Natáčejte kameru do stran";
+"hologram-TiltUpAndDown" = "Natáčejte kameru nahoru a dolu";
+"hologram-Ok" = "Ok";
+"hologram-TimedOut" = "Vypršel časový limit";
+"hologram-TiltLeft" = "Natočit doleva";
+"hologram-TiltRight" = "Natočit doprava";
+"hologram-TiltUp" = "Natočit nahoru";
+"hologram-TiltDown" = "Natočit dolu";
+
+"faceliveness-state-LookAtMe" = "Podívejte se do kamery";
+"faceliveness-state-TurnHead" = "Pomalu natáčejte hlavu po směru šipek";
+"faceliveness-state-Smile" = "Úsměv";
+"faceliveness-state-Ok" = "Ok";
+"faceliveness-state-Blurry" = "Rozmazané";
+"faceliveness-state-Dark" = "Příliš tmavé";
+"faceliveness-state-HoldStill" = "Nehýbejte s obrazem";
+"faceliveness-state-Reseting" = "Resetuji";
+"faceliveness-state-DontSmile" = "Neusmívejte se";
+
+"selfie-state-Ok" = "Ok";
+"selfie-state-NoFaceFound" = "Obličej nenalezen";
+"selfie-state-Blurry" = "Rozmazené";
+"selfie-state-Dark" = "Příliš tmavé";
+"selfie-state-ConfirmingFace" = "Ověřuji obličej";
+"selfie-state-BadFaceAngle" = "3patný úhel obličeje";

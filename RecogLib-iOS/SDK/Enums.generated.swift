@@ -459,6 +459,14 @@ public enum SampleType : Int, CaseIterable {
     case Unknown = 5
 }
 
+public enum SdkVerifierType : Int, CaseIterable { 
+    case FaceLiveness = 0
+    case Document = 1
+    case Selfie = 2
+    case Hologram = 3
+    case IQSHologram = 4
+}
+
 public enum SdkSignatureProblem : Int, CaseIterable { 
     case HashDiffers = 0
     case TimeDiffers = 1
