@@ -657,6 +657,22 @@ public enum SampleType : Swift.Int, Swift.CaseIterable {
     get
   }
 }
+public enum SdkVerifierType : Swift.Int, Swift.CaseIterable {
+  case FaceLiveness
+  case Document
+  case Selfie
+  case Hologram
+  case IQSHologram
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.SdkVerifierType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.SdkVerifierType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public enum SdkSignatureProblem : Swift.Int, Swift.CaseIterable {
   case HashDiffers
   case TimeDiffers
@@ -783,7 +799,7 @@ final public class UnifiedDocumentVerifierAdapter : RecogLib_iOS.UnifiedVerifier
 extension RecogLib_iOS.UnifiedDocumentVerifierAdapter : RecogLib_iOS.VerifierRenderable {
   final public func getRenderCommands(canvasSize: CoreFoundation.CGSize) -> Swift.String?
 }
-public func LocalizedString(_ key: Swift.String, tableName: Swift.String? = nil, bundle: Foundation.Bundle = Bundle.main, value: Swift.String = "", comment: Swift.String) -> Swift.String
+public func LocalizedString(_ key: Swift.String, tableName: Swift.String? = nil, value: Swift.String = "", comment: Swift.String) -> Swift.String
 public class SelfieVerifier {
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
@@ -1589,6 +1605,9 @@ extension RecogLib_iOS.DocumentRole {
   public var description: Swift.String {
     get
   }
+  public var localizedDescription: Swift.String {
+    get
+  }
   public var descriptionOld: Swift.String {
     get
   }
@@ -1880,6 +1899,9 @@ extension RecogLib_iOS.FaceLivenessVerifierState : Swift.RawRepresentable {}
 extension RecogLib_iOS.SampleType : Swift.Equatable {}
 extension RecogLib_iOS.SampleType : Swift.Hashable {}
 extension RecogLib_iOS.SampleType : Swift.RawRepresentable {}
+extension RecogLib_iOS.SdkVerifierType : Swift.Equatable {}
+extension RecogLib_iOS.SdkVerifierType : Swift.Hashable {}
+extension RecogLib_iOS.SdkVerifierType : Swift.RawRepresentable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Equatable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Hashable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.RawRepresentable {}
