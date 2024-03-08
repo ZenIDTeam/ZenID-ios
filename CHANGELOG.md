@@ -1,5 +1,13 @@
 # Change Log
 
+# 2.0.26 2024-03-04
+* RecogLib 4.1.6
+* Various performance and stability improvements.
+* New: Localization to be fully overrided by client application.
+* Fix: Camera object now respond to UI orientation and not Device orientation.
+* Fix: Remove unwanted initial visualisation v1 animation.
+* Fix: For visualisation v1 flickering on slower devices.
+* Fix: `Camera` object Torch stays on after device orientation changed.
 # 2.0.25 2024-02-01
 * RecogLib 3.10.4
 * Improvement: Camera and CameraView are now public and can be mutated in VerifierControllers.
