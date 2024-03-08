@@ -8,6 +8,8 @@
 * Fix: Remove unwanted initial visualisation v1 animation.
 * Fix: For visualisation v1 flickering on slower devices.
 * Fix: `Camera` object Torch stays on after device orientation changed.
+* New: Add optional controllers parameter `showTextInstructions` to disable text instructions in build-in visualisation.
+
 # 2.0.25 2024-02-01
 * RecogLib 3.10.4
 * Improvement: Camera and CameraView are now public and can be mutated in VerifierControllers.

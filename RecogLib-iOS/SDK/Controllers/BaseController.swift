@@ -33,6 +33,8 @@ struct BaseControllerConfiguration {
     
     public let showHelperVisualisation: Bool
     
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
     
     public let cameraType: CameraType
@@ -46,6 +48,7 @@ struct BaseControllerConfiguration {
     init(
         showVisualisation: Bool,
         showHelperVisualisation: Bool,
+        showTextInstructions: Bool = true,
         dataType: DataType,
         cameraType: CameraType,
         requestedResolution: Int,
@@ -54,6 +57,7 @@ struct BaseControllerConfiguration {
     ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
         self.cameraType = cameraType
         self.processType = processType
@@ -273,7 +277,8 @@ extension BaseController {
         
         let commandsRect = previewLayer.frame
         if let drawLayer = view?.drawLayer {
-            let renderables = RenderableFactory.createRenderables(commands: commands)
+            let renderables = RenderableFactory.createRenderables(commands: commands,
+                                                                  showTextInstructions: baseConfig.showTextInstructions)
             drawLayer.setFrameWithoutAnimation(commandsRect)
             drawLayer.setRenderables(renderables)
         }

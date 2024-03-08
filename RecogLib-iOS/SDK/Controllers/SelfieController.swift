@@ -26,17 +26,21 @@ public struct SelfieControllerConfiguration {
     
     public let showDebugVisualisation: Bool
     
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
     
     public init(
         showVisualisation: Bool,
         showHelperVisualisation: Bool,
         showDebugVisualisation: Bool,
+        showTextInstructions: Bool = true,
         dataType: DataType
     ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
     }
 }
@@ -81,6 +85,7 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showVisualisation,
+            showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .front,
             requestedResolution: 0,

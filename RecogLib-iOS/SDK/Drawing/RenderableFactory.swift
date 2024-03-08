@@ -11,16 +11,18 @@ public enum RenderableType: String {
 
 public class RenderableFactory {
     
-    public static func createRenderables(commands: String) -> [Renderable] {
+    public static func createRenderables(commands: String, showTextInstructions: Bool = false) -> [Renderable] {
         //ApplicationLogger.shared.Debug("Render:\n\(commands)")
         let result = commands
             .split(separator: "\n")
-            .compactMap(createRenderable(command:))
+            .compactMap {
+                createRenderable(command: $0, showTextInstructions: showTextInstructions)
+            }
         
         return result
     }
         
-    public static func createRenderable<T>(command: T) -> Renderable? where T: StringProtocol {
+    public static func createRenderable<T>(command: T, showTextInstructions: Bool) -> Renderable? where T: StringProtocol {
         let strCommand = String(command)
         guard let type = strCommand.split(separator: ";").first else { return nil }
         
@@ -34,7 +36,7 @@ public class RenderableFactory {
         case .ellipse:
             return Ellipse(strCommand)
         case .text:
-            return Text(strCommand)
+            return showTextInstructions ? Text(strCommand) : nil
         case .triangle:
             return Triangle(strCommand)
             

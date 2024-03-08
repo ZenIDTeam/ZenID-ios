@@ -27,6 +27,8 @@ public struct FacelivenessControllerConfiguration {
     
     public let showDebugVisualisation: Bool
     
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
     
     public let settings: FaceLivenessVerifierSettings
@@ -35,12 +37,14 @@ public struct FacelivenessControllerConfiguration {
         showVisualisation: Bool,
         showHelperVisualisation: Bool,
         showDebugVisualisation: Bool,
+        showTextInstructions: Bool = true,
         dataType: DataType,
         settings: FaceLivenessVerifierSettings
     ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
         self.settings = settings
 
@@ -87,6 +91,7 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showHelperVisualisation,
+            showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .front,
             requestedResolution: verifier.getRequiredResolution(),

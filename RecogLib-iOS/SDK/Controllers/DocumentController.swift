@@ -21,6 +21,8 @@ public struct DocumentControllerConfiguration {
     
     public let showDebugVisualisation: Bool
     
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
     
     public let role: RecogLib_iOS.DocumentRole?
@@ -39,6 +41,7 @@ public struct DocumentControllerConfiguration {
         showVisualisation: Bool,
         showHelperVisualisation: Bool,
         showDebugVisualisation: Bool,
+        showTextInstructions: Bool = true,
         dataType: DataType,
         role: RecogLib_iOS.DocumentRole?,
         country: RecogLib_iOS.Country?,
@@ -50,6 +53,7 @@ public struct DocumentControllerConfiguration {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
         self.role = role
         self.country = country
@@ -191,6 +195,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showHelperVisualisation,
+            showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .back,
             requestedResolution: 0,
