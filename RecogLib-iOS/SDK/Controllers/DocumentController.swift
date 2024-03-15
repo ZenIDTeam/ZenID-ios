@@ -319,6 +319,23 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     override func callUpdateDelegate(with result: DocumentResult) {
         delegate?.controller(self, didUpdate: result)
     }
+    
+    override func onLayoutChange() {
+        super.onLayoutChange()
+        
+        ApplicationLogger.shared.Info("RENDER: reset")
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self else { return }
+            if baseConfig.dataType == .video {
+                verifier.endHologramVerification()
+                verifier.reset()
+                verifier.beginHologramVerification()
+                restartVideoWriter()
+            } else {
+                verifier.reset()
+            }
+        }
+    }
 
     private func loadModels(url: URL, mrzURL: URL?) {   
         verifier.loadModels(.init(url: url)!, mrzModelsPath: mrzURL)

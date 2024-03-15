@@ -124,6 +124,16 @@ public:
   bool IsTestEnabled = true;
   int ScoreStep = 1;
 };
+class MrzChecksumValidatorConfig
+{
+public:
+  int ScoreStep = 100;
+  bool EnableSdkCheck = true;
+  bool UseOnNfcFields = false;
+  int MinFieldConfidence = 50;
+  int AcceptScore = 100;
+  bool IsTestEnabled = true;
+};
 class SdkProfileConfigs
 {
 public:
@@ -134,6 +144,7 @@ public:
   BarcodeValidatorConfig BarcodeValidatorConfig;
   SdkPictureQualityValidatorConfig SdkPictureQualityValidatorConfig;
   IQSHologramValidatorConfig IQSHologramValidatorConfig;
+  MrzChecksumValidatorConfig MrzChecksumValidatorConfig;
 };
 class SdkMasterConfig
 {

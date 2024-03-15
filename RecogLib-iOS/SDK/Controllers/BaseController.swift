@@ -79,6 +79,8 @@ struct BaseControllerConfiguration {
 }
 
 public class BaseController<ResultType: ResultState> {
+    
+    var temp: String = ""
         
     public var camera: Camera
     
@@ -86,27 +88,38 @@ public class BaseController<ResultType: ResultState> {
 
     var videoWriter: VideoWriter?
 
-    var targetFrame: CGRect {
-        view?.overlay?.targetFrame ?? .zero
-    }
+    /// Area with reticle.
+    var targetFrame: CGRect { view?.overlay?.targetFrame ?? .zero }
     
     var previewFrame: CGRect = .zero
     
     var isRunning: Bool = false
 
     var previousResult: ResultType?
-    
+        
     var latestSuccessfullBuffer: CVPixelBuffer?
 
+    /// Overlay image name (e.g. reticle image).
     var overlayImageName: String { "targettingRect" }
 
     private(set) var baseConfig: BaseControllerConfiguration = .default
     
+    /// Whenever visualisation is visible or nor.
     private var isVisualisationAllowed: Bool { baseConfig.showVisualisation }
     
     /// Produce `true` if current process is Hologram check.
     private var shouldBeTorchEnabled: Bool {
         baseConfig.processType == .document && baseConfig.dataType == .video
+    }
+    
+    /// Static overlay is document reticle.
+    var canShowStaticOverlay: Bool {
+        canShowVisualisation() && isVisualisationAllowed
+    }
+    
+    /// Instruction view is text in the middle of reticle.
+    var canShowInstructionView: Bool {
+        baseConfig.dataType != .video && canShowStaticOverlay
     }
 
     init(camera: Camera, view: CameraView) {
@@ -130,7 +143,7 @@ public class BaseController<ResultType: ResultState> {
         view?.setup()
 
         let overlayView = CameraOverlayView(imageName: overlayImageName)
-        view?.configureOverlay(overlayView, isStatic: canShowStaticOverlay())
+        view?.configureOverlay(overlayView, isStatic: canShowStaticOverlay)
 
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
@@ -142,7 +155,7 @@ public class BaseController<ResultType: ResultState> {
             }
         }
 
-        view?.showInstructionView = canShowInstructionView()
+        view?.showInstructionView = canShowInstructionView
         
         view?.onLayoutChange = { [weak self] in
             self?.onLayoutChange()
@@ -168,14 +181,6 @@ public class BaseController<ResultType: ResultState> {
 
     func getRenderCommands(size: CGSize) -> String? { nil }
 
-    func canShowStaticOverlay() -> Bool {
-        canShowVisualisation() && isVisualisationAllowed
-    }
-
-    func canShowInstructionView() -> Bool {
-        baseConfig.dataType != .video && canShowStaticOverlay()
-    }
-
     func callDelegate(with result: ResultType) { }
 
     func callDelegate(with videoUrl: URL) { }
@@ -184,20 +189,16 @@ public class BaseController<ResultType: ResultState> {
 
     /// Called after layout did change.
     func onLayoutChange() {
-        ApplicationLogger.shared.Info("CameraView layout changed.")
-        layoutViews()
-        camera.setTorch(on: shouldBeTorchEnabled)
-    }
-    
-    /// Layout all views and its layers like preview and overlay layer.
-    private func layoutViews() {
-        DispatchQueue.main.async { [weak self] in
+        /*DispatchQueue.main.async { [weak self] in
             self?.previewFrame = self?.view?.overlay?.bounds ?? .zero
-        }
-
+        } */
+        previewFrame = view?.overlay?.bounds ?? .zero
+        
         camera.setOrientation()
         
         restartVideoWriter()
+        
+        camera.setTorch(on: shouldBeTorchEnabled)
     }
     
     /// Restart video recording.
@@ -370,14 +371,20 @@ extension BaseController: CameraDelegate {
         let canvasSize = CGSize(width: imageWidth, height: imageHeight)
         
         #else
-        //guard let canvasSize = camera.previewLayer?.frame.size else { return }
         let canvasSize = previewFrame.size
         
         #endif
         guard let commands = getRenderCommands(size: canvasSize) else { return }
+        var log = "RENDER: Commands | size: \(canvasSize) | frame: \(previewFrame) \n \(commands)"
+        if log != temp {
+            temp = log
+            ApplicationLogger.shared.Info(log)
+        }
         
-        DispatchQueue.main.sync {
-            self.renderCommands(commands: commands, imageRect: self.previewFrame, pixelBuffer: pixelBuffer)
+        DispatchQueue.main.async { [weak self] in
+            guard let previewFrame = self?.previewFrame else { return }
+            
+            self?.renderCommands(commands: commands, imageRect: previewFrame, pixelBuffer: pixelBuffer)
         }
     }
 }

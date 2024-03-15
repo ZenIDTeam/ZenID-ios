@@ -32,6 +32,7 @@ class Line: Renderable {
         ctx.setLineWidth(self.thickness)
         
         ctx.beginPath()
+        ctx.setLineCap(.round)
         ctx.move(to: self.a)
         ctx.addLine(to: self.b)
         ctx.strokePath()

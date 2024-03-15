@@ -75,6 +75,10 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     
     private var config = FacelivenessControllerConfiguration.default
     
+    override var canShowStaticOverlay: Bool { false }
+    
+    override var canShowInstructionView: Bool { false }
+    
     public init(camera: Camera, view: CameraView, modelsUrl: URL) {
         verifier = .init(language: .English)
         super.init(camera: camera, view: view)
@@ -116,10 +120,6 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     override func getRenderCommands(size: CGSize) -> String? {
         verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
     }
-    
-    override func canShowStaticOverlay() -> Bool { false }
-    
-    override func canShowInstructionView() -> Bool { false }
     
     override func callDelegate(with result: FaceLivenessResult) {
         delegate?.controller(self, didScan: result)

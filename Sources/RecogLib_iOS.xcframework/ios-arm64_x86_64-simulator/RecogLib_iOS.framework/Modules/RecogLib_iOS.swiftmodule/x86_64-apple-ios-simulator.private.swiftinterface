@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RecogLib_iOS
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name RecogLib_iOS
 import AVFoundation
 import CommonCrypto
 import CoreGraphics
@@ -21,6 +20,7 @@ import UIKit
 import VideoToolbox
 import WebKit
 import _Concurrency
+import _CoreNFC_UIKit
 import _StringProcessing
 import _SwiftConcurrencyShims
 public protocol UnifiedVerifier {
@@ -657,6 +657,22 @@ public enum SampleType : Swift.Int, Swift.CaseIterable {
     get
   }
 }
+public enum SdkVerifierType : Swift.Int, Swift.CaseIterable {
+  case FaceLiveness
+  case Document
+  case Selfie
+  case Hologram
+  case IQSHologram
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.SdkVerifierType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.SdkVerifierType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public enum SdkSignatureProblem : Swift.Int, Swift.CaseIterable {
   case HashDiffers
   case TimeDiffers
@@ -686,6 +702,7 @@ public enum DataType {
 @objc @_inheritsConvenienceInitializers final public class Camera : ObjectiveC.NSObject {
   final public func isCaptureSessionRunning() -> Swift.Bool
   final public func setOrientation(orientation: UIKit.UIInterfaceOrientation? = nil)
+  final public func setTorch(on: Swift.Bool? = nil)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -783,7 +800,7 @@ final public class UnifiedDocumentVerifierAdapter : RecogLib_iOS.UnifiedVerifier
 extension RecogLib_iOS.UnifiedDocumentVerifierAdapter : RecogLib_iOS.VerifierRenderable {
   final public func getRenderCommands(canvasSize: CoreFoundation.CGSize) -> Swift.String?
 }
-public func LocalizedString(_ key: Swift.String, tableName: Swift.String? = nil, bundle: Foundation.Bundle = Bundle.main, value: Swift.String = "", comment: Swift.String) -> Swift.String
+public func LocalizedString(_ key: Swift.String, tableName: Swift.String? = nil, value: Swift.String = "", comment: Swift.String? = nil) -> Swift.String
 public class SelfieVerifier {
   public var language: RecogLib_iOS.SupportedLanguages
   public var showDebugInfo: Swift.Bool {
@@ -1062,6 +1079,7 @@ public struct DocumentControllerConfiguration {
   public let showVisualisation: Swift.Bool
   public let showHelperVisualisation: Swift.Bool
   public let showDebugVisualisation: Swift.Bool
+  public let showTextInstructions: Swift.Bool
   public let dataType: RecogLib_iOS.DataType
   public let role: RecogLib_iOS.DocumentRole?
   public let country: RecogLib_iOS.Country?
@@ -1069,7 +1087,7 @@ public struct DocumentControllerConfiguration {
   public let code: RecogLib_iOS.DocumentCodes?
   public let documents: [RecogLib_iOS.Document]?
   public let settings: RecogLib_iOS.DocumentVerifierSettings?
-  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, dataType: RecogLib_iOS.DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, documents: [RecogLib_iOS.Document]?, settings: RecogLib_iOS.DocumentVerifierSettings?)
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, showTextInstructions: Swift.Bool = true, dataType: RecogLib_iOS.DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, documents: [RecogLib_iOS.Document]?, settings: RecogLib_iOS.DocumentVerifierSettings?)
 }
 extension RecogLib_iOS.DocumentResult : RecogLib_iOS.ResultState {
   public var isOk: Swift.Bool {
@@ -1298,8 +1316,8 @@ public enum RenderableType : Swift.String {
   }
 }
 @_hasMissingDesignatedInitializers public class RenderableFactory {
-  public static func createRenderables(commands: Swift.String) -> [any RecogLib_iOS.Renderable]
-  public static func createRenderable<T>(command: T) -> (any RecogLib_iOS.Renderable)? where T : Swift.StringProtocol
+  public static func createRenderables(commands: Swift.String, showTextInstructions: Swift.Bool = false) -> [any RecogLib_iOS.Renderable]
+  public static func createRenderable<T>(command: T, showTextInstructions: Swift.Bool) -> (any RecogLib_iOS.Renderable)? where T : Swift.StringProtocol
   @objc deinit
 }
 final public class UnifiedFacelivenessResultAdapter : RecogLib_iOS.UnifiedResult {
@@ -1426,6 +1444,26 @@ extension RecogLib_iOS.Renderable {
     get
   }
 }
+extension RecogLib_iOS.DocumentVerifierState {
+  public var localizedDescription: Swift.String {
+    get
+  }
+}
+extension RecogLib_iOS.HologramState {
+  public var localizedDescription: Swift.String {
+    get
+  }
+}
+extension RecogLib_iOS.FaceLivenessVerifierState {
+  public var localizedDescription: Swift.String {
+    get
+  }
+}
+extension RecogLib_iOS.SelfieVerifierState {
+  public var localizedDescription: Swift.String {
+    get
+  }
+}
 extension RecogLib_iOS.FaceLivenessResult : RecogLib_iOS.ResultState {
   public var isOk: Swift.Bool {
     get
@@ -1439,9 +1477,10 @@ public struct FacelivenessControllerConfiguration {
   public let showVisualisation: Swift.Bool
   public let showHelperVisualisation: Swift.Bool
   public let showDebugVisualisation: Swift.Bool
+  public let showTextInstructions: Swift.Bool
   public let dataType: RecogLib_iOS.DataType
   public let settings: RecogLib_iOS.FaceLivenessVerifierSettings
-  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, dataType: RecogLib_iOS.DataType, settings: RecogLib_iOS.FaceLivenessVerifierSettings)
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, showTextInstructions: Swift.Bool = true, dataType: RecogLib_iOS.DataType, settings: RecogLib_iOS.FaceLivenessVerifierSettings)
 }
 public protocol FacelivenessControllerDelegate : AnyObject {
   func controller(_ controller: RecogLib_iOS.FacelivenessController, didScan result: RecogLib_iOS.FaceLivenessResult)
@@ -1766,8 +1805,9 @@ public struct SelfieControllerConfiguration {
   public let showVisualisation: Swift.Bool
   public let showHelperVisualisation: Swift.Bool
   public let showDebugVisualisation: Swift.Bool
+  public let showTextInstructions: Swift.Bool
   public let dataType: RecogLib_iOS.DataType
-  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, dataType: RecogLib_iOS.DataType)
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, showTextInstructions: Swift.Bool = true, dataType: RecogLib_iOS.DataType)
 }
 public protocol SelfieControllerDelegate : AnyObject {
   func controller(_ controller: RecogLib_iOS.SelfieController, didScan result: RecogLib_iOS.SelfieResult)
@@ -1880,6 +1920,9 @@ extension RecogLib_iOS.FaceLivenessVerifierState : Swift.RawRepresentable {}
 extension RecogLib_iOS.SampleType : Swift.Equatable {}
 extension RecogLib_iOS.SampleType : Swift.Hashable {}
 extension RecogLib_iOS.SampleType : Swift.RawRepresentable {}
+extension RecogLib_iOS.SdkVerifierType : Swift.Equatable {}
+extension RecogLib_iOS.SdkVerifierType : Swift.Hashable {}
+extension RecogLib_iOS.SdkVerifierType : Swift.RawRepresentable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Equatable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Hashable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.RawRepresentable {}

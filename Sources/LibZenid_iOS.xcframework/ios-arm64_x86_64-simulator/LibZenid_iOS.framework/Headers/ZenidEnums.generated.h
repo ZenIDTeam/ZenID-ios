@@ -574,6 +574,14 @@ enum class SampleType : int {
 	Unknown = 5,
 };
 
+enum class SdkVerifierType : int {
+	FaceLiveness = 0,
+	Document = 1,
+	Selfie = 2,
+	Hologram = 3,
+	IQSHologram = 4,
+};
+
 enum class SdkSignatureProblem : int {
 	HashDiffers = 0,
 	TimeDiffers = 1,

@@ -17,7 +17,7 @@ class Rectangle: Renderable {
         let floatValues = RenderableFactory.floatsIn(splitCommand: values)
         
         guard floatValues.count == 9 else { return nil }
-                
+
         self.rect = CGRect(x: floatValues[0],
                            y: floatValues[1],
                            width: floatValues[2],
