@@ -47,7 +47,7 @@ public final class Camera: NSObject {
         captureSession.isRunning
     }
     
-    private var torchShouldBeOn: Bool = false
+    private(set) var isTorchRequired: Bool = false
 
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front
@@ -79,8 +79,8 @@ public final class Camera: NSObject {
     }
 
     func stop() {
-        torchShouldBeOn = false
-        setTorch(isOn: false)
+        isTorchRequired = false
+        setTorch(on: false)
         guard captureSession.isRunning else { return }
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.captureSession.stopRunning()
@@ -124,32 +124,32 @@ public final class Camera: NSObject {
                 }
             }
         }
-
-        DispatchQueue.main.async { [weak self] in
-            self?.setTorch()
-        }
     }
     
     /// Set camera torch on or off.
     ///
-    /// - Parameter isOn: When `true` then camera torch is set on. If `nil` then used last state.
-    func setTorch(isOn: Bool? = nil) {
-        let isOn = isOn ?? torchShouldBeOn
-        guard let captureDevice, captureDevice.hasTorch else { return }
-        
-        torchShouldBeOn = isOn
-        
-        let torchMode: AVCaptureDevice.TorchMode = isOn ? .on : .off
-        guard captureDevice.torchMode != torchMode else { return }
-
-        do {
-            try captureDevice.lockForConfiguration()
-            ApplicationLogger.shared.Debug(isOn ? "Torch is enabled" : "Torch is disabled")
-            captureDevice.torchMode = torchMode
-            captureDevice.unlockForConfiguration()
-        } catch {
-            captureDevice.unlockForConfiguration()
-            ApplicationLogger.shared.Error(String(format: "Torch failed: %@", error.localizedDescription))
+    /// - Parameter on: When `true` then camera torch is set on. If `nil` then used last state.
+    public func setTorch(on: Bool? = nil) {
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            guard let self else { return }
+            guard let captureDevice, captureDevice.hasTorch else {
+                ApplicationLogger.shared.Info("Capture device doesn't support torch.")
+                return
+            }
+            
+            let isOn = on ?? isTorchRequired
+            isTorchRequired = isOn
+            
+            let torchMode: AVCaptureDevice.TorchMode = isOn ? .on : .off
+            do {
+                try captureDevice.lockForConfiguration()
+                captureDevice.torchMode = torchMode
+                captureDevice.unlockForConfiguration()
+                ApplicationLogger.shared.Debug(isOn ? "Torch is enabled" : "Torch is disabled")
+            } catch {
+                captureDevice.unlockForConfiguration()
+                ApplicationLogger.shared.Error("Torch failed: \(error.localizedDescription)")
+            }
         }
     }
 

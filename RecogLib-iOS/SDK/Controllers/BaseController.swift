@@ -79,18 +79,20 @@ struct BaseControllerConfiguration {
 }
 
 public class BaseController<ResultType: ResultState> {
-    
+        
     public var camera: Camera
     
     public weak var view: CameraView?
 
     var videoWriter: VideoWriter?
 
-    var targetFrame: CGRect = .zero
+    var targetFrame: CGRect {
+        view?.overlay?.targetFrame ?? .zero
+    }
+    
+    var previewFrame: CGRect = .zero
     
     var isRunning: Bool = false
-    
-    var torchEnabled: Bool = false
 
     var previousResult: ResultType?
     
@@ -101,6 +103,11 @@ public class BaseController<ResultType: ResultState> {
     private(set) var baseConfig: BaseControllerConfiguration = .default
     
     private var isVisualisationAllowed: Bool { baseConfig.showVisualisation }
+    
+    /// Produce `true` if current process is Hologram check.
+    private var shouldBeTorchEnabled: Bool {
+        baseConfig.processType == .document && baseConfig.dataType == .video
+    }
 
     init(camera: Camera, view: CameraView) {
         self.camera = camera
@@ -109,8 +116,6 @@ public class BaseController<ResultType: ResultState> {
 
     deinit {
         videoWriter?.stop()
-        torchEnabled = false
-        camera.setTorch(isOn: false)
     }
 
     func configure(configuration: BaseControllerConfiguration = .default) throws {
@@ -119,27 +124,13 @@ public class BaseController<ResultType: ResultState> {
         isRunning = false
         view?.layoutIfNeeded()
 
-        try? camera.configure(with: .init(type: configuration.cameraType))
-                
-        torchEnabled = baseConfig.dataType == .video
-        camera.setTorch(isOn: torchEnabled)
+        try? camera.configure(with: .init(type: configuration.cameraType))        
         
         view?.previewLayer = camera.previewLayer
         view?.setup()
-        view?.setupControlView()
-        view?.supportChangedOrientation = true
-        view?.onLayoutChange = { [weak self] in
-            self?.layoutViews()
-        }
 
-        view?.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), 
-                               showStaticOverlay: canShowStaticOverlay(),
-                               targetFrame: getOverlayTargetFrame())
-        view?.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), 
-                                   showStaticOverlay: canShowStaticOverlay(),
-                                   targetFrame: getOverlayTargetFrame())
-
-        targetFrame = view?.overlay?.bounds ?? .zero
+        let overlayView = CameraOverlayView(imageName: overlayImageName)
+        view?.configureOverlay(overlayView, isStatic: canShowStaticOverlay())
 
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
@@ -152,16 +143,14 @@ public class BaseController<ResultType: ResultState> {
         }
 
         view?.showInstructionView = canShowInstructionView()
+        
+        view?.onLayoutChange = { [weak self] in
+            self?.onLayoutChange()
+        }
 
         previousResult = nil
         start()
         isRunning = true
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
-            guard let self else { return }
-            self.layoutViews()
-            self.camera.setTorch(isOn: self.torchEnabled)
-        }
     }
 
     public func start() {
@@ -172,9 +161,7 @@ public class BaseController<ResultType: ResultState> {
         camera.stop()
         videoWriter?.delegate = nil
         videoWriter?.stop()
-        videoWriter = nil
-        torchEnabled = false
-        camera.setTorch(isOn: self.torchEnabled)
+        videoWriter = nil        
     }
 
     func verify(pixelBuffer: CVPixelBuffer) -> ResultType? { nil }
@@ -195,14 +182,21 @@ public class BaseController<ResultType: ResultState> {
 
     func callUpdateDelegate(with result: ResultType) { }
 
+    /// Called after layout did change.
+    func onLayoutChange() {
+        ApplicationLogger.shared.Info("CameraView layout changed.")
+        layoutViews()
+        camera.setTorch(on: shouldBeTorchEnabled)
+    }
+    
     /// Layout all views and its layers like preview and overlay layer.
     private func layoutViews() {
-        targetFrame = view?.overlay?.bounds ?? .zero
+        DispatchQueue.main.async { [weak self] in
+            self?.previewFrame = self?.view?.overlay?.bounds ?? .zero
+        }
+
         camera.setOrientation()
-        camera.setTorch(isOn: torchEnabled)
-        view?.rotateOverlay(targetFrame: getOverlayTargetFrame())
         
-        // TODO: This might cause problems during hologram check.
         restartVideoWriter()
     }
     
@@ -225,12 +219,20 @@ public class BaseController<ResultType: ResultState> {
 
 extension BaseController {
     
+    // Reticle frame position.
     func getOverlayTargetFrame() -> CGRect {
         let size = camera.getCurrentResolution()
         let imageRect = CGRect(origin: .zero, size: size)
-        return imageRect.rectThatFitsRect(view?.overlay?.frame ?? .zero)
+        return targetFrame.rectThatFitsRect(imageRect)
     }
 
+    
+    /// Crop image data from buffer.
+    ///
+    /// It is used that verifier is checking only cropped data and not whole camera stream.
+    ///
+    /// - Parameter pixelBuffer: Input pixel buffer.
+    /// - Returns: Cropped pixel buffer.
     func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer? {
         // camera frame size
         let width = CVPixelBufferGetWidth(pixelBuffer)
@@ -244,6 +246,13 @@ extension BaseController {
         return image?.toCVPixelBuffer()
     }
 
+    
+    /// Calculate rectangle for crop.
+    ///
+    /// - Parameters:
+    ///   - width: Source width.
+    ///   - height: Source height.
+    /// - Returns: Calculated rectangle.
     func getCroppedImageRect(width: Int, height: Int) -> CGRect {
         #if targetEnvironment(simulator)
         return CGRect(x: 0, y: 0, width: width, height: height)
@@ -251,16 +260,13 @@ extension BaseController {
         #else
         switch Defaults.videoGravity {
         case .resizeAspect:
-            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let layerRect = imageRect.rectThatFitsRect(targetFrame)
-            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
-            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-            return cropRect
+            // With resize aspect we always process whole image.
+            return CGRect(x: 0, y: 0, width: width, height: height)
         case .resizeAspectFill:
-            let layerRect = targetFrame
-            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
-            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-            return cropRect
+            // With aspect fill we crop from inside of the image frame
+            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
+            let layerRect = previewFrame.rectThatFitsRect(imageRect)
+            return layerRect
         default:
             return .zero
         }
@@ -269,17 +275,16 @@ extension BaseController {
     }
 
     func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
-        guard 
+        guard
             baseConfig.showHelperVisualisation,
-            let previewLayer = camera.previewLayer,
-            targetFrame != .zero
+            previewFrame != .zero
         else { return }
         
-        let commandsRect = previewLayer.frame
         if let drawLayer = view?.drawLayer {
-            let renderables = RenderableFactory.createRenderables(commands: commands,
-                                                                  showTextInstructions: baseConfig.showTextInstructions)
-            drawLayer.setFrameWithoutAnimation(commandsRect)
+            drawLayer.frame = imageRect
+            let renderables = RenderableFactory
+                .createRenderables(commands: commands,
+                                   showTextInstructions: baseConfig.showTextInstructions)
             drawLayer.setRenderables(renderables)
         }
     }
@@ -300,8 +305,6 @@ extension BaseController {
 
         if baseConfig.dataType == .video {
             videoWriter?.stop()
-            torchEnabled = false
-            camera.setTorch(isOn: torchEnabled)
             return
         }
         callDelegate(with: result)
@@ -323,15 +326,14 @@ extension BaseController: CameraDelegate {
     
     func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
         guard isRunning else { return }
-        guard targetFrame.width > 0 else { return }
+        guard previewFrame.width > 0 else { return }
 
         // crop pixel data if necessary
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        guard let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer) else { return }
+        guard let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer) else { return } //1
         
         let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
-        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
 
         if baseConfig.dataType == .video,
             let videoWriter = videoWriter,
@@ -368,13 +370,14 @@ extension BaseController: CameraDelegate {
         let canvasSize = CGSize(width: imageWidth, height: imageHeight)
         
         #else
-        guard let canvasSize = camera.previewLayer?.frame.size else { return }
+        //guard let canvasSize = camera.previewLayer?.frame.size else { return }
+        let canvasSize = previewFrame.size
         
         #endif
         guard let commands = getRenderCommands(size: canvasSize) else { return }
         
-        DispatchQueue.main.async {
-            self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        DispatchQueue.main.sync {
+            self.renderCommands(commands: commands, imageRect: self.previewFrame, pixelBuffer: pixelBuffer)
         }
     }
 }

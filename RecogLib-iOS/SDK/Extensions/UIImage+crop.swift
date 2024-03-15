@@ -117,7 +117,7 @@ extension UIImage {
     }
 
     func flip(_ flipMethod: ImageFlip) -> UIImage {
-        guard let cgImage = cgImage else {
+        guard let cgImage else {
             return self
         }
 

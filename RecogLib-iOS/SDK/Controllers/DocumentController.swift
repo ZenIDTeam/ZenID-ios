@@ -139,14 +139,14 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
                 guard let image = UIImage(named: "vzor-id-front") else { return }
                 guard let buffer = image.toCMSampleBuffer() else { return }
                 isRunning = true
-                targetFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                previewFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
                 cameraDelegate(camera: camera, onOutput: buffer)
 
             case "id-back":
                 debugDelegate?.provideDebugImage(for: "id-back") { [weak self] image in
                     guard let self, let buffer = image.toCMSampleBuffer() else { return }
                     self.isRunning = true
-                    self.targetFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                    self.previewFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
                     self.cameraDelegate(camera: camera, onOutput: buffer)
                 }
             default:
