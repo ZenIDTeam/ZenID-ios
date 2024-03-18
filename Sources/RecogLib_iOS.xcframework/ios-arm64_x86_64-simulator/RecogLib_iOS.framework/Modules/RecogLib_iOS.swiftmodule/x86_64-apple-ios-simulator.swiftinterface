@@ -1113,7 +1113,7 @@ public protocol DocumentControllerAbstraction {
 @_hasMissingDesignatedInitializers final public class DocumentController : RecogLib_iOS.BaseController<RecogLib_iOS.DocumentResult>, RecogLib_iOS.DocumentControllerAbstraction {
   weak final public var delegate: (any RecogLib_iOS.DocumentControllerDelegate)?
   weak final public var debugDelegate: (any RecogLib_iOS.SimulatorHelperDelegate)?
-  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, mrzModelsUrl: Foundation.URL?)
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, mrzModelsUrl: Foundation.URL?, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
   @objc deinit
   final public func configure(configuration: RecogLib_iOS.DocumentControllerConfiguration = .default) throws
   final public func processNfcResult(nfcData: RecogLib_iOS.NfcData, status: RecogLib_iOS.NfcStatus) -> RecogLib_iOS.DocumentResult?
@@ -1421,6 +1421,12 @@ public class DataGroup2 : RecogLib_iOS.DataGroup {
   }
   @objc deinit
 }
+extension RecogLib_iOS.SupportedLanguages {
+  public static var current: RecogLib_iOS.SupportedLanguages {
+    get
+  }
+  public static func language(from locale: Foundation.Locale) -> RecogLib_iOS.SupportedLanguages
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
 public class NotImplementedDG : RecogLib_iOS.DataGroup {
   @objc deinit
@@ -1493,7 +1499,7 @@ public protocol FacelivenessControllerAbstraction {
 }
 @_hasMissingDesignatedInitializers final public class FacelivenessController : RecogLib_iOS.BaseController<RecogLib_iOS.FaceLivenessResult>, RecogLib_iOS.FacelivenessControllerAbstraction {
   weak final public var delegate: (any RecogLib_iOS.FacelivenessControllerDelegate)?
-  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL)
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
   final public func configure(configuration: RecogLib_iOS.FacelivenessControllerConfiguration = .default) throws
   final public func getAuxiliaryImages() -> RecogLib_iOS.FaceLivenessAuxiliaryInfo?
   @objc deinit
@@ -1820,7 +1826,7 @@ public protocol SelfieControllerAbstraction {
 }
 @_hasMissingDesignatedInitializers final public class SelfieController : RecogLib_iOS.BaseController<RecogLib_iOS.SelfieResult>, RecogLib_iOS.SelfieControllerAbstraction {
   weak final public var delegate: (any RecogLib_iOS.SelfieControllerDelegate)?
-  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL)
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
   final public func configure(configuration: RecogLib_iOS.SelfieControllerConfiguration = .default) throws
   @objc deinit
 }

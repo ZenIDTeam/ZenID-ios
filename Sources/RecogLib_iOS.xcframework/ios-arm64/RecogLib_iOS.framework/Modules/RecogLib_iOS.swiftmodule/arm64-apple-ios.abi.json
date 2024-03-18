@@ -18294,6 +18294,81 @@
           },
           {
             "kind": "Var",
+            "name": "current",
+            "printedName": "current",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SupportedLanguages",
+                "printedName": "RecogLib_iOS.SupportedLanguages",
+                "usr": "s:12RecogLib_iOS18SupportedLanguagesO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS18SupportedLanguagesO7currentACvpZ",
+            "mangledName": "$s12RecogLib_iOS18SupportedLanguagesO7currentACvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SupportedLanguages",
+                    "printedName": "RecogLib_iOS.SupportedLanguages",
+                    "usr": "s:12RecogLib_iOS18SupportedLanguagesO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS18SupportedLanguagesO7currentACvgZ",
+                "mangledName": "$s12RecogLib_iOS18SupportedLanguagesO7currentACvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "language",
+            "printedName": "language(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SupportedLanguages",
+                "printedName": "RecogLib_iOS.SupportedLanguages",
+                "usr": "s:12RecogLib_iOS18SupportedLanguagesO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Locale",
+                "printedName": "Foundation.Locale",
+                "usr": "s:10Foundation6LocaleV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS18SupportedLanguagesO8language4fromAC10Foundation6LocaleV_tFZ",
+            "mangledName": "$s12RecogLib_iOS18SupportedLanguagesO8language4fromAC10Foundation6LocaleV_tFZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
             "name": "description",
             "printedName": "description",
             "children": [
@@ -32748,7 +32823,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(camera:view:modelsUrl:mrzModelsUrl:)",
+            "printedName": "init(camera:view:modelsUrl:mrzModelsUrl:language:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -32787,11 +32862,18 @@
                   }
                 ],
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SupportedLanguages",
+                "printedName": "RecogLib_iOS.SupportedLanguages",
+                "hasDefaultArg": true,
+                "usr": "s:12RecogLib_iOS18SupportedLanguagesO"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI0AcA6CameraC_AA0L4ViewC10Foundation3URLVANSgtcfc",
-            "mangledName": "$s12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI0AcA6CameraC_AA0L4ViewC10Foundation3URLVANSgtcfc",
+            "usr": "s:12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI08languageAcA6CameraC_AA0M4ViewC10Foundation3URLVAOSgAA18SupportedLanguagesOtcfc",
+            "mangledName": "$s12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI08languageAcA6CameraC_AA0M4ViewC10Foundation3URLVAOSgAA18SupportedLanguagesOtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -40869,6 +40951,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "NotImplementedDG",
         "printedName": "NotImplementedDG",
@@ -42062,7 +42154,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(camera:view:modelsUrl:)",
+            "printedName": "init(camera:view:modelsUrl:language:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -42087,11 +42179,18 @@
                 "name": "URL",
                 "printedName": "Foundation.URL",
                 "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SupportedLanguages",
+                "printedName": "RecogLib_iOS.SupportedLanguages",
+                "hasDefaultArg": true,
+                "usr": "s:12RecogLib_iOS18SupportedLanguagesO"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrlAcA6CameraC_AA0J4ViewC10Foundation3URLVtcfc",
-            "mangledName": "$s12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrlAcA6CameraC_AA0J4ViewC10Foundation3URLVtcfc",
+            "usr": "s:12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
+            "mangledName": "$s12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -50904,7 +51003,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(camera:view:modelsUrl:)",
+            "printedName": "init(camera:view:modelsUrl:language:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -50929,11 +51028,18 @@
                 "name": "URL",
                 "printedName": "Foundation.URL",
                 "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SupportedLanguages",
+                "printedName": "RecogLib_iOS.SupportedLanguages",
+                "hasDefaultArg": true,
+                "usr": "s:12RecogLib_iOS18SupportedLanguagesO"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrlAcA6CameraC_AA0J4ViewC10Foundation3URLVtcfc",
-            "mangledName": "$s12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrlAcA6CameraC_AA0J4ViewC10Foundation3URLVtcfc",
+            "usr": "s:12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
+            "mangledName": "$s12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -54394,8 +54500,15 @@
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
+      "kind": "StringLiteral",
+      "offset": 2432,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2675,
+      "offset": 2795,
       "length": 5,
       "value": "false"
     },
@@ -63677,7 +63790,7 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 8975,
+      "offset": 9080,
       "length": 3,
       "value": "110"
     },
@@ -65777,7 +65890,14 @@
     {
       "filePath": "\/Users\/lweek\/Library\/Developer\/Xcode\/DerivedData\/RecogLib-iOS-fjffquggyesqlngmpjikrvxidjgs\/Build\/Intermediates.noindex\/RecogLib-iOS.build\/Release-iphoneos\/RecogLib-iOS.build\/DerivedSources\/GeneratedAssetSymbols.swift",
       "kind": "StringLiteral",
-      "offset": 901,
+      "offset": 905,
+      "length": 21,
+      "value": "\"targettingRectBirth\""
+    },
+    {
+      "filePath": "\/Users\/lweek\/Library\/Developer\/Xcode\/DerivedData\/RecogLib-iOS-fjffquggyesqlngmpjikrvxidjgs\/Build\/Intermediates.noindex\/RecogLib-iOS.build\/Release-iphoneos\/RecogLib-iOS.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1070,
       "length": 19,
       "value": "\"targettingRectPas\""
     }
