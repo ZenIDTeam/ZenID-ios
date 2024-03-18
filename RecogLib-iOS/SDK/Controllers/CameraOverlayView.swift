@@ -2,7 +2,7 @@ import UIKit
 
 final class CameraOverlayView: UIView {
     
-    private let imageName: String
+    private var imageName: String
     
     lazy var frameImageView: UIImageView = {
         let imageView = UIImageView(image: targettingReticle)

@@ -108,9 +108,7 @@ public class BaseController<ResultType: ResultState> {
     private var isVisualisationAllowed: Bool { baseConfig.showVisualisation }
     
     /// Produce `true` if current process is Hologram check.
-    private var shouldBeTorchEnabled: Bool {
-        baseConfig.processType == .document && baseConfig.dataType == .video
-    }
+    var shouldBeTorchEnabled: Bool { false }
     
     /// Static overlay is document reticle.
     var canShowStaticOverlay: Bool {
@@ -129,6 +127,7 @@ public class BaseController<ResultType: ResultState> {
 
     deinit {
         videoWriter?.stop()
+        camera.setTorch(on: false)
     }
 
     func configure(configuration: BaseControllerConfiguration = .default) throws {
@@ -164,9 +163,13 @@ public class BaseController<ResultType: ResultState> {
         previousResult = nil
         start()
         isRunning = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
+            self?.onLayoutChange()
+        }
     }
 
     public func start() {
+        camera.setTorch(on: shouldBeTorchEnabled)
         camera.start()
     }
 
@@ -189,9 +192,6 @@ public class BaseController<ResultType: ResultState> {
 
     /// Called after layout did change.
     func onLayoutChange() {
-        /*DispatchQueue.main.async { [weak self] in
-            self?.previewFrame = self?.view?.overlay?.bounds ?? .zero
-        } */
         previewFrame = view?.overlay?.bounds ?? .zero
         
         camera.setOrientation()

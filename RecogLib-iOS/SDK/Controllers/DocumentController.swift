@@ -105,8 +105,15 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     #endif
 
     override var overlayImageName: String {
-        return config.role == .Pas ? "targettingRectPas" : "targettingRect"
+        switch config.role {
+        case .Pas: "targettingRectPas"
+        case .Birth: "targettingRectBirth"
+        default: "targettingRect"
+        }
     }
+    
+    
+    override var shouldBeTorchEnabled: Bool { baseConfig.dataType == .video }
 
     private let verifier: DocumentVerifier
 
@@ -174,14 +181,16 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     }
 
     deinit {
-        verifier.endHologramVerification()
+        if baseConfig.dataType == .video {
+            verifier.endHologramVerification()
+        }
         verifier.reset()
         resetDocumentVerifier()
     }
 
     public func configure(configuration: DocumentControllerConfiguration = .default) throws {
-        verifier.reset()
         verifier.endHologramVerification()
+        verifier.reset()
         let oldConfig = config
         config = configuration
 
@@ -323,14 +332,12 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     override func onLayoutChange() {
         super.onLayoutChange()
         
-        ApplicationLogger.shared.Info("RENDER: reset")
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self else { return }
             if baseConfig.dataType == .video {
                 verifier.endHologramVerification()
                 verifier.reset()
                 verifier.beginHologramVerification()
-                restartVideoWriter()
             } else {
                 verifier.reset()
             }

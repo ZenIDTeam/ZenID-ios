@@ -76,7 +76,7 @@ public class DocumentVerifier {
         }
 
         if let mrzModelsPath {
-            var absolutePath = mrzModelsPath.absoluteString
+            let absolutePath = mrzModelsPath.absoluteString
             if let absolutePath = absolutePath
                 .replacingOccurrences(of: "file://", with: "")
                 .removingPercentEncoding 

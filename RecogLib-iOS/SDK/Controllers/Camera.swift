@@ -73,17 +73,20 @@ public final class Camera: NSObject {
 
     func start() {
         guard !captureSession.isRunning else { return }
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-            self?.captureSession.startRunning()
+        DispatchQueue.global(qos: .userInteractive).sync { [weak self] in
+            guard let self else { return }
+            captureSession.startRunning()
+            setTorch(on: isTorchRequired)
         }
     }
 
     func stop() {
         isTorchRequired = false
-        setTorch(on: false)
         guard captureSession.isRunning else { return }
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-            self?.captureSession.stopRunning()
+        DispatchQueue.global(qos: .userInteractive).sync { [weak self] in
+            guard let self else { return }
+            captureSession.stopRunning()
+            setTorch(on: false)
         }
     }
 
@@ -130,15 +133,15 @@ public final class Camera: NSObject {
     ///
     /// - Parameter on: When `true` then camera torch is set on. If `nil` then used last state.
     public func setTorch(on: Bool? = nil) {
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+        let isOn = on ?? isTorchRequired
+        isTorchRequired = isOn
+        
+        DispatchQueue.global(qos: .userInteractive).sync { [weak self] in
             guard let self else { return }
             guard let captureDevice, captureDevice.hasTorch else {
                 ApplicationLogger.shared.Info("Capture device doesn't support torch.")
                 return
             }
-            
-            let isOn = on ?? isTorchRequired
-            isTorchRequired = isOn
             
             let torchMode: AVCaptureDevice.TorchMode = isOn ? .on : .off
             do {
