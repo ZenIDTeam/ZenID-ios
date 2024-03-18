@@ -9,11 +9,12 @@
 
 using namespace RecogLibC;
 
-std::mutex stateMutex; // TODO: rename to verifierMutex
+std::mutex verifierMutex;
 
 // TODO: Lock each usage of verifier with:
-// std::lock_guard<std::mutex> guard(stateMutex);
+// std::lock_guard<std::mutex> guard(verifierMutex);
 // The statement above adds a mutex to the code until the end of the scope
+// No need to add a lock_guard here because GetRenderCommands is the only thread-safe method.
 
 static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, const char *acceptableInputJson) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
@@ -60,12 +61,12 @@ static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
     if (acceptableInputJson != NULL)
     {
-        std::lock_guard<std::mutex> guard(stateMutex);
+        std::lock_guard<std::mutex> guard(verifierMutex);
         verifier->ProcessFrame(image, acceptableInputJson);
     }
     else
     {
-        std::lock_guard<std::mutex> guard(stateMutex);
+        std::lock_guard<std::mutex> guard(verifierMutex);
         verifier->ProcessFrame(image,
                                document->role < 0 ? nullptr : &documentRole,
                                document->page < 0 ? nullptr : &country,
@@ -224,25 +225,27 @@ bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
 void beginHologramVerification(const void *object)
 {
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->BeginHologramVerification();
 }
 
 void endHologramVerification(const void *object)
 {
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->EndHologramVerification();
 }
 
 void reset(const void *object)
 {
-    std::lock_guard<std::mutex> guard(stateMutex);
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->Reset();
 }
 
 int validateDocumentsInput(const void *object, const char* acceptableInputJson) {
-    std::lock_guard<std::mutex> guard(stateMutex);
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     int size = static_cast<int>(verifier->GetEnabledModels(acceptableInputJson).size());
     return size;
@@ -250,7 +253,6 @@ int validateDocumentsInput(const void *object, const char* acceptableInputJson) 
 
 char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasHeight, CDocumentInfo *document)
 {
-    
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     
     auto language = static_cast<SupportedLanguages>(document->language);
@@ -261,7 +263,7 @@ char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasH
 
 void setDocumentDebugInfo(const void *object, bool show)
 {
-    std::lock_guard<std::mutex> guard(stateMutex);
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->SetDebugVisualization(show);
 }

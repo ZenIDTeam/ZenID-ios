@@ -375,11 +375,13 @@ extension BaseController: CameraDelegate {
         
         #endif
         guard let commands = getRenderCommands(size: canvasSize) else { return }
+        // FIXME: This is usable until the actual duplicity bug is solved.
+        /*
         var log = "RENDER: Commands | size: \(canvasSize) | frame: \(previewFrame) \n \(commands)"
         if log != temp {
             temp = log
             ApplicationLogger.shared.Info(log)
-        }
+        } */
         
         DispatchQueue.main.async { [weak self] in
             guard let previewFrame = self?.previewFrame else { return }

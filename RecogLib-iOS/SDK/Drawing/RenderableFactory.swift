@@ -15,11 +15,12 @@ public class RenderableFactory {
         //ApplicationLogger.shared.Debug("Render:\n\(commands)")
         let result = commands
             .split(separator: "\n")
+            .uniqueValues
             .compactMap {
                 createRenderable(command: $0, showTextInstructions: showTextInstructions)
             }
         
-        return result
+        return result // This is fix for duplicites.
     }
         
     public static func createRenderable<T>(command: T, showTextInstructions: Bool) -> Renderable? where T: StringProtocol {
