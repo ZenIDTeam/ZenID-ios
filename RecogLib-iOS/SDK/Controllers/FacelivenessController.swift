@@ -79,8 +79,13 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     
     override var canShowInstructionView: Bool { false }
     
-    public init(camera: Camera, view: CameraView, modelsUrl: URL) {
-        verifier = .init(language: .English)
+    public init(
+        camera: Camera,
+        view: CameraView,
+        modelsUrl: URL,
+        language: SupportedLanguages = SupportedLanguages.current
+    ) {
+        verifier = .init(language: language)
         super.init(camera: camera, view: view)
         
         loadModels(url: modelsUrl)
@@ -107,6 +112,12 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
+    }
+    
+    override func onLayoutChange() {
+        super.onLayoutChange()
+        
+        verifier.reset()
     }
     
     public func getAuxiliaryImages() -> FaceLivenessAuxiliaryInfo? {

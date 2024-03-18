@@ -73,8 +73,13 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
     
     override var canShowInstructionView: Bool { false }
     
-    public init(camera: Camera, view: CameraView, modelsUrl: URL) {
-        verifier = .init(language: .English)
+    public init(
+        camera: Camera,
+        view: CameraView,
+        modelsUrl: URL,
+        language: SupportedLanguages = SupportedLanguages.current
+    ) {
+        verifier = .init(language: language)
         super.init(camera: camera, view: view)
         
         loadModels(url: modelsUrl)

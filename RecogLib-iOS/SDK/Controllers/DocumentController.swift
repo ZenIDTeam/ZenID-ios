@@ -162,13 +162,19 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         }
     #endif
 
-    public init(camera: Camera, view: CameraView, modelsUrl: URL, mrzModelsUrl: URL?) {
+    public init(
+        camera: Camera,
+        view: CameraView,
+        modelsUrl: URL,
+        mrzModelsUrl: URL?,
+        language: SupportedLanguages = SupportedLanguages.current
+    ) {
         verifier = .init(
             role: RecogLib_iOS.DocumentRole.Idc,
             country: RecogLib_iOS.Country.Cz,
             page: RecogLib_iOS.PageCodes.F,
             code: nil,
-            language: .English
+            language: language
         )
         super.init(camera: camera, view: view)
 

@@ -131,6 +131,8 @@
 		7B8581BF2BA35A61009FE729 /* CGSize+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8581BE2BA35A61009FE729 /* CGSize+ExtensionsTests.swift */; };
 		7B8581C02BA35A61009FE729 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D264245D22C11E7E00735B99 /* RecogLib_iOS.framework */; };
 		7B8581C92BA35CDB009FE729 /* CGRect+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8581C82BA35CDB009FE729 /* CGRect+ExtensionsTests.swift */; };
+		7BF6FC8E2BA8BAD400937E71 /* SupportedLanguages+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6FC8D2BA8BAD400937E71 /* SupportedLanguages+Extensions.swift */; };
+		7BF6FC902BA8BC4900937E71 /* SupportedLanguages+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6FC8F2BA8BC4900937E71 /* SupportedLanguages+ExtensionsTests.swift */; };
 		B009CF5422C4B01C00AA568C /* DocumentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B009CF5322C4B01C00AA568C /* DocumentResult.swift */; };
 		BABECC7928805B6200A629F3 /* LibZenid_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */; };
 		BAE07B77286DB01000E62C42 /* RecogLibC.h in Headers */ = {isa = PBXBuildFile; fileRef = BAE07B76286DB01000E62C42 /* RecogLibC.h */; };
@@ -282,6 +284,8 @@
 		7B8581BC2BA35A61009FE729 /* RecogLib_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecogLib_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8581BE2BA35A61009FE729 /* CGSize+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		7B8581C82BA35CDB009FE729 /* CGRect+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		7BF6FC8D2BA8BAD400937E71 /* SupportedLanguages+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SupportedLanguages+Extensions.swift"; sourceTree = "<group>"; };
+		7BF6FC8F2BA8BC4900937E71 /* SupportedLanguages+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SupportedLanguages+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		B009CF5322C4B01C00AA568C /* DocumentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResult.swift; sourceTree = "<group>"; };
 		BAE07B70286DAE6900E62C42 /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = Sources/LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		BAE07B76286DB01000E62C42 /* RecogLibC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecogLibC.h; path = "Sources/LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/RecogLibC.h"; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 				7B2339392B6BDFFF00A163A5 /* Array+Extensions.swift */,
 				7B39ADE22B7E482C00B9C635 /* UIInterfaceOrientation+Extension.swift */,
 				7B39ADE42B7EA4E100B9C635 /* CALayer+Extensions.swift */,
+				7BF6FC8D2BA8BAD400937E71 /* SupportedLanguages+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 			children = (
 				7B8581BE2BA35A61009FE729 /* CGSize+ExtensionsTests.swift */,
 				7B8581C82BA35CDB009FE729 /* CGRect+ExtensionsTests.swift */,
+				7BF6FC8F2BA8BC4900937E71 /* SupportedLanguages+ExtensionsTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -736,6 +742,7 @@
 			files = (
 				7B8581BF2BA35A61009FE729 /* CGSize+ExtensionsTests.swift in Sources */,
 				7B8581C92BA35CDB009FE729 /* CGRect+ExtensionsTests.swift in Sources */,
+				7BF6FC902BA8BC4900937E71 /* SupportedLanguages+ExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +816,7 @@
 				196A42D42AB53B6600D5A0A4 /* PACEInfo.swift in Sources */,
 				18371B2627C2473E002528F3 /* UIImageView+Clipping.swift in Sources */,
 				18ED9F6726B2B46C00AFF48B /* CImageSignature.cpp in Sources */,
+				7BF6FC8E2BA8BAD400937E71 /* SupportedLanguages+Extensions.swift in Sources */,
 				D261289C22C38F0100942D8A /* CDocumentWrapper.cpp in Sources */,
 				196A42E02AB53B6600D5A0A4 /* NotImplementedDG.swift in Sources */,
 				18371B0627C2443C002528F3 /* Renderable.swift in Sources */,
