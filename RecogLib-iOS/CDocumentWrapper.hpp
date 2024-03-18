@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <CoreMedia/CoreMedia.h>
 #include "CImageSignature.hpp"
 
@@ -90,7 +91,8 @@ CNfcValidatorConfig getSdkConfig(const void *object);
 // Get state
 int getState(const void *object);
 void getDocumentResult(const void *object,  CDocumentInfo *document);
-//CPreviewData getImagePreview(const void *object, CPreviewData *preview);
+CPreviewData getImagePreview(const void* object);
+void freeImagePreview(const void* object);
 CDocumentVerifierSettings getDocumentSettings(const void *object);
 
 #ifdef __cplusplus

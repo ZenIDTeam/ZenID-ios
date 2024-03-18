@@ -268,12 +268,11 @@ public class DocumentVerifier {
         return settings
     }
 
-//    public func getImagePreview() -> Data? {
-//        var preview = CPreviewData()
-//        let _ = RecogLib_iOS.getImagePreview(cppObject, &preview)
-//        if let image = preview.image {
-//            return Data(bytes: image, count: Int(preview.imageSize))
-//        }
-//        return nil
-//    }
+    public func getImagePreview() -> Data {
+        defer {
+            RecogLib_iOS.freeImagePreview(cppObject)
+        }
+        let preview = RecogLib_iOS.getImagePreview(cppObject)
+        return Data(bytes: preview.image, count: Int(preview.imageSize))
+    }
 }

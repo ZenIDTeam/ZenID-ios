@@ -296,14 +296,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     override func callDelegate(with result: DocumentResult) {
         if result.state == .Nfc, let mrzCode = verifier.getNfcKey() {
             var mutableResult = result
-            //let preview = verifier.getImagePreview()   // TODO: it's crashing now
-            var previewImageData: Data = UIImage().pngData() ?? Data()
-            if let latestSuccessfullBuffer {
-                let previewImage = UIImage(pixelBuffer: latestSuccessfullBuffer)
-                if let data = previewImage?.pngData() {
-                    previewImageData = data
-                }
-            }
+            let previewImageData = verifier.getImagePreview()
             mutableResult.signature = ImageSignature(image: previewImageData, signature: "")
             
             delegate?.controller(self, didScan: mutableResult, nfcCode: mrzCode)

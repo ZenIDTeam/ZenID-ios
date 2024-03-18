@@ -6,6 +6,7 @@
 #include <memory>
 #include <optional>
 #include <mutex>
+#include <stdlib.h>
 
 using namespace RecogLibC;
 
@@ -353,13 +354,18 @@ CImageSignature getSignedImage(const void *object) {
     return CImageSignature();
 }
 
-CPreviewData getImagePreview(const void *object, CPreviewData *preview) {
-    DocumentVerifier *verifier = (DocumentVerifier *)object;
-    CPreviewData _unusedPreview;
-    // I'm trying to solve the deallocation exception by passing the object as an external reference but it didn't solve the problem.
-    preview->image = verifier->GetImagePreview().data();
-    preview->imageSize = static_cast<int>(verifier->GetImagePreview().size());
-    return  _unusedPreview;
+CPreviewData getImagePreview(const void* object) {
+    DocumentVerifier* verifier = (DocumentVerifier*)object;
+    const auto imagePreview = verifier->GetImagePreview();
+    CPreviewData preview;
+    preview.image = (uint8_t*)malloc(imagePreview.size());
+    preview.imageSize = (int)imagePreview.size();
+    return  preview;
+}
+
+void freeImagePreview(const void* object) {
+    CPreviewData* previewData = (CPreviewData *) object;
+    free((void *) previewData->image);
 }
 
 CNfcValidatorConfig getSdkConfig(const void *object) {
