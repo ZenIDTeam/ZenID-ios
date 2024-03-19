@@ -189,7 +189,9 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     deinit {
         if baseConfig.dataType == .video {
             verifier.endHologramVerification()
+            videoWriter?.stop()
         }
+        camera.stop()
         verifier.reset()
         resetDocumentVerifier()
     }
@@ -241,13 +243,19 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
             verifier.documentsInput = .init(documents: documents)
         }
 
-        if config.dataType == .video {
-            verifier.beginHologramVerification()
-        }
-
         verifier.showDebugInfo = config.showDebugVisualisation
 
         try configure(configuration: baseConfig)
+        
+        DispatchQueue.global(qos: .default).async { [weak self] in
+            guard let self else { return }
+            if baseConfig.dataType == .video {
+                verifier.reset()
+                verifier.beginHologramVerification()
+            } else {
+                verifier.reset()
+            }
+        }
 
         #if targetEnvironment(simulator)
             if let overlay = view?.overlay {
@@ -338,7 +346,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     override func onLayoutChange() {
         super.onLayoutChange()
         
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+        DispatchQueue.global(qos: .default).async { [weak self] in
             guard let self else { return }
             if baseConfig.dataType == .video {
                 verifier.endHologramVerification()

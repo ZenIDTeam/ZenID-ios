@@ -43,4 +43,12 @@ final class CGRectExtensionsTests: XCTestCase {
         
         XCTAssertEqual(givenRect.moved(offset), expectRect)
     }
+    
+    func testSubscractFromTop_GivenValue_ExpectCorrectValue() throws {
+        let givenRect = CGRect(x: 0, y: 0, width: 100, height: 200)
+        let value: CGFloat = 20
+        let expectRect = CGRect(x: 0, y: 20, width: 100, height: 180)
+        
+        XCTAssertEqual(givenRect.substractFromTop(value), expectRect)
+    }
 }

@@ -24,4 +24,8 @@ extension CGRect {
                          height: self.height)
         return ret
     }
+    
+    func substractFromTop(_ value: CGFloat) -> CGRect {
+        return CGRect(x: minX, y: minY + value, width: width, height: height - value)
+    }
 }

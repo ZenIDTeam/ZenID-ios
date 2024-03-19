@@ -33,6 +33,8 @@ public final class Camera: NSObject {
 
     private let cameraCaptureQueue = DispatchQueue(label: "cz.trask.ZenID.cameraCaptureQueue")
     
+    private let captureSessionQueue = DispatchQueue(label: "cz.trask.ZenID.capturesession")
+    
     private var captureDevice: AVCaptureDevice?
     
     private let captureSession = AVCaptureSession()
@@ -71,22 +73,23 @@ public final class Camera: NSObject {
         }
     }
 
-    func start() {
+    func start(completion: @escaping (_ camera: Camera) -> Void = { _ in }) {
         guard !captureSession.isRunning else { return }
-        DispatchQueue.global(qos: .userInteractive).sync { [weak self] in
+        captureSessionQueue.async { [weak self] in
             guard let self else { return }
             captureSession.startRunning()
-            setTorch(on: isTorchRequired)
+            
+            DispatchQueue.main.async {
+                completion(self)
+            }
         }
     }
 
     func stop() {
-        isTorchRequired = false
         guard captureSession.isRunning else { return }
-        DispatchQueue.global(qos: .userInteractive).sync { [weak self] in
+        captureSessionQueue.async { [weak self] in
             guard let self else { return }
             captureSession.stopRunning()
-            setTorch(on: false)
         }
     }
 
@@ -108,24 +111,29 @@ public final class Camera: NSObject {
     public func setOrientation(orientation: UIInterfaceOrientation? = nil) {
         let uiOrientation = orientation ?? UIInterfaceOrientation.current
         
-        switch uiOrientation {
-        case .portrait:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        case .landscapeRight:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-        case .landscapeLeft:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-        case .portraitUpsideDown:
-            previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
-        default: break
-        }
-
-        if let previewOrientation = previewLayer?.connection?.videoOrientation {
-            captureSession.connections.forEach { connection in
-                if connection.videoOrientation != previewOrientation {
-                    connection.videoOrientation = previewOrientation
+        captureSessionQueue.async { [weak self] in
+            guard let self else { return }
+            
+            switch uiOrientation {
+            case .portrait:
+                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+            case .landscapeRight:
+                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+            case .landscapeLeft:
+                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+            case .portraitUpsideDown:
+                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
+            default: break
+            }
+            
+            if let previewOrientation = previewLayer?.connection?.videoOrientation {
+                captureSession.connections.forEach { connection in
+                    if connection.videoOrientation != previewOrientation {
+                        connection.videoOrientation = previewOrientation
+                    }
                 }
             }
+            ApplicationLogger.shared.Debug("Torch orientation changed")
         }
     }
     
@@ -136,17 +144,27 @@ public final class Camera: NSObject {
         let isOn = on ?? isTorchRequired
         isTorchRequired = isOn
         
-        DispatchQueue.global(qos: .userInteractive).sync { [weak self] in
+        captureSessionQueue.async { [weak self] in
             guard let self else { return }
+            
             guard let captureDevice, captureDevice.hasTorch else {
                 ApplicationLogger.shared.Info("Capture device doesn't support torch.")
                 return
             }
             
             let torchMode: AVCaptureDevice.TorchMode = isOn ? .on : .off
+            if captureDevice.torchLevel > 0.0 && torchMode == .on
+            || captureDevice.torchLevel == 0.0 && torchMode == .off{
+                ApplicationLogger.shared.Debug("Torch skipped because same level")
+                return
+            }
             do {
                 try captureDevice.lockForConfiguration()
-                captureDevice.torchMode = torchMode
+                if torchMode == .on {
+                    try captureDevice.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
+                } else {
+                    captureDevice.torchMode = .off
+                }
                 captureDevice.unlockForConfiguration()
                 ApplicationLogger.shared.Debug(isOn ? "Torch is enabled" : "Torch is disabled")
             } catch {
@@ -232,6 +250,8 @@ private extension Camera {
         captureSession.addOutput(cameraVideoOutput)
 
         captureSession.commitConfiguration()
+        
+        ApplicationLogger.shared.Debug("Torch camera session configured")
 
         return true
     }

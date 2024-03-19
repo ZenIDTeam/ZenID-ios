@@ -112,10 +112,6 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
-    }
-    
-    override func onLayoutChange() {
-        super.onLayoutChange()
         
         verifier.reset()
     }

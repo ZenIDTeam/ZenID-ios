@@ -105,6 +105,8 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
+        
+        verifier.reset()
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> SelfieResult? {

@@ -127,7 +127,7 @@ public class BaseController<ResultType: ResultState> {
 
     deinit {
         videoWriter?.stop()
-        camera.setTorch(on: false)
+        camera.stop()
     }
 
     func configure(configuration: BaseControllerConfiguration = .default) throws {
@@ -160,20 +160,22 @@ public class BaseController<ResultType: ResultState> {
             self?.onLayoutChange()
         }
 
+        previewFrame = view?.overlay?.bounds ?? .zero
+        camera.setOrientation()
+        
         previousResult = nil
         start()
         isRunning = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
-            self?.onLayoutChange()
-        }
     }
 
     public func start() {
-        camera.setTorch(on: shouldBeTorchEnabled)
         camera.start()
+        camera.setTorch(on: shouldBeTorchEnabled)
     }
 
     public func stop() {
+        isRunning = false
+        camera.setTorch(on: false)
         camera.stop()
         videoWriter?.delegate = nil
         videoWriter?.stop()
@@ -198,7 +200,9 @@ public class BaseController<ResultType: ResultState> {
         
         restartVideoWriter()
         
-        camera.setTorch(on: shouldBeTorchEnabled)
+        if isRunning {
+            camera.setTorch(on: shouldBeTorchEnabled)
+        }
     }
     
     /// Restart video recording.
@@ -262,12 +266,13 @@ extension BaseController {
         switch Defaults.videoGravity {
         case .resizeAspect:
             // With resize aspect we always process whole image.
-            return CGRect(x: 0, y: 0, width: width, height: height)
+            let croppedRect = CGRect(x: 0, y: 0, width: width, height: height)
+            return croppedRect
         case .resizeAspectFill:
             // With aspect fill we crop from inside of the image frame
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let layerRect = previewFrame.rectThatFitsRect(imageRect)
-            return layerRect
+            let croppedRect = previewFrame.rectThatFitsRect(imageRect)
+            return croppedRect
         default:
             return .zero
         }
@@ -384,9 +389,11 @@ extension BaseController: CameraDelegate {
         } */
         
         DispatchQueue.main.async { [weak self] in
-            guard let previewFrame = self?.previewFrame else { return }
+            guard let self else { return }
             
-            self?.renderCommands(commands: commands, imageRect: previewFrame, pixelBuffer: pixelBuffer)
+            self.renderCommands(commands: commands, 
+                                imageRect: previewFrame,
+                                pixelBuffer: pixelBuffer)
         }
     }
 }
