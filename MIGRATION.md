@@ -1,6 +1,10 @@
 # Migration
 
-## Update to the version 2.0.26 (RecogLib 4.1.6)
+## Update to the version 2.0.26 (RecogLib 4.1.7)
+
+There could be minor changes in controllers and camera API. For example functions `canShowStaticOverlay` and `canShowInstructionView` are computed parameters now. Also `onLayoutChange` method was introduced.
+
+If you are using custom overlays in `CameraView` please note that they shall be in rotated back to normal orientation (previously rotated by 90°). Also one new overlay image needs to be added if you want to use birth certificates.
 
 Added a new validator that checks the MRZ to the SDK. To preserve the previous behavior, disable it the backend "Sensitivity" page in the MRZ validator.
 You will need to handle `DocumentVerifierState::TextNotReadable` even if you don't use NFC.
