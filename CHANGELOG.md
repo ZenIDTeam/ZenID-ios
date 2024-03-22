@@ -10,6 +10,7 @@
 * Fix: `Camera` object Torch stays on after device orientation changed.
 * New: Add optional controllers parameter `showTextInstructions` to disable text instructions in build-in visualisation.
 * New: All controllers has new init parameter to select Language for visualisation v1 tips. If parameter left empty it detects language from Locale and use one of available languages [English, Czech, German, Polish]. If locale isn't matching any of the languages it fall back to English.
+* Improved reliability.
 
 # 2.0.25 2024-02-01
 * RecogLib 3.10.4
