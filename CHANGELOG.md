@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2.0.25.2 2024-03-23
+* Fixed document verifier settings and improved its reliability.
+
 # 2.0.25 2024-02-01
 * RecogLib 3.10.4
 * Improvement: Camera and CameraView are now public and can be mutated in VerifierControllers.
