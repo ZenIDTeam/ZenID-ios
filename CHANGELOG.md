@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2.0.24.2 2024-03-23
+* Fixed document verifier settings and improved its reliability.
+
 # 2.0.24 2023-12-18
 * RecogLib 3.10.1
 * Added new possible values to HologramState enum: TiltLeft, TiltRight, TiltUp, TiltDown. Those represent the states of the new IQS hologram UI.
