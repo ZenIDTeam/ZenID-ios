@@ -16,11 +16,20 @@ static void processFrame(const void *object,
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     
     // Construct optional data
-    auto documentRole = static_cast<DocumentRole>(document->role);
-    auto country = static_cast<Country>(document->country);
-    auto pageCode = static_cast<PageCodes>(document->page);
-    auto documentCode = static_cast<DocumentCodes>(document->code);
-    auto orientation = static_cast<int>(document->orientation);
+    DocumentRole documentRole = DocumentRole::Idc; // Default value, we won't use it if role is not set.
+    if (document->role < 0) documentRole = static_cast<DocumentRole>(document->role);
+    
+    Country country = Country::Cz; // Default value, we won't use it if role is not set.
+    if (document->country < 0) country = static_cast<Country>(document->country);
+    
+    PageCodes pageCode = PageCodes::F; // Default value, we won't use it if role is not set.
+    if (document->page < 0) pageCode = static_cast<PageCodes>(document->page);
+    
+    DocumentCodes documentCode = DocumentCodes::DE_IDC_2001; // Default value, we won't use it if role is not set.
+    if (document->code < 0) documentCode = static_cast<DocumentCodes>(document->code);
+    
+    int orientation = 0; // Default value, we won't use it if role is not set.
+    if (document->orientation < 0) orientation = document->orientation;
     
     CVPixelBufferLockBaseAddress(_cvBuffer, 0);
     const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
@@ -63,8 +72,8 @@ static void processFrame(const void *object,
     {
         verifier->ProcessFrame(image,
                                document->role < 0 ? nullptr : &documentRole,
-                               document->page < 0 ? nullptr : &country,
-                               document->country < 0 ? nullptr : &pageCode,
+                               document->country < 0 ? nullptr : &country,
+                               document->page < 0 ? nullptr : &pageCode,
                                document->code < 0 ? nullptr : &documentCode);
     }
     
