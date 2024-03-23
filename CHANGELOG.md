@@ -1,5 +1,8 @@
 # Change Log
 
+# hotfix 2.0.23.2 2024-03-23
+* Fixed document verifier settings and improved its reliability.
+
 # hotfix 2023-12-28
 * Fixed camera focus on iPhone 14 and 15 series with better solution.
 
