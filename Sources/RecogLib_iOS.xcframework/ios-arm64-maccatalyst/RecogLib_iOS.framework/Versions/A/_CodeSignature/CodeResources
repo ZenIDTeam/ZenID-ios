@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		+dklW9Ty10soLfyFmdYES2kTj9g=
+		Bxtofc1+bOINzW1JjCyUbmhXsZw=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		DuSjYIMhRQfrvDSeIiP4epAIq6I=
+		ABw36i4xwDpWixf2dQ9mGp7A5QU=
 		</data>
 		<key>Resources/cs.lproj/Localizable.strings</key>
 		<dict>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HOJWIPEUFzbwfEmE9A8TMQzKrbeQOR3o2x4rtm2CAYc=
+			zM78qNlTw9EeHc35JkRAOcr89yhCfqTUVffQlYlfHec=
 			</data>
 		</dict>
 		<key>Headers/RecogLib_iOS.h</key>
@@ -100,42 +100,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			F15JC7mYBJAaM0ON/cBk3vYETASnrysQLmni6cOY6B0=
+			CqH/Ht4+YtYIgfLBzKuYfBGXf9O2ZGFwsRM9nJznClM=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JP5lxf9C4CyLWC1jqnuZk1ZtMG+Ho6p3SOp5i0nu+JM=
+			ctlgd1I67MEVu9MKmCLNrJhRru+3sKyg+VX40Vl09W0=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mTAZ6IBx1Wp5R+ADoI/0bSQkBCEjijRKLNF76y+4wx4=
+			RlEX5p9oXseo4a55uoOhmywDSmUf4n3RpeJThX1FzmA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/d3PKWHdHKHWhpdapOpJtHqb+zjn7a19R83BffrVn94=
+			ypDJklpUvT6VztbwZ9HO8QBGryUIKIq7wgcydvue98Y=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mTAZ6IBx1Wp5R+ADoI/0bSQkBCEjijRKLNF76y+4wx4=
+			RlEX5p9oXseo4a55uoOhmywDSmUf4n3RpeJThX1FzmA=
 			</data>
 		</dict>
 		<key>Modules/RecogLib_iOS.swiftmodule/arm64-apple-ios-macabi.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			POJOYxyrjRHfSxG4DzDtIKXqBXxgUjTf+kLY4DG9hkk=
+			xvGufuIRXTiA7o43jEwd6rldMULK0AoSJfKpB2wGq+w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -149,14 +149,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			K/+KiZA0yVMOK+hIfO2wjBPQ5y5VqKTfsJ/uvolYehc=
+			Cy/SpRoOjv9v7Mxqdk9UbzGFSOQPw4zUOqbU+LyXGa0=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZiTiJT54JpUnecVoH4txZ2CBuq6msLSPU4Okch7wPyU=
+			UZsMVimrj6bZFJasBXyON/W6szKxq7ClMenovmOjdZU=
 			</data>
 		</dict>
 		<key>Resources/cs.lproj/Localizable.strings</key>

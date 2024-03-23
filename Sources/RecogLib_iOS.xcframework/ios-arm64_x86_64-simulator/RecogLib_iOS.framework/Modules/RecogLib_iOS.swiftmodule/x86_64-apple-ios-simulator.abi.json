@@ -31,12 +31,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.UnifiedResult?",
+                "printedName": "(any RecogLib_iOS.UnifiedResult)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "UnifiedResult",
-                    "printedName": "RecogLib_iOS.UnifiedResult",
+                    "printedName": "any RecogLib_iOS.UnifiedResult",
                     "usr": "s:12RecogLib_iOS13UnifiedResultP"
                   }
                 ],
@@ -12997,12 +12997,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "Swift.Error?",
+                "printedName": "(any Swift.Error)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Error",
-                    "printedName": "Swift.Error",
+                    "printedName": "any Swift.Error",
                     "usr": "s:s5ErrorP"
                   }
                 ],
@@ -13354,12 +13354,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.UnifiedResult?",
+                "printedName": "(any RecogLib_iOS.UnifiedResult)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "UnifiedResult",
-                    "printedName": "RecogLib_iOS.UnifiedResult",
+                    "printedName": "any RecogLib_iOS.UnifiedResult",
                     "usr": "s:12RecogLib_iOS13UnifiedResultP"
                   }
                 ],
@@ -14435,7 +14435,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "Decoder",
-                "printedName": "Swift.Decoder",
+                "printedName": "any Swift.Decoder",
                 "usr": "s:s7DecoderP"
               }
             ],
@@ -17975,12 +17975,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.DocumentControllerDelegate?",
+                "printedName": "(any RecogLib_iOS.DocumentControllerDelegate)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "DocumentControllerDelegate",
-                    "printedName": "RecogLib_iOS.DocumentControllerDelegate",
+                    "printedName": "any RecogLib_iOS.DocumentControllerDelegate",
                     "usr": "s:12RecogLib_iOS26DocumentControllerDelegateP"
                   }
                 ],
@@ -18001,12 +18001,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.DocumentControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.DocumentControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "DocumentControllerDelegate",
-                        "printedName": "RecogLib_iOS.DocumentControllerDelegate",
+                        "printedName": "any RecogLib_iOS.DocumentControllerDelegate",
                         "usr": "s:12RecogLib_iOS26DocumentControllerDelegateP"
                       }
                     ],
@@ -18036,12 +18036,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.DocumentControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.DocumentControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "DocumentControllerDelegate",
-                        "printedName": "RecogLib_iOS.DocumentControllerDelegate",
+                        "printedName": "any RecogLib_iOS.DocumentControllerDelegate",
                         "usr": "s:12RecogLib_iOS26DocumentControllerDelegateP"
                       }
                     ],
@@ -18132,7 +18132,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "WeakStorage",
-                "printedName": "RecogLib_iOS.DocumentControllerDelegate?"
+                "printedName": "(any RecogLib_iOS.DocumentControllerDelegate)?"
               }
             ],
             "declKind": "Var",
@@ -18157,12 +18157,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.DocumentControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.DocumentControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "DocumentControllerDelegate",
-                        "printedName": "RecogLib_iOS.DocumentControllerDelegate",
+                        "printedName": "any RecogLib_iOS.DocumentControllerDelegate",
                         "usr": "s:12RecogLib_iOS26DocumentControllerDelegateP"
                       }
                     ],
@@ -18192,12 +18192,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.DocumentControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.DocumentControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "DocumentControllerDelegate",
-                        "printedName": "RecogLib_iOS.DocumentControllerDelegate",
+                        "printedName": "any RecogLib_iOS.DocumentControllerDelegate",
                         "usr": "s:12RecogLib_iOS26DocumentControllerDelegateP"
                       }
                     ],
@@ -18561,7 +18561,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "LoggerProtocol",
-                "printedName": "RecogLib_iOS.LoggerProtocol",
+                "printedName": "any RecogLib_iOS.LoggerProtocol",
                 "usr": "s:12RecogLib_iOS14LoggerProtocolP"
               }
             ],
@@ -20200,7 +20200,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "Decoder",
-                "printedName": "Swift.Decoder",
+                "printedName": "any Swift.Decoder",
                 "usr": "s:s7DecoderP"
               }
             ],
@@ -20413,12 +20413,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.UnifiedResult?",
+                "printedName": "(any RecogLib_iOS.UnifiedResult)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "UnifiedResult",
-                    "printedName": "RecogLib_iOS.UnifiedResult",
+                    "printedName": "any RecogLib_iOS.UnifiedResult",
                     "usr": "s:12RecogLib_iOS13UnifiedResultP"
                   }
                 ],
@@ -21362,12 +21362,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Array",
-                "printedName": "[RecogLib_iOS.Renderable]",
+                "printedName": "[any RecogLib_iOS.Renderable]",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Renderable",
-                    "printedName": "RecogLib_iOS.Renderable",
+                    "printedName": "any RecogLib_iOS.Renderable",
                     "usr": "s:12RecogLib_iOS10RenderableP"
                   }
                 ],
@@ -21399,12 +21399,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.Renderable?",
+                "printedName": "(any RecogLib_iOS.Renderable)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Renderable",
-                    "printedName": "RecogLib_iOS.Renderable",
+                    "printedName": "any RecogLib_iOS.Renderable",
                     "usr": "s:12RecogLib_iOS10RenderableP"
                   }
                 ],
@@ -22154,6 +22154,13 @@
             "printedName": "__DefaultCustomPlaygroundQuickLookable",
             "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
             "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -23014,12 +23021,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.FacelivenessControllerDelegate?",
+                "printedName": "(any RecogLib_iOS.FacelivenessControllerDelegate)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "FacelivenessControllerDelegate",
-                    "printedName": "RecogLib_iOS.FacelivenessControllerDelegate",
+                    "printedName": "any RecogLib_iOS.FacelivenessControllerDelegate",
                     "usr": "s:12RecogLib_iOS30FacelivenessControllerDelegateP"
                   }
                 ],
@@ -23040,12 +23047,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.FacelivenessControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.FacelivenessControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "FacelivenessControllerDelegate",
-                        "printedName": "RecogLib_iOS.FacelivenessControllerDelegate",
+                        "printedName": "any RecogLib_iOS.FacelivenessControllerDelegate",
                         "usr": "s:12RecogLib_iOS30FacelivenessControllerDelegateP"
                       }
                     ],
@@ -23075,12 +23082,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.FacelivenessControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.FacelivenessControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "FacelivenessControllerDelegate",
-                        "printedName": "RecogLib_iOS.FacelivenessControllerDelegate",
+                        "printedName": "any RecogLib_iOS.FacelivenessControllerDelegate",
                         "usr": "s:12RecogLib_iOS30FacelivenessControllerDelegateP"
                       }
                     ],
@@ -23171,7 +23178,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "WeakStorage",
-                "printedName": "RecogLib_iOS.FacelivenessControllerDelegate?"
+                "printedName": "(any RecogLib_iOS.FacelivenessControllerDelegate)?"
               }
             ],
             "declKind": "Var",
@@ -23196,12 +23203,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.FacelivenessControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.FacelivenessControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "FacelivenessControllerDelegate",
-                        "printedName": "RecogLib_iOS.FacelivenessControllerDelegate",
+                        "printedName": "any RecogLib_iOS.FacelivenessControllerDelegate",
                         "usr": "s:12RecogLib_iOS30FacelivenessControllerDelegateP"
                       }
                     ],
@@ -23231,12 +23238,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.FacelivenessControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.FacelivenessControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "FacelivenessControllerDelegate",
-                        "printedName": "RecogLib_iOS.FacelivenessControllerDelegate",
+                        "printedName": "any RecogLib_iOS.FacelivenessControllerDelegate",
                         "usr": "s:12RecogLib_iOS30FacelivenessControllerDelegateP"
                       }
                     ],
@@ -24388,12 +24395,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.UnifiedResult?",
+                "printedName": "(any RecogLib_iOS.UnifiedResult)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "UnifiedResult",
-                    "printedName": "RecogLib_iOS.UnifiedResult",
+                    "printedName": "any RecogLib_iOS.UnifiedResult",
                     "usr": "s:12RecogLib_iOS13UnifiedResultP"
                   }
                 ],
@@ -26319,12 +26326,12 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "RecogLib_iOS.SelfieControllerDelegate?",
+                "printedName": "(any RecogLib_iOS.SelfieControllerDelegate)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "SelfieControllerDelegate",
-                    "printedName": "RecogLib_iOS.SelfieControllerDelegate",
+                    "printedName": "any RecogLib_iOS.SelfieControllerDelegate",
                     "usr": "s:12RecogLib_iOS24SelfieControllerDelegateP"
                   }
                 ],
@@ -26345,12 +26352,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.SelfieControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.SelfieControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "SelfieControllerDelegate",
-                        "printedName": "RecogLib_iOS.SelfieControllerDelegate",
+                        "printedName": "any RecogLib_iOS.SelfieControllerDelegate",
                         "usr": "s:12RecogLib_iOS24SelfieControllerDelegateP"
                       }
                     ],
@@ -26380,12 +26387,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.SelfieControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.SelfieControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "SelfieControllerDelegate",
-                        "printedName": "RecogLib_iOS.SelfieControllerDelegate",
+                        "printedName": "any RecogLib_iOS.SelfieControllerDelegate",
                         "usr": "s:12RecogLib_iOS24SelfieControllerDelegateP"
                       }
                     ],
@@ -26476,7 +26483,7 @@
               {
                 "kind": "TypeNominal",
                 "name": "WeakStorage",
-                "printedName": "RecogLib_iOS.SelfieControllerDelegate?"
+                "printedName": "(any RecogLib_iOS.SelfieControllerDelegate)?"
               }
             ],
             "declKind": "Var",
@@ -26501,12 +26508,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.SelfieControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.SelfieControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "SelfieControllerDelegate",
-                        "printedName": "RecogLib_iOS.SelfieControllerDelegate",
+                        "printedName": "any RecogLib_iOS.SelfieControllerDelegate",
                         "usr": "s:12RecogLib_iOS24SelfieControllerDelegateP"
                       }
                     ],
@@ -26536,12 +26543,12 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "RecogLib_iOS.SelfieControllerDelegate?",
+                    "printedName": "(any RecogLib_iOS.SelfieControllerDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "SelfieControllerDelegate",
-                        "printedName": "RecogLib_iOS.SelfieControllerDelegate",
+                        "printedName": "any RecogLib_iOS.SelfieControllerDelegate",
                         "usr": "s:12RecogLib_iOS24SelfieControllerDelegateP"
                       }
                     ],
@@ -28037,17 +28044,17 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[RecogLib_iOS.Renderable]?",
+                "printedName": "[any RecogLib_iOS.Renderable]?",
                 "children": [
                   {
                     "kind": "TypeNominal",
                     "name": "Array",
-                    "printedName": "[RecogLib_iOS.Renderable]",
+                    "printedName": "[any RecogLib_iOS.Renderable]",
                     "children": [
                       {
                         "kind": "TypeNominal",
                         "name": "Renderable",
-                        "printedName": "RecogLib_iOS.Renderable",
+                        "printedName": "any RecogLib_iOS.Renderable",
                         "usr": "s:12RecogLib_iOS10RenderableP"
                       }
                     ],
@@ -29335,155 +29342,8 @@
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1388,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1590,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
       "offset": 1959,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "StringLiteral",
-      "offset": 2046,
-      "length": 16,
-      "value": "\"targettingRect\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2530,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2741,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2997,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4058,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "FloatLiteral",
-      "offset": 5137,
-      "length": 4,
-      "value": "0.15"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "Array",
-      "offset": 5412,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7224,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7230,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "StringLiteral",
-      "offset": 8102,
-      "length": 31,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "StringLiteral",
-      "offset": 8132,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "StringLiteral",
-      "offset": 8919,
-      "length": 12,
-      "value": "\"nil result\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9038,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9285,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 9392,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9920,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10348,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10354,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 10935,
       "length": 5,
       "value": "false"
     },
@@ -34851,94 +34711,10 @@
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2479,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4269,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5336,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5347,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6688,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7615,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
       "offset": 8124,
       "length": 3,
       "value": "110"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8251,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8616,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "StringLiteral",
-      "offset": 8985,
-      "length": 44,
-      "value": "\"Could not lock for configuration: \""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "StringLiteral",
-      "offset": 9028,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9726,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10103,
-      "length": 3,
-      "value": "180"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
@@ -35067,20 +34843,6 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/SelfieVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 526,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/SelfieVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2140,
-      "length": 2,
-      "value": "-1"
-    },
-    {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
       "kind": "BooleanLiteral",
       "offset": 256,
@@ -35088,375 +34850,11 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "StringLiteral",
-      "offset": 879,
-      "length": 28,
-      "value": "\"Loaded model: \""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "StringLiteral",
-      "offset": 906,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "StringLiteral",
-      "offset": 3105,
-      "length": 6,
-      "value": "\"null\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3877,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4256,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4339,
-      "length": 3,
-      "value": "300"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4413,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4434,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4466,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5012,
-      "length": 1,
-      "value": "0"
-    },
-    {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
       "kind": "BooleanLiteral",
       "offset": 563,
       "length": 5,
       "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "StringLiteral",
-      "offset": 1874,
-      "length": 28,
-      "value": "\"Loaded model: \""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "StringLiteral",
-      "offset": 1901,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3036,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5012,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5086,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5149,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5209,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5256,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5287,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5635,
-      "length": 2,
-      "value": "50"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5728,
-      "length": 2,
-      "value": "50"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5829,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5902,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5940,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6009,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6066,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6123,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "StringLiteral",
-      "offset": 196,
-      "length": 20,
-      "value": "\"camera-point-first\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "StringLiteral",
-      "offset": 227,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "IntegerLiteral",
-      "offset": 377,
-      "length": 2,
-      "value": "18"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "IntegerLiteral",
-      "offset": 432,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "IntegerLiteral",
-      "offset": 537,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "IntegerLiteral",
-      "offset": 601,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "IntegerLiteral",
-      "offset": 611,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "IntegerLiteral",
-      "offset": 623,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Buttons.swift",
-      "kind": "IntegerLiteral",
-      "offset": 633,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "BooleanLiteral",
-      "offset": 351,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "BooleanLiteral",
-      "offset": 453,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 526,
-      "length": 39,
-      "value": "\"init(coder:) has not been implemented\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "BooleanLiteral",
-      "offset": 646,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 660,
-      "length": 29,
-      "value": "\"allowFileAccessFromFileURLs\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 742,
-      "length": 7,
-      "value": "\"index\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 766,
-      "length": 6,
-      "value": "\"html\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 788,
-      "length": 11,
-      "value": "\"WebSource\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 947,
-      "length": 25,
-      "value": "\"http:\/\/sdkdev.zenid.cz\/\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 1140,
-      "length": 268,
-      "value": "\"const event = new CustomEvent('document', { detail: { page: '\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 1215,
-      "length": 14,
-      "value": "\"', feedback: '\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 1243,
-      "length": 165,
-      "value": "\"', viewPort: { topLeft: { x: \""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 1289,
-      "length": 1,
-      "value": "\", y: \""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 1311,
-      "length": 1,
-      "value": "\" }, bottomRight: { x: \""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 1350,
-      "length": 1,
-      "value": "\", y: \""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
-      "kind": "StringLiteral",
-      "offset": 1372,
-      "length": 1,
-      "value": "\" }}}});window.dispatchEvent(event);\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/WebViewOverlay.swift",
@@ -35489,191 +34887,9 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 2541,
-      "length": 19,
-      "value": "\"targettingRectPas\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "StringLiteral",
-      "offset": 2586,
-      "length": 16,
-      "value": "\"targettingRect\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "StringLiteral",
-      "offset": 3558,
-      "length": 15,
-      "value": "\"msg-scan-back\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "StringLiteral",
-      "offset": 3584,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "StringLiteral",
-      "offset": 3606,
-      "length": 16,
-      "value": "\"msg-scan-front\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "StringLiteral",
-      "offset": 3633,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4129,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4158,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
-      "kind": "StringLiteral",
       "offset": 2298,
       "length": 18,
       "value": "\"RecogLib_iOS.DocumentController\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 339,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 578,
-      "length": 2,
-      "value": "11"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 648,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 667,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 709,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 728,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 770,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 789,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 845,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "FloatLiteral",
-      "offset": 850,
-      "length": 5,
-      "value": "255.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 900,
-      "length": 1,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "FloatLiteral",
-      "offset": 905,
-      "length": 5,
-      "value": "255.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 955,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "FloatLiteral",
-      "offset": 960,
-      "length": 5,
-      "value": "255.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1010,
-      "length": 1,
-      "value": "9"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "FloatLiteral",
-      "offset": 1015,
-      "length": 5,
-      "value": "255.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1071,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Triangle.swift",
-      "kind": "FloatLiteral",
-      "offset": 1371,
-      "length": 3,
-      "value": "1.0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifierSettings.swift",
@@ -35781,447 +34997,6 @@
       "value": "\"right\""
     },
     {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 601,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 626,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 704,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 709,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 761,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 766,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 818,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 823,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 875,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 880,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "FloatLiteral",
-      "offset": 948,
-      "length": 3,
-      "value": "0.3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1037,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1123,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1208,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1531,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1568,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1711,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Text.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1922,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 168,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 415,
-      "length": 1,
-      "value": "9"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 496,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 542,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 592,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 643,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 704,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 709,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 762,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 767,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 820,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 825,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 878,
-      "length": 1,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 883,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Rectangle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 942,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 366,
-      "length": 1,
-      "value": "9"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 437,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 456,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 500,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 519,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 588,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 593,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 646,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 651,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 704,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 709,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 762,
-      "length": 1,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 767,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Line.swift",
-      "kind": "IntegerLiteral",
-      "offset": 826,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 292,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 312,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 384,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 631,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 707,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 726,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 773,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 834,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 839,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 892,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 897,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 950,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 955,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1008,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1013,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Circle.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1072,
-      "length": 1,
-      "value": "7"
-    },
-    {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessAuxiliaryInfo.swift",
       "kind": "StringLiteral",
       "offset": 91,
@@ -36360,13 +35135,6 @@
       "offset": 492,
       "length": 11,
       "value": "\"parameter\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessAuxiliaryInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1067,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierSettings.swift",
@@ -36509,27 +35277,6 @@
       "value": "\"triangle\""
     },
     {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
-      "kind": "StringLiteral",
-      "offset": 449,
-      "length": 4,
-      "value": "\"\n\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
-      "kind": "StringLiteral",
-      "offset": 712,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/RenderableFactory.swift",
-      "kind": "StringLiteral",
-      "offset": 1360,
-      "length": 3,
-      "value": "\";\""
-    },
-    {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "FloatLiteral",
       "offset": 347,
@@ -36574,240 +35321,9 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "StringLiteral",
-      "offset": 1517,
-      "length": 39,
-      "value": "\"init(coder:) has not been implemented\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2346,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2363,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2382,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2400,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3026,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3040,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3817,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3896,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3973,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4046,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
-      "kind": "StringLiteral",
       "offset": 53,
       "length": 10,
       "value": "\"RecogLib_iOS.CameraView\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImageView+Clipping.swift",
-      "kind": "IntegerLiteral",
-      "offset": 232,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImageView+Clipping.swift",
-      "kind": "IntegerLiteral",
-      "offset": 257,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImageView+Clipping.swift",
-      "kind": "FloatLiteral",
-      "offset": 650,
-      "length": 3,
-      "value": "2.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImageView+Clipping.swift",
-      "kind": "FloatLiteral",
-      "offset": 702,
-      "length": 3,
-      "value": "2.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 167,
-      "length": 19,
-      "value": "\"document.state.ok\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 197,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 261,
-      "length": 27,
-      "value": "\"document.state.align.card\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 299,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 360,
-      "length": 23,
-      "value": "\"document.state.blurry\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 394,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 459,
-      "length": 28,
-      "value": "\"document.state.hold.steady\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 498,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 565,
-      "length": 31,
-      "value": "\"document.state.no.match.found\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 607,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 679,
-      "length": 35,
-      "value": "\"document.state.reflection.present\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 725,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 788,
-      "length": 31,
-      "value": "\"document.state.hologram.error\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 830,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 889,
-      "length": 21,
-      "value": "\"document.state.dark\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 921,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 983,
-      "length": 24,
-      "value": "\"document.state.barcode\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/DocumentState+Localised.swift",
-      "kind": "StringLiteral",
-      "offset": 1018,
-      "length": 2,
-      "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
@@ -36833,613 +35349,11 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
       "kind": "StringLiteral",
-      "offset": 2391,
-      "length": 15,
-      "value": "\"msg-scan-face\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
-      "kind": "StringLiteral",
-      "offset": 2417,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3622,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3700,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/FacelivenessController.swift",
-      "kind": "StringLiteral",
       "offset": 1744,
       "length": 22,
       "value": "\"RecogLib_iOS.FacelivenessController\""
     },
     {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 261,
-      "length": 56,
-      "value": "\"{\"PossibleDocuments\":[\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 314,
-      "length": 1,
-      "value": "\"]}\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 537,
-      "length": 3,
-      "value": "\",\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 722,
-      "length": 35,
-      "value": "\"\"Role\": \"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 754,
-      "length": 1,
-      "value": "\"\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 849,
-      "length": 41,
-      "value": "\"\"Country\": \"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 887,
-      "length": 1,
-      "value": "\"\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 976,
-      "length": 35,
-      "value": "\"\"Page\": \"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 1008,
-      "length": 1,
-      "value": "\"\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 1097,
-      "length": 35,
-      "value": "\"\"Code\": \"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 1129,
-      "length": 1,
-      "value": "\"\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 1212,
-      "length": 3,
-      "value": "\",\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 1232,
-      "length": 3,
-      "value": "\"{\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentsInput.swift",
-      "kind": "StringLiteral",
-      "offset": 1259,
-      "length": 3,
-      "value": "\"}\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierModels.swift",
-      "kind": "BooleanLiteral",
-      "offset": 251,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierModels.swift",
-      "kind": "Array",
-      "offset": 1234,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierModels.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1389,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifierModels.swift",
-      "kind": "StringLiteral",
-      "offset": 1610,
-      "length": 5,
-      "value": "\"bin\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/CMSampleBuffer+UIImage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1354,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/CGRect+Flip.swift",
-      "kind": "IntegerLiteral",
-      "offset": 351,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/CGRect+Flip.swift",
-      "kind": "IntegerLiteral",
-      "offset": 416,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 383,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 404,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 477,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 724,
-      "length": 2,
-      "value": "10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 801,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 820,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 863,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 897,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 932,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 993,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 998,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1051,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1056,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1109,
-      "length": 1,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1114,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1167,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1172,
-      "length": 3,
-      "value": "255"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/Ellipse.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1231,
-      "length": 1,
-      "value": "9"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 934,
-      "length": 5,
-      "value": "\"Idc\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 978,
-      "length": 5,
-      "value": "\"Drv\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1022,
-      "length": 5,
-      "value": "\"Pas\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1066,
-      "length": 5,
-      "value": "\"Res\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1110,
-      "length": 5,
-      "value": "\"Gun\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1154,
-      "length": 5,
-      "value": "\"Hic\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1198,
-      "length": 5,
-      "value": "\"Std\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1242,
-      "length": 5,
-      "value": "\"Car\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1288,
-      "length": 7,
-      "value": "\"Birth\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1334,
-      "length": 5,
-      "value": "\"Add\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1378,
-      "length": 5,
-      "value": "\"Ide\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1422,
-      "length": 5,
-      "value": "\"Vis\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1466,
-      "length": 5,
-      "value": "\"Exp\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1621,
-      "length": 4,
-      "value": "\"Cs\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1668,
-      "length": 4,
-      "value": "\"En\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1714,
-      "length": 4,
-      "value": "\"Pl\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1760,
-      "length": 4,
-      "value": "\"De\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1924,
-      "length": 16,
-      "value": "\"No match found\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 1985,
-      "length": 12,
-      "value": "\"Align card\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2043,
-      "length": 13,
-      "value": "\"Hold steady\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2098,
-      "length": 8,
-      "value": "\"Blurry\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2159,
-      "length": 20,
-      "value": "\"Reflection present\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2217,
-      "length": 4,
-      "value": "\"Ok\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2265,
-      "length": 16,
-      "value": "\"Hologram error\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2321,
-      "length": 10,
-      "value": "\"Too dark\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2374,
-      "length": 22,
-      "value": "\"Barcode not readable\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2542,
-      "length": 8,
-      "value": "\"Center\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2602,
-      "length": 21,
-      "value": "\"Tilt left and right\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2672,
-      "length": 18,
-      "value": "\"Tilt up and down\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2728,
-      "length": 4,
-      "value": "\"Ok\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2892,
-      "length": 20,
-      "value": "\"Look at the camera\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 2956,
-      "length": 32,
-      "value": "\"Turn head slowly towards arrow\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3029,
-      "length": 7,
-      "value": "\"Smile\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3074,
-      "length": 4,
-      "value": "\"Ok\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3120,
-      "length": 8,
-      "value": "\"Blurry\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3168,
-      "length": 6,
-      "value": "\"Dark\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3219,
-      "length": 12,
-      "value": "\"Hold Still\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3379,
-      "length": 4,
-      "value": "\"Ok\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3430,
-      "length": 15,
-      "value": "\"No face found\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3487,
-      "length": 8,
-      "value": "\"Blurry\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3535,
-      "length": 6,
-      "value": "\"Dark\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3591,
-      "length": 17,
-      "value": "\"Confirming face\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums+Extensions.swift",
-      "kind": "StringLiteral",
-      "offset": 3656,
-      "length": 16,
-      "value": "\"Bad face angle\""
-    },
-    {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
       "kind": "IntegerLiteral",
       "offset": 106,
@@ -37480,153 +35394,6 @@
       "offset": 129,
       "length": 12,
       "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1200,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1581,
-      "length": 1,
-      "value": "8"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1747,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1753,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1894,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
-      "kind": "FloatLiteral",
-      "offset": 3110,
-      "length": 3,
-      "value": "1.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIImage+crop.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3878,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "StringLiteral",
-      "offset": 724,
-      "length": 39,
-      "value": "\"init(coder:) has not been implemented\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "StringLiteral",
-      "offset": 784,
-      "length": 39,
-      "value": "\"init(coder:) has not been implemented\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 974,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1194,
-      "length": 3,
-      "value": "750"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1252,
-      "length": 3,
-      "value": "750"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1588,
-      "length": 2,
-      "value": "15"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2455,
-      "length": 4,
-      "value": "90.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2468,
-      "length": 5,
-      "value": "180.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2495,
-      "length": 4,
-      "value": "1.10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2512,
-      "length": 4,
-      "value": "1.10"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2600,
-      "length": 4,
-      "value": "90.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2613,
-      "length": 5,
-      "value": "180.0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2640,
-      "length": 3,
-      "value": "0.9"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
-      "kind": "FloatLiteral",
-      "offset": 2657,
-      "length": 3,
-      "value": "0.9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraOverlayView.swift",
@@ -37659,48 +35426,6 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
       "kind": "StringLiteral",
-      "offset": 2088,
-      "length": 15,
-      "value": "\"msg-scan-face\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
-      "kind": "StringLiteral",
-      "offset": 2114,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2491,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2520,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3080,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3158,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
-      "kind": "StringLiteral",
       "offset": 1483,
       "length": 16,
       "value": "\"RecogLib_iOS.SelfieController\""
@@ -37718,104 +35443,6 @@
       "offset": 367,
       "length": 14,
       "value": "\"VideoSample-\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 766,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "FloatLiteral",
-      "offset": 846,
-      "length": 6,
-      "value": "0.5625"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1183,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1744,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1868,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1923,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "StringLiteral",
-      "offset": 2694,
-      "length": 66,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "StringLiteral",
-      "offset": 2708,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "StringLiteral",
-      "offset": 2755,
-      "length": 1,
-      "value": "\".mp4\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3377,
-      "length": 7,
-      "value": "1000000"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3460,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "IntegerLiteral",
-      "offset": 4071,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "StringLiteral",
-      "offset": 4537,
-      "length": 16,
-      "value": "\"^\""
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
-      "kind": "StringLiteral",
-      "offset": 4552,
-      "length": 83,
-      "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Drawing\/DrawingLayer.swift",
@@ -37876,100 +35503,9 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
       "kind": "IntegerLiteral",
-      "offset": 389,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "IntegerLiteral",
-      "offset": 426,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 661,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 789,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 921,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1054,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1204,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1240,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1316,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1351,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1425,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "IntegerLiteral",
       "offset": 1506,
       "length": 1,
       "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1568,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1672,
-      "length": 4,
-      "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
@@ -37977,20 +35513,6 @@
       "offset": 1742,
       "length": 1,
       "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1804,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIView+Layout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1908,
-      "length": 4,
-      "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Library\/Developer\/Xcode\/DerivedData\/RecogLib-iOS-fjffquggyesqlngmpjikrvxidjgs\/Build\/Intermediates.noindex\/RecogLib-iOS.build\/Release-iphonesimulator\/RecogLib-iOS.build\/DerivedSources\/GeneratedAssetSymbols.swift",

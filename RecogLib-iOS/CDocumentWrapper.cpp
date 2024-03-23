@@ -17,19 +17,19 @@ static void processFrame(const void *object,
     
     // Construct optional data
     DocumentRole documentRole = DocumentRole::Idc; // Default value, we won't use it if role is not set.
-    if (document->role < 0) documentRole = static_cast<DocumentRole>(document->role);
+    if (document->role >= 0) documentRole = static_cast<DocumentRole>(document->role);
     
     Country country = Country::Cz; // Default value, we won't use it if role is not set.
-    if (document->country < 0) country = static_cast<Country>(document->country);
+    if (document->country >= 0) country = static_cast<Country>(document->country);
     
     PageCodes pageCode = PageCodes::F; // Default value, we won't use it if role is not set.
-    if (document->page < 0) pageCode = static_cast<PageCodes>(document->page);
+    if (document->page >= 0) pageCode = static_cast<PageCodes>(document->page);
     
     DocumentCodes documentCode = DocumentCodes::DE_IDC_2001; // Default value, we won't use it if role is not set.
-    if (document->code < 0) documentCode = static_cast<DocumentCodes>(document->code);
+    if (document->code >= 0) documentCode = static_cast<DocumentCodes>(document->code);
     
     int orientation = 0; // Default value, we won't use it if role is not set.
-    if (document->orientation < 0) orientation = document->orientation;
+    if (document->orientation > 0) orientation = document->orientation;
     
     CVPixelBufferLockBaseAddress(_cvBuffer, 0);
     const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
