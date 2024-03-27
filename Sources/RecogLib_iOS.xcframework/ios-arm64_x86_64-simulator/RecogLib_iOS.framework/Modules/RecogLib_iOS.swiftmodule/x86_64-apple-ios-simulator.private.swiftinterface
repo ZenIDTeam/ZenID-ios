@@ -1751,6 +1751,7 @@ public class SecureMessaging {
 public struct ImageSignature {
   public let image: Foundation.Data
   public let signature: Swift.String
+  public func croppedImagePreview(toFit size: CoreFoundation.CGSize) -> UIKit.UIImage?
 }
 public protocol NfcDisplayMessageProvider {
   func message(for: RecogLib_iOS.NFCDisplayMessage) -> Swift.String

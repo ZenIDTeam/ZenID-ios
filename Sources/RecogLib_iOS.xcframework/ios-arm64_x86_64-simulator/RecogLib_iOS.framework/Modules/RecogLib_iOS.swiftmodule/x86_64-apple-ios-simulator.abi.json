@@ -48834,6 +48834,42 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "croppedImagePreview",
+            "printedName": "croppedImagePreview(toFit:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS14ImageSignatureV07croppedD7Preview5toFitSo7UIImageCSgSo6CGSizeV_tF",
+            "mangledName": "$s12RecogLib_iOS14ImageSignatureV07croppedD7Preview5toFitSo7UIImageCSgSo6CGSizeV_tF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Struct",

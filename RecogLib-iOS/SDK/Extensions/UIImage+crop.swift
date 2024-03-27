@@ -130,4 +130,15 @@ extension UIImage {
             return self
         }
     }
+    
+    /// Crop image to fit size.
+    /// - Parameter cropSize: Size that is represented as proportion.
+    /// - Returns: Cropped image.
+    func crop(useProportions cropSize: CGSize) -> UIImage? {
+        let imageRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        let targetRect = CGRect(x: 0, y: 0, width: cropSize.width, height: cropSize.height)
+        let cropRect = targetRect.rectThatFitsRect(imageRect)
+        guard let croppedImage = cgImage?.cropping(to: cropRect) else { return nil }
+        return UIImage(cgImage: croppedImage)
+    }
 }
