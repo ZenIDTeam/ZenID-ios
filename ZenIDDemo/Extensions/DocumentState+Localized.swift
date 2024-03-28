@@ -13,25 +13,25 @@ extension UnifiedState {
     var localizedDescription: String {
         switch self {
         case .ok:
-            return "document.state.ok".localized
+            return LocalizedString("document-State-Ok")
         case .alignCard:
-            return "document.state.align.card".localized
+            return LocalizedString("document-State-AlignCard")
         case .blurry:
-            return "document.state.blurry".localized
+            return LocalizedString("document-State-Blurry")
         case .holdSteady:
-            return "document.state.hold.steady".localized
+            return LocalizedString("document-State-HoldSteady")
         case .notFound:
-            return "document.state.no.match.found".localized
+            return LocalizedString("document-State-NoMatchFound")
         case .reflectionPresent:
-            return "document.state.reflection.present".localized
+            return LocalizedString("document-State-ReflectionPresent")
         case .hologram:
-            return "document.state.hologram.error".localized
+            return LocalizedString("document-State-HologramError")
         case .dark:
-            return "document.state.dark".localized
+            return LocalizedString("document-State-Dark")
         case .barcode:
-            return "document.state.barcode".localized
+            return LocalizedString("document-State-Barcode")
         case .timedOut:
-            return "document.state.timedout".localized
+            return LocalizedString("document-State-Timedout")
         default:
             return String(describing: self)
         }

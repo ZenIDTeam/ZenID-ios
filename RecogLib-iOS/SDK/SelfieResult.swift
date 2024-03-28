@@ -1,7 +1,9 @@
 import Foundation
 
 public struct SelfieResult {
+    
     public var selfieState: SelfieVerifierState
+    
     public let signature: ImageSignature?
 
     init?(selfieState: Int32, signature: CImageSignature) {

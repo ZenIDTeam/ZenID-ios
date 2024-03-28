@@ -30,7 +30,8 @@ class SelfieLivenessSdkValidatorConfig
 {
 public:
   std::vector<std::vector<SdkLivenessSteps>> RandomSequences;
-  inline static float SmileThreshold = 0.82f;
+  inline static float SmileThreshold = 0.7f;
+  inline static float NoSmileThreshold = 0.4f;
   int ScoreStep = 100;
   std::vector<SdkLivenessSteps> AllowedSteps;
   bool StepUpPerspective = true;
@@ -43,6 +44,7 @@ public:
   int StepCount = 4;
   bool LostFaceResets = true;
   bool ReCheckFrontend = false;
+  int RandomSequencesCount = 50;
   int AcceptScore = 100;
   bool IsTestEnabled = true;
 };
@@ -122,6 +124,16 @@ public:
   bool IsTestEnabled = true;
   int ScoreStep = 1;
 };
+class MrzChecksumValidatorConfig
+{
+public:
+  int ScoreStep = 100;
+  bool EnableSdkCheck = true;
+  bool UseOnNfcFields = false;
+  int MinFieldConfidence = 50;
+  int AcceptScore = 100;
+  bool IsTestEnabled = true;
+};
 class SdkProfileConfigs
 {
 public:
@@ -132,6 +144,7 @@ public:
   BarcodeValidatorConfig BarcodeValidatorConfig;
   SdkPictureQualityValidatorConfig SdkPictureQualityValidatorConfig;
   IQSHologramValidatorConfig IQSHologramValidatorConfig;
+  MrzChecksumValidatorConfig MrzChecksumValidatorConfig;
 };
 class SdkMasterConfig
 {
@@ -259,6 +272,10 @@ public:
   std::optional<int> BirthNumberChecksum;
   std::optional<bool> BirthNumberVerified;
   std::optional<int> BirthDateChecksum;
+  std::string SecondaryDocumentNumber;
+  std::optional<int> SecondaryDocumentNumberChecksum;
+  std::optional<bool> SecondaryDocumentNumberVerified;
+  std::string SecondaryDocumentRole;
   std::optional<int> DocumentNumChecksum;
   std::optional<int> ExpiryDateChecksum;
   std::string IssueDate;

@@ -4,11 +4,17 @@ import AVFoundation
 import UIKit
 
 public struct DocumentResult {
+    
     public var state: DocumentVerifierState
+    
     public var role: DocumentRole?
+    
     public var country: Country?
+    
     public var code: DocumentCodes?
+    
     public var page: PageCodes?
+    
     public var hologramState: HologramState?
     
     public var signature: ImageSignature?

@@ -3,6 +3,7 @@ import Foundation
 public final class UnifiedDocumentVerifierAdapter: UnifiedVerifier {
     
     private let verifier: DocumentVerifier
+    
     private let orientation: UIInterfaceOrientation
     
     public init(verifier: DocumentVerifier, orientation: UIInterfaceOrientation) {
@@ -20,6 +21,7 @@ public final class UnifiedDocumentVerifierAdapter: UnifiedVerifier {
 }
 
 extension UnifiedDocumentVerifierAdapter: VerifierRenderable {
+    
     public func getRenderCommands(canvasSize: CGSize) -> String? {
         verifier.getRenderCommands(canvasWidth: Int(canvasSize.width), canvasHeight: Int(canvasSize.height), orientation: orientation)
     }

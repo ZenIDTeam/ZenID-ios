@@ -13,8 +13,11 @@ enum TextHorizontalAlignment: String {
 }
 
 class Text: Renderable {
+    
     var rect: CGRect
+    
     let attributedString: NSAttributedString
+    
     let font: UIFont = UIFont.topLabel
     
     required init?(_ renderCommand: String) {

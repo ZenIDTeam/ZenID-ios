@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/DocumentVerifier.h</key>
 		<data>
-		lQvz/pJ1D6PbOef5gpMtoCxYNCY=
+		bEkYDBI6SXZZgYuytj9WHAGQrpc=
 		</data>
 		<key>Headers/FaceLivenessVerifier.h</key>
 		<data>
@@ -42,15 +42,15 @@
 		</data>
 		<key>Headers/SerializableInterop.generated.h</key>
 		<data>
-		Op9lyZU1v7LBiwHWP0DAK3rCqvc=
+		MCNrGS46jAOUAelMUn9eUSCvMs0=
 		</data>
 		<key>Headers/Version.h</key>
 		<data>
-		5iqD9CIxWrTUuuQn379FnKrUJ6E=
+		GK/oQ7aZCpMEx765A81U6zB9ynI=
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		nW3avzRUJ752JxPeGHzFYdywQxo=
+		xVfgxx9rHvZ3dSf58fqAoB85V6w=
 		</data>
 		<key>Headers/ZenidLog.h</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Headers/ZenidSecurity.h</key>
 		<data>
-		ZzMPK4RKL5mcSKqFDgDFsM51tSs=
+		uF1IC8JBfxvcvwywPmjNGZ3L/rU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		QJ/SHh8uGWNCWypeR2s3w1wWqG4=
+		yp2W4zSwO1+3TdRwQic3LBpLWes=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -78,7 +78,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			exoX5KWESAbMzPOSrsocRc2KOl6bMsiNKKzBdOyzKJ8=
+			tWaPsq4KIavoTJGrY9AK9CubipFWG0EOOQIMn87n5ok=
 			</data>
 		</dict>
 		<key>Headers/FaceLivenessVerifier.h</key>
@@ -134,21 +134,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pFoOxVQ9CqdyVMvw3uuTLuRugVuJAAvwaX9dKL9nsbY=
+			JmMprxVRF88ip5CTODXzWLqIzBG0911YmTgLr4Qfulc=
 			</data>
 		</dict>
 		<key>Headers/Version.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0aDZC0mejcUK5K23vM0/BVDzIeyiNeWLAn4H147VDuU=
+			S+ptw1YOyO+dXp0E1g60N3ic5xCwIQfQypM6neAU67Q=
 			</data>
 		</dict>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hrYYwpbOSSivxaHG4pQfyW7l1OaYBbraLtZi7KmdHxE=
+			Ww393A/iDJAvqEpxrAVVLwDK+4iPd9K27yl/lCtTipM=
 			</data>
 		</dict>
 		<key>Headers/ZenidLog.h</key>
@@ -162,7 +162,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QXCKp4dllCFU4iO4hexDJEWZOKT71GwMXWMmxLFYzQ8=
+			fmixelukbEgyCOazhUTq3FUGBa23/TjB3bS6tFmft90=
 			</data>
 		</dict>
 	</dict>

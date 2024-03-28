@@ -5,18 +5,35 @@
 #include <string>
 #include <memory>
 #include <optional>
+#include <mutex>
 
 using namespace RecogLibC;
+
+std::mutex verifierMutex;
+
+// TODO: Lock each usage of verifier with:
+// std::lock_guard<std::mutex> guard(verifierMutex);
+// The statement above adds a mutex to the code until the end of the scope
+// No need to add a lock_guard here because GetRenderCommands is the only thread-safe method.
 
 static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, const char *acceptableInputJson) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     
     // Construct optional data
-    auto documentRole = static_cast<DocumentRole>(document->role);
-    auto country = static_cast<Country>(document->country);
-    auto pageCode = static_cast<PageCodes>(document->page);
-    auto documentCode = static_cast<DocumentCodes>(document->code);
-    auto orientation = static_cast<int>(document->orientation);
+    DocumentRole documentRole = DocumentRole::Idc; // Default value, we won't use it if role is not set.
+    if (document->role >= 0) documentRole = static_cast<DocumentRole>(document->role);
+    
+    Country country = Country::Cz; // Default value, we won't use it if role is not set.
+    if (document->country >= 0) country = static_cast<Country>(document->country);
+    
+    PageCodes pageCode = PageCodes::F; // Default value, we won't use it if role is not set.
+    if (document->page >= 0) pageCode = static_cast<PageCodes>(document->page);
+    
+    DocumentCodes documentCode = DocumentCodes::DE_IDC_2001; // Default value, we won't use it if role is not set.
+    if (document->code >= 0) documentCode = static_cast<DocumentCodes>(document->code);
+    
+    int orientation = 0; // Default value, we won't use it if role is not set.
+    if (document->orientation > 0) orientation = document->orientation;
     
     CVPixelBufferLockBaseAddress(_cvBuffer, 0);
     const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
@@ -53,14 +70,16 @@ static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
     if (acceptableInputJson != NULL)
     {
+        std::lock_guard<std::mutex> guard(verifierMutex);
         verifier->ProcessFrame(image, acceptableInputJson);
     }
     else
     {
+        std::lock_guard<std::mutex> guard(verifierMutex);
         verifier->ProcessFrame(image,
                                document->role < 0 ? nullptr : &documentRole,
-                               document->page < 0 ? nullptr : &country,
-                               document->country < 0 ? nullptr : &pageCode,
+                               document->country < 0 ? nullptr : &country,
+                               document->page < 0 ? nullptr : &pageCode,
                                document->code < 0 ? nullptr : &documentCode);
     }
     
@@ -215,23 +234,27 @@ bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
 void beginHologramVerification(const void *object)
 {
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->BeginHologramVerification();
 }
 
 void endHologramVerification(const void *object)
 {
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->EndHologramVerification();
 }
 
 void reset(const void *object)
 {
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->Reset();
 }
 
 int validateDocumentsInput(const void *object, const char* acceptableInputJson) {
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     int size = static_cast<int>(verifier->GetEnabledModels(acceptableInputJson).size());
     return size;
@@ -242,13 +265,14 @@ char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasH
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     
     auto language = static_cast<SupportedLanguages>(document->language);
-    
+    // No need to add a lock_guard here because GetRenderCommands is the only thread-safe method.
     std::string renderString = verifier->GetRenderCommands(canvasWidth, canvasHeight, language);
     return getString(renderString);
 }
 
 void setDocumentDebugInfo(const void *object, bool show)
 {
+    std::lock_guard<std::mutex> guard(verifierMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->SetDebugVisualization(show);
 }

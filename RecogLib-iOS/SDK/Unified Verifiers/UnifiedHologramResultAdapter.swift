@@ -3,10 +3,15 @@ import Foundation
 public final class UnifiedHologramResultAdapter: UnifiedResult {
     
     public let state: UnifiedState
+    
     public let role: RecogLib_iOS.DocumentRole?
+    
     public let country: RecogLib_iOS.Country?
+    
     public let code: RecogLib_iOS.DocumentCodes?
+    
     public let page: RecogLib_iOS.PageCodes?
+    
     public let signature: ImageSignature?
     
     public init(result: HologramResult) {
@@ -17,10 +22,10 @@ public final class UnifiedHologramResultAdapter: UnifiedResult {
         page = nil
         signature = nil
     }
-    
 }
 
 public extension HologramState {
+    
     func toDomain() -> UnifiedState {
         return switch self {
         case .Center: .center

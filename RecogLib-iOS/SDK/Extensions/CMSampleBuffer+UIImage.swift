@@ -2,6 +2,7 @@ import AVFoundation
 import UIKit
 
 extension CMSampleBuffer {
+    
     func imageFromSampleBuffer() -> UIImage {
         // Get a CMSampleBuffer's Core Video image buffer for the media data
         let  imageBuffer = CMSampleBufferGetImageBuffer(self);

@@ -1,6 +1,7 @@
 import UIKit
 
 public class DrawingLayer: CALayer {
+    
     var mirrorX = false
     
     private(set) var renderables: [Renderable]? {
@@ -16,13 +17,14 @@ public class DrawingLayer: CALayer {
     }
     
     public func setRenderables(_ renderables: [Renderable]?) {
-        guard let renderables = renderables else {
+        guard let renderables else {
             self.renderables = nil
             return
         }
+        
         var high = [Renderable]()
         var low = [Renderable]()
-        for renderable in renderables {
+        renderables.forEach { renderable in
             switch renderable.priority {
             case .high:
                 high.append(renderable)

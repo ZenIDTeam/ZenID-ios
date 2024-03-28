@@ -9,6 +9,7 @@ public enum ImageFlip: Int {
 }
 
 extension UIImage {
+    
     public convenience init?(pixelBuffer: CVPixelBuffer, crop: CGRect? = nil) {
         var cgImage: CGImage?
         VTCreateCGImageFromCVPixelBuffer(pixelBuffer, options: nil, imageOut: &cgImage)
@@ -116,7 +117,7 @@ extension UIImage {
     }
 
     func flip(_ flipMethod: ImageFlip) -> UIImage {
-        guard let cgImage = cgImage else {
+        guard let cgImage else {
             return self
         }
 
@@ -128,5 +129,16 @@ extension UIImage {
         default:
             return self
         }
+    }
+    
+    /// Crop image to fit size.
+    /// - Parameter cropSize: Size that is represented as proportion.
+    /// - Returns: Cropped image.
+    func crop(useProportions cropSize: CGSize) -> UIImage? {
+        let imageRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        let targetRect = CGRect(x: 0, y: 0, width: cropSize.width, height: cropSize.height)
+        let cropRect = targetRect.rectThatFitsRect(imageRect)
+        guard let croppedImage = cgImage?.cropping(to: cropRect) else { return nil }
+        return UIImage(cgImage: croppedImage)
     }
 }
