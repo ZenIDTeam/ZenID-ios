@@ -1,9 +1,13 @@
 import UIKit
 
 class Line: Renderable {
+    
     var a: CGPoint
+    
     var b: CGPoint
+    
     let color: CGColor
+    
     let thickness: CGFloat
     
     required init?(_ renderCommand: String) {
@@ -28,6 +32,7 @@ class Line: Renderable {
         ctx.setLineWidth(self.thickness)
         
         ctx.beginPath()
+        ctx.setLineCap(.round)
         ctx.move(to: self.a)
         ctx.addLine(to: self.b)
         ctx.strokePath()

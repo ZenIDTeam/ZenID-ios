@@ -1,3 +1,4 @@
+"camera-point-first" = "Namiřte kameru";
 
 "msg-scan-front" = "Vyfoťte přední stranu.";
 "msg-scan-back" = "Vyfoťte zadní stranu.";
@@ -17,14 +18,55 @@
 "nfc-Data-Personal" = "osobní údaje";
 "nfc-Data-Photo" = "fotografii";
 
-"document.state.ok" = "Ok ";
-"document.state.align.card" = "Zarovnejte průkaz v rámečku";
-"document.state.blurry" = "Fotka je rozmazaná";
-"document.state.hold.steady" = "Držte ješte chvíli bez pohybu";
-"document.state.no.match.found" = "Žádna shoda nenalezena";
-"document.state.reflection.present" = "Příliš mnoho odlesků";
-"document.state.hologram.error" = "Chybný hologram";
-"document.state.text_not_readable" = "Text není čitelný";
-"document.state.dark" = "Fotka je příliš tmavá";
-"document.state.barcode" = "Barcode není čítelný";
-"document.state.timedout" = "Časový limit vypršel";
+"document-State-Ok" = "Ok ";
+"document-State-AlignCard" = "Zarovnejte průkaz v rámečku";
+"document-State-Blurry" = "Fotka je rozmazaná";
+"document-State-HoldSteady" = "Držte ješte chvíli bez pohybu";
+"document-State-NoMatchFound" = "Žádna shoda nenalezena";
+"document-State-ReflectionPresent" = "Příliš mnoho odlesků";
+"document-State-HologramError" = "Chybný hologram";
+"document-State-TextNotReadable" = "Text není čitelný";
+"document-State-Dark" = "Fotka je příliš tmavá";
+"document-State-Barcode" = "Barcode není čítelný";
+"document-State-Timedout" = "Časový limit vypršel";
+
+// Verifier states
+
+"documentVerifierState-NoMatchFound" = "Hledáme doklad";
+"documentVerifierState-AlignCard" = "Zarovnejte doklad";
+"documentVerifierState-HoldSteady" = "Držte doklad v klidu";
+"documentVerifierState-Blurry" = "Příliš neostré";
+"documentVerifierState-ReflectionPresent" = "Na textu jsou odrazy";
+"documentVerifierState-Ok" = "Dobrý snímek";
+"documentVerifierState-Hologram" = "Chybný hologram";
+"documentVerifierState-Dark" = "Příliš tmavé";
+"documentVerifierState-Barcode" = "Čárový kód je nečitelný";
+"documentVerifierState-TextNotReadable" = "Držte doklad v klidu, pokoušíme se číst text";
+"documentVerifierState-Nfc" = "Pokoušíme se číst NFC data";
+
+"hologramState-Center" = "Zarovnejte kartu na střed";
+"hologramState-TiltLeftAndRight" = "Otáčejte kartou doleva a doprava";
+"hologramState-TiltUpAndDown" = "Naklánějte kartu nahoru a dolů";
+"hologramState-Ok" = "Hotovo";
+"hologramState-TimedOut" = "Čas vypršel";
+"hologramState-TiltLeft" = "Pomalu zarovnejte kartu s obrysem nakláněním doleva";
+"hologramState-TiltRight" = "Pomalu zarovnejte kartu s obrysem nakláněním doprava";
+"hologramState-TiltUp" = "Pomalu zarovnejte kartu s obrysem nakláněním nahoru";
+"hologramState-TiltDown" = "Pomalu zarovnejte kartu s obrysem nakláněním dolů";
+
+"faceLivenessVerifierState-LookAtMe" = "Dívejte se přímo do kamery";
+"faceLivenessVerifierState-TurnHead" = "Pomalu otočte hlavu za šipkou";
+"faceLivenessVerifierState-Smile" = "Usmějte se nebo pohněte ústy";
+"faceLivenessVerifierState-Ok" = "";
+"faceLivenessVerifierState-Blurry" = "Příliš neostré";
+"faceLivenessVerifierState-Dark" = "Nedostatek světla";
+"faceLivenessVerifierState-HoldStill" = "Snažte se nepohnout";
+"faceLivenessVerifierState-Reseting" = "Tvář se nepodařilo ověřit, prosím, zkuste znova";
+"faceLivenessVerifierState-DontSmile" = "Neusmívejte se";
+
+"selfieVerifierState-Ok" = "";
+"selfieVerifierState-NoFaceFound" = "Dívejte se do kamery";
+"selfieVerifierState-Blurry" = "Příliš neostré";
+"selfieVerifierState-Dark" = "Příliš tmavé";
+"selfieVerifierState-ConfirmingFace" = "Snažte se nepohnout";
+"selfieVerifierState-BadFaceAngle" = "Dívejte se do kamery";

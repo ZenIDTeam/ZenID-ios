@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 public struct DocumentControllerConfiguration {
+    
     public static let `default` = DocumentControllerConfiguration(
         showVisualisation: true,
         showHelperVisualisation: true,
@@ -12,24 +13,47 @@ public struct DocumentControllerConfiguration {
         page: nil,
         code: nil,
         documents: nil,
-        settings: nil
-    )
+        settings: nil)
 
     public let showVisualisation: Bool
+    
     public let showHelperVisualisation: Bool
+    
     public let showDebugVisualisation: Bool
+    
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
+    
     public let role: RecogLib_iOS.DocumentRole?
+    
     public let country: RecogLib_iOS.Country?
+    
     public let page: RecogLib_iOS.PageCodes?
+    
     public let code: RecogLib_iOS.DocumentCodes?
+    
     public let documents: [Document]?
+    
     public let settings: DocumentVerifierSettings?
 
-    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, documents: [Document]?, settings: DocumentVerifierSettings?) {
+    public init(
+        showVisualisation: Bool,
+        showHelperVisualisation: Bool,
+        showDebugVisualisation: Bool,
+        showTextInstructions: Bool = true,
+        dataType: DataType,
+        role: RecogLib_iOS.DocumentRole?,
+        country: RecogLib_iOS.Country?,
+        page: RecogLib_iOS.PageCodes?,
+        code: RecogLib_iOS.DocumentCodes?,
+        documents: [Document]?,
+        settings: DocumentVerifierSettings?
+    ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
         self.role = role
         self.country = country
@@ -41,6 +65,7 @@ public struct DocumentControllerConfiguration {
 }
 
 extension DocumentResult: ResultState {
+    
     public var isOk: Bool {
         state == .Ok || hologramState == .Ok || state == .Nfc
     }
@@ -51,9 +76,13 @@ extension DocumentResult: ResultState {
 }
 
 public protocol DocumentControllerDelegate: AnyObject {
+    
     func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)
+    
     func controller(_ controller: DocumentController, didScan result: DocumentResult)
+    
     func controller(_ controller: DocumentController, didRecord videoURL: URL)
+    
     func controller(_ controller: DocumentController, didUpdate result: DocumentResult)
 }
 
@@ -69,17 +98,22 @@ public protocol DocumentControllerAbstraction {
 }
 
 public final class DocumentController: BaseController<DocumentResult>, DocumentControllerAbstraction {
+    
     public weak var delegate: DocumentControllerDelegate?
     #if targetEnvironment(simulator)
         public weak var debugDelegate: SimulatorHelperDelegate?
     #endif
 
     override var overlayImageName: String {
-        if config.role == .Pas {
-            return "targettingRectPas"
+        switch config.role {
+        case .Pas: "targettingRectPas"
+        case .Birth: "targettingRectBirth"
+        default: "targettingRect"
         }
-        return "targettingRect"
     }
+    
+    
+    override var shouldBeTorchEnabled: Bool { baseConfig.dataType == .video }
 
     private let verifier: DocumentVerifier
 
@@ -112,14 +146,14 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
                 guard let image = UIImage(named: "vzor-id-front") else { return }
                 guard let buffer = image.toCMSampleBuffer() else { return }
                 isRunning = true
-                targetFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                previewFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
                 cameraDelegate(camera: camera, onOutput: buffer)
 
             case "id-back":
                 debugDelegate?.provideDebugImage(for: "id-back") { [weak self] image in
                     guard let self, let buffer = image.toCMSampleBuffer() else { return }
                     self.isRunning = true
-                    self.targetFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                    self.previewFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
                     self.cameraDelegate(camera: camera, onOutput: buffer)
                 }
             default:
@@ -128,13 +162,19 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         }
     #endif
 
-    public init(camera: Camera, view: CameraView, modelsUrl: URL, mrzModelsUrl: URL?) {
+    public init(
+        camera: Camera,
+        view: CameraView,
+        modelsUrl: URL,
+        mrzModelsUrl: URL?,
+        language: SupportedLanguages = SupportedLanguages.current
+    ) {
         verifier = .init(
             role: RecogLib_iOS.DocumentRole.Idc,
             country: RecogLib_iOS.Country.Cz,
             page: RecogLib_iOS.PageCodes.F,
             code: nil,
-            language: .English
+            language: language
         )
         super.init(camera: camera, view: view)
 
@@ -147,18 +187,24 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     }
 
     deinit {
-        verifier.endHologramVerification()
+        if baseConfig.dataType == .video {
+            verifier.endHologramVerification()
+            videoWriter?.stop()
+        }
+        camera.stop()
         verifier.reset()
         resetDocumentVerifier()
     }
 
     public func configure(configuration: DocumentControllerConfiguration = .default) throws {
-        verifier.reset()
         verifier.endHologramVerification()
+        verifier.reset()
         let oldConfig = config
         config = configuration
 
-        view?.topLabel.text = config.page == .B ? LocalizedString("msg-scan-back", comment: "") : LocalizedString("msg-scan-front", comment: "")
+        view?.topLabel.text = config.page == .B 
+            ? LocalizedString("msg-scan-back", comment: "")
+            : LocalizedString("msg-scan-front", comment: "")
 
         // Enrico: For documents, we should leave the resolution and fps fields blanks until we have test results.
         // verifier.getRequiredResolution(), verifier.getRequiredFPS()
@@ -166,6 +212,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showHelperVisualisation,
+            showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .back,
             requestedResolution: 0,
@@ -196,13 +243,19 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
             verifier.documentsInput = .init(documents: documents)
         }
 
-        if config.dataType == .video {
-            verifier.beginHologramVerification()
-        }
-
         verifier.showDebugInfo = config.showDebugVisualisation
 
         try configure(configuration: baseConfig)
+        
+        DispatchQueue.global(qos: .default).async { [weak self] in
+            guard let self else { return }
+            if baseConfig.dataType == .video {
+                verifier.reset()
+                verifier.beginHologramVerification()
+            } else {
+                verifier.reset()
+            }
+        }
 
         #if targetEnvironment(simulator)
             if let overlay = view?.overlay {
@@ -288,6 +341,21 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
 
     override func callUpdateDelegate(with result: DocumentResult) {
         delegate?.controller(self, didUpdate: result)
+    }
+    
+    override func onLayoutChange() {
+        super.onLayoutChange()
+        
+        DispatchQueue.global(qos: .default).async { [weak self] in
+            guard let self else { return }
+            if baseConfig.dataType == .video {
+                verifier.endHologramVerification()
+                verifier.reset()
+                verifier.beginHologramVerification()
+            } else {
+                verifier.reset()
+            }
+        }
     }
 
     private func loadModels(url: URL, mrzURL: URL?) {   

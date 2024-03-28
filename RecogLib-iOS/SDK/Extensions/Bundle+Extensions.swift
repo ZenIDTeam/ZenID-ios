@@ -10,6 +10,5 @@ import Foundation
 
 extension Bundle {
     
-    static let recogLib = Bundle(identifier: "com.mstana.RecogLib-iOS") ?? Bundle.main
-    
+    static let recogLib = Bundle(identifier: "com.mstana.RecogLib-iOS") ?? Bundle.main    
 }

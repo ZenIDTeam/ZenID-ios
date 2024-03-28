@@ -33,7 +33,7 @@ protocol PACEHandler {
 //@available(iOS 13, *)
 //extension PACEHandlerError: LocalizedError {
 //    public var errorDescription: String? {
-//        return NSLocalizedString(value, comment: "PACEHandlerError")
+//        return LocalizedString(value, comment: "PACEHandlerError")
 //    }
 //}
 //

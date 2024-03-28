@@ -2,12 +2,17 @@ import CoreMedia
 import Foundation
 
 public class DocumentVerifier {
+    
     private var cppObject: UnsafeMutableRawPointer?
 
     public var documentRole: DocumentRole?
+    
     public var country: Country?
+    
     public var page: PageCodes?
+    
     public var code: DocumentCodes?
+    
     public let settings: DocumentVerifierSettings?
 
     public var documentsInput: DocumentsInput? {
@@ -26,7 +31,14 @@ public class DocumentVerifier {
 
     private var acceptableInputJson: String?
 
-    public init(role: DocumentRole?, country: Country?, page: PageCodes?, code: DocumentCodes?, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
+    public init(
+        role: DocumentRole?,
+        country: Country?,
+        page: PageCodes?,
+        code: DocumentCodes?,
+        language: SupportedLanguages,
+        settings: DocumentVerifierSettings? = nil
+    ) {
         documentRole = role
         self.country = country
         self.page = page
@@ -38,7 +50,11 @@ public class DocumentVerifier {
         cppObject = getDocumentVerifier(&verifierSettings)
     }
 
-    public init(input: DocumentsInput, language: SupportedLanguages, settings: DocumentVerifierSettings? = nil) {
+    public init(
+        input: DocumentsInput,
+        language: SupportedLanguages,
+        settings: DocumentVerifierSettings? = nil
+    ) {
         acceptableInputJson = input.acceptableInputJson()
         self.language = language
         self.settings = settings
@@ -60,7 +76,7 @@ public class DocumentVerifier {
         }
 
         if let mrzModelsPath {
-            var absolutePath = mrzModelsPath.absoluteString
+            let absolutePath = mrzModelsPath.absoluteString
             if let absolutePath = absolutePath
                 .replacingOccurrences(of: "file://", with: "")
                 .removingPercentEncoding 
@@ -77,7 +93,10 @@ public class DocumentVerifier {
         return DocumentResult(document: document)
     }
 
-    public func verifyImage(imageBuffer: CVPixelBuffer, orientation: UIInterfaceOrientation = .portrait) -> DocumentResult? {
+    public func verifyImage(
+        imageBuffer: CVPixelBuffer,
+        orientation: UIInterfaceOrientation = .portrait
+    ) -> DocumentResult? {
         var document = createDocumentInfo(orientation: orientation)
         RecogLib_iOS.verifyImage(cppObject, imageBuffer, &document, acceptableInputJson?.toUnsafeMutablePointer())
         return DocumentResult(document: document)
@@ -105,7 +124,11 @@ public class DocumentVerifier {
         RecogLib_iOS.reset(cppObject)
     }
 
-    public func getRenderCommands(canvasWidth: Int, canvasHeight: Int, orientation: UIInterfaceOrientation = .portrait) -> String? {
+    public func getRenderCommands(
+        canvasWidth: Int,
+        canvasHeight: Int,
+        orientation: UIInterfaceOrientation = .portrait
+    ) -> String? {
         var document = createDocumentInfo(orientation: orientation)
         let cString = RecogLib_iOS.getDocumentRenderCommands(cppObject, Int32(canvasWidth), Int32(canvasHeight), &document)
         defer { free(cString) }
@@ -155,7 +178,9 @@ public class DocumentVerifier {
     /// it returns the code needed to enable communication with the NFC chip
     public func getNfcKey() -> String? {
         guard let mrzFields = getMrzFields() else { return nil }
-        let code = NfcUtils.getMRZKey(documentNumber: mrzFields.DocumentNumber, dateOfBirth: mrzFields.BirthDate, dateOfExpiry: mrzFields.ExpiryDate)
+        let code = NfcUtils.getMRZKey(documentNumber: mrzFields.DocumentNumber, 
+                                      dateOfBirth: mrzFields.BirthDate,
+                                      dateOfExpiry: mrzFields.ExpiryDate)
         return code
     }
     

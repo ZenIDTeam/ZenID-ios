@@ -1,6 +1,7 @@
 import Foundation
 
 public struct HologramResult {
+    
     public var hologramState: HologramState
 
     init?(document: CDocumentInfo) {

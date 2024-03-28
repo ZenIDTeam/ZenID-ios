@@ -1,11 +1,17 @@
 import UIKit
 
 class Ellipse: Renderable {
+    
     var center: CGPoint
+    
     let radiusX: CGFloat
+    
     let radiusY: CGFloat
+    
     let rotation: CGFloat // ellipse rotation not implemented
+    
     let thickness: CGFloat
+    
     let color: CGColor
     
     var rect: CGRect {

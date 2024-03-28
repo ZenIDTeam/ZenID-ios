@@ -42,7 +42,7 @@ struct CPreviewData {
     const uint8_t *image;
     int imageSize;
 };
-    
+
 typedef struct CImageSignature CImageSignature;
 typedef struct CDocumentInfo CDocumentInfo;
 typedef struct CDocumentVerifierSettings CDocumentVerifierSettings;

@@ -3,11 +3,14 @@ import Foundation
 import UIKit
 
 public protocol ResultState {
+    
     var isOk: Bool { get }
+    
     var description: String { get }
 }
 
 struct BaseControllerConfiguration {
+    
     enum ProcessType {
         case document
         case face
@@ -15,21 +18,46 @@ struct BaseControllerConfiguration {
     }
 
     static let DEFAULT_VIDEO_RESOLUTION = 1920
+    
     static let DEFAULT_VIDEO_FPS = 30 // FPS not used for now
 
-    static let `default` = BaseControllerConfiguration(showVisualisation: true, showHelperVisualisation: true, dataType: .picture, cameraType: .back, requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION, requestedFPS: Self.DEFAULT_VIDEO_FPS, processType: .document)
+    static let `default` = BaseControllerConfiguration(showVisualisation: true, 
+                                                       showHelperVisualisation: true,
+                                                       dataType: .picture,
+                                                       cameraType: .back,
+                                                       requestedResolution: Self.DEFAULT_VIDEO_RESOLUTION,
+                                                       requestedFPS: Self.DEFAULT_VIDEO_FPS,
+                                                       processType: .document)
 
     public let showVisualisation: Bool
+    
     public let showHelperVisualisation: Bool
+    
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
+    
     public let cameraType: CameraType
+    
     public let requestedResolution: Int
+    
     public let requestedFPS: Int
+    
     public let processType: ProcessType
 
-    init(showVisualisation: Bool, showHelperVisualisation: Bool, dataType: DataType, cameraType: CameraType, requestedResolution: Int, requestedFPS: Int, processType: ProcessType) {
+    init(
+        showVisualisation: Bool,
+        showHelperVisualisation: Bool,
+        showTextInstructions: Bool = true,
+        dataType: DataType,
+        cameraType: CameraType,
+        requestedResolution: Int,
+        requestedFPS: Int,
+        processType: ProcessType
+    ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
         self.cameraType = cameraType
         self.processType = processType
@@ -51,37 +79,55 @@ struct BaseControllerConfiguration {
 }
 
 public class BaseController<ResultType: ResultState> {
+    
+    var temp: String = ""
+        
     public var camera: Camera
+    
     public weak var view: CameraView?
 
     var videoWriter: VideoWriter?
 
-    var targetFrame: CGRect = .zero
+    /// Area with reticle.
+    var targetFrame: CGRect { view?.overlay?.targetFrame ?? .zero }
+    
+    var previewFrame: CGRect = .zero
+    
     var isRunning: Bool = false
 
     var previousResult: ResultType?
+        
     var latestSuccessfullBuffer: CVPixelBuffer?
 
-    var overlayImageName: String {
-        "targettingRect"
-    }
+    /// Overlay image name (e.g. reticle image).
+    var overlayImageName: String { "targettingRect" }
 
     private(set) var baseConfig: BaseControllerConfiguration = .default
+    
+    /// Whenever visualisation is visible or nor.
+    private var isVisualisationAllowed: Bool { baseConfig.showVisualisation }
+    
+    /// Produce `true` if current process is Hologram check.
+    var shouldBeTorchEnabled: Bool { false }
+    
+    /// Static overlay is document reticle.
+    var canShowStaticOverlay: Bool {
+        canShowVisualisation() && isVisualisationAllowed
+    }
+    
+    /// Instruction view is text in the middle of reticle.
+    var canShowInstructionView: Bool {
+        baseConfig.dataType != .video && canShowStaticOverlay
+    }
 
     init(camera: Camera, view: CameraView) {
         self.camera = camera
         self.view = view
-
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(orientationChanged),
-            name: UIDevice.orientationDidChangeNotification, object: nil
-        )
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self)
-        setTorch(on: false)
         videoWriter?.stop()
+        camera.stop()
     }
 
     func configure(configuration: BaseControllerConfiguration = .default) throws {
@@ -90,20 +136,13 @@ public class BaseController<ResultType: ResultState> {
         isRunning = false
         view?.layoutIfNeeded()
 
-        try? camera.configure(with: .init(type: configuration.cameraType))
-
+        try? camera.configure(with: .init(type: configuration.cameraType))        
+        
         view?.previewLayer = camera.previewLayer
         view?.setup()
-        view?.setupControlView()
-        view?.supportChangedOrientation = { true }
-        view?.onFrameChange = { [weak self] in
-            self?.orientationChanged()
-        }
 
-        view?.configureOverlay(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
-        view?.configureVideoLayers(overlay: CameraOverlayView(imageName: overlayImageName, frame: view?.bounds ?? .zero), showStaticOverlay: canShowStaticOverlay(), targetFrame: getOverlayTargetFrame())
-
-        targetFrame = view?.overlay?.bounds ?? .zero
+        let overlayView = CameraOverlayView(imageName: overlayImageName)
+        view?.configureOverlay(overlayView, isStatic: canShowStaticOverlay)
 
         if baseConfig.dataType == .video {
             videoWriter = VideoWriter()
@@ -115,80 +154,60 @@ public class BaseController<ResultType: ResultState> {
             }
         }
 
-        view?.showInstructionView = canShowInstructionView()
+        view?.showInstructionView = canShowInstructionView
+        
+        view?.onLayoutChange = { [weak self] in
+            self?.onLayoutChange()
+        }
 
+        previewFrame = view?.overlay?.bounds ?? .zero
+        camera.setOrientation()
+        
         previousResult = nil
-        orientationChanged()
         start()
         isRunning = true
-
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.orientationChanged()
-            self.setTorch(on: self.baseConfig.dataType == .video)
-        }
     }
 
     public func start() {
         camera.start()
+        camera.setTorch(on: shouldBeTorchEnabled)
     }
 
     public func stop() {
+        isRunning = false
+        camera.setTorch(on: false)
         camera.stop()
         videoWriter?.delegate = nil
         videoWriter?.stop()
-        videoWriter = nil
+        videoWriter = nil        
     }
 
-    func verify(pixelBuffer: CVPixelBuffer) -> ResultType? {
-        nil
-    }
+    func verify(pixelBuffer: CVPixelBuffer) -> ResultType? { nil }
 
-    func getRenderCommands(size: CGSize) -> String? {
-        nil
-    }
+    func getRenderCommands(size: CGSize) -> String? { nil }
 
-    func canShowStaticOverlay() -> Bool {
-        canShowVisualisation() && isVisualisationAllowed()
-    }
+    func callDelegate(with result: ResultType) { }
 
-    func canShowInstructionView() -> Bool {
-        baseConfig.dataType != .video && canShowStaticOverlay()
-    }
+    func callDelegate(with videoUrl: URL) { }
 
-    func callDelegate(with result: ResultType) {
-    }
+    func callUpdateDelegate(with result: ResultType) { }
 
-    func callDelegate(with videoUrl: URL) {
-    }
-
-    func callUpdateDelegate(with result: ResultType) {
-    }
-
-    @objc
-    private func orientationChanged() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-            self.updateOrientation()
-        }
-    }
-
-    @objc
-    private func updateOrientation() {
-        targetFrame = view?.overlay?.bounds ?? .zero
-        camera.setOrientation(orientation: UIDevice.current.orientation)
-        view?.drawLayer?.setRenderables([])
-        view?.rotateOverlay(targetFrame: getOverlayTargetFrame())
-
+    /// Called after layout did change.
+    func onLayoutChange() {
+        previewFrame = view?.overlay?.bounds ?? .zero
+        
+        camera.setOrientation()
+        
         restartVideoWriter()
-    }
-
-    private func isVisualisationAllowed() -> Bool {
-        baseConfig.showVisualisation
+        
+        if isRunning {
+            camera.setTorch(on: shouldBeTorchEnabled)
+        }
     }
     
     /// Restart video recording.
     func restartVideoWriter() {
-        guard let videoWriter = videoWriter, videoWriter.isRecording else { return }
+        guard let videoWriter, videoWriter.isRecording else { return }
         
         videoWriter.stopAndCancel()
         DispatchQueue.main.async { [weak self] in
@@ -197,34 +216,28 @@ public class BaseController<ResultType: ResultState> {
     }
 
     private func startVideoWriter() {
-        let orientation: UIInterfaceOrientation
-        orientation = if #available(iOS 15.0, *) {
-            UIApplication
-                .shared
-                .connectedScenes
-                .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-                .last?.windowScene?.interfaceOrientation ?? .portrait
-        } else if #available(iOS 13.0, *) {
-            UIApplication
-                .shared
-                .connectedScenes
-                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-                .last { $0.isKeyWindow }?
-                .windowScene?.interfaceOrientation ?? .portrait
-        } else {
-            UIApplication.shared.statusBarOrientation
-        }
-        videoWriter?.start(isPortrait: orientation.isPortrait, requestedWidth: baseConfig.requestedResolution, requestedFPS: baseConfig.requestedFPS)
+        videoWriter?.start(isPortrait: UIInterfaceOrientation.current.isPortrait,
+                           requestedWidth: baseConfig.requestedResolution,
+                           requestedFPS: baseConfig.requestedFPS)
     }
 }
 
 extension BaseController {
+    
+    // Reticle frame position.
     func getOverlayTargetFrame() -> CGRect {
         let size = camera.getCurrentResolution()
         let imageRect = CGRect(origin: .zero, size: size)
-        return imageRect.rectThatFitsRect(view?.overlay?.frame ?? .zero)
+        return targetFrame.rectThatFitsRect(imageRect)
     }
 
+    
+    /// Crop image data from buffer.
+    ///
+    /// It is used that verifier is checking only cropped data and not whole camera stream.
+    ///
+    /// - Parameter pixelBuffer: Input pixel buffer.
+    /// - Returns: Cropped pixel buffer.
     func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer? {
         // camera frame size
         let width = CVPixelBufferGetWidth(pixelBuffer)
@@ -238,50 +251,46 @@ extension BaseController {
         return image?.toCVPixelBuffer()
     }
 
+    
+    /// Calculate rectangle for crop.
+    ///
+    /// - Parameters:
+    ///   - width: Source width.
+    ///   - height: Source height.
+    /// - Returns: Calculated rectangle.
     func getCroppedImageRect(width: Int, height: Int) -> CGRect {
         #if targetEnvironment(simulator)
-            return CGRect(x: 0, y: 0, width: width, height: height)
-        #endif
-        let gravity = Defaults.videoGravity
-        switch gravity {
+        return CGRect(x: 0, y: 0, width: width, height: height)
+        
+        #else
+        switch Defaults.videoGravity {
         case .resizeAspect:
-            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let layerRect = imageRect.rectThatFitsRect(targetFrame)
-            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
-            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-            return cropRect
+            // With resize aspect we always process whole image.
+            let croppedRect = CGRect(x: 0, y: 0, width: width, height: height)
+            return croppedRect
         case .resizeAspectFill:
-            let layerRect = targetFrame
-            let metadataRect = camera.previewLayer!.metadataOutputRectConverted(fromLayerRect: layerRect)
-            let cropRect = metadataRect.applying(CGAffineTransform(scaleX: CGFloat(width), y: CGFloat(height)))
-            return cropRect
+            // With aspect fill we crop from inside of the image frame
+            let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
+            let croppedRect = previewFrame.rectThatFitsRect(imageRect)
+            return croppedRect
         default:
             return .zero
         }
-    }
-
-    func setTorch(on: Bool) {
-        do {
-            try camera.setTorch(isOn: on)
-        } catch {
-            ApplicationLogger.shared.Verbose("\(error.localizedDescription)")
-        }
+        
+        #endif
     }
 
     func renderCommands(commands: String, imageRect: CGRect, pixelBuffer: CVPixelBuffer) {
-        if !baseConfig.showHelperVisualisation {
-            return
-        }
-        guard let previewLayer = camera.previewLayer else {
-            return
-        }
-        if targetFrame == .zero {
-            return
-        }
-        let commandsRect = previewLayer.frame
+        guard
+            baseConfig.showHelperVisualisation,
+            previewFrame != .zero
+        else { return }
+        
         if let drawLayer = view?.drawLayer {
-            let renderables = RenderableFactory.createRenderables(commands: commands)
-            drawLayer.frame = commandsRect
+            drawLayer.frame = imageRect
+            let renderables = RenderableFactory
+                .createRenderables(commands: commands,
+                                   showTextInstructions: baseConfig.showTextInstructions)
             drawLayer.setRenderables(renderables)
         }
     }
@@ -302,7 +311,6 @@ extension BaseController {
 
         if baseConfig.dataType == .video {
             videoWriter?.stop()
-            setTorch(on: false)
             return
         }
         callDelegate(with: result)
@@ -314,26 +322,29 @@ extension BaseController {
 }
 
 extension BaseController: VideoWriterDelegate {
+    
     public func didTakeVideo(_ videoAsset: AVURLAsset) {
         callDelegate(with: videoAsset.url)
     }
 }
 
 extension BaseController: CameraDelegate {
+    
     func cameraDelegate(camera: Camera, onOutput sampleBuffer: CMSampleBuffer) {
         guard isRunning else { return }
-        guard targetFrame.width > 0 else { return }
+        guard previewFrame.width > 0 else { return }
 
         // crop pixel data if necessary
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        guard let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer) else {
-            return
-        }
+        guard let croppedBuffer = getCroppedPixelBuffer(pixelBuffer: pixelBuffer) else { return } //1
+        
         let imageWidth = CVPixelBufferGetWidth(croppedBuffer)
         let imageHeight = CVPixelBufferGetHeight(croppedBuffer)
-        let imageRect = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
 
-        if baseConfig.dataType == .video, let videoWriter = videoWriter, videoWriter.canWrite() {
+        if baseConfig.dataType == .video,
+            let videoWriter = videoWriter,
+            videoWriter.canWrite()
+        {
             videoWriter.captureOutput(sampleBuffer: sampleBuffer)
         }
 
@@ -357,18 +368,32 @@ extension BaseController: CameraDelegate {
         }
 
         callUpdateDelegate(with: result)
-        DispatchQueue.main.async { [unowned self] in
-            self.updateView(with: result, buffer: croppedBuffer)
+        DispatchQueue.main.async { [weak self] in
+            self?.updateView(with: result, buffer: croppedBuffer)
         }
+        
         #if targetEnvironment(simulator)
-            let canvasSize = CGSize(width: imageWidth, height: imageHeight)
+        let canvasSize = CGSize(width: imageWidth, height: imageHeight)
+        
         #else
-            guard let canvasSize = camera.previewLayer?.frame.size else { return }
+        let canvasSize = previewFrame.size
+        
         #endif
-
         guard let commands = getRenderCommands(size: canvasSize) else { return }
-        DispatchQueue.main.async {
-            self.renderCommands(commands: commands, imageRect: imageRect, pixelBuffer: pixelBuffer)
+        // FIXME: This is usable until the actual duplicity bug is solved.
+        /*
+        var log = "RENDER: Commands | size: \(canvasSize) | frame: \(previewFrame) \n \(commands)"
+        if log != temp {
+            temp = log
+            ApplicationLogger.shared.Info(log)
+        } */
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            self.renderCommands(commands: commands, 
+                                imageRect: previewFrame,
+                                pixelBuffer: pixelBuffer)
         }
     }
 }

@@ -1,3 +1,5 @@
+"camera-point-first" = "Point camera";
+
 "msg-scan-front" = "Please take a photo of the front side.";
 "msg-scan-back" = "Please take a photo of the rear side.";
 "msg-scan-face" = "Please take a photo of yourself.";
@@ -16,14 +18,56 @@
 "nfc-Data-Personal" = "personal data";
 "nfc-Data-Photo" = "photo";
 
-"document.state.ok" = "Ok ";
-"document.state.align.card" = "Align card";
-"document.state.blurry" = "Image is blurry";
-"document.state.hold.steady" = "Hold steady";
-"document.state.no.match.found" = "No match found";
-"document.state.reflection.present" = "Drop reflection please";
-"document.state.hologram.error" = "Hologram error";
-"document.state.text_not_readable" = "Text isn't readable";
-"document.state.dark" = "Image too dark";
-"document.state.barcode" = "Barcode not readable";
-"document.state.timedout" = "The time limit has expired";
+"document-State-Ok" = "Ok ";
+"document-State-AlignCard" = "Align card";
+"document-State-Blurry" = "Image is blurry";
+"document-State-HoldSteady" = "Hold steady";
+"document-State-NoMatchFound" = "No match found";
+"document-State-ReflectionPresent" = "Drop reflection please";
+"document-State-HologramError" = "Hologram error";
+"document-State-TextNotReadable" = "Text isn't readable";
+"document-State-Dark" = "Image too dark";
+"document-State-Barcode" = "Barcode not readable";
+"document-State-Timedout" = "The time limit has expired";
+
+// Verifier states
+
+"documentVerifierState-NoMatchFound" = "Searching for card";
+"documentVerifierState-AlignCard" = "Align card";
+"documentVerifierState-HoldSteady" = "Hold Steady";
+"documentVerifierState-Blurry" = "Too blurry";
+"documentVerifierState-ReflectionPresent" = "Reflections on text";
+"documentVerifierState-Ok" = "Good Picture";
+"documentVerifierState-Hologram" = "";
+"documentVerifierState-Dark" = "Too Dark";
+"documentVerifierState-Barcode" = "Barcode not readable";
+"documentVerifierState-TextNotReadable" = "Hold steady, we're trying to read text";
+"documentVerifierState-Nfc" = "Trying to read NFC data";
+
+"hologramState-Center" = "Align Card in Center";
+"hologramState-TiltLeftAndRight" = "Tilt left and right";
+"hologramState-TiltUpAndDown" = "Tilt up and down";
+"hologramState-Ok" = "Done";
+"hologramState-TimedOut" = "Timed out";
+"hologramState-TiltLeft" = "Slowly align card with outline by tilting left";
+"hologramState-TiltRight" = "Slowly align card with outline by tilting right";
+"hologramState-TiltUp" = "Slowly align card with outline by tilting up";
+"hologramState-TiltDown" = "Slowly align card with outline by tilting down";
+
+"faceLivenessVerifierState-LookAtMe" = "Turn head towards camera";
+"faceLivenessVerifierState-TurnHead" = "Turn head slowly towards arrow";
+"faceLivenessVerifierState-Smile" = "Smile or move your mouth";
+"faceLivenessVerifierState-Ok" = "";
+"faceLivenessVerifierState-Blurry" = "Too blurry";
+"faceLivenessVerifierState-Dark" = "Not enough light";
+"faceLivenessVerifierState-HoldStill" = "Hold still";
+"faceLivenessVerifierState-Reseting" = "";
+"faceLivenessVerifierState-DontSmile" = "Stop smiling";
+
+"selfieVerifierState-Ok" = "";
+"selfieVerifierState-NoFaceFound" = "Look at the camera";
+"selfieVerifierState-Blurry" = "Too blurry";
+"selfieVerifierState-Dark" = "Too dark";
+"selfieVerifierState-ConfirmingFace" = "Hold still";
+"selfieVerifierState-BadFaceAngle" = "Look straight into the camera";
+

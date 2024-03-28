@@ -1,6 +1,7 @@
 import Foundation
 
 public extension DocumentCodes {
+    
     init?(stringValue: String) {
         for code in DocumentCodes.allCases {
             if code.description.uppercased() == stringValue.uppercased() {
@@ -13,6 +14,7 @@ public extension DocumentCodes {
 }
 
 extension DocumentCodes {
+    
     public var description: String {
         return String(describing: self).uppercased()
     }
@@ -20,12 +22,14 @@ extension DocumentCodes {
 
 
 extension PageCodes {
+    
     public var description: String {
         return String(describing: self).uppercased()
     }
 }
 
 extension Country {
+    
     public var description: String {
         return String(describing: self)
     }
@@ -58,6 +62,7 @@ extension DocumentRole {
 }
 
 extension SupportedLanguages {
+    
     public var description: String {
         return switch self {
         case .Czech: "Cs"
@@ -69,64 +74,68 @@ extension SupportedLanguages {
 }
 
 extension DocumentVerifierState {
+    
     public var description: String {
         return switch self {
-        case .NoMatchFound: "No match found"
-        case .AlignCard: "Align card"
-        case .HoldSteady: "Hold steady"
-        case .Blurry: "Blurry"
-        case .ReflectionPresent: "Reflection present"
-        case .Ok: "Ok"
-        case .Hologram: "Hologram error"
-        case .Dark: "Too dark"
-        case .Barcode: "Barcode not readable"
-        case .TextNotReadable: "TextNotReadable"
-        case .Nfc: "Nfc"
+        case .NoMatchFound: LocalizedString("documentVerifierState-NoMatchFound")
+        case .AlignCard: LocalizedString("documentVerifierState-AlignCard")
+        case .HoldSteady: LocalizedString("documentVerifierState-HoldSteady")
+        case .Blurry: LocalizedString("documentVerifierState-Blurry")
+        case .ReflectionPresent: LocalizedString("documentVerifierState-ReflectionPresent")
+        case .Ok: LocalizedString("documentVerifierState-Ok")
+        case .Hologram: LocalizedString("documentVerifierState-Hologram")
+        case .Dark: LocalizedString("documentVerifierState-Dark")
+        case .Barcode: LocalizedString("documentVerifierState-Barcode")
+        case .TextNotReadable: LocalizedString("documentVerifierState-TextNotReadable")
+        case .Nfc: LocalizedString("documentVerifierState-Nfc")
         }
     }
 }
 
 extension HologramState {
+    
     public var description: String {
         return switch self {
-        case .Center: "Center"
-        case .TiltLeftAndRight: "Tilt left and right"
-        case .TiltUpAndDown: "Tilt up and down"
-        case .Ok: "Ok"
-        case .TimedOut: "Timed out"
-        case .TiltLeft: "Tilt left"
-        case .TiltRight: "Tilt right"
-        case .TiltUp: "Tilt up"
-        case .TiltDown: "Tilt down"
+        case .Center: LocalizedString("hologramState-Center")
+        case .TiltLeftAndRight: LocalizedString("hologramState-TiltLeftAndRight")
+        case .TiltUpAndDown: LocalizedString("hologramState-TiltUpAndDown")
+        case .Ok: LocalizedString("hologramState-Ok")
+        case .TimedOut: LocalizedString("hologramState-TimedOut")
+        case .TiltLeft: LocalizedString("hologramState-TiltLeft")
+        case .TiltRight: LocalizedString("hologramState-TiltRight")
+        case .TiltUp: LocalizedString("hologramState-TiltUp")
+        case .TiltDown: LocalizedString("hologramState-TiltDown")
         }
     }
 }
 
 extension FaceLivenessVerifierState {
+    
     public var description: String {
         return switch self {
-        case .LookAtMe: "Look at the camera"
-        case .TurnHead: "Turn head slowly towards arrow"
-        case .Smile: "Smile"
-        case .Ok: "Ok"
-        case .Blurry: "Blurry"
-        case .Dark: "Dark"
-        case .HoldStill: "Hold Still"
-        case .Reseting: "Reseting"
-        case .DontSmile: "Don't smile"
+        case .LookAtMe: LocalizedString("faceLivenessVerifierState-LookAtMe")
+        case .TurnHead: LocalizedString("faceLivenessVerifierState-TurnHead")
+        case .Smile: LocalizedString("faceLivenessVerifierState-Smile")
+        case .Ok: LocalizedString("faceLivenessVerifierState-Ok")
+        case .Blurry: LocalizedString("faceLivenessVerifierState-Blurry")
+        case .Dark: LocalizedString("faceLivenessVerifierState-Dark")
+        case .HoldStill: LocalizedString("faceLivenessVerifierState-HoldStill")
+        case .Reseting: LocalizedString("faceLivenessVerifierState-Reseting")
+        case .DontSmile: LocalizedString("faceLivenessVerifierState-DontSmile")
         }
     }
 }
 
 extension SelfieVerifierState {
+    
     public var description: String {
         return switch self {
-        case .Ok: "Ok"
-        case .NoFaceFound: "No face found"
-        case .Blurry: "Blurry"
-        case .Dark: "Dark"
-        case .ConfirmingFace: "Confirming face"
-        case .BadFaceAngle: "Bad face angle"
+        case .Ok: LocalizedString("selfieVerifierState-Ok")
+        case .NoFaceFound: LocalizedString("selfieVerifierState-NoFaceFound")
+        case .Blurry: LocalizedString("selfieVerifierState-Blurry")
+        case .Dark: LocalizedString("selfieVerifierState-Dark")
+        case .ConfirmingFace: LocalizedString("selfieVerifierState-ConfirmingFace")
+        case .BadFaceAngle: LocalizedString("selfieVerifierState-BadFaceAngle")
         }
     }
 }

@@ -6,6 +6,7 @@ public enum RenderingPriority {
 }
 
 public protocol Renderable {
+    
     var priority: RenderingPriority { get }
     
     init?(_ renderCommand: String)
@@ -13,6 +14,7 @@ public protocol Renderable {
 }
 
 extension Renderable {
+    
     public var priority: RenderingPriority {
         .low
     }

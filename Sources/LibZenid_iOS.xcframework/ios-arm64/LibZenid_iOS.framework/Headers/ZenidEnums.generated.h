@@ -294,7 +294,7 @@ enum class Country : uint8_t {
 	So = 104,
 	Sn = 105,
 	Gt = 106,
-	Tf = 107,
+	Td = 107,
 	Kh = 108,
 	Zw = 109,
 	Ss = 110,
@@ -572,6 +572,14 @@ enum class SampleType : int {
 	DocumentVideo = 3,
 	Archived = 4,
 	Unknown = 5,
+};
+
+enum class SdkVerifierType : int {
+	FaceLiveness = 0,
+	Document = 1,
+	Selfie = 2,
+	Hologram = 3,
+	IQSHologram = 4,
 };
 
 enum class SdkSignatureProblem : int {

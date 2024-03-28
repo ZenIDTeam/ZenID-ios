@@ -1,5 +1,17 @@
 # Change Log
 
+# 2.0.26 2024-03-04
+* RecogLib 4.1.7
+* Various performance and stability improvements.
+* New: Localization to be overrided by client application.
+* Fix: Camera object now respond to UI orientation and not Device orientation.
+* Fix: Remove unwanted initial visualisation v1 animation.
+* Fix: For visualisation v1 flickering on slower devices.
+* Fix: `Camera` object Torch stays on after device orientation changed.
+* New: Add optional controllers parameter `showTextInstructions` to disable text instructions in build-in visualisation.
+* New: All controllers has new init parameter to select Language for visualisation v1 tips. If parameter left empty it detects language from Locale and use one of available languages [English, Czech, German, Polish]. If locale isn't matching any of the languages it fall back to English.
+* Improved reliability.
+
 # 2.0.25 2024-02-01
 * RecogLib 3.10.4
 * Improvement: Camera and CameraView are now public and can be mutated in VerifierControllers.

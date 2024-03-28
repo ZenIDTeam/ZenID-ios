@@ -21,21 +21,21 @@ extension OpenSSLError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case let .UnableToGetX509CertificateFromPKCS7(reason):
-            return NSLocalizedString("Unable to read the SOD PKCS7 Certificate. \(reason)", comment: "UnableToGetPKCS7CertificateForSOD")
+            return LocalizedString("Unable to read the SOD PKCS7 Certificate. \(reason)", comment: "UnableToGetPKCS7CertificateForSOD")
         case let .UnableToVerifyX509CertificateForSOD(reason):
-            return NSLocalizedString("Unable to verify the SOD X509 certificate. \(reason)", comment: "UnableToVerifyX509CertificateForSOD")
+            return LocalizedString("Unable to verify the SOD X509 certificate. \(reason)", comment: "UnableToVerifyX509CertificateForSOD")
         case let .VerifyAndReturnSODEncapsulatedData(reason):
-            return NSLocalizedString("Unable to verify the SOD Datagroup hashes. \(reason)", comment: "UnableToGetSignedDataFromPKCS7")
+            return LocalizedString("Unable to verify the SOD Datagroup hashes. \(reason)", comment: "UnableToGetSignedDataFromPKCS7")
         case let .UnableToReadECPublicKey(reason):
-            return NSLocalizedString("Unable to read ECDSA Public key  \(reason)!", comment: "UnableToReadECPublicKey")
+            return LocalizedString("Unable to read ECDSA Public key  \(reason)!", comment: "UnableToReadECPublicKey")
         case let .UnableToExtractSignedDataFromPKCS7(reason):
-            return NSLocalizedString("Unable to extract Signer data from PKCS7  \(reason)!", comment: "UnableToExtractSignedDataFromPKCS7")
+            return LocalizedString("Unable to extract Signer data from PKCS7  \(reason)!", comment: "UnableToExtractSignedDataFromPKCS7")
         case let .VerifySignedAttributes(reason):
-            return NSLocalizedString("Unable to Verify the SOD SignedAttributes  \(reason)!", comment: "UnableToExtractSignedDataFromPKCS7")
+            return LocalizedString("Unable to Verify the SOD SignedAttributes  \(reason)!", comment: "UnableToExtractSignedDataFromPKCS7")
         case let .UnableToParseASN1(reason):
-            return NSLocalizedString("Unable to parse ASN1  \(reason)!", comment: "UnableToParseASN1")
+            return LocalizedString("Unable to parse ASN1  \(reason)!", comment: "UnableToParseASN1")
         case let .UnableToDecryptRSASignature(reason):
-            return NSLocalizedString("DatUnable to decrypt RSA Signature \(reason)!", comment: "UnableToDecryptRSSignature")
+            return LocalizedString("DatUnable to decrypt RSA Signature \(reason)!", comment: "UnableToDecryptRSSignature")
         }
     }
 }
@@ -50,11 +50,11 @@ extension PassiveAuthenticationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case let .UnableToParseSODHashes(reason):
-            return NSLocalizedString("Unable to parse the SOD Datagroup hashes. \(reason)", comment: "UnableToParseSODHashes")
+            return LocalizedString("Unable to parse the SOD Datagroup hashes. \(reason)", comment: "UnableToParseSODHashes")
         case let .InvalidDataGroupHash(reason):
-            return NSLocalizedString("DataGroup hash not present or didn't match  \(reason)!", comment: "InvalidDataGroupHash")
+            return LocalizedString("DataGroup hash not present or didn't match  \(reason)!", comment: "InvalidDataGroupHash")
         case let .SODMissing(reason):
-            return NSLocalizedString("DataGroup SOD not present or not read  \(reason)!", comment: "SODMissing")
+            return LocalizedString("DataGroup SOD not present or not read  \(reason)!", comment: "SODMissing")
         }
     }
 }

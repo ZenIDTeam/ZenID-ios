@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 extension FaceLivenessResult: ResultState {
+    
     public var isOk: Bool {
         faceLivenessState == .Ok
     }
@@ -12,24 +13,38 @@ extension FaceLivenessResult: ResultState {
 }
 
 public struct FacelivenessControllerConfiguration {
+    
     public static let `default` = FacelivenessControllerConfiguration(
         showVisualisation: true,
         showHelperVisualisation: true,
         showDebugVisualisation: false,
         dataType: .picture,
-        settings: FaceLivenessVerifierSettings()
-    )
+        settings: FaceLivenessVerifierSettings())
     
     public let showVisualisation: Bool
+    
     public let showHelperVisualisation: Bool
+    
     public let showDebugVisualisation: Bool
+    
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
+    
     public let settings: FaceLivenessVerifierSettings
     
-    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType, settings: FaceLivenessVerifierSettings) {
+    public init(
+        showVisualisation: Bool,
+        showHelperVisualisation: Bool,
+        showDebugVisualisation: Bool,
+        showTextInstructions: Bool = true,
+        dataType: DataType,
+        settings: FaceLivenessVerifierSettings
+    ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
         self.settings = settings
 
@@ -37,26 +52,40 @@ public struct FacelivenessControllerConfiguration {
 }
 
 public protocol FacelivenessControllerDelegate: AnyObject {
+    
     func controller(_ controller: FacelivenessController, didScan result: FaceLivenessResult)
+    
     func controller(_ controller: FacelivenessController, didRecord videoURL: URL, result: FaceLivenessResult)
+    
     func controller(_ controller: FacelivenessController, didUpdate result: FaceLivenessResult)
 }
 
 public protocol FacelivenessControllerAbstraction {
+    
     var delegate: FacelivenessControllerDelegate? { get set }
     
     func configure(configuration: FacelivenessControllerConfiguration) throws
 }
 
 public final class FacelivenessController: BaseController<FaceLivenessResult>, FacelivenessControllerAbstraction {
+    
     public weak var delegate: FacelivenessControllerDelegate?
     
     private let verifier: FaceLivenessVerifier
     
     private var config = FacelivenessControllerConfiguration.default
     
-    public init(camera: Camera, view: CameraView, modelsUrl: URL) {
-        verifier = .init(language: .English)
+    override var canShowStaticOverlay: Bool { false }
+    
+    override var canShowInstructionView: Bool { false }
+    
+    public init(
+        camera: Camera,
+        view: CameraView,
+        modelsUrl: URL,
+        language: SupportedLanguages = SupportedLanguages.current
+    ) {
+        verifier = .init(language: language)
         super.init(camera: camera, view: view)
         
         loadModels(url: modelsUrl)
@@ -71,6 +100,7 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showHelperVisualisation,
+            showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .front,
             requestedResolution: verifier.getRequiredResolution(),
@@ -82,6 +112,8 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
+        
+        verifier.reset()
     }
     
     public func getAuxiliaryImages() -> FaceLivenessAuxiliaryInfo? {
@@ -94,14 +126,6 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     
     override func getRenderCommands(size: CGSize) -> String? {
         verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
-    }
-    
-    override func canShowStaticOverlay() -> Bool {
-        false
-    }
-    
-    override func canShowInstructionView() -> Bool {
-        false
     }
     
     override func callDelegate(with result: FaceLivenessResult) {

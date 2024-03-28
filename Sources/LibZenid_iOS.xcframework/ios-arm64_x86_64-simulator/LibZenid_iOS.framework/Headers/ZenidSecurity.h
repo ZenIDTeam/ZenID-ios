@@ -13,7 +13,7 @@ namespace RecogLibC RECOGLIBC_NONE
 namespace Security RECOGLIBC_PUBLIC
 {
 
-RECOGLIBC_PUBLIC std::string GetChallengeToken();
+RECOGLIBC_PUBLIC std::string GetChallengeToken(); // this creates a new challenge token to be used for initSdk calls. If you call this again without calling authorize, same token will be returned.
 RECOGLIBC_PUBLIC bool IsAuthorized();
 RECOGLIBC_PUBLIC void CheckAuthorization();
 RECOGLIBC_PUBLIC bool SelectProfile(const std::string& profileName);

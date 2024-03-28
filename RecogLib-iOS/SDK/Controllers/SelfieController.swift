@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 extension SelfieResult: ResultState {
+    
     public var isOk: Bool {
         selfieState == .Ok
     }
@@ -12,47 +13,73 @@ extension SelfieResult: ResultState {
 }
 
 public struct SelfieControllerConfiguration {
+    
     public static let `default` = SelfieControllerConfiguration(
         showVisualisation: true,
         showHelperVisualisation: true,
         showDebugVisualisation: false,
-        dataType: .picture
-    )
+        dataType: .picture)
     
     public let showVisualisation: Bool
+    
     public let showHelperVisualisation: Bool
+    
     public let showDebugVisualisation: Bool
+    
+    public let showTextInstructions: Bool
+    
     public let dataType: DataType
     
-    public init(showVisualisation: Bool, showHelperVisualisation: Bool, showDebugVisualisation: Bool, dataType: DataType) {
+    public init(
+        showVisualisation: Bool,
+        showHelperVisualisation: Bool,
+        showDebugVisualisation: Bool,
+        showTextInstructions: Bool = true,
+        dataType: DataType
+    ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
+        self.showTextInstructions = showTextInstructions
         self.dataType = dataType
     }
 }
 
 public protocol SelfieControllerDelegate: AnyObject {
+    
     func controller(_ controller: SelfieController, didScan result: SelfieResult)
+    
     func controller(_ controller: SelfieController, didRecord videoURL: URL)
+    
     func controller(_ controller: SelfieController, didUpdate result: SelfieResult)
 }
 
 public protocol SelfieControllerAbstraction {
+    
     var delegate: SelfieControllerDelegate? { get set }
     
     func configure(configuration: SelfieControllerConfiguration) throws
 }
 
 public final class SelfieController: BaseController<SelfieResult>, SelfieControllerAbstraction {
+    
     public weak var delegate: SelfieControllerDelegate?
     
     private let verifier: SelfieVerifier
     
     private var config = SelfieControllerConfiguration.default
     
-    public init(camera: Camera, view: CameraView, modelsUrl: URL) {
-        verifier = .init(language: .English)
+    override var canShowStaticOverlay: Bool { false }
+    
+    override var canShowInstructionView: Bool { false }
+    
+    public init(
+        camera: Camera,
+        view: CameraView,
+        modelsUrl: URL,
+        language: SupportedLanguages = SupportedLanguages.current
+    ) {
+        verifier = .init(language: language)
         super.init(camera: camera, view: view)
         
         loadModels(url: modelsUrl)
@@ -67,6 +94,7 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
             showHelperVisualisation: configuration.showVisualisation,
+            showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .front,
             requestedResolution: 0,
@@ -77,6 +105,8 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
         verifier.showDebugInfo = config.showDebugVisualisation
         
         try self.configure(configuration: baseConfig)
+        
+        verifier.reset()
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> SelfieResult? {
@@ -85,14 +115,6 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
     
     override func getRenderCommands(size: CGSize) -> String? {
         verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
-    }
-    
-    override func canShowStaticOverlay() -> Bool {
-        false
-    }
-    
-    override func canShowInstructionView() -> Bool {
-        false
     }
     
     override func callDelegate(with result: SelfieResult) {

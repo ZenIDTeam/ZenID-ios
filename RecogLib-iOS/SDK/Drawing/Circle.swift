@@ -1,9 +1,13 @@
 import UIKit
 
 class Circle: Renderable {
+    
     var center: CGPoint
+    
     let radius: CGFloat
+    
     let thickness: CGFloat
+    
     let color: CGColor
     
     var rect: CGRect {

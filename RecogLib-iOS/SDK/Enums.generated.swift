@@ -287,7 +287,7 @@ public enum Country : Int, CaseIterable {
     case So = 104
     case Sn = 105
     case Gt = 106
-    case Tf = 107
+    case Td = 107
     case Kh = 108
     case Zw = 109
     case Ss = 110
@@ -457,6 +457,14 @@ public enum SampleType : Int, CaseIterable {
     case DocumentVideo = 3
     case Archived = 4
     case Unknown = 5
+}
+
+public enum SdkVerifierType : Int, CaseIterable { 
+    case FaceLiveness = 0
+    case Document = 1
+    case Selfie = 2
+    case Hologram = 3
+    case IQSHologram = 4
 }
 
 public enum SdkSignatureProblem : Int, CaseIterable { 

@@ -2,6 +2,7 @@ import Foundation
 
 enum Buttons {
     enum Camera {
+        
         static var status: UIButton {
             get {
                 let button = UIButton()
