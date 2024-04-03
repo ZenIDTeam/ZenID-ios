@@ -4,7 +4,9 @@
 //  Created by Andy Qua on 25/02/2021.
 //
 import CommonCrypto
+#if canImport(CryptoTokenKit)
 import CryptoTokenKit
+#endif
 import Foundation
 
 #if canImport(CryptoKit)
@@ -153,7 +155,7 @@ public func unpad(_ tounpad: [UInt8]) -> [UInt8] {
     }
 }
 
-// @available(iOS 13, macOS 10.15, *)
+@available(iOS 13, macOS 10.15, *)
 public func mac(algoName: SecureMessagingSupportedAlgorithms, key: [UInt8], msg: [UInt8]) -> [UInt8] {
     switch algoName {
     case .DES:
@@ -164,7 +166,7 @@ public func mac(algoName: SecureMessagingSupportedAlgorithms, key: [UInt8], msg:
 //    }
 }
 
-// @available(iOS 13, macOS 10.15, *)
+@available(iOS 13, macOS 10.15, *)
 public func desMAC(key: [UInt8], msg: [UInt8]) -> [UInt8] {
     let size = msg.count / 8
     var y: [UInt8] = [0, 0, 0, 0, 0, 0, 0, 0]

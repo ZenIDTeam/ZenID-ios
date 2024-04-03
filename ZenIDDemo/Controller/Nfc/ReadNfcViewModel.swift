@@ -1,20 +1,26 @@
+#if canImport(CoreNFC)
 import CoreNFC
+#endif
 import RecogLib_iOS
 
+@available(iOS 13.0.0, *)
 protocol ReadNfcViewModelViewStateListener: AnyObject {
     func viewStateDidUpdate(new: ReadNfcViewModel.ViewState, old: ReadNfcViewModel.ViewState?)
 }
 
+@available(iOS 13.0.0, *)
 enum ReadNfcViewModelError: Error {
     case noData
 }
 
+@available(iOS 13.0.0, *)
 protocol NfcReadCompletionDelegate: AnyObject {
     func didReadNfcData(data: NfcData)
     func didCancel()
     func didSkipNfc()
 }
 
+@available(iOS 13.0.0, *)
 final class ReadNfcViewModel {
     enum ViewState {
         case initial

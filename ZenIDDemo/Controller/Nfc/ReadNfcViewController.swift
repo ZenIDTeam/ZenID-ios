@@ -2,6 +2,7 @@ import Foundation
 import RecogLib_iOS
 import UIKit
 
+@available(iOS 13.0, *)
 class ReadNfcViewController: UIViewController {
     private let viewModel: ReadNfcViewModel
     private let infoView = NfcIntroView()
@@ -94,6 +95,7 @@ class ReadNfcViewController: UIViewController {
     }
 }
 
+@available(iOS 13.0, *)
 extension ReadNfcViewController: ReadNfcViewModelViewStateListener {
     func viewStateDidUpdate(new: ReadNfcViewModel.ViewState, old: ReadNfcViewModel.ViewState?) {
         print("viewStateDidUpdate: new: \(new), old: \(old)")

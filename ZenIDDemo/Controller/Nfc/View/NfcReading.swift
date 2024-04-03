@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+@available(iOS 13.0.0, *)
 final class NfcReadingView: UIView {
     init() {
         super.init(frame: .zero)
@@ -12,14 +13,12 @@ final class NfcReadingView: UIView {
     }
 
     private func setupView() {
-        
         let contentView = ImageWithLabels(
             image: UIImage(systemName: "iphone.radiowaves.left.and.right"),
             title: NSLocalizedString("nfc-reading-title", comment: ""),
             subtitles: [
-                NSLocalizedString("nfc-reading-subtitle", comment: "")
-            ]
-        )
+                    NSLocalizedString("nfc-reading-subtitle", comment: "")
+                ])
 
         addSubview(contentView)
         contentView.anchor(
@@ -34,6 +33,7 @@ final class NfcReadingView: UIView {
     }
 }
 
+@available(iOS 13.0.0, *)
 struct NfcReadingViewPreview: PreviewProvider {
     static var previews: some View {
         Preview(NfcReadingView())

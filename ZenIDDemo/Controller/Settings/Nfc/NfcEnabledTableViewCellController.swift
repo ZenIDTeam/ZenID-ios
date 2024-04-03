@@ -11,7 +11,12 @@ final class NfcTableViewCellController: NSObject, TableCellController{
         let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.reuseIdentifier, for: indexPath) as! SwitchTableViewCell
         removeAllTargets(of: cell.valueSwitch)
         cell.title.text = NSLocalizedString("nfc-feature-enabled", comment: "")
-        cell.valueSwitch.isOn = service.load().isNfcEnabled
+        if #available(iOS 13.0, *) {
+            cell.valueSwitch.isOn = service.load().isNfcEnabled
+        } else {
+            cell.valueSwitch.isOn = false
+            cell.valueSwitch.isEnabled = false
+        }
         cell.valueSwitch.addTarget(self, action: #selector(valueSwitchDidChange(sender:)), for: .valueChanged)
         return cell
     }

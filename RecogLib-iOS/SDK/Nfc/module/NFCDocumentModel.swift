@@ -6,7 +6,7 @@
 
 import Foundation
 import UIKit
-
+@available(iOS 13.0.0, *)
 public class NFCDocumentModel: NFCDocumentModelType {
     public private(set) lazy var documentType: String = { String(passportDataElements?["5F03"]?.first ?? "?") }()
     public private(set) lazy var documentSubType: String = { String(passportDataElements?["5F03"]?.last ?? "?") }()

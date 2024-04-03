@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+@available(iOS 13.0, *)
 final class NfcIntroView: UIView {
     init() {
         super.init(frame: .zero)
@@ -35,6 +36,7 @@ final class NfcIntroView: UIView {
     }
 }
 
+@available(iOS 13.0.0, *)
 struct NfcIntroViewPreview: PreviewProvider {
     static var previews: some View {
         Preview(NfcIntroView())

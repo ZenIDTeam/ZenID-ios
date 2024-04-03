@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+@available(iOS 13.0.0, *)
 final class NfcReadingQuestion: UIView {
     init(_ title: String? = nil) {
         super.init(frame: .zero)
@@ -41,6 +42,7 @@ final class NfcReadingQuestion: UIView {
     }
 }
 
+@available(iOS 13.0.0, *)
 struct NfcReadingQuestionPreview: PreviewProvider {
     static var previews: some View {
         Preview(NfcReadingQuestion("Skip NFC step?"))

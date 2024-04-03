@@ -5,6 +5,7 @@ import Foundation
 //    protocol OBJECT IDENTIFIER,
 //    requiredData ANY DEFINED BY protocol,
 //    optionalData ANY DEFINED BY protocol OPTIONAL
+@available(iOS 13.0.0, *)
 public class DataGroup14 : DataGroup {
 //    private var asn1 : ASN1Item!
 //    public private(set) var securityInfos : [SecurityInfo] = [SecurityInfo]()

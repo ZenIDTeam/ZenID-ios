@@ -8,17 +8,14 @@
 
 import Foundation
 import RecogLib_iOS
-import CocoaLumberjackSwift
-import ZipArchive
+import OSLog
 
 final class ZenIDLogger : LoggerProtocol {
     
-    public static let shared = ZenIDLogger(logLevel: DDLogLevel.all)
+    public static let shared = ZenIDLogger()
     
-    private var fileLogger: DDFileLogger!
-    
-    init(logLevel: DDLogLevel = DDLogLevel.all) {
-        // The log level that can dynamically limit log messages
+    init() {
+        /*// The log level that can dynamically limit log messages
         dynamicLogLevel = logLevel
         
         // Use os_log
@@ -28,7 +25,7 @@ final class ZenIDLogger : LoggerProtocol {
         self.fileLogger = DDFileLogger()
         fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 365
-        DDLog.add(fileLogger)
+        DDLog.add(fileLogger) */
     }
     
     func startLogging() {
@@ -36,7 +33,7 @@ final class ZenIDLogger : LoggerProtocol {
     }
     
     func getLogArchivePath() -> String? {
-        let logFilePaths = fileLogger.logFileManager.sortedLogFilePaths
+        /*let logFilePaths = fileLogger.logFileManager.sortedLogFilePaths
         guard !logFilePaths.isEmpty else { return nil }
         
         guard let zipPath = URL(string: fileLogger.logFileManager.logsDirectory)?.appendingPathComponent("zenIDlog.zip") else { return nil }
@@ -48,28 +45,28 @@ final class ZenIDLogger : LoggerProtocol {
         for logFilePath in logFilePaths {
             zipArch.writeFile(logFilePath, withPassword: nil)
         }
-        zipArch.close()
+        zipArch.close() */
         
-        return zipPath.absoluteString
+        return nil //zipPath.absoluteString
     }
     
     public func Error(_ message: String) {
-        DDLogError(message);
+        os_log(.error, "%@", message)
     }
     
     public func Warn(_ message: String) {
-        DDLogWarn(message);
+        os_log(.fault, "%@", message)
     }
     
     public func Info(_ message: String) {
-        DDLogInfo(message);
+        os_log(.info, "%@", message)
     }
     
     public func Debug(_ message: String) {
-        DDLogDebug(message);
+        os_log(.debug, "%@", message)
     }
     
     public func Verbose(_ message: String) {
-        DDLogVerbose(message);
+        os_log(.default, "%@", message)
     }
 }

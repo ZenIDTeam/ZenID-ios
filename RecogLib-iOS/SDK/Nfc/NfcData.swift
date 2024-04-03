@@ -67,7 +67,7 @@ extension NfcData: Encodable {
         return jsonString
     }
 }
-
+@available(iOS 13.0.0, *)
 extension DataGroup {
     
     func getContentEncoded() -> String {

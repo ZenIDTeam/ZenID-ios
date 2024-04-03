@@ -4,8 +4,10 @@
 //  Created by Andy Qua on 25/02/2021.
 //
 import Foundation
+#if canImport(CoreNFC)
 import CoreNFC
-
+#endif
+@available(iOS 13.0.0, *)
 public class BACHandler {
     let KENC : [UInt8] = [0,0,0,1]
     let KMAC : [UInt8] = [0,0,0,2]

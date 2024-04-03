@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+@available(iOS 13.0, *)
 final class NfcNotAvailable: UIView {
     init() {
         super.init(frame: .zero)
@@ -37,6 +38,7 @@ final class NfcNotAvailable: UIView {
     }
 }
 
+@available(iOS 13.0.0, *)
 struct NfcNotAvailablePreview: PreviewProvider {
     static var previews: some View {
         Preview(NfcNotAvailable())

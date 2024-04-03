@@ -349,7 +349,7 @@ SWIFT_CLASS("_TtC12RecogLib_iOS12DrawingLayer")
 
 
 
-SWIFT_CLASS("_TtC12RecogLib_iOS17NfcDocumentReader")
+SWIFT_CLASS("_TtC12RecogLib_iOS17NfcDocumentReader") SWIFT_AVAILABILITY(ios,introduced=13.0.0)
 @interface NfcDocumentReader : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -722,7 +722,7 @@ SWIFT_CLASS("_TtC12RecogLib_iOS12DrawingLayer")
 
 
 
-SWIFT_CLASS("_TtC12RecogLib_iOS17NfcDocumentReader")
+SWIFT_CLASS("_TtC12RecogLib_iOS17NfcDocumentReader") SWIFT_AVAILABILITY(ios,introduced=13.0.0)
 @interface NfcDocumentReader : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");

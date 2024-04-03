@@ -10,10 +10,14 @@ protocol PACEHandler {
 
 //import Foundation
 //import OpenSSL
+//#if canImport(CryptoTokenKit)
 //import CryptoTokenKit
+//#endif
 //
 //#if !os(macOS)
+//#if canImport(CoreNFC)
 //import CoreNFC
+//#endif
 //import CryptoKit
 //
 //@available(iOS 13, *)

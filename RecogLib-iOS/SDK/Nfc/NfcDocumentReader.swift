@@ -4,10 +4,12 @@
 //  Created by Andy Qua on 25/02/2021.
 //
 
+#if canImport(CoreNFC)
 import CoreNFC
+#endif
 import Foundation
 import UIKit
-
+@available(iOS 13.0.0, *)
 public class NfcDocumentReader: NSObject, NfcDocumentReaderProtocol {
     
     private typealias NFCCheckedContinuation = CheckedContinuation<NfcData, Error>

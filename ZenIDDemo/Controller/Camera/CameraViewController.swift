@@ -32,7 +32,8 @@ class CameraViewController: UIViewController {
     private var selfieControllerConfig: SelfieControllerConfiguration?
     private var facelivenessController: FacelivenessController?
     private var facelivenessControllerConfig: FacelivenessControllerConfiguration?
-    private var nfcViewControler: ReadNfcViewController?
+    
+    private var nfcViewControler: UIViewController? // ReadNfcViewController
 
     #if targetEnvironment(simulator)
         var pickerCallback: ((UIImage) -> Void)?
@@ -274,7 +275,9 @@ extension CameraViewController: DocumentControllerDelegate {
             let unifiedResult = UnifiedDocumentResultAdapter(result: result)
             preview.saveAction = { [weak self] in
                 let configuration = controller.getNfcSettings()
-                self?.startNfcReading(mrzCode: nfcCode, configuration: configuration)
+                if #available(iOS 13.0.0, *) {
+                    self?.startNfcReading(mrzCode: nfcCode, configuration: configuration)
+                }
             }
             preview.dismissAction = { [unowned self] in
                 if self.photoType.isDocument {
@@ -294,6 +297,7 @@ extension CameraViewController: DocumentControllerDelegate {
         }
     }
 
+    @available(iOS 13.0.0, *)
     func startNfcReading(mrzCode: String, configuration: DocumentVerifierNfcValidatorSettings) {
         let vm = ReadNfcViewModel(nfcReader: NfcDocumentReader(mrzKey: mrzCode), configuration: configuration)
         vm.delegate = self

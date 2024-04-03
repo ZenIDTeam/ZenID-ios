@@ -263,23 +263,27 @@ extension PureVerifierViewController {
     }
 
     func setOrientation(orientation: UIDeviceOrientation) {
-        for connection in captureSession.connections {
-            switch UIDevice.current.orientation {
-            case .portrait:
-                previewLayer?.connection?.videoOrientation = .portrait
-                connection.videoOrientation = .portrait
-            case .landscapeRight:
-                previewLayer?.connection?.videoOrientation = .portrait
-                connection.videoOrientation = .landscapeLeft
-            case .landscapeLeft:
-                previewLayer?.connection?.videoOrientation = .portrait
-                connection.videoOrientation = .landscapeRight
-            case .portraitUpsideDown:
-                previewLayer?.connection?.videoOrientation = .portrait
-                connection.videoOrientation = .portraitUpsideDown
-            default:
-                break
+        if #available(iOS 13.0, *) {
+            for connection in captureSession.connections {
+                switch UIDevice.current.orientation {
+                case .portrait:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .portrait
+                case .landscapeRight:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .landscapeLeft
+                case .landscapeLeft:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .landscapeRight
+                case .portraitUpsideDown:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                    connection.videoOrientation = .portraitUpsideDown
+                default:
+                    break
+                }
             }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }

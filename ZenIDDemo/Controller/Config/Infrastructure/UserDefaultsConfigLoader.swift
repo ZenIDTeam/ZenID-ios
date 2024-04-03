@@ -16,12 +16,21 @@ final class UserDefaultsConfigLoader {
 }
 
 extension UserDefaultsConfigLoader: ConfigLoader {
+    
     func load() -> Config {
-        .init(
-            isDebugEnabled: userDefaults.bool(forKey: Keys.debug.rawValue),
-            isLivenessVideo: userDefaults.bool(forKey: Keys.livenessMode.rawValue),
-            isNfcEnabled: userDefaults.bool(forKey: Keys.nfcEnabled.rawValue)
-        )
+        if #available(iOS 13.0, *) {
+            .init(
+                isDebugEnabled: userDefaults.bool(forKey: Keys.debug.rawValue),
+                isLivenessVideo: userDefaults.bool(forKey: Keys.livenessMode.rawValue),
+                isNfcEnabled: userDefaults.bool(forKey: Keys.nfcEnabled.rawValue)
+            )
+        } else {
+            .init(
+                isDebugEnabled: userDefaults.bool(forKey: Keys.debug.rawValue),
+                isLivenessVideo: userDefaults.bool(forKey: Keys.livenessMode.rawValue),
+                isNfcEnabled: false
+            )
+        }
     }
 }
 

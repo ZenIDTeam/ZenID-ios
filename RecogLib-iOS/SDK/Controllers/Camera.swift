@@ -66,6 +66,14 @@ public final class Camera: NSObject {
         previewLayer = previewLayer ?? AVCaptureVideoPreviewLayer(session: captureSession)
 
         captureSession.sessionPreset = .high
+            /*do {
+                try device.lockForConfiguration()
+                device.activeVideoMinFrameDuration = CMTime(value: 1, timescale:  CMTimeScale(30))
+                device.activeVideoMaxFrameDuration = CMTime(value: 1, timescale:  CMTimeScale(30))
+                device.unlockForConfiguration()
+            } catch {
+                print("Could not lock for configuration: \(error)")
+            }*/
         
         // Zoom factor is necessary to compensate minimal focus distance by newer iphones (13 Pro +)
         if #available(iOS 15.0, *) {
@@ -114,26 +122,67 @@ public final class Camera: NSObject {
         captureSessionQueue.async { [weak self] in
             guard let self else { return }
             
-            switch uiOrientation {
-            case .portrait:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-            case .landscapeRight:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-            case .landscapeLeft:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-            case .portraitUpsideDown:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
-            default: break
+            if #available(iOS 17, *) {
+                switch uiOrientation {
+                case .portrait:
+                    previewLayer?.connection?.videoRotationAngle = 90
+                case .landscapeRight:
+                    previewLayer?.connection?.videoRotationAngle = 0
+                case .landscapeLeft:
+                    previewLayer?.connection?.videoRotationAngle = 180
+                case .portraitUpsideDown:
+                    previewLayer?.connection?.videoRotationAngle = 270
+                default: break
+                }
+            } else if #available(iOS 13, *) {
+                switch uiOrientation {
+                case .portrait:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                case .landscapeRight:
+                    previewLayer?.connection?.videoOrientation = .landscapeRight
+                case .landscapeLeft:
+                    previewLayer?.connection?.videoOrientation = .landscapeLeft
+                case .portraitUpsideDown:
+                    previewLayer?.connection?.videoOrientation = .portraitUpsideDown
+                default: break
+                }
+            } else { // iOS 12 support
+                switch uiOrientation {
+                case .portrait:
+                    previewLayer?.connection?.videoOrientation = .portrait
+                case .landscapeRight:
+                    previewLayer?.connection?.videoOrientation = .landscapeLeft
+                case .landscapeLeft:
+                    previewLayer?.connection?.videoOrientation = .landscapeRight
+                case .portraitUpsideDown:
+                    previewLayer?.connection?.videoOrientation = .portraitUpsideDown
+                default: break
+                }
             }
             
-            if let previewOrientation = previewLayer?.connection?.videoOrientation {
-                captureSession.connections.forEach { connection in
-                    if connection.videoOrientation != previewOrientation {
-                        connection.videoOrientation = previewOrientation
+            if #available(iOS 17.0, *) {
+                if let previewAngle = previewLayer?.connection?.videoRotationAngle {
+                    captureSession.connections.forEach { connection in
+                        if connection.videoRotationAngle != previewAngle {
+                            connection.videoRotationAngle = previewAngle
+                        }
+                    }
+                }
+            } else if #available(iOS 13.0, *) {
+                if let previewOrientation = previewLayer?.connection?.videoOrientation {
+                    captureSession.connections.forEach { connection in
+                        if connection.videoOrientation != previewOrientation {
+                            connection.videoOrientation = previewOrientation
+                        }
+                    }
+                }
+            } else { // iOS 12 support
+                if let previewOrientation = previewLayer?.connection?.videoOrientation {
+                    captureSession.outputs.forEach { output in
+                        output.connection(with: .video)?.videoOrientation = previewOrientation
                     }
                 }
             }
-            ApplicationLogger.shared.Debug("Torch orientation changed")
         }
     }
     

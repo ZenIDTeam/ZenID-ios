@@ -11,7 +11,7 @@ import UIKit
 extension UIInterfaceOrientation {
         
     /// Get current user interface orientation.
-    static var current: UIInterfaceOrientation { if #available(iOS 15.0, *) {
+    public static var current: UIInterfaceOrientation { if #available(iOS 15.0, *) {
             UIApplication
                 .shared
                 .connectedScenes
@@ -25,7 +25,16 @@ extension UIInterfaceOrientation {
                 .last { $0.isKeyWindow }?
                 .windowScene?.interfaceOrientation ?? .portrait
         } else {
-            UIApplication.shared.statusBarOrientation
+            switch UIDevice.current.orientation {
+            case .portrait: .portrait
+            case .unknown: .portrait
+            case .portraitUpsideDown: .portraitUpsideDown
+            case .landscapeLeft: .landscapeLeft
+            case .landscapeRight: .landscapeRight
+            case .faceUp: .portrait
+            case .faceDown: .portraitUpsideDown
+            @unknown default: .portrait
+            }
         }
     }
 }

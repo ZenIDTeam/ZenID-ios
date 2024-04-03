@@ -59,7 +59,7 @@ import Foundation
 //     attrValues SET OF AttributeValue }
 // AttributeValue ::= ANY
 // SignatureValue ::= OCTET STRING
-
+@available(iOS 13.0.0, *)
 class SOD : DataGroup {
     
 //    public private(set) var pkcs7CertificateData : [UInt8] = []

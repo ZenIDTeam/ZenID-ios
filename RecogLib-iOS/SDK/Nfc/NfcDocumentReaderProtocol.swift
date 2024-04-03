@@ -1,3 +1,4 @@
+@available(iOS 13.0.0, *)
 public protocol NfcDocumentReaderProtocol {
     
     func read() async throws -> NfcData

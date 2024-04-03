@@ -165,9 +165,6 @@
 		6FD5BDFF26409471001943DD /* ZenIDLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5BDFE26409471001943DD /* ZenIDLogger.swift */; };
 		6FF5E9CD2468ACF20077980C /* CredentialsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */; };
 		6FFC82C2247F029D00CB4979 /* QrScannerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */; };
-		BABECC73288059D600A629F3 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = BABECC72288059D600A629F3 /* CocoaLumberjack */; };
-		BABECC75288059D600A629F3 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BABECC74288059D600A629F3 /* CocoaLumberjackSwift */; };
-		BABECC7828805A2700A629F3 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = BABECC7728805A2700A629F3 /* ZipArchive */; };
 		D24C3C7622CA540A00585770 /* DocumentState+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C3C7522CA540A00585770 /* DocumentState+Localized.swift */; };
 		D293FE1A22CA393D00FC49D0 /* RecoglibMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D293FE1922CA393D00FC49D0 /* RecoglibMapper.swift */; };
 		D2AB79EB22B904F800F1D7AA /* PDFHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AB79EA22B904F800F1D7AA /* PDFHelper.swift */; };
@@ -371,6 +368,7 @@
 		6FF414DA26148FDC0091CBEB /* ZipArchive.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZipArchive.xcframework; path = Carthage/Build/ZipArchive.xcframework; sourceTree = "<group>"; };
 		6FF5E9CC2468ACF20077980C /* CredentialsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSettings.swift; sourceTree = "<group>"; };
 		6FFC82C1247F029D00CB4979 /* QrScannerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScannerControllerDelegate.swift; sourceTree = "<group>"; };
+		7B2B2DA22BCFB3EB00F5BFBE /* ZenIDDemoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenIDDemoRelease.entitlements; sourceTree = "<group>"; };
 		BA3ABE99289D3EAB005C28F3 /* RecogLib_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RecogLib_iOS.xcframework; path = Sources/RecogLib_iOS.xcframework; sourceTree = "<group>"; };
 		BA3CB048286CD76F00C7C08D /* LibZenid_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibZenid_iOS.xcframework; path = Sources/LibZenid_iOS.xcframework; sourceTree = "<group>"; };
 		BA775B4528CB79E9006278DE /* RecogLib_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RecogLib_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -404,11 +402,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BABECC73288059D600A629F3 /* CocoaLumberjack in Frameworks */,
 				18BDC33D2795C3E40016AAF6 /* WebKit.framework in Frameworks */,
 				1966FEE32AA9BB63004763C3 /* RecogLib_iOS.framework in Frameworks */,
-				BABECC75288059D600A629F3 /* CocoaLumberjackSwift in Frameworks */,
-				BABECC7828805A2700A629F3 /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +518,7 @@
 		0134751E21ECB3FB004EE4E5 /* ZenIDDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7B2B2DA22BCFB3EB00F5BFBE /* ZenIDDemoRelease.entitlements */,
 				19CD7C092A99E9E4007AE0F3 /* masterList.pem */,
 				BAF9E49D284F6CF10030212D /* ZenIDDemo.entitlements */,
 				0131CE9E22045E8200DBA4C4 /* App */,
@@ -948,9 +944,6 @@
 			);
 			name = ZenIDDemo;
 			packageProductDependencies = (
-				BABECC72288059D600A629F3 /* CocoaLumberjack */,
-				BABECC74288059D600A629F3 /* CocoaLumberjackSwift */,
-				BABECC7728805A2700A629F3 /* ZipArchive */,
 			);
 			productName = ZenIDDemo;
 			productReference = 0134751C21ECB3FB004EE4E5 /* ZenIDDemo.app */;
@@ -983,8 +976,6 @@
 			);
 			mainGroup = 0134751321ECB3FB004EE4E5;
 			packageReferences = (
-				BABECC71288059D600A629F3 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
-				BABECC7628805A2700A629F3 /* XCRemoteSwiftPackageReference "ZipArchive" */,
 			);
 			productRefGroup = 0134751D21ECB3FB004EE4E5 /* Products */;
 			projectDirPath = "";
@@ -1335,7 +1326,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenIDDemo/ZenIDDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 535;
+				CURRENT_PROJECT_VERSION = 541;
 				DEVELOPMENT_ASSET_PATHS = ZenIDDemo/Resources/DebugAssets.xcassets;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
@@ -1349,7 +1340,7 @@
 					"NO_OPENCV=1",
 				);
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1357,6 +1348,14 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0.26;
+				OTHER_LDFLAGS = (
+					"-v",
+					"-weak_framework",
+					CoreNFC,
+					"-weak_framework",
+					CryptoTokenKit,
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1372,12 +1371,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ZenIDDemo/ZenIDDemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ZenIDDemo/ZenIDDemoRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 535;
+				CURRENT_PROJECT_VERSION = 541;
 				DEVELOPMENT_ASSET_PATHS = ZenIDDemo/Resources/DebugAssets.xcassets;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FQAZ2Y87Y2;
@@ -1390,7 +1389,7 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "NO_OPENCV=1";
 				INFOPLIST_FILE = ZenIDDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1398,6 +1397,14 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0.26;
+				OTHER_LDFLAGS = (
+					"-v",
+					"-weak_framework",
+					CoreNFC,
+					"-weak_framework",
+					CryptoTokenKit,
+					"-lstdc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cz.trask.ZenID;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1433,43 +1440,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BABECC71288059D600A629F3 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack";
-			requirement = {
-				kind = exactVersion;
-				version = 3.7.4;
-			};
-		};
-		BABECC7628805A2700A629F3 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
-			requirement = {
-				kind = exactVersion;
-				version = 2.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BABECC72288059D600A629F3 /* CocoaLumberjack */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BABECC71288059D600A629F3 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
-			productName = CocoaLumberjack;
-		};
-		BABECC74288059D600A629F3 /* CocoaLumberjackSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BABECC71288059D600A629F3 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
-			productName = CocoaLumberjackSwift;
-		};
-		BABECC7728805A2700A629F3 /* ZipArchive */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BABECC7628805A2700A629F3 /* XCRemoteSwiftPackageReference "ZipArchive" */;
-			productName = ZipArchive;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0134751421ECB3FB004EE4E5 /* Project object */;
 }

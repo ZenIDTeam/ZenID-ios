@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+@available(iOS 13.0, *)
 final class NfcReadingError: UIView {
     init(_ errorMessage: String? = nil) {
         super.init(frame: .zero)
@@ -39,6 +40,7 @@ final class NfcReadingError: UIView {
     }
 }
 
+@available(iOS 13.0.0, *)
 struct NfcReadingErrorPreview: PreviewProvider {
     static var previews: some View {
         Preview(NfcReadingError("Test chyby"))

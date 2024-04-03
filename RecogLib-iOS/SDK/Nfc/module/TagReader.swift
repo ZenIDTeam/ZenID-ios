@@ -3,9 +3,11 @@
 //  https://github.com/AndyQ/NFCPassportReader
 //  Created by Andy Qua on 25/02/2021.
 //
+#if canImport(CoreNFC)
 import CoreNFC
+#endif
 import Foundation
-
+@available(iOS 13.0.0, *)
 public class TagReader {
     var tag: NFCISO7816Tag
     var secureMessaging: SecureMessaging?

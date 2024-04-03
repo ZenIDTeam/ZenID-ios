@@ -23237,8 +23237,10 @@
         "usr": "s:12RecogLib_iOS11DataGroup14C",
         "mangledName": "$s12RecogLib_iOS11DataGroup14C",
         "moduleName": "RecogLib_iOS",
+        "intro_iOS": "13.0.0",
         "declAttributes": [
           "AccessControl",
+          "Available",
           "RawDocComment"
         ],
         "superclassUsr": "s:12RecogLib_iOS9DataGroupC",
@@ -23272,10 +23274,7 @@
         "name": "CoreNFC",
         "printedName": "CoreNFC",
         "declKind": "Import",
-        "moduleName": "RecogLib_iOS",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "RecogLib_iOS"
       },
       {
         "kind": "Import",
@@ -23562,8 +23561,10 @@
         "usr": "c:@M@RecogLib_iOS@objc(cs)NfcDocumentReader",
         "mangledName": "$s12RecogLib_iOS17NfcDocumentReaderC",
         "moduleName": "RecogLib_iOS",
+        "intro_iOS": "13.0.0",
         "declAttributes": [
           "AccessControl",
+          "Available",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
@@ -30102,8 +30103,10 @@
         "usr": "s:12RecogLib_iOS16NFCDocumentModelC",
         "mangledName": "$s12RecogLib_iOS16NFCDocumentModelC",
         "moduleName": "RecogLib_iOS",
+        "intro_iOS": "13.0.0",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "Available"
         ],
         "conformances": [
           {
@@ -39861,10 +39864,7 @@
         "name": "CoreNFC",
         "printedName": "CoreNFC",
         "declKind": "Import",
-        "moduleName": "RecogLib_iOS",
-        "declAttributes": [
-          "RawDocComment"
-        ]
+        "moduleName": "RecogLib_iOS"
       },
       {
         "kind": "Import",
@@ -39881,8 +39881,10 @@
         "usr": "s:12RecogLib_iOS9TagReaderC",
         "mangledName": "$s12RecogLib_iOS9TagReaderC",
         "moduleName": "RecogLib_iOS",
+        "intro_iOS": "13.0.0",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "Available"
         ],
         "hasMissingDesignatedInitializers": true
       },
@@ -46316,8 +46318,10 @@
         "usr": "s:12RecogLib_iOS25NfcDocumentReaderProtocolP",
         "mangledName": "$s12RecogLib_iOS25NfcDocumentReaderProtocolP",
         "moduleName": "RecogLib_iOS",
+        "intro_iOS": "13.0.0",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "Available"
         ]
       },
       {
@@ -47376,9 +47380,12 @@
         "usr": "s:12RecogLib_iOS3mac8algoName3key3msgSays5UInt8VGAA34SecureMessagingSupportedAlgorithmsO_A2HtF",
         "mangledName": "$s12RecogLib_iOS3mac8algoName3key3msgSays5UInt8VGAA34SecureMessagingSupportedAlgorithmsO_A2HtF",
         "moduleName": "RecogLib_iOS",
+        "intro_Macosx": "10.15",
+        "intro_iOS": "13",
         "declAttributes": [
           "AccessControl",
-          "RawDocComment"
+          "Available",
+          "Available"
         ],
         "funcSelfKind": "NonMutating"
       },
@@ -47434,9 +47441,12 @@
         "usr": "s:12RecogLib_iOS6desMAC3key3msgSays5UInt8VGAG_AGtF",
         "mangledName": "$s12RecogLib_iOS6desMAC3key3msgSays5UInt8VGAG_AGtF",
         "moduleName": "RecogLib_iOS",
+        "intro_Macosx": "10.15",
+        "intro_iOS": "13",
         "declAttributes": [
           "AccessControl",
-          "RawDocComment"
+          "Available",
+          "Available"
         ],
         "funcSelfKind": "NonMutating"
       },
@@ -48549,8 +48559,10 @@
         "usr": "s:12RecogLib_iOS15SecureMessagingC",
         "mangledName": "$s12RecogLib_iOS15SecureMessagingC",
         "moduleName": "RecogLib_iOS",
+        "intro_iOS": "13.0.0",
         "declAttributes": [
           "AccessControl",
+          "Available",
           "RawDocComment"
         ]
       },
@@ -49318,6 +49330,10 @@
                 "mangledName": "$s12RecogLib_iOS10BACHandlerC5ksencSays5UInt8VGvM",
                 "moduleName": "RecogLib_iOS",
                 "implicit": true,
+                "intro_iOS": "13.0.0",
+                "declAttributes": [
+                  "Available"
+                ],
                 "accessorKind": "_modify"
               }
             ]
@@ -49428,6 +49444,10 @@
                 "mangledName": "$s12RecogLib_iOS10BACHandlerC5ksmacSays5UInt8VGvM",
                 "moduleName": "RecogLib_iOS",
                 "implicit": true,
+                "intro_iOS": "13.0.0",
+                "declAttributes": [
+                  "Available"
+                ],
                 "accessorKind": "_modify"
               }
             ]
@@ -49538,6 +49558,10 @@
                 "mangledName": "$s12RecogLib_iOS10BACHandlerC4kifdSays5UInt8VGvM",
                 "moduleName": "RecogLib_iOS",
                 "implicit": true,
+                "intro_iOS": "13.0.0",
+                "declAttributes": [
+                  "Available"
+                ],
                 "accessorKind": "_modify"
               }
             ]
@@ -49681,8 +49705,10 @@
         "usr": "s:12RecogLib_iOS10BACHandlerC",
         "mangledName": "$s12RecogLib_iOS10BACHandlerC",
         "moduleName": "RecogLib_iOS",
+        "intro_iOS": "13.0.0",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "Available"
         ]
       },
       {
@@ -53949,6 +53975,117 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UIInterfaceOrientation",
+        "printedName": "UIInterfaceOrientation",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "current",
+            "printedName": "current",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UIInterfaceOrientation",
+                "printedName": "UIKit.UIInterfaceOrientation",
+                "usr": "c:@E@UIInterfaceOrientation"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So22UIInterfaceOrientationV12RecogLib_iOSE7currentABvpZ",
+            "mangledName": "$sSo22UIInterfaceOrientationV12RecogLib_iOSE7currentABvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIInterfaceOrientation",
+                    "printedName": "UIKit.UIInterfaceOrientation",
+                    "usr": "c:@E@UIInterfaceOrientation"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So22UIInterfaceOrientationV12RecogLib_iOSE7currentABvgZ",
+                "mangledName": "$sSo22UIInterfaceOrientationV12RecogLib_iOSE7currentABvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@E@UIInterfaceOrientation",
+        "moduleName": "UIKit",
+        "objc_name": "UIInterfaceOrientation",
+        "declAttributes": [
+          "SynthesizedProtocol",
+          "ObjC",
+          "SynthesizedProtocol",
+          "Sendable",
+          "NonSendable",
+          "Dynamic"
+        ],
+        "enumRawTypeName": "Int",
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
           }
         ]
       },
@@ -63833,7 +63970,7 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 9964,
+      "offset": 13010,
       "length": 3,
       "value": "110"
     },
@@ -63980,63 +64117,63 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "Array",
-      "offset": 645,
+      "offset": 700,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "BooleanLiteral",
-      "offset": 689,
+      "offset": 744,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "BooleanLiteral",
-      "offset": 737,
+      "offset": 792,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "BooleanLiteral",
-      "offset": 774,
+      "offset": 829,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "StringLiteral",
-      "offset": 906,
+      "offset": 961,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "BooleanLiteral",
-      "offset": 1166,
+      "offset": 1221,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "BooleanLiteral",
-      "offset": 1668,
+      "offset": 1723,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "BooleanLiteral",
-      "offset": 1691,
+      "offset": 1746,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcDocumentReader.swift",
       "kind": "StringLiteral",
-      "offset": 208,
+      "offset": 263,
       "length": 17,
       "value": "\"RecogLib_iOS.NfcDocumentReader\""
     },
@@ -64085,322 +64222,322 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 321,
+      "offset": 346,
       "length": 6,
       "value": "\"5F03\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 339,
+      "offset": 364,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 438,
+      "offset": 463,
       "length": 6,
       "value": "\"5F03\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 455,
+      "offset": 480,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 547,
+      "offset": 572,
       "length": 4,
       "value": "\"5A\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 556,
+      "offset": 581,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 586,
+      "offset": 611,
       "length": 3,
       "value": "\"<\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 597,
+      "offset": 622,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 689,
+      "offset": 714,
       "length": 6,
       "value": "\"5F28\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 700,
+      "offset": 725,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 794,
+      "offset": 819,
       "length": 4,
       "value": "\"59\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 803,
+      "offset": 828,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 890,
+      "offset": 915,
       "length": 6,
       "value": "\"5F57\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 901,
+      "offset": 926,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 983,
+      "offset": 1008,
       "length": 6,
       "value": "\"5F35\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 994,
+      "offset": 1019,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1081,
+      "offset": 1106,
       "length": 6,
       "value": "\"5F2C\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1092,
+      "offset": 1117,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 1169,
+      "offset": 1194,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1197,
+      "offset": 1222,
       "length": 3,
       "value": "\"<\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1208,
+      "offset": 1233,
       "length": 3,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1296,
+      "offset": 1321,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 1316,
+      "offset": 1341,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1391,
+      "offset": 1416,
       "length": 3,
       "value": "\"<\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1402,
+      "offset": 1427,
       "length": 3,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1492,
+      "offset": 1517,
       "length": 3,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1674,
+      "offset": 1699,
       "length": 6,
       "value": "\"5F1F\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1685,
+      "offset": 1710,
       "length": 11,
       "value": "\"NOT FOUND\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1918,
+      "offset": 1943,
       "length": 4,
       "value": "\"<<\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1961,
+      "offset": 1986,
       "length": 4,
       "value": "\"5B\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1970,
+      "offset": 1995,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 1999,
+      "offset": 2024,
       "length": 4,
       "value": "\"<<\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 3022,
+      "offset": 3047,
       "length": 4,
       "value": "\"53\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 3031,
+      "offset": 3056,
       "length": 3,
       "value": "\"?\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 3061,
+      "offset": 3086,
       "length": 3,
       "value": "\"<\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 3072,
+      "offset": 3097,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "StringLiteral",
-      "offset": 3237,
+      "offset": 3262,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "Array",
-      "offset": 3417,
+      "offset": 3442,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "Dictionary",
-      "offset": 3636,
+      "offset": 3661,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4077,
+      "offset": 4102,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4154,
+      "offset": 4179,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4220,
+      "offset": 4245,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4289,
+      "offset": 4314,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "Array",
-      "offset": 4364,
+      "offset": 4389,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "Array",
-      "offset": 4436,
+      "offset": 4461,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/NFCDocumentModel.swift",
       "kind": "Array",
-      "offset": 4497,
+      "offset": 4522,
       "length": 2,
       "value": "[]"
     },
@@ -64414,420 +64551,420 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2345,
+      "offset": 2370,
       "length": 3,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2345,
+      "offset": 2370,
       "length": 3,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2345,
+      "offset": 2370,
       "length": 3,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2446,
+      "offset": 2471,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2467,
+      "offset": 2492,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2488,
+      "offset": 2513,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2509,
+      "offset": 2534,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2530,
+      "offset": 2555,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2551,
+      "offset": 2576,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2572,
+      "offset": 2597,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2593,
+      "offset": 2618,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2614,
+      "offset": 2639,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2635,
+      "offset": 2660,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2656,
+      "offset": 2681,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2679,
+      "offset": 2704,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2702,
+      "offset": 2727,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2725,
+      "offset": 2750,
       "length": 2,
       "value": "13"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2748,
+      "offset": 2773,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2771,
+      "offset": 2796,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2794,
+      "offset": 2819,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2817,
+      "offset": 2842,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2843,
+      "offset": 2868,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2446,
+      "offset": 2471,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2467,
+      "offset": 2492,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2488,
+      "offset": 2513,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2509,
+      "offset": 2534,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2530,
+      "offset": 2555,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2551,
+      "offset": 2576,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2572,
+      "offset": 2597,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2593,
+      "offset": 2618,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2614,
+      "offset": 2639,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2635,
+      "offset": 2660,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2656,
+      "offset": 2681,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2679,
+      "offset": 2704,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2702,
+      "offset": 2727,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2725,
+      "offset": 2750,
       "length": 2,
       "value": "13"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2748,
+      "offset": 2773,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2771,
+      "offset": 2796,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2794,
+      "offset": 2819,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2817,
+      "offset": 2842,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2843,
+      "offset": 2868,
       "length": 1,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2446,
+      "offset": 2471,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2467,
+      "offset": 2492,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2488,
+      "offset": 2513,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2509,
+      "offset": 2534,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2530,
+      "offset": 2555,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2551,
+      "offset": 2576,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2572,
+      "offset": 2597,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2593,
+      "offset": 2618,
       "length": 1,
       "value": "7"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2614,
+      "offset": 2639,
       "length": 1,
       "value": "8"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2635,
+      "offset": 2660,
       "length": 1,
       "value": "9"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2656,
+      "offset": 2681,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2679,
+      "offset": 2704,
       "length": 2,
       "value": "11"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2702,
+      "offset": 2727,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2725,
+      "offset": 2750,
       "length": 2,
       "value": "13"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2748,
+      "offset": 2773,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2771,
+      "offset": 2796,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2794,
+      "offset": 2819,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2817,
+      "offset": 2842,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcData.swift",
       "kind": "IntegerLiteral",
-      "offset": 2843,
+      "offset": 2868,
       "length": 1,
       "value": "-1"
     },
@@ -65387,28 +65524,28 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/DataGroupParser.swift",
       "kind": "Array",
-      "offset": 203,
+      "offset": 229,
       "length": 145,
       "value": "[\"Common\", \"DG1\", \"DG2\", \"DG3\", \"DG4\", \"DG5\", \"DG6\", \"DG7\", \"DG8\", \"DG9\", \"DG10\", \"DG11\", \"DG12\", \"DG13\", \"DG14\", \"DG15\", \"DG16\", \"SecurityData\"]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/DataGroupParser.swift",
       "kind": "Array",
-      "offset": 380,
+      "offset": 406,
       "length": 108,
       "value": "[0x60, 0x61, 0x75, 0x63, 0x76, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F, 0x70, 0x77]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/TagReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 310,
+      "offset": 365,
       "length": 4,
       "value": "0xA0"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/TagReader.swift",
       "kind": "IntegerLiteral",
-      "offset": 4788,
+      "offset": 4843,
       "length": 3,
       "value": "256"
     },
@@ -65611,21 +65748,21 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/Utils.swift",
       "kind": "Array",
-      "offset": 1127,
+      "offset": 1164,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/Utils.swift",
       "kind": "BooleanLiteral",
-      "offset": 1271,
+      "offset": 1308,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/Utils.swift",
       "kind": "IntegerLiteral",
-      "offset": 2469,
+      "offset": 2506,
       "length": 1,
       "value": "2"
     },
@@ -65751,49 +65888,49 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/BACHandler.swift",
       "kind": "Array",
-      "offset": 232,
+      "offset": 287,
       "length": 9,
       "value": "[0, 0, 0, 1]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/BACHandler.swift",
       "kind": "Array",
-      "offset": 267,
+      "offset": 322,
       "length": 9,
       "value": "[0, 0, 0, 2]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/BACHandler.swift",
       "kind": "Array",
-      "offset": 315,
+      "offset": 370,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/BACHandler.swift",
       "kind": "Array",
-      "offset": 351,
+      "offset": 406,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/BACHandler.swift",
       "kind": "Array",
-      "offset": 383,
+      "offset": 438,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/BACHandler.swift",
       "kind": "Array",
-      "offset": 414,
+      "offset": 469,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/module\/BACHandler.swift",
       "kind": "Array",
-      "offset": 449,
+      "offset": 504,
       "length": 2,
       "value": "[]"
     },
