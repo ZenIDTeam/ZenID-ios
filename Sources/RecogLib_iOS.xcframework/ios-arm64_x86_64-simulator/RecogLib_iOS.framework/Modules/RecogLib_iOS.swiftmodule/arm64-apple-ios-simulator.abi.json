@@ -22537,6 +22537,32 @@
             "funcSelfKind": "NonMutating"
           },
           {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Camera",
+                "printedName": "RecogLib_iOS.Camera",
+                "usr": "c:@M@RecogLib_iOS@objc(cs)Camera"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RecogLib_iOS@objc(cs)Camera(im)init",
+            "mangledName": "$s12RecogLib_iOS6CameraCACycfc",
+            "moduleName": "RecogLib_iOS",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
             "kind": "Function",
             "name": "setOrientation",
             "printedName": "setOrientation(orientation:)",
@@ -22609,32 +22635,6 @@
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Camera",
-                "printedName": "RecogLib_iOS.Camera",
-                "usr": "c:@M@RecogLib_iOS@objc(cs)Camera"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@RecogLib_iOS@objc(cs)Camera(im)init",
-            "mangledName": "$s12RecogLib_iOS6CameraCACycfc",
-            "moduleName": "RecogLib_iOS",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
           },
           {
             "kind": "Function",
@@ -64007,7 +64007,7 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 9964,
+      "offset": 10862,
       "length": 3,
       "value": "110"
     },

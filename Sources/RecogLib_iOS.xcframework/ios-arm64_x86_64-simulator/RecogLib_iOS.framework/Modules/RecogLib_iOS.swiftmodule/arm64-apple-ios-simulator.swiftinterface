@@ -701,10 +701,10 @@ public enum DataType {
 }
 @objc @_inheritsConvenienceInitializers final public class Camera : ObjectiveC.NSObject {
   final public func isCaptureSessionRunning() -> Swift.Bool
-  final public func setOrientation(orientation: UIKit.UIInterfaceOrientation? = nil)
-  final public func setTorch(on: Swift.Bool? = nil)
   @objc override dynamic public init()
   @objc deinit
+  final public func setOrientation(orientation: UIKit.UIInterfaceOrientation? = nil)
+  final public func setTorch(on: Swift.Bool? = nil)
 }
 extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
   @objc final public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVFoundation.AVCapturePhoto, error: (any Swift.Error)?)
