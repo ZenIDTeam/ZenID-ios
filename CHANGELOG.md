@@ -1,5 +1,14 @@
 # Change Log
 
+# 2.0.27 2024-05-03
+* RecogLib 4.2.7
+* Fix: Addresses on RO ID cards that contain parentheses are parsed correctly.
+* Fix: Lost face in face liveness causes the process to be restarted when "Face must be stable and detectable all the time" is set to true. (Backported to 4.1.9)
+* Fix: Fixed Selfie validator for cards with NFC, it uses image from NFC everytime. (Backported to 3.10.8 and 4.1.9)
+* Fix: Better OCR for Czech residency permit permit numbers.
+* Improvement: Retrained Card face validator detector.
+* Improvement: Added Field retrain submission support. Problematic fields can be sent for OCR retrain if this feature is enabled in settings.
+
 # 2.0.27 2024-04-29
 * RecogLib 4.2.5
 * Fix: Fix C being read as € in addresses on Slovak ID card.

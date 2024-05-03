@@ -7,5 +7,5 @@
 namespace RecogLibC RECOGLIBC_PUBLIC
 {
 
-constexpr auto RecogLibCVersion = "4.2.5.0";
+constexpr auto RecogLibCVersion = "4.2.7.0";
 }
