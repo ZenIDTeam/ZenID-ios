@@ -93,7 +93,7 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
         
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
-            showHelperVisualisation: configuration.showVisualisation,
+            showHelperVisualisation: configuration.showHelperVisualisation,
             showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .front,
