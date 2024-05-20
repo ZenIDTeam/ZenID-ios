@@ -76,14 +76,19 @@ public class DocumentVerifier {
         }
 
         if let mrzModelsPath {
-            let absolutePath = mrzModelsPath.absoluteString
-            if let absolutePath = absolutePath
-                .replacingOccurrences(of: "file://", with: "")
-                .removingPercentEncoding 
-            {
-                let path = absolutePath.toUnsafeMutablePointer()
-                RecogLib_iOS.loadTesseractModel(cppObject, path)
-            }
+            loadMrzModels(mrzModelsPath)
+        }
+    }
+    
+    public func loadMrzModels(_ mrzModelsPath: URL) {
+        let absolutePath = mrzModelsPath.absoluteString
+        if let absolutePath = absolutePath
+            .replacingOccurrences(of: "file://", with: "")
+            .removingPercentEncoding
+        {
+            ApplicationLogger.shared.Info("Loading mrz model")
+            let path = absolutePath.toUnsafeMutablePointer()
+            RecogLib_iOS.loadTesseractModel(cppObject, path)
         }
     }
 

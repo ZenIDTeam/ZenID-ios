@@ -701,10 +701,10 @@ public enum DataType {
 }
 @objc @_inheritsConvenienceInitializers final public class Camera : ObjectiveC.NSObject {
   final public func isCaptureSessionRunning() -> Swift.Bool
-  @objc override dynamic public init()
-  @objc deinit
   final public func setOrientation(orientation: UIKit.UIInterfaceOrientation? = nil)
   final public func setTorch(on: Swift.Bool? = nil)
+  @objc override dynamic public init()
+  @objc deinit
 }
 extension RecogLib_iOS.Camera : AVFoundation.AVCapturePhotoCaptureDelegate {
   @objc final public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVFoundation.AVCapturePhoto, error: (any Swift.Error)?)
@@ -814,6 +814,7 @@ public class SelfieVerifier {
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
   public func reset()
   public func getRenderCommands(canvasWidth: Swift.Int, canvasHeight: Swift.Int, orientation: UIKit.UIInterfaceOrientation = .portrait) -> Swift.String?
+  public func getSelfieResult(orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.SelfieResult?
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
 public class DataGroup15 : RecogLib_iOS.DataGroup {
@@ -893,6 +894,7 @@ public class DocumentVerifier {
   public init(input: RecogLib_iOS.DocumentsInput, language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.DocumentVerifierSettings? = nil)
   @objc deinit
   public func loadModels(_ loader: RecogLib_iOS.DocumentVerifierModels, mrzModelsPath: Foundation.URL? = nil)
+  public func loadMrzModels(_ mrzModelsPath: Foundation.URL)
   public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.DocumentResult?
   public func update(settings: RecogLib_iOS.DocumentVerifierSettings)
@@ -1113,7 +1115,7 @@ public protocol DocumentControllerAbstraction {
 @_hasMissingDesignatedInitializers final public class DocumentController : RecogLib_iOS.BaseController<RecogLib_iOS.DocumentResult>, RecogLib_iOS.DocumentControllerAbstraction {
   weak final public var delegate: (any RecogLib_iOS.DocumentControllerDelegate)?
   weak final public var debugDelegate: (any RecogLib_iOS.SimulatorHelperDelegate)?
-  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, mrzModelsUrl: Foundation.URL?, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL? = nil, mrzModelsUrl: Foundation.URL? = nil, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
   @objc deinit
   final public func configure(configuration: RecogLib_iOS.DocumentControllerConfiguration = .default) throws
   final public func processNfcResult(nfcData: RecogLib_iOS.NfcData, status: RecogLib_iOS.NfcStatus) -> RecogLib_iOS.DocumentResult?
@@ -1499,7 +1501,7 @@ public protocol FacelivenessControllerAbstraction {
 }
 @_hasMissingDesignatedInitializers final public class FacelivenessController : RecogLib_iOS.BaseController<RecogLib_iOS.FaceLivenessResult>, RecogLib_iOS.FacelivenessControllerAbstraction {
   weak final public var delegate: (any RecogLib_iOS.FacelivenessControllerDelegate)?
-  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL? = nil, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
   final public func configure(configuration: RecogLib_iOS.FacelivenessControllerConfiguration = .default) throws
   final public func getAuxiliaryImages() -> RecogLib_iOS.FaceLivenessAuxiliaryInfo?
   @objc deinit
@@ -1814,11 +1816,10 @@ public struct SelfieControllerConfiguration {
   public let showDebugVisualisation: Swift.Bool
   public let showTextInstructions: Swift.Bool
   public let dataType: RecogLib_iOS.DataType
-  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, showTextInstructions: Swift.Bool = true, dataType: RecogLib_iOS.DataType)
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, showTextInstructions: Swift.Bool = true)
 }
 public protocol SelfieControllerDelegate : AnyObject {
   func controller(_ controller: RecogLib_iOS.SelfieController, didScan result: RecogLib_iOS.SelfieResult)
-  func controller(_ controller: RecogLib_iOS.SelfieController, didRecord videoURL: Foundation.URL)
   func controller(_ controller: RecogLib_iOS.SelfieController, didUpdate result: RecogLib_iOS.SelfieResult)
 }
 public protocol SelfieControllerAbstraction {
@@ -1827,7 +1828,7 @@ public protocol SelfieControllerAbstraction {
 }
 @_hasMissingDesignatedInitializers final public class SelfieController : RecogLib_iOS.BaseController<RecogLib_iOS.SelfieResult>, RecogLib_iOS.SelfieControllerAbstraction {
   weak final public var delegate: (any RecogLib_iOS.SelfieControllerDelegate)?
-  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
+  public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL? = nil, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
   final public func configure(configuration: RecogLib_iOS.SelfieControllerConfiguration = .default) throws
   @objc deinit
 }

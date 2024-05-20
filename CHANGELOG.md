@@ -1,5 +1,9 @@
 # Change Log
 
+# 2.0.27 2024-05-20
+* New: Can automatically load models from Bundles inside app when using CocoaPods distribution.
+* Fix: Hologram and Faceliveness process is automatically restarted when user leave and return to the app.
+
 # 2.0.27 2024-05-03
 * RecogLib 4.2.7
 * Fix: Addresses on RO ID cards that contain parentheses are parsed correctly.
@@ -7,7 +11,7 @@
 * Fix: Fixed Selfie validator for cards with NFC, it uses image from NFC everytime. (Backported to 3.10.8 and 4.1.9)
 * Fix: Better OCR for Czech residency permit permit numbers.
 * Improvement: Retrained Card face validator detector.
-* Improvement: Added Field retrain submission support. Problematic fields can be sent for OCR retrain if this feature is enabled in settings.
+* Improvement: Added Field retrain submission support. Problematic fields can be sent for OCR retrain if this feature is enabled in settings. 
 
 # 2.0.27 2024-04-29
 * RecogLib 4.2.5

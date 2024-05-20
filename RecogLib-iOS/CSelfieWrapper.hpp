@@ -39,6 +39,8 @@ void setSelfieDebugInfo(const void *object, bool show);
 
 CSelfieVerifierSettings getSelfieSettings(const void *object);
 
+void getSelfieResult(const void *object, CSelfieInfo *selfie);
+
 #ifdef __cplusplus
 }
 #endif

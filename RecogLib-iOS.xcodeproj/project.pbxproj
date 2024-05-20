@@ -128,6 +128,7 @@
 		7B23393A2B6BDFFF00A163A5 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2339392B6BDFFF00A163A5 /* Array+Extensions.swift */; };
 		7B39ADE32B7E482C00B9C635 /* UIInterfaceOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39ADE22B7E482C00B9C635 /* UIInterfaceOrientation+Extension.swift */; };
 		7B39ADE52B7EA4E100B9C635 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39ADE42B7EA4E100B9C635 /* CALayer+Extensions.swift */; };
+		7B77237E2BF4D2A200F6D690 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B77237D2BF4D2A200F6D690 /* URL+Extensions.swift */; };
 		7B8581BF2BA35A61009FE729 /* CGSize+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8581BE2BA35A61009FE729 /* CGSize+ExtensionsTests.swift */; };
 		7B8581C02BA35A61009FE729 /* RecogLib_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D264245D22C11E7E00735B99 /* RecogLib_iOS.framework */; };
 		7B8581C92BA35CDB009FE729 /* CGRect+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8581C82BA35CDB009FE729 /* CGRect+ExtensionsTests.swift */; };
@@ -281,6 +282,7 @@
 		7B2339392B6BDFFF00A163A5 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		7B39ADE22B7E482C00B9C635 /* UIInterfaceOrientation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInterfaceOrientation+Extension.swift"; sourceTree = "<group>"; };
 		7B39ADE42B7EA4E100B9C635 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
+		7B77237D2BF4D2A200F6D690 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		7B8581BC2BA35A61009FE729 /* RecogLib_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecogLib_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8581BE2BA35A61009FE729 /* CGSize+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+ExtensionsTests.swift"; sourceTree = "<group>"; };
 		7B8581C82BA35CDB009FE729 /* CGRect+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+ExtensionsTests.swift"; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				7B39ADE22B7E482C00B9C635 /* UIInterfaceOrientation+Extension.swift */,
 				7B39ADE42B7EA4E100B9C635 /* CALayer+Extensions.swift */,
 				7BF6FC8D2BA8BAD400937E71 /* SupportedLanguages+Extensions.swift */,
+				7B77237D2BF4D2A200F6D690 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 				18371AF927C243F8002528F3 /* CameraOverlayView.swift in Sources */,
 				18371AF227C2437B002528F3 /* SelfieController.swift in Sources */,
 				6FE107AF24B0FAFE00610F8D /* HologramResult.swift in Sources */,
+				7B77237E2BF4D2A200F6D690 /* URL+Extensions.swift in Sources */,
 				18371B1227C244BC002528F3 /* VideoWriter.swift in Sources */,
 				18371B5A27C5441E002528F3 /* UnifiedHologramResultAdapter.swift in Sources */,
 				18371B5D27C5441E002528F3 /* UnifiedState.swift in Sources */,
