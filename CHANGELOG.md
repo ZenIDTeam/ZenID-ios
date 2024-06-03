@@ -1,5 +1,9 @@
 # Change Log
 
+# 2.0.26 2024-06-04
+* RecogLib 4.1.11
+* Fix: `GetStepParameters` always sets `totalCheckCount`, `passedCheckCount` and `hasFailed` values of json.
+
 # 2.0.26 2024-04-29
 * RecogLib 4.1.9
 * Fix: Fixed Selfie validator for cards with NFC, it uses image from NFC everytime.
