@@ -3,11 +3,18 @@
 #include "RecogLibC.h"
 #include <CoreMedia/CoreMedia.h>
 #include <string>
+#include <mutex>
+#include <shared_mutex>
+#include <stdexcept>
 
 using namespace RecogLibC;
 
+std::mutex verifierRenderMutex;
+std::shared_mutex verifierDeleteMutex;
+
 void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifierSettings verifierSettings = FaceLivenessVerifierSettings();
     verifierSettings.enableLegacyMode = settings->enableLegacyMode;
     verifierSettings.maxAuxiliaryImageSize = settings->maxAuxiliaryImageSize;
@@ -18,6 +25,7 @@ void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierS
 
 void deleteFaceLivenessVerifier(void *verifier)
 {
+    std::unique_lock<std::shared_mutex> unique_lock(verifierDeleteMutex);
     delete ((FaceLivenessVerifier *) verifier);
 }
 
@@ -33,7 +41,10 @@ bool verifyFaceLivenessImage(const void *object,
                      CVPixelBufferRef _cvBuffer,
                      CFaceLivenessInfo *face)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
+    std::lock_guard<std::mutex> guard(verifierRenderMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     
     CVPixelBufferLockBaseAddress(_cvBuffer, 0);
     const int widht = (int)CVPixelBufferGetWidth(_cvBuffer);
@@ -76,7 +87,9 @@ bool verifyFaceLivenessImage(const void *object,
 }
 
 void updateFacelivenessVerifierSettings(const void *object, CFaceLivenessVerifierSettings *settings) {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     verifier->GetSettings().enableLegacyMode = settings->enableLegacyMode;
     verifier->GetSettings().maxAuxiliaryImageSize = settings->maxAuxiliaryImageSize;
     verifier->GetSettings().visualizerVersion = settings->visualizerVersion;
@@ -85,7 +98,9 @@ void updateFacelivenessVerifierSettings(const void *object, CFaceLivenessVerifie
 
 CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     CFaceLivenessAuxiliaryInfo info = CFaceLivenessAuxiliaryInfo();
     const auto state = verifier->GetStage();
     if (state == FaceLivenessVerifierState::Ok) {
@@ -120,7 +135,10 @@ CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
 
 void faceLivenessVerifierReset(const void *object)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
+    std::lock_guard<std::mutex> guard(verifierRenderMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     verifier->Reset();
 }
 
@@ -129,8 +147,10 @@ char* getFaceLivenessRenderCommands(const void *object,
                             int canvasHeight,
                             CFaceLivenessInfo *face)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
-    
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
+
     auto language = static_cast<SupportedLanguages>(face->language);
     
     std::string renderString = verifier->GetRenderCommands(canvasWidth, canvasHeight, language);
@@ -140,21 +160,26 @@ char* getFaceLivenessRenderCommands(const void *object,
 void setFaceLivenessDebugInfo(const void *object,
                        bool show)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     verifier->SetDebugVisualization(show);
 }
 
 char* getFaceLivenessStepParameters(const void *object)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
-
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     std::string stepParametersJson = verifier->GetStepParametersJson();
     return getString(stepParametersJson);
 }
 
 int getFaceLivenessRequiredFps(const void *object)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier =(FaceLivenessVerifier *)object;
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     std::optional<int> fps = verifier->GetRequiredVideoFps();
     if (fps) {
         return fps.value();
@@ -164,7 +189,9 @@ int getFaceLivenessRequiredFps(const void *object)
 
 int getFaceLivenessRequiredVideoResolution(const void *object)
 {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier =(FaceLivenessVerifier *)object;
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     std::optional<int> resolution = verifier->GetRequiredVideoResolution();
     if (resolution) {
         return  resolution.value();
@@ -173,8 +200,9 @@ int getFaceLivenessRequiredVideoResolution(const void *object)
 }
 
 void getFaceLivenessResult(const void *object, CFaceLivenessInfo *face) {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     FaceLivenessVerifier *verifier =(FaceLivenessVerifier *)object;
-    
+    if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     const auto state = verifier->GetStage();
     
     if (state == FaceLivenessVerifierState::Ok) {

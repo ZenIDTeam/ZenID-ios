@@ -6,10 +6,13 @@
 #include <memory>
 #include <optional>
 #include <mutex>
+#include <shared_mutex>
+#include <stdexcept>
 
 using namespace RecogLibC;
 
-std::mutex verifierMutex;
+std::mutex verifierRenderMutex;
+std::shared_mutex verifierDeleteMutex;
 
 // TODO: Lock each usage of verifier with:
 // std::lock_guard<std::mutex> guard(verifierMutex);
@@ -18,6 +21,7 @@ std::mutex verifierMutex;
 
 static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, const char *acceptableInputJson) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     
     // Construct optional data
     DocumentRole documentRole = DocumentRole::Idc; // Default value, we won't use it if role is not set.
@@ -70,12 +74,14 @@ static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
     if (acceptableInputJson != NULL)
     {
-        std::lock_guard<std::mutex> guard(verifierMutex);
+        std::lock_guard<std::mutex> guard(verifierRenderMutex);
+        std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
         verifier->ProcessFrame(image, acceptableInputJson);
     }
     else
     {
-        std::lock_guard<std::mutex> guard(verifierMutex);
+        std::lock_guard<std::mutex> guard(verifierRenderMutex);
+        std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
         verifier->ProcessFrame(image,
                                document->role < 0 ? nullptr : &documentRole,
                                document->country < 0 ? nullptr : &country,
@@ -87,7 +93,9 @@ static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 }
 
 void getDocumentResult(const void *object,  CDocumentInfo *document) {
+    std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     
     const auto state = verifier->GetState();
     
@@ -127,6 +135,7 @@ void getDocumentResult(const void *object,  CDocumentInfo *document) {
 
 void * getDocumentVerifier(CDocumentVerifierSettings *settings)
 {
+    if (!settings) throw std::runtime_error("DocumentVerifier is null.");
     DocumentVerifierSettings verifierSettings = DocumentVerifierSettings();
     verifierSettings.showTimer = settings->showTimer;
     verifierSettings.drawOutline = settings->drawOutline;
@@ -137,19 +146,24 @@ void * getDocumentVerifier(CDocumentVerifierSettings *settings)
 
 void deleteDocumentVerifier(void *verifier)
 {
+    std::unique_lock<std::shared_mutex> lock(verifierDeleteMutex);
     delete ((DocumentVerifier *) verifier);
 }
                                                       
 void loadModel(const void *object, const char* buffer, size_t size)
 {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->LoadModel(buffer, size);
 }
 
 void loadTesseractModel(const void *object, const char* resourcePath)
 {    
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     std::string strPath(resourcePath);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->LoadTesseractModel(strPath);
 }
 
@@ -164,9 +178,11 @@ bool verify(const void *object,
 
 bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, const char *acceptableInputJson)
 {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     processFrame(object, _cvBuffer, document, acceptableInputJson);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
-    
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
+
     const auto state = verifier->GetState();
     
     if (state == DocumentVerifierState::Ok) {
@@ -205,6 +221,7 @@ bool verifyImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *
 }
 
 void updateDocumentVerifierSettings(const void *object, CDocumentVerifierSettings *settings) {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     verifier->GetSettings().showTimer = settings->showTimer;
     verifier->GetSettings().enableAimingCircle = settings->enableAimingCircle;
@@ -220,9 +237,11 @@ bool verifyHologram(const void *object, CMSampleBufferRef _mat, CDocumentInfo *d
 
 bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document)
 {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     processFrame(object, _cvBuffer, document, NULL);
     
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     document->hologramState = static_cast<int>(verifier->GetHologramState());
     switch (verifier->GetState()) {
         case RecogLibC::DocumentVerifierState::NoMatchFound:
@@ -234,36 +253,44 @@ bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
 void beginHologramVerification(const void *object)
 {
-    std::lock_guard<std::mutex> guard(verifierMutex);
+    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->BeginHologramVerification();
 }
 
 void endHologramVerification(const void *object)
 {
-    std::lock_guard<std::mutex> guard(verifierMutex);
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
+    std::lock_guard<std::mutex> guard(verifierRenderMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->EndHologramVerification();
 }
 
 void reset(const void *object)
 {
-    std::lock_guard<std::mutex> guard(verifierMutex);
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
+    std::lock_guard<std::mutex> guard(verifierRenderMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->Reset();
 }
 
 int validateDocumentsInput(const void *object, const char* acceptableInputJson) {
-    std::lock_guard<std::mutex> guard(verifierMutex);
+    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     int size = static_cast<int>(verifier->GetEnabledModels(acceptableInputJson).size());
     return size;
 }
 
 char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasHeight, CDocumentInfo *document)
 {
-    DocumentVerifier *verifier = (DocumentVerifier *)object;
-    
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
+    DocumentVerifier *verifier = (DocumentVerifier *)object;    
     auto language = static_cast<SupportedLanguages>(document->language);
     // No need to add a lock_guard here because GetRenderCommands is the only thread-safe method.
     std::string renderString = verifier->GetRenderCommands(canvasWidth, canvasHeight, language);
@@ -272,14 +299,18 @@ char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasH
 
 void setDocumentDebugInfo(const void *object, bool show)
 {
-    std::lock_guard<std::mutex> guard(verifierMutex);
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
+    std::lock_guard<std::mutex> guard(verifierRenderMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->SetDebugVisualization(show);
 }
 
 int getDocumentRequiredFps(const void *object)
 {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier =(DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     std::optional<int> fps = verifier->GetRequiredVideoFps();
     if (fps) {
         return fps.value();
@@ -289,7 +320,9 @@ int getDocumentRequiredFps(const void *object)
 
 int getDocumentRequiredVideoResolution(const void *object)
 {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier =(DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     std::optional<int> resolution = verifier->GetRequiredVideoResolution();
     if (resolution) {
         return  resolution.value();
@@ -300,14 +333,18 @@ int getDocumentRequiredVideoResolution(const void *object)
 
 char* getNfcKey(const void *object)
 {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier =(DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     std::string nfcKey = verifier->GetNfcKeyJson();
     return getString(nfcKey);
 }
 
 void processNfcResult(const void *object, char *data, enum CNfcStatus status)
 {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier =(DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
 //    std::string strData = data;
     NfcStatus mappedStatus;
     switch (status) {
@@ -342,13 +379,17 @@ NfcStatus mapNfcStatus(CNfcStatus status) {
 }
 
 int getState(const void *object) {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     int state = static_cast<int>(verifier->GetState());
     return state;
 }
 
 CImageSignature getSignedImage(const void *object) {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     const auto state = verifier->GetState();
     
     if (state == DocumentVerifierState::Ok) {
@@ -363,7 +404,9 @@ CImageSignature getSignedImage(const void *object) {
 }
 
 CPreviewData getImagePreview(const void *object, CPreviewData *preview) {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     CPreviewData _unusedPreview;
     // I'm trying to solve the deallocation exception by passing the object as an external reference but it didn't solve the problem.
     preview->image = verifier->GetImagePreview().data();
@@ -372,7 +415,9 @@ CPreviewData getImagePreview(const void *object, CPreviewData *preview) {
 }
 
 CNfcValidatorConfig getSdkConfig(const void *object) {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     NfcValidatorConfig origConfig = verifier->GetSdkConfig();
     CNfcValidatorConfig config = CNfcValidatorConfig();
     config.isEnabled = origConfig.IsEnabled;
@@ -388,7 +433,9 @@ CNfcValidatorConfig getSdkConfig(const void *object) {
 
 
 CDocumentVerifierSettings getDocumentSettings(const void *object) {
+    std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
+    if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     DocumentVerifierSettings& verifierSettings = verifier->GetSettings();
     CDocumentVerifierSettings settings = CDocumentVerifierSettings();
     settings.drawOutline = verifierSettings.drawOutline;
