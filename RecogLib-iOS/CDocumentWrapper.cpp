@@ -11,8 +11,8 @@
 
 using namespace RecogLibC;
 
-std::mutex verifierRenderMutex;
-std::shared_mutex verifierDeleteMutex;
+std::mutex verifierRenderMutex; // Used to prevent verifier methods from running running concurrently, for eg. Reset and ProcessFrame
+std::shared_mutex verifierDeleteMutex; // Used to prevent the verifier from being deleted while a background thread is running
 
 // TODO: Lock each usage of verifier with:
 // std::lock_guard<std::mutex> guard(verifierMutex);
