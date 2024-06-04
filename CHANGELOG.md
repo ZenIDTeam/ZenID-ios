@@ -1,5 +1,9 @@
 # Change Log
 
+# 2.0.27 2024-06-04
+* RecogLib 4.2.10
+* Fix: `GetStepParameters` always sets `totalCheckCount`, `passedCheckCount` and `hasFailed` values of json.
+
 # 2.0.27 2024-05-03
 * RecogLib 4.2.7
 * Fix: Addresses on RO ID cards that contain parentheses are parsed correctly.
