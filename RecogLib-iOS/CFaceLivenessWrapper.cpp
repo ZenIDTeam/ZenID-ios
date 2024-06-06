@@ -9,7 +9,7 @@
 
 using namespace RecogLibC;
 
-static std::mutex verifierRenderMutex; // Used to prevent verifier methods from running running concurrently, for eg. Reset and ProcessFrame
+static std::mutex verifierProcessFrameMutex; // Used to prevent verifier methods from running running concurrently, for eg. Reset and ProcessFrame
 static std::shared_mutex verifierDeleteMutex; // Used to prevent the verifier from being deleted while a background thread is running
 
 void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierSettings *settings)
@@ -42,7 +42,7 @@ bool verifyFaceLivenessImage(const void *object,
                      CFaceLivenessInfo *face)
 {
     std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
-    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     
@@ -136,7 +136,7 @@ CFaceLivenessAuxiliaryInfo getAuxiliaryInfo(const void *object)
 void faceLivenessVerifierReset(const void *object)
 {
     std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
-    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     if (!verifier) throw std::runtime_error("FaceLivenessVerifier is null.");
     verifier->Reset();

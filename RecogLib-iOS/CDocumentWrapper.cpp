@@ -11,13 +11,8 @@
 
 using namespace RecogLibC;
 
-static std::mutex verifierRenderMutex; // Used to prevent verifier methods from running running concurrently, for eg. Reset and ProcessFrame
+static std::mutex verifierProcessFrameMutex; // Used to prevent verifier methods from running running concurrently, for eg. Reset and ProcessFrame
 static std::shared_mutex verifierDeleteMutex; // Used to prevent the verifier from being deleted while a background thread is running
-
-// TODO: Lock each usage of verifier with:
-// std::lock_guard<std::mutex> guard(verifierMutex);
-// The statement above adds a mutex to the code until the end of the scope
-// No need to add a lock_guard here because GetRenderCommands is the only thread-safe method.
 
 static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocumentInfo *document, const char *acceptableInputJson) {
     DocumentVerifier *verifier = (DocumentVerifier *)object;
@@ -74,13 +69,13 @@ static void processFrame(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
     if (acceptableInputJson != NULL)
     {
-        std::lock_guard<std::mutex> guard(verifierRenderMutex);
+        std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
         std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
         verifier->ProcessFrame(image, acceptableInputJson);
     }
     else
     {
-        std::lock_guard<std::mutex> guard(verifierRenderMutex);
+        std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
         std::shared_lock<std::shared_mutex> shared_lock(verifierDeleteMutex);
         verifier->ProcessFrame(image,
                                document->role < 0 ? nullptr : &documentRole,
@@ -253,7 +248,7 @@ bool verifyHologramImage(const void *object, CVPixelBufferRef _cvBuffer, CDocume
 
 void beginHologramVerification(const void *object)
 {
-    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
     std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
@@ -263,7 +258,7 @@ void beginHologramVerification(const void *object)
 void endHologramVerification(const void *object)
 {
     std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
-    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->EndHologramVerification();
@@ -272,14 +267,14 @@ void endHologramVerification(const void *object)
 void reset(const void *object)
 {
     std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
-    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->Reset();
 }
 
 int validateDocumentsInput(const void *object, const char* acceptableInputJson) {
-    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
     std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
@@ -300,7 +295,7 @@ char* getDocumentRenderCommands(const void *object, int canvasWidth, int canvasH
 void setDocumentDebugInfo(const void *object, bool show)
 {
     std::shared_lock<std::shared_mutex> lock(verifierDeleteMutex);
-    std::lock_guard<std::mutex> guard(verifierRenderMutex);
+    std::lock_guard<std::mutex> guard(verifierProcessFrameMutex);
     DocumentVerifier *verifier = (DocumentVerifier *)object;
     if (!verifier) throw std::runtime_error("DocumentVerifier is null.");
     verifier->SetDebugVisualization(show);
