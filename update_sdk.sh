@@ -16,9 +16,9 @@ else
 
         ./scripts/c_enums_to_swift.sh ./Sources/LibZenid_iOS.xcframework/ios-arm64/LibZenid_iOS.framework/Headers/ZenidEnums.generated.h > ./RecogLib-iOS/SDK/Enums.generated.swift
 
-        ./build.sh
+        # ./build.sh
 
-        echo "SDK update completed 🎉🎉"
+        echo "Continue SDK update in Xcode"
 
     else
         echo "ERROR: Shall be called from ZenID Demo repository root."
