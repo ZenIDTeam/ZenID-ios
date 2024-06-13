@@ -1,5 +1,9 @@
 # Change Log
 
+# 2.0.26 2024-06-13
+* RecogLib 4.1.13
+* Fix: Fixed mutex error when calling SelectProfile.
+
 # 2.0.26 2024-06-04
 * RecogLib 4.1.11
 * Fix: `GetStepParameters` always sets `totalCheckCount`, `passedCheckCount` and `hasFailed` values of json.
