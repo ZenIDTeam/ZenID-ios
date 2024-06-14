@@ -30,7 +30,7 @@ class SelfieLivenessSdkValidatorConfig
 {
 public:
   std::vector<std::vector<SdkLivenessSteps>> RandomSequences;
-  inline static float SmileThreshold = 0.7f;
+  inline static float SmileThreshold = 0.65f;
   inline static float NoSmileThreshold = 0.4f;
   int ScoreStep = 100;
   std::vector<SdkLivenessSteps> AllowedSteps;
@@ -128,7 +128,7 @@ class MrzChecksumValidatorConfig
 {
 public:
   int ScoreStep = 100;
-  bool EnableSdkCheck = true;
+  bool EnableSdkCheck = false;
   bool UseOnNfcFields = false;
   int MinFieldConfidence = 50;
   int AcceptScore = 100;
@@ -223,6 +223,7 @@ enum class ValidatorType
   Nfc = 67,
   SdkPictureQuality = 68,
   IQSHologram = 69,
+  SelfieAuthenticity = 70,
 };
 
 class ValidatorResultInfo

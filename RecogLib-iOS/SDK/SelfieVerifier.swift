@@ -58,6 +58,15 @@ public class SelfieVerifier {
         return result
     }
     
+    /// A method that returns the current result of the face liveness video being verified.
+    /// It is usually called to check the status after sending NFC data for processing `verifier.processNfc(..)`
+    public func getSelfieResult(orientation: UIInterfaceOrientation = .portrait) -> SelfieResult? {
+        var selfie = createSelfieInfo(orientation: orientation)
+        RecogLib_iOS.getSelfieResult(cppObject, &selfie)
+        let result = SelfieResult(selfieState: selfie.state, signature: selfie.signature)
+        return result
+    }
+    
     private func createSelfieInfo(orientation: UIInterfaceOrientation) -> CSelfieInfo {
         return CSelfieInfo(
             state: -1,
