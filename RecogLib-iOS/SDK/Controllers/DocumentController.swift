@@ -165,8 +165,8 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     public init(
         camera: Camera,
         view: CameraView,
-        modelsUrl: URL,
-        mrzModelsUrl: URL?,
+        modelsUrl: URL? = nil,
+        mrzModelsUrl: URL? = nil,
         language: SupportedLanguages = SupportedLanguages.current
     ) {
         verifier = .init(
@@ -183,7 +183,11 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
             debugButtonBack.addTarget(self, action: #selector(didTapDebugButton(sender:)), for: .touchUpInside)
         #endif
 
-        loadModels(url: modelsUrl, mrzURL: mrzModelsUrl)
+        if let modelsUrl {
+            loadModels(url: modelsUrl, mrzURL: mrzModelsUrl)
+        } else {
+            loadModelsFromBundle()
+        }
     }
 
     deinit {
@@ -270,6 +274,23 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
                 debugButtonBack.anchor(top: debugButton.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: 24)
             }
         #endif
+    }
+    
+    override func restart() {
+        super.restart()
+    
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            if baseConfig.dataType == .video {
+                verifier.endHologramVerification()
+                verifier.reset()
+                verifier.beginHologramVerification()
+            } else {
+                verifier.reset()
+            }
+            
+        }
     }
 
     public func processNfcResult(nfcData: NfcData, status: NfcStatus) -> DocumentResult? {
@@ -360,6 +381,30 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
 
     private func loadModels(url: URL, mrzURL: URL?) {   
         verifier.loadModels(.init(url: url)!, mrzModelsPath: mrzURL)
+    }
+    
+    private func loadModelsFromBundle() {
+        let appDir = Bundle.main.bundleURL
+        do {
+            let list = if #available(iOS 16.0, *) {
+                try FileManager.default.contentsOfDirectory(atPath: appDir.path(percentEncoded: false))
+            } else {
+                try FileManager.default.contentsOfDirectory(atPath: appDir.path)
+            }
+            let bundles = list
+                .filter { $0.hasPrefix("ZenIDSDK_Documents") && $0.hasSuffix(".bundle") }
+            
+            bundles.forEach { file in
+                if let url = Bundle(url: appDir.urlFor(file: file, in: appDir))?.resourceURL {
+                    verifier.loadModels(.init(url: url)!)
+                }
+            }
+            if let mrzUrl = Bundle(url: appDir.urlFor(file: "ZenIDSDK_MRZ.bundle", in: appDir))?.resourceURL {
+                verifier.loadMrzModels(mrzUrl)
+            }
+        } catch {
+                
+        }
     }
 
     private func resetDocumentVerifier() {

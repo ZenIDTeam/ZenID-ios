@@ -17,8 +17,7 @@ public struct SelfieControllerConfiguration {
     public static let `default` = SelfieControllerConfiguration(
         showVisualisation: true,
         showHelperVisualisation: true,
-        showDebugVisualisation: false,
-        dataType: .picture)
+        showDebugVisualisation: false)
     
     public let showVisualisation: Bool
     
@@ -28,28 +27,24 @@ public struct SelfieControllerConfiguration {
     
     public let showTextInstructions: Bool
     
-    public let dataType: DataType
+    public let dataType: DataType = .picture
     
     public init(
         showVisualisation: Bool,
         showHelperVisualisation: Bool,
         showDebugVisualisation: Bool,
-        showTextInstructions: Bool = true,
-        dataType: DataType
+        showTextInstructions: Bool = true
     ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
         self.showDebugVisualisation = showDebugVisualisation
         self.showTextInstructions = showTextInstructions
-        self.dataType = dataType
     }
 }
 
 public protocol SelfieControllerDelegate: AnyObject {
     
     func controller(_ controller: SelfieController, didScan result: SelfieResult)
-    
-    func controller(_ controller: SelfieController, didRecord videoURL: URL)
     
     func controller(_ controller: SelfieController, didUpdate result: SelfieResult)
 }
@@ -76,7 +71,7 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
     public init(
         camera: Camera,
         view: CameraView,
-        modelsUrl: URL,
+        modelsUrl: URL? = nil,
         language: SupportedLanguages = SupportedLanguages.current
     ) {
         verifier = .init(language: language)
@@ -93,7 +88,7 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
         
         let baseConfig = BaseControllerConfiguration(
             showVisualisation: configuration.showVisualisation,
-            showHelperVisualisation: configuration.showVisualisation,
+            showHelperVisualisation: configuration.showHelperVisualisation,
             showTextInstructions: configuration.showTextInstructions,
             dataType: configuration.dataType,
             cameraType: .front,
@@ -122,14 +117,20 @@ public final class SelfieController: BaseController<SelfieResult>, SelfieControl
     }
     
     override func callDelegate(with videoUrl: URL) {
-        delegate?.controller(self, didRecord: videoUrl)
+        ApplicationLogger.shared.Error("Video is not supported for Selfie.")
     }
     
     override func callUpdateDelegate(with result: SelfieResult) {
         delegate?.controller(self, didUpdate: result)
     }
     
-    private func loadModels(url: URL) {
-        verifier.loadModels(.init(url: url)!)
+    private func loadModels(url: URL?) {
+        let appDir = Bundle.main.bundleURL
+        if let url = url ?? Bundle(url: appDir.urlFor(file: "ZenIDSDK_Faceliveness.bundle", in: appDir))?.resourceURL {
+            guard let models = FaceVerifierModels(url: url) else {
+                return
+            }
+            verifier.loadModels(models)
+        }
     }
 }

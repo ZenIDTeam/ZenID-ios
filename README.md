@@ -2,7 +2,6 @@
 
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.
 
- 
 
 ## Migration
 
@@ -745,7 +744,7 @@ Selfie detection result contains state of currently analysed image.
 `SelfieResult.state` can be `NoFaceFound`, `Blurry`, `Dark`, `ConfirmingFace` and finally `Ok`
 
 Face liveness detection result contains state of currently analysed image.
-`FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile`, `Blurry`, `Dark` and finally  `Ok`
+`FaceLivenessResult.state` can be `LookAtMe`, `TurnHead`, `Smile`, `Blurry`, `Dark`, `DontSmile` and finally  `Ok`
 
 ### Signature
 

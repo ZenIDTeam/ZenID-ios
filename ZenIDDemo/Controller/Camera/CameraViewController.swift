@@ -139,8 +139,7 @@ class CameraViewController: UIViewController {
                 selfieControllerConfig = .init(
                     showVisualisation: true,
                     showHelperVisualisation: true,
-                    showDebugVisualisation: config.isDebugEnabled,
-                    dataType: dataType
+                    showDebugVisualisation: config.isDebugEnabled
                 )
                 updateSelfieController()
             }
@@ -344,10 +343,6 @@ extension CameraViewController: FacelivenessControllerDelegate {
 extension CameraViewController: SelfieControllerDelegate {
     func controller(_ controller: SelfieController, didScan result: SelfieResult) {
         returnImage(nil, UnifiedSelfieResultAdapter(result: result))
-    }
-
-    func controller(_ controller: SelfieController, didRecord videoURL: URL) {
-        delegate?.didTakeVideo(videoURL, type: photoType, result: nil)
     }
 
     func controller(_ controller: SelfieController, didUpdate result: SelfieResult) {

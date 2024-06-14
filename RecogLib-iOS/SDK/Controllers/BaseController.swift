@@ -123,12 +123,42 @@ public class BaseController<ResultType: ResultState> {
     init(camera: Camera, view: CameraView) {
         self.camera = camera
         self.view = view
+        let center = NotificationCenter.default
+        center.addObserver(self,
+                           selector: #selector(appDidBecomeActive),
+                           name: UIApplication.didBecomeActiveNotification,
+                           object: nil)
+        center.addObserver(self,
+                           selector: #selector(appWillTerminate),
+                           name: UIApplication.willTerminateNotification,
+                           object: nil)
     }
 
     deinit {
+        NotificationCenter.default.removeObserver(self)
         videoWriter?.stop()
         camera.stop()
     }
+    
+    @objc func appDidBecomeActive() {
+        ApplicationLogger.shared.Info("ZenID did become active")
+
+        camera.setTorch()
+        
+        if baseConfig.dataType == .video,
+           videoWriter?.canWrite() == true
+        {
+            restart()
+        }
+    }
+    
+    @objc func appWillTerminate() {
+        ApplicationLogger.shared.Info("ZenID will terminate")
+        camera.setTorch(on: false)
+    }
+    
+    /// Should react on restarting the controller process.
+    func restart() {}
 
     func configure(configuration: BaseControllerConfiguration = .default) throws {
         camera.delegate = self
