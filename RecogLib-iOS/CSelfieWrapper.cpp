@@ -115,3 +115,19 @@ CSelfieVerifierSettings getSelfieSettings(const void *object) {
     settings.visualizerVersion = verifierSettings.visualizerVersion;
     return settings;
 }
+
+void getSelfieResult(const void *object, CSelfieInfo *selfie) {
+    SelfieVerifier *verifier =(SelfieVerifier *)object;
+    
+    const auto state = verifier->GetState();
+    
+    if (state == SelfieVerifierState::Ok) {
+        CImageSignature signature = CImageSignature();
+        signature.signature = verifier->GetSignature().c_str();
+        signature.signatureSize = static_cast<int>(verifier->GetSignature().size());
+        signature.image = verifier->GetSignedImage().data();
+        signature.imageSize = static_cast<int>(verifier->GetSignedImage().size());
+        selfie->signature = signature;
+    }
+    selfie->state = static_cast<int>(state);
+}

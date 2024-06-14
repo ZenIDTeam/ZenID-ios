@@ -1,5 +1,11 @@
 # Migration
 
+## Update to the version 2.0.27 (RecogLib 4.2.13)
+
+You can load models from Bundle files without necessity to provide controllers path to models. Bundle needs to be named `ZenIDSDK_Faceliveness`, `ZenIDSDK_Documents` or `ZenIDSDK_Documents_*`.
+
+If you use `SelfieController`, you can't specify output now. It is always `.picture`. Also the method from `SelfieControllerDelegate` that provide video file is obsolete now. 
+
 ## Update to the version 2.0.26 (RecogLib 4.1.7)
 
 There could be minor changes in controllers and camera API. For example functions `canShowStaticOverlay` and `canShowInstructionView` are computed parameters now. Also `onLayoutChange` method was introduced.
@@ -57,6 +63,9 @@ func sendImageWithSignature(imageData: Data, signature: String) {
 }
 ```
 
+### FaceLivenessVerifier has new result state `DontSmile`.
+
+This state is sometimes enforced even if disabled on server. For example when user is smiling all the time we need to be sure that the face is not a mask and can naturaly change facial expression. You can display same visualisation as for `Smile` state with different description. 
 
 
 ### NFC document reading support

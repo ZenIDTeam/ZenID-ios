@@ -50,34 +50,6 @@ public final class Camera: NSObject {
     }
     
     private(set) var isTorchRequired: Bool = false
-    
-    public override init() {
-        super.init()
-        
-        let center = NotificationCenter.default
-        center.addObserver(self,
-                           selector: #selector(appDidBecomeActive),
-                           name: UIApplication.didBecomeActiveNotification,
-                           object: nil)
-        center.addObserver(self,
-                           selector: #selector(appWillTerminate),
-                           name: UIApplication.willTerminateNotification,
-                           object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func appDidBecomeActive() {
-        ApplicationLogger.shared.Info("ZenID did become active")
-        setTorch()
-    }
-    
-    @objc func appWillTerminate() {
-        ApplicationLogger.shared.Info("ZenID will terminate")
-        setTorch(on: false)
-    }
 
     func configure(with configuration: CameraConfiguration) throws {
         let captureDevicePosition: AVCaptureDevice.Position = configuration.type == .back ? .back : .front

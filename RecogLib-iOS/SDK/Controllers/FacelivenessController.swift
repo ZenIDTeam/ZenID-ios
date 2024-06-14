@@ -82,7 +82,7 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     public init(
         camera: Camera,
         view: CameraView,
-        modelsUrl: URL,
+        modelsUrl: URL? = nil,
         language: SupportedLanguages = SupportedLanguages.current
     ) {
         verifier = .init(language: language)
@@ -114,6 +114,15 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         try self.configure(configuration: baseConfig)
         
         verifier.reset()
+    }
+    
+    override func restart() {
+        super.restart()
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            verifier.reset()
+        }
     }
     
     public func getAuxiliaryImages() -> FaceLivenessAuxiliaryInfo? {
@@ -149,10 +158,13 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         delegate?.controller(self, didUpdate: result)
     }
     
-    private func loadModels(url: URL) {
-        guard let models = FaceVerifierModels(url: url) else {
-            return
+    private func loadModels(url: URL?) {
+        let appDir = Bundle.main.bundleURL
+        if let url = url ?? Bundle(url: appDir.urlFor(file: "ZenIDSDK_Faceliveness.bundle", in: appDir))?.resourceURL {
+            guard let models = FaceVerifierModels(url: url) else {
+                return
+            }
+            verifier.loadModels(models)
         }
-        verifier.loadModels(models)
     }
 }

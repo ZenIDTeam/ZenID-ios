@@ -3,6 +3,9 @@
 # 2.0.27 2024-06-13
 * RecogLib 4.2.13
 * Fix: Fixed mutex error when calling SelectProfile.
+* New: Can automatically load models from Bundles inside app when using CocoaPods distribution.
+* Fix: Hologram and Faceliveness process is automatically restarted when user leave and return to the app.
+* Fix: SelfieController can't produce other data type than `.picture`. Delegate method with video output was removed. 
 
 # 2.0.27 2024-06-04
 * RecogLib 4.2.10
@@ -15,7 +18,7 @@
 * Fix: Fixed Selfie validator for cards with NFC, it uses image from NFC everytime. (Backported to 3.10.8 and 4.1.9)
 * Fix: Better OCR for Czech residency permit permit numbers.
 * Improvement: Retrained Card face validator detector.
-* Improvement: Added Field retrain submission support. Problematic fields can be sent for OCR retrain if this feature is enabled in settings.
+* Improvement: Added Field retrain submission support. Problematic fields can be sent for OCR retrain if this feature is enabled in settings. 
 
 # 2.0.27 2024-04-29
 * RecogLib 4.2.5
@@ -95,6 +98,7 @@
 * New SelectProfile feature that allows customers to set frontend validator configs on the backend.
 * New states for DocumentVerifierState and FaceLivenessVerifierState.
 * Removed attributes `specularAcceptableScore`, `documentBlurAcceptableScore` and `readBarcode` from struct `DocumentVerifierSettings`
+* New `FaceLivenessVerifier` result state `DontSmile`. 
 
 # 2.0.20 2023-06-15
 * Hologram length video reducing

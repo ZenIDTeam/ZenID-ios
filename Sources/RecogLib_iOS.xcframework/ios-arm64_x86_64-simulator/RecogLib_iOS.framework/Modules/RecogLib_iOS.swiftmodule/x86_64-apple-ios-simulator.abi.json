@@ -22537,32 +22537,6 @@
             "funcSelfKind": "NonMutating"
           },
           {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Camera",
-                "printedName": "RecogLib_iOS.Camera",
-                "usr": "c:@M@RecogLib_iOS@objc(cs)Camera"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@RecogLib_iOS@objc(cs)Camera(im)init",
-            "mangledName": "$s12RecogLib_iOS6CameraCACycfc",
-            "moduleName": "RecogLib_iOS",
-            "overriding": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
             "kind": "Function",
             "name": "setOrientation",
             "printedName": "setOrientation(orientation:)",
@@ -22635,6 +22609,32 @@
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Camera",
+                "printedName": "RecogLib_iOS.Camera",
+                "usr": "c:@M@RecogLib_iOS@objc(cs)Camera"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RecogLib_iOS@objc(cs)Camera(im)init",
+            "mangledName": "$s12RecogLib_iOS6CameraCACycfc",
+            "moduleName": "RecogLib_iOS",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
           },
           {
             "kind": "Function",
@@ -24813,6 +24813,43 @@
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getSelfieResult",
+            "printedName": "getSelfieResult(orientation:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.SelfieResult?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SelfieResult",
+                    "printedName": "RecogLib_iOS.SelfieResult",
+                    "usr": "s:12RecogLib_iOS12SelfieResultV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIInterfaceOrientation",
+                "printedName": "UIKit.UIInterfaceOrientation",
+                "hasDefaultArg": true,
+                "usr": "c:@E@UIInterfaceOrientation"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS14SelfieVerifierC03getD6Result11orientationAA0dG0VSgSo22UIInterfaceOrientationV_tF",
+            "mangledName": "$s12RecogLib_iOS14SelfieVerifierC03getD6Result11orientationAA0dG0VSgSo22UIInterfaceOrientationV_tF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           }
@@ -27751,6 +27788,32 @@
             "declKind": "Func",
             "usr": "s:12RecogLib_iOS16DocumentVerifierC10loadModels_03mrzG4PathyAA0deG0C_10Foundation3URLVSgtF",
             "mangledName": "$s12RecogLib_iOS16DocumentVerifierC10loadModels_03mrzG4PathyAA0deG0C_10Foundation3URLVSgtF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadMrzModels",
+            "printedName": "loadMrzModels(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS16DocumentVerifierC13loadMrzModelsyy10Foundation3URLVF",
+            "mangledName": "$s12RecogLib_iOS16DocumentVerifierC13loadMrzModelsyy10Foundation3URLVF",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -33019,9 +33082,18 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -33035,6 +33107,7 @@
                     "usr": "s:10Foundation3URLV"
                   }
                 ],
+                "hasDefaultArg": true,
                 "usr": "s:Sq"
               },
               {
@@ -33046,8 +33119,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI08languageAcA6CameraC_AA0M4ViewC10Foundation3URLVAOSgAA18SupportedLanguagesOtcfc",
-            "mangledName": "$s12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI08languageAcA6CameraC_AA0M4ViewC10Foundation3URLVAOSgAA18SupportedLanguagesOtcfc",
+            "usr": "s:12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI08languageAcA6CameraC_AA0M4ViewC10Foundation3URLVSgApA18SupportedLanguagesOtcfc",
+            "mangledName": "$s12RecogLib_iOS18DocumentControllerC6camera4view9modelsUrl09mrzModelsI08languageAcA6CameraC_AA0M4ViewC10Foundation3URLVSgApA18SupportedLanguagesOtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -42350,9 +42423,18 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -42363,8 +42445,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
-            "mangledName": "$s12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
+            "usr": "s:12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVSgAA18SupportedLanguagesOtcfc",
+            "mangledName": "$s12RecogLib_iOS22FacelivenessControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVSgAA18SupportedLanguagesOtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -50732,6 +50814,7 @@
             "mangledName": "$s12RecogLib_iOS29SelfieControllerConfigurationV8dataTypeAA04DataH0Ovp",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
+              "HasInitialValue",
               "HasStorage",
               "AccessControl"
             ],
@@ -50762,7 +50845,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(showVisualisation:showHelperVisualisation:showDebugVisualisation:showTextInstructions:dataType:)",
+            "printedName": "init(showVisualisation:showHelperVisualisation:showDebugVisualisation:showTextInstructions:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -50794,17 +50877,11 @@
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
                 "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "DataType",
-                "printedName": "RecogLib_iOS.DataType",
-                "usr": "s:12RecogLib_iOS8DataTypeO"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS29SelfieControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructions8dataTypeACSb_S3bAA04DataN0Otcfc",
-            "mangledName": "$s12RecogLib_iOS29SelfieControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructions8dataTypeACSb_S3bAA04DataN0Otcfc",
+            "usr": "s:12RecogLib_iOS29SelfieControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructionsACSb_S3btcfc",
+            "mangledName": "$s12RecogLib_iOS29SelfieControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructionsACSb_S3btcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -50851,39 +50928,6 @@
             "declKind": "Func",
             "usr": "s:12RecogLib_iOS24SelfieControllerDelegateP10controller_7didScanyAA0dE0C_AA0D6ResultVtF",
             "mangledName": "$s12RecogLib_iOS24SelfieControllerDelegateP10controller_7didScanyAA0dE0C_AA0D6ResultVtF",
-            "moduleName": "RecogLib_iOS",
-            "genericSig": "<τ_0_0 where τ_0_0 : RecogLib_iOS.SelfieControllerDelegate>",
-            "sugared_genericSig": "<Self where Self : RecogLib_iOS.SelfieControllerDelegate>",
-            "protocolReq": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "controller",
-            "printedName": "controller(_:didRecord:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "SelfieController",
-                "printedName": "RecogLib_iOS.SelfieController",
-                "usr": "s:12RecogLib_iOS16SelfieControllerC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:12RecogLib_iOS24SelfieControllerDelegateP10controller_9didRecordyAA0dE0C_10Foundation3URLVtF",
-            "mangledName": "$s12RecogLib_iOS24SelfieControllerDelegateP10controller_9didRecordyAA0dE0C_10Foundation3URLVtF",
             "moduleName": "RecogLib_iOS",
             "genericSig": "<τ_0_0 where τ_0_0 : RecogLib_iOS.SelfieControllerDelegate>",
             "sugared_genericSig": "<Self where Self : RecogLib_iOS.SelfieControllerDelegate>",
@@ -51235,9 +51279,18 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "URL",
-                "printedName": "Foundation.URL",
-                "usr": "s:10Foundation3URLV"
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -51248,8 +51301,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
-            "mangledName": "$s12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVAA18SupportedLanguagesOtcfc",
+            "usr": "s:12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVSgAA18SupportedLanguagesOtcfc",
+            "mangledName": "$s12RecogLib_iOS16SelfieControllerC6camera4view9modelsUrl8languageAcA6CameraC_AA0K4ViewC10Foundation3URLVSgAA18SupportedLanguagesOtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -51420,6 +51473,16 @@
         "moduleName": "RecogLib_iOS",
         "declAttributes": [
           "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -64007,7 +64070,7 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 10862,
+      "offset": 9964,
       "length": 3,
       "value": "110"
     },
@@ -66044,14 +66107,14 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
       "kind": "BooleanLiteral",
-      "offset": 872,
+      "offset": 855,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/SelfieController.swift",
       "kind": "StringLiteral",
-      "offset": 1708,
+      "offset": 1548,
       "length": 16,
       "value": "\"RecogLib_iOS.SelfieController\""
     },
