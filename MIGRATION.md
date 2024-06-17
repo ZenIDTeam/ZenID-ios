@@ -23,6 +23,9 @@ If you use build in `Camera` and `CameraView` objects then please ensure yoursel
 From now on, the ZenID SDK does'nt keep strong references to this object instances. If you use the controllers you might
 be pleased that you can reassing this objects to validator Controllers if you need reusability of the controllers.
 
+## Update to the version 2.0.23 (RecogLib 3.9.5)
+Face liveness now requires a new resource file. `smiledetector_svm_bin` needs to be place in the same directory as the other face liveness resources (Models/face by default).
+
 ## Update to the version 2.0.23 (RecogLib 3.9.4)
 
 There is a new state `Hologram State.timeout` that the application must respond to.

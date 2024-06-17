@@ -43,7 +43,16 @@
 * Fix: `Camera` object Torch stays on after device orientation changed.
 * New: Add optional controllers parameter `showTextInstructions` to disable text instructions in build-in visualisation.
 * New: All controllers has new init parameter to select Language for visualisation v1 tips. If parameter left empty it detects language from Locale and use one of available languages [English, Czech, German, Polish]. If locale isn't matching any of the languages it fall back to English.
+* New: The outline is drawn when the model is known in advance. TRASKZENIDPV-2261
 * Improved reliability.
+* Fix: Fixed The number of steps in the face liveness verifier (Index out of range error in backend). TRASKZENIDPV-2331  
+* Fix: Fixed iOS Simulator build. SZENID-2459 SZENID-2452 (Backported to 3.9.6.1 and 3.10.4.1)
+* Fix: Fixed liveness step count (it could be higher then sum of all allowed steps), it doesn't add Smile and Perspective check if it is not enabled. TRASKZENIDPV-2340 (Backported to 3.10.7)
+* Fix: Fix path to tesseract model. TRASKZENIDPV-2345
+* Improvement: Retrained SVM model for smile detection to better detect No smile. TRASKZENIDPV-2330
+* Improvement: Added a new validator that checks the MRZ in the SDK. It is disabled by default but can be enabled in the MRZ Validator settings in the backend Sensitivity page. "MRZ successfully read" is no longer shown in feedback. Use the validator debug view instead. TRASKZENIDPV-1769
+* SDK: Fixed various crashes and "Unknown Document" upload issues. TRASKZENIDPV-2099 TRASKZENIDPV-2065 TRASKZENIDPV-2356
+
 
 # 2.0.25 2024-02-01
 * RecogLib 3.10.4
@@ -55,29 +64,30 @@
 
 # 2.0.24 2023-12-18
 * RecogLib 3.10.1
-* Added new possible values to HologramState enum: TiltLeft, TiltRight, TiltUp, TiltDown. Those represent the states of the new IQS hologram UI.
+* New: Support for passports of USA v2006/2017 (NFC only). TRASKZENIDPV-2009
+* New: Support for Pakistanese passports v2022 (NFC only). TRASKZENIDPV-2009
+* New: Support for Japanese passports v2013 (NFC only). TRASKZENIDPV-2009
+* New: Added new possible values to HologramState enum: TiltLeft, TiltRight, TiltUp, TiltDown.
 * Improve compatibility with future iOS SDKs.
-* Improve camera focusing (without image juping) on new iPhone Pro models.
+* Improve camera focusing (without image jumping) on new iPhone Pro models.
+* Fix: Fixed vaticanese MRZ structure, and update default MRZ parsing for it. TRASKZENIDPV-1974
 
 # 2.0.23 2023-12-08
 * RecogLib 3.9.6
 * New: Support for Vaticanian passports v2013 (NFC only).
 * New: Support for Liechtensteiner passports v2006 (NFC only).
-* Improvement: Improved wording of Normalization parameters on Settings page.
-* Improvement: Retrained Mask on selfie validator.
 * New: Support for Andorran passports v2017 (NFC only).
 * New: Support for Sanmarinese passports v2006 (NFC only).
 * New: System updated to enable support for documents with just extracting its NFC data.
-* Improvement: Description of ZenidWebSdk.snapNow() method in manual. This function skips validators and signature is not created.
 * New: Support for Belgian Passport v2022.
-* Improvement: Signature is copied to clipboard with prefix.
-* Hide current step UI during TimedOut state.
 * Improvement: *Italian ID cards suppord broadened: Italian ID cards v2016/2022.
-* Add HologramState::TimedOut to expose timeout condition in IQS hologram flow.
 * New: `CameraView` class can be initialized from XIB or Storyboard.
 * New: You can override default videogravity using parameter in `CameraView`.
 * New: Parameter `ignoreSafeArea` in `CameraView` will stretch video view to fill whole UIView and ignore safe areas.
-* New: Video recording reset together with Liveness verifier to reduce video length.  
+* New: Video recording reset together with Liveness verifier to reduce video length.
+* Improvement: SDK checks if barcode has predefined format. SZENID-2256
+* Fix: Fixed checksum computing for Slovak Driver licenses. TRASKZENIDPV-1981
+* Face liveness now requires a new resource file. `smiledetector_svm_bin` needs to be place in the same directory as the other face liveness resources (Models/face by default).
 
 # 2.0.22 2023-10-13
 * RecogLib 3.8.5
