@@ -115,7 +115,11 @@ let success = ZenidSecurity.authorize(responseToken: responseToken)
 
 5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialised and is ready to be used, otherwise response token is not valid.
 
- 
+ > [!IMPORTANT]
+> getChallengeToken() and authorize() should always be called together as getChallengeToken() resets the session.
+
+> [!IMPORTANT]
+> getChallengeToken() and authorize() should not be called while a card or face is being processed.
 
 ## Models
 
