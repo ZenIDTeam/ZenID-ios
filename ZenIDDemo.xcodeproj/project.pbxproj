@@ -1335,7 +1335,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenIDDemo/ZenIDDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 549;
+				CURRENT_PROJECT_VERSION = 551;
 				DEVELOPMENT_ASSET_PATHS = ZenIDDemo/Resources/DebugAssets.xcassets;
 				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
 				ENABLE_BITCODE = NO;
@@ -1377,7 +1377,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 549;
+				CURRENT_PROJECT_VERSION = 551;
 				DEVELOPMENT_ASSET_PATHS = ZenIDDemo/Resources/DebugAssets.xcassets;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FQAZ2Y87Y2;
