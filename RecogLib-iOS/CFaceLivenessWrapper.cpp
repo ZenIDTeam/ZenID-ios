@@ -23,15 +23,17 @@ void deleteFaceLivenessVerifier(void *verifier)
 
 bool verifyFaceLiveness(const void *object,
                 CMSampleBufferRef _mat,
-                CFaceLivenessInfo *face)
+                CFaceLivenessInfo *face,
+                bool flipImage)
 {
     CVImageBufferRef cvBuffer = CMSampleBufferGetImageBuffer(_mat);
-    return verifyFaceLivenessImage(object, cvBuffer, face);
+    return verifyFaceLivenessImage(object, cvBuffer, face, flipImage);
 }
 
 bool verifyFaceLivenessImage(const void *object,
                      CVPixelBufferRef _cvBuffer,
-                     CFaceLivenessInfo *face)
+                     CFaceLivenessInfo *face,
+                     bool flipImage)
 {
     FaceLivenessVerifier *verifier = (FaceLivenessVerifier *)object;
     
@@ -48,8 +50,10 @@ bool verifyFaceLivenessImage(const void *object,
     
     void *data = CVPixelBufferGetBaseAddress(_cvBuffer);
     Image image(data, widht, height, ImageFormat::BGRA, stride);
-    //image.Rotate(RotateFlags::Rotate90Clockwise);
-    image.FlipHorizontally();
+    if (flipImage) {
+        //image.Rotate(RotateFlags::Rotate90Clockwise);
+        image.FlipHorizontally();
+    }
     
     verifier->ProcessFrame(image);
     
