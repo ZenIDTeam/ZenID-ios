@@ -71,7 +71,17 @@ public final class Camera: NSObject {
         if #available(iOS 15.0, *) {
             Camera.setRecommendedZoomFactor(for: device)
         }
+        
+        // Mirror video output if camera is front.
+        if captureDevice?.position == .front {
+            captureSession.outputs.forEach { movieOutput in
+                if let conn = movieOutput.connection(with: .video){
+                    conn.isVideoMirrored = true
+                }
+            }
+        }
     }
+    
 
     func start(completion: @escaping (_ camera: Camera) -> Void = { _ in }) {
         guard !captureSession.isRunning else { return }

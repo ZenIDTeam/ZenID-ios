@@ -141,4 +141,41 @@ extension UIImage {
         guard let croppedImage = cgImage?.cropping(to: cropRect) else { return nil }
         return UIImage(cgImage: croppedImage)
     }
+        
+    /// Mirror UIImage data.
+    /// - Returns: Mirrored UIImage.
+    func mirrored() -> UIImage? {
+        // Step 1: Create a CGContext with the mirrored transformation
+        guard let cgImage = self.cgImage else { return nil }
+        
+        let width = cgImage.width
+        let height = cgImage.height
+        let bitsPerComponent = cgImage.bitsPerComponent
+        let bytesPerRow = cgImage.bytesPerRow
+        let colorSpace = cgImage.colorSpace
+        let bitmapInfo = cgImage.bitmapInfo
+        
+        guard let context = CGContext(
+            data: nil,
+            width: width,
+            height: height,
+            bitsPerComponent: bitsPerComponent,
+            bytesPerRow: bytesPerRow,
+            space: colorSpace ?? CGColorSpace(name: CGColorSpace.sRGB)!,
+            bitmapInfo: bitmapInfo.rawValue
+        ) else {
+            return nil
+        }
+        
+        // Step 2: Apply the mirror transformation
+        context.translateBy(x: CGFloat(width), y: 0)
+        context.scaleBy(x: -1.0, y: 1.0)
+        
+        // Step 3: Draw the UIImage into the CGContext
+        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)))
+        
+        // Step 4: Extract the UIImage from the CGContext
+        guard let mirroredCGImage = context.makeImage() else { return nil }
+        return UIImage(cgImage: mirroredCGImage)
+    }
 }

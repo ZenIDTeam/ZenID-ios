@@ -130,7 +130,7 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
     }
     
     override func verify(pixelBuffer: CVPixelBuffer) -> FaceLivenessResult? {
-        verifier.verifyImage(imageBuffer: pixelBuffer)
+        verifier.verifyImage(imageBuffer: pixelBuffer, flipImage: false)
     }
     
     override func getRenderCommands(size: CGSize) -> String? {

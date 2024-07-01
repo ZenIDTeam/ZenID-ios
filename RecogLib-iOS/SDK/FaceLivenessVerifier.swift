@@ -34,18 +34,23 @@ public class FaceLivenessVerifier {
         }
     }
 
-    public func verify(buffer: CMSampleBuffer, orientation: UIInterfaceOrientation = .portrait) -> FaceLivenessResult? {
+    public func verify(
+        buffer: CMSampleBuffer,
+        orientation: UIInterfaceOrientation = .portrait,
+        flipImage: Bool = true
+    ) -> FaceLivenessResult? {
         var face = createFaceLivenessInfo(orientation: orientation)
-        RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face)
+        RecogLib_iOS.verifyFaceLiveness(cppObject, buffer, &face, flipImage)
         return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
     }
 
     public func verifyImage(
         imageBuffer: CVPixelBuffer,
-        orientation: UIInterfaceOrientation = .portrait
+        orientation: UIInterfaceOrientation = .portrait,
+        flipImage: Bool = true
     ) -> FaceLivenessResult? {
         var face = createFaceLivenessInfo(orientation: orientation)
-        RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face)
+        RecogLib_iOS.verifyFaceLivenessImage(cppObject, imageBuffer, &face, flipImage)
         return FaceLivenessResult(faceLivenessState: face.state, signature: face.signature)
     }
 
