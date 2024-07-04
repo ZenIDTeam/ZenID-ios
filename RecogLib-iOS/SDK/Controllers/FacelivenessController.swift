@@ -137,6 +137,10 @@ public final class FacelivenessController: BaseController<FaceLivenessResult>, F
         verifier.getRenderCommands(canvasWidth: Int(size.width), canvasHeight: Int(size.height))
     }
     
+    public func getStepParameters() -> FaceLivenessStepParameters? {
+        verifier.getStepParameters()
+    }
+    
     override func callDelegate(with result: FaceLivenessResult) {
         delegate?.controller(self, didScan: result)
     }

@@ -2,8 +2,10 @@
 
 # 2.0.27 2024-06-26
 * RecogLib 4.2.15
+* Fix: Fixed `totalCheckCount`, `passedCheckCount` and `hasFailed` return values for background checks. SZENID-2625 (Backported from 4.3.8)
 * Fix: If one document is replaced by another during the scanning process using the SDK, all validators are reset, and only the data related to the last scanned document is sent to the backend. SZENID-2666 (Backported from 4.3.7)
-* Fix: GetStepParameters returns `totalCheckCount`, `passedCheckCount` and `hasFailed` even for background checks. SZENID-2625 (Backported from 4.3.8)
+* New: GetStepParameters returns `totalCheckCount`, `passedCheckCount` and `hasFailed` even for background checks. SZENID-2625 (Backported from 4.3.8)
+* New: FaceLivenessController new method `getStepParameters` to return current steps parameters.
 
 # 2.0.27 2024-06-13
 * RecogLib 4.2.13
