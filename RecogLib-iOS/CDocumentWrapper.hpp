@@ -28,7 +28,6 @@ enum CNfcStatus {
 };
 
 struct CNfcValidatorConfig {
-    int nfcChipReadingTimeoutSeconds;
     int numberOfReadingAttempts;
     bool skipNfcAllowed;
     bool noNfcMeansError;

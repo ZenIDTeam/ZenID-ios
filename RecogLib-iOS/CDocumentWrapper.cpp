@@ -378,7 +378,6 @@ CNfcValidatorConfig getSdkConfig(const void *object) {
     config.isEnabled = origConfig.IsEnabled;
     config.acceptScore = origConfig.AcceptScore;
     config.isTestEnabled = origConfig.IsTestEnabled;
-    config.nfcChipReadingTimeoutSeconds = origConfig.NfcChipReadingTimeoutSeconds;
     config.noNfcMeansError = origConfig.NoNfcMeansError;
     config.numberOfReadingAttempts = origConfig.NumberOfReadingAttempts;
     config.scoreStep = origConfig.ScoreStep;
