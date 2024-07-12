@@ -311,7 +311,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
 
     public func skipNfcResult() -> DocumentResult? {
         ApplicationLogger.shared.Debug("calling skipNfcResult()")
-        verifier.processNfc(jsonData: "", status: .USER_SKIPPED)
+        verifier.processNfc(jsonData: "", status: .UserSkipped)
 
         let result = verifier.getDocumentResult()
         return result

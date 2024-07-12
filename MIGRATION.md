@@ -1,5 +1,9 @@
 # Migration
 
+## Update to the version 2.0.27 (RecogLib 4.2.17)
+
+`NfcStatus` enum uses now camel case for cases. `DEVICE_DOES_NOT_SUPPORT_NFC` becomes `DeviceDoesNotSupportNfc`, `INVALID_NFC_KEY` becomes `InvalidNfcKey`, `USER_SKIPPED` becomes `UserSkipped` and finaly `OK` is `Ok` now.
+
 ## Update to the version 2.0.27 (RecogLib 4.2.13)
 
 You can load models from Bundle files without necessity to provide controllers path to models. Bundle needs to be named `ZenIDSDK_Faceliveness`, `ZenIDSDK_Documents` or `ZenIDSDK_Documents_*`.

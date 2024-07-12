@@ -476,3 +476,74 @@ public enum SdkSignatureProblem : Int, CaseIterable {
     case OfflineTokenUsed = 5
 }
 
+public enum SdkLivenessSteps : Int, CaseIterable { 
+    case UpPerspective = 0
+    case Left = 1
+    case Right = 2
+    case Down = 3
+    case Smile = 4
+    case Blinking = 5
+    case UpObsolete = 6
+}
+
+public enum PlatformKind : Int, CaseIterable { 
+    case Web = 0
+    case Android = 1
+    case iOS = 2
+}
+
+public enum FrontendValidatorType : Int, CaseIterable { 
+    case Alignment = 0
+    case BorderDistance = 1
+    case LinearFit = 2
+    case Stability = 3
+    case Mrz = 4
+    case Lighting = 5
+    case Barcode = 22
+    case Blur = 41
+    case SpecularImage = 53
+}
+
+public enum DefType : Int, CaseIterable { 
+    case TD1_IDC = 0
+    case TD2_IDC2000 = 1
+    case TD3_PAS = 2
+    case SKDRV = 3
+    case None = 4
+    case FrenchID1988 = 5
+    case NLDRV = 6
+}
+
+public enum DGName : Int, CaseIterable { 
+    case COM = 0
+    case SOD = 1
+    case DG1 = 2
+    case DG2 = 3
+    case DG3 = 4
+    case DG4 = 5
+    case DG5 = 6
+    case DG6 = 7
+    case DG7 = 8
+    case DG8 = 9
+    case DG9 = 10
+    case DG10 = 11
+    case DG11 = 12
+    case DG12 = 13
+    case DG13 = 14
+    case DG14 = 15
+    case DG15 = 16
+    case DG16 = 17
+}
+
+public enum NfcProtocol : Int, CaseIterable { 
+    case PACE = 0
+    case BAC = 1
+}
+
+public enum NfcStatus : Int, CaseIterable { 
+    case DeviceDoesNotSupportNfc = 0
+    case InvalidNfcKey = 1
+    case UserSkipped = 2
+    case Ok = 3
+}
+

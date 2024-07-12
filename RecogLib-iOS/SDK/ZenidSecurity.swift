@@ -3,7 +3,8 @@ import OSLog
 
 public final class ZenidSecurity {
         
-    /// Get challenge token from network service.
+    /// Generates a challenge token for authorization. Note - this resets the session, "authorize" must be called after calling this.
+    /// Do not call while processing a card or face.
     ///
     /// - Returns: Produce string with challenge token required for authorization.
     public static func getChallengeToken() -> String? {
@@ -13,6 +14,7 @@ public final class ZenidSecurity {
     /// Authorize with challenge token.
     ///
     /// Token is retrived from server side service by calling `initSDK` function.
+    /// Do not call while processing a card or face.
     ///
     /// - Parameter responseToken: Authorization token.
     /// - Returns: Produce `True` when authorization was successful.

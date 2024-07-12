@@ -42,8 +42,8 @@ void * getFaceLivenessVerifier(const char* resourcesPath, CFaceLivenessVerifierS
 void deleteFaceLivenessVerifier(void *verifier);
 
 // Verifying faces
-bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector);
-bool verifyFaceLivenessImage(const void *object, CVPixelBufferRef _cvBuffer, CFaceLivenessInfo *faceDetector);
+bool verifyFaceLiveness(const void *object, CMSampleBufferRef _mat, CFaceLivenessInfo *faceDetector, bool flipImage);
+bool verifyFaceLivenessImage(const void *object, CVPixelBufferRef _cvBuffer, CFaceLivenessInfo *faceDetector, bool flipImage);
 void updateFacelivenessVerifierSettings(const void *object, CFaceLivenessVerifierSettings *settings);
 char* getFaceLivenessStepParameters(const void *object);
 

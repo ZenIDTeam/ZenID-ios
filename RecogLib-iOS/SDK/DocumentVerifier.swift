@@ -210,13 +210,13 @@ public class DocumentVerifier {
     public func processNfc(jsonData: String, status: NfcStatus) {
         var cStatus: CNfcStatus
         switch status {
-        case .DEVICE_DOES_NOT_SUPPORT_NFC:
+        case .DeviceDoesNotSupportNfc:
             cStatus = DeviceDoesNotSupportNfc
-        case .INVALID_NFC_KEY:
+        case .InvalidNfcKey:
             cStatus = InvalidNfcKey
-        case .USER_SKIPPED:
+        case .UserSkipped:
             cStatus = UserSkipped
-        case .OK:
+        case .Ok:
             cStatus = Ok
         }
         RecogLib_iOS.processNfcResult(cppObject, jsonData.toUnsafeMutablePointer(), cStatus)

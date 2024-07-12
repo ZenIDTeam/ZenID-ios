@@ -690,6 +690,133 @@ public enum SdkSignatureProblem : Swift.Int, Swift.CaseIterable {
     get
   }
 }
+public enum SdkLivenessSteps : Swift.Int, Swift.CaseIterable {
+  case UpPerspective
+  case Left
+  case Right
+  case Down
+  case Smile
+  case Blinking
+  case UpObsolete
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.SdkLivenessSteps]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.SdkLivenessSteps] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum PlatformKind : Swift.Int, Swift.CaseIterable {
+  case Web
+  case Android
+  case iOS
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.PlatformKind]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.PlatformKind] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum FrontendValidatorType : Swift.Int, Swift.CaseIterable {
+  case Alignment
+  case BorderDistance
+  case LinearFit
+  case Stability
+  case Mrz
+  case Lighting
+  case Barcode
+  case Blur
+  case SpecularImage
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.FrontendValidatorType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.FrontendValidatorType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum DefType : Swift.Int, Swift.CaseIterable {
+  case TD1_IDC
+  case TD2_IDC2000
+  case TD3_PAS
+  case SKDRV
+  case None
+  case FrenchID1988
+  case NLDRV
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.DefType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.DefType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum DGName : Swift.Int, Swift.CaseIterable {
+  case COM
+  case SOD
+  case DG1
+  case DG2
+  case DG3
+  case DG4
+  case DG5
+  case DG6
+  case DG7
+  case DG8
+  case DG9
+  case DG10
+  case DG11
+  case DG12
+  case DG13
+  case DG14
+  case DG15
+  case DG16
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.DGName]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.DGName] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum NfcProtocol : Swift.Int, Swift.CaseIterable {
+  case PACE
+  case BAC
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.NfcProtocol]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.NfcProtocol] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum NfcStatus : Swift.Int, Swift.CaseIterable {
+  case DeviceDoesNotSupportNfc
+  case InvalidNfcKey
+  case UserSkipped
+  case Ok
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.NfcStatus]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [RecogLib_iOS.NfcStatus] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public enum DataType {
   case picture
   case video
@@ -856,8 +983,8 @@ public class FaceLivenessVerifier {
   public init(language: RecogLib_iOS.SupportedLanguages, settings: RecogLib_iOS.FaceLivenessVerifierSettings? = nil)
   @objc deinit
   public func loadModels(_ loader: RecogLib_iOS.FaceVerifierModels)
-  public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
-  public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait) -> RecogLib_iOS.FaceLivenessResult?
+  public func verify(buffer: CoreMedia.CMSampleBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait, flipImage: Swift.Bool = true) -> RecogLib_iOS.FaceLivenessResult?
+  public func verifyImage(imageBuffer: CoreVideo.CVPixelBuffer, orientation: UIKit.UIInterfaceOrientation = .portrait, flipImage: Swift.Bool = true) -> RecogLib_iOS.FaceLivenessResult?
   public func update(settings: RecogLib_iOS.FaceLivenessVerifierSettings)
   public func getAuxiliaryInfo() -> RecogLib_iOS.FaceLivenessAuxiliaryInfo?
   public func reset()
@@ -1332,17 +1459,6 @@ final public class UnifiedFacelivenessResultAdapter : RecogLib_iOS.UnifiedResult
   public init(result: RecogLib_iOS.FaceLivenessResult)
   @objc deinit
 }
-public enum NfcStatus : Swift.Int {
-  case DEVICE_DOES_NOT_SUPPORT_NFC
-  case INVALID_NFC_KEY
-  case USER_SKIPPED
-  case OK
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class CameraView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) final public var videoGravity: AVFoundation.AVLayerVideoGravity
   @_Concurrency.MainActor(unsafe) final public var ignoreSafeArea: Swift.Bool
@@ -1504,6 +1620,7 @@ public protocol FacelivenessControllerAbstraction {
   public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL? = nil, language: RecogLib_iOS.SupportedLanguages = SupportedLanguages.current)
   final public func configure(configuration: RecogLib_iOS.FacelivenessControllerConfiguration = .default) throws
   final public func getAuxiliaryImages() -> RecogLib_iOS.FaceLivenessAuxiliaryInfo?
+  final public func getStepParameters() -> RecogLib_iOS.FaceLivenessStepParameters?
   @objc deinit
 }
 public class DocumentsInput {
@@ -1934,6 +2051,27 @@ extension RecogLib_iOS.SdkVerifierType : Swift.RawRepresentable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Equatable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.Hashable {}
 extension RecogLib_iOS.SdkSignatureProblem : Swift.RawRepresentable {}
+extension RecogLib_iOS.SdkLivenessSteps : Swift.Equatable {}
+extension RecogLib_iOS.SdkLivenessSteps : Swift.Hashable {}
+extension RecogLib_iOS.SdkLivenessSteps : Swift.RawRepresentable {}
+extension RecogLib_iOS.PlatformKind : Swift.Equatable {}
+extension RecogLib_iOS.PlatformKind : Swift.Hashable {}
+extension RecogLib_iOS.PlatformKind : Swift.RawRepresentable {}
+extension RecogLib_iOS.FrontendValidatorType : Swift.Equatable {}
+extension RecogLib_iOS.FrontendValidatorType : Swift.Hashable {}
+extension RecogLib_iOS.FrontendValidatorType : Swift.RawRepresentable {}
+extension RecogLib_iOS.DefType : Swift.Equatable {}
+extension RecogLib_iOS.DefType : Swift.Hashable {}
+extension RecogLib_iOS.DefType : Swift.RawRepresentable {}
+extension RecogLib_iOS.DGName : Swift.Equatable {}
+extension RecogLib_iOS.DGName : Swift.Hashable {}
+extension RecogLib_iOS.DGName : Swift.RawRepresentable {}
+extension RecogLib_iOS.NfcProtocol : Swift.Equatable {}
+extension RecogLib_iOS.NfcProtocol : Swift.Hashable {}
+extension RecogLib_iOS.NfcProtocol : Swift.RawRepresentable {}
+extension RecogLib_iOS.NfcStatus : Swift.Equatable {}
+extension RecogLib_iOS.NfcStatus : Swift.Hashable {}
+extension RecogLib_iOS.NfcStatus : Swift.RawRepresentable {}
 extension RecogLib_iOS.DataType : Swift.Equatable {}
 extension RecogLib_iOS.DataType : Swift.Hashable {}
 extension RecogLib_iOS.NfcData.NfcProtocol : Swift.Equatable {}
@@ -1953,9 +2091,6 @@ extension RecogLib_iOS.FaceLivenessAngle : Swift.RawRepresentable {}
 extension RecogLib_iOS.RenderableType : Swift.Equatable {}
 extension RecogLib_iOS.RenderableType : Swift.Hashable {}
 extension RecogLib_iOS.RenderableType : Swift.RawRepresentable {}
-extension RecogLib_iOS.NfcStatus : Swift.Equatable {}
-extension RecogLib_iOS.NfcStatus : Swift.Hashable {}
-extension RecogLib_iOS.NfcStatus : Swift.RawRepresentable {}
 extension RecogLib_iOS.RenderingPriority : Swift.Equatable {}
 extension RecogLib_iOS.RenderingPriority : Swift.Hashable {}
 extension RecogLib_iOS.ImageFlip : Swift.Equatable {}

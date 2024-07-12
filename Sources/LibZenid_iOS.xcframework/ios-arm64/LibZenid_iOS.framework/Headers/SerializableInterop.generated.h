@@ -10,21 +10,11 @@
 #include <cstdint>
 
 #include "RecogLibCApi.h"
+#include "ZenidEnums.generated.h"
 
 
 namespace RecogLibC RECOGLIBC_PUBLIC
 {
-
-enum class SdkLivenessSteps
-{
-  UpPerspective = 0,
-  Left = 1,
-  Right = 2,
-  Down = 3,
-  Smile = 4,
-  Blinking = 5,
-  UpObsolete = 6,
-};
 
 class SelfieLivenessSdkValidatorConfig
 {
@@ -153,83 +143,10 @@ public:
   std::string DefaultProfile;
   std::string NfcStringToSign = "";
 };
-enum class PlatformKind
-{
-  Web = 0,
-  Android = 1,
-  iOS = 2,
-};
-
-enum class ValidatorType
-{
-  LowConfidence = 1,
-  BirthDateMrz = 2,
-  IssueAndExpiry = 3,
-  BirthNumber = 4,
-  Specular = 5,
-  Selfie = 6,
-  Kerning = 7,
-  VerticalAlignment = 8,
-  FontShape = 9,
-  Holo = 11,
-  Dpi = 15,
-  SelfieLiveness = 17,
-  Exif = 18,
-  IdCardRecalled = 19,
-  FaceSex = 20,
-  Moire = 21,
-  Barcode = 22,
-  DocumentComplete = 23,
-  FirstNameMrz = 24,
-  LastNameMrz = 25,
-  ExpiryDateMrz = 26,
-  SexMrz = 27,
-  IdcardNumberMrz = 28,
-  PassportNumberMrz = 29,
-  BirthNumberDateMrz = 30,
-  BirthNumberSexMrz = 31,
-  BirthNumberPassportMrz = 32,
-  MrzChecksum = 33,
-  SelfieRequired = 34,
-  FieldsAlignment = 35,
-  SelfieVideoRequired = 36,
-  FaceAge = 37,
-  RequiredFields = 38,
-  VideoCut = 40,
-  Blur = 41,
-  UnknownDocument = 43,
-  DocVideoRequired = 44,
-  DocRequired = 45,
-  IDCardNumberRange = 46,
-  Insolvency = 47,
-  DocumentsConsistency = 48,
-  PhotoColor = 49,
-  PaperGrain = 50,
-  DocumentPhoto = 51,
-  SpecularImage = 53,
-  OneFaceSeveralBirthNums = 54,
-  OneBirthNumSeveralFaces = 55,
-  FaceTilt = 56,
-  Mvsr = 57,
-  DisplayDetection = 58,
-  SdkSignature = 59,
-  VisaNumberMrz = 60,
-  MinimalAge = 61,
-  FieldManipulation = 62,
-  CardFaceManipulation = 63,
-  DamagedCard = 64,
-  MaskedFace = 65,
-  SelfieLivenessSdk = 66,
-  Nfc = 67,
-  SdkPictureQuality = 68,
-  IQSHologram = 69,
-  SelfieAuthenticity = 70,
-};
-
 class ValidatorResultInfo
 {
 public:
-  std::optional<ValidatorType> ValidatorType;
+  std::optional<FrontendValidatorType> ValidatorType;
   std::string Description;
   int Score = 0;
   int ThresholdMax = 0;
@@ -242,17 +159,6 @@ public:
   std::vector<ValidatorResultInfo> ValidatorResults;
   std::string Barcode = "";
 };
-enum class DefType
-{
-  TD1_IDC = 0,
-  TD2_IDC2000 = 1,
-  TD3_PAS = 2,
-  SKDRV = 3,
-  None = 4,
-  FrenchID1988 = 5,
-  NLDRV = 6,
-};
-
 class MrzData
 {
 public:
@@ -291,48 +197,12 @@ public:
   std::optional<std::chrono::system_clock::time_point> IssueDateParsed;
   DefType MrzDefType = DefType::TD1_IDC;
 };
-enum class DGName
-{
-  COM = 0,
-  SOD = 1,
-  DG1 = 2,
-  DG2 = 3,
-  DG3 = 4,
-  DG4 = 5,
-  DG5 = 6,
-  DG6 = 7,
-  DG7 = 8,
-  DG8 = 9,
-  DG9 = 10,
-  DG10 = 11,
-  DG11 = 12,
-  DG12 = 13,
-  DG13 = 14,
-  DG14 = 15,
-  DG15 = 16,
-  DG16 = 17,
-};
-
-enum class NfcProtocol
-{
-  PACE = 0,
-  BAC = 1,
-};
-
 class NfcData
 {
 public:
   std::unordered_map<DGName, std::string> DataGroups;
   NfcProtocol ProtocolUsed = NfcProtocol::PACE;
 };
-enum class NfcStatus
-{
-  DeviceDoesNotSupportNfc = 0,
-  InvalidNfcKey = 1,
-  UserSkipped = 2,
-  Ok = 3,
-};
-
 class Signature
 {
 public:
@@ -350,5 +220,12 @@ public:
   MrzData MrzData;
   NfcData NfcData;
   std::optional<NfcStatus> NfcStatus;
+};
+class FrontendValidationResults
+{
+public:
+  ValidatorBackendData ResultsOfFrontendValidations;
+  std::optional<DocumentCodes> DocumentCode;
+  std::optional<PageCodes> PageCode;
 };
 }

@@ -591,4 +591,75 @@ enum class SdkSignatureProblem : int {
 	OfflineTokenUsed = 5,
 };
 
+enum class SdkLivenessSteps : int {
+	UpPerspective = 0,
+	Left = 1,
+	Right = 2,
+	Down = 3,
+	Smile = 4,
+	Blinking = 5,
+	UpObsolete = 6,
+};
+
+enum class PlatformKind : int {
+	Web = 0,
+	Android = 1,
+	iOS = 2,
+};
+
+enum class FrontendValidatorType : int {
+	Alignment = 0,
+	BorderDistance = 1,
+	LinearFit = 2,
+	Stability = 3,
+	Mrz = 4,
+	Lighting = 5,
+	Barcode = 22,
+	Blur = 41,
+	SpecularImage = 53,
+};
+
+enum class DefType : int {
+	TD1_IDC = 0,
+	TD2_IDC2000 = 1,
+	TD3_PAS = 2,
+	SKDRV = 3,
+	None = 4,
+	FrenchID1988 = 5,
+	NLDRV = 6,
+};
+
+enum class DGName : int {
+	COM = 0,
+	SOD = 1,
+	DG1 = 2,
+	DG2 = 3,
+	DG3 = 4,
+	DG4 = 5,
+	DG5 = 6,
+	DG6 = 7,
+	DG7 = 8,
+	DG8 = 9,
+	DG9 = 10,
+	DG10 = 11,
+	DG11 = 12,
+	DG12 = 13,
+	DG13 = 14,
+	DG14 = 15,
+	DG15 = 16,
+	DG16 = 17,
+};
+
+enum class NfcProtocol : int {
+	PACE = 0,
+	BAC = 1,
+};
+
+enum class NfcStatus : int {
+	DeviceDoesNotSupportNfc = 0,
+	InvalidNfcKey = 1,
+	UserSkipped = 2,
+	Ok = 3,
+};
+
 }
