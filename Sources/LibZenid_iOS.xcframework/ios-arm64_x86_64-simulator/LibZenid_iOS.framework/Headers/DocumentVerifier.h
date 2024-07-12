@@ -122,6 +122,7 @@ public:
 	std::string GetRenderCommands(const cv::Size& canvasSize, SupportedLanguages language);
 #endif
 	std::string GetRenderCommands(int canvasWidth, int canvasHeight, SupportedLanguages language);
+	const std::string GetValidatorsData() const;
 
 	void SetDebugVisualization(bool isEnabled);
 

@@ -1,11 +1,13 @@
 # Change Log
 
-# 2.0.26 2024-07-01
-* RecogLib 4.1.15
+# 2.0.26 2024-07-12
+* RecogLib 4.1.17
 * Fix: Fixed `totalCheckCount`, `passedCheckCount` and `hasFailed` return values for background checks. SZENID-2625 (Backported from 4.3.8)
 * Fix: If one document is replaced by another during the scanning process using the SDK, all validators are reset, and only the data related to the last scanned document is sent to the backend. SZENID-2666 (Backported from 4.3.7)
 * New: GetStepParameters returns `totalCheckCount`, `passedCheckCount` and `hasFailed` even for background checks. SZENID-2625 (Backported from 4.3.8)
 * New: FaceLivenessController new method `getStepParameters` to return current steps parameters.
+* Improvement: `NfcStatus` enum uses proper Swift camel case naming.
+
 
 # 2.0.26 2024-06-13
 * RecogLib 4.1.13

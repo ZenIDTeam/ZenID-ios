@@ -22289,6 +22289,3340 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "SdkLivenessSteps",
+        "printedName": "SdkLivenessSteps",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "UpPerspective",
+            "printedName": "UpPerspective",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.SdkLivenessSteps.Type) -> RecogLib_iOS.SdkLivenessSteps",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO13UpPerspectiveyA2CmF",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO13UpPerspectiveyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Left",
+            "printedName": "Left",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.SdkLivenessSteps.Type) -> RecogLib_iOS.SdkLivenessSteps",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO4LeftyA2CmF",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO4LeftyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Right",
+            "printedName": "Right",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.SdkLivenessSteps.Type) -> RecogLib_iOS.SdkLivenessSteps",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO5RightyA2CmF",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO5RightyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Down",
+            "printedName": "Down",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.SdkLivenessSteps.Type) -> RecogLib_iOS.SdkLivenessSteps",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO4DownyA2CmF",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO4DownyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Smile",
+            "printedName": "Smile",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.SdkLivenessSteps.Type) -> RecogLib_iOS.SdkLivenessSteps",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO5SmileyA2CmF",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO5SmileyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Blinking",
+            "printedName": "Blinking",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.SdkLivenessSteps.Type) -> RecogLib_iOS.SdkLivenessSteps",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO8BlinkingyA2CmF",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO8BlinkingyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "UpObsolete",
+            "printedName": "UpObsolete",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.SdkLivenessSteps.Type) -> RecogLib_iOS.SdkLivenessSteps",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO10UpObsoleteyA2CmF",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO10UpObsoleteyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.SdkLivenessSteps?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO8rawValueACSgSi_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO8rawValueSivp",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO8rawValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS16SdkLivenessStepsO8rawValueSivg",
+                "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO8rawValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.SdkLivenessSteps]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SdkLivenessSteps",
+                    "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                    "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS16SdkLivenessStepsO8allCasesSayACGvpZ",
+            "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO8allCasesSayACGvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.SdkLivenessSteps]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS16SdkLivenessStepsO8allCasesSayACGvgZ",
+                "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO8allCasesSayACGvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO",
+        "mangledName": "$s12RecogLib_iOS16SdkLivenessStepsO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.SdkLivenessSteps]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SdkLivenessSteps",
+                        "printedName": "RecogLib_iOS.SdkLivenessSteps",
+                        "usr": "s:12RecogLib_iOS16SdkLivenessStepsO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PlatformKind",
+        "printedName": "PlatformKind",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "Web",
+            "printedName": "Web",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.PlatformKind.Type) -> RecogLib_iOS.PlatformKind",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlatformKind",
+                    "printedName": "RecogLib_iOS.PlatformKind",
+                    "usr": "s:12RecogLib_iOS12PlatformKindO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.PlatformKind.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlatformKind",
+                        "printedName": "RecogLib_iOS.PlatformKind",
+                        "usr": "s:12RecogLib_iOS12PlatformKindO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS12PlatformKindO3WebyA2CmF",
+            "mangledName": "$s12RecogLib_iOS12PlatformKindO3WebyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Android",
+            "printedName": "Android",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.PlatformKind.Type) -> RecogLib_iOS.PlatformKind",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlatformKind",
+                    "printedName": "RecogLib_iOS.PlatformKind",
+                    "usr": "s:12RecogLib_iOS12PlatformKindO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.PlatformKind.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlatformKind",
+                        "printedName": "RecogLib_iOS.PlatformKind",
+                        "usr": "s:12RecogLib_iOS12PlatformKindO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS12PlatformKindO7AndroidyA2CmF",
+            "mangledName": "$s12RecogLib_iOS12PlatformKindO7AndroidyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "iOS",
+            "printedName": "iOS",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.PlatformKind.Type) -> RecogLib_iOS.PlatformKind",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlatformKind",
+                    "printedName": "RecogLib_iOS.PlatformKind",
+                    "usr": "s:12RecogLib_iOS12PlatformKindO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.PlatformKind.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlatformKind",
+                        "printedName": "RecogLib_iOS.PlatformKind",
+                        "usr": "s:12RecogLib_iOS12PlatformKindO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS12PlatformKindO01iC0yA2CmF",
+            "mangledName": "$s12RecogLib_iOS12PlatformKindO01iC0yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.PlatformKind?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlatformKind",
+                    "printedName": "RecogLib_iOS.PlatformKind",
+                    "usr": "s:12RecogLib_iOS12PlatformKindO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS12PlatformKindO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12RecogLib_iOS12PlatformKindO8rawValueACSgSi_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS12PlatformKindO8rawValueSivp",
+            "mangledName": "$s12RecogLib_iOS12PlatformKindO8rawValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS12PlatformKindO8rawValueSivg",
+                "mangledName": "$s12RecogLib_iOS12PlatformKindO8rawValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.PlatformKind]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PlatformKind",
+                    "printedName": "RecogLib_iOS.PlatformKind",
+                    "usr": "s:12RecogLib_iOS12PlatformKindO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS12PlatformKindO8allCasesSayACGvpZ",
+            "mangledName": "$s12RecogLib_iOS12PlatformKindO8allCasesSayACGvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.PlatformKind]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlatformKind",
+                        "printedName": "RecogLib_iOS.PlatformKind",
+                        "usr": "s:12RecogLib_iOS12PlatformKindO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS12PlatformKindO8allCasesSayACGvgZ",
+                "mangledName": "$s12RecogLib_iOS12PlatformKindO8allCasesSayACGvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS12PlatformKindO",
+        "mangledName": "$s12RecogLib_iOS12PlatformKindO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.PlatformKind]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PlatformKind",
+                        "printedName": "RecogLib_iOS.PlatformKind",
+                        "usr": "s:12RecogLib_iOS12PlatformKindO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FrontendValidatorType",
+        "printedName": "FrontendValidatorType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "Alignment",
+            "printedName": "Alignment",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO9AlignmentyA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO9AlignmentyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "BorderDistance",
+            "printedName": "BorderDistance",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO14BorderDistanceyA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO14BorderDistanceyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "LinearFit",
+            "printedName": "LinearFit",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO9LinearFityA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO9LinearFityA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Stability",
+            "printedName": "Stability",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO9StabilityyA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO9StabilityyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Mrz",
+            "printedName": "Mrz",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO3MrzyA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO3MrzyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Lighting",
+            "printedName": "Lighting",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO8LightingyA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO8LightingyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Barcode",
+            "printedName": "Barcode",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO7BarcodeyA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO7BarcodeyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Blur",
+            "printedName": "Blur",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO4BluryA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO4BluryA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "SpecularImage",
+            "printedName": "SpecularImage",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.FrontendValidatorType.Type) -> RecogLib_iOS.FrontendValidatorType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO13SpecularImageyA2CmF",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO13SpecularImageyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.FrontendValidatorType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO8rawValueSivp",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO8rawValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO8rawValueSivg",
+                "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO8rawValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.FrontendValidatorType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FrontendValidatorType",
+                    "printedName": "RecogLib_iOS.FrontendValidatorType",
+                    "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO8allCasesSayACGvpZ",
+            "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO8allCasesSayACGvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.FrontendValidatorType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO8allCasesSayACGvgZ",
+                "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO8allCasesSayACGvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO",
+        "mangledName": "$s12RecogLib_iOS21FrontendValidatorTypeO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.FrontendValidatorType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "FrontendValidatorType",
+                        "printedName": "RecogLib_iOS.FrontendValidatorType",
+                        "usr": "s:12RecogLib_iOS21FrontendValidatorTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DefType",
+        "printedName": "DefType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "TD1_IDC",
+            "printedName": "TD1_IDC",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DefType.Type) -> RecogLib_iOS.DefType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DefType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS7DefTypeO7TD1_IDCyA2CmF",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO7TD1_IDCyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "TD2_IDC2000",
+            "printedName": "TD2_IDC2000",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DefType.Type) -> RecogLib_iOS.DefType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DefType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS7DefTypeO11TD2_IDC2000yA2CmF",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO11TD2_IDC2000yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "TD3_PAS",
+            "printedName": "TD3_PAS",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DefType.Type) -> RecogLib_iOS.DefType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DefType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS7DefTypeO7TD3_PASyA2CmF",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO7TD3_PASyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "SKDRV",
+            "printedName": "SKDRV",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DefType.Type) -> RecogLib_iOS.DefType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DefType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS7DefTypeO5SKDRVyA2CmF",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO5SKDRVyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "None",
+            "printedName": "None",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DefType.Type) -> RecogLib_iOS.DefType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DefType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS7DefTypeO4NoneyA2CmF",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO4NoneyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "FrenchID1988",
+            "printedName": "FrenchID1988",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DefType.Type) -> RecogLib_iOS.DefType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DefType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS7DefTypeO12FrenchID1988yA2CmF",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO12FrenchID1988yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "NLDRV",
+            "printedName": "NLDRV",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DefType.Type) -> RecogLib_iOS.DefType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DefType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS7DefTypeO5NLDRVyA2CmF",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO5NLDRVyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.DefType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS7DefTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS7DefTypeO8rawValueSivp",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO8rawValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS7DefTypeO8rawValueSivg",
+                "mangledName": "$s12RecogLib_iOS7DefTypeO8rawValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.DefType]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefType",
+                    "printedName": "RecogLib_iOS.DefType",
+                    "usr": "s:12RecogLib_iOS7DefTypeO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS7DefTypeO8allCasesSayACGvpZ",
+            "mangledName": "$s12RecogLib_iOS7DefTypeO8allCasesSayACGvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.DefType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS7DefTypeO8allCasesSayACGvgZ",
+                "mangledName": "$s12RecogLib_iOS7DefTypeO8allCasesSayACGvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS7DefTypeO",
+        "mangledName": "$s12RecogLib_iOS7DefTypeO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.DefType]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DefType",
+                        "printedName": "RecogLib_iOS.DefType",
+                        "usr": "s:12RecogLib_iOS7DefTypeO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DGName",
+        "printedName": "DGName",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "COM",
+            "printedName": "COM",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3COMyA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3COMyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "SOD",
+            "printedName": "SOD",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3SODyA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3SODyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG1",
+            "printedName": "DG1",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG1yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG1yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG2",
+            "printedName": "DG2",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG2yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG2yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG3",
+            "printedName": "DG3",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG3yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG3yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG4",
+            "printedName": "DG4",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG4yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG4yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG5",
+            "printedName": "DG5",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG5yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG5yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG6",
+            "printedName": "DG6",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG6yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG6yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG7",
+            "printedName": "DG7",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG7yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG7yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG8",
+            "printedName": "DG8",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG8yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG8yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG9",
+            "printedName": "DG9",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO3DG9yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO3DG9yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG10",
+            "printedName": "DG10",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO4DG10yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO4DG10yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG11",
+            "printedName": "DG11",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO4DG11yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO4DG11yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG12",
+            "printedName": "DG12",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO4DG12yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO4DG12yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG13",
+            "printedName": "DG13",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO4DG13yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO4DG13yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG14",
+            "printedName": "DG14",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO4DG14yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO4DG14yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG15",
+            "printedName": "DG15",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO4DG15yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO4DG15yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "DG16",
+            "printedName": "DG16",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.DGName.Type) -> RecogLib_iOS.DGName",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.DGName.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS6DGNameO4DG16yA2CmF",
+            "mangledName": "$s12RecogLib_iOS6DGNameO4DG16yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.DGName?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS6DGNameO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12RecogLib_iOS6DGNameO8rawValueACSgSi_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS6DGNameO8rawValueSivp",
+            "mangledName": "$s12RecogLib_iOS6DGNameO8rawValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS6DGNameO8rawValueSivg",
+                "mangledName": "$s12RecogLib_iOS6DGNameO8rawValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.DGName]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DGName",
+                    "printedName": "RecogLib_iOS.DGName",
+                    "usr": "s:12RecogLib_iOS6DGNameO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS6DGNameO8allCasesSayACGvpZ",
+            "mangledName": "$s12RecogLib_iOS6DGNameO8allCasesSayACGvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.DGName]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS6DGNameO8allCasesSayACGvgZ",
+                "mangledName": "$s12RecogLib_iOS6DGNameO8allCasesSayACGvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS6DGNameO",
+        "mangledName": "$s12RecogLib_iOS6DGNameO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.DGName]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "DGName",
+                        "printedName": "RecogLib_iOS.DGName",
+                        "usr": "s:12RecogLib_iOS6DGNameO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NfcProtocol",
+        "printedName": "NfcProtocol",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "PACE",
+            "printedName": "PACE",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.NfcProtocol.Type) -> RecogLib_iOS.NfcProtocol",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcProtocol",
+                    "printedName": "RecogLib_iOS.NfcProtocol",
+                    "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.NfcProtocol.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcProtocol",
+                        "printedName": "RecogLib_iOS.NfcProtocol",
+                        "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS11NfcProtocolO4PACEyA2CmF",
+            "mangledName": "$s12RecogLib_iOS11NfcProtocolO4PACEyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "BAC",
+            "printedName": "BAC",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.NfcProtocol.Type) -> RecogLib_iOS.NfcProtocol",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcProtocol",
+                    "printedName": "RecogLib_iOS.NfcProtocol",
+                    "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.NfcProtocol.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcProtocol",
+                        "printedName": "RecogLib_iOS.NfcProtocol",
+                        "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS11NfcProtocolO3BACyA2CmF",
+            "mangledName": "$s12RecogLib_iOS11NfcProtocolO3BACyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.NfcProtocol?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcProtocol",
+                    "printedName": "RecogLib_iOS.NfcProtocol",
+                    "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS11NfcProtocolO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12RecogLib_iOS11NfcProtocolO8rawValueACSgSi_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS11NfcProtocolO8rawValueSivp",
+            "mangledName": "$s12RecogLib_iOS11NfcProtocolO8rawValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS11NfcProtocolO8rawValueSivg",
+                "mangledName": "$s12RecogLib_iOS11NfcProtocolO8rawValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.NfcProtocol]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcProtocol",
+                    "printedName": "RecogLib_iOS.NfcProtocol",
+                    "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS11NfcProtocolO8allCasesSayACGvpZ",
+            "mangledName": "$s12RecogLib_iOS11NfcProtocolO8allCasesSayACGvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.NfcProtocol]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcProtocol",
+                        "printedName": "RecogLib_iOS.NfcProtocol",
+                        "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS11NfcProtocolO8allCasesSayACGvgZ",
+                "mangledName": "$s12RecogLib_iOS11NfcProtocolO8allCasesSayACGvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS11NfcProtocolO",
+        "mangledName": "$s12RecogLib_iOS11NfcProtocolO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.NfcProtocol]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcProtocol",
+                        "printedName": "RecogLib_iOS.NfcProtocol",
+                        "usr": "s:12RecogLib_iOS11NfcProtocolO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NfcStatus",
+        "printedName": "NfcStatus",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "DeviceDoesNotSupportNfc",
+            "printedName": "DeviceDoesNotSupportNfc",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcStatus",
+                    "printedName": "RecogLib_iOS.NfcStatus",
+                    "usr": "s:12RecogLib_iOS9NfcStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.NfcStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcStatus",
+                        "printedName": "RecogLib_iOS.NfcStatus",
+                        "usr": "s:12RecogLib_iOS9NfcStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS9NfcStatusO020DeviceDoesNotSupportD0yA2CmF",
+            "mangledName": "$s12RecogLib_iOS9NfcStatusO020DeviceDoesNotSupportD0yA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "InvalidNfcKey",
+            "printedName": "InvalidNfcKey",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcStatus",
+                    "printedName": "RecogLib_iOS.NfcStatus",
+                    "usr": "s:12RecogLib_iOS9NfcStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.NfcStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcStatus",
+                        "printedName": "RecogLib_iOS.NfcStatus",
+                        "usr": "s:12RecogLib_iOS9NfcStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS9NfcStatusO07InvalidD3KeyyA2CmF",
+            "mangledName": "$s12RecogLib_iOS9NfcStatusO07InvalidD3KeyyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "UserSkipped",
+            "printedName": "UserSkipped",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcStatus",
+                    "printedName": "RecogLib_iOS.NfcStatus",
+                    "usr": "s:12RecogLib_iOS9NfcStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.NfcStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcStatus",
+                        "printedName": "RecogLib_iOS.NfcStatus",
+                        "usr": "s:12RecogLib_iOS9NfcStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS9NfcStatusO11UserSkippedyA2CmF",
+            "mangledName": "$s12RecogLib_iOS9NfcStatusO11UserSkippedyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Var",
+            "name": "Ok",
+            "printedName": "Ok",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcStatus",
+                    "printedName": "RecogLib_iOS.NfcStatus",
+                    "usr": "s:12RecogLib_iOS9NfcStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RecogLib_iOS.NfcStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcStatus",
+                        "printedName": "RecogLib_iOS.NfcStatus",
+                        "usr": "s:12RecogLib_iOS9NfcStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12RecogLib_iOS9NfcStatusO2OkyA2CmF",
+            "mangledName": "$s12RecogLib_iOS9NfcStatusO2OkyA2CmF",
+            "moduleName": "RecogLib_iOS"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.NfcStatus?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcStatus",
+                    "printedName": "RecogLib_iOS.NfcStatus",
+                    "usr": "s:12RecogLib_iOS9NfcStatusO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12RecogLib_iOS9NfcStatusO8rawValueACSgSi_tcfc",
+            "mangledName": "$s12RecogLib_iOS9NfcStatusO8rawValueACSgSi_tcfc",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS9NfcStatusO8rawValueSivp",
+            "mangledName": "$s12RecogLib_iOS9NfcStatusO8rawValueSivp",
+            "moduleName": "RecogLib_iOS",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS9NfcStatusO8rawValueSivg",
+                "mangledName": "$s12RecogLib_iOS9NfcStatusO8rawValueSivg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RecogLib_iOS.NfcStatus]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NfcStatus",
+                    "printedName": "RecogLib_iOS.NfcStatus",
+                    "usr": "s:12RecogLib_iOS9NfcStatusO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS9NfcStatusO8allCasesSayACGvpZ",
+            "mangledName": "$s12RecogLib_iOS9NfcStatusO8allCasesSayACGvpZ",
+            "moduleName": "RecogLib_iOS",
+            "static": true,
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.NfcStatus]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcStatus",
+                        "printedName": "RecogLib_iOS.NfcStatus",
+                        "usr": "s:12RecogLib_iOS9NfcStatusO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS9NfcStatusO8allCasesSayACGvgZ",
+                "mangledName": "$s12RecogLib_iOS9NfcStatusO8allCasesSayACGvgZ",
+                "moduleName": "RecogLib_iOS",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12RecogLib_iOS9NfcStatusO",
+        "mangledName": "$s12RecogLib_iOS9NfcStatusO",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RecogLib_iOS.NfcStatus]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcStatus",
+                        "printedName": "RecogLib_iOS.NfcStatus",
+                        "usr": "s:12RecogLib_iOS9NfcStatusO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "AVFoundation",
         "printedName": "AVFoundation",
@@ -26092,7 +29426,7 @@
           {
             "kind": "Function",
             "name": "verify",
-            "printedName": "verify(buffer:orientation:)",
+            "printedName": "verify(buffer:orientation:flipImage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -26120,11 +29454,18 @@
                 "printedName": "UIKit.UIInterfaceOrientation",
                 "hasDefaultArg": true,
                 "usr": "c:@E@UIInterfaceOrientation"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecogLib_iOS20FaceLivenessVerifierC6verify6buffer11orientationAA0dE6ResultVSgSo17CMSampleBufferRefa_So22UIInterfaceOrientationVtF",
-            "mangledName": "$s12RecogLib_iOS20FaceLivenessVerifierC6verify6buffer11orientationAA0dE6ResultVSgSo17CMSampleBufferRefa_So22UIInterfaceOrientationVtF",
+            "usr": "s:12RecogLib_iOS20FaceLivenessVerifierC6verify6buffer11orientation9flipImageAA0dE6ResultVSgSo17CMSampleBufferRefa_So22UIInterfaceOrientationVSbtF",
+            "mangledName": "$s12RecogLib_iOS20FaceLivenessVerifierC6verify6buffer11orientation9flipImageAA0dE6ResultVSgSo17CMSampleBufferRefa_So22UIInterfaceOrientationVSbtF",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -26134,7 +29475,7 @@
           {
             "kind": "Function",
             "name": "verifyImage",
-            "printedName": "verifyImage(imageBuffer:orientation:)",
+            "printedName": "verifyImage(imageBuffer:orientation:flipImage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -26162,11 +29503,18 @@
                 "printedName": "UIKit.UIInterfaceOrientation",
                 "hasDefaultArg": true,
                 "usr": "c:@E@UIInterfaceOrientation"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecogLib_iOS20FaceLivenessVerifierC11verifyImage11imageBuffer11orientationAA0dE6ResultVSgSo11CVBufferRefa_So22UIInterfaceOrientationVtF",
-            "mangledName": "$s12RecogLib_iOS20FaceLivenessVerifierC11verifyImage11imageBuffer11orientationAA0dE6ResultVSgSo11CVBufferRefa_So22UIInterfaceOrientationVtF",
+            "usr": "s:12RecogLib_iOS20FaceLivenessVerifierC11verifyImage11imageBuffer11orientation04flipH0AA0dE6ResultVSgSo11CVBufferRefa_So22UIInterfaceOrientationVSbtF",
+            "mangledName": "$s12RecogLib_iOS20FaceLivenessVerifierC11verifyImage11imageBuffer11orientation04flipH0AA0dE6ResultVSgSo11CVBufferRefa_So22UIInterfaceOrientationVSbtF",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -39180,292 +42528,6 @@
         ]
       },
       {
-        "kind": "TypeDecl",
-        "name": "NfcStatus",
-        "printedName": "NfcStatus",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "DEVICE_DOES_NOT_SUPPORT_NFC",
-            "printedName": "DEVICE_DOES_NOT_SUPPORT_NFC",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NfcStatus",
-                    "printedName": "RecogLib_iOS.NfcStatus",
-                    "usr": "s:12RecogLib_iOS9NfcStatusO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "RecogLib_iOS.NfcStatus.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NfcStatus",
-                        "printedName": "RecogLib_iOS.NfcStatus",
-                        "usr": "s:12RecogLib_iOS9NfcStatusO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:12RecogLib_iOS9NfcStatusO27DEVICE_DOES_NOT_SUPPORT_NFCyA2CmF",
-            "mangledName": "$s12RecogLib_iOS9NfcStatusO27DEVICE_DOES_NOT_SUPPORT_NFCyA2CmF",
-            "moduleName": "RecogLib_iOS",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "INVALID_NFC_KEY",
-            "printedName": "INVALID_NFC_KEY",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NfcStatus",
-                    "printedName": "RecogLib_iOS.NfcStatus",
-                    "usr": "s:12RecogLib_iOS9NfcStatusO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "RecogLib_iOS.NfcStatus.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NfcStatus",
-                        "printedName": "RecogLib_iOS.NfcStatus",
-                        "usr": "s:12RecogLib_iOS9NfcStatusO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:12RecogLib_iOS9NfcStatusO15INVALID_NFC_KEYyA2CmF",
-            "mangledName": "$s12RecogLib_iOS9NfcStatusO15INVALID_NFC_KEYyA2CmF",
-            "moduleName": "RecogLib_iOS",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "USER_SKIPPED",
-            "printedName": "USER_SKIPPED",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NfcStatus",
-                    "printedName": "RecogLib_iOS.NfcStatus",
-                    "usr": "s:12RecogLib_iOS9NfcStatusO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "RecogLib_iOS.NfcStatus.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NfcStatus",
-                        "printedName": "RecogLib_iOS.NfcStatus",
-                        "usr": "s:12RecogLib_iOS9NfcStatusO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:12RecogLib_iOS9NfcStatusO12USER_SKIPPEDyA2CmF",
-            "mangledName": "$s12RecogLib_iOS9NfcStatusO12USER_SKIPPEDyA2CmF",
-            "moduleName": "RecogLib_iOS",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "OK",
-            "printedName": "OK",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(RecogLib_iOS.NfcStatus.Type) -> RecogLib_iOS.NfcStatus",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NfcStatus",
-                    "printedName": "RecogLib_iOS.NfcStatus",
-                    "usr": "s:12RecogLib_iOS9NfcStatusO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "RecogLib_iOS.NfcStatus.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NfcStatus",
-                        "printedName": "RecogLib_iOS.NfcStatus",
-                        "usr": "s:12RecogLib_iOS9NfcStatusO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:12RecogLib_iOS9NfcStatusO2OKyA2CmF",
-            "mangledName": "$s12RecogLib_iOS9NfcStatusO2OKyA2CmF",
-            "moduleName": "RecogLib_iOS",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rawValue:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "RecogLib_iOS.NfcStatus?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NfcStatus",
-                    "printedName": "RecogLib_iOS.NfcStatus",
-                    "usr": "s:12RecogLib_iOS9NfcStatusO"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS9NfcStatusO8rawValueACSgSi_tcfc",
-            "mangledName": "$s12RecogLib_iOS9NfcStatusO8rawValueACSgSi_tcfc",
-            "moduleName": "RecogLib_iOS",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12RecogLib_iOS9NfcStatusO8rawValueSivp",
-            "mangledName": "$s12RecogLib_iOS9NfcStatusO8rawValueSivp",
-            "moduleName": "RecogLib_iOS",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12RecogLib_iOS9NfcStatusO8rawValueSivg",
-                "mangledName": "$s12RecogLib_iOS9NfcStatusO8rawValueSivg",
-                "moduleName": "RecogLib_iOS",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:12RecogLib_iOS9NfcStatusO",
-        "mangledName": "$s12RecogLib_iOS9NfcStatusO",
-        "moduleName": "RecogLib_iOS",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "enumRawTypeName": "Int",
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
-          }
-        ]
-      },
-      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -42249,6 +45311,36 @@
             "declKind": "Func",
             "usr": "s:12RecogLib_iOS22FacelivenessControllerC18getAuxiliaryImagesAA012FaceLivenessG4InfoVSgyF",
             "mangledName": "$s12RecogLib_iOS22FacelivenessControllerC18getAuxiliaryImagesAA012FaceLivenessG4InfoVSgyF",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getStepParameters",
+            "printedName": "getStepParameters()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RecogLib_iOS.FaceLivenessStepParameters?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FaceLivenessStepParameters",
+                    "printedName": "RecogLib_iOS.FaceLivenessStepParameters",
+                    "usr": "s:12RecogLib_iOS26FaceLivenessStepParametersV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecogLib_iOS22FacelivenessControllerC17getStepParametersAA012FaceLivenessgH0VSgyF",
+            "mangledName": "$s12RecogLib_iOS22FacelivenessControllerC17getStepParametersAA012FaceLivenessgH0VSgyF",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "Final",
@@ -63810,6 +66902,1056 @@
       "value": "5"
     },
     {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10475,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10493,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10512,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10530,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10549,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10571,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10595,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10475,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10493,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10512,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10530,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10549,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10571,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10595,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10475,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10493,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10512,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10530,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10549,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10571,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10595,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10663,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10684,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10701,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10663,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10684,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10701,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10663,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10684,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10701,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10784,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10812,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10835,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10858,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10875,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10897,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10918,
+      "length": 2,
+      "value": "22"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10937,
+      "length": 2,
+      "value": "41"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10965,
+      "length": 2,
+      "value": "53"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10784,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10812,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10835,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10858,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10875,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10897,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10918,
+      "length": 2,
+      "value": "22"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10937,
+      "length": 2,
+      "value": "41"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10965,
+      "length": 2,
+      "value": "53"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10784,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10812,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10835,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10858,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10875,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10897,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10918,
+      "length": 2,
+      "value": "22"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10937,
+      "length": 2,
+      "value": "41"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 10965,
+      "length": 2,
+      "value": "53"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11033,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11058,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11079,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11098,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11116,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11142,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11161,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11033,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11058,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11079,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11098,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11116,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11142,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11161,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11033,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11058,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11079,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11098,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11116,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11142,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11161,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11223,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11240,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11257,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11274,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11291,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11308,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11325,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11342,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11359,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11376,
+      "length": 1,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11393,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11412,
+      "length": 2,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11431,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11450,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11469,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11488,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11507,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11526,
+      "length": 2,
+      "value": "17"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11223,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11240,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11257,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11274,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11291,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11308,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11325,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11342,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11359,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11376,
+      "length": 1,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11393,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11412,
+      "length": 2,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11431,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11450,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11469,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11488,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11507,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11526,
+      "length": 2,
+      "value": "17"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11223,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11240,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11257,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11274,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11291,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11308,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11325,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11342,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11359,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11376,
+      "length": 1,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11393,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11412,
+      "length": 2,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11431,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11450,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11469,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11488,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11507,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11526,
+      "length": 2,
+      "value": "17"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11595,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11612,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11595,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11612,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11595,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11612,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11697,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11724,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11749,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11765,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11697,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11724,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11749,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11765,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11697,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11724,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11749,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Enums.generated.swift",
+      "kind": "IntegerLiteral",
+      "offset": 11765,
+      "length": 1,
+      "value": "3"
+    },
+    {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "StringLiteral",
       "offset": 610,
@@ -63833,7 +67975,7 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/Camera.swift",
       "kind": "IntegerLiteral",
-      "offset": 9964,
+      "offset": 10294,
       "length": 3,
       "value": "110"
     },
@@ -64074,6 +68216,20 @@
       "offset": 273,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1196,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/FaceLivenessVerifier.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1624,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/DocumentVerifier.swift",
@@ -65243,90 +69399,6 @@
       "offset": 346,
       "length": 5,
       "value": "false"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 152,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 239,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 328,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 381,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 152,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 239,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 328,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 381,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 152,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 239,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 328,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Nfc\/NfcStatus.swift",
-      "kind": "IntegerLiteral",
-      "offset": 381,
-      "length": 1,
-      "value": "3"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",

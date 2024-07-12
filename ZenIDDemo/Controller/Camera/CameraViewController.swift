@@ -379,7 +379,7 @@ extension CameraViewController: NfcReadCompletionDelegate {
     }
 
     func didReadNfcData(data: NfcData) {
-        guard let documentResult = documentController?.processNfcResult(nfcData: data, status: .OK) else { return }
+        guard let documentResult = documentController?.processNfcResult(nfcData: data, status: .Ok) else { return }
         let docUnifiedResult = UnifiedDocumentResultAdapter(result: documentResult)
         nfcViewControler?.dismiss(animated: false) { [weak self] in
             guard let self else { return }

@@ -102,7 +102,6 @@
 		196A42EC2AB53B6600D5A0A4 /* AES_3DES_DESEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A42C72AB53B6500D5A0A4 /* AES_3DES_DESEncryption.swift */; };
 		196A42ED2AB53B6600D5A0A4 /* ResponseAPDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A42C82AB53B6500D5A0A4 /* ResponseAPDU.swift */; };
 		196A42EF2AB53B6600D5A0A4 /* BACHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A42CA2AB53B6600D5A0A4 /* BACHandler.swift */; };
-		196EE0462A9136E3009DD7B7 /* NfcStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196EE0452A9136E3009DD7B7 /* NfcStatus.swift */; };
 		19CD7BEC2A98FCEB007AE0F3 /* NfcUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD7BEB2A98FCEB007AE0F3 /* NfcUtils.swift */; };
 		19CD7BEF2A993764007AE0F3 /* NfcDocumentReaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD7BEE2A993764007AE0F3 /* NfcDocumentReaderProtocol.swift */; };
 		19CD7BF12A993793007AE0F3 /* MrzFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CD7BF02A993793007AE0F3 /* MrzFields.swift */; };
@@ -255,7 +254,6 @@
 		196A42C72AB53B6500D5A0A4 /* AES_3DES_DESEncryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AES_3DES_DESEncryption.swift; sourceTree = "<group>"; };
 		196A42C82AB53B6500D5A0A4 /* ResponseAPDU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPDU.swift; sourceTree = "<group>"; };
 		196A42CA2AB53B6600D5A0A4 /* BACHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BACHandler.swift; sourceTree = "<group>"; };
-		196EE0452A9136E3009DD7B7 /* NfcStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcStatus.swift; sourceTree = "<group>"; };
 		19CD7BEB2A98FCEB007AE0F3 /* NfcUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcUtils.swift; sourceTree = "<group>"; };
 		19CD7BEE2A993764007AE0F3 /* NfcDocumentReaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcDocumentReaderProtocol.swift; sourceTree = "<group>"; };
 		19CD7BF02A993793007AE0F3 /* MrzFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MrzFields.swift; sourceTree = "<group>"; };
@@ -443,7 +441,6 @@
 				196A42C12AB53B6500D5A0A4 /* NfcDocumentReader.swift */,
 				193B1BAB2AAA5F6900479994 /* NfcDocumentReaderError.swift */,
 				19CD7BEE2A993764007AE0F3 /* NfcDocumentReaderProtocol.swift */,
-				196EE0452A9136E3009DD7B7 /* NfcStatus.swift */,
 				19CD7BEB2A98FCEB007AE0F3 /* NfcUtils.swift */,
 			);
 			path = Nfc;
@@ -807,7 +804,6 @@
 				18371B0A27C2443C002528F3 /* RenderableFactory.swift in Sources */,
 				18953DAE26844C8B0077F976 /* CDocumentVerifierSettingsWrapper.cpp in Sources */,
 				18371B5F27C5441E002528F3 /* UnifiedFacelivenessResultAdapter.swift in Sources */,
-				196EE0462A9136E3009DD7B7 /* NfcStatus.swift in Sources */,
 				18371AF427C2437B002528F3 /* CameraView.swift in Sources */,
 				196A42E72AB53B6600D5A0A4 /* DataGroupParser.swift in Sources */,
 				196A42E92AB53B6600D5A0A4 /* TagReader.swift in Sources */,
@@ -1128,7 +1124,7 @@
 					"$(PROJECT_DIR)/RecogLib-iOS/openssl",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 4.1.15;
+				MARKETING_VERSION = 4.1.17;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1186,7 +1182,7 @@
 					"$(PROJECT_DIR)/RecogLib-iOS/openssl",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 4.1.15;
+				MARKETING_VERSION = 4.1.17;
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mstana.RecogLib-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

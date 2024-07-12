@@ -1,5 +1,10 @@
 # Migration
 
+## Update to the version 2.0.26 (RecogLib 4.1.17)
+
+`NfcStatus` enum uses now camel case for cases. `DEVICE_DOES_NOT_SUPPORT_NFC` becomes `DeviceDoesNotSupportNfc`, `INVALID_NFC_KEY` becomes `InvalidNfcKey`, `USER_SKIPPED` becomes `UserSkipped` and finaly `OK` is `Ok` now.
+
+
 ## Update to the version 2.0.26 (RecogLib 4.1.7)
 
 There could be minor changes in controllers and camera API. For example functions `canShowStaticOverlay` and `canShowInstructionView` are computed parameters now. Also `onLayoutChange` method was introduced.
