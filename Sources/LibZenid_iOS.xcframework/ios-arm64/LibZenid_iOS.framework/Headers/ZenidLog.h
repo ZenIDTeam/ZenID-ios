@@ -21,6 +21,7 @@ class ZenidLog
 {
 public:
 	ZenidLog();
+	~ZenidLog();
 
 	// Returns the default logger, which is used for all Zenid.
 	static ZenidLog& GetDefault();

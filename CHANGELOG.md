@@ -1,5 +1,19 @@
 # Change Log
 
+# 2.0.28 2024-07-12
+* RecogLib 4.3.10
+* SDK: There was a minor issue where the Darkness and Specular validators were passed incorrect values. TRASKZENIDPV-2786
+* Fix: FrontendValidatorType field in Signature renamed back to ValidatorType. TRASKZENIDPV-2774
+* Fix: Updated model for Czech Residency permit v2020/2022 for better alignment and OCR. TRASKZENIDPV-2576 TRASKZENIDPV-2620
+* Improvement: When hough tracker matches a model but the surf doesn't verify it, we reset the hough match. TRASKZENIDPV-2689
+* SDK: If one document is replaced by another during the scanning process using the SDK, all validators are reset, and only the data related to the last scanned document is sent to the backend. SZENID-2666
+* Improvement: Further decrease risk of document misclassification. TRASKZENIDPV-2689
+* Fixed mutex error when calling SelectProfile. SZENID-2656
+* Improvement: Added support for the YUV_420_888 format. TRASKZENIDPV-2449
+* Improvement: Decreased risk of misclassifying documents. TRASKZENIDPV-2269, TRASKZENIDPV-2689
+* Fix: Updated Olympus card MRZ reading for nationality, sometimes failing before. TRASKZENIDPV-2648
+* Fix: Conditions affecting MRZ reading in CoreLib are consistent. TRASKZENIDPV-2648
+
 # 2.0.27 2024-07-08
 * RecogLib 4.2.17
 * Improvement: Decreased risk of misclassifying documents. SZENID-2633, SZENID-2634 (Backported from 4.3.4)

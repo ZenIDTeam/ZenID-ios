@@ -41,7 +41,6 @@ public:
 class NfcValidatorConfig
 {
 public:
-  int NfcChipReadingTimeoutSeconds = 30;
   int NumberOfReadingAttempts = 1;
   bool SkipNfcAllowed = false;
   bool NoNfcMeansError = false;
@@ -49,13 +48,6 @@ public:
   int AcceptScore = 100;
   int ScoreStep = 100;
   bool IsTestEnabled = true;
-};
-class BlurValidatorConfig
-{
-public:
-  int AcceptScore = 50;
-  bool IsTestEnabled = true;
-  int ScoreStep = 1;
 };
 class SpecularImageValidatorConfig
 {
@@ -84,6 +76,8 @@ public:
   int TimeToMaxToleranceForBorderDistance = 10;
   int TimeToMaxToleranceForLinearFit = 5;
   int TimeToMaxToleranceForStability = 10;
+  int MinBlurriness = 30;
+  int MaxBlurriness = 50;
   int MinDarkness = 80;
   int MaxDarkness = 100;
   int MinAlignment = 50;
@@ -129,7 +123,6 @@ class SdkProfileConfigs
 public:
   SelfieLivenessSdkValidatorConfig SelfieLivenessSdkValidatorConfig;
   NfcValidatorConfig NfcValidatorConfig;
-  BlurValidatorConfig BlurValidatorConfig;
   SpecularImageValidatorConfig SpecularImageValidatorConfig;
   BarcodeValidatorConfig BarcodeValidatorConfig;
   SdkPictureQualityValidatorConfig SdkPictureQualityValidatorConfig;

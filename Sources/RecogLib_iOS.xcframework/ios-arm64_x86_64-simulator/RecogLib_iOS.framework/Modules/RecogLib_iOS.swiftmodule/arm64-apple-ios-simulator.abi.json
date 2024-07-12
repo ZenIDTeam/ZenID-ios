@@ -68422,14 +68422,14 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/ZenidSecurity.swift",
       "kind": "StringLiteral",
-      "offset": 5451,
+      "offset": 5641,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/ZenidSecurity.swift",
       "kind": "StringLiteral",
-      "offset": 5530,
+      "offset": 5720,
       "length": 5,
       "value": "\"NFC\""
     },
