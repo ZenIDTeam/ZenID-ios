@@ -267,7 +267,7 @@ extension BaseController {
     /// It is used that verifier is checking only cropped data and not whole camera stream.
     ///
     /// - Parameter pixelBuffer: Input pixel buffer.
-    /// - Returns: Cropped pixel buffer.
+    /// - Returns: Cropped (and maybe mirrored) pixel buffer.
     func getCroppedPixelBuffer(pixelBuffer: CVPixelBuffer) -> CVPixelBuffer? {
         // camera frame size
         let width = CVPixelBufferGetWidth(pixelBuffer)
