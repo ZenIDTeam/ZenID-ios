@@ -68282,77 +68282,161 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 375,
+      "offset": 337,
       "length": 2,
       "value": "25"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 454,
+      "offset": 423,
+      "length": 2,
+      "value": "25"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 456,
+      "length": 2,
+      "value": "25"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 550,
       "length": 2,
       "value": "18"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 526,
+      "offset": 583,
+      "length": 2,
+      "value": "18"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 672,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 596,
+      "offset": 705,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 790,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 663,
+      "offset": 823,
+      "length": 2,
+      "value": "45"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 905,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 734,
+      "offset": 938,
+      "length": 2,
+      "value": "30"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1024,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 803,
+      "offset": 1057,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1143,
       "length": 2,
       "value": "17"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 879,
+      "offset": 1176,
+      "length": 2,
+      "value": "17"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1266,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 955,
+      "offset": 1299,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1392,
       "length": 2,
       "value": "18"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 1030,
+      "offset": 1425,
+      "length": 2,
+      "value": "18"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1514,
       "length": 2,
       "value": "14"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
       "kind": "IntegerLiteral",
-      "offset": 1102,
+      "offset": 1547,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1636,
+      "length": 2,
+      "value": "20"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Extensions\/UIFont+Styles.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1669,
       "length": 2,
       "value": "20"
     },
