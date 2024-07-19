@@ -38,10 +38,6 @@ public final class CameraView: UIView {
     
     private(set) var overlay: CameraOverlayView?
     
-    private(set) var drawLayer: DrawingLayer?
-    
-    private(set) var webViewOverlay: WebViewOverlay?
-    
     let cameraView = UIView()
     
     var previewLayer: AVCaptureVideoPreviewLayer?
@@ -54,6 +50,12 @@ public final class CameraView: UIView {
     
     /// Callback that is triggered everytime when layout is changed.
     var onLayoutChange: (() -> Void)?
+    
+    public var scanningArea: CGRect? {
+        didSet {
+            setNeedsLayout()
+        }
+    }
     
     
     public init() {
@@ -80,7 +82,10 @@ public final class CameraView: UIView {
         // Camera view
         addSubview(cameraView)
         
-        cameraView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        cameraView.anchor(top: topAnchor, 
+                          left: leftAnchor,
+                          bottom: bottomAnchor,
+                          right: rightAnchor)
         
         // Control view
         setupControlView()
@@ -128,20 +133,14 @@ public final class CameraView: UIView {
         previewLayer.setFrameWithoutAnimation(bounds)
         cameraView.layer.addSublayer(previewLayer)
     }
-
-    /// Visualisation v.1 drawing layer.
-    private func configureDrawingLayer() {
-        guard let previewLayer else { return }
-        
-        drawLayer?.removeFromSuperlayer()
-        drawLayer = DrawingLayer()
-        drawLayer?.setFrameWithoutAnimation(bounds)
-        previewLayer.addSublayer(drawLayer!)
-    }
     
     private func layoutLayers() {
         previewLayer?.setFrameWithoutAnimation(bounds)
-        drawLayer?.setFrameWithoutAnimation(bounds)
+        visualisationView?.frame = scanningArea ?? bounds
+        UIView.performWithoutAnimation {
+            overlay?.frame = scanningArea ?? bounds
+            overlay?.setNeedsLayout()
+        }
     }
     
     /// Add or replace overlay view.
@@ -152,20 +151,44 @@ public final class CameraView: UIView {
     func configureOverlay(_ newOverlay: CameraOverlayView, isStatic: Bool) {
         overlay?.removeFromSuperview()
         overlay = newOverlay
-        overlay?.translatesAutoresizingMaskIntoConstraints = false
+        overlay?.translatesAutoresizingMaskIntoConstraints = true
         if let overlay {
-            overlay.layer.setFrameWithoutAnimation(frame)
+            //overlay.layer.setFrameWithoutAnimation(scanningArea ?? bounds)
+                                    
+            UIView.performWithoutAnimation {
+                overlay.frame = scanningArea ?? bounds
+            }
             cameraView.addSubview(overlay)
-            overlay.anchor(top: cameraView.topAnchor,
-                           left: cameraView.leftAnchor,
-                           bottom: cameraView.bottomAnchor,
-                           right: cameraView.rightAnchor)
+            
             overlay.isHidden = !isStatic
             overlay.layoutIfNeeded()
+                        
+            instructionView.removeFromSuperview()
+            addSubview(instructionView)
+            instructionView.centerX(to: overlay)
+            instructionView.centerY(to: overlay)
+        }
+    }
+    
+    // MARK: - Visualisation v.1
+    
+    private(set) var visualisationView: UIView?
+    
+    private func configureDrawingLayer() {
+        guard let previewLayer else { return }
+        
+        visualisationView = DrawingView()
+        visualisationView?.translatesAutoresizingMaskIntoConstraints = false
+        visualisationView?.frame = scanningArea ?? bounds
+        
+        if let visualisationView {
+            addSubview(visualisationView)
         }
     }
     
     // MARK: - Visualisation v.2
+    
+    private(set) var webViewOverlay: WebViewOverlay?
     
     func addWebViewOverlay() {
         webViewOverlay?.removeFromSuperview()

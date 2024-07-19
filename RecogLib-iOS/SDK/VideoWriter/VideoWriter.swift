@@ -6,6 +6,10 @@ enum VideoWriterError: Error {
 
 final class VideoWriter: NSObject {
     
+    private(set) var width: CGFloat = 0
+    
+    private(set) var height: CGFloat = 0
+    
     public weak var delegate: VideoWriterDelegate?
     
     private(set) var isRecording = false {
@@ -22,6 +26,8 @@ final class VideoWriter: NSObject {
     
     private var videoWriterInput: AVAssetWriterInput!
     
+    private var pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor!
+    
     private var audioWriterInput: AVAssetWriterInput!
     
     private var sessionAtSourceTime: CMTime?
@@ -31,14 +37,16 @@ final class VideoWriter: NSObject {
 
 extension VideoWriter {
     
-    func start(isPortrait: Bool, requestedWidth: Int, requestedFPS: Int) {
+    func start(isPortrait: Bool, requestedWidth: Int, customAspectRatio: CGFloat? = nil, requestedFPS: Int) {
         guard !isRecording else { return }
         isRecording = true
         sessionAtSourceTime = nil
 
-        let outputAspectRatio: Double = 0.5625
+        let outputAspectRatio: Double = customAspectRatio ?? 0.5625
         let videoWidth = Double(requestedWidth)
         let videoHeight = videoWidth * outputAspectRatio
+        
+        ApplicationLogger.shared.Info("Restarting recording (\(requestedWidth) x \(outputAspectRatio))")
 
         // FPS not yet used
 
@@ -77,7 +85,7 @@ extension VideoWriter {
         isRecording = true
     }
 
-    func captureOutput(sampleBuffer: CMSampleBuffer) {
+    func captureOutput(sampleBuffer: CMSampleBuffer, imageBuffer: CVImageBuffer? = nil) {
         guard CMSampleBufferDataIsReady(sampleBuffer) else { return }
 
         let writable = canWrite()
@@ -89,9 +97,22 @@ extension VideoWriter {
 
         if videoWriterInput.isReadyForMoreMediaData {
             // Write video buffer
-            videoWriterInput.append(sampleBuffer)
+            if let imageBuffer {
+                // Get the presentation timestamp
+                let presentationTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+                
+                // Append the cropped pixel buffer to the writer input
+                if !pixelBufferAdaptor.append(imageBuffer, withPresentationTime: presentationTime) {
+                    ApplicationLogger.shared.Error("VideoWritter: Appending failed")
+                }
+            } else {
+                if !videoWriterInput.append(sampleBuffer) {
+                    ApplicationLogger.shared.Error("VideoWritter: Appending failed")
+                }
+            }
         }
     }
+    
 }
 
 // MARK: - Private
@@ -105,14 +126,28 @@ extension VideoWriter {
             let url = getDocumentsDirectory()
                 .appendingPathComponent(outputFileName)
 
+            width = isPortrait ? outputVideoHeight : outputVideoWidth
+            height = isPortrait ? outputVideoWidth : outputVideoHeight
+            
             videoWriter = try AVAssetWriter(url: url, fileType: AVFileType.mp4)
             videoWriterInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: [
                 AVVideoCodecKey: AVVideoCodecType.h264,
-                AVVideoWidthKey: isPortrait ? outputVideoHeight : outputVideoWidth,
-                AVVideoHeightKey: isPortrait ? outputVideoWidth : outputVideoHeight,
+                AVVideoWidthKey: width,
+                AVVideoHeightKey: height,
                 AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 1000000],
             ])
             videoWriterInput.expectsMediaDataInRealTime = true
+            
+            pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(
+                assetWriterInput: videoWriterInput,
+                sourcePixelBufferAttributes: [
+                    kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA),
+                    kCVPixelBufferWidthKey as String: width,
+                    kCVPixelBufferHeightKey as String: height
+                ]
+            )
+            
+            
 
             if videoWriter.canAdd(videoWriterInput) {
                 videoWriter.add(videoWriterInput)

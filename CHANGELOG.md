@@ -1,5 +1,8 @@
 # Change Log
 
+# 2.0.28 2024-07-24
+* New: `CameraView` has new parameter `scanningArea` that define part of camera image that's passed to verifier and recorded into video file. Please see "Defining the Scanning Area" inside `README.md`.
+
 # 2.0.28 2024-07-12
 * RecogLib 4.3.10
 * SDK: There was a minor issue where the Darkness and Specular validators were passed incorrect values. TRASKZENIDPV-2786

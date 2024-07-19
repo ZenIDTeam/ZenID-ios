@@ -12,7 +12,7 @@ final class CameraOverlayView: UIView {
     }()
     
     var targetFrame: CGRect {
-        CGRect(origin: .zero, size: targettingReticle.size).rectThatFitsRect(bounds)
+        CGRect(origin: .zero, size: targettingReticle.size).rectThatFitsRect(frame)
     }
     
     private var targettingReticle: UIImage {

@@ -89,7 +89,7 @@ public class BaseController<ResultType: ResultState> {
     var videoWriter: VideoWriter?
 
     /// Area with reticle.
-    var targetFrame: CGRect { view?.overlay?.targetFrame ?? .zero }
+    var targetFrame: CGRect { view?.scanningArea ?? .zero }
     
     var previewFrame: CGRect = .zero
     
@@ -190,7 +190,7 @@ public class BaseController<ResultType: ResultState> {
             self?.onLayoutChange()
         }
 
-        previewFrame = view?.overlay?.bounds ?? .zero
+        previewFrame = view?.bounds ?? .zero
         camera.setOrientation()
         
         previousResult = nil
@@ -224,7 +224,7 @@ public class BaseController<ResultType: ResultState> {
 
     /// Called after layout did change.
     func onLayoutChange() {
-        previewFrame = view?.overlay?.bounds ?? .zero
+        previewFrame = view?.bounds ?? .zero
         
         camera.setOrientation()
         
@@ -246,20 +246,17 @@ public class BaseController<ResultType: ResultState> {
     }
 
     private func startVideoWriter() {
+        let aspectRatio: CGFloat? = if let size = view?.scanningArea?.size {
+            size.width / size.height
+        } else { nil }
         videoWriter?.start(isPortrait: UIInterfaceOrientation.current.isPortrait,
                            requestedWidth: baseConfig.requestedResolution,
+                           customAspectRatio: aspectRatio,
                            requestedFPS: baseConfig.requestedFPS)
     }
 }
 
 extension BaseController {
-    
-    // Reticle frame position.
-    func getOverlayTargetFrame() -> CGRect {
-        let size = camera.getCurrentResolution()
-        let imageRect = CGRect(origin: .zero, size: size)
-        return targetFrame.rectThatFitsRect(imageRect)
-    }
 
     
     /// Crop image data from buffer.
@@ -284,6 +281,8 @@ extension BaseController {
     
     /// Calculate rectangle for crop.
     ///
+    /// This needs to be done because video has different coordinates than UI.
+    ///
     /// - Parameters:
     ///   - width: Source width.
     ///   - height: Source height.
@@ -299,9 +298,9 @@ extension BaseController {
             let croppedRect = CGRect(x: 0, y: 0, width: width, height: height)
             return croppedRect
         case .resizeAspectFill:
-            // With aspect fill we crop from inside of the image frame
             let imageRect = CGRect(x: 0, y: 0, width: width, height: height)
-            let croppedRect = previewFrame.rectThatFitsRect(imageRect)
+            let previewRect = previewFrame != .zero ? previewFrame : imageRect
+            let croppedRect = imageRect.toFill(previewRect, thenCrop: view?.scanningArea)
             return croppedRect
         default:
             return .zero
@@ -316,12 +315,8 @@ extension BaseController {
             previewFrame != .zero
         else { return }
         
-        if let drawLayer = view?.drawLayer {
-            drawLayer.frame = imageRect
-            let renderables = RenderableFactory
-                .createRenderables(commands: commands,
-                                   showTextInstructions: baseConfig.showTextInstructions)
-            drawLayer.setRenderables(renderables)
+        if let drawView = view?.visualisationView as? DrawingView {
+            drawView.render(commands: commands, showTextInstructions: baseConfig.showTextInstructions)
         }
     }
 
@@ -375,9 +370,13 @@ extension BaseController: CameraDelegate {
             let videoWriter = videoWriter,
             videoWriter.canWrite()
         {
-            videoWriter.captureOutput(sampleBuffer: sampleBuffer)
+            if view?.scanningArea != nil {
+                videoWriter.captureOutput(sampleBuffer: sampleBuffer, imageBuffer: croppedBuffer)
+            } else {
+                videoWriter.captureOutput(sampleBuffer: sampleBuffer)
+            }
         }
-
+        
         guard let result = verify(pixelBuffer: croppedBuffer) else { return }
 
         // temporary workaround when resolving issue with Recoglib.getPreview dealocating of the std::vector type
@@ -406,7 +405,7 @@ extension BaseController: CameraDelegate {
         let canvasSize = CGSize(width: imageWidth, height: imageHeight)
         
         #else
-        let canvasSize = previewFrame.size
+        let canvasSize = view?.scanningArea?.size ?? previewFrame.size
         
         #endif
         guard let commands = getRenderCommands(size: canvasSize) else { return }
