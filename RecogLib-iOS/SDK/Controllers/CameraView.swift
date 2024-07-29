@@ -73,7 +73,7 @@ public final class CameraView: UIView {
         
         ApplicationLogger.shared.Info("Overlay layout changed")
         previousFrame = frame
-        overlay?.layoutIfNeeded()
+        
         layoutLayers()
         onLayoutChange?()
     }

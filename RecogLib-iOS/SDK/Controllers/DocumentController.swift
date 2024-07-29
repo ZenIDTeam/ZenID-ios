@@ -371,7 +371,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     override func onLayoutChange() {
         super.onLayoutChange()
         
-        DispatchQueue.global(qos: .default).async { [weak self] in
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self else { return }
             if baseConfig.dataType == .video {
                 verifier.endHologramVerification()

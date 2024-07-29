@@ -2,6 +2,8 @@
 
 # 2.0.28 2024-07-24
 * New: `CameraView` has new parameter `scanningArea` that define part of camera image that's passed to verifier and recorded into video file. Please see "Defining the Scanning Area" inside `README.md`.
+* Fix: When reusing `Camera` it showed briefly image from previous usage. Now it's properly clear.  
+* Improvement: Faster and better layouting in `Camera` during and after rotation.
 
 # 2.0.28 2024-07-12
 * RecogLib 4.3.10
