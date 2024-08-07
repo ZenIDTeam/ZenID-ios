@@ -87,6 +87,7 @@ public final class Camera: NSObject {
         guard !captureSession.isRunning else { return }
         captureSessionQueue.async { [weak self] in
             guard let self else { return }
+            previewLayer = previewLayer ?? AVCaptureVideoPreviewLayer(session: captureSession)
             captureSession.startRunning()
             
             DispatchQueue.main.async {
@@ -100,6 +101,8 @@ public final class Camera: NSObject {
         captureSessionQueue.async { [weak self] in
             guard let self else { return }
             captureSession.stopRunning()
+            previewLayer?.removeFromSuperlayer()
+            previewLayer = nil
         }
     }
 
@@ -120,30 +123,22 @@ public final class Camera: NSObject {
     /// - Parameter orientation: Optional parameter to force orientation.
     public func setOrientation(orientation: UIInterfaceOrientation? = nil) {
         let uiOrientation = orientation ?? UIInterfaceOrientation.current
-        
-        captureSessionQueue.async { [weak self] in
+
+        let videoOrientation: AVCaptureVideoOrientation = switch uiOrientation {
+            case .portrait: .portrait
+            case .landscapeRight: .landscapeRight
+            case .landscapeLeft: .landscapeLeft
+            case .portraitUpsideDown: .portraitUpsideDown
+            default: .portrait
+        }
+                
+        DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            
-            switch uiOrientation {
-            case .portrait:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-            case .landscapeRight:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-            case .landscapeLeft:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
-            case .portraitUpsideDown:
-                previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portraitUpsideDown
-            default: break
-            }
-            
-            if let previewOrientation = previewLayer?.connection?.videoOrientation {
-                captureSession.connections.forEach { connection in
-                    if connection.videoOrientation != previewOrientation {
-                        connection.videoOrientation = previewOrientation
-                    }
+            captureSession.connections.forEach { connection in
+                if connection.videoOrientation != videoOrientation {
+                    connection.videoOrientation = videoOrientation
                 }
             }
-            ApplicationLogger.shared.Debug("Torch orientation changed")
         }
     }
     

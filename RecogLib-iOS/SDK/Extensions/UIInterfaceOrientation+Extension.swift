@@ -28,4 +28,8 @@ extension UIInterfaceOrientation {
             UIApplication.shared.statusBarOrientation
         }
     }
+    
+    static var isCurrentVertical: Bool {
+        current == .portrait || current == .portraitUpsideDown
+    }
 }

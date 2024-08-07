@@ -1216,7 +1216,8 @@ public struct DocumentControllerConfiguration {
   public let code: RecogLib_iOS.DocumentCodes?
   public let documents: [RecogLib_iOS.Document]?
   public let settings: RecogLib_iOS.DocumentVerifierSettings?
-  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, showTextInstructions: Swift.Bool = true, dataType: RecogLib_iOS.DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, documents: [RecogLib_iOS.Document]?, settings: RecogLib_iOS.DocumentVerifierSettings?)
+  public let scanningArea: CoreFoundation.CGRect?
+  public init(showVisualisation: Swift.Bool, showHelperVisualisation: Swift.Bool, showDebugVisualisation: Swift.Bool, showTextInstructions: Swift.Bool = true, dataType: RecogLib_iOS.DataType, role: RecogLib_iOS.DocumentRole?, country: RecogLib_iOS.Country?, page: RecogLib_iOS.PageCodes?, code: RecogLib_iOS.DocumentCodes?, documents: [RecogLib_iOS.Document]?, settings: RecogLib_iOS.DocumentVerifierSettings?, scanningArea: CoreFoundation.CGRect? = nil)
 }
 extension RecogLib_iOS.DocumentResult : RecogLib_iOS.ResultState {
   public var isOk: Swift.Bool {
@@ -1458,6 +1459,10 @@ final public class UnifiedFacelivenessResultAdapter : RecogLib_iOS.UnifiedResult
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class CameraView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) final public var videoGravity: AVFoundation.AVLayerVideoGravity
   @_Concurrency.MainActor(unsafe) final public var ignoreSafeArea: Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public var scanningArea: CoreFoundation.CGRect? {
+    get
+    set
+  }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   @objc deinit

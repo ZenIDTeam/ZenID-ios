@@ -29800,6 +29800,16 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RecogLib_iOS",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -35650,9 +35660,69 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "scanningArea",
+            "printedName": "scanningArea",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreFoundation.CGRect?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS31DocumentControllerConfigurationV12scanningAreaSo6CGRectVSgvp",
+            "mangledName": "$s12RecogLib_iOS31DocumentControllerConfigurationV12scanningAreaSo6CGRectVSgvp",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "CoreFoundation.CGRect?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGRect",
+                        "printedName": "CoreFoundation.CGRect",
+                        "usr": "c:@S@CGRect"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS31DocumentControllerConfigurationV12scanningAreaSo6CGRectVSgvg",
+                "mangledName": "$s12RecogLib_iOS31DocumentControllerConfigurationV12scanningAreaSo6CGRectVSgvg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(showVisualisation:showHelperVisualisation:showDebugVisualisation:showTextInstructions:dataType:role:country:page:code:documents:settings:)",
+            "printedName": "init(showVisualisation:showHelperVisualisation:showDebugVisualisation:showTextInstructions:dataType:role:country:page:code:documents:settings:scanningArea:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -35782,11 +35852,26 @@
                   }
                 ],
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreFoundation.CGRect?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecogLib_iOS31DocumentControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructions8dataType4role7country4page4code9documents8settingsACSb_S3bAA04DataN0OAA0D4RoleOSgAA7CountryOSgAA9PageCodesOSgAA0dY0OSgSayAA0D0VGSgAA0D16VerifierSettingsVSgtcfc",
-            "mangledName": "$s12RecogLib_iOS31DocumentControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructions8dataType4role7country4page4code9documents8settingsACSb_S3bAA04DataN0OAA0D4RoleOSgAA7CountryOSgAA9PageCodesOSgAA0dY0OSgSayAA0D0VGSgAA0D16VerifierSettingsVSgtcfc",
+            "usr": "s:12RecogLib_iOS31DocumentControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructions8dataType4role7country4page4code9documents8settings12scanningAreaACSb_S3bAA04DataN0OAA0D4RoleOSgAA7CountryOSgAA9PageCodesOSgAA0D5CodesOSgSayAA0D0VGSgAA0D16VerifierSettingsVSgSo6CGRectVSgtcfc",
+            "mangledName": "$s12RecogLib_iOS31DocumentControllerConfigurationV17showVisualisation0g6HelperH00g5DebugH00G16TextInstructions8dataType4role7country4page4code9documents8settings12scanningAreaACSb_S3bAA04DataN0OAA0D4RoleOSgAA7CountryOSgAA9PageCodesOSgAA0D5CodesOSgSayAA0D0VGSgAA0D16VerifierSettingsVSgSo6CGRectVSgtcfc",
             "moduleName": "RecogLib_iOS",
             "declAttributes": [
               "AccessControl"
@@ -42980,6 +43065,127 @@
                 "declKind": "Accessor",
                 "usr": "s:12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvM",
                 "mangledName": "$s12RecogLib_iOS10CameraViewC14ignoreSafeAreaSbvM",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "scanningArea",
+            "printedName": "scanningArea",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreFoundation.CGRect?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGRect",
+                    "printedName": "CoreFoundation.CGRect",
+                    "usr": "c:@S@CGRect"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvp",
+            "mangledName": "$s12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvp",
+            "moduleName": "RecogLib_iOS",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "Custom",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "CoreFoundation.CGRect?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGRect",
+                        "printedName": "CoreFoundation.CGRect",
+                        "usr": "c:@S@CGRect"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvg",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvg",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "CoreFoundation.CGRect?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGRect",
+                        "printedName": "CoreFoundation.CGRect",
+                        "usr": "c:@S@CGRect"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvs",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvs",
+                "moduleName": "RecogLib_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvM",
+                "mangledName": "$s12RecogLib_iOS10CameraViewC12scanningAreaSo6CGRectVSgvM",
                 "moduleName": "RecogLib_iOS",
                 "implicit": true,
                 "declAttributes": [
@@ -57873,7 +58079,7 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/BaseController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2721,
+      "offset": 2713,
       "length": 5,
       "value": "false"
     },
@@ -69332,56 +69538,56 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1114,
+      "offset": 1156,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3709,
+      "offset": 3829,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 3772,
+      "offset": 3892,
       "length": 15,
       "value": "\"scan front ID\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 3843,
+      "offset": 3963,
       "length": 10,
       "value": "\"id-front\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4004,
+      "offset": 4124,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 4067,
+      "offset": 4187,
       "length": 14,
       "value": "\"scan back ID\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 4137,
+      "offset": 4257,
       "length": 9,
       "value": "\"id-back\""
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/DocumentController.swift",
       "kind": "StringLiteral",
-      "offset": 2896,
+      "offset": 3016,
       "length": 18,
       "value": "\"RecogLib_iOS.DocumentController\""
     },
@@ -69808,7 +70014,7 @@
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/Controllers\/CameraView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1465,
+      "offset": 1356,
       "length": 5,
       "value": "false"
     },
@@ -70276,15 +70482,29 @@
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
+      "kind": "IntegerLiteral",
+      "offset": 160,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
+      "kind": "IntegerLiteral",
+      "offset": 206,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "BooleanLiteral",
-      "offset": 213,
+      "offset": 304,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/lweek\/Development\/Trask\/ZenID-ios\/RecogLib-iOS\/SDK\/VideoWriter\/VideoWriter.swift",
       "kind": "StringLiteral",
-      "offset": 377,
+      "offset": 468,
       "length": 14,
       "value": "\"VideoSample-\""
     },

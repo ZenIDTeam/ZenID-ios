@@ -36,6 +36,8 @@ public struct DocumentControllerConfiguration {
     public let documents: [Document]?
     
     public let settings: DocumentVerifierSettings?
+    
+    public let scanningArea: CGRect?
 
     public init(
         showVisualisation: Bool,
@@ -48,7 +50,8 @@ public struct DocumentControllerConfiguration {
         page: RecogLib_iOS.PageCodes?,
         code: RecogLib_iOS.DocumentCodes?,
         documents: [Document]?,
-        settings: DocumentVerifierSettings?
+        settings: DocumentVerifierSettings?,
+        scanningArea: CGRect? = nil
     ) {
         self.showVisualisation = showVisualisation
         self.showHelperVisualisation = showHelperVisualisation
@@ -61,6 +64,7 @@ public struct DocumentControllerConfiguration {
         self.code = code
         self.documents = documents
         self.settings = settings
+        self.scanningArea = scanningArea
     }
 }
 
@@ -367,7 +371,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
     override func onLayoutChange() {
         super.onLayoutChange()
         
-        DispatchQueue.global(qos: .default).async { [weak self] in
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self else { return }
             if baseConfig.dataType == .video {
                 verifier.endHologramVerification()

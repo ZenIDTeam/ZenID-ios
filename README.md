@@ -172,6 +172,18 @@ let pages = ZenidSecurity.supportedDocumentPageCodes(for: country, documentRole:
 
 ```
 
+## Defining the Scanning Area
+
+Sometimes, it is necessary to move the scanning area away from the center. Starting from ZenID 4.3.13, you can define your custom scanning area. For this purpose, the `CameraView` includes a public parameter, `scanningArea: CGRect`, which defines the area.
+
+There are a few rules to consider. This area must be within the UI coordinates of the parent `CameraView`. You can, of course, compute the area numerically, but the ideal solution is to compose the UI with a transparent UIView that is a child of the `CameraView` being used. When using AutoLayout, this functionality will easily guarantee that the scanning area is placed reasonably within the parent.
+
+It is important to set `scanningArea` before calling `configure(:)` on the ZenID controller or before starting the process. If you need to set `scanningArea` later, please restart the controller by calling either `stop()`, `start()`, or `configure(:)`.
+
+Be aware that you are responsible for setting the proper `scanningArea` after a screen rotation. For example, you can do this inside `viewDidLayoutSubviews:`. Eventually, restart the controller to reset video recording if this happens while using FaceLiveness or checking Hologram.
+
+Please note that this functionality will be improved later by removing the necessity to crop the image.
+
 ## Usage - Lightweight
 
 
