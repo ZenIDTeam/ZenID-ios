@@ -32,7 +32,7 @@ final class ZenIDLogger : LoggerProtocol {
     }
     
     func startLogging() {
-        ApplicationLogger.shared.startLogging(logger: self)
+        //ApplicationLogger.shared.startLogging(logger: self)
     }
     
     func getLogArchivePath() -> String? {

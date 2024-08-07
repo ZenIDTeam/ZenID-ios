@@ -59,7 +59,7 @@ public final class ZenidSecurity {
                     }
                 }
             } catch let error {
-                os_log(.error, "Failed to load: %@", error.localizedDescription)
+                ApplicationLogger.shared.Error("Failed to load: \(error.localizedDescription)")
             }
         }
         
@@ -88,7 +88,7 @@ public final class ZenidSecurity {
                     }
                 }
             } catch let error {
-                os_log(.error, "Failed to load: %@", error.localizedDescription)
+                ApplicationLogger.shared.Error("Failed to load: \(error.localizedDescription)")
             }
         }
         
@@ -120,7 +120,7 @@ public final class ZenidSecurity {
                     }
                 }
             } catch let error {
-                os_log(.error, "Failed to load: %@", error.localizedDescription)
+                ApplicationLogger.shared.Error("Failed to load: \(error.localizedDescription)")
             }
         }
         

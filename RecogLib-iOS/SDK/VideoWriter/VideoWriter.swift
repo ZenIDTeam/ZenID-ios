@@ -15,7 +15,7 @@ final class VideoWriter: NSObject {
     private(set) var isRecording = false {
         didSet {
             #if DEBUG
-                print("isRecording=\(isRecording)")
+            ApplicationLogger.shared.Debug("isRecording=\(isRecording)")
             #endif
         }
     }

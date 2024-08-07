@@ -1,3 +1,10 @@
+
+@_cdecl("logger_error")
+func loggerError(message: UnsafePointer<CChar>) {
+    let swiftMessage = String(cString: message)
+    ApplicationLogger.shared.Error(swiftMessage)
+}
+
 public protocol LoggerProtocol {
     
     func Error(_ message: String)

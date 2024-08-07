@@ -144,7 +144,7 @@ public final class DocumentController: BaseController<DocumentResult>, DocumentC
 
         @objc func didTapDebugButton(sender: UIButton) {
             guard let id = sender.accessibilityIdentifier else { return }
-            print("didTapDebugButton: \(id)")
+            ApplicationLogger.shared.Debug("didTapDebugButton: \(id)")
             switch id {
             case "id-front":
                 guard let image = UIImage(named: "vzor-id-front") else { return }

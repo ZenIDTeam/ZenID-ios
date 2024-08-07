@@ -53,6 +53,7 @@ class CameraViewController: UIViewController {
 
     override func loadView() {
         view = CameraView()
+        (view as? CameraView)?.scanningArea = CGRect(x: 0, y: 0, width: 400, height: 600)
     }
 
     override public func viewDidLoad() {

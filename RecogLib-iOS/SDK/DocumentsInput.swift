@@ -10,7 +10,7 @@ public class DocumentsInput {
     
     internal func acceptableInputJson() -> String {
         let jsonString = "{\"PossibleDocuments\":[\(map(documents: documents))]}"
-        print(jsonString)
+        ApplicationLogger.shared.Debug(jsonString)
         return jsonString
     }
     

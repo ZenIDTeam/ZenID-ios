@@ -37,7 +37,7 @@ final class WebViewOverlay: WKWebView {
     }
     
     func updateState(state: WebViewOverlayState) {
-        print(state.state)
+        ApplicationLogger.shared.Debug(state.state)
         let rect = state.frame
         let command = """
         const event = new CustomEvent('document', { 
