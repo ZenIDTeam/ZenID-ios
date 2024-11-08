@@ -49,13 +49,6 @@ public:
   int ScoreStep = 100;
   bool IsTestEnabled = true;
 };
-class SpecularImageValidatorConfig
-{
-public:
-  int AcceptScore = 50;
-  bool IsTestEnabled = true;
-  int ScoreStep = 1;
-};
 class BarcodeValidatorConfig
 {
 public:
@@ -68,10 +61,9 @@ public:
 class SdkPictureQualityValidatorConfig
 {
 public:
-  int OverallTimeToMaxTolerance = 10;
-  int TimeToMaxToleranceForBlur = 10;
-  int TimeToMaxToleranceForSpecular = 10;
-  int TimeToMaxToleranceForDarkness = 10;
+  int OverallTimeToMaxTolerance = 60;
+  int TimeToMaxToleranceForBlur = 60;
+  int TimeToMaxToleranceForDarkness = 60;
   int TimeToMaxToleranceForAlignment = 10;
   int TimeToMaxToleranceForBorderDistance = 10;
   int TimeToMaxToleranceForLinearFit = 5;
@@ -118,16 +110,26 @@ public:
   int AcceptScore = 100;
   bool IsTestEnabled = true;
 };
+class SdkSignatureValidatorConfig
+{
+public:
+  ResponseWhenNoSignature NoSignatureHandling = ResponseWhenNoSignature::ValidatorDoesnotRun;
+  bool AcceptOfflineToken = false;
+  int TimestampDelayInSeconds = 300;
+  int ScoreStep = 100;
+  int AcceptScore = 100;
+  bool IsTestEnabled = true;
+};
 class SdkProfileConfigs
 {
 public:
   SelfieLivenessSdkValidatorConfig SelfieLivenessSdkValidatorConfig;
   NfcValidatorConfig NfcValidatorConfig;
-  SpecularImageValidatorConfig SpecularImageValidatorConfig;
   BarcodeValidatorConfig BarcodeValidatorConfig;
   SdkPictureQualityValidatorConfig SdkPictureQualityValidatorConfig;
   IQSHologramValidatorConfig IQSHologramValidatorConfig;
   MrzChecksumValidatorConfig MrzChecksumValidatorConfig;
+  SdkSignatureValidatorConfig SdkSignatureValidatorConfig;
 };
 class SdkMasterConfig
 {
@@ -213,6 +215,8 @@ public:
   MrzData MrzData;
   NfcData NfcData;
   std::optional<NfcStatus> NfcStatus;
+  std::optional<DocumentCodes> DocumentCode;
+  std::optional<PageCodes> PageCode;
 };
 class FrontendValidationResults
 {

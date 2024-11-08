@@ -23,8 +23,8 @@ Recoglib is capable of recognizing types that include:
 - Selfie (human face picture)
 - Face liveness
 - EU VISA
+- Birth certificates
 
- 
 
 ## Configuration management
 
@@ -39,7 +39,7 @@ For compilation, running and deployment of the application following tools are r
 - Minimal supported iOS version:
   - iOS 13.0
 
- 
+
 
 ## Installation
 
@@ -57,13 +57,13 @@ Link your project against `RecogLib.xcframework` and `LibZenid.xcframework` fram
 
 1. Open your Xcode project.
 2. Add remote package dependency https://github.com/ZenIDTeam/ZenID-ios.git
-3. In your app target, General tab add **LibZenid_iOS** and **Recoglib_iOS** frameworks 
+3. In your app target, General tab add **LibZenid_iOS** and **Recoglib_iOS** frameworks
 
- 
+
 
 ## Authorization
 
-The SDK has to be authorized, otherwise it is not going to work. 
+The SDK has to be authorized, otherwise it is not going to work.
 
 1. Contact your manager and get information of initSDK API Endpoint and access to the ZenID system where you have to set your bundle ids. The api key you receive must be inserted into the request using the Cookie header
 
@@ -111,43 +111,47 @@ let responseToken = ... // backend response - initSDK API Endpoint
 let success = ZenidSecurity.authorize(responseToken: responseToken)
 ```
 
- 
+
 
 5. Do not forget to check returned value of `authorize(responseToken:)` method. If it is true, the SDK has been successfully initialised and is ready to be used, otherwise response token is not valid.
 
  > [!IMPORTANT]
-> getChallengeToken() and authorize() should always be called together as getChallengeToken() resets the session.
+> `getChallengeToken()` and `authorize()` should always be called together as `getChallengeToken()` resets the session.
 
 > [!IMPORTANT]
-> getChallengeToken() and authorize() should not be called while a card or face is being processed.
+> `getChallengeToken()` and `authorize()` should not be called while a card or face is being processed.
 
 ## Models
 
 You can choose which models (documents (CZ, SK, ...), selfie, faceliveness) you want to support.
-You can find all models available in the [Models](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models) folder in the root of this repository.
+You can find all models available in the **Models** folder in the root of this repository.
 
-If you want to support Selfie, add/link this folder and all files included: [Models/face](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models/face) into your Xcode project.
+If you want to support Selfie, add/link this folder and all files included: **Models/face** into your Xcode project.
 
-If you want to support Faceliveness, add/link this folder and all files included: [Models/face](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models/face) into your Xcode project.
+If you want to support Faceliveness, add/link this folder and all files included: **Models/face** into your Xcode project.
 
 If you want to support Documents, such as ID, Passport and so on, or different countries, follow instructions below:
 
-1. You can find all models for documents grouped by countries in the [Models/documents](https://github.com/ZenIDTeam/ZenID-ios/tree/master/Models/documents) folder.
+1. You can find all models for documents grouped by countries in the **Models/documents** folder.
 2. Choose which countries do you want to support.
 3. Optionally, you can remove unnecessary files in those folders, such as `GUN` files if you do not want to scan/recognize these kinds of documents.
-4. Link/add all selected folders with your Xcode project.
+4. Keep **modelhashes.bin** located in the root of *Models/documents*.
+5. Link/add all selected folders with your Xcode project.
 
 
 
 ## Usage
 
-The SDK provides two options how to handle the scanning process. First of them is lightweight, where everything is provided to you and you can have running code with the logic and UI in just a couple lines of code. Second of them is more complicated where you have to implement everything from the scratch by yourself if needed. Let's have a look at those options. 
+The SDK provides two options how to handle the scanning process. First of them is lightweight, where everything is provided to you and you can have running code with the logic and UI in just a couple lines of code. Second of them is more complicated where you have to implement everything from the scratch by yourself if needed. Let's have a look at those options.
 
+## Logging
+
+Create your own object that conforms to the `LoggerProtocol` protocol, and inject it into `ZenidSecurity.setLogger(_:)`. Only one logger can be registered at a time, so if you attempt to register another, it will override the current one. By default, no logger is active.
 
 
 ## Select profile
 
-The `SelectProfile` method allows you to set the frontend validator configuration on the backend. The SDK receives a list of profiles and their respective configurations when Init() is called. Calling `SelectProfile()` sets the profile to be used for subsequent use of the verifier.
+The `SelectProfile` method allows you to set the frontend validator configuration on the backend. The SDK receives a list of profiles and their respective configurations when `init()` is called. Calling `SelectProfile()` sets the profile to be used for subsequent use of the verifier.
 
 ```swift
 let profileSelected = ZenidSecurity.selectProfile(name: profileName)
@@ -159,8 +163,7 @@ let profileSelected = ZenidSecurity.selectProfile(name: "NFC"). // select profil
 
 ## List countries and documents enabled by licence
 
-If your use case requires the user to select which document to validate then you can ask the backend what
-countries, documents and document pages are supported.
+If your use case requires the user to select which document to validate then you can ask the backend what countries, documents and document pages are supported.
 
 ```swift
 // Get supported countries
@@ -172,13 +175,25 @@ let pages = ZenidSecurity.supportedDocumentPageCodes(for: country, documentRole:
 
 ```
 
+## Defining the Scanning Area
+
+Sometimes, it is necessary to move the scanning area away from the center. Starting from ZenID 4.3.13, you can define your custom scanning area. For this purpose, the `CameraView` includes a public parameter, `scanningArea: CGRect`, which defines the area.
+
+There are a few rules to consider. This area must be within the UI coordinates of the parent `CameraView`. You can, of course, compute the area numerically, but the ideal solution is to compose the UI with a transparent UIView that is a child of the `CameraView` being used. When using AutoLayout, this functionality will easily guarantee that the scanning area is placed reasonably within the parent.
+
+It is important to set `scanningArea` before calling `configure(:)` on a ZenID controller or before starting the process. If you need to set `scanningArea` later, please restart the controller by calling either `stop()` and `start()`, or `configure(:)`.
+
+Be aware that you are responsible for setting the proper `scanningArea` after a screen rotation. For example, you can do this inside `viewDidLayoutSubviews:`. Eventually, restart the controller to reset video recording if this happens while using FaceLiveness or checking Hologram.
+
+Please note that this functionality will be improved later by removing the necessity to crop the image.
+
 ## Usage - Lightweight
 
 
 
 ### DocumentController
 
-Use `DocumentController` for scanning documents. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
+Use `DocumentController` for scanning documents. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided.
 
 ```swift
 // Configuration
@@ -210,13 +225,13 @@ documentController.configure(configuration: documentControllerConfig)
 ```
 
 > [!IMPORTANT]
-> You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
+> You should always keep one instance of `Camera`, even when you have more controllers (such as `SelfieController`, `FacelivenessController` or `DocumentController`).
 
 Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
 
 You can pass role, country, page, and code if you want to scan only one document. If you need to scan more than one document use `documents` field to pass an array of allowed documents.
 
-You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI.
 
 The delegate of the controller is following:
 
@@ -240,7 +255,7 @@ The SDK allows you to read NFC data from supported documents. NFC support must b
 
 The delegate method named `func controller(_ controller: DocumentController, didScan result: DocumentResult, nfcCode: String)` is called if the MRZ zone is successfully scanned and decoded on the document.
 
-At this point you must start and finish reading the NFC document.  The `NfcDocumentReader` class is used for this purpose.  Due to the variability of the customer UI, the SDK does not provide a ready-made UIViewController solution to completely handle all NFC chip reading states. However, you can take inspiration from the `ReadNfcViewController` file in our demo application.
+At this point you must start and finish reading the NFC document. The `NfcDocumentReader` class is used for this purpose.  Due to the variability of the customer UI, the SDK does not provide a ready-made UIViewController solution to completely handle all NFC chip reading states. However, you can take inspiration from the `ReadNfcViewController` file in our demo application.
 
 The result of calling the `processNfcResult` method is the same `DocumentResult` object as in the case of normal document verification. The next step is to send the captured and signed image to the backend.
 
@@ -260,7 +275,7 @@ func controller(_ controller: DocumentController, didScan result: DocumentResult
 
 ### FacelivenessController
 
-Use `FacelivenessController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
+Use `FacelivenessController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided.
 
 ```swift
 // Configuration
@@ -273,7 +288,7 @@ let faceLivenessControllerConfig = FacelivenessControllerConfiguration(
 )
 // Controller
 let camera = Camera()
-Let cameraView = CameraView()
+let cameraView = CameraView()
 let urlPathOfModels = URL.modelsFolder.appendingPathComponent("face")
 let facelivenessController = FacelivenessController(camera: camera, view: contentView, modelsUrl: urlPathOfModels)
 facelivenessController.delegate = self
@@ -285,7 +300,7 @@ facelivenessController.configure(configuration: faceLivenessControllerConfig)
 
 Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
 
-You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI.
 
 The delegate of the controller is following:
 
@@ -302,7 +317,7 @@ The `didUpdate` method could be used for building your custom UI. The method is 
 
 ### SelfieController
 
-Use `SelfieController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided. 
+Use `SelfieController` for scanning face. You can configure the behaviour and also build custom UI based on the delegate of the controller if needed or you can just use our built-in UI that is provided.
 
 ```swift
 // Configuration
@@ -314,18 +329,18 @@ let selfieControllerConfig = SelfieControllerConfiguration(
 )
 // Controller
 let camera = Camera()
-Let cameraView = CameraView()
+let cameraView = CameraView()
 let selfieController = SelfieController(camera: camera, view: contentView, modelsUrl: URL.modelsFolder.appendingPathComponent("face"))
 selfieController.delegate = self
 selfieController.configure(configuration: selfieControllerConfig)
 ```
 
 > [!IMPORTANT]
-> You should always keep one instance of `Camera`, even when you have more controllers (such as SelfieController, FacelivenessController, DocumentController).
+> You should always keep one instance of `Camera`, even when you have more controllers (such as `SelfieController`, `FacelivenessController` or `DocumentController`).
 
 Add the `CameraView` into your view hierarchy in order to see the camera's UI and live feed.
 
-You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI. 
+You can turn off all visualisations by setting the `showVisualisation: false`. After that you are free to build your own UI.
 
 The delegate of the controller is following:
 
@@ -401,7 +416,7 @@ let verifier = DocumentVerifier(input: documentsInput, language: .Czech)
 
 ##### 3. Recognizing multiple undefined documents.
 
-The parameters of `DocumentVerifier` initializer are optional, you can always pass nil value. 
+The parameters of `DocumentVerifier` initializer are optional, you can always pass nil value.
 For example, if you want to scan all documents available, just pass nil to every parameter.
 
 ```swift
@@ -416,7 +431,7 @@ let verifier = DocumentVerifier(role: nil, country: .Cz, page: nil, language: .L
 
 #### Models
 
-You have to load models that you would like to support. `URL` is the path to your folder that contains files or other folders, such as CZ, SK, etc. You have to pass url that is a folder, not a single file. 
+You have to load models that you would like to support. `URL` is the path to your folder that contains files or other folders, such as CZ, SK, etc. You have to pass url that is a folder, not a single file.
 
 ```swift
 let urlOfFolderWithModels = Bundle.main.bundleURL.appendingPathComponent("Models/documents")
@@ -436,11 +451,11 @@ Open your project's `Info.plist` file and add the following key:
 - `NSCameraUsageDescription`: A message explaining why you need access to the camera.
 
 Create an instance of `AVCaptureSession` and `AVCaptureVideoDataOutput`. These will allow you to capture video frames from the camera.
-Define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate` and call the `verify(buffer: )` method of `DocumentVerifier`. 
+Define the `func captureOutput(_: ,didOutput: ,from:)` delegate method declared in `AVCaptureVideoDataOutputSampleBufferDelegate` and call the `verify(buffer: )` method of `DocumentVerifier`.
 
 > [!IMPORTANT]
 > Please note this delegate method **is called from background thread**. If you desire to update your view from this method, you **need** to do so from the main thread as shown below.
-> 
+>
 > It is important to set the correct device orientation and send correctly oriented images for verification
 
 > [!NOTE]
@@ -562,18 +577,18 @@ Task {
    do {
       let nfcData = try await nfcReader.read()
       let jsonString = nfcData.encodeToJson()
-      
+
       verifier.processNfc(jsonData: jsonString, status: .OK)
 
    } catch {
-    
+
    }
 }
 ```
 
 
 
-The `processNfc` method must be called even if the NFC data reading from the document fails. For example, if the user cancels the read. 
+The `processNfc` method must be called even if the NFC data reading from the document fails. For example, if the user cancels the read.
 
 ```swift
 Task {
@@ -582,7 +597,7 @@ Task {
    do {
       let nfcData = try await nfcReader.read()
    } catch {
-      verifier.processNfc(jsonData: "", status: .USER_SKIPPED)    
+      verifier.processNfc(jsonData: "", status: .userSkipped)
    }
 }
 ```
@@ -658,7 +673,7 @@ The object `FaceLivenessStepParameters` has the following properties:
 #### Models
 
 You have to load models that you would like to support.
-URL is the path to a specific file. You have to pass url that is a specific single file, not a folder. 
+URL is the path to a specific file. You have to pass url that is a specific single file, not a folder.
 
 ```Swift
 let verifier = FaceLivenessVerifier(...)
@@ -752,9 +767,9 @@ Face liveness detection result contains state of currently analysed image.
 
 ### Signature
 
-The SDK now generates a signature for the snapshots it takes. The backend uses the signature to verify picture origin and integrity. The signature lets you upload the final frame instead of the whole video for verification. The SDK only generates a signature when the result state is OK. 
+The SDK now generates a signature for the snapshots it takes. The backend uses the signature to verify picture origin and integrity. The signature lets you upload the final frame instead of the whole video for verification. The SDK only generates a signature when the result state is OK.
 
-The SDK provides the signature as an attribute inside of the result objects of verifiers, such as `DocumentResult`, `FaceLivenessResult`, and `SelfieResult`. Hologram does not support the signature. 
+The SDK provides the signature as an attribute inside of the result objects of verifiers, such as `DocumentResult`, `FaceLivenessResult`, and `SelfieResult`. Hologram does not support the signature.
 
 This is what `ImageSignature` structure looks like:
 
@@ -765,7 +780,7 @@ struct ImageSignature {
 }
 ```
 
-Where the `image` attribute is binary data of the image that contains the SDK signature. You have to send this binary data to the backend if you want to have your signature to be validated. The `signature` attribute is a string that represents the signature itself that you should send to the backend in your investigation sample HTTP REST call. 
+Where the `image` attribute is binary data of the image that contains the SDK signature. You have to send this binary data to the backend if you want to have your signature to be validated. The `signature` attribute is a string that represents the signature itself that you should send to the backend in your investigation sample HTTP REST call.
 
 Signature now contain "--ZENID_SIGNATURE--" prefix. The new recommended way of sending signature is by adding it as a second file to multipart upload of sample (first file being the image or video itself). Alternative method, if you are uploading image/file as binary body in POST request is to append signature to binary data of image/video as is. Old way of sending signature as request parameter in URL still works, but you can encounter issues due to URL size limits so it is recommended to switch to the new method.
 
@@ -799,7 +814,7 @@ func sendImageWithSignature(imageData: Data, signature: String) {
 
 #### How to fix focusing problem with new iPhone Pro models.
 
-You must zoom in on the video stream to compensate for the minimum focus distance and required magnification. 
+You must zoom in on the video stream to compensate for the minimum focus distance and required magnification.
 We created a method which do exactly this, so you don't have to write your own. This method is available since
 iOS 15 which covers iPhone 13 Pro and newer.
 

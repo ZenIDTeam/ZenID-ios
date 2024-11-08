@@ -42,15 +42,15 @@
 		</data>
 		<key>Headers/SerializableInterop.generated.h</key>
 		<data>
-		RrTiBNshwyz4aK8Q2fbPoGUT2WA=
+		wmgFQ29JEqo5CxcF+VR9vHjjGu0=
 		</data>
 		<key>Headers/Version.h</key>
 		<data>
-		J0aeJ3rqqimusLaK/PyLfs6d7C4=
+		Ue4/qdW1qWdBuBuMUwixzOunLOU=
 		</data>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<data>
-		zSnrk+GfHA3gumyQwBD6KNyfIyE=
+		Y9XOS5MHVVN6oKlB7JLgq+vIfY0=
 		</data>
 		<key>Headers/ZenidLog.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		BdkF1+Wc57btOeAhtRP8eRZsnvw=
+		7fvzHdzIa1hTmeE7D16hHF/IsOw=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -134,21 +134,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AX/7kuhFBZBowbFtYIrZHiBqR0XNvHR+o29aswHUhPA=
+			oqCOIb563dr7sbYtczFxy3H5id3RnHQ22Nyd+1VNIn0=
 			</data>
 		</dict>
 		<key>Headers/Version.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XilWnwYeVrXFx6t9kbzIXWvd0gJ0Zpq6jei2nu5POeQ=
+			CF+stbdMBo9ypXmmC+z9KiPATf9ETU1WZYhQGav615k=
 			</data>
 		</dict>
 		<key>Headers/ZenidEnums.generated.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			shcRqqZ48igZt977u7wA+zUOUL8mAd4cDaAZoDT4YCo=
+			FBOI7b+iHDsAyOYMHfKpPxsGso+T2PBWTGJKbSXV3rk=
 			</data>
 		</dict>
 		<key>Headers/ZenidLog.h</key>

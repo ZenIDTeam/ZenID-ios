@@ -9,6 +9,7 @@ extern "C" {
 
 void clearZenidListeners();
 void addZenidListener();
+void logger_write(int32_t level, const char* message);
 
 #ifdef __cplusplus
 }

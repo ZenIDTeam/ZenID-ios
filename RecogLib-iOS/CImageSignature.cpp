@@ -1,1 +1,0 @@
-#include "CImageSignature.hpp"

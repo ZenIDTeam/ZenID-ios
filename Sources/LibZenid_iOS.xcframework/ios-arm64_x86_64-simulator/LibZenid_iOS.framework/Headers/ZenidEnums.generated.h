@@ -77,6 +77,7 @@ enum class DocumentCodes : int32_t {
 	DE_PAS_2007 = 67,
 	DE_DRV_2013_21 = 68,
 	DE_DRV_1999_01_04_11 = 69,
+	MT_DRV_2013_20 = 70,
 	FR_IDC_2021 = 71,
 	FR_IDC_1988_94 = 72,
 	ES_PAS_2003_06 = 73,
@@ -563,6 +564,12 @@ enum class FieldID : int {
 	MothersSurnameBirthSurname = 102,
 	Authority3 = 103,
 	Sex2 = 104,
+	ChangeOfData = 105,
+	AgeOver15 = 106,
+	AgeOver18 = 107,
+	AgeOver21 = 108,
+	AgeOver60 = 109,
+	AgeOver65 = 110,
 };
 
 enum class SampleType : int {
@@ -572,6 +579,7 @@ enum class SampleType : int {
 	DocumentVideo = 3,
 	Archived = 4,
 	Unknown = 5,
+	EDoklad = 6,
 };
 
 enum class SdkVerifierType : int {
@@ -599,6 +607,12 @@ enum class SdkLivenessSteps : int {
 	Smile = 4,
 	Blinking = 5,
 	UpObsolete = 6,
+};
+
+enum class ResponseWhenNoSignature : int {
+	ValidatorFails = 0,
+	ValidatorIgnores = 1,
+	ValidatorDoesnotRun = 2,
 };
 
 enum class PlatformKind : int {

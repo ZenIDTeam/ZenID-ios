@@ -1,3 +1,5 @@
+> **_NOTE:_** Important! This document is no longer maintained here. See the general changelog for ZenID.
+
 # Change Log
 
 # 2.0.28 2024-07-12
@@ -32,7 +34,7 @@
 * Fix: Fixed mutex error when calling SelectProfile.
 * New: Can automatically load models from Bundles inside app when using CocoaPods distribution.
 * Fix: Hologram and Faceliveness process is automatically restarted when user leave and return to the app.
-* Fix: SelfieController can't produce other data type than `.picture`. Delegate method with video output was removed. 
+* Fix: SelfieController can't produce other data type than `.picture`. Delegate method with video output was removed.
 
 # 2.0.27 2024-06-04
 * RecogLib 4.2.10
@@ -45,7 +47,7 @@
 * Fix: Fixed Selfie validator for cards with NFC, it uses image from NFC everytime. (Backported to 3.10.8 and 4.1.9)
 * Fix: Better OCR for Czech residency permit permit numbers.
 * Improvement: Retrained Card face validator detector.
-* Improvement: Added Field retrain submission support. Problematic fields can be sent for OCR retrain if this feature is enabled in settings. 
+* Improvement: Added Field retrain submission support. Problematic fields can be sent for OCR retrain if this feature is enabled in settings.
 
 # 2.0.27 2024-04-29
 * RecogLib 4.2.5
@@ -77,7 +79,7 @@
 * Improvement: Camera and CameraView are now public and can be mutated in VerifierControllers.
 * Improvement: CameraView is no longer in strong relationship and it is app responsibility to keep reference.
 * New: SDK has three new functions in ZenidSecurity that list and check countries and documents enabled by licence.
-* Fix: SDK has better memory management. 
+* Fix: SDK has better memory management.
 * Improvement: NFC dialog support Czech locale.
 
 # 2.0.24 2023-12-18
@@ -104,7 +106,7 @@
 * New: `CameraView` class can be initialized from XIB or Storyboard.
 * New: You can override default videogravity using parameter in `CameraView`.
 * New: Parameter `ignoreSafeArea` in `CameraView` will stretch video view to fill whole UIView and ignore safe areas.
-* New: Video recording reset together with Liveness verifier to reduce video length.  
+* New: Video recording reset together with Liveness verifier to reduce video length.
 
 # 2.0.22 2023-10-13
 * RecogLib 3.8.5
@@ -125,11 +127,11 @@
 * New SelectProfile feature that allows customers to set frontend validator configs on the backend.
 * New states for DocumentVerifierState and FaceLivenessVerifierState.
 * Removed attributes `specularAcceptableScore`, `documentBlurAcceptableScore` and `readBarcode` from struct `DocumentVerifierSettings`
-* New `FaceLivenessVerifier` result state `DontSmile`. 
+* New `FaceLivenessVerifier` result state `DontSmile`.
 
 # 2.0.20 2023-06-15
 * Hologram length video reducing
-* Fixed issue when completing the face-liveness verification proces  
+* Fixed issue when completing the face-liveness verification proces
 
 # 2.0.19 2023-06-10
 * Fixed a memory issue in demo app
@@ -273,18 +275,18 @@
 * Added DrawOutline option into DocumentSettings.
 * Fixed missing built-in feedback text in the FaceLivenessVerifier.
 * New models:
-  recoglibc_AT_IDC_2021_B.bin, 
-  recoglibc_AT_IDC_2021_F.bin, 
-  recoglibc_BG_IDC_2010_B.bin, 
-  recoglibc_BG_IDC_2010_F.bin, 
-  recoglibc_BG_PAS_2010_F.bin, 
-  recoglibc_EU_VIS_2019_F.bin, 
-  recoglibc_UA_IDC_2017_B.bin, 
-  recoglibc_UA_IDC_2017_F.bin, 
+  recoglibc_AT_IDC_2021_B.bin,
+  recoglibc_AT_IDC_2021_F.bin,
+  recoglibc_BG_IDC_2010_B.bin,
+  recoglibc_BG_IDC_2010_F.bin,
+  recoglibc_BG_PAS_2010_F.bin,
+  recoglibc_EU_VIS_2019_F.bin,
+  recoglibc_UA_IDC_2017_B.bin,
+  recoglibc_UA_IDC_2017_F.bin,
   recoglibc_UA_PAS_2007_15_F.bin
 * New DocumentCodes:
-  UA_PAS_2007_15, 
-  UA_IDC_2017, 
+  UA_PAS_2007_15,
+  UA_IDC_2017,
   EU_VIS_2019
 * New DocumentRole:
   Vis
@@ -293,10 +295,10 @@
 * Updated LibZenid to 2.3.11.
 * DocumentVerifierState Barcode new state.
 * New models:
-  recoglibc_CZ_RES_2006_07_B.bin, 
-  recoglibc_CZ_RES_2006_07_F.bin, 
-  recoglibc_CZ_RES_2006_T_B.bin, 
-  recoglibc_CZ_RES_2006_T_F.bin, 
+  recoglibc_CZ_RES_2006_07_B.bin,
+  recoglibc_CZ_RES_2006_07_F.bin,
+  recoglibc_CZ_RES_2006_T_B.bin,
+  recoglibc_CZ_RES_2006_T_F.bin,
   recoglibc_PL_DRV_1999_F.bin
 
 ## 1.12 - 2022-02-21
@@ -354,12 +356,12 @@
 
 ## 1.27.17 - 2021-07-01
 * Added support for scanning multiple predefined documents.
-* Added Document Verifier Settings to be able to tune the sensitivity of the verifier. 
+* Added Document Verifier Settings to be able to tune the sensitivity of the verifier.
 * Added Support for EHIC, GUN, and RES documents.
 * Updated LibZenid 1.6.3.1.
 
 ## 1.27.12 - 2021-04-28
-* acceptable input json support for document verifier 
+* acceptable input json support for document verifier
 
 ## 1.27.11 - 2021-04-26
 * Updated for Xcode 12.5
