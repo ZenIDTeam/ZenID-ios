@@ -8,7 +8,6 @@ namespace RecogLibC
 {
 
 enum class DocumentCodes : int32_t {
-	IDC1 = 0,
 	IDC2 = 1,
 	DRV = 2,
 	PAS = 3,
@@ -17,12 +16,9 @@ enum class DocumentCodes : int32_t {
 	SK_DRV_2013 = 6,
 	SK_DRV_2015 = 7,
 	SK_PAS_2008_14 = 8,
-	SK_DRV_1993 = 10,
 	PL_IDC_2015 = 11,
 	DE_IDC_2010 = 12,
-	DE_IDC_2001 = 13,
 	HR_IDC_2013_15 = 14,
-	AT_IDE_2000 = 15,
 	HU_IDC_2000_01_12 = 16,
 	HU_IDC_2016 = 17,
 	AT_IDC_2002_05_10 = 18,
@@ -31,8 +27,6 @@ enum class DocumentCodes : int32_t {
 	AT_DRV_2006 = 21,
 	AT_DRV_2013 = 22,
 	CZ_RES_2011_14 = 23,
-	CZ_RES_2006_T = 24,
-	CZ_RES_2006_07 = 25,
 	CZ_GUN_2014 = 26,
 	HU_PAS_2006_12 = 27,
 	HU_DRV_2012_13 = 28,
@@ -91,6 +85,7 @@ enum class DocumentCodes : int32_t {
 	BE_IDC_2020_21 = 81,
 	GR_PAS_2020 = 82,
 	PT_PAS_2006_09 = 83,
+	NL_PAS_2024 = 84,
 	PT_IDC_2007_08_09_15 = 85,
 	SE_IDC_2012_21 = 86,
 	FI_IDC_2017_21 = 87,
@@ -124,7 +119,6 @@ enum class DocumentCodes : int32_t {
 	UA_DRV_2021 = 115,
 	EU_EHIC_2004_C = 116,
 	VN_PAS_2005 = 117,
-	NL_DRV_2006 = 118,
 	NL_DRV_2013 = 119,
 	NL_DRV_2014 = 120,
 	AL_PAS_2009 = 121,
@@ -180,6 +174,9 @@ enum class DocumentCodes : int32_t {
 	US_PAS_2006 = 171,
 	JP_PAS_2013 = 172,
 	PK_PAS_2022 = 173,
+	US_NV_DRV_2021 = 174,
+	US_NV_DRV_2021minor = 175,
+	US_NV_DRV_2008_10_14 = 176,
 };
 
 enum class PageCodes : uint8_t {

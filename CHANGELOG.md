@@ -1,4 +1,5 @@
-> **_NOTE:_** Important! This document is no longer maintained here. See the general changelog for ZenID.
+> [!IMPORTANT]
+> Important! This document is no longer maintained here. See the general changelog for ZenID.
 
 # Change Log
 

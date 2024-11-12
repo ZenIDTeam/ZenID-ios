@@ -120,7 +120,6 @@ extension RecogLib_iOS.PassiveAuthenticationError : Foundation.LocalizedError {
   }
 }
 public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
-  case IDC1
   case IDC2
   case DRV
   case PAS
@@ -129,12 +128,9 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case SK_DRV_2013
   case SK_DRV_2015
   case SK_PAS_2008_14
-  case SK_DRV_1993
   case PL_IDC_2015
   case DE_IDC_2010
-  case DE_IDC_2001
   case HR_IDC_2013_15
-  case AT_IDE_2000
   case HU_IDC_2000_01_12
   case HU_IDC_2016
   case AT_IDC_2002_05_10
@@ -143,8 +139,6 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case AT_DRV_2006
   case AT_DRV_2013
   case CZ_RES_2011_14
-  case CZ_RES_2006_T
-  case CZ_RES_2006_07
   case CZ_GUN_2014
   case HU_PAS_2006_12
   case HU_DRV_2012_13
@@ -203,6 +197,7 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case BE_IDC_2020_21
   case GR_PAS_2020
   case PT_PAS_2006_09
+  case NL_PAS_2024
   case PT_IDC_2007_08_09_15
   case SE_IDC_2012_21
   case FI_IDC_2017_21
@@ -236,7 +231,6 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case UA_DRV_2021
   case EU_EHIC_2004_C
   case VN_PAS_2005
-  case NL_DRV_2006
   case NL_DRV_2013
   case NL_DRV_2014
   case AL_PAS_2009
@@ -292,6 +286,9 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case US_PAS_2006
   case JP_PAS_2013
   case PK_PAS_2022
+  case US_NV_DRV_2021
+  case US_NV_DRV_2021minor
+  case US_NV_DRV_2008_10_14
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int
