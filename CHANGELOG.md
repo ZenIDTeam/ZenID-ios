@@ -1,7 +1,7 @@
-> [!IMPORTANT]
-> Important! This document is no longer maintained here. See the general changelog for ZenID.
-
 # Change Log
+
+> [!IMPORTANT]
+> Important! This document is no longer maintained here. See the general ZenID changelog.
 
 # 2.0.28 2024-07-12
 * RecogLib 4.3.10

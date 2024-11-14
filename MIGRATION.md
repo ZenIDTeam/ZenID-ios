@@ -1,5 +1,9 @@
 # Migration
 
+## Update to the version 4.5.9
+
+No changes in the API.
+
 ## Update to the version 4.4.14
 
 The `ApplicationLogger` class is no longer available. The Logger class is now a component of the ZenidSecurity object. To set your logger, call `ZenidSecurity.setLogger(_ logger: LoggerProtocol)`.

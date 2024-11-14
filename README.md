@@ -8,6 +8,10 @@ Recoglib is a library that lets you recognize and categorize a stream of picture
 Take a look at the [MIGRATION.md](./MIGRATION.md) file
 
 
+## Compatibility between ZenID versions
+
+Ensure SDK compatibility by not using newer versions than the ZenID backend. Regularly upgrade to prevent irregularities in backend and SDK versions. The SDK minor version shouldn’t be older than two versions from the backend. For instance, with ZenID backend version 4.4.x, SDK libraries should be at most 4.3.x.
+
 
 ## Document types
 
@@ -35,7 +39,7 @@ For compilation, running and deployment of the application following tools are r
   - macOS device for development
 - Software (required for development and deployment):
   - macOS
-  - Xcode 15
+  - Latest Xcode
 - Minimal supported iOS version:
   - iOS 13.0
 
