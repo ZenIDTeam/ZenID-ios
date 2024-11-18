@@ -1,6 +1,22 @@
-> **_NOTE:_** Important! This document is no longer maintained here. See the general changelog for ZenID.
-
 # Change Log
+
+# 4.4.14 2024-11-08
+Fix: Implicitly set the camera represented by the Camera object to autofocus. TRASKZENIDPV-3206
+Fix: Fixes torch on iOS 17. TRASKZENIDPV-3056 (Backported from 4.5.8)
+Fix: Fix for crash when CVPixelBuffer is empty. SZENID-2831 (Backported from 4.5.7)
+Fix: For Czech birth certificate, any Match found on frontend is used. TRASKZENIDPV-3127 (Backported from 4.5.5)
+Improvement: ApplicationLogger is no longer available. Use ZenidSecurity.setLogger(_ logger: LoggerProtocol) instead. TRASKZENIDPV-3023 (Backported from 4.5.3)
+Fix: Fixes hologram torch malfunctioning on iOS 18 TRASKZENIDPV-3056 (Backported from 4.5.5)
+New: Support for German Driving license v2013/2021. TRASKZENIDPV-3052 TRASKZENIDPV-3054 (Backported from 4.5.2)
+New: Support for German Driving license v1999/2001/2004/2011. TRASKZENIDPV-3055 TRASKZENIDPV-3053 (Backported from 4.5.2)
+New: Support for Maltese Driving license v2013/2020. TRASKZENIDPV-3047 TRASKZENIDPV-3049 (Backported from 4.5.3)
+SDK: Default values for time to max tolerance for Blur and Darkness validators were increased to 60. TRASKZENIDPV-2969 
+Fix: Remove dependency on Roboto font. TRASKZENIDPV-2728
+Improvement: Add posibility to move scanning area. TRASKZENIDPV-2895
+Fix: Added another possible validity limit for German Passport v2017. SZENID-2719
+Improvement: The investigation results show the grey problem messages with scores of Blur and Specular validators from the SDK whenever they are lower than 100. TRASKZENIDPV-2900 
+Fix: Preventing of the MRZ reading exception if backend nor frontend can't read it. SZENID-2652 (Backported to 4.3.12)
+Fix: Updated last name parsing on Czech Birth certificate to address names with wide kerning. SZENID-2644
 
 # 2.0.28 2024-07-12
 * RecogLib 4.3.10
