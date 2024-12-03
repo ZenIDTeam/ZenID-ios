@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This page is no longer maintained. For up-to-date documentation, visit the online manual directly in the ZenID web application.**
+
 # RecogLib
 
 Recoglib is a library that lets you recognize and categorize a stream of pictures for specific document types.

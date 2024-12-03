@@ -177,6 +177,8 @@ enum class DocumentCodes : int32_t {
 	US_NV_DRV_2021 = 174,
 	US_NV_DRV_2021minor = 175,
 	US_NV_DRV_2008_10_14 = 176,
+	MT_IDC_2020 = 177,
+	SK_PAS_2024 = 178,
 };
 
 enum class PageCodes : uint8_t {
@@ -567,6 +569,7 @@ enum class FieldID : int {
 	AgeOver21 = 108,
 	AgeOver60 = 109,
 	AgeOver65 = 110,
+	SpecialRemarks1 = 111,
 };
 
 enum class SampleType : int {
