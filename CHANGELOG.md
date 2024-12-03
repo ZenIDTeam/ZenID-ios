@@ -1,5 +1,8 @@
 # Change Log
 
+# 4.4.15 2024-12-02
+Improvements: various improvements mostly related to Android SDK.
+
 # 4.4.14 2024-11-08
 Fix: Implicitly set the camera represented by the Camera object to autofocus. TRASKZENIDPV-3206
 Fix: Fixes torch on iOS 17. TRASKZENIDPV-3056 (Backported from 4.5.8)
