@@ -150,7 +150,13 @@ class Visualizer {
                     context.clearRect(0, 0, canvas.width, canvas.height);
                     context.drawImage(this.canvasClone, 0, 0, canvas.width, canvas.height);
                 });
-                
+            } else if (e.data.status === "error") {
+                // Handle the error received from the worker
+                console.error('Worker error:', e.data.message);
+                if (e.data.stack) {
+                    console.error('Stack trace:', e.data.stack);
+                }
+                this.drawing = false;
                 if (renderingStats) renderingStats.end();
             }
         };

@@ -547,7 +547,7 @@ enum class FieldID : int {
 	AlternativeName = 85,
 	VisaNumber = 86,
 	Duration = 87,
-	Type = 88,
+	VisaType = 88,
 	Count = 89,
 	NamesOfParents = 90,
 	NamesOfParents2 = 91,

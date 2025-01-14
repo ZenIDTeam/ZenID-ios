@@ -34,7 +34,7 @@ public struct FaceLivenessResult {
 public protocol VerifierRenderable {
   func getRenderCommands(canvasSize: CoreFoundation.CGSize) -> Swift.String?
 }
-public enum DataGroupId : Swift.Int, Swift.CaseIterable {
+public enum DataGroupId : Swift.Int, Swift.CaseIterable, Swift.Sendable {
   case COM
   case DG1
   case DG2
@@ -1164,7 +1164,7 @@ public class NFCDocumentModel : RecogLib_iOS.NFCDocumentModelType {
   public func getEncodedDataGroup(_ groupId: RecogLib_iOS.DataGroupId) -> Swift.String?
   @objc deinit
 }
-public struct NfcData {
+public struct NfcData : Swift.Sendable {
   public let DataGroups: [RecogLib_iOS.DataGroupId : Swift.String]
   public let ProtocolUsed: RecogLib_iOS.NfcData.NfcProtocol
   public let document: (any RecogLib_iOS.NFCDocumentModelType)?
@@ -1174,7 +1174,7 @@ extension RecogLib_iOS.NfcData : Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
 }
 extension RecogLib_iOS.NfcData {
-  public enum NfcProtocol : Swift.Int, Swift.Encodable {
+  public enum NfcProtocol : Swift.Int, Swift.Encodable, Swift.Sendable {
     case PACE
     case BAC
     public init?(rawValue: Swift.Int)
@@ -1265,7 +1265,7 @@ public protocol DocumentControllerAbstraction {
   public init(camera: RecogLib_iOS.Camera, view: RecogLib_iOS.CameraView, modelsUrl: Foundation.URL? = nil, mrzModelsUrl: Foundation.URL? = nil, language: RecogLib_iOS.SupportedLanguages? = nil)
   @objc deinit
   final public func configure(configuration: RecogLib_iOS.DocumentControllerConfiguration = .default) throws
-  final public func processNfcResult(nfcData: RecogLib_iOS.NfcData, status: RecogLib_iOS.NfcStatus) -> RecogLib_iOS.DocumentResult?
+  final public func processNfcResult(nfcData: RecogLib_iOS.NfcData? = nil, status: RecogLib_iOS.NfcStatus) -> RecogLib_iOS.DocumentResult?
   final public func skipNfcResult() -> RecogLib_iOS.DocumentResult?
   final public func getSignedImage() -> RecogLib_iOS.ImageSignature?
   final public func getNfcSettings() -> RecogLib_iOS.DocumentVerifierNfcValidatorSettings
@@ -1335,7 +1335,7 @@ public enum AuthenticationStatus {
     get
   }
 }
-public protocol NFCDocumentModelType {
+public protocol NFCDocumentModelType : Swift.Sendable {
   var activeAuthenticationPassed: Swift.Bool { get }
   var BACAuthStatus: RecogLib_iOS.AuthenticationStatus { get }
   var isPACESupported: Swift.Bool { get }

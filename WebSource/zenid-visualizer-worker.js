@@ -1,3 +1,7 @@
+self.onerror = function (e) {
+    postMessage({ status: "error", message: e.message, stack: e.error ? e.error.stack : null });
+};
+
 importScripts('zenid-visualizer-impl.js');
 
 let visualizer;
@@ -22,5 +26,6 @@ onmessage = async function(e) {
         visualizer.clearCanvas(e.data.param);
     } else if (e.data.type === "setCanvas") {
         canvas = e.data.canvas;
-    }
+    } 
 };
+
