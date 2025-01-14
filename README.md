@@ -824,9 +824,6 @@ if #available(iOS 15.0, *) {
 }
 ```
 
-If you are utilizing `DocumentController` for document scanning or hologram verification, you can incorporate a new optional parameter named `subjectSize:` within `DocumentControllerConfiguration`.
-
-
 ### Open Source
 
 Zenid is powered by Open Source libraries.

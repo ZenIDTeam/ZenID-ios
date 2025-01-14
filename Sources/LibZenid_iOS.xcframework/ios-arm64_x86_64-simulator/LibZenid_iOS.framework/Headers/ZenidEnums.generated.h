@@ -180,6 +180,7 @@ enum class DocumentCodes : int32_t {
 	US_PAS_2006 = 171,
 	JP_PAS_2013 = 172,
 	PK_PAS_2022 = 173,
+	SK_IDC_2024 = 179,
 };
 
 enum class PageCodes : uint8_t {
@@ -570,6 +571,7 @@ enum class FieldID : int {
 	AgeOver21 = 108,
 	AgeOver60 = 109,
 	AgeOver65 = 110,
+	SpecialRemarks1 = 111,
 };
 
 enum class SampleType : int {

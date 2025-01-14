@@ -293,6 +293,7 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case US_PAS_2006
   case JP_PAS_2013
   case PK_PAS_2022
+  case SK_IDC_2024
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int
@@ -861,7 +862,7 @@ extension RecogLib_iOS.Camera : AVFoundation.AVCaptureVideoDataOutputSampleBuffe
 }
 extension RecogLib_iOS.Camera {
   @available(iOS 15.0, *)
-  public static func setRecommendedZoomFactor(for device: AVFoundation.AVCaptureDevice, subjectSize: Swift.Float = 90)
+  public static func setRecommendedZoomFactor(for device: AVFoundation.AVCaptureDevice, subjectSize: Swift.Float = 100)
 }
 @_hasMissingDesignatedInitializers @available(iOS 13, macOS 10.15, *)
 public class DataGroup {
