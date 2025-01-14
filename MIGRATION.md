@@ -1,9 +1,5 @@
 # Migration
 
-## Update to the version 4.5.9
-
-No changes in the API.
-
 ## Update to the version 4.4.14
 
 The `ApplicationLogger` class is no longer available. The Logger class is now a component of the ZenidSecurity object. To set your logger, call `ZenidSecurity.setLogger(_ logger: LoggerProtocol)`.
@@ -16,7 +12,7 @@ The `ApplicationLogger` class is no longer available. The Logger class is now a 
 
 You can load models from Bundle files without necessity to provide controllers path to models. Bundle needs to be named `ZenIDSDK_Faceliveness`, `ZenIDSDK_Documents` or `ZenIDSDK_Documents_*`.
 
-If you use `SelfieController`, you can't specify output now. It is always `.picture`. Also the method from `SelfieControllerDelegate` that provide video file is obsolete now.
+If you use `SelfieController`, you can't specify output now. It is always `.picture`. Also the method from `SelfieControllerDelegate` that provide video file is obsolete now. 
 
 ## Update to the version 2.0.26 (RecogLib 4.1.7)
 
@@ -33,7 +29,7 @@ Warning: If OCR is enabled and mrz_traineddata.bin is missing, the SDK will thro
 
 If you use build in `Camera` and `CameraView` objects then please ensure yourself that your App is owner of the instances.
 From now on, the ZenID SDK does'nt keep strong references to this object instances. If you use the controllers you might
-be pleased that you can reassing this objects to validator Controllers if you need reusability of the controllers.
+be pleased that you can reassign this objects to validator Controllers if you need reusability of the controllers.
 
 ## Update to the version 2.0.23 (RecogLib 3.9.4)
 
@@ -45,7 +41,7 @@ There is a new state `Hologram State.timeout` that the application must respond 
 
 ### Signature
 
-Because signature can be too big to fit URL parameters, should now be sent as second file in multipart body. If you don't use multipart body, you can append signature to raw data content of raw byte body.
+Because signature can be too big to fit URL parameters, should now be sent as second file in multipart body. If you don't use multipart body, you can append signature to raw data content of raw byte body. 
 
 **Sample request** - Signature added to the end of the body of the message
 
@@ -53,20 +49,20 @@ Because signature can be too big to fit URL parameters, should now be sent as se
 func sendImageWithSignature(imageData: Data, signature: String) {
     let urlString = "https://your-server/sample?country=&expectedSampleType=DocumentPicture&documentCode=&pageCode=&role="
     guard let url = URL(string: urlString) else { return }
-
+    
     var httpBodyData = imageData
-
+    
     // Append the signature data to the imageData
     if let signatureData = signature.data(using: .utf8) {
         httpBodyData.append(signatureData)
     }
-
+    
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
     request.setValue("\(httpBodyData.count)", forHTTPHeaderField: "Content-Length")
     request.httpBody = httpBodyData
-
+    
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if let error = error { return }
         if let data = data { return }
@@ -77,7 +73,7 @@ func sendImageWithSignature(imageData: Data, signature: String) {
 
 ### FaceLivenessVerifier has new result state `DontSmile`.
 
-This state is sometimes enforced even if disabled on server. For example when user is smiling all the time we need to be sure that the face is not a mask and can naturaly change facial expression. You can display same visualisation as for `Smile` state with different description.
+This state is sometimes enforced even if disabled on server. For example when user is smiling all the time we need to be sure that the face is not a mask and can naturaly change facial expression. You can display same visualisation as for `Smile` state with different description. 
 
 
 ### NFC document reading support
@@ -147,7 +143,7 @@ New method `GetSettings()`
 
 | method | result  | comment |
 | ------ | ------- | ------- |
-|  GetSettings() | SelfieVerifierSettings | |
+|  GetSettings() | SelfieVerifierSettings | | 
 
 
 
@@ -160,7 +156,7 @@ The default value of parameter *drawOutline* in DocumentVerifierSettings changed
 
 
 ### To the version 2.0.0
-When calling `verifyImage` method of all verifiers, pass the orientation of the device. There is no need to transform/map the orientation anymore.
+When calling `verifyImage` method of all verifiers, pass the orientation of the device. There is no need to transform/map the orientation anymore. 
 
 ### To the version 1.9.0
 1. We removed `Models/face/haarcascade_frontalface_alt2.xml` and `Models/face/lbfmodel.yaml.bin`. The models were replace by new models. Please do not use an individual file anymore. Use the `Models/face` folder to load models for Selfie or Faceliveness. Check the Faceliveness Verifier sections for more information.

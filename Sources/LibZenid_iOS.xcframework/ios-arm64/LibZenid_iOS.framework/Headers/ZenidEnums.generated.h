@@ -179,6 +179,7 @@ enum class DocumentCodes : int32_t {
 	US_NV_DRV_2008_10_14 = 176,
 	MT_IDC_2020 = 177,
 	SK_PAS_2024 = 178,
+	SK_IDC_2024 = 179,
 };
 
 enum class PageCodes : uint8_t {
