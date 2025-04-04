@@ -54,7 +54,7 @@ class BarcodeValidatorConfig
 public:
   int ScoreStep = 100;
   bool UseOnNfcFields = false;
-  int MinFieldConfidence = 50;
+  int MinFieldConfidence = 0;
   int AcceptScore = 100;
   bool IsTestEnabled = true;
 };
@@ -104,9 +104,9 @@ class MrzChecksumValidatorConfig
 {
 public:
   int ScoreStep = 100;
-  bool EnableSdkCheck = false;
+  bool EnableSdkCheck = true;
   bool UseOnNfcFields = false;
-  int MinFieldConfidence = 50;
+  int MinFieldConfidence = 0;
   int AcceptScore = 100;
   bool IsTestEnabled = true;
 };

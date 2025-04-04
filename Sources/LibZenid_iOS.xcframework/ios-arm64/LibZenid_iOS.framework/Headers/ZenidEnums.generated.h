@@ -578,6 +578,7 @@ enum class FieldID : int {
 	HouseNumber = 116,
 	Street = 117,
 	Sublocality = 118,
+	LicensePlate = 119,
 };
 
 enum class SampleType : int {
@@ -588,6 +589,7 @@ enum class SampleType : int {
 	Archived = 4,
 	Unknown = 5,
 	EDoklad = 6,
+	LicensePlate = 7,
 };
 
 enum class SdkVerifierType : int {

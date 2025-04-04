@@ -651,6 +651,7 @@ public enum SampleType : Swift.Int, Swift.CaseIterable {
   case Archived
   case Unknown
   case EDoklad
+  case LicensePlate
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.SampleType]
   public typealias RawValue = Swift.Int
