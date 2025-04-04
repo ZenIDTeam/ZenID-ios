@@ -571,6 +571,13 @@ enum class FieldID : int {
 	AgeOver60 = 109,
 	AgeOver65 = 110,
 	SpecialRemarks1 = 111,
+	Locality = 112,
+	Level2 = 113,
+	StreetNumber = 114,
+	HouseNumberType = 115,
+	HouseNumber = 116,
+	Street = 117,
+	Sublocality = 118,
 };
 
 enum class SampleType : int {
