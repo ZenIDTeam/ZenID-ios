@@ -140,8 +140,6 @@ enum class DocumentCodes : int32_t {
 	RO_IDC_2021sep = 137,
 	SK_RES_2011 = 138,
 	SK_RES_2020 = 139,
-	CZ_BIRTH_A2 = 140,
-	CZ_BIRTH_A3 = 141,
 	PL_DRV_1999_A2 = 142,
 	DE_IDC_2010_A2 = 143,
 	DE_IDC_2010_A3 = 144,
@@ -180,6 +178,8 @@ enum class DocumentCodes : int32_t {
 	MT_IDC_2020 = 177,
 	SK_PAS_2024 = 178,
 	SK_IDC_2024 = 179,
+	VN_PAS_2022_A2 = 180,
+	MD_PAS_2023 = 181,
 };
 
 enum class PageCodes : uint8_t {
