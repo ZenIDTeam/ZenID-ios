@@ -104,7 +104,7 @@ class MrzChecksumValidatorConfig
 {
 public:
   int ScoreStep = 100;
-  bool EnableSdkCheck = true;
+  bool EnableSdkCheck = false;
   bool UseOnNfcFields = false;
   int MinFieldConfidence = 0;
   int AcceptScore = 100;
