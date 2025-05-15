@@ -180,6 +180,8 @@ enum class DocumentCodes : int32_t {
 	SK_IDC_2024 = 179,
 	VN_PAS_2022_A2 = 180,
 	MD_PAS_2023 = 181,
+	BG_IDC_2024 = 182,
+	RO_PAS_2024 = 183,
 };
 
 enum class PageCodes : uint8_t {
@@ -458,6 +460,12 @@ enum class FaceLivenessVerifierState : int {
 	DontSmile = 8,
 };
 
+enum class LicensePlateVerifierState : int {
+	NoLicensePlateFound = 0,
+	TryingToReadLicensePlate = 1,
+	Ok = 2,
+};
+
 enum class FieldID : int {
 	A1 = 0,
 	A2 = 1,
@@ -598,6 +606,7 @@ enum class SdkVerifierType : int {
 	Selfie = 2,
 	Hologram = 3,
 	IQSHologram = 4,
+	LicensePlate = 5,
 };
 
 enum class SdkSignatureProblem : int {

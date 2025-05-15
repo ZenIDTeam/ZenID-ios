@@ -63,6 +63,7 @@ class SdkPictureQualityValidatorConfig
 public:
   int OverallTimeToMaxTolerance = 60;
   int TimeToMaxToleranceForBlur = 60;
+  int TimeToMaxToleranceForSpecular = 10;
   int TimeToMaxToleranceForDarkness = 60;
   int TimeToMaxToleranceForAlignment = 10;
   int TimeToMaxToleranceForBorderDistance = 10;
@@ -70,6 +71,8 @@ public:
   int TimeToMaxToleranceForStability = 10;
   int MinBlurriness = 30;
   int MaxBlurriness = 50;
+  int MinSpecular = 50;
+  int MaxSpecular = 100;
   int MinDarkness = 80;
   int MaxDarkness = 100;
   int MinAlignment = 50;
@@ -217,6 +220,8 @@ public:
   std::optional<NfcStatus> NfcStatus;
   std::optional<DocumentCodes> DocumentCode;
   std::optional<PageCodes> PageCode;
+  std::unordered_map<FieldID, std::string> MinedData;
+  std::string LicensePlate;
 };
 class FrontendValidationResults
 {

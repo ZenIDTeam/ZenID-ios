@@ -293,6 +293,8 @@ public enum DocumentCodes : Swift.Int, Swift.CaseIterable {
   case SK_IDC_2024
   case VN_PAS_2022_A2
   case MD_PAS_2023
+  case BG_IDC_2024
+  case RO_PAS_2024
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.DocumentCodes]
   public typealias RawValue = Swift.Int
@@ -643,6 +645,20 @@ public enum FaceLivenessVerifierState : Swift.Int, Swift.CaseIterable {
     get
   }
 }
+public enum LicensePlateVerifierState : Swift.Int, Swift.CaseIterable {
+  case NoLicensePlateFound
+  case TryingToReadLicensePlate
+  case Ok
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [RecogLib_iOS.LicensePlateVerifierState]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [RecogLib_iOS.LicensePlateVerifierState] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public enum SampleType : Swift.Int, Swift.CaseIterable {
   case DocumentPicture
   case Selfie
@@ -668,6 +684,7 @@ public enum SdkVerifierType : Swift.Int, Swift.CaseIterable {
   case Selfie
   case Hologram
   case IQSHologram
+  case LicensePlate
   public init?(rawValue: Swift.Int)
   public typealias AllCases = [RecogLib_iOS.SdkVerifierType]
   public typealias RawValue = Swift.Int
@@ -2053,6 +2070,9 @@ extension RecogLib_iOS.HologramState : Swift.RawRepresentable {}
 extension RecogLib_iOS.FaceLivenessVerifierState : Swift.Equatable {}
 extension RecogLib_iOS.FaceLivenessVerifierState : Swift.Hashable {}
 extension RecogLib_iOS.FaceLivenessVerifierState : Swift.RawRepresentable {}
+extension RecogLib_iOS.LicensePlateVerifierState : Swift.Equatable {}
+extension RecogLib_iOS.LicensePlateVerifierState : Swift.Hashable {}
+extension RecogLib_iOS.LicensePlateVerifierState : Swift.RawRepresentable {}
 extension RecogLib_iOS.SampleType : Swift.Equatable {}
 extension RecogLib_iOS.SampleType : Swift.Hashable {}
 extension RecogLib_iOS.SampleType : Swift.RawRepresentable {}
