@@ -1,0 +1,24 @@
+//
+//  module.modulemap
+//  ZenID
+//
+//  Created by Vladimir Belohradsky on 28.06.2025.
+//  Copyright © 2025 ZenID s.r.o. All rights reserved.
+//
+
+framework module ZenID {
+    umbrella header "ZenID.h"
+    
+    module LibZenidC {
+        header "RecogLibCBridging.h"
+        export *
+    }
+    
+    export *
+    module * { export * }
+}
+
+module ZenID.Swift {
+  header "ZenID-Swift.h"
+  requires objc
+}

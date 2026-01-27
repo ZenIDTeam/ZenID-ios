@@ -1,0 +1,11 @@
+framework module AzureAIVisionFaceUI {
+  umbrella header "AzureAIVisionFaceUI.h"
+  export *
+
+  module * { export * }
+}
+
+module AzureAIVisionFaceUI.Swift {
+  header "AzureAIVisionFaceUI-Swift.h"
+  requires objc
+}

@@ -1,0 +1,53 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64e-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AzureAIVisionFaceUI
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+import AVFoundation
+@_exported import AzureAIVisionFaceUI
+import Combine
+import Foundation
+import Swift
+import SwiftUI
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct LivenessDetectionError : Swift.Error, Swift.Equatable {
+  public let resultId: Swift.String?
+  public let livenessError: AzureAIVisionFaceUI.LivenessError
+  public let recognitionError: AzureAIVisionFaceUI.RecognitionError
+  public static func == (a: AzureAIVisionFaceUI.LivenessDetectionError, b: AzureAIVisionFaceUI.LivenessDetectionError) -> Swift.Bool
+}
+public typealias LivenessDetectionResult = Swift.Result<AzureAIVisionFaceUI.LivenessDetectionSuccess, AzureAIVisionFaceUI.LivenessDetectionError>
+public struct LivenessDetectionSuccess : Swift.Equatable {
+  public let resultId: Swift.String
+  public let digest: Swift.String
+  public static func == (a: AzureAIVisionFaceUI.LivenessDetectionSuccess, b: AzureAIVisionFaceUI.LivenessDetectionSuccess) -> Swift.Bool
+}
+
+@_Concurrency.MainActor @preconcurrency public struct FaceLivenessDetectorView : SwiftUICore.View {
+  @_documentation(visibility: internal) @_Concurrency.MainActor @preconcurrency public var _advanced: Any?
+  @_Concurrency.MainActor @preconcurrency public init(result: SwiftUICore.Binding<AzureAIVisionFaceUI.LivenessDetectionResult?>, sessionAuthorizationToken: Swift.String, verifyImageFileContent: Foundation.Data? = nil, deviceCorrelationId: Swift.String? = nil, userCorrelationId: Swift.String? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s19AzureAIVisionFaceUI0C20LivenessDetectorViewV4bodyQrvp", 0) __
+}
+
+extension AzureAIVisionFaceUI.RecognitionError : Swift.Error {
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+}
+extension AzureAIVisionFaceUI.LivenessError : Swift.Error {
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+}
+
+extension AzureAIVisionFaceUI.FaceLivenessDetectorView : Swift.Sendable {}

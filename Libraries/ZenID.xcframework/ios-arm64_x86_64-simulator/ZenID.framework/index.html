@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenID iOS Visualizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #visualizer-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: transparent;
+        }
+        /* Default CSS variables for visualizer styling */
+        :root {
+            --primary-color: #3251DF;
+            --contrast-color: #FFFFFF;
+            --problem-color: #df3251;
+            --camera-overlay-color: rgba(0, 0, 0, 0.5);
+
+            /* Face oval settings */
+            --max-height-percent-face-oval: 0.65;
+            --max-width-percent-face-oval: 0.75;
+            --line-width-face-oval: 3;
+
+            /* Card outline settings */
+            --line-width-card-outline: 5;
+            --corner-radius-percent-card-outline: 0.03;
+
+            /* Photo outline settings */
+            --line-width-photo-outline: 5;
+            --corner-radius-percent-photo-outline: 0.03;
+
+            /* Face liveness checkbox settings */
+            --checkbox-area-width-percent-face-liveness: 0.6;
+            --checkbox-area-distance-from-top-percent-face-liveness: 0.05;
+            --checkbox-margin-percent-face-liveness: 0.15;
+        }
+    </style>
+</head>
+<body>
+    <div id="visualizer-container"></div>
+
+    <script type="module">
+        // iOS: Try both flattened and structured paths for module loading
+        // Flattened: Files are at framework root when added as "Create groups"
+        // Structured: Files preserve folder structure when added as "Create folder references"
+        let VisualizerImplementation;
+
+        try {
+            const module = await import('./web-visualizer.js');
+            VisualizerImplementation = module.VisualizerImplementation;
+        } catch (err1) {
+            try {
+                const module = await import('./js/web-visualizer.js');
+                VisualizerImplementation = module.VisualizerImplementation;
+            } catch (err2) {
+                console.error('Failed to load web-visualizer.js:', err2);
+                throw err2;
+            }
+        }
+
+        // Initialize visualizer
+        const container = document.getElementById('visualizer-container');
+        const visualizer = new VisualizerImplementation(container, {
+            drawText: window.zenidDrawText !== undefined ? window.zenidDrawText : true,
+            highQualityRendering: true
+        });
+
+        await visualizer.init();
+
+        // Listen for render events from Swift/iOS
+        window.addEventListener('document', (event) => {
+            try {
+                const detail = event.detail;
+                // iOS sends: { page: string, feedback: string, viewPort: { topLeft: {x, y}, bottomRight: {x, y} } }
+                const commands = detail.feedback || '[]';
+                visualizer.drawOverlay(null, commands);
+            } catch (error) {
+                console.error('Error processing visualizer event:', error);
+            }
+        });
+
+        // Make visualizer accessible for debugging
+        window.zenidVisualizer = visualizer;
+    </script>
+</body>
+</html>
