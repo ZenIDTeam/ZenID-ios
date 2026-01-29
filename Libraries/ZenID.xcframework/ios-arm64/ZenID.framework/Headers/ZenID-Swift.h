@@ -7059,6 +7059,7 @@ extern unsigned $s5ZenID7CountryO2pwyA2CmFWC;
 extern unsigned $s5ZenID7CountryO2nryA2CmFWC;
 extern unsigned $s5ZenID7CountryO2tvyA2CmFWC;
 extern unsigned $s5ZenID7CountryO2pgyA2CmFWC;
+extern unsigned $s5ZenID7CountryO2zzyA2CmFWC;
 }
 
 } // namespace _impl
@@ -7303,6 +7304,7 @@ public:
     nr SWIFT_SYMBOL("s:5ZenID7CountryO2nryA2CmF"),
     tv SWIFT_SYMBOL("s:5ZenID7CountryO2tvyA2CmF"),
     pg SWIFT_SYMBOL("s:5ZenID7CountryO2pgyA2CmF"),
+    zz SWIFT_SYMBOL("s:5ZenID7CountryO2zzyA2CmF"),
     unknownDefault
   };
 
@@ -8892,6 +8894,14 @@ public:
   } pg SWIFT_SYMBOL("s:5ZenID7CountryO2pgyA2CmF");
   SWIFT_INLINE_THUNK bool isPg() const;
 
+  inline const static struct _impl_zz {  // impl struct for case zz
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::zz;
+    }
+    SWIFT_INLINE_THUNK Country operator()() const;
+  } zz SWIFT_SYMBOL("s:5ZenID7CountryO2zzyA2CmF");
+  SWIFT_INLINE_THUNK bool isZz() const;
+
   inline const static struct _impl_unknownDefault {  // impl struct for case unknownDefault
     SWIFT_INLINE_THUNK constexpr operator cases() const {
       return cases::unknownDefault;
@@ -9100,6 +9110,7 @@ public:
     if (tag == _impl::$s5ZenID7CountryO2nryA2CmFWC) return cases::nr;
     if (tag == _impl::$s5ZenID7CountryO2tvyA2CmFWC) return cases::tv;
     if (tag == _impl::$s5ZenID7CountryO2pgyA2CmFWC) return cases::pg;
+    if (tag == _impl::$s5ZenID7CountryO2zzyA2CmFWC) return cases::zz;
     return cases::unknownDefault;
   }
 
@@ -11467,7 +11478,6 @@ extern unsigned $s5ZenID13DocumentCodesO12iePas2006_13yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO18ltPas2008_09_11_19yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO12ltIdc2009_12yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9lvPas2015yA2CmFWC;
-extern unsigned $s5ZenID13DocumentCodesO9lvPas2007yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9lvIdc2012yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9lvIdc2019yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9eePas2014yA2CmFWC;
@@ -11525,7 +11535,6 @@ extern unsigned $s5ZenID13DocumentCodesO14cyPas2010_20A2yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO14esPas2003_06A2yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO14luIdc2008_13A2yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO17nlIdc2014_17_21A2yA2CmFWC;
-extern unsigned $s5ZenID13DocumentCodesO9czBirthA4yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9skIdc2022yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9seIdc2022yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9sePas2022yA2CmFWC;
@@ -11564,6 +11573,16 @@ extern unsigned $s5ZenID13DocumentCodesO9grIdc2023yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO9ptIdc2024yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO7czPasV2yA2CmFWC;
 extern unsigned $s5ZenID13DocumentCodesO14roIdc2021sepA2yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO15pkPas2009_13_17yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO9pkIdc2012yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO9jpPas2025yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO9usPas2020yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO9vaPas2020yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO9smIdc2017yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO9fiIdc2023yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO9eeIdc2025yA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO5zzPasyA2CmFWC;
+extern unsigned $s5ZenID13DocumentCodesO11lvPas2015A2yA2CmFWC;
 }
 
 } // namespace _impl
@@ -11695,7 +11714,6 @@ public:
     ltPas2008_09_11_19 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO18ltPas2008_09_11_19yA2CmF"),
     ltIdc2009_12 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO12ltIdc2009_12yA2CmF"),
     lvPas2015 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9lvPas2015yA2CmF"),
-    lvPas2007 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9lvPas2007yA2CmF"),
     lvIdc2012 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9lvIdc2012yA2CmF"),
     lvIdc2019 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9lvIdc2019yA2CmF"),
     eePas2014 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9eePas2014yA2CmF"),
@@ -11753,7 +11771,6 @@ public:
     esPas2003_06A2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO14esPas2003_06A2yA2CmF"),
     luIdc2008_13A2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO14luIdc2008_13A2yA2CmF"),
     nlIdc2014_17_21A2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO17nlIdc2014_17_21A2yA2CmF"),
-    czBirthA4 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9czBirthA4yA2CmF"),
     skIdc2022 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9skIdc2022yA2CmF"),
     seIdc2022 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9seIdc2022yA2CmF"),
     sePas2022 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9sePas2022yA2CmF"),
@@ -11792,6 +11809,16 @@ public:
     ptIdc2024 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9ptIdc2024yA2CmF"),
     czPasV2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO7czPasV2yA2CmF"),
     roIdc2021sepA2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO14roIdc2021sepA2yA2CmF"),
+    pkPas2009_13_17 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO15pkPas2009_13_17yA2CmF"),
+    pkIdc2012 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9pkIdc2012yA2CmF"),
+    jpPas2025 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9jpPas2025yA2CmF"),
+    usPas2020 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9usPas2020yA2CmF"),
+    vaPas2020 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9vaPas2020yA2CmF"),
+    smIdc2017 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9smIdc2017yA2CmF"),
+    fiIdc2023 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9fiIdc2023yA2CmF"),
+    eeIdc2025 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9eeIdc2025yA2CmF"),
+    zzPas SWIFT_SYMBOL("s:5ZenID13DocumentCodesO5zzPasyA2CmF"),
+    lvPas2015A2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO11lvPas2015A2yA2CmF"),
     unknownDefault
   };
 
@@ -12477,14 +12504,6 @@ public:
   } lvPas2015 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9lvPas2015yA2CmF");
   SWIFT_INLINE_THUNK bool isLvPas2015() const;
 
-  inline const static struct _impl_lvPas2007 {  // impl struct for case lvPas2007
-    SWIFT_INLINE_THUNK constexpr operator cases() const {
-      return cases::lvPas2007;
-    }
-    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
-  } lvPas2007 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9lvPas2007yA2CmF");
-  SWIFT_INLINE_THUNK bool isLvPas2007() const;
-
   inline const static struct _impl_lvIdc2012 {  // impl struct for case lvIdc2012
     SWIFT_INLINE_THUNK constexpr operator cases() const {
       return cases::lvIdc2012;
@@ -12941,14 +12960,6 @@ public:
   } nlIdc2014_17_21A2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO17nlIdc2014_17_21A2yA2CmF");
   SWIFT_INLINE_THUNK bool isNlIdc2014_17_21A2() const;
 
-  inline const static struct _impl_czBirthA4 {  // impl struct for case czBirthA4
-    SWIFT_INLINE_THUNK constexpr operator cases() const {
-      return cases::czBirthA4;
-    }
-    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
-  } czBirthA4 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9czBirthA4yA2CmF");
-  SWIFT_INLINE_THUNK bool isCzBirthA4() const;
-
   inline const static struct _impl_skIdc2022 {  // impl struct for case skIdc2022
     SWIFT_INLINE_THUNK constexpr operator cases() const {
       return cases::skIdc2022;
@@ -13253,6 +13264,86 @@ public:
   } roIdc2021sepA2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO14roIdc2021sepA2yA2CmF");
   SWIFT_INLINE_THUNK bool isRoIdc2021sepA2() const;
 
+  inline const static struct _impl_pkPas2009_13_17 {  // impl struct for case pkPas2009_13_17
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::pkPas2009_13_17;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } pkPas2009_13_17 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO15pkPas2009_13_17yA2CmF");
+  SWIFT_INLINE_THUNK bool isPkPas2009_13_17() const;
+
+  inline const static struct _impl_pkIdc2012 {  // impl struct for case pkIdc2012
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::pkIdc2012;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } pkIdc2012 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9pkIdc2012yA2CmF");
+  SWIFT_INLINE_THUNK bool isPkIdc2012() const;
+
+  inline const static struct _impl_jpPas2025 {  // impl struct for case jpPas2025
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::jpPas2025;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } jpPas2025 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9jpPas2025yA2CmF");
+  SWIFT_INLINE_THUNK bool isJpPas2025() const;
+
+  inline const static struct _impl_usPas2020 {  // impl struct for case usPas2020
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::usPas2020;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } usPas2020 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9usPas2020yA2CmF");
+  SWIFT_INLINE_THUNK bool isUsPas2020() const;
+
+  inline const static struct _impl_vaPas2020 {  // impl struct for case vaPas2020
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::vaPas2020;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } vaPas2020 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9vaPas2020yA2CmF");
+  SWIFT_INLINE_THUNK bool isVaPas2020() const;
+
+  inline const static struct _impl_smIdc2017 {  // impl struct for case smIdc2017
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::smIdc2017;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } smIdc2017 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9smIdc2017yA2CmF");
+  SWIFT_INLINE_THUNK bool isSmIdc2017() const;
+
+  inline const static struct _impl_fiIdc2023 {  // impl struct for case fiIdc2023
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::fiIdc2023;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } fiIdc2023 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9fiIdc2023yA2CmF");
+  SWIFT_INLINE_THUNK bool isFiIdc2023() const;
+
+  inline const static struct _impl_eeIdc2025 {  // impl struct for case eeIdc2025
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::eeIdc2025;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } eeIdc2025 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO9eeIdc2025yA2CmF");
+  SWIFT_INLINE_THUNK bool isEeIdc2025() const;
+
+  inline const static struct _impl_zzPas {  // impl struct for case zzPas
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::zzPas;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } zzPas SWIFT_SYMBOL("s:5ZenID13DocumentCodesO5zzPasyA2CmF");
+  SWIFT_INLINE_THUNK bool isZzPas() const;
+
+  inline const static struct _impl_lvPas2015A2 {  // impl struct for case lvPas2015A2
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::lvPas2015A2;
+    }
+    SWIFT_INLINE_THUNK DocumentCodes operator()() const;
+  } lvPas2015A2 SWIFT_SYMBOL("s:5ZenID13DocumentCodesO11lvPas2015A2yA2CmF");
+  SWIFT_INLINE_THUNK bool isLvPas2015A2() const;
+
   inline const static struct _impl_unknownDefault {  // impl struct for case unknownDefault
     SWIFT_INLINE_THUNK constexpr operator cases() const {
       return cases::unknownDefault;
@@ -13348,7 +13439,6 @@ public:
     if (tag == _impl::$s5ZenID13DocumentCodesO18ltPas2008_09_11_19yA2CmFWC) return cases::ltPas2008_09_11_19;
     if (tag == _impl::$s5ZenID13DocumentCodesO12ltIdc2009_12yA2CmFWC) return cases::ltIdc2009_12;
     if (tag == _impl::$s5ZenID13DocumentCodesO9lvPas2015yA2CmFWC) return cases::lvPas2015;
-    if (tag == _impl::$s5ZenID13DocumentCodesO9lvPas2007yA2CmFWC) return cases::lvPas2007;
     if (tag == _impl::$s5ZenID13DocumentCodesO9lvIdc2012yA2CmFWC) return cases::lvIdc2012;
     if (tag == _impl::$s5ZenID13DocumentCodesO9lvIdc2019yA2CmFWC) return cases::lvIdc2019;
     if (tag == _impl::$s5ZenID13DocumentCodesO9eePas2014yA2CmFWC) return cases::eePas2014;
@@ -13406,7 +13496,6 @@ public:
     if (tag == _impl::$s5ZenID13DocumentCodesO14esPas2003_06A2yA2CmFWC) return cases::esPas2003_06A2;
     if (tag == _impl::$s5ZenID13DocumentCodesO14luIdc2008_13A2yA2CmFWC) return cases::luIdc2008_13A2;
     if (tag == _impl::$s5ZenID13DocumentCodesO17nlIdc2014_17_21A2yA2CmFWC) return cases::nlIdc2014_17_21A2;
-    if (tag == _impl::$s5ZenID13DocumentCodesO9czBirthA4yA2CmFWC) return cases::czBirthA4;
     if (tag == _impl::$s5ZenID13DocumentCodesO9skIdc2022yA2CmFWC) return cases::skIdc2022;
     if (tag == _impl::$s5ZenID13DocumentCodesO9seIdc2022yA2CmFWC) return cases::seIdc2022;
     if (tag == _impl::$s5ZenID13DocumentCodesO9sePas2022yA2CmFWC) return cases::sePas2022;
@@ -13445,6 +13534,16 @@ public:
     if (tag == _impl::$s5ZenID13DocumentCodesO9ptIdc2024yA2CmFWC) return cases::ptIdc2024;
     if (tag == _impl::$s5ZenID13DocumentCodesO7czPasV2yA2CmFWC) return cases::czPasV2;
     if (tag == _impl::$s5ZenID13DocumentCodesO14roIdc2021sepA2yA2CmFWC) return cases::roIdc2021sepA2;
+    if (tag == _impl::$s5ZenID13DocumentCodesO15pkPas2009_13_17yA2CmFWC) return cases::pkPas2009_13_17;
+    if (tag == _impl::$s5ZenID13DocumentCodesO9pkIdc2012yA2CmFWC) return cases::pkIdc2012;
+    if (tag == _impl::$s5ZenID13DocumentCodesO9jpPas2025yA2CmFWC) return cases::jpPas2025;
+    if (tag == _impl::$s5ZenID13DocumentCodesO9usPas2020yA2CmFWC) return cases::usPas2020;
+    if (tag == _impl::$s5ZenID13DocumentCodesO9vaPas2020yA2CmFWC) return cases::vaPas2020;
+    if (tag == _impl::$s5ZenID13DocumentCodesO9smIdc2017yA2CmFWC) return cases::smIdc2017;
+    if (tag == _impl::$s5ZenID13DocumentCodesO9fiIdc2023yA2CmFWC) return cases::fiIdc2023;
+    if (tag == _impl::$s5ZenID13DocumentCodesO9eeIdc2025yA2CmFWC) return cases::eeIdc2025;
+    if (tag == _impl::$s5ZenID13DocumentCodesO5zzPasyA2CmFWC) return cases::zzPas;
+    if (tag == _impl::$s5ZenID13DocumentCodesO11lvPas2015A2yA2CmFWC) return cases::lvPas2015A2;
     return cases::unknownDefault;
   }
 
@@ -30270,6 +30369,14 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   SWIFT_INLINE_THUNK  bool Country::isPg() const {
     return *this == Country::pg;
   }
+  SWIFT_INLINE_THUNK Country Country::_impl_zz::operator()() const {
+    auto result = Country::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID7CountryO2zzyA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool Country::isZz() const {
+    return *this == Country::zz;
+  }
   SWIFT_INLINE_THUNK  bool Country::isUnknownDefault() const {
     return *this == Country::unknownDefault;
   }
@@ -31811,14 +31918,6 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   SWIFT_INLINE_THUNK  bool DocumentCodes::isLvPas2015() const {
     return *this == DocumentCodes::lvPas2015;
   }
-  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_lvPas2007::operator()() const {
-    auto result = DocumentCodes::_make();
-    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9lvPas2007yA2CmFWC);
-    return result;
-  }
-  SWIFT_INLINE_THUNK  bool DocumentCodes::isLvPas2007() const {
-    return *this == DocumentCodes::lvPas2007;
-  }
   SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_lvIdc2012::operator()() const {
     auto result = DocumentCodes::_make();
     result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9lvIdc2012yA2CmFWC);
@@ -32275,14 +32374,6 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   SWIFT_INLINE_THUNK  bool DocumentCodes::isNlIdc2014_17_21A2() const {
     return *this == DocumentCodes::nlIdc2014_17_21A2;
   }
-  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_czBirthA4::operator()() const {
-    auto result = DocumentCodes::_make();
-    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9czBirthA4yA2CmFWC);
-    return result;
-  }
-  SWIFT_INLINE_THUNK  bool DocumentCodes::isCzBirthA4() const {
-    return *this == DocumentCodes::czBirthA4;
-  }
   SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_skIdc2022::operator()() const {
     auto result = DocumentCodes::_make();
     result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9skIdc2022yA2CmFWC);
@@ -32586,6 +32677,86 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   }
   SWIFT_INLINE_THUNK  bool DocumentCodes::isRoIdc2021sepA2() const {
     return *this == DocumentCodes::roIdc2021sepA2;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_pkPas2009_13_17::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO15pkPas2009_13_17yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isPkPas2009_13_17() const {
+    return *this == DocumentCodes::pkPas2009_13_17;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_pkIdc2012::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9pkIdc2012yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isPkIdc2012() const {
+    return *this == DocumentCodes::pkIdc2012;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_jpPas2025::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9jpPas2025yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isJpPas2025() const {
+    return *this == DocumentCodes::jpPas2025;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_usPas2020::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9usPas2020yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isUsPas2020() const {
+    return *this == DocumentCodes::usPas2020;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_vaPas2020::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9vaPas2020yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isVaPas2020() const {
+    return *this == DocumentCodes::vaPas2020;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_smIdc2017::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9smIdc2017yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isSmIdc2017() const {
+    return *this == DocumentCodes::smIdc2017;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_fiIdc2023::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9fiIdc2023yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isFiIdc2023() const {
+    return *this == DocumentCodes::fiIdc2023;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_eeIdc2025::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO9eeIdc2025yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isEeIdc2025() const {
+    return *this == DocumentCodes::eeIdc2025;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_zzPas::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO5zzPasyA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isZzPas() const {
+    return *this == DocumentCodes::zzPas;
+  }
+  SWIFT_INLINE_THUNK DocumentCodes DocumentCodes::_impl_lvPas2015A2::operator()() const {
+    auto result = DocumentCodes::_make();
+    result._destructiveInjectEnumTag(_impl::$s5ZenID13DocumentCodesO11lvPas2015A2yA2CmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool DocumentCodes::isLvPas2015A2() const {
+    return *this == DocumentCodes::lvPas2015A2;
   }
   SWIFT_INLINE_THUNK  bool DocumentCodes::isUnknownDefault() const {
     return *this == DocumentCodes::unknownDefault;

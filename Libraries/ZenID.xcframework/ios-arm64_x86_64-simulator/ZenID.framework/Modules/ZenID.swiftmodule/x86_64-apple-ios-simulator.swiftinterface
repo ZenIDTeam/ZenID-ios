@@ -1388,7 +1388,6 @@ public enum DocumentCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   case ltPas2008_09_11_19
   case ltIdc2009_12
   case lvPas2015
-  case lvPas2007
   case lvIdc2012
   case lvIdc2019
   case eePas2014
@@ -1446,7 +1445,6 @@ public enum DocumentCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   case esPas2003_06A2
   case luIdc2008_13A2
   case nlIdc2014_17_21A2
-  case czBirthA4
   case skIdc2022
   case seIdc2022
   case sePas2022
@@ -1485,6 +1483,16 @@ public enum DocumentCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   case ptIdc2024
   case czPasV2
   case roIdc2021sepA2
+  case pkPas2009_13_17
+  case pkIdc2012
+  case jpPas2025
+  case usPas2020
+  case vaPas2020
+  case smIdc2017
+  case fiIdc2023
+  case eeIdc2025
+  case zzPas
+  case lvPas2015A2
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public var stringValue: Swift.String {
@@ -1800,6 +1808,7 @@ public enum Country : Swift.Int, Swift.Codable & Swift.Sendable {
   case nr
   case tv
   case pg
+  case zz
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public var stringValue: Swift.String {
@@ -2204,6 +2213,55 @@ final public class ZenIDBackendApiImpl : ZenID.ZenIDBackendApi, @unchecked Swift
   final public func getProfiles() async throws -> Foundation.Data
   @objc deinit
 }
+@_Concurrency.MainActor open class GenericVerifierViewModel<V> : Foundation.ObservableObject where V : ZenID.VerifierProtocol {
+  @Combine.Published @_projectedValueProperty($state) @_Concurrency.MainActor public var state: ZenID.VerificationState {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  @_Concurrency.MainActor public var $state: Combine.Published<ZenID.VerificationState>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @_Concurrency.MainActor public var verifier: V? {
+    get
+  }
+  @_Concurrency.MainActor public var result: ZenID.UploadReadyData? {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($uploadedSampleID) @_Concurrency.MainActor public var uploadedSampleID: Swift.String? {
+    get
+  }
+  @_Concurrency.MainActor public var $uploadedSampleID: Combine.Published<Swift.String?>.Publisher {
+    get
+  }
+  @Combine.Published @_projectedValueProperty($investigationResponseData) @_Concurrency.MainActor public var investigationResponseData: Foundation.Data? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  @_Concurrency.MainActor public var $investigationResponseData: Combine.Published<Foundation.Data?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @_Concurrency.MainActor public init()
+  @_Concurrency.MainActor open func createVerifier() throws -> V
+  @_Concurrency.MainActor open func start(with cameraView: ZenID.UIZenIDView)
+  @_Concurrency.MainActor open func stop()
+  @_Concurrency.MainActor open func cleanup()
+  @_Concurrency.MainActor open func setupVerifierCallbacks()
+  @_Concurrency.MainActor open func processResultWhenReady()
+  @_Concurrency.MainActor open func uploadData(_ data: Foundation.Data)
+  @_Concurrency.MainActor open func investigateSamples(sampleIds: [Swift.String])
+  @objc deinit
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+}
 @_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
   @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
   @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
@@ -2284,55 +2342,6 @@ public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
 }
 public struct VerifierResultHelper {
   @_Concurrency.MainActor public static func waitForResult(from resultProvider: @escaping () -> ZenID.UploadReadyData?, onReady: @escaping (ZenID.UploadReadyData) -> Swift.Void, onTimeout: @escaping () -> Swift.Void, maxAttempts: Swift.Int = 100, pollingInterval: Swift.UInt64 = 100_000_000)
-}
-@_Concurrency.MainActor open class GenericVerifierViewModel<V> : Foundation.ObservableObject where V : ZenID.VerifierProtocol {
-  @Combine.Published @_projectedValueProperty($state) @_Concurrency.MainActor public var state: ZenID.VerificationState {
-    get
-    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-    set
-    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-    _modify
-  }
-  @_Concurrency.MainActor public var $state: Combine.Published<ZenID.VerificationState>.Publisher {
-    get
-    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
-    set
-  }
-  @_Concurrency.MainActor public var verifier: V? {
-    get
-  }
-  @_Concurrency.MainActor public var result: ZenID.UploadReadyData? {
-    get
-  }
-  @Combine.Published @_projectedValueProperty($uploadedSampleID) @_Concurrency.MainActor public var uploadedSampleID: Swift.String? {
-    get
-  }
-  @_Concurrency.MainActor public var $uploadedSampleID: Combine.Published<Swift.String?>.Publisher {
-    get
-  }
-  @Combine.Published @_projectedValueProperty($investigationResponseData) @_Concurrency.MainActor public var investigationResponseData: Foundation.Data? {
-    get
-    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-    set
-    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
-    _modify
-  }
-  @_Concurrency.MainActor public var $investigationResponseData: Combine.Published<Foundation.Data?>.Publisher {
-    get
-    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
-    set
-  }
-  @_Concurrency.MainActor public init()
-  @_Concurrency.MainActor open func createVerifier() throws -> V
-  @_Concurrency.MainActor open func start(with cameraView: ZenID.UIZenIDView)
-  @_Concurrency.MainActor open func stop()
-  @_Concurrency.MainActor open func cleanup()
-  @_Concurrency.MainActor open func setupVerifierCallbacks()
-  @_Concurrency.MainActor open func processResultWhenReady()
-  @_Concurrency.MainActor open func uploadData(_ data: Foundation.Data)
-  @_Concurrency.MainActor open func investigateSamples(sampleIds: [Swift.String])
-  @objc deinit
-  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
 }
 extension ZenID.MSLivenessCoordinator : Swift.Sendable {}
 extension ZenID.ZenIDManager : Swift.Sendable {}

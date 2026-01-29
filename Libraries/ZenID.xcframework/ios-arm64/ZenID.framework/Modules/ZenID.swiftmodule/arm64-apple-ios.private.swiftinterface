@@ -1388,7 +1388,6 @@ public enum DocumentCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   case ltPas2008_09_11_19
   case ltIdc2009_12
   case lvPas2015
-  case lvPas2007
   case lvIdc2012
   case lvIdc2019
   case eePas2014
@@ -1446,7 +1445,6 @@ public enum DocumentCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   case esPas2003_06A2
   case luIdc2008_13A2
   case nlIdc2014_17_21A2
-  case czBirthA4
   case skIdc2022
   case seIdc2022
   case sePas2022
@@ -1485,6 +1483,16 @@ public enum DocumentCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   case ptIdc2024
   case czPasV2
   case roIdc2021sepA2
+  case pkPas2009_13_17
+  case pkIdc2012
+  case jpPas2025
+  case usPas2020
+  case vaPas2020
+  case smIdc2017
+  case fiIdc2023
+  case eeIdc2025
+  case zzPas
+  case lvPas2015A2
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public var stringValue: Swift.String {
@@ -1800,6 +1808,7 @@ public enum Country : Swift.Int, Swift.Codable & Swift.Sendable {
   case nr
   case tv
   case pg
+  case zz
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
   public var stringValue: Swift.String {
@@ -2204,6 +2213,38 @@ final public class ZenIDBackendApiImpl : ZenID.ZenIDBackendApi, @unchecked Swift
   final public func getProfiles() async throws -> Foundation.Data
   @objc deinit
 }
+@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
+  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
+  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
+  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
+  @_Concurrency.MainActor func start() throws
+  @_Concurrency.MainActor func stop()
+  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
+  @_Concurrency.MainActor func unload()
+}
+extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
+}
+public enum VerificationState : Swift.Equatable {
+  case setup
+  case scanning
+  case processing
+  case uploading
+  case investigating
+  case success
+  case error(ZenID.VerificationError)
+  public static func == (lhs: ZenID.VerificationState, rhs: ZenID.VerificationState) -> Swift.Bool
+}
+public enum VerificationError : Swift.Error, Swift.Equatable {
+  case resultTimeout
+  case verifierFailed(Swift.String)
+  case uploadFailed(Swift.String)
+  case investigationFailed(Swift.String)
+  case other(Swift.String)
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public static func == (a: ZenID.VerificationError, b: ZenID.VerificationError) -> Swift.Bool
+}
 public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
   case verificationFailed(title: Swift.String, message: Swift.String)
   case nfcAttemptsExceeded(title: Swift.String, message: Swift.String)
@@ -2301,38 +2342,6 @@ public struct VerifierResultHelper {
   @_Concurrency.MainActor open func investigateSamples(sampleIds: [Swift.String])
   @objc deinit
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
-}
-@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
-  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
-  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
-  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
-  @_Concurrency.MainActor func start() throws
-  @_Concurrency.MainActor func stop()
-  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
-  @_Concurrency.MainActor func unload()
-}
-extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
-}
-public enum VerificationState : Swift.Equatable {
-  case setup
-  case scanning
-  case processing
-  case uploading
-  case investigating
-  case success
-  case error(ZenID.VerificationError)
-  public static func == (lhs: ZenID.VerificationState, rhs: ZenID.VerificationState) -> Swift.Bool
-}
-public enum VerificationError : Swift.Error, Swift.Equatable {
-  case resultTimeout
-  case verifierFailed(Swift.String)
-  case uploadFailed(Swift.String)
-  case investigationFailed(Swift.String)
-  case other(Swift.String)
-  public var localizedDescription: Swift.String {
-    get
-  }
-  public static func == (a: ZenID.VerificationError, b: ZenID.VerificationError) -> Swift.Bool
 }
 extension ZenID.MSLivenessCoordinator : Swift.Sendable {}
 extension ZenID.ZenIDManager : Swift.Sendable {}

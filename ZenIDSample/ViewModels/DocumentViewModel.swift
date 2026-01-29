@@ -80,7 +80,10 @@ class DocumentViewModel: InvestigatingViewModel<DocumentVerifier> {
         guard scanningState == .setup else { return }
 
         ZenIDManager.selectProfile(Profile.current)
-        ZenIDManager.setInsets(insets: UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0))
+        ZenIDManager.setInsets(
+            portraitInsets: UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0),
+            landscapeInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        )
 
         OSLogger.app.debug("DocumentViewModel setup")
 
