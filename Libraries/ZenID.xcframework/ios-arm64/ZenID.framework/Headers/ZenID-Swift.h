@@ -4580,6 +4580,10 @@ SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV12docume
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV12documentCodeAA0C5CodesOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvs(struct swift_interop_passStub_ZenID_void_ptr_0_8 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN ptrdiff_t $s5ZenID43DocumentVerifierStateContainerForPublicDataV21giveMePhotoResolutionSivg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
@@ -4643,11 +4647,15 @@ SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV12documentCodeAA
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV12documentCodeAA13DocumentCodesOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvs(struct swift_interop_passStub_ZenID_void_ptr_0_8 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN ptrdiff_t $s5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivs(ptrdiff_t value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
-SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO015expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonU8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgSayAA11ZenidPointFVGSitcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, const void * _Nonnull state, const void * _Nonnull giveMeWhat, const void * _Nonnull feedback, const void * _Nonnull documentCode, const void * _Nonnull pageCode, struct swift_interop_passStub_ZenID_void_ptr_0_8 expectedOutline, ptrdiff_t giveMePhotoResolution) SWIFT_NOEXCEPT SWIFT_CALL; // init(state:giveMeWhat:feedback:documentCode:pageCode:expectedOutline:giveMePhotoResolution:)
+SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, const void * _Nonnull state, const void * _Nonnull giveMeWhat, const void * _Nonnull feedback, const void * _Nonnull documentCode, const void * _Nonnull pageCode, const void * _Nonnull role, const void * _Nonnull country, struct swift_interop_passStub_ZenID_void_ptr_0_8 expectedOutline, ptrdiff_t giveMePhotoResolution) SWIFT_NOEXCEPT SWIFT_CALL; // init(state:giveMeWhat:feedback:documentCode:pageCode:role:country:expectedOutline:giveMePhotoResolution:)
 SWIFT_EXTERN bool $s5ZenID27IQSHologramVerifierSettingsV18enableAimingCircleSbvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID27IQSHologramVerifierSettingsV18enableAimingCircleSbvs(bool value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN bool $s5ZenID27IQSHologramVerifierSettingsV11drawOutlineSbvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
@@ -14570,6 +14578,10 @@ public:
   SWIFT_INLINE_THUNK void setDocumentCode(const swift::Optional<DocumentCodes>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV12documentCodeAA0C5CodesOSgvp");
   SWIFT_INLINE_THUNK swift::Optional<PageCodes> getPageCode() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvp");
   SWIFT_INLINE_THUNK void setPageCode(const swift::Optional<PageCodes>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvp");
+  SWIFT_INLINE_THUNK swift::Optional<DocumentRole> getRole() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvp");
+  SWIFT_INLINE_THUNK void setRole(const swift::Optional<DocumentRole>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvp");
+  SWIFT_INLINE_THUNK swift::Optional<Country> getCountry() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvp");
+  SWIFT_INLINE_THUNK void setCountry(const swift::Optional<Country>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvp");
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> getExpectedOutline() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK void setExpectedOutline(const swift::Array<ZenidPointF>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK swift::Int getGiveMePhotoResolution() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV21giveMePhotoResolutionSivp");
@@ -18030,11 +18042,15 @@ public:
   SWIFT_INLINE_THUNK void setDocumentCode(const swift::Optional<DocumentCodes>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV12documentCodeAA13DocumentCodesOSgvp");
   SWIFT_INLINE_THUNK swift::Optional<PageCodes> getPageCode() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvp");
   SWIFT_INLINE_THUNK void setPageCode(const swift::Optional<PageCodes>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvp");
+  SWIFT_INLINE_THUNK swift::Optional<DocumentRole> getRole() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvp");
+  SWIFT_INLINE_THUNK void setRole(const swift::Optional<DocumentRole>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvp");
+  SWIFT_INLINE_THUNK swift::Optional<Country> getCountry() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvp");
+  SWIFT_INLINE_THUNK void setCountry(const swift::Optional<Country>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvp");
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> getExpectedOutline() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK void setExpectedOutline(const swift::Array<ZenidPointF>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK swift::Int getGiveMePhotoResolution() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivp");
   SWIFT_INLINE_THUNK void setGiveMePhotoResolution(swift::Int value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivp");
-  static SWIFT_INLINE_THUNK HologramStateContainerForPublicData init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO015expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonU8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgSayAA11ZenidPointFVGSitcfc");
+  static SWIFT_INLINE_THUNK HologramStateContainerForPublicData init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Optional<DocumentRole>& role, const swift::Optional<Country>& country, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfc");
 private:
   SWIFT_INLINE_THUNK HologramStateContainerForPublicData(swift::_impl::ValueWitnessTable * _Nonnull vwTable) noexcept : _storage(vwTable->size, vwTable->getAlignment()) {}
   static SWIFT_INLINE_THUNK HologramStateContainerForPublicData _make() noexcept {
@@ -33113,6 +33129,28 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<PageCodes>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
   ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvs(swift::_impl::_impl_Optional<PageCodes>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
   }
+  SWIFT_INLINE_THUNK swift::Optional<DocumentRole> DocumentVerifierStateContainerForPublicData::getRole() const {
+  return swift::_impl::_impl_Optional<DocumentRole>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvg(result, _getOpaquePointer());
+  });
+  }
+  SWIFT_INLINE_THUNK void DocumentVerifierStateContainerForPublicData::setRole(const swift::Optional<DocumentRole>& value) {
+  alignas(alignof(swift::Optional<DocumentRole>)) char copyBuffer_consumedParamCopy_value[sizeof(swift::Optional<DocumentRole>)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::Optional<DocumentRole>(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<DocumentRole>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvs(swift::_impl::_impl_Optional<DocumentRole>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
+  }
+  SWIFT_INLINE_THUNK swift::Optional<Country> DocumentVerifierStateContainerForPublicData::getCountry() const {
+  return swift::_impl::_impl_Optional<Country>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvg(result, _getOpaquePointer());
+  });
+  }
+  SWIFT_INLINE_THUNK void DocumentVerifierStateContainerForPublicData::setCountry(const swift::Optional<Country>& value) {
+  alignas(alignof(swift::Optional<Country>)) char copyBuffer_consumedParamCopy_value[sizeof(swift::Optional<Country>)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::Optional<Country>(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<Country>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvs(swift::_impl::_impl_Optional<Country>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
+  }
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> DocumentVerifierStateContainerForPublicData::getExpectedOutline() const {
   return swift::_impl::_impl_Array<ZenidPointF>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
     ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(_getOpaquePointer()));
@@ -34631,6 +34669,28 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<PageCodes>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
   ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV8pageCodeAA9PageCodesOSgvs(swift::_impl::_impl_Optional<PageCodes>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
   }
+  SWIFT_INLINE_THUNK swift::Optional<DocumentRole> HologramStateContainerForPublicData::getRole() const {
+  return swift::_impl::_impl_Optional<DocumentRole>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvg(result, _getOpaquePointer());
+  });
+  }
+  SWIFT_INLINE_THUNK void HologramStateContainerForPublicData::setRole(const swift::Optional<DocumentRole>& value) {
+  alignas(alignof(swift::Optional<DocumentRole>)) char copyBuffer_consumedParamCopy_value[sizeof(swift::Optional<DocumentRole>)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::Optional<DocumentRole>(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<DocumentRole>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvs(swift::_impl::_impl_Optional<DocumentRole>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
+  }
+  SWIFT_INLINE_THUNK swift::Optional<Country> HologramStateContainerForPublicData::getCountry() const {
+  return swift::_impl::_impl_Optional<Country>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvg(result, _getOpaquePointer());
+  });
+  }
+  SWIFT_INLINE_THUNK void HologramStateContainerForPublicData::setCountry(const swift::Optional<Country>& value) {
+  alignas(alignof(swift::Optional<Country>)) char copyBuffer_consumedParamCopy_value[sizeof(swift::Optional<Country>)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::Optional<Country>(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<Country>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvs(swift::_impl::_impl_Optional<Country>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
+  }
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> HologramStateContainerForPublicData::getExpectedOutline() const {
   return swift::_impl::_impl_Array<ZenidPointF>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
     ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(_getOpaquePointer()));
@@ -34648,7 +34708,7 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   SWIFT_INLINE_THUNK void HologramStateContainerForPublicData::setGiveMePhotoResolution(swift::Int value) {
   ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivs(value, _getOpaquePointer());
   }
-  SWIFT_INLINE_THUNK HologramStateContainerForPublicData HologramStateContainerForPublicData::init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) {
+  SWIFT_INLINE_THUNK HologramStateContainerForPublicData HologramStateContainerForPublicData::init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Optional<DocumentRole>& role, const swift::Optional<Country>& country, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) {
   alignas(alignof(VerifierState)) char copyBuffer_consumedParamCopy_state[sizeof(VerifierState)];
   auto &consumedParamCopy_state = *(new(copyBuffer_consumedParamCopy_state) VerifierState(state));
   swift::_impl::ConsumedValueStorageDestroyer<VerifierState> storageGuard_consumedParamCopy_state(consumedParamCopy_state);
@@ -34664,11 +34724,17 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   alignas(alignof(swift::Optional<PageCodes>)) char copyBuffer_consumedParamCopy_pageCode[sizeof(swift::Optional<PageCodes>)];
   auto &consumedParamCopy_pageCode = *(new(copyBuffer_consumedParamCopy_pageCode) swift::Optional<PageCodes>(pageCode));
   swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<PageCodes>> storageGuard_consumedParamCopy_pageCode(consumedParamCopy_pageCode);
+  alignas(alignof(swift::Optional<DocumentRole>)) char copyBuffer_consumedParamCopy_role[sizeof(swift::Optional<DocumentRole>)];
+  auto &consumedParamCopy_role = *(new(copyBuffer_consumedParamCopy_role) swift::Optional<DocumentRole>(role));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<DocumentRole>> storageGuard_consumedParamCopy_role(consumedParamCopy_role);
+  alignas(alignof(swift::Optional<Country>)) char copyBuffer_consumedParamCopy_country[sizeof(swift::Optional<Country>)];
+  auto &consumedParamCopy_country = *(new(copyBuffer_consumedParamCopy_country) swift::Optional<Country>(country));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<Country>> storageGuard_consumedParamCopy_country(consumedParamCopy_country);
   alignas(alignof(swift::Array<ZenidPointF>)) char copyBuffer_consumedParamCopy_expectedOutline[sizeof(swift::Array<ZenidPointF>)];
   auto &consumedParamCopy_expectedOutline = *(new(copyBuffer_consumedParamCopy_expectedOutline) swift::Array<ZenidPointF>(expectedOutline));
   swift::_impl::ConsumedValueStorageDestroyer<swift::Array<ZenidPointF>> storageGuard_consumedParamCopy_expectedOutline(consumedParamCopy_expectedOutline);
   return ZenID::_impl::_impl_HologramStateContainerForPublicData::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO015expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonU8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgSayAA11ZenidPointFVGSitcfC(result, ZenID::_impl::_impl_VerifierState::getOpaquePointer(consumedParamCopy_state), ZenID::_impl::_impl_SdkResponseType::getOpaquePointer(consumedParamCopy_giveMeWhat), ZenID::_impl::_impl_CommonVerifierFeedback::getOpaquePointer(consumedParamCopy_feedback), swift::_impl::_impl_Optional<DocumentCodes>::getOpaquePointer(consumedParamCopy_documentCode), swift::_impl::_impl_Optional<PageCodes>::getOpaquePointer(consumedParamCopy_pageCode), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<ZenidPointF>::getOpaquePointer(consumedParamCopy_expectedOutline)), giveMePhotoResolution);
+    ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfC(result, ZenID::_impl::_impl_VerifierState::getOpaquePointer(consumedParamCopy_state), ZenID::_impl::_impl_SdkResponseType::getOpaquePointer(consumedParamCopy_giveMeWhat), ZenID::_impl::_impl_CommonVerifierFeedback::getOpaquePointer(consumedParamCopy_feedback), swift::_impl::_impl_Optional<DocumentCodes>::getOpaquePointer(consumedParamCopy_documentCode), swift::_impl::_impl_Optional<PageCodes>::getOpaquePointer(consumedParamCopy_pageCode), swift::_impl::_impl_Optional<DocumentRole>::getOpaquePointer(consumedParamCopy_role), swift::_impl::_impl_Optional<Country>::getOpaquePointer(consumedParamCopy_country), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<ZenidPointF>::getOpaquePointer(consumedParamCopy_expectedOutline)), giveMePhotoResolution);
   });
   }
   SWIFT_INLINE_THUNK bool IQSHologramVerifierSettings::getEnableAimingCircle() const {
