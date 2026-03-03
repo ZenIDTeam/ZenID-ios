@@ -81638,2203 +81638,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "VerificationState",
-        "printedName": "VerificationState",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "setup",
-            "printedName": "setup",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationStateO5setupyA2CmF",
-            "mangledName": "$s5ZenID17VerificationStateO5setupyA2CmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "scanning",
-            "printedName": "scanning",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationStateO8scanningyA2CmF",
-            "mangledName": "$s5ZenID17VerificationStateO8scanningyA2CmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "processing",
-            "printedName": "processing",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationStateO10processingyA2CmF",
-            "mangledName": "$s5ZenID17VerificationStateO10processingyA2CmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "uploading",
-            "printedName": "uploading",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationStateO9uploadingyA2CmF",
-            "mangledName": "$s5ZenID17VerificationStateO9uploadingyA2CmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "investigating",
-            "printedName": "investigating",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationStateO13investigatingyA2CmF",
-            "mangledName": "$s5ZenID17VerificationStateO13investigatingyA2CmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "success",
-            "printedName": "success",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationStateO7successyA2CmF",
-            "mangledName": "$s5ZenID17VerificationStateO7successyA2CmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "error",
-            "printedName": "error",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationState.Type) -> (ZenID.VerificationError) -> ZenID.VerificationState",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(ZenID.VerificationError) -> ZenID.VerificationState",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationState",
-                        "printedName": "ZenID.VerificationState",
-                        "usr": "s:5ZenID17VerificationStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationStateO5erroryAcA0C5ErrorOcACmF",
-            "mangledName": "$s5ZenID17VerificationStateO5erroryAcA0C5ErrorOcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "==",
-            "printedName": "==(_:_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "VerificationState",
-                "printedName": "ZenID.VerificationState",
-                "usr": "s:5ZenID17VerificationStateO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "VerificationState",
-                "printedName": "ZenID.VerificationState",
-                "usr": "s:5ZenID17VerificationStateO"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID17VerificationStateO2eeoiySbAC_ACtFZ",
-            "mangledName": "$s5ZenID17VerificationStateO2eeoiySbAC_ACtFZ",
-            "moduleName": "ZenID",
-            "static": true,
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:5ZenID17VerificationStateO",
-        "mangledName": "$s5ZenID17VerificationStateO",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "VerificationError",
-        "printedName": "VerificationError",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "resultTimeout",
-            "printedName": "resultTimeout",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationError.Type) -> ZenID.VerificationError",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationError",
-                    "printedName": "ZenID.VerificationError",
-                    "usr": "s:5ZenID17VerificationErrorO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationErrorO13resultTimeoutyA2CmF",
-            "mangledName": "$s5ZenID17VerificationErrorO13resultTimeoutyA2CmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "verifierFailed",
-            "printedName": "verifierFailed",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String) -> ZenID.VerificationError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationErrorO14verifierFailedyACSScACmF",
-            "mangledName": "$s5ZenID17VerificationErrorO14verifierFailedyACSScACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "uploadFailed",
-            "printedName": "uploadFailed",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String) -> ZenID.VerificationError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationErrorO12uploadFailedyACSScACmF",
-            "mangledName": "$s5ZenID17VerificationErrorO12uploadFailedyACSScACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "investigationFailed",
-            "printedName": "investigationFailed",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String) -> ZenID.VerificationError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationErrorO19investigationFailedyACSScACmF",
-            "mangledName": "$s5ZenID17VerificationErrorO19investigationFailedyACSScACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "other",
-            "printedName": "other",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String) -> ZenID.VerificationError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.VerificationError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "VerificationError",
-                        "printedName": "ZenID.VerificationError",
-                        "usr": "s:5ZenID17VerificationErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID17VerificationErrorO5otheryACSScACmF",
-            "mangledName": "$s5ZenID17VerificationErrorO5otheryACSScACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "localizedDescription",
-            "printedName": "localizedDescription",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID17VerificationErrorO20localizedDescriptionSSvp",
-            "mangledName": "$s5ZenID17VerificationErrorO20localizedDescriptionSSvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID17VerificationErrorO20localizedDescriptionSSvg",
-                "mangledName": "$s5ZenID17VerificationErrorO20localizedDescriptionSSvg",
-                "moduleName": "ZenID",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "==",
-            "printedName": "==(_:_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "VerificationError",
-                "printedName": "ZenID.VerificationError",
-                "usr": "s:5ZenID17VerificationErrorO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "VerificationError",
-                "printedName": "ZenID.VerificationError",
-                "usr": "s:5ZenID17VerificationErrorO"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID17VerificationErrorO2eeoiySbAC_ACtFZ",
-            "mangledName": "$s5ZenID17VerificationErrorO2eeoiySbAC_ACtFZ",
-            "moduleName": "ZenID",
-            "static": true,
-            "implicit": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:5ZenID17VerificationErrorO",
-        "mangledName": "$s5ZenID17VerificationErrorO",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Error",
-            "printedName": "Error",
-            "usr": "s:s5ErrorP",
-            "mangledName": "$ss5ErrorP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "ZenIDSdkError",
-        "printedName": "ZenIDSdkError",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "verificationFailed",
-            "printedName": "verificationFailed",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "nfcAttemptsExceeded",
-            "printedName": "nfcAttemptsExceeded",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "nfcCancelled",
-            "printedName": "nfcCancelled",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "fatalError",
-            "printedName": "fatalError",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "title",
-            "printedName": "title",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvp",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvg",
-                "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvg",
-                "moduleName": "ZenID",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "message",
-            "printedName": "message",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvp",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvg",
-                "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvg",
-                "moduleName": "ZenID",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "==",
-            "printedName": "==(_:_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "ZenIDSdkError",
-                "printedName": "ZenID.ZenIDSdkError",
-                "usr": "s:5ZenID0A10IDSdkErrorO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "ZenIDSdkError",
-                "printedName": "ZenID.ZenIDSdkError",
-                "usr": "s:5ZenID0A10IDSdkErrorO"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
-            "moduleName": "ZenID",
-            "static": true,
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:5ZenID0A10IDSdkErrorO",
-        "mangledName": "$s5ZenID0A10IDSdkErrorO",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Error",
-            "printedName": "Error",
-            "usr": "s:s5ErrorP",
-            "mangledName": "$ss5ErrorP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Combine",
-        "printedName": "Combine",
-        "declKind": "Import",
-        "moduleName": "ZenID"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "DocumentViewModel",
-        "printedName": "DocumentViewModel",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(settings:visualiser:onNfcRequested:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DocumentViewModel",
-                "printedName": "ZenID.DocumentViewModel",
-                "usr": "s:5ZenID17DocumentViewModelC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "DocumentVerifierSettings",
-                "printedName": "ZenID.DocumentVerifierSettings",
-                "usr": "s:5ZenID24DocumentVerifierSettingsV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Visualiser",
-                "printedName": "ZenID.Visualiser",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID10VisualiserO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((ZenID.NfcKey) async throws -> ZenID.NfcData)?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(ZenID.NfcKey) async throws -> ZenID.NfcData",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NfcData",
-                        "printedName": "ZenID.NfcData",
-                        "usr": "s:5ZenID7NfcDataV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NfcKey",
-                        "printedName": "ZenID.NfcKey",
-                        "usr": "s:5ZenID6NfcKeyV"
-                      }
-                    ]
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID17DocumentViewModelC8settings10visualiser14onNfcRequestedAcA0C16VerifierSettingsV_AA10VisualiserOAA0I4DataVAA0I3KeyVYaKcSgtcfc",
-            "mangledName": "$s5ZenID17DocumentViewModelC8settings10visualiser14onNfcRequestedAcA0C16VerifierSettingsV_AA10VisualiserOAA0I4DataVAA0I3KeyVYaKcSgtcfc",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createVerifier",
-            "printedName": "createVerifier()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DocumentVerifier",
-                "printedName": "ZenID.DocumentVerifier",
-                "usr": "s:5ZenID16DocumentVerifierC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID17DocumentViewModelC14createVerifierAA0cG0CyKF",
-            "mangledName": "$s5ZenID17DocumentViewModelC14createVerifierAA0cG0CyKF",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "Override",
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DocumentViewModel",
-                "printedName": "ZenID.DocumentViewModel",
-                "usr": "s:5ZenID17DocumentViewModelC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID17DocumentViewModelCACycfc",
-            "mangledName": "$s5ZenID17DocumentViewModelCACycfc",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "implicit": true,
-            "declAttributes": [
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:5ZenID17DocumentViewModelC",
-        "mangledName": "$s5ZenID17DocumentViewModelC",
-        "moduleName": "ZenID",
-        "isOpen": true,
-        "declAttributes": [
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
-        "superclassNames": [
-          "ZenID.GenericVerifierViewModel<ZenID.DocumentVerifier>"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "SelfieViewModel",
-        "printedName": "SelfieViewModel",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(settings:visualiser:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "SelfieViewModel",
-                "printedName": "ZenID.SelfieViewModel",
-                "usr": "s:5ZenID15SelfieViewModelC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "SelfieVerifierSettings",
-                "printedName": "ZenID.SelfieVerifierSettings",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID22SelfieVerifierSettingsV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Visualiser",
-                "printedName": "ZenID.Visualiser",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID10VisualiserO"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID15SelfieViewModelC8settings10visualiserAcA0C16VerifierSettingsV_AA10VisualiserOtcfc",
-            "mangledName": "$s5ZenID15SelfieViewModelC8settings10visualiserAcA0C16VerifierSettingsV_AA10VisualiserOtcfc",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createVerifier",
-            "printedName": "createVerifier()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "SelfieVerifier",
-                "printedName": "ZenID.SelfieVerifier",
-                "usr": "s:5ZenID14SelfieVerifierC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID15SelfieViewModelC14createVerifierAA0cG0CyKF",
-            "mangledName": "$s5ZenID15SelfieViewModelC14createVerifierAA0cG0CyKF",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "Override",
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "SelfieViewModel",
-                "printedName": "ZenID.SelfieViewModel",
-                "usr": "s:5ZenID15SelfieViewModelC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID15SelfieViewModelCACycfc",
-            "mangledName": "$s5ZenID15SelfieViewModelCACycfc",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "implicit": true,
-            "declAttributes": [
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:5ZenID15SelfieViewModelC",
-        "mangledName": "$s5ZenID15SelfieViewModelC",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
-        "superclassNames": [
-          "ZenID.GenericVerifierViewModel<ZenID.SelfieVerifier>"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "FaceLivenessViewModel",
-        "printedName": "FaceLivenessViewModel",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(settings:visualiser:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "FaceLivenessViewModel",
-                "printedName": "ZenID.FaceLivenessViewModel",
-                "usr": "s:5ZenID21FaceLivenessViewModelC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "FaceLivenessVerifierSettings",
-                "printedName": "ZenID.FaceLivenessVerifierSettings",
-                "usr": "s:5ZenID28FaceLivenessVerifierSettingsV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Visualiser",
-                "printedName": "ZenID.Visualiser",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID10VisualiserO"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID21FaceLivenessViewModelC8settings10visualiserAcA0cD16VerifierSettingsV_AA10VisualiserOtcfc",
-            "mangledName": "$s5ZenID21FaceLivenessViewModelC8settings10visualiserAcA0cD16VerifierSettingsV_AA10VisualiserOtcfc",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createVerifier",
-            "printedName": "createVerifier()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "FaceLivenessVerifier",
-                "printedName": "ZenID.FaceLivenessVerifier",
-                "usr": "s:5ZenID20FaceLivenessVerifierC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID21FaceLivenessViewModelC14createVerifierAA0cdH0CyKF",
-            "mangledName": "$s5ZenID21FaceLivenessViewModelC14createVerifierAA0cdH0CyKF",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "Override",
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "FaceLivenessViewModel",
-                "printedName": "ZenID.FaceLivenessViewModel",
-                "usr": "s:5ZenID21FaceLivenessViewModelC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID21FaceLivenessViewModelCACycfc",
-            "mangledName": "$s5ZenID21FaceLivenessViewModelCACycfc",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "implicit": true,
-            "declAttributes": [
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:5ZenID21FaceLivenessViewModelC",
-        "mangledName": "$s5ZenID21FaceLivenessViewModelC",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
-        "superclassNames": [
-          "ZenID.GenericVerifierViewModel<ZenID.FaceLivenessVerifier>"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "HologramViewModel",
-        "printedName": "HologramViewModel",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(settings:visualiser:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "HologramViewModel",
-                "printedName": "ZenID.HologramViewModel",
-                "usr": "s:5ZenID17HologramViewModelC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "DocumentVerifierSettings",
-                "printedName": "ZenID.DocumentVerifierSettings",
-                "usr": "s:5ZenID24DocumentVerifierSettingsV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Visualiser",
-                "printedName": "ZenID.Visualiser",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID10VisualiserO"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID17HologramViewModelC8settings10visualiserAcA24DocumentVerifierSettingsV_AA10VisualiserOtcfc",
-            "mangledName": "$s5ZenID17HologramViewModelC8settings10visualiserAcA24DocumentVerifierSettingsV_AA10VisualiserOtcfc",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createVerifier",
-            "printedName": "createVerifier()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "HologramVerifier",
-                "printedName": "ZenID.HologramVerifier",
-                "usr": "s:5ZenID16HologramVerifierC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID17HologramViewModelC14createVerifierAA0cG0CyKF",
-            "mangledName": "$s5ZenID17HologramViewModelC14createVerifierAA0cG0CyKF",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "Override",
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "HologramViewModel",
-                "printedName": "ZenID.HologramViewModel",
-                "usr": "s:5ZenID17HologramViewModelC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID17HologramViewModelCACycfc",
-            "mangledName": "$s5ZenID17HologramViewModelCACycfc",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "implicit": true,
-            "declAttributes": [
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:5ZenID17HologramViewModelC",
-        "mangledName": "$s5ZenID17HologramViewModelC",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
-        "superclassNames": [
-          "ZenID.GenericVerifierViewModel<ZenID.HologramVerifier>"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "MSLivenessViewModel",
-        "printedName": "MSLivenessViewModel",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "coordinator",
-            "printedName": "coordinator",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "ZenID.MSLivenessCoordinator?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MSLivenessCoordinator",
-                    "printedName": "ZenID.MSLivenessCoordinator",
-                    "usr": "s:5ZenID21MSLivenessCoordinatorC"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvp",
-            "mangledName": "$s5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "ZenID.MSLivenessCoordinator?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MSLivenessCoordinator",
-                        "printedName": "ZenID.MSLivenessCoordinator",
-                        "usr": "s:5ZenID21MSLivenessCoordinatorC"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvg",
-                "mangledName": "$s5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvg",
-                "moduleName": "ZenID",
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(settings:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MSLivenessViewModel",
-                "printedName": "ZenID.MSLivenessViewModel",
-                "usr": "s:5ZenID19MSLivenessViewModelC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "MsLivenessVerifierSettings",
-                "printedName": "ZenID.MsLivenessVerifierSettings",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID26MsLivenessVerifierSettingsV"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID19MSLivenessViewModelC8settingsAcA26MsLivenessVerifierSettingsV_tcfc",
-            "mangledName": "$s5ZenID19MSLivenessViewModelC8settingsAcA26MsLivenessVerifierSettingsV_tcfc",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createVerifier",
-            "printedName": "createVerifier()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MSLivenessVerifier",
-                "printedName": "ZenID.MSLivenessVerifier",
-                "usr": "s:5ZenID18MSLivenessVerifierC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID19MSLivenessViewModelC14createVerifierAA0cG0CyKF",
-            "mangledName": "$s5ZenID19MSLivenessViewModelC14createVerifierAA0cG0CyKF",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "Override",
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "MSLivenessViewModel",
-                "printedName": "ZenID.MSLivenessViewModel",
-                "usr": "s:5ZenID19MSLivenessViewModelC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID19MSLivenessViewModelCACycfc",
-            "mangledName": "$s5ZenID19MSLivenessViewModelCACycfc",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "implicit": true,
-            "declAttributes": [
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:5ZenID19MSLivenessViewModelC",
-        "mangledName": "$s5ZenID19MSLivenessViewModelC",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
-        "superclassNames": [
-          "ZenID.GenericVerifierViewModel<ZenID.MSLivenessVerifier>"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "LicencePlateViewModel",
-        "printedName": "LicencePlateViewModel",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(settings:visualiser:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "LicencePlateViewModel",
-                "printedName": "ZenID.LicencePlateViewModel",
-                "usr": "s:5ZenID21LicencePlateViewModelC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "LicensePlateVerifierSettings",
-                "printedName": "ZenID.LicensePlateVerifierSettings",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID28LicensePlateVerifierSettingsV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Visualiser",
-                "printedName": "ZenID.Visualiser",
-                "hasDefaultArg": true,
-                "usr": "s:5ZenID10VisualiserO"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID21LicencePlateViewModelC8settings10visualiserAcA07LicenseD16VerifierSettingsV_AA10VisualiserOtcfc",
-            "mangledName": "$s5ZenID21LicencePlateViewModelC8settings10visualiserAcA07LicenseD16VerifierSettingsV_AA10VisualiserOtcfc",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createVerifier",
-            "printedName": "createVerifier()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "LicencePlateVerifier",
-                "printedName": "ZenID.LicencePlateVerifier",
-                "usr": "s:5ZenID20LicencePlateVerifierC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID21LicencePlateViewModelC14createVerifierAA0cdH0CyKF",
-            "mangledName": "$s5ZenID21LicencePlateViewModelC14createVerifierAA0cdH0CyKF",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "Override",
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "LicencePlateViewModel",
-                "printedName": "ZenID.LicencePlateViewModel",
-                "usr": "s:5ZenID21LicencePlateViewModelC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID21LicencePlateViewModelCACycfc",
-            "mangledName": "$s5ZenID21LicencePlateViewModelCACycfc",
-            "moduleName": "ZenID",
-            "overriding": true,
-            "implicit": true,
-            "declAttributes": [
-              "Custom",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:5ZenID21LicencePlateViewModelC",
-        "mangledName": "$s5ZenID21LicencePlateViewModelC",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
-        "superclassNames": [
-          "ZenID.GenericVerifierViewModel<ZenID.LicencePlateVerifier>"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
         "name": "VerifierResultHelper",
         "printedName": "VerifierResultHelper",
         "children": [
@@ -85521,6 +83324,2210 @@
             "printedName": "Copyable",
             "usr": "s:s8CopyableP",
             "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VerificationState",
+        "printedName": "VerificationState",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "setup",
+            "printedName": "setup",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationStateO5setupyA2CmF",
+            "mangledName": "$s5ZenID17VerificationStateO5setupyA2CmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "scanning",
+            "printedName": "scanning",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationStateO8scanningyA2CmF",
+            "mangledName": "$s5ZenID17VerificationStateO8scanningyA2CmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "processing",
+            "printedName": "processing",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationStateO10processingyA2CmF",
+            "mangledName": "$s5ZenID17VerificationStateO10processingyA2CmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "uploading",
+            "printedName": "uploading",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationStateO9uploadingyA2CmF",
+            "mangledName": "$s5ZenID17VerificationStateO9uploadingyA2CmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "investigating",
+            "printedName": "investigating",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationStateO13investigatingyA2CmF",
+            "mangledName": "$s5ZenID17VerificationStateO13investigatingyA2CmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "success",
+            "printedName": "success",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationState.Type) -> ZenID.VerificationState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationStateO7successyA2CmF",
+            "mangledName": "$s5ZenID17VerificationStateO7successyA2CmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "error",
+            "printedName": "error",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationState.Type) -> (ZenID.VerificationError) -> ZenID.VerificationState",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(ZenID.VerificationError) -> ZenID.VerificationState",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationState",
+                        "printedName": "ZenID.VerificationState",
+                        "usr": "s:5ZenID17VerificationStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationStateO5erroryAcA0C5ErrorOcACmF",
+            "mangledName": "$s5ZenID17VerificationStateO5erroryAcA0C5ErrorOcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VerificationState",
+                "printedName": "ZenID.VerificationState",
+                "usr": "s:5ZenID17VerificationStateO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VerificationState",
+                "printedName": "ZenID.VerificationState",
+                "usr": "s:5ZenID17VerificationStateO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID17VerificationStateO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s5ZenID17VerificationStateO2eeoiySbAC_ACtFZ",
+            "moduleName": "ZenID",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:5ZenID17VerificationStateO",
+        "mangledName": "$s5ZenID17VerificationStateO",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "VerificationError",
+        "printedName": "VerificationError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "resultTimeout",
+            "printedName": "resultTimeout",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationError.Type) -> ZenID.VerificationError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationError",
+                    "printedName": "ZenID.VerificationError",
+                    "usr": "s:5ZenID17VerificationErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationErrorO13resultTimeoutyA2CmF",
+            "mangledName": "$s5ZenID17VerificationErrorO13resultTimeoutyA2CmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "verifierFailed",
+            "printedName": "verifierFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ZenID.VerificationError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationErrorO14verifierFailedyACSScACmF",
+            "mangledName": "$s5ZenID17VerificationErrorO14verifierFailedyACSScACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "uploadFailed",
+            "printedName": "uploadFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ZenID.VerificationError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationErrorO12uploadFailedyACSScACmF",
+            "mangledName": "$s5ZenID17VerificationErrorO12uploadFailedyACSScACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "investigationFailed",
+            "printedName": "investigationFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ZenID.VerificationError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationErrorO19investigationFailedyACSScACmF",
+            "mangledName": "$s5ZenID17VerificationErrorO19investigationFailedyACSScACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "other",
+            "printedName": "other",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.VerificationError.Type) -> (Swift.String) -> ZenID.VerificationError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ZenID.VerificationError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.VerificationError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "VerificationError",
+                        "printedName": "ZenID.VerificationError",
+                        "usr": "s:5ZenID17VerificationErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID17VerificationErrorO5otheryACSScACmF",
+            "mangledName": "$s5ZenID17VerificationErrorO5otheryACSScACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "localizedDescription",
+            "printedName": "localizedDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID17VerificationErrorO20localizedDescriptionSSvp",
+            "mangledName": "$s5ZenID17VerificationErrorO20localizedDescriptionSSvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID17VerificationErrorO20localizedDescriptionSSvg",
+                "mangledName": "$s5ZenID17VerificationErrorO20localizedDescriptionSSvg",
+                "moduleName": "ZenID",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VerificationError",
+                "printedName": "ZenID.VerificationError",
+                "usr": "s:5ZenID17VerificationErrorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "VerificationError",
+                "printedName": "ZenID.VerificationError",
+                "usr": "s:5ZenID17VerificationErrorO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID17VerificationErrorO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s5ZenID17VerificationErrorO2eeoiySbAC_ACtFZ",
+            "moduleName": "ZenID",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:5ZenID17VerificationErrorO",
+        "mangledName": "$s5ZenID17VerificationErrorO",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZenIDSdkError",
+        "printedName": "ZenIDSdkError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "verificationFailed",
+            "printedName": "verificationFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nfcAttemptsExceeded",
+            "printedName": "nfcAttemptsExceeded",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nfcCancelled",
+            "printedName": "nfcCancelled",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "fatalError",
+            "printedName": "fatalError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "title",
+            "printedName": "title",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvp",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvg",
+                "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvg",
+                "moduleName": "ZenID",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "message",
+            "printedName": "message",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvp",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvg",
+                "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvg",
+                "moduleName": "ZenID",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ZenIDSdkError",
+                "printedName": "ZenID.ZenIDSdkError",
+                "usr": "s:5ZenID0A10IDSdkErrorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ZenIDSdkError",
+                "printedName": "ZenID.ZenIDSdkError",
+                "usr": "s:5ZenID0A10IDSdkErrorO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
+            "moduleName": "ZenID",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:5ZenID0A10IDSdkErrorO",
+        "mangledName": "$s5ZenID0A10IDSdkErrorO",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "ZenID"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DocumentViewModel",
+        "printedName": "DocumentViewModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(settings:visualiser:onNfcRequested:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DocumentViewModel",
+                "printedName": "ZenID.DocumentViewModel",
+                "usr": "s:5ZenID17DocumentViewModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DocumentVerifierSettings",
+                "printedName": "ZenID.DocumentVerifierSettings",
+                "usr": "s:5ZenID24DocumentVerifierSettingsV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Visualiser",
+                "printedName": "ZenID.Visualiser",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID10VisualiserO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((ZenID.NfcKey) async throws -> ZenID.NfcData)?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(ZenID.NfcKey) async throws -> ZenID.NfcData",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcData",
+                        "printedName": "ZenID.NfcData",
+                        "usr": "s:5ZenID7NfcDataV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NfcKey",
+                        "printedName": "ZenID.NfcKey",
+                        "usr": "s:5ZenID6NfcKeyV"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID17DocumentViewModelC8settings10visualiser14onNfcRequestedAcA0C16VerifierSettingsV_AA10VisualiserOAA0I4DataVAA0I3KeyVYaKcSgtcfc",
+            "mangledName": "$s5ZenID17DocumentViewModelC8settings10visualiser14onNfcRequestedAcA0C16VerifierSettingsV_AA10VisualiserOAA0I4DataVAA0I3KeyVYaKcSgtcfc",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createVerifier",
+            "printedName": "createVerifier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DocumentVerifier",
+                "printedName": "ZenID.DocumentVerifier",
+                "usr": "s:5ZenID16DocumentVerifierC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID17DocumentViewModelC14createVerifierAA0cG0CyKF",
+            "mangledName": "$s5ZenID17DocumentViewModelC14createVerifierAA0cG0CyKF",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DocumentViewModel",
+                "printedName": "ZenID.DocumentViewModel",
+                "usr": "s:5ZenID17DocumentViewModelC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID17DocumentViewModelCACycfc",
+            "mangledName": "$s5ZenID17DocumentViewModelCACycfc",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:5ZenID17DocumentViewModelC",
+        "mangledName": "$s5ZenID17DocumentViewModelC",
+        "moduleName": "ZenID",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
+        "superclassNames": [
+          "ZenID.GenericVerifierViewModel<ZenID.DocumentVerifier>"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SelfieViewModel",
+        "printedName": "SelfieViewModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(settings:visualiser:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SelfieViewModel",
+                "printedName": "ZenID.SelfieViewModel",
+                "usr": "s:5ZenID15SelfieViewModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SelfieVerifierSettings",
+                "printedName": "ZenID.SelfieVerifierSettings",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID22SelfieVerifierSettingsV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Visualiser",
+                "printedName": "ZenID.Visualiser",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID10VisualiserO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID15SelfieViewModelC8settings10visualiserAcA0C16VerifierSettingsV_AA10VisualiserOtcfc",
+            "mangledName": "$s5ZenID15SelfieViewModelC8settings10visualiserAcA0C16VerifierSettingsV_AA10VisualiserOtcfc",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createVerifier",
+            "printedName": "createVerifier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SelfieVerifier",
+                "printedName": "ZenID.SelfieVerifier",
+                "usr": "s:5ZenID14SelfieVerifierC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID15SelfieViewModelC14createVerifierAA0cG0CyKF",
+            "mangledName": "$s5ZenID15SelfieViewModelC14createVerifierAA0cG0CyKF",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SelfieViewModel",
+                "printedName": "ZenID.SelfieViewModel",
+                "usr": "s:5ZenID15SelfieViewModelC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID15SelfieViewModelCACycfc",
+            "mangledName": "$s5ZenID15SelfieViewModelCACycfc",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:5ZenID15SelfieViewModelC",
+        "mangledName": "$s5ZenID15SelfieViewModelC",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
+        "superclassNames": [
+          "ZenID.GenericVerifierViewModel<ZenID.SelfieVerifier>"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FaceLivenessViewModel",
+        "printedName": "FaceLivenessViewModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(settings:visualiser:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FaceLivenessViewModel",
+                "printedName": "ZenID.FaceLivenessViewModel",
+                "usr": "s:5ZenID21FaceLivenessViewModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FaceLivenessVerifierSettings",
+                "printedName": "ZenID.FaceLivenessVerifierSettings",
+                "usr": "s:5ZenID28FaceLivenessVerifierSettingsV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Visualiser",
+                "printedName": "ZenID.Visualiser",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID10VisualiserO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID21FaceLivenessViewModelC8settings10visualiserAcA0cD16VerifierSettingsV_AA10VisualiserOtcfc",
+            "mangledName": "$s5ZenID21FaceLivenessViewModelC8settings10visualiserAcA0cD16VerifierSettingsV_AA10VisualiserOtcfc",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createVerifier",
+            "printedName": "createVerifier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FaceLivenessVerifier",
+                "printedName": "ZenID.FaceLivenessVerifier",
+                "usr": "s:5ZenID20FaceLivenessVerifierC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID21FaceLivenessViewModelC14createVerifierAA0cdH0CyKF",
+            "mangledName": "$s5ZenID21FaceLivenessViewModelC14createVerifierAA0cdH0CyKF",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FaceLivenessViewModel",
+                "printedName": "ZenID.FaceLivenessViewModel",
+                "usr": "s:5ZenID21FaceLivenessViewModelC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID21FaceLivenessViewModelCACycfc",
+            "mangledName": "$s5ZenID21FaceLivenessViewModelCACycfc",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:5ZenID21FaceLivenessViewModelC",
+        "mangledName": "$s5ZenID21FaceLivenessViewModelC",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
+        "superclassNames": [
+          "ZenID.GenericVerifierViewModel<ZenID.FaceLivenessVerifier>"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "HologramViewModel",
+        "printedName": "HologramViewModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(settings:visualiser:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "HologramViewModel",
+                "printedName": "ZenID.HologramViewModel",
+                "usr": "s:5ZenID17HologramViewModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DocumentVerifierSettings",
+                "printedName": "ZenID.DocumentVerifierSettings",
+                "usr": "s:5ZenID24DocumentVerifierSettingsV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Visualiser",
+                "printedName": "ZenID.Visualiser",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID10VisualiserO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID17HologramViewModelC8settings10visualiserAcA24DocumentVerifierSettingsV_AA10VisualiserOtcfc",
+            "mangledName": "$s5ZenID17HologramViewModelC8settings10visualiserAcA24DocumentVerifierSettingsV_AA10VisualiserOtcfc",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createVerifier",
+            "printedName": "createVerifier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "HologramVerifier",
+                "printedName": "ZenID.HologramVerifier",
+                "usr": "s:5ZenID16HologramVerifierC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID17HologramViewModelC14createVerifierAA0cG0CyKF",
+            "mangledName": "$s5ZenID17HologramViewModelC14createVerifierAA0cG0CyKF",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "HologramViewModel",
+                "printedName": "ZenID.HologramViewModel",
+                "usr": "s:5ZenID17HologramViewModelC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID17HologramViewModelCACycfc",
+            "mangledName": "$s5ZenID17HologramViewModelCACycfc",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:5ZenID17HologramViewModelC",
+        "mangledName": "$s5ZenID17HologramViewModelC",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
+        "superclassNames": [
+          "ZenID.GenericVerifierViewModel<ZenID.HologramVerifier>"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSLivenessViewModel",
+        "printedName": "MSLivenessViewModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "coordinator",
+            "printedName": "coordinator",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZenID.MSLivenessCoordinator?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MSLivenessCoordinator",
+                    "printedName": "ZenID.MSLivenessCoordinator",
+                    "usr": "s:5ZenID21MSLivenessCoordinatorC"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvp",
+            "mangledName": "$s5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "ZenID.MSLivenessCoordinator?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MSLivenessCoordinator",
+                        "printedName": "ZenID.MSLivenessCoordinator",
+                        "usr": "s:5ZenID21MSLivenessCoordinatorC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvg",
+                "mangledName": "$s5ZenID19MSLivenessViewModelC11coordinatorAA0C11CoordinatorCSgvg",
+                "moduleName": "ZenID",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(settings:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSLivenessViewModel",
+                "printedName": "ZenID.MSLivenessViewModel",
+                "usr": "s:5ZenID19MSLivenessViewModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MsLivenessVerifierSettings",
+                "printedName": "ZenID.MsLivenessVerifierSettings",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID26MsLivenessVerifierSettingsV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID19MSLivenessViewModelC8settingsAcA26MsLivenessVerifierSettingsV_tcfc",
+            "mangledName": "$s5ZenID19MSLivenessViewModelC8settingsAcA26MsLivenessVerifierSettingsV_tcfc",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createVerifier",
+            "printedName": "createVerifier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSLivenessVerifier",
+                "printedName": "ZenID.MSLivenessVerifier",
+                "usr": "s:5ZenID18MSLivenessVerifierC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID19MSLivenessViewModelC14createVerifierAA0cG0CyKF",
+            "mangledName": "$s5ZenID19MSLivenessViewModelC14createVerifierAA0cG0CyKF",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSLivenessViewModel",
+                "printedName": "ZenID.MSLivenessViewModel",
+                "usr": "s:5ZenID19MSLivenessViewModelC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID19MSLivenessViewModelCACycfc",
+            "mangledName": "$s5ZenID19MSLivenessViewModelCACycfc",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:5ZenID19MSLivenessViewModelC",
+        "mangledName": "$s5ZenID19MSLivenessViewModelC",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
+        "superclassNames": [
+          "ZenID.GenericVerifierViewModel<ZenID.MSLivenessVerifier>"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LicencePlateViewModel",
+        "printedName": "LicencePlateViewModel",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(settings:visualiser:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LicencePlateViewModel",
+                "printedName": "ZenID.LicencePlateViewModel",
+                "usr": "s:5ZenID21LicencePlateViewModelC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LicensePlateVerifierSettings",
+                "printedName": "ZenID.LicensePlateVerifierSettings",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID28LicensePlateVerifierSettingsV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Visualiser",
+                "printedName": "ZenID.Visualiser",
+                "hasDefaultArg": true,
+                "usr": "s:5ZenID10VisualiserO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID21LicencePlateViewModelC8settings10visualiserAcA07LicenseD16VerifierSettingsV_AA10VisualiserOtcfc",
+            "mangledName": "$s5ZenID21LicencePlateViewModelC8settings10visualiserAcA07LicenseD16VerifierSettingsV_AA10VisualiserOtcfc",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createVerifier",
+            "printedName": "createVerifier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LicencePlateVerifier",
+                "printedName": "ZenID.LicencePlateVerifier",
+                "usr": "s:5ZenID20LicencePlateVerifierC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID21LicencePlateViewModelC14createVerifierAA0cdH0CyKF",
+            "mangledName": "$s5ZenID21LicencePlateViewModelC14createVerifierAA0cdH0CyKF",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "declAttributes": [
+              "Final",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LicencePlateViewModel",
+                "printedName": "ZenID.LicencePlateViewModel",
+                "usr": "s:5ZenID21LicencePlateViewModelC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID21LicencePlateViewModelCACycfc",
+            "mangledName": "$s5ZenID21LicencePlateViewModelCACycfc",
+            "moduleName": "ZenID",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Custom",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:5ZenID21LicencePlateViewModelC",
+        "mangledName": "$s5ZenID21LicencePlateViewModelC",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
+        "superclassNames": [
+          "ZenID.GenericVerifierViewModel<ZenID.LicencePlateVerifier>"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       },

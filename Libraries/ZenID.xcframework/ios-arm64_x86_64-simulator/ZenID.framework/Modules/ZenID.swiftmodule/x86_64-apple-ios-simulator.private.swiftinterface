@@ -2219,17 +2219,6 @@ final public class ZenIDBackendApiImpl : ZenID.ZenIDBackendApi, @unchecked Swift
   final public func getProfiles() async throws -> Foundation.Data
   @objc deinit
 }
-@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
-  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
-  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
-  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
-  @_Concurrency.MainActor func start() throws
-  @_Concurrency.MainActor func stop()
-  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
-  @_Concurrency.MainActor func unload()
-}
-extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
-}
 public enum VerificationState : Swift.Equatable {
   case setup
   case scanning
@@ -2348,6 +2337,17 @@ public struct VerifierResultHelper {
   @_Concurrency.MainActor open func investigateSamples(sampleIds: [Swift.String])
   @objc deinit
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+}
+@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
+  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
+  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
+  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
+  @_Concurrency.MainActor func start() throws
+  @_Concurrency.MainActor func stop()
+  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
+  @_Concurrency.MainActor func unload()
+}
+extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
 }
 extension ZenID.MSLivenessCoordinator : Swift.Sendable {}
 extension ZenID.ZenIDManager : Swift.Sendable {}
