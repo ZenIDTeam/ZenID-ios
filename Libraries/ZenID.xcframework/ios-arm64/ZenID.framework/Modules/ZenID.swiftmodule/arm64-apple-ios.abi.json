@@ -3387,14 +3387,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Func",
-                "usr": "s:5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSyFZ",
-                "mangledName": "$s5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSyFZ",
+                "usr": "s:5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSSgyFZ",
+                "mangledName": "$s5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSSgyFZ",
                 "moduleName": "ZenID",
                 "static": true,
                 "declAttributes": [
@@ -22555,6 +22563,64 @@
           },
           {
             "kind": "Var",
+            "name": "supportedPageCount",
+            "printedName": "supportedPageCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID42GeneralDocumentStateContainerForPublicDataP18supportedPageCountSiSgvp",
+            "mangledName": "$s5ZenID42GeneralDocumentStateContainerForPublicDataP18supportedPageCountSiSgvp",
+            "moduleName": "ZenID",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID42GeneralDocumentStateContainerForPublicDataP18supportedPageCountSiSgvg",
+                "mangledName": "$s5ZenID42GeneralDocumentStateContainerForPublicDataP18supportedPageCountSiSgvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.GeneralDocumentStateContainerForPublicData>",
+                "sugared_genericSig": "<Self where Self : ZenID.GeneralDocumentStateContainerForPublicData>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "expectedOutline",
             "printedName": "expectedOutline",
             "children": [
@@ -23387,6 +23453,117 @@
           },
           {
             "kind": "Var",
+            "name": "supportedPageCount",
+            "printedName": "supportedPageCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvp",
+            "mangledName": "$s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvg",
+                "mangledName": "$s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvg",
+                "moduleName": "ZenID",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvs",
+                "mangledName": "$s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvs",
+                "moduleName": "ZenID",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvM",
+                "mangledName": "$s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvM",
+                "moduleName": "ZenID",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "expectedOutline",
             "printedName": "expectedOutline",
             "children": [
@@ -23585,7 +23762,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(state:giveMeWhat:feedback:documentCode:pageCode:role:country:expectedOutline:giveMePhotoResolution:)",
+            "printedName": "init(state:giveMeWhat:feedback:documentCode:pageCode:role:country:supportedPageCount:expectedOutline:giveMePhotoResolution:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -23673,6 +23850,21 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Array",
                 "printedName": "[ZenID.ZenidPointF]",
                 "children": [
@@ -23694,8 +23886,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfc",
-            "mangledName": "$s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfc",
+            "usr": "s:5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country18supportedPageCount15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonZ8FeedbackOAA13DocumentCodesOSgAA0T5CodesOSgAA12DocumentRoleOSgAA7CountryOSgSiSgSayAA11ZenidPointFVGSitcfc",
+            "mangledName": "$s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country18supportedPageCount15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonZ8FeedbackOAA13DocumentCodesOSgAA0T5CodesOSgAA12DocumentRoleOSgAA7CountryOSgSiSgSayAA11ZenidPointFVGSitcfc",
             "moduleName": "ZenID",
             "declAttributes": [
               "AccessControl"
@@ -26042,6 +26234,117 @@
           },
           {
             "kind": "Var",
+            "name": "supportedPageCount",
+            "printedName": "supportedPageCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvp",
+            "mangledName": "$s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvg",
+                "mangledName": "$s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvg",
+                "moduleName": "ZenID",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvs",
+                "mangledName": "$s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvs",
+                "moduleName": "ZenID",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvM",
+                "mangledName": "$s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvM",
+                "moduleName": "ZenID",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "expectedOutline",
             "printedName": "expectedOutline",
             "children": [
@@ -26759,7 +27062,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(state:giveMeWhat:feedback:documentCode:pageCode:role:country:expectedOutline:giveMePhotoResolution:secondsToMaxTolerance:nfcKey:numberOfReadingAttempts:skipNfcAllowed:validatorsData:nfcPreviewImage:)",
+            "printedName": "init(state:giveMeWhat:feedback:documentCode:pageCode:role:country:supportedPageCount:expectedOutline:giveMePhotoResolution:secondsToMaxTolerance:nfcKey:numberOfReadingAttempts:skipNfcAllowed:validatorsData:nfcPreviewImage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -26847,6 +27150,21 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Array",
                 "printedName": "[ZenID.ZenidPointF]",
                 "children": [
@@ -26907,8 +27225,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:5ZenID43DocumentVerifierStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageP04role7country15expectedOutline0kL15PhotoResolution21secondsToMaxTolerance6nfcKey23numberOfReadingAttempts14skipNfcAllowed010validatorsI015nfcPreviewImageAcA0dE0O_AA15SdkResponseTypeOAA06CommonD8FeedbackOAA0C5CodesOSgAA9PageCodesOSgAA0C4RoleOSgAA7CountryOSgSayAA11ZenidPointFVGSiSfAA6NfcKeyVSiSbAA25FrontendValidationResultsV10Foundation0I0Vtcfc",
-            "mangledName": "$s5ZenID43DocumentVerifierStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageP04role7country15expectedOutline0kL15PhotoResolution21secondsToMaxTolerance6nfcKey23numberOfReadingAttempts14skipNfcAllowed010validatorsI015nfcPreviewImageAcA0dE0O_AA15SdkResponseTypeOAA06CommonD8FeedbackOAA0C5CodesOSgAA9PageCodesOSgAA0C4RoleOSgAA7CountryOSgSayAA11ZenidPointFVGSiSfAA6NfcKeyVSiSbAA25FrontendValidationResultsV10Foundation0I0Vtcfc",
+            "usr": "s:5ZenID43DocumentVerifierStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageP04role7country18supportedPageCount15expectedOutline0kL15PhotoResolution21secondsToMaxTolerance6nfcKey23numberOfReadingAttempts14skipNfcAllowed010validatorsI015nfcPreviewImageAcA0dE0O_AA15SdkResponseTypeOAA06CommonD8FeedbackOAA0C5CodesOSgAA0U5CodesOSgAA0C4RoleOSgAA7CountryOSgSiSgSayAA11ZenidPointFVGSiSfAA6NfcKeyVSiSbAA25FrontendValidationResultsV10Foundation0I0Vtcfc",
+            "mangledName": "$s5ZenID43DocumentVerifierStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageP04role7country18supportedPageCount15expectedOutline0kL15PhotoResolution21secondsToMaxTolerance6nfcKey23numberOfReadingAttempts14skipNfcAllowed010validatorsI015nfcPreviewImageAcA0dE0O_AA15SdkResponseTypeOAA06CommonD8FeedbackOAA0C5CodesOSgAA0U5CodesOSgAA0C4RoleOSgAA7CountryOSgSiSgSayAA11ZenidPointFVGSiSfAA6NfcKeyVSiSbAA25FrontendValidationResultsV10Foundation0I0Vtcfc",
             "moduleName": "ZenID",
             "declAttributes": [
               "AccessControl"
@@ -31826,8 +32144,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:5ZenID12BaseVerifierC7restartyyF",
-            "mangledName": "$s5ZenID12BaseVerifierC7restartyyF",
+            "usr": "s:5ZenID12BaseVerifierC7restartyyKF",
+            "mangledName": "$s5ZenID12BaseVerifierC7restartyyKF",
             "moduleName": "ZenID",
             "genericSig": "<τ_0_0 where τ_0_0 : Swift.Sendable, τ_0_0 : ZenID.VerifierStateContainer>",
             "sugared_genericSig": "<Container where Container : Swift.Sendable, Container : ZenID.VerifierStateContainer>",
@@ -31836,6 +32154,7 @@
               "AccessControl",
               "RawDocComment"
             ],
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -81638,1191 +81957,6 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "VerifierResultHelper",
-        "printedName": "VerifierResultHelper",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "waitForResult",
-            "printedName": "waitForResult(from:onReady:onTimeout:maxAttempts:pollingInterval:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "() -> ZenID.UploadReadyData?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "ZenID.UploadReadyData?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UploadReadyData",
-                        "printedName": "ZenID.UploadReadyData",
-                        "usr": "s:5ZenID15UploadReadyDataV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.UploadReadyData) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UploadReadyData",
-                    "printedName": "ZenID.UploadReadyData",
-                    "usr": "s:5ZenID15UploadReadyDataV"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "() -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "hasDefaultArg": true,
-                "usr": "s:Si"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UInt64",
-                "printedName": "Swift.UInt64",
-                "hasDefaultArg": true,
-                "usr": "s:s6UInt64V"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID20VerifierResultHelperV07waitForD04from7onReady0I7Timeout11maxAttempts15pollingIntervalyAA06UploadJ4DataVSgyc_yAKcyycSis6UInt64VtFZ",
-            "mangledName": "$s5ZenID20VerifierResultHelperV07waitForD04from7onReady0I7Timeout11maxAttempts15pollingIntervalyAA06UploadJ4DataVSgyc_yAKcyycSis6UInt64VtFZ",
-            "moduleName": "ZenID",
-            "static": true,
-            "declAttributes": [
-              "AccessControl",
-              "Custom",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Struct",
-        "usr": "s:5ZenID20VerifierResultHelperV",
-        "mangledName": "$s5ZenID20VerifierResultHelperV",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Combine",
-        "printedName": "Combine",
-        "declKind": "Import",
-        "moduleName": "ZenID"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "GenericVerifierViewModel",
-        "printedName": "GenericVerifierViewModel",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "state",
-            "printedName": "state",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "VerificationState",
-                "printedName": "ZenID.VerificationState",
-                "usr": "s:5ZenID17VerificationStateO"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "ProjectedValueProperty",
-              "AccessControl",
-              "Custom",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "VerificationState",
-                    "printedName": "ZenID.VerificationState",
-                    "usr": "s:5ZenID17VerificationStateO"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvs",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvs",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "10.15",
-                "intro_iOS": "13.0",
-                "intro_tvOS": "13.0",
-                "intro_watchOS": "6.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvM",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvM",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "10.15",
-                "intro_iOS": "13.0",
-                "intro_tvOS": "13.0",
-                "intro_watchOS": "6.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "$state",
-            "printedName": "$state",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Publisher",
-                "printedName": "Combine.Published<ZenID.VerificationState>.Publisher",
-                "usr": "s:7Combine9PublishedV9PublisherV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvp",
-            "moduleName": "ZenID",
-            "implicit": true,
-            "declAttributes": [
-              "Custom"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Publisher",
-                    "printedName": "Combine.Published<ZenID.VerificationState>.Publisher",
-                    "usr": "s:7Combine9PublishedV9PublisherV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Publisher",
-                    "printedName": "Combine.Published<ZenID.VerificationState>.Publisher",
-                    "usr": "s:7Combine9PublishedV9PublisherV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvs",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvs",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "11.0",
-                "intro_iOS": "14.0",
-                "intro_tvOS": "14.0",
-                "intro_watchOS": "7.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_GvM",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_GvM",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "11.0",
-                "intro_iOS": "14.0",
-                "intro_tvOS": "14.0",
-                "intro_watchOS": "7.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "verifier",
-            "printedName": "verifier",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "τ_0_0?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC8verifierxSgvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC8verifierxSgvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "HasInitialValue",
-              "Custom",
-              "HasStorage",
-              "SetterAccess",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "τ_0_0?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "GenericTypeParam",
-                        "printedName": "τ_0_0"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC8verifierxSgvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC8verifierxSgvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "result",
-            "printedName": "result",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "ZenID.UploadReadyData?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "UploadReadyData",
-                    "printedName": "ZenID.UploadReadyData",
-                    "usr": "s:5ZenID15UploadReadyDataV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "HasInitialValue",
-              "Custom",
-              "HasStorage",
-              "SetterAccess",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "ZenID.UploadReadyData?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UploadReadyData",
-                        "printedName": "ZenID.UploadReadyData",
-                        "usr": "s:5ZenID15UploadReadyDataV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "uploadedSampleID",
-            "printedName": "uploadedSampleID",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "ProjectedValueProperty",
-              "SetterAccess",
-              "AccessControl",
-              "Custom",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "$uploadedSampleID",
-            "printedName": "$uploadedSampleID",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Publisher",
-                "printedName": "Combine.Published<Swift.Optional<Swift.String>>.Publisher",
-                "usr": "s:7Combine9PublishedV9PublisherV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvp",
-            "moduleName": "ZenID",
-            "implicit": true,
-            "declAttributes": [
-              "Custom"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Publisher",
-                    "printedName": "Combine.Published<Swift.Optional<Swift.String>>.Publisher",
-                    "usr": "s:7Combine9PublishedV9PublisherV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "investigationResponseData",
-            "printedName": "investigationResponseData",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.Data?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Data",
-                    "printedName": "Foundation.Data",
-                    "usr": "s:10Foundation4DataV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "Custom",
-              "ProjectedValueProperty",
-              "AccessControl",
-              "Custom",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.Data?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Data",
-                        "printedName": "Foundation.Data",
-                        "usr": "s:10Foundation4DataV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Foundation.Data?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Data",
-                        "printedName": "Foundation.Data",
-                        "usr": "s:10Foundation4DataV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvs",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvs",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "10.15",
-                "intro_iOS": "13.0",
-                "intro_tvOS": "13.0",
-                "intro_watchOS": "6.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvM",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvM",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "10.15",
-                "intro_iOS": "13.0",
-                "intro_tvOS": "13.0",
-                "intro_watchOS": "6.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "$investigationResponseData",
-            "printedName": "$investigationResponseData",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Publisher",
-                "printedName": "Combine.Published<Swift.Optional<Foundation.Data>>.Publisher",
-                "usr": "s:7Combine9PublishedV9PublisherV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvp",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvp",
-            "moduleName": "ZenID",
-            "implicit": true,
-            "declAttributes": [
-              "Custom"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Publisher",
-                    "printedName": "Combine.Published<Swift.Optional<Foundation.Data>>.Publisher",
-                    "usr": "s:7Combine9PublishedV9PublisherV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvg",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvg",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Publisher",
-                    "printedName": "Combine.Published<Swift.Optional<Foundation.Data>>.Publisher",
-                    "usr": "s:7Combine9PublishedV9PublisherV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvs",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvs",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "11.0",
-                "intro_iOS": "14.0",
-                "intro_tvOS": "14.0",
-                "intro_watchOS": "7.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_GvM",
-                "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_GvM",
-                "moduleName": "ZenID",
-                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-                "implicit": true,
-                "intro_Macosx": "11.0",
-                "intro_iOS": "14.0",
-                "intro_tvOS": "14.0",
-                "intro_watchOS": "7.0",
-                "declAttributes": [
-                  "Available",
-                  "Available",
-                  "Available",
-                  "Available"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericVerifierViewModel",
-                "printedName": "ZenID.GenericVerifierViewModel<τ_0_0>",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ],
-                "usr": "s:5ZenID24GenericVerifierViewModelC"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:5ZenID24GenericVerifierViewModelCACyxGycfc",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelCACyxGycfc",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createVerifier",
-            "printedName": "createVerifier()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "GenericTypeParam",
-                "printedName": "τ_0_0"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC06createD0xyKF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC06createD0xyKF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "start",
-            "printedName": "start(with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIZenIDView",
-                "printedName": "ZenID.UIZenIDView",
-                "usr": "c:@M@ZenID@objc(cs)UIZenIDView"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC5start4withyAA11UIZenIDViewC_tF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC5start4withyAA11UIZenIDViewC_tF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "stop",
-            "printedName": "stop()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC4stopyyF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC4stopyyF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "cleanup",
-            "printedName": "cleanup()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC7cleanupyyF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC7cleanupyyF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "setupVerifierCallbacks",
-            "printedName": "setupVerifierCallbacks()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC05setupD9CallbacksyyF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC05setupD9CallbacksyyF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "processResultWhenReady",
-            "printedName": "processResultWhenReady()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC22processResultWhenReadyyyF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC22processResultWhenReadyyyF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "uploadData",
-            "printedName": "uploadData(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Data",
-                "printedName": "Foundation.Data",
-                "usr": "s:10Foundation4DataV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC10uploadDatayy10Foundation0H0VF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC10uploadDatayy10Foundation0H0VF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "investigateSamples",
-            "printedName": "investigateSamples(sampleIds:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[Swift.String]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sa"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID24GenericVerifierViewModelC18investigateSamples9sampleIdsySaySSG_tF",
-            "mangledName": "$s5ZenID24GenericVerifierViewModelC18investigateSamples9sampleIdsySaySSG_tF",
-            "moduleName": "ZenID",
-            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:5ZenID24GenericVerifierViewModelC",
-        "mangledName": "$s5ZenID24GenericVerifierViewModelC",
-        "moduleName": "ZenID",
-        "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
-        "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
-        "isOpen": true,
-        "declAttributes": [
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "ObservableObject",
-            "printedName": "ObservableObject",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "ObjectWillChangePublisher",
-                "printedName": "ObjectWillChangePublisher",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ObservableObjectPublisher",
-                    "printedName": "Combine.ObservableObjectPublisher",
-                    "usr": "s:7Combine25ObservableObjectPublisherC"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:7Combine16ObservableObjectP",
-            "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
         "name": "VerifierProtocol",
         "printedName": "VerifierProtocol",
         "children": [
@@ -84090,449 +83224,6 @@
         ]
       },
       {
-        "kind": "TypeDecl",
-        "name": "ZenIDSdkError",
-        "printedName": "ZenIDSdkError",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "verificationFailed",
-            "printedName": "verificationFailed",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "nfcAttemptsExceeded",
-            "printedName": "nfcAttemptsExceeded",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "nfcCancelled",
-            "printedName": "nfcCancelled",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "fatalError",
-            "printedName": "fatalError",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(title: Swift.String, message: Swift.String)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "ZenID.ZenIDSdkError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ZenIDSdkError",
-                        "printedName": "ZenID.ZenIDSdkError",
-                        "usr": "s:5ZenID0A10IDSdkErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "title",
-            "printedName": "title",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvp",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvg",
-                "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvg",
-                "moduleName": "ZenID",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "message",
-            "printedName": "message",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvp",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvp",
-            "moduleName": "ZenID",
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvg",
-                "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvg",
-                "moduleName": "ZenID",
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "==",
-            "printedName": "==(_:_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "ZenIDSdkError",
-                "printedName": "ZenID.ZenIDSdkError",
-                "usr": "s:5ZenID0A10IDSdkErrorO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "ZenIDSdkError",
-                "printedName": "ZenID.ZenIDSdkError",
-                "usr": "s:5ZenID0A10IDSdkErrorO"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
-            "mangledName": "$s5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
-            "moduleName": "ZenID",
-            "static": true,
-            "declAttributes": [
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:5ZenID0A10IDSdkErrorO",
-        "mangledName": "$s5ZenID0A10IDSdkErrorO",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Error",
-            "printedName": "Error",
-            "usr": "s:s5ErrorP",
-            "mangledName": "$ss5ErrorP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZenID",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
         "kind": "Import",
         "name": "Combine",
         "printedName": "Combine",
@@ -84708,13 +83399,6 @@
             ],
             "usr": "s:7Combine16ObservableObjectP",
             "mangledName": "$s7Combine16ObservableObjectP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -85484,6 +84168,1501 @@
         "superclassUsr": "s:5ZenID24GenericVerifierViewModelC",
         "superclassNames": [
           "ZenID.GenericVerifierViewModel<ZenID.LicencePlateVerifier>"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ObservableObject",
+            "printedName": "ObservableObject",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ObjectWillChangePublisher",
+                "printedName": "ObjectWillChangePublisher",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ObservableObjectPublisher",
+                    "printedName": "Combine.ObservableObjectPublisher",
+                    "usr": "s:7Combine25ObservableObjectPublisherC"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:7Combine16ObservableObjectP",
+            "mangledName": "$s7Combine16ObservableObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ZenIDSdkError",
+        "printedName": "ZenIDSdkError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "verificationFailed",
+            "printedName": "verificationFailed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO18verificationFailedyACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nfcAttemptsExceeded",
+            "printedName": "nfcAttemptsExceeded",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO19nfcAttemptsExceededyACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nfcCancelled",
+            "printedName": "nfcCancelled",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO12nfcCancelledyACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "fatalError",
+            "printedName": "fatalError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZenID.ZenIDSdkError.Type) -> (Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String, Swift.String) -> ZenID.ZenIDSdkError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(title: Swift.String, message: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZenID.ZenIDSdkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ZenIDSdkError",
+                        "printedName": "ZenID.ZenIDSdkError",
+                        "usr": "s:5ZenID0A10IDSdkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO05fatalD0yACSS_SStcACmF",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "title",
+            "printedName": "title",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvp",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID0A10IDSdkErrorO5titleSSvg",
+                "mangledName": "$s5ZenID0A10IDSdkErrorO5titleSSvg",
+                "moduleName": "ZenID",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "message",
+            "printedName": "message",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvp",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID0A10IDSdkErrorO7messageSSvg",
+                "mangledName": "$s5ZenID0A10IDSdkErrorO7messageSSvg",
+                "moduleName": "ZenID",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ZenIDSdkError",
+                "printedName": "ZenID.ZenIDSdkError",
+                "usr": "s:5ZenID0A10IDSdkErrorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ZenIDSdkError",
+                "printedName": "ZenID.ZenIDSdkError",
+                "usr": "s:5ZenID0A10IDSdkErrorO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s5ZenID0A10IDSdkErrorO2eeoiySbAC_ACtFZ",
+            "moduleName": "ZenID",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:5ZenID0A10IDSdkErrorO",
+        "mangledName": "$s5ZenID0A10IDSdkErrorO",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZenID",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "ZenID"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GenericVerifierViewModel",
+        "printedName": "GenericVerifierViewModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "state",
+            "printedName": "state",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VerificationState",
+                "printedName": "ZenID.VerificationState",
+                "usr": "s:5ZenID17VerificationStateO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "ProjectedValueProperty",
+              "AccessControl",
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VerificationState",
+                    "printedName": "ZenID.VerificationState",
+                    "usr": "s:5ZenID17VerificationStateO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvs",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvs",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvM",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC5stateAA17VerificationStateOvM",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "$state",
+            "printedName": "$state",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<ZenID.VerificationState>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvp",
+            "moduleName": "ZenID",
+            "implicit": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<ZenID.VerificationState>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<ZenID.VerificationState>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvs",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_Gvs",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_GvM",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC6$state7Combine9PublishedV9PublisherVyAA17VerificationStateO_GvM",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "verifier",
+            "printedName": "verifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC8verifierxSgvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC8verifierxSgvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "HasInitialValue",
+              "Custom",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "τ_0_0?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "GenericTypeParam",
+                        "printedName": "τ_0_0"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC8verifierxSgvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC8verifierxSgvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "result",
+            "printedName": "result",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "ZenID.UploadReadyData?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UploadReadyData",
+                    "printedName": "ZenID.UploadReadyData",
+                    "usr": "s:5ZenID15UploadReadyDataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "HasInitialValue",
+              "Custom",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "ZenID.UploadReadyData?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UploadReadyData",
+                        "printedName": "ZenID.UploadReadyData",
+                        "usr": "s:5ZenID15UploadReadyDataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC6resultAA15UploadReadyDataVSgvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "uploadedSampleID",
+            "printedName": "uploadedSampleID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "ProjectedValueProperty",
+              "SetterAccess",
+              "AccessControl",
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC014uploadedSampleB0SSSgvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "$uploadedSampleID",
+            "printedName": "$uploadedSampleID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<Swift.Optional<Swift.String>>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvp",
+            "moduleName": "ZenID",
+            "implicit": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<Swift.Optional<Swift.String>>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC015$uploadedSampleB07Combine9PublishedV9PublisherVySSSg_Gvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "investigationResponseData",
+            "printedName": "investigationResponseData",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvp",
+            "moduleName": "ZenID",
+            "declAttributes": [
+              "Custom",
+              "ProjectedValueProperty",
+              "AccessControl",
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvs",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvs",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvM",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC25investigationResponseData10Foundation0I0VSgvM",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "10.15",
+                "intro_iOS": "13.0",
+                "intro_tvOS": "13.0",
+                "intro_watchOS": "6.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "$investigationResponseData",
+            "printedName": "$investigationResponseData",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Publisher",
+                "printedName": "Combine.Published<Swift.Optional<Foundation.Data>>.Publisher",
+                "usr": "s:7Combine9PublishedV9PublisherV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvp",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvp",
+            "moduleName": "ZenID",
+            "implicit": true,
+            "declAttributes": [
+              "Custom"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<Swift.Optional<Foundation.Data>>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvg",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvg",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Publisher",
+                    "printedName": "Combine.Published<Swift.Optional<Foundation.Data>>.Publisher",
+                    "usr": "s:7Combine9PublishedV9PublisherV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvs",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_Gvs",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_GvM",
+                "mangledName": "$s5ZenID24GenericVerifierViewModelC26$investigationResponseData7Combine9PublishedV9PublisherVy10Foundation0I0VSg_GvM",
+                "moduleName": "ZenID",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+                "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+                "implicit": true,
+                "intro_Macosx": "11.0",
+                "intro_iOS": "14.0",
+                "intro_tvOS": "14.0",
+                "intro_watchOS": "7.0",
+                "declAttributes": [
+                  "Available",
+                  "Available",
+                  "Available",
+                  "Available"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericVerifierViewModel",
+                "printedName": "ZenID.GenericVerifierViewModel<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:5ZenID24GenericVerifierViewModelC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5ZenID24GenericVerifierViewModelCACyxGycfc",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelCACyxGycfc",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "createVerifier",
+            "printedName": "createVerifier()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC06createD0xyKF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC06createD0xyKF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "start",
+            "printedName": "start(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIZenIDView",
+                "printedName": "ZenID.UIZenIDView",
+                "usr": "c:@M@ZenID@objc(cs)UIZenIDView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC5start4withyAA11UIZenIDViewC_tF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC5start4withyAA11UIZenIDViewC_tF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stop",
+            "printedName": "stop()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC4stopyyF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC4stopyyF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanup",
+            "printedName": "cleanup()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC7cleanupyyF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC7cleanupyyF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setupVerifierCallbacks",
+            "printedName": "setupVerifierCallbacks()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC05setupD9CallbacksyyF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC05setupD9CallbacksyyF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "processResult",
+            "printedName": "processResult(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UploadReadyData",
+                "printedName": "ZenID.UploadReadyData",
+                "usr": "s:5ZenID15UploadReadyDataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC13processResultyyAA15UploadReadyDataVF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC13processResultyyAA15UploadReadyDataVF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "uploadData",
+            "printedName": "uploadData(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC10uploadDatayy10Foundation0H0VF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC10uploadDatayy10Foundation0H0VF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "investigateSamples",
+            "printedName": "investigateSamples(sampleIds:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5ZenID24GenericVerifierViewModelC18investigateSamples9sampleIdsySaySSG_tF",
+            "mangledName": "$s5ZenID24GenericVerifierViewModelC18investigateSamples9sampleIdsySaySSG_tF",
+            "moduleName": "ZenID",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+            "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:5ZenID24GenericVerifierViewModelC",
+        "mangledName": "$s5ZenID24GenericVerifierViewModelC",
+        "moduleName": "ZenID",
+        "genericSig": "<τ_0_0 where τ_0_0 : ZenID.VerifierProtocol>",
+        "sugared_genericSig": "<V where V : ZenID.VerifierProtocol>",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
         ],
         "conformances": [
           {
@@ -86406,42 +86585,42 @@
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ZenIDManager.swift",
       "kind": "StringLiteral",
-      "offset": 35522,
+      "offset": 34711,
       "length": 11,
       "value": "\"Documents\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ZenIDManager.swift",
       "kind": "StringLiteral",
-      "offset": 35559,
+      "offset": 34748,
       "length": 11,
       "value": "\"Verifiers\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ZenIDManager.swift",
       "kind": "StringLiteral",
-      "offset": 35859,
+      "offset": 35048,
       "length": 9,
       "value": "\"Country\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ZenIDManager.swift",
       "kind": "StringLiteral",
-      "offset": 35889,
+      "offset": 35078,
       "length": 14,
       "value": "\"DocumentCode\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ZenIDManager.swift",
       "kind": "StringLiteral",
-      "offset": 35924,
+      "offset": 35113,
       "length": 14,
       "value": "\"DocumentRole\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ZenIDManager.swift",
       "kind": "StringLiteral",
-      "offset": 35959,
+      "offset": 35148,
       "length": 10,
       "value": "\"PageCode\""
     },
@@ -90914,686 +91093,700 @@
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 29846,
+      "offset": 30045,
       "length": 4,
       "value": "1920"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 30130,
+      "offset": 30361,
       "length": 4,
       "value": "1920"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30548,
+      "offset": 30832,
       "length": 7,
       "value": "\"State\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30582,
+      "offset": 30866,
       "length": 12,
       "value": "\"GiveMeWhat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30619,
+      "offset": 30903,
       "length": 10,
       "value": "\"Feedback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30658,
+      "offset": 30942,
       "length": 14,
       "value": "\"DocumentCode\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30697,
+      "offset": 30981,
       "length": 10,
       "value": "\"PageCode\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30728,
+      "offset": 31012,
       "length": 6,
       "value": "\"Role\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30758,
+      "offset": 31042,
       "length": 9,
       "value": "\"Country\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30799,
+      "offset": 31086,
+      "length": 20,
+      "value": "\"SupportedPageCount\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
+      "kind": "StringLiteral",
+      "offset": 31138,
       "length": 17,
       "value": "\"ExpectedOutline\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 30854,
+      "offset": 31193,
       "length": 23,
       "value": "\"GiveMePhotoResolution\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 31217,
+      "offset": 31556,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 31351,
+      "offset": 31690,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 31428,
+      "offset": 31767,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 31455,
+      "offset": 31794,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 31677,
+      "offset": 32016,
       "length": 9,
       "value": "\"Outline\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 31707,
+      "offset": 32046,
       "length": 6,
       "value": "\"Text\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 31740,
+      "offset": 32079,
       "length": 12,
       "value": "\"Confidence\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 31783,
+      "offset": 32122,
       "length": 16,
       "value": "\"WpodConfidence\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 32789,
+      "offset": 33128,
       "length": 7,
       "value": "\"State\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 32823,
+      "offset": 33162,
       "length": 12,
       "value": "\"GiveMeWhat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 32860,
+      "offset": 33199,
       "length": 10,
       "value": "\"Feedback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 32899,
+      "offset": 33238,
       "length": 14,
       "value": "\"LicensePlate\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 33351,
+      "offset": 33690,
       "length": 11,
       "value": "\"BirthDate\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 33393,
+      "offset": 33732,
       "length": 16,
       "value": "\"DocumentNumber\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 33436,
+      "offset": 33775,
       "length": 12,
       "value": "\"ExpiryDate\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 34599,
+      "offset": 35096,
       "length": 4,
       "value": "1920"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 34717,
+      "offset": 35214,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 34947,
+      "offset": 35444,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 35044,
+      "offset": 35541,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 35535,
+      "offset": 36064,
       "length": 4,
       "value": "1920"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 35572,
+      "offset": 36101,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 35622,
+      "offset": 36151,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 35648,
+      "offset": 36177,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36421,
+      "offset": 37003,
       "length": 7,
       "value": "\"State\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36455,
+      "offset": 37037,
       "length": 12,
       "value": "\"GiveMeWhat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36492,
+      "offset": 37074,
       "length": 10,
       "value": "\"Feedback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36531,
+      "offset": 37113,
       "length": 14,
       "value": "\"DocumentCode\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36570,
+      "offset": 37152,
       "length": 10,
       "value": "\"PageCode\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36601,
+      "offset": 37183,
       "length": 6,
       "value": "\"Role\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36631,
+      "offset": 37213,
       "length": 9,
       "value": "\"Country\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36672,
+      "offset": 37257,
+      "length": 20,
+      "value": "\"SupportedPageCount\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
+      "kind": "StringLiteral",
+      "offset": 37309,
       "length": 17,
       "value": "\"ExpectedOutline\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36727,
+      "offset": 37364,
       "length": 23,
       "value": "\"GiveMePhotoResolution\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36788,
+      "offset": 37425,
       "length": 23,
       "value": "\"SecondsToMaxTolerance\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36834,
+      "offset": 37471,
       "length": 8,
       "value": "\"NfcKey\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36882,
+      "offset": 37519,
       "length": 25,
       "value": "\"NumberOfReadingAttempts\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36938,
+      "offset": 37575,
       "length": 16,
       "value": "\"SkipNfcAllowed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 36985,
+      "offset": 37622,
       "length": 16,
       "value": "\"ValidatorsData\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 37033,
+      "offset": 37670,
       "length": 17,
       "value": "\"NfcPreviewImage\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 38059,
+      "offset": 38696,
       "length": 7,
       "value": "\"State\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 38093,
+      "offset": 38730,
       "length": 12,
       "value": "\"GiveMeWhat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 38130,
+      "offset": 38767,
       "length": 10,
       "value": "\"Feedback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 38171,
+      "offset": 38808,
       "length": 16,
       "value": "\"StepParameters\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 39173,
+      "offset": 39810,
       "length": 7,
       "value": "\"State\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 39207,
+      "offset": 39844,
       "length": 12,
       "value": "\"GiveMeWhat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 39244,
+      "offset": 39881,
       "length": 10,
       "value": "\"Feedback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 39285,
+      "offset": 39922,
       "length": 16,
       "value": "\"StepParameters\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 40454,
+      "offset": 41091,
       "length": 7,
       "value": "\"State\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 40488,
+      "offset": 41125,
       "length": 12,
       "value": "\"GiveMeWhat\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 40525,
+      "offset": 41162,
       "length": 10,
       "value": "\"Feedback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 40568,
+      "offset": 41205,
       "length": 18,
       "value": "\"MsLivenessApiKey\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 40621,
+      "offset": 41258,
       "length": 20,
       "value": "\"MsLivenessEndpoint\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40720,
+      "offset": 41357,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40748,
+      "offset": 41385,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40778,
+      "offset": 41415,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40809,
+      "offset": 41446,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40840,
+      "offset": 41477,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40854,
+      "offset": 41491,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40870,
+      "offset": 41507,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "IntegerLiteral",
-      "offset": 40887,
+      "offset": 41524,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 41072,
+      "offset": 41709,
       "length": 6,
       "value": "\"Left\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 41098,
+      "offset": 41735,
       "length": 5,
       "value": "\"Top\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 41125,
+      "offset": 41762,
       "length": 7,
       "value": "\"Right\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 41155,
+      "offset": 41792,
       "length": 8,
       "value": "\"Bottom\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 41645,
+      "offset": 42282,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 41763,
+      "offset": 42400,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 41810,
+      "offset": 42447,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 41844,
+      "offset": 42481,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 42042,
+      "offset": 42679,
       "length": 18,
       "value": "\"EnableLegacyMode\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 42095,
+      "offset": 42732,
       "length": 20,
       "value": "\"ShowSmileAnimation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 42502,
+      "offset": 43139,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 42645,
+      "offset": 43282,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 42716,
+      "offset": 43353,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 42958,
+      "offset": 43595,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 42983,
+      "offset": 43620,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 43010,
+      "offset": 43647,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 43363,
+      "offset": 44000,
       "length": 18,
       "value": "\"ViewportHeightCm\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 43416,
+      "offset": 44053,
       "length": 20,
       "value": "\"EnableAimingCircle\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 43462,
+      "offset": 44099,
       "length": 11,
       "value": "\"ShowTimer\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 43501,
+      "offset": 44138,
       "length": 13,
       "value": "\"DrawOutline\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 43546,
+      "offset": 44183,
       "length": 17,
       "value": "\"AcceptableInput\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 43746,
+      "offset": 44383,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 43821,
+      "offset": 44458,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 44040,
+      "offset": 44677,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "BooleanLiteral",
-      "offset": 44067,
+      "offset": 44704,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 44338,
+      "offset": 44975,
       "length": 20,
       "value": "\"EnableAimingCircle\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 44386,
+      "offset": 45023,
       "length": 13,
       "value": "\"DrawOutline\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Generated\/ZenidTypes.generated.swift",
       "kind": "StringLiteral",
-      "offset": 44431,
+      "offset": 45068,
       "length": 17,
       "value": "\"AcceptableInput\""
     },
@@ -91607,133 +91800,147 @@
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 1995,
+      "offset": 2703,
       "length": 26,
       "value": "\"Is running: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 2020,
+      "offset": 2728,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 1935,
+      "offset": 2643,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 2362,
+      "offset": 3070,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 14650,
+      "offset": 14808,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "IntegerLiteral",
-      "offset": 15727,
+      "offset": 15961,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "IntegerLiteral",
-      "offset": 15729,
+      "offset": 15963,
       "length": 2,
       "value": "30"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 15742,
+      "offset": 15976,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 16062,
+      "offset": 16296,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 16150,
+      "offset": 16384,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 16212,
+      "offset": 16446,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "IntegerLiteral",
-      "offset": 16773,
+      "offset": 17007,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "IntegerLiteral",
-      "offset": 16794,
+      "offset": 17028,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 16849,
+      "offset": 17083,
       "length": 65,
       "value": "\"Viewport size is not suitable: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 16892,
+      "offset": 17126,
       "length": 1,
       "value": "\", skipping processing\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "IntegerLiteral",
-      "offset": 17072,
+      "offset": 17306,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "IntegerLiteral",
-      "offset": 17094,
+      "offset": 17328,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 17149,
+      "offset": 17383,
       "length": 46,
       "value": "\"Buffer content is empty, skipping processing\""
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 19040,
+      "offset": 18514,
+      "length": 30,
+      "value": "\"processFrame error: \""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
+      "kind": "StringLiteral",
+      "offset": 18543,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/BaseVerifier.swift",
+      "kind": "StringLiteral",
+      "offset": 19474,
       "length": 2,
       "value": "\"\""
     },
@@ -97378,20 +97585,6 @@
       "offset": 1548,
       "length": 3,
       "value": "600"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ViewModels\/VerifierResultHelper.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1059,
-      "length": 3,
-      "value": "100"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ViewModels\/VerifierResultHelper.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1098,
-      "length": 11,
-      "value": "100000000"
     },
     {
       "filePath": "\/Users\/runner\/work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/ViewModels\/GenericVerifierViewModel.swift",

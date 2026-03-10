@@ -58,13 +58,13 @@ class InvestigatingViewModel<V: VerifierProtocol>: GenericVerifierViewModel<V> {
                 if let response = self.investigationResponse {
                     self.scanningState = .done(response)
                 } else {
-                    self.scanningState = .error
+                    self.scanningState = .error()
                 }
-            case .error:
+            case .error(let verificationError):
                 OSLogger.app.error("InvestigatingViewModel: Setting scanningState to .error")
-                self.scanningState = .error
+                self.scanningState = .error(verificationError.localizedDescription)
             @unknown default:
-                self.scanningState = .error
+                self.scanningState = .error()
             }
             OSLogger.app.debug("InvestigatingViewModel: scanningState is now: \(String(describing: self.scanningState))")
         }.store(in: &cancellables)

@@ -50,5 +50,5 @@ enum ScanningState: Equatable {
     case uploading
     case investigating
     case done(_ investigateResponse: InvestigateSamplesResponse)
-    case error
+    case error(String? = nil)
 }

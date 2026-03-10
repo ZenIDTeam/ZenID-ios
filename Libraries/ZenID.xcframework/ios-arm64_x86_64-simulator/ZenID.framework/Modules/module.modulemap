@@ -8,12 +8,14 @@
 
 framework module ZenID {
     umbrella header "ZenID.h"
-    
+
     module LibZenidC {
         header "RecogLibCBridging.h"
         export *
     }
-    
+
+    exclude header "ZenID-Swift.h"
+
     export *
     module * { export * }
 }

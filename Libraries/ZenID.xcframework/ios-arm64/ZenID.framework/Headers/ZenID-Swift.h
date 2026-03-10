@@ -4584,6 +4584,32 @@ SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+// Stub struct to be used to pass/return values to/from Swift functions.
+struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint8_t_8_9 {
+  uint64_t _1;
+  uint8_t _2;
+};
+
+static SWIFT_C_INLINE_THUNK void swift_interop_returnDirect_ZenID_uint64_t_0_8_uint8_t_8_9(char * _Nonnull result, struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint8_t_8_9 value) {
+  memcpy(result + 0, &value._1, 8);
+  memcpy(result + 8, &value._2, 1);
+}
+
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint8_t_8_9 $s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+// Stub struct to be used to pass/return values to/from Swift functions.
+struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 {
+  uint64_t _1;
+  uint8_t _2;
+};
+
+static SWIFT_C_INLINE_THUNK struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 swift_interop_passDirect_ZenID_uint64_t_0_8_uint8_t_8_9(const char * _Nonnull value) {
+  struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 result;
+  memcpy(&result._1, value + 0, 8);
+  memcpy(&result._2, value + 8, 1);
+  return result;
+}
+
+SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvs(struct swift_interop_passStub_ZenID_void_ptr_0_8 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN ptrdiff_t $s5ZenID43DocumentVerifierStateContainerForPublicDataV21giveMePhotoResolutionSivg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
@@ -4651,11 +4677,13 @@ SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV4roleAA12Documen
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint8_t_8_9 $s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvs(struct swift_interop_passStub_ZenID_void_ptr_0_8 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN ptrdiff_t $s5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivs(ptrdiff_t value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
-SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, const void * _Nonnull state, const void * _Nonnull giveMeWhat, const void * _Nonnull feedback, const void * _Nonnull documentCode, const void * _Nonnull pageCode, const void * _Nonnull role, const void * _Nonnull country, struct swift_interop_passStub_ZenID_void_ptr_0_8 expectedOutline, ptrdiff_t giveMePhotoResolution) SWIFT_NOEXCEPT SWIFT_CALL; // init(state:giveMeWhat:feedback:documentCode:pageCode:role:country:expectedOutline:giveMePhotoResolution:)
+SWIFT_EXTERN void $s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country18supportedPageCount15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonZ8FeedbackOAA13DocumentCodesOSgAA0T5CodesOSgAA12DocumentRoleOSgAA7CountryOSgSiSgSayAA11ZenidPointFVGSitcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, const void * _Nonnull state, const void * _Nonnull giveMeWhat, const void * _Nonnull feedback, const void * _Nonnull documentCode, const void * _Nonnull pageCode, const void * _Nonnull role, const void * _Nonnull country, struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 supportedPageCount, struct swift_interop_passStub_ZenID_void_ptr_0_8 expectedOutline, ptrdiff_t giveMePhotoResolution) SWIFT_NOEXCEPT SWIFT_CALL; // init(state:giveMeWhat:feedback:documentCode:pageCode:role:country:supportedPageCount:expectedOutline:giveMePhotoResolution:)
 SWIFT_EXTERN bool $s5ZenID27IQSHologramVerifierSettingsV18enableAimingCircleSbvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID27IQSHologramVerifierSettingsV18enableAimingCircleSbvs(bool value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN bool $s5ZenID27IQSHologramVerifierSettingsV11drawOutlineSbvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
@@ -4720,31 +4748,7 @@ SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s
 SWIFT_EXTERN void $s5ZenID7MrzDataV3sexSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID7MrzDataV11birthNumberSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID7MrzDataV11birthNumberSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
-// Stub struct to be used to pass/return values to/from Swift functions.
-struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint8_t_8_9 {
-  uint64_t _1;
-  uint8_t _2;
-};
-
-static SWIFT_C_INLINE_THUNK void swift_interop_returnDirect_ZenID_uint64_t_0_8_uint8_t_8_9(char * _Nonnull result, struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint8_t_8_9 value) {
-  memcpy(result + 0, &value._1, 8);
-  memcpy(result + 8, &value._2, 1);
-}
-
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint8_t_8_9 $s5ZenID7MrzDataV19birthNumberChecksumSiSgvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
-// Stub struct to be used to pass/return values to/from Swift functions.
-struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 {
-  uint64_t _1;
-  uint8_t _2;
-};
-
-static SWIFT_C_INLINE_THUNK struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 swift_interop_passDirect_ZenID_uint64_t_0_8_uint8_t_8_9(const char * _Nonnull value) {
-  struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 result;
-  memcpy(&result._1, value + 0, 8);
-  memcpy(&result._2, value + 8, 1);
-  return result;
-}
-
 SWIFT_EXTERN void $s5ZenID7MrzDataV19birthNumberChecksumSiSgvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_uint8_t_8_9 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 // Stub struct to be used to pass/return values to/from Swift functions.
 struct swift_interop_returnStub_ZenID_uint8_t_0_1 {
@@ -4818,11 +4822,6 @@ SWIFT_EXTERN void $s5ZenID37MsLivenessStateContainerForPublicDataV02msD6ApiKeySS
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID37MsLivenessStateContainerForPublicDataV02msD8EndpointSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID37MsLivenessStateContainerForPublicDataV02msD8EndpointSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID37MsLivenessStateContainerForPublicDataV5state10giveMeWhat8feedback02msD6ApiKey0oD8EndpointAcA08VerifierE0O_AA15SdkResponseTypeOAA06CommonS8FeedbackOS2StcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, const void * _Nonnull state, const void * _Nonnull giveMeWhat, const void * _Nonnull feedback, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 msLivenessApiKey, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 msLivenessEndpoint) SWIFT_NOEXCEPT SWIFT_CALL; // init(state:giveMeWhat:feedback:msLivenessApiKey:msLivenessEndpoint:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESDecrypt(key:message:iv:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message) SWIFT_NOEXCEPT SWIFT_CALL; // AESECBEncrypt(key:message:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESEncrypt(key:message:iv:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESDecrypt(key:message:iv:options:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESEncrypt(key:message:iv:options:)
 SWIFT_EXTERN void $s5ZenID26MsLivenessVerifierSettingsVACycfC(SWIFT_INDIRECT_RESULT void * _Nonnull) SWIFT_NOEXCEPT SWIFT_CALL; // init()
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID16NFCDocumentModelC12documentTypeSSvg(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID16NFCDocumentModelC12documentTypeSSvgTj(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // dispatch thunk for _
@@ -5172,7 +5171,7 @@ SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID13VerifierStateO11stringValueSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID13VerifierStateO8rawValueACSgSi_tcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, ptrdiff_t rawValue) SWIFT_NOEXCEPT SWIFT_CALL; // init(rawValue:)
 SWIFT_EXTERN ptrdiff_t $s5ZenID13VerifierStateO8rawValueSivg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSyFZ(void) SWIFT_NOEXCEPT SWIFT_CALL; // getChallengeToken()
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint64_t_8_16 $s5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSSgyFZ(void) SWIFT_NOEXCEPT SWIFT_CALL; // getChallengeToken()
 SWIFT_EXTERN bool $s5ZenID0A5IDAPIV8SecurityV12isAuthorizedSbyFZ(void) SWIFT_NOEXCEPT SWIFT_CALL; // isAuthorized()
 SWIFT_EXTERN bool $s5ZenID0A5IDAPIV8SecurityV13selectProfileySbSSFZ(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 profile) SWIFT_NOEXCEPT SWIFT_CALL; // selectProfile(_:)
 SWIFT_EXTERN bool $s5ZenID0A5IDAPIV8SecurityV9authorizeySbSSFZ(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 token) SWIFT_NOEXCEPT SWIFT_CALL; // authorize(_:)
@@ -5192,6 +5191,11 @@ SWIFT_EXTERN void $s5ZenID11ZenidPointFV1xSfvs(float value, SWIFT_CONTEXT void *
 SWIFT_EXTERN float $s5ZenID11ZenidPointFV1ySfvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID11ZenidPointFV1ySfvs(float value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID11ZenidPointFV1x1yACSf_SftcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, float x, float y) SWIFT_NOEXCEPT SWIFT_CALL; // init(x:y:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESDecrypt(key:message:iv:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message) SWIFT_NOEXCEPT SWIFT_CALL; // AESECBEncrypt(key:message:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESEncrypt(key:message:iv:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESDecrypt(key:message:iv:options:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESEncrypt(key:message:iv:options:)
 SWIFT_EXTERN ptrdiff_t $s5ZenID8binToHexySis5UInt8VF(uint8_t val) SWIFT_NOEXCEPT SWIFT_CALL; // binToHex(_:)
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID11binToHexRep_7asArraySSSays5UInt8VG_SbtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 val, bool asArray) SWIFT_NOEXCEPT SWIFT_CALL; // binToHexRep(_:asArray:)
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID11binToHexRepySSs5UInt8VF(uint8_t val) SWIFT_NOEXCEPT SWIFT_CALL; // binToHexRep(_:)
@@ -14582,6 +14586,8 @@ public:
   SWIFT_INLINE_THUNK void setRole(const swift::Optional<DocumentRole>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV4roleAA0C4RoleOSgvp");
   SWIFT_INLINE_THUNK swift::Optional<Country> getCountry() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvp");
   SWIFT_INLINE_THUNK void setCountry(const swift::Optional<Country>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvp");
+  SWIFT_INLINE_THUNK swift::Optional<swift::Int> getSupportedPageCount() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvp");
+  SWIFT_INLINE_THUNK void setSupportedPageCount(const swift::Optional<swift::Int>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvp");
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> getExpectedOutline() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK void setExpectedOutline(const swift::Array<ZenidPointF>& value) SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK swift::Int getGiveMePhotoResolution() const SWIFT_SYMBOL("s:5ZenID43DocumentVerifierStateContainerForPublicDataV21giveMePhotoResolutionSivp");
@@ -18046,11 +18052,13 @@ public:
   SWIFT_INLINE_THUNK void setRole(const swift::Optional<DocumentRole>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV4roleAA12DocumentRoleOSgvp");
   SWIFT_INLINE_THUNK swift::Optional<Country> getCountry() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvp");
   SWIFT_INLINE_THUNK void setCountry(const swift::Optional<Country>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvp");
+  SWIFT_INLINE_THUNK swift::Optional<swift::Int> getSupportedPageCount() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvp");
+  SWIFT_INLINE_THUNK void setSupportedPageCount(const swift::Optional<swift::Int>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvp");
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> getExpectedOutline() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK void setExpectedOutline(const swift::Array<ZenidPointF>& value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvp");
   SWIFT_INLINE_THUNK swift::Int getGiveMePhotoResolution() const SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivp");
   SWIFT_INLINE_THUNK void setGiveMePhotoResolution(swift::Int value) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivp");
-  static SWIFT_INLINE_THUNK HologramStateContainerForPublicData init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Optional<DocumentRole>& role, const swift::Optional<Country>& country, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfc");
+  static SWIFT_INLINE_THUNK HologramStateContainerForPublicData init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Optional<DocumentRole>& role, const swift::Optional<Country>& country, const swift::Optional<swift::Int>& supportedPageCount, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) SWIFT_SYMBOL("s:5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country18supportedPageCount15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonZ8FeedbackOAA13DocumentCodesOSgAA0T5CodesOSgAA12DocumentRoleOSgAA7CountryOSgSiSgSayAA11ZenidPointFVGSitcfc");
 private:
   SWIFT_INLINE_THUNK HologramStateContainerForPublicData(swift::_impl::ValueWitnessTable * _Nonnull vwTable) noexcept : _storage(vwTable->size, vwTable->getAlignment()) {}
   static SWIFT_INLINE_THUNK HologramStateContainerForPublicData _make() noexcept {
@@ -19689,75 +19697,6 @@ struct implClassFor<ZenID::MsLivenessStateContainerForPublicData> { using type =
 } // namespace swift
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
-
-/// Decrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
-/// \param key Key use to decrypt
-///
-/// \param message Message to decrypt
-///
-/// \param iv Initialisation vector
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> AESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
-  });
-}
-
-/// Decrypts a message using AES/ECB/NOPADDING with a specified key and initialisation vector
-/// \param key Key use to decrypt
-///
-/// \param message Message to decrypt
-///
-/// \param iv Initialisation vector
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> AESECBEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message) noexcept SWIFT_SYMBOL("s:5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message))));
-  });
-}
-
-/// Encrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
-/// \param key Key use to encrypt
-///
-/// \param message Message to encrypt
-///
-/// \param iv Initialisation vector
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> AESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
-  });
-}
-
-/// Decrypts a message using DES with a specified key and initialisation vector
-/// \param key Key use to decrypt
-///
-/// \param message Message to decrypt
-///
-/// \param iv Initialisation vector
-///
-/// \param options Decryption options to use
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> DESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
-  });
-}
-
-/// Encrypts a message using DES with a specified key and initialisation vector
-/// \param key Key use to encrypt
-///
-/// \param message Message to encrypt
-///
-/// \param iv Initialisation vector
-///
-/// \param options Encryption options to use
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> DESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
-  });
-}
 
 class SWIFT_SYMBOL("s:5ZenID26MsLivenessVerifierSettingsV") MsLivenessVerifierSettings;
 } // end namespace 
@@ -26535,145 +26474,6 @@ struct implClassFor<ZenID::VerificationState> { using type = ZenID::_impl::_impl
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
 
-class SWIFT_SYMBOL("s:5ZenID20VerifierResultHelperV") VerifierResultHelper;
-} // end namespace 
-
-namespace swift SWIFT_PRIVATE_ATTR {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-template<>
-inline const constexpr bool isUsableInGenericContext<ZenID::VerifierResultHelper> = true;
-#pragma clang diagnostic pop
-} // namespace swift
-
-namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
-namespace _impl {
-
-class _impl_VerifierResultHelper;
-
-// Type metadata accessor for VerifierResultHelper
-SWIFT_EXTERN swift::_impl::MetadataResponseTy $s5ZenID20VerifierResultHelperVMa(swift::_impl::MetadataRequestTy) SWIFT_NOEXCEPT SWIFT_CALL;
-
-
-} // namespace _impl
-
-class SWIFT_SYMBOL("s:5ZenID20VerifierResultHelperV") VerifierResultHelper final {
-public:
-  SWIFT_INLINE_THUNK ~VerifierResultHelper() noexcept {
-    auto metadata = _impl::$s5ZenID20VerifierResultHelperVMa(0);
-    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
-#ifdef __arm64e__
-    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
-#else
-    auto *vwTable = *vwTableAddr;
-#endif
-    vwTable->destroy(_getOpaquePointer(), metadata._0);
-  }
-  SWIFT_INLINE_THUNK VerifierResultHelper(const VerifierResultHelper &other) noexcept {
-    auto metadata = _impl::$s5ZenID20VerifierResultHelperVMa(0);
-    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
-#ifdef __arm64e__
-    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
-#else
-    auto *vwTable = *vwTableAddr;
-#endif
-    _storage = swift::_impl::OpaqueStorage(vwTable->size, vwTable->getAlignment());
-    vwTable->initializeWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
-  }
-  SWIFT_INLINE_THUNK VerifierResultHelper &operator =(const VerifierResultHelper &other) noexcept {
-    auto metadata = _impl::$s5ZenID20VerifierResultHelperVMa(0);
-    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
-#ifdef __arm64e__
-    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
-#else
-    auto *vwTable = *vwTableAddr;
-#endif
-    vwTable->assignWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
-  return *this;
-  }
-  SWIFT_INLINE_THUNK VerifierResultHelper &operator =(VerifierResultHelper &&other) = delete;
-  [[noreturn]] SWIFT_INLINE_PRIVATE_HELPER VerifierResultHelper(VerifierResultHelper &&) noexcept {
-  swift::_impl::_fatalError_Cxx_move_of_Swift_value_type_not_supported_yet();
-  swift::_impl::_swift_stdlib_reportFatalError("swift", 5, "C++ does not support moving a Swift value yet", 45, 0);
-  abort();
-  }
-private:
-  SWIFT_INLINE_THUNK VerifierResultHelper(swift::_impl::ValueWitnessTable * _Nonnull vwTable) noexcept : _storage(vwTable->size, vwTable->getAlignment()) {}
-  static SWIFT_INLINE_THUNK VerifierResultHelper _make() noexcept {
-    auto metadata = _impl::$s5ZenID20VerifierResultHelperVMa(0);
-    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
-#ifdef __arm64e__
-    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
-#else
-    auto *vwTable = *vwTableAddr;
-#endif
-    return VerifierResultHelper(vwTable);
-  }
-  SWIFT_INLINE_THUNK const char * _Nonnull _getOpaquePointer() const noexcept { return _storage.getOpaquePointer(); }
-  SWIFT_INLINE_THUNK char * _Nonnull _getOpaquePointer() noexcept { return _storage.getOpaquePointer(); }
-
-  swift::_impl::OpaqueStorage _storage;
-  friend class _impl::_impl_VerifierResultHelper;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wreserved-identifier"
-  typedef char $s5ZenID20VerifierResultHelperVD;
-  static inline constexpr $s5ZenID20VerifierResultHelperVD __swift_mangled_name = 0;
-#pragma clang diagnostic pop
-#pragma clang diagnostic pop
-};
-
-namespace _impl {
-
-class _impl_VerifierResultHelper {
-public:
-  static SWIFT_INLINE_THUNK char * _Nonnull getOpaquePointer(VerifierResultHelper &object) { return object._getOpaquePointer(); }
-  static SWIFT_INLINE_THUNK const char * _Nonnull getOpaquePointer(const VerifierResultHelper &object) { return object._getOpaquePointer(); }
-  template<class T>
-  static SWIFT_INLINE_PRIVATE_HELPER VerifierResultHelper returnNewValue(T callable) {
-    auto result = VerifierResultHelper::_make();
-    callable(result._getOpaquePointer());
-    return result;
-  }
-  static SWIFT_INLINE_THUNK void initializeWithTake(char * _Nonnull destStorage, char * _Nonnull srcStorage) {
-    auto metadata = _impl::$s5ZenID20VerifierResultHelperVMa(0);
-    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
-#ifdef __arm64e__
-    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
-#else
-    auto *vwTable = *vwTableAddr;
-#endif
-    vwTable->initializeWithTake(destStorage, srcStorage, metadata._0);
-  }
-};
-
-} // namespace _impl
-
-} // end namespace 
-
-namespace swift SWIFT_PRIVATE_ATTR {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-template<>
-struct TypeMetadataTrait<ZenID::VerifierResultHelper> {
-  static SWIFT_INLINE_PRIVATE_HELPER void * _Nonnull getTypeMetadata() {
-    return ZenID::_impl::$s5ZenID20VerifierResultHelperVMa(0)._0;
-  }
-};
-namespace _impl{
-template<>
-inline const constexpr bool isValueType<ZenID::VerifierResultHelper> = true;
-template<>
-inline const constexpr bool isOpaqueLayout<ZenID::VerifierResultHelper> = true;
-template<>
-struct implClassFor<ZenID::VerifierResultHelper> { using type = ZenID::_impl::_impl_VerifierResultHelper; };
-} // namespace
-#pragma clang diagnostic pop
-} // namespace swift
-
-namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
-
 namespace _impl {
 
 class _impl_VerifierState;
@@ -27118,7 +26918,7 @@ public:
 ///
 /// returns:
 /// Challenge token.
-  static SWIFT_INLINE_THUNK swift::String getChallengeToken() SWIFT_SYMBOL("s:5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSyFZ");
+  static SWIFT_INLINE_THUNK swift::Optional<swift::String> getChallengeToken() SWIFT_SYMBOL("s:5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSSgyFZ");
 /// Whenever is ZenID authorized.
 ///
 /// returns:
@@ -28043,6 +27843,75 @@ struct implClassFor<ZenID::ZenidPointF> { using type = ZenID::_impl::_impl_Zenid
 } // namespace swift
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+
+/// Decrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
+/// \param key Key use to decrypt
+///
+/// \param message Message to decrypt
+///
+/// \param iv Initialisation vector
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> AESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
+  });
+}
+
+/// Decrypts a message using AES/ECB/NOPADDING with a specified key and initialisation vector
+/// \param key Key use to decrypt
+///
+/// \param message Message to decrypt
+///
+/// \param iv Initialisation vector
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> AESECBEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message) noexcept SWIFT_SYMBOL("s:5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message))));
+  });
+}
+
+/// Encrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
+/// \param key Key use to encrypt
+///
+/// \param message Message to encrypt
+///
+/// \param iv Initialisation vector
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> AESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
+  });
+}
+
+/// Decrypts a message using DES with a specified key and initialisation vector
+/// \param key Key use to decrypt
+///
+/// \param message Message to decrypt
+///
+/// \param iv Initialisation vector
+///
+/// \param options Decryption options to use
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> DESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
+  });
+}
+
+/// Encrypts a message using DES with a specified key and initialisation vector
+/// \param key Key use to encrypt
+///
+/// \param message Message to encrypt
+///
+/// \param iv Initialisation vector
+///
+/// \param options Encryption options to use
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> DESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
+  });
+}
 
 SWIFT_INLINE_THUNK swift::Int binToHex(uint8_t val) noexcept SWIFT_SYMBOL("s:5ZenID8binToHexySis5UInt8VF") SWIFT_WARN_UNUSED_RESULT {
   return ZenID::_impl::$s5ZenID8binToHexySis5UInt8VF(val);
@@ -33151,6 +33020,14 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<Country>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
   ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV7countryAA7CountryOSgvs(swift::_impl::_impl_Optional<Country>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
   }
+  SWIFT_INLINE_THUNK swift::Optional<swift::Int> DocumentVerifierStateContainerForPublicData::getSupportedPageCount() const {
+  return swift::_impl::_impl_Optional<swift::Int>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_uint8_t_8_9(result, ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvg(_getOpaquePointer()));
+  });
+  }
+  SWIFT_INLINE_THUNK void DocumentVerifierStateContainerForPublicData::setSupportedPageCount(const swift::Optional<swift::Int>& value) {
+  ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV18supportedPageCountSiSgvs(ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_uint8_t_8_9(swift::_impl::_impl_Optional<swift::Int>::getOpaquePointer(value)), _getOpaquePointer());
+  }
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> DocumentVerifierStateContainerForPublicData::getExpectedOutline() const {
   return swift::_impl::_impl_Array<ZenidPointF>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
     ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID43DocumentVerifierStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(_getOpaquePointer()));
@@ -34691,6 +34568,14 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   swift::_impl::ConsumedValueStorageDestroyer<swift::Optional<Country>> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
   ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV7countryAA7CountryOSgvs(swift::_impl::_impl_Optional<Country>::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
   }
+  SWIFT_INLINE_THUNK swift::Optional<swift::Int> HologramStateContainerForPublicData::getSupportedPageCount() const {
+  return swift::_impl::_impl_Optional<swift::Int>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_uint8_t_8_9(result, ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvg(_getOpaquePointer()));
+  });
+  }
+  SWIFT_INLINE_THUNK void HologramStateContainerForPublicData::setSupportedPageCount(const swift::Optional<swift::Int>& value) {
+  ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV18supportedPageCountSiSgvs(ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_uint8_t_8_9(swift::_impl::_impl_Optional<swift::Int>::getOpaquePointer(value)), _getOpaquePointer());
+  }
   SWIFT_INLINE_THUNK swift::Array<ZenidPointF> HologramStateContainerForPublicData::getExpectedOutline() const {
   return swift::_impl::_impl_Array<ZenidPointF>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
     ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV15expectedOutlineSayAA11ZenidPointFVGvg(_getOpaquePointer()));
@@ -34708,7 +34593,7 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   SWIFT_INLINE_THUNK void HologramStateContainerForPublicData::setGiveMePhotoResolution(swift::Int value) {
   ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV21giveMePhotoResolutionSivs(value, _getOpaquePointer());
   }
-  SWIFT_INLINE_THUNK HologramStateContainerForPublicData HologramStateContainerForPublicData::init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Optional<DocumentRole>& role, const swift::Optional<Country>& country, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) {
+  SWIFT_INLINE_THUNK HologramStateContainerForPublicData HologramStateContainerForPublicData::init(const VerifierState& state, const SdkResponseType& giveMeWhat, const CommonVerifierFeedback& feedback, const swift::Optional<DocumentCodes>& documentCode, const swift::Optional<PageCodes>& pageCode, const swift::Optional<DocumentRole>& role, const swift::Optional<Country>& country, const swift::Optional<swift::Int>& supportedPageCount, const swift::Array<ZenidPointF>& expectedOutline, swift::Int giveMePhotoResolution) {
   alignas(alignof(VerifierState)) char copyBuffer_consumedParamCopy_state[sizeof(VerifierState)];
   auto &consumedParamCopy_state = *(new(copyBuffer_consumedParamCopy_state) VerifierState(state));
   swift::_impl::ConsumedValueStorageDestroyer<VerifierState> storageGuard_consumedParamCopy_state(consumedParamCopy_state);
@@ -34734,7 +34619,7 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   auto &consumedParamCopy_expectedOutline = *(new(copyBuffer_consumedParamCopy_expectedOutline) swift::Array<ZenidPointF>(expectedOutline));
   swift::_impl::ConsumedValueStorageDestroyer<swift::Array<ZenidPointF>> storageGuard_consumedParamCopy_expectedOutline(consumedParamCopy_expectedOutline);
   return ZenID::_impl::_impl_HologramStateContainerForPublicData::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonW8FeedbackOAA13DocumentCodesOSgAA9PageCodesOSgAA12DocumentRoleOSgAA7CountryOSgSayAA11ZenidPointFVGSitcfC(result, ZenID::_impl::_impl_VerifierState::getOpaquePointer(consumedParamCopy_state), ZenID::_impl::_impl_SdkResponseType::getOpaquePointer(consumedParamCopy_giveMeWhat), ZenID::_impl::_impl_CommonVerifierFeedback::getOpaquePointer(consumedParamCopy_feedback), swift::_impl::_impl_Optional<DocumentCodes>::getOpaquePointer(consumedParamCopy_documentCode), swift::_impl::_impl_Optional<PageCodes>::getOpaquePointer(consumedParamCopy_pageCode), swift::_impl::_impl_Optional<DocumentRole>::getOpaquePointer(consumedParamCopy_role), swift::_impl::_impl_Optional<Country>::getOpaquePointer(consumedParamCopy_country), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<ZenidPointF>::getOpaquePointer(consumedParamCopy_expectedOutline)), giveMePhotoResolution);
+    ZenID::_impl::$s5ZenID35HologramStateContainerForPublicDataV5state10giveMeWhat8feedback12documentCode04pageO04role7country18supportedPageCount15expectedOutline0jK15PhotoResolutionAcA08VerifierD0O_AA15SdkResponseTypeOAA06CommonZ8FeedbackOAA13DocumentCodesOSgAA0T5CodesOSgAA12DocumentRoleOSgAA7CountryOSgSiSgSayAA11ZenidPointFVGSitcfC(result, ZenID::_impl::_impl_VerifierState::getOpaquePointer(consumedParamCopy_state), ZenID::_impl::_impl_SdkResponseType::getOpaquePointer(consumedParamCopy_giveMeWhat), ZenID::_impl::_impl_CommonVerifierFeedback::getOpaquePointer(consumedParamCopy_feedback), swift::_impl::_impl_Optional<DocumentCodes>::getOpaquePointer(consumedParamCopy_documentCode), swift::_impl::_impl_Optional<PageCodes>::getOpaquePointer(consumedParamCopy_pageCode), swift::_impl::_impl_Optional<DocumentRole>::getOpaquePointer(consumedParamCopy_role), swift::_impl::_impl_Optional<Country>::getOpaquePointer(consumedParamCopy_country), ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_uint8_t_8_9(swift::_impl::_impl_Optional<swift::Int>::getOpaquePointer(supportedPageCount)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<ZenidPointF>::getOpaquePointer(consumedParamCopy_expectedOutline)), giveMePhotoResolution);
   });
   }
   SWIFT_INLINE_THUNK bool IQSHologramVerifierSettings::getEnableAimingCircle() const {
@@ -37790,9 +37675,9 @@ return (__bridge_transfer UIImage *)(__bridge void *)ZenID::_impl::$s5ZenID16NFC
   SWIFT_INLINE_THUNK swift::Int VerifierState::getRawValue() const {
   return ZenID::_impl::$s5ZenID13VerifierStateO8rawValueSivg(_getOpaquePointer());
   }
-  SWIFT_INLINE_THUNK swift::String __ZenIDAPINested::Security::getChallengeToken() {
-  return swift::_impl::_impl_String::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_void_ptr_8_16(result, ZenID::_impl::$s5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSyFZ());
+  SWIFT_INLINE_THUNK swift::Optional<swift::String> __ZenIDAPINested::Security::getChallengeToken() {
+  return swift::_impl::_impl_Optional<swift::String>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_uint64_t_8_16(result, ZenID::_impl::$s5ZenID0A5IDAPIV8SecurityV17getChallengeTokenSSSgyFZ());
   });
   }
   SWIFT_INLINE_THUNK bool __ZenIDAPINested::Security::isAuthorized() {

@@ -10,36 +10,29 @@
 
 #include <stdio.h>
 
-//#pragma clang diagnostic push
-//#pragma clang diagnostic ignored "-Wunused-variable"
-//#pragma clang diagnostic ignored "-Wunused-function"
-//#pragma clang diagnostic ignored "-Wdocumentation"
-//#pragma clang diagnostic ignored "-Wquoted-include-in-framework-header"
-
-//#define FMT_HEADER_ONLY
-
-//#include <RecogLibC_Unity.generated.cpp>
-
-//#pragma clang diagnostic pop
-
 #include <CoreMedia/CoreMedia.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+// Error handling — thread-local last error set by bridge functions on C++ exception.
+// Swift calls GetLastError after each bridge call to detect failures.
+const char * _Nullable RecogLibC_GetLastError(void);
+void RecogLibC_ClearLastError(void);
+
 // Version.h
-const char *Version_RecogLibCGetVersion(void);
+const char * _Nonnull Version_RecogLibCGetVersion(void);
 
 // ZenidSecurity.h
-const char *ZenidSecurity_GetChallengeToken(); // this creates a new challenge token to be used for initSdk
+const char * _Nullable ZenidSecurity_GetChallengeToken(); // this creates a new challenge token to be used for initSdk
 bool ZenidSecurity_IsAuthorized();
-bool ZenidSecurity_SelectProfile(const char *profile);
-bool ZenidSecurity_Authorize(const char *token, const char *bundleIdentifier);
+bool ZenidSecurity_SelectProfile(const char * _Nonnull profile);
+bool ZenidSecurity_Authorize(const char * _Nonnull token, const char * _Nonnull bundleIdentifier);
 void ZenidSecurity_Unauthorize();
-const char *ZenidSecurity_GetEnabledVerifiersJson();
-const char *ZenidSecurity_GetEnabledDocumentsJson();
-const char *ZenidSecurity_GetSdkWizardStepsJson();
+const char * _Nullable ZenidSecurity_GetEnabledVerifiersJson();
+const char * _Nullable ZenidSecurity_GetEnabledDocumentsJson();
+const char * _Nullable ZenidSecurity_GetSdkWizardStepsJson();
 
 // ModelLoader
 
@@ -59,24 +52,25 @@ void logger_write(int32_t level, const char* message);
 
 // Verifier Manager
 
-void VerifierManager_InitOrRestart(const char *feature, const char *jsSettings);
-void VerifierManager_RestartWithPreviousSettings(const char *feature);
-bool VerifierManager_ReadyForFrame(const char *feature);
-void VerifierManager_ProcessFrameFromSampleBuffer(const char *feature, CMSampleBufferRef _mat);
-void VerifierManager_ProcessFrameFromPixelBuffer(const char *feature, CVPixelBufferRef _cvBuffer);
-void VerifierManager_SubmitExternalResponse(const char *feature, const char *responseJson);
-const char *VerifierManager_GetUploadReadyData(const char *feature);
-const char *VerifierManager_GetRenderCommands(const char *feature, int width, int height);
-const char *VerifierManager_GetStateContainerJson(const char *feature);
-void VerifierManager_Unload(const char *feature);
-void VerifierManager_SetLanguage(const char *language);
+void VerifierManager_InitOrRestart(const char * _Nonnull feature, const char * _Nonnull jsSettings);
+void VerifierManager_RestartWithPreviousSettings(const char * _Nonnull feature);
+bool VerifierManager_ReadyForFrame(const char * _Nonnull feature);
+void VerifierManager_ProcessFrameFromSampleBuffer(const char * _Nonnull feature, CMSampleBufferRef _Nonnull _mat);
+void VerifierManager_ProcessFrameFromPixelBuffer(const char * _Nonnull feature, CVPixelBufferRef _Nonnull _cvBuffer);
+void VerifierManager_SubmitExternalResponse(const char * _Nonnull feature, const char * _Nonnull responseJson);
+const char * _Nullable VerifierManager_GetUploadReadyData(const char * _Nonnull feature);
+const char * _Nullable VerifierManager_GetRenderCommands(const char * _Nonnull feature, int width, int height);
+const char * _Nullable VerifierManager_GetStateContainerJson(const char * _Nonnull feature);
+void VerifierManager_Unload(const char * _Nonnull feature);
+void VerifierManager_SetLanguage(const char * _Nonnull language);
 void VerifierManager_SetVisualizerVersion(int visualizerVersion);
 void VerifierManager_SetDebugVisualization(bool enabled);
 bool VerifierManager_GetDebugVisualization();
-const char *VerifierManager_GetLanguage();
-const char *VerifierManager_GetLanguageLocale();
-bool VerifierManager_IsFeatureLoaded(const char *feature);
-int VerifierManager_GetFrameProcessingResolution(const char *feature);
+const char * _Nullable VerifierManager_GetLanguage();
+const char * _Nullable VerifierManager_GetLanguageLocale();
+bool VerifierManager_IsFeatureLoaded(const char * _Nonnull feature);
+int VerifierManager_GetFrameProcessingResolution(const char * _Nonnull feature);
+int VerifierManager_GetSupportedPageCount(const char *documentCode);
 
 
 #ifdef __cplusplus

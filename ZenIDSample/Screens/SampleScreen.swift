@@ -21,6 +21,7 @@ struct SampleScreen<ViewModel>: View, IdentifiableScreen where ViewModel: Sample
 
     @State var state: ScanningState = .scanning
 
+    @State private var errorMessage: String?
 
     var body: some View {
         mainContent
@@ -43,6 +44,17 @@ struct SampleScreen<ViewModel>: View, IdentifiableScreen where ViewModel: Sample
                 Button("general-Ok".localized, role: .cancel) { }
             } message: {
                 Text(viewModel.errorAlert?.message ?? "")
+            }
+            .alert(
+                "Error",
+                isPresented: Binding(
+                    get: { errorMessage != nil },
+                    set: { if !$0 { errorMessage = nil; navigationManager.pop() } }
+                )
+            ) {
+                Button("general-Ok".localized, role: .cancel) { }
+            } message: {
+                Text(errorMessage ?? "")
             }
     }
 
@@ -112,11 +124,8 @@ struct SampleScreen<ViewModel>: View, IdentifiableScreen where ViewModel: Sample
             get: { viewModel.errorAlert != nil },
             set: { isPresented in
                 if !isPresented {
-                    // User dismissed alert - clear it and set error state
-                    let message = viewModel.errorAlert?.message ?? "Verification failed"
                     viewModel.errorAlert = nil
-                    // Set error state - onReceive will handle navigation reactively
-                    viewModel.state = .error(.verifierFailed(message))
+                    navigationManager.pop()
                 }
             }
         )
@@ -129,9 +138,9 @@ struct SampleScreen<ViewModel>: View, IdentifiableScreen where ViewModel: Sample
         switch value {
         case .done(let investigateResult):
             navigationManager.navigate(to: Screen.result(investigateResult))
-        case .error:
-            OSLogger.app.error("SampleScreen: Error state received, navigating back")
-            navigationManager.pop()
+        case .error(let message):
+            OSLogger.app.error("SampleScreen: Error state received: \(message ?? "unknown")")
+            errorMessage = message ?? "Verification failed"
         default: break
         }
     }

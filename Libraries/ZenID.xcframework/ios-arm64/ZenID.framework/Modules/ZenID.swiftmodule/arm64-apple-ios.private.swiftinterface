@@ -131,7 +131,7 @@ public struct FileModelLoader : ZenID.ModelLoader {
 }
 public struct ZenIDAPI {
   public struct Security {
-    public static func getChallengeToken() -> Swift.String
+    public static func getChallengeToken() -> Swift.String?
     public static func isAuthorized() -> Swift.Bool
     public static func selectProfile(_ profile: Swift.String) -> Swift.Bool
     public static func authorize(_ token: Swift.String) -> Swift.Bool
@@ -430,6 +430,7 @@ public protocol GeneralDocumentStateContainerForPublicData {
   var pageCode: ZenID.PageCodes? { get }
   var role: ZenID.DocumentRole? { get }
   var country: ZenID.Country? { get }
+  var supportedPageCount: Swift.Int? { get }
   var expectedOutline: [ZenID.ZenidPointF] { get }
   var giveMePhotoResolution: Swift.Int { get }
 }
@@ -441,9 +442,10 @@ public struct HologramStateContainerForPublicData : Swift.Codable & Swift.Sendab
   public var pageCode: ZenID.PageCodes?
   public var role: ZenID.DocumentRole?
   public var country: ZenID.Country?
+  public var supportedPageCount: Swift.Int?
   public var expectedOutline: [ZenID.ZenidPointF]
   public var giveMePhotoResolution: Swift.Int
-  public init(state: ZenID.VerifierState, giveMeWhat: ZenID.SdkResponseType, feedback: ZenID.CommonVerifierFeedback, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil, role: ZenID.DocumentRole? = nil, country: ZenID.Country? = nil, expectedOutline: [ZenID.ZenidPointF], giveMePhotoResolution: Swift.Int = 1920)
+  public init(state: ZenID.VerifierState, giveMeWhat: ZenID.SdkResponseType, feedback: ZenID.CommonVerifierFeedback, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil, role: ZenID.DocumentRole? = nil, country: ZenID.Country? = nil, supportedPageCount: Swift.Int? = nil, expectedOutline: [ZenID.ZenidPointF], giveMePhotoResolution: Swift.Int = 1920)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -481,6 +483,7 @@ public struct DocumentVerifierStateContainerForPublicData : Swift.Codable & Swif
   public var pageCode: ZenID.PageCodes?
   public var role: ZenID.DocumentRole?
   public var country: ZenID.Country?
+  public var supportedPageCount: Swift.Int?
   public var expectedOutline: [ZenID.ZenidPointF]
   public var giveMePhotoResolution: Swift.Int
   public var secondsToMaxTolerance: Swift.Float
@@ -489,7 +492,7 @@ public struct DocumentVerifierStateContainerForPublicData : Swift.Codable & Swif
   public var skipNfcAllowed: Swift.Bool
   public var validatorsData: ZenID.FrontendValidationResults
   public var nfcPreviewImage: Foundation.Data
-  public init(state: ZenID.VerifierState, giveMeWhat: ZenID.SdkResponseType, feedback: ZenID.CommonVerifierFeedback, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil, role: ZenID.DocumentRole? = nil, country: ZenID.Country? = nil, expectedOutline: [ZenID.ZenidPointF], giveMePhotoResolution: Swift.Int = 1920, secondsToMaxTolerance: Swift.Float = 0, nfcKey: ZenID.NfcKey, numberOfReadingAttempts: Swift.Int = 1, skipNfcAllowed: Swift.Bool = false, validatorsData: ZenID.FrontendValidationResults, nfcPreviewImage: Foundation.Data)
+  public init(state: ZenID.VerifierState, giveMeWhat: ZenID.SdkResponseType, feedback: ZenID.CommonVerifierFeedback, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil, role: ZenID.DocumentRole? = nil, country: ZenID.Country? = nil, supportedPageCount: Swift.Int? = nil, expectedOutline: [ZenID.ZenidPointF], giveMePhotoResolution: Swift.Int = 1920, secondsToMaxTolerance: Swift.Float = 0, nfcKey: ZenID.NfcKey, numberOfReadingAttempts: Swift.Int = 1, skipNfcAllowed: Swift.Bool = false, validatorsData: ZenID.FrontendValidationResults, nfcPreviewImage: Foundation.Data)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -602,7 +605,7 @@ public struct MsLivenessVerifierSettings : Swift.Codable & Swift.Sendable & ZenI
   @_Concurrency.MainActor public func setView(_ uiView: ZenID.UIZenIDView)
   @_Concurrency.MainActor public func setView(_ view: ZenID.ZenIDView)
   @_Concurrency.MainActor public func start() throws
-  @_Concurrency.MainActor public func restart()
+  @_Concurrency.MainActor public func restart() throws
   @_Concurrency.MainActor public func stop()
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
 }
@@ -2219,8 +2222,83 @@ final public class ZenIDBackendApiImpl : ZenID.ZenIDBackendApi, @unchecked Swift
   final public func getProfiles() async throws -> Foundation.Data
   @objc deinit
 }
-public struct VerifierResultHelper {
-  @_Concurrency.MainActor public static func waitForResult(from resultProvider: @escaping () -> ZenID.UploadReadyData?, onReady: @escaping (ZenID.UploadReadyData) -> Swift.Void, onTimeout: @escaping () -> Swift.Void, maxAttempts: Swift.Int = 100, pollingInterval: Swift.UInt64 = 100_000_000)
+@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
+  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
+  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
+  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
+  @_Concurrency.MainActor func start() throws
+  @_Concurrency.MainActor func stop()
+  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
+  @_Concurrency.MainActor func unload()
+}
+extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
+}
+public enum VerificationState : Swift.Equatable {
+  case setup
+  case scanning
+  case processing
+  case uploading
+  case investigating
+  case success
+  case error(ZenID.VerificationError)
+  public static func == (lhs: ZenID.VerificationState, rhs: ZenID.VerificationState) -> Swift.Bool
+}
+public enum VerificationError : Swift.Error, Swift.Equatable {
+  case resultTimeout
+  case verifierFailed(Swift.String)
+  case uploadFailed(Swift.String)
+  case investigationFailed(Swift.String)
+  case other(Swift.String)
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public static func == (a: ZenID.VerificationError, b: ZenID.VerificationError) -> Swift.Bool
+}
+@_Concurrency.MainActor open class DocumentViewModel : ZenID.GenericVerifierViewModel<ZenID.DocumentVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb, onNfcRequested: ((ZenID.NfcKey) async throws -> ZenID.NfcData)? = nil)
+  @_Concurrency.MainActor override open func createVerifier() throws -> ZenID.DocumentVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class SelfieViewModel : ZenID.GenericVerifierViewModel<ZenID.SelfieVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.SelfieVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.SelfieVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class FaceLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.FaceLivenessVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.FaceLivenessVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.FaceLivenessVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class HologramViewModel : ZenID.GenericVerifierViewModel<ZenID.HologramVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.HologramVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class MSLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.MSLivenessVerifier> {
+  @_Concurrency.MainActor final public var coordinator: ZenID.MSLivenessCoordinator? {
+    get
+  }
+  @_Concurrency.MainActor public init(settings: ZenID.MsLivenessVerifierSettings = .init())
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.MSLivenessVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class LicencePlateViewModel : ZenID.GenericVerifierViewModel<ZenID.LicencePlateVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.LicensePlateVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.LicencePlateVerifier
+  @objc deinit
+}
+public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
+  case verificationFailed(title: Swift.String, message: Swift.String)
+  case nfcAttemptsExceeded(title: Swift.String, message: Swift.String)
+  case nfcCancelled(title: Swift.String, message: Swift.String)
+  case fatalError(title: Swift.String, message: Swift.String)
+  public var title: Swift.String {
+    get
+  }
+  public var message: Swift.String {
+    get
+  }
+  public static func == (lhs: ZenID.ZenIDSdkError, rhs: ZenID.ZenIDSdkError) -> Swift.Bool
 }
 @_Concurrency.MainActor open class GenericVerifierViewModel<V> : Foundation.ObservableObject where V : ZenID.VerifierProtocol {
   @Combine.Published @_projectedValueProperty($state) @_Concurrency.MainActor public var state: ZenID.VerificationState {
@@ -2265,89 +2343,11 @@ public struct VerifierResultHelper {
   @_Concurrency.MainActor open func stop()
   @_Concurrency.MainActor open func cleanup()
   @_Concurrency.MainActor open func setupVerifierCallbacks()
-  @_Concurrency.MainActor open func processResultWhenReady()
+  @_Concurrency.MainActor open func processResult(_ result: ZenID.UploadReadyData)
   @_Concurrency.MainActor open func uploadData(_ data: Foundation.Data)
   @_Concurrency.MainActor open func investigateSamples(sampleIds: [Swift.String])
   @objc deinit
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
-}
-@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
-  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
-  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
-  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
-  @_Concurrency.MainActor func start() throws
-  @_Concurrency.MainActor func stop()
-  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
-  @_Concurrency.MainActor func unload()
-}
-extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
-}
-public enum VerificationState : Swift.Equatable {
-  case setup
-  case scanning
-  case processing
-  case uploading
-  case investigating
-  case success
-  case error(ZenID.VerificationError)
-  public static func == (lhs: ZenID.VerificationState, rhs: ZenID.VerificationState) -> Swift.Bool
-}
-public enum VerificationError : Swift.Error, Swift.Equatable {
-  case resultTimeout
-  case verifierFailed(Swift.String)
-  case uploadFailed(Swift.String)
-  case investigationFailed(Swift.String)
-  case other(Swift.String)
-  public var localizedDescription: Swift.String {
-    get
-  }
-  public static func == (a: ZenID.VerificationError, b: ZenID.VerificationError) -> Swift.Bool
-}
-public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
-  case verificationFailed(title: Swift.String, message: Swift.String)
-  case nfcAttemptsExceeded(title: Swift.String, message: Swift.String)
-  case nfcCancelled(title: Swift.String, message: Swift.String)
-  case fatalError(title: Swift.String, message: Swift.String)
-  public var title: Swift.String {
-    get
-  }
-  public var message: Swift.String {
-    get
-  }
-  public static func == (lhs: ZenID.ZenIDSdkError, rhs: ZenID.ZenIDSdkError) -> Swift.Bool
-}
-@_Concurrency.MainActor open class DocumentViewModel : ZenID.GenericVerifierViewModel<ZenID.DocumentVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb, onNfcRequested: ((ZenID.NfcKey) async throws -> ZenID.NfcData)? = nil)
-  @_Concurrency.MainActor override open func createVerifier() throws -> ZenID.DocumentVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class SelfieViewModel : ZenID.GenericVerifierViewModel<ZenID.SelfieVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.SelfieVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.SelfieVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class FaceLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.FaceLivenessVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.FaceLivenessVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.FaceLivenessVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class HologramViewModel : ZenID.GenericVerifierViewModel<ZenID.HologramVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.HologramVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class MSLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.MSLivenessVerifier> {
-  @_Concurrency.MainActor final public var coordinator: ZenID.MSLivenessCoordinator? {
-    get
-  }
-  @_Concurrency.MainActor public init(settings: ZenID.MsLivenessVerifierSettings = .init())
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.MSLivenessVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class LicencePlateViewModel : ZenID.GenericVerifierViewModel<ZenID.LicencePlateVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.LicensePlateVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.LicencePlateVerifier
-  @objc deinit
 }
 extension ZenID.MSLivenessCoordinator : Swift.Sendable {}
 extension ZenID.ZenIDManager : Swift.Sendable {}
