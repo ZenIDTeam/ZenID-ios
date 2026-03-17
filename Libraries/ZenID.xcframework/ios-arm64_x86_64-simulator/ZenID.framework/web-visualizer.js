@@ -243,9 +243,9 @@ export class VisualizerImplementation {
     async loadStatusImages() {
         try {
             // Try to load images from CSS variables first
-            let errorImageSrc = this.getCssProperty("--status-error-image-face-liveness", "--status-error-image", `${this.visualizerScriptDir}Status=Error, Background=Fill.svg`);
-            let successImageSrc = this.getCssProperty("--status-success-image-face-liveness", "--status-success-image", `${this.visualizerScriptDir}Status=Success, Background=Fill.svg`);
-            let waitingImageSrc = this.getCssProperty("--status-waiting-image-face-liveness", "--status-waiting-image", `${this.visualizerScriptDir}Status=Waiting, Background=Transparent.svg`);
+            let errorImageSrc = this.getCssProperty("--status-error-image-face-liveness", "--status-error-image", `${this.visualizerScriptDir}Status=Error_Background=Fill.svg`);
+            let successImageSrc = this.getCssProperty("--status-success-image-face-liveness", "--status-success-image", `${this.visualizerScriptDir}Status=Success_Background=Fill.svg`);
+            let waitingImageSrc = this.getCssProperty("--status-waiting-image-face-liveness", "--status-waiting-image", `${this.visualizerScriptDir}Status=Waiting_Background=Transparent.svg`);
             // Load the images
             this.images.statusError = await this.loadImage(errorImageSrc);
             this.images.statusSuccess = await this.loadImage(successImageSrc);
