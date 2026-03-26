@@ -276,6 +276,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -491,6 +498,13 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AzureAIVisionFaceUI"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -508,6 +522,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AzureAIVisionFaceUI"
       },
       {
         "kind": "Import",
@@ -1006,6 +1027,13 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AzureAIVisionFaceUI"
+      },
+      {
+        "kind": "Import",
         "name": "AzureAIVisionCore",
         "printedName": "AzureAIVisionCore",
         "declKind": "Import",
@@ -1267,6 +1295,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Error",
             "printedName": "Error",
             "usr": "s:s5ErrorP",
@@ -1450,6 +1485,13 @@
             "printedName": "Hashable",
             "usr": "s:SH",
             "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           },
           {
             "kind": "Conformance",
@@ -2601,476 +2643,546 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 234,
+      "offset": 288,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 291,
+      "offset": 345,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 353,
+      "offset": 407,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 397,
+      "offset": 451,
       "length": 4,
       "value": "0.12"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 571,
+      "offset": 853,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "FloatLiteral",
+      "offset": 869,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 982,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1046,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 683,
+      "offset": 1158,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 788,
+      "offset": 1263,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 844,
+      "offset": 1319,
       "length": 4,
       "value": "15.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 898,
+      "offset": 1373,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "StringLiteral",
-      "offset": 1114,
+      "offset": 1589,
       "length": 4,
       "value": "\"\n\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1166,
+      "offset": 1641,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 1458,
+      "offset": 1933,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "StringLiteral",
-      "offset": 1791,
+      "offset": 2266,
       "length": 7,
       "value": "\"xmark\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 2913,
+      "offset": 3388,
       "length": 3,
       "value": "8.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3510,
+      "offset": 3985,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3726,
+      "offset": 4201,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3843,
+      "offset": 4318,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 4189,
+      "offset": 4664,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 4193,
+      "offset": 4668,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 4197,
+      "offset": 4672,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 4772,
+      "offset": 5247,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 4785,
+      "offset": 5260,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 4832,
+      "offset": 5307,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 4836,
+      "offset": 5311,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "BooleanLiteral",
-      "offset": 4945,
+      "offset": 5420,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 5023,
+      "offset": 5498,
       "length": 4,
       "value": "64.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 5030,
+      "offset": 5505,
       "length": 5,
       "value": "270.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 5111,
+      "offset": 5586,
       "length": 4,
       "value": "64.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 5118,
+      "offset": 5593,
       "length": 5,
       "value": "270.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5274,
+      "offset": 5749,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5278,
+      "offset": 5753,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5688,
+      "offset": 6163,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5692,
+      "offset": 6167,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5847,
+      "offset": 6322,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5851,
+      "offset": 6326,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6422,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6427,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6433,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "StringLiteral",
-      "offset": 5904,
+      "offset": 6503,
       "length": 23,
       "value": "\"checkmark.circle.fill\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 6101,
+      "offset": 6700,
       "length": 4,
       "value": "75.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 6108,
+      "offset": 6707,
       "length": 5,
       "value": "270.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 6189,
+      "offset": 6788,
       "length": 4,
       "value": "75.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 6196,
+      "offset": 6795,
       "length": 5,
       "value": "270.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6443,
+      "offset": 7042,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6533,
+      "offset": 7132,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6537,
+      "offset": 7136,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "StringLiteral",
-      "offset": 6781,
+      "offset": 7380,
       "length": 8,
       "value": "\"arrow.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 7074,
+      "offset": 7782,
       "length": 4,
       "value": "38.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 7081,
+      "offset": 7789,
       "length": 5,
       "value": "270.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 7174,
+      "offset": 7886,
       "length": 4,
       "value": "38.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 7181,
+      "offset": 7893,
+      "length": 5,
+      "value": "270.0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "FloatLiteral",
+      "offset": 8449,
+      "length": 4,
+      "value": "38.0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "FloatLiteral",
+      "offset": 8456,
+      "length": 5,
+      "value": "270.0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "FloatLiteral",
+      "offset": 8553,
+      "length": 4,
+      "value": "38.0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
+      "kind": "FloatLiteral",
+      "offset": 8560,
       "length": 5,
       "value": "270.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "StringLiteral",
-      "offset": 7400,
+      "offset": 8833,
       "length": 7,
       "value": "\"smile\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 7898,
+      "offset": 9331,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 7913,
+      "offset": 9346,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 8067,
+      "offset": 9500,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 8192,
+      "offset": 9625,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "StringLiteral",
-      "offset": 8377,
+      "offset": 9810,
       "length": 13,
       "value": "\"circle.fill\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 8578,
+      "offset": 10011,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 8647,
+      "offset": 10080,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "StringLiteral",
-      "offset": 8863,
+      "offset": 10296,
       "length": 18,
       "value": "\"checkmark.circle\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 9069,
+      "offset": 10502,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 9138,
+      "offset": 10571,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 9403,
+      "offset": 10836,
       "length": 5,
       "value": "180.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9488,
+      "offset": 10921,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9493,
+      "offset": 10926,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 9578,
+      "offset": 11011,
       "length": 5,
       "value": "180.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9663,
+      "offset": 11096,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9668,
+      "offset": 11101,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 10116,
+      "offset": 11549,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "IntegerLiteral",
-      "offset": 10164,
+      "offset": 11597,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/AnalysisView.swift",
       "kind": "FloatLiteral",
-      "offset": 11320,
+      "offset": 12753,
       "length": 4,
       "value": "26.0"
     },
@@ -3161,14 +3273,14 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/FaceLivenessDetectorView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2959,
+      "offset": 3446,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/Screens\/FaceLivenessDetectorView.swift",
       "kind": "FloatLiteral",
-      "offset": 3413,
+      "offset": 3940,
       "length": 3,
       "value": "1.0"
     },
@@ -4001,399 +4113,399 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2276,
+      "offset": 2541,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2420,
+      "offset": 2685,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2555,
+      "offset": 2820,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2591,
+      "offset": 2856,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 2686,
+      "offset": 2951,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2806,
+      "offset": 3071,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2832,
+      "offset": 3100,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3126,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "FloatLiteral",
-      "offset": 2898,
+      "offset": 3192,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "FloatLiteral",
-      "offset": 2934,
+      "offset": 3228,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 3084,
+      "offset": 3378,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 3122,
+      "offset": 3416,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 3379,
+      "offset": 3673,
       "length": 28,
       "value": "\"setShouldSupportLandscape:\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 3937,
+      "offset": 4231,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "Dictionary",
-      "offset": 4228,
+      "offset": 4522,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "FloatLiteral",
-      "offset": 5198,
+      "offset": 5496,
       "length": 3,
       "value": "3.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "FloatLiteral",
-      "offset": 5243,
+      "offset": 5541,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "FloatLiteral",
-      "offset": 5291,
+      "offset": 5589,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 7054,
+      "offset": 7366,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 7423,
+      "offset": 7735,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 7501,
+      "offset": 7813,
       "length": 21,
       "value": "\"Error: Unauthorized\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 7678,
+      "offset": 7990,
       "length": 34,
       "value": "\"Error: ClientVersionNotSupported\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 7881,
+      "offset": 8193,
       "length": 31,
       "value": "\"Error: VerifyImageNotProvided\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 8078,
+      "offset": 8390,
       "length": 33,
       "value": "\"Error: SetVerifyImageNotAllowed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 8527,
+      "offset": 8839,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 8795,
+      "offset": 9107,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 8999,
+      "offset": 9311,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 9389,
+      "offset": 9701,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 9941,
+      "offset": 10253,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 10242,
+      "offset": 10554,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "FloatLiteral",
-      "offset": 10859,
+      "offset": 11171,
       "length": 3,
       "value": "0.9"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 10930,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
-      "kind": "StringLiteral",
-      "offset": 11006,
-      "length": 7,
-      "value": "\"smile\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
-      "kind": "BooleanLiteral",
-      "offset": 11189,
+      "offset": 11242,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
+      "kind": "StringLiteral",
+      "offset": 11319,
+      "length": 7,
+      "value": "\"smile\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 11654,
+      "offset": 11756,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 11732,
+      "offset": 11834,
       "length": 10,
       "value": "\"arrow.up\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 11772,
+      "offset": 11874,
       "length": 2,
       "value": "45"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 11851,
+      "offset": 11953,
       "length": 16,
       "value": "\"arrow.up.right\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 11897,
+      "offset": 11999,
       "length": 2,
       "value": "90"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 11976,
+      "offset": 12078,
       "length": 13,
       "value": "\"arrow.right\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 12019,
+      "offset": 12121,
       "length": 3,
       "value": "135"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 12099,
+      "offset": 12201,
       "length": 18,
       "value": "\"arrow.down.right\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 12147,
+      "offset": 12249,
       "length": 3,
       "value": "180"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 12227,
+      "offset": 12329,
       "length": 12,
       "value": "\"arrow.down\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 12269,
+      "offset": 12371,
       "length": 3,
       "value": "225"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 12349,
+      "offset": 12451,
       "length": 17,
       "value": "\"arrow.down.left\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 12396,
+      "offset": 12498,
       "length": 3,
       "value": "270"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 12476,
+      "offset": 12578,
       "length": 12,
       "value": "\"arrow.left\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 12518,
+      "offset": 12620,
       "length": 3,
       "value": "315"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 12598,
+      "offset": 12700,
       "length": 15,
       "value": "\"arrow.up.left\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 13836,
+      "offset": 13938,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 16490,
+      "offset": 16592,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "IntegerLiteral",
-      "offset": 16592,
+      "offset": 16694,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 16986,
+      "offset": 17088,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 17477,
+      "offset": 17579,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 20152,
+      "offset": 21145,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "StringLiteral",
-      "offset": 20194,
+      "offset": 21187,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/source\/bindings\/objective-c_vision\/faceanalyzer\/ui\/ViewModels\/AppState.swift",
       "kind": "BooleanLiteral",
-      "offset": 21033,
+      "offset": 22026,
       "length": 5,
       "value": "false"
     },

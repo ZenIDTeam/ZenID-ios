@@ -19,6 +19,7 @@ struct MainScreen: View, IdentifiableScreen {
     @State var enabledVerifiers: Set<SdkVerifierType> = []
     @State var isInitializing: Bool = false
     @State var lastAuthorizationTime: Date?
+    @State var authorizationError: String?
 
     // Mapping of verifier types to their UI representations
     struct VerifierOption {
@@ -124,6 +125,8 @@ struct MainScreen: View, IdentifiableScreen {
                             lastAuthorizationTime = now
                         } catch {
                             OSLogger.app.error("Authorization failed: \(error)")
+                            authorizationError = String(localized: "error-authorization-failed-message")
+                            Haptics.shared.playError()
                         }
                     }
 
@@ -137,6 +140,18 @@ struct MainScreen: View, IdentifiableScreen {
 
             // Validate and reload configuration
             await validateAndReloadConfiguration()
+        }
+        .alert(String(localized: "error-authorization-failed-title"), isPresented: Binding(
+            get: { authorizationError != nil },
+            set: { _ in }
+        )) {
+            Button("OK", role: .cancel) {
+                authorizationError = nil
+            }
+        } message: {
+            if let error = authorizationError {
+                Text(error)
+            }
         }
     }
 

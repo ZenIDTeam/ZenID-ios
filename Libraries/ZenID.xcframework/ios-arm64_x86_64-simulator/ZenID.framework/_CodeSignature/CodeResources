@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/ZenID-Swift.h</key>
 		<data>
-		8cLa60Ao7YTZTT05boQahqDLAtw=
+		rPRA05e28jBpGbX2EOe/K5ApKZA=
 		</data>
 		<key>Headers/ZenID.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2PKNd4wJkf11V7Xh3gfC4ek7cCs=
+		jJTGtEZtOfYwJRDptMWjm7Wr93I=
 		</data>
 		<key>Models/[][][licenseplate]_traineddata.bin</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Models/loci_v4.tflite.bin</key>
 		<data>
-		k2A8jvTOkDW7iDmUH3+0xZyZJs8=
+		JvJ+cOHs/s5wVNsr89qplf/7Qqw=
 		</data>
 		<key>Models/mrz_traineddata.bin</key>
 		<data>
@@ -74,11 +74,23 @@
 		</data>
 		<key>Models/siam_embeddings.json</key>
 		<data>
-		1ucca/goCN0naHMFNazcmSOburM=
+		nmY1KmyDcZ8mbddWTNU+E9VfUAs=
 		</data>
 		<key>Models/siam_embeddings_full.json</key>
 		<data>
-		Tf2pxsaUvZ+W5ZFfijggpIerRKk=
+		td1JFGRxGX6qZizeMXeIj7UdZ8U=
+		</data>
+		<key>Models/siam_embeddings_full_v2.json</key>
+		<data>
+		tLAc8+p/CKSgniQOXqiXOJmLTDE=
+		</data>
+		<key>Models/siam_embeddings_v2.json</key>
+		<data>
+		ayqVufcqgnOXcKFnvTWbwHsaYAg=
+		</data>
+		<key>Models/siam_v2.tflite.bin</key>
+		<data>
+		LrBOh2fzvLBEH7ItyNOHSBjibmQ=
 		</data>
 		<key>Models/smile_detector_svm.bin</key>
 		<data>
@@ -86,51 +98,51 @@
 		</data>
 		<key>Modules/ZenID.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		fkJDGVb/6EDdaa16rn1hjA4CFxo=
+		Y5Lfj6YI27h6jaTWpe4YYfUATIk=
 		</data>
 		<key>Modules/ZenID.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		JR3HQaLkxcsjXjtAvE4ERN7bBbs=
+		1io5n6Q3bxC71NhRhUNUho0VsaU=
 		</data>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		iFbE4upVPZexvmYWY3pPV2goerQ=
+		WACktHDHgjZFJguDWm89x2plJn8=
 		</data>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		sCj8lyWW11dOHuSqHYI4VoOdOKs=
+		82PEYIaSxqZdb+Z5vEf6nQ9TSZc=
 		</data>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		UOpvc0F/ByU1N4ibcvqf/Nb5mFI=
+		oSHFpoQKHOyjtEQ3A8oh+Kd51RI=
 		</data>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		sCj8lyWW11dOHuSqHYI4VoOdOKs=
+		82PEYIaSxqZdb+Z5vEf6nQ9TSZc=
 		</data>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Vv81e5pRpGDx8dMUZailu2o6L28=
+		3KqqJP+8qgvug+6OK9j6oYi4luw=
 		</data>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		iFbE4upVPZexvmYWY3pPV2goerQ=
+		WACktHDHgjZFJguDWm89x2plJn8=
 		</data>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		/+JGCklCTVZcGeP8cPdXSANZWQM=
+		qB2+8IJ6lI6dAppqGF4tSJcHHdM=
 		</data>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		cCLGzpLArqm/64U9AepMp2iE2JQ=
+		K53hCP5D5HofFce8VOXuSTCYJ6A=
 		</data>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/+JGCklCTVZcGeP8cPdXSANZWQM=
+		qB2+8IJ6lI6dAppqGF4tSJcHHdM=
 		</data>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		rTKA4YXquylnTry6TiV7Xzm9oko=
+		dHkneLqY/sbroPq41uA88L4TBSg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -232,7 +244,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s26DF2xzG3EHz40/VwY5UMUkErlRErp8wei8VwCCSsk=
+			Sy4EQ/SfkBL2oC26q/JUAAli9Sr1vgOVcmtlBeB8+PQ=
 			</data>
 		</dict>
 		<key>Headers/ZenID.h</key>
@@ -316,7 +328,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/kwUWig6/+I6+6X6JGXfriQ6s8SzuJ90zFcILqOyn5U=
+			n/8cHjuw+b3DBBLJV5csnkPlN1pbud2yoPT5JtRsC3Q=
 			</data>
 		</dict>
 		<key>Models/mrz_traineddata.bin</key>
@@ -337,14 +349,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			759QLDQl3pwogzhIlEXgKhYbsU3cfPVfCLFGZ36LiGk=
+			HpnJ3FxxTSRFDC6e9zGzDfaxoS02Ji7ooa1MOlRDdWI=
 			</data>
 		</dict>
 		<key>Models/siam_embeddings_full.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sAHJcWJNNMuFft22kadZfqEEJ5fgaVcSRT/OuJ3I+ro=
+			hrNDUjAQo7BZ5aT5NCs3UfrUEu6uHmyq7JnAbDjyZCY=
+			</data>
+		</dict>
+		<key>Models/siam_embeddings_full_v2.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			D89//BDZqg1XVqnnDGzzPgEMiuixh8DztG4Em4NqDDE=
+			</data>
+		</dict>
+		<key>Models/siam_embeddings_v2.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5WVMCQejxv8qR8MSw3PHVUGXIAus8IcTuzCH3aha310=
+			</data>
+		</dict>
+		<key>Models/siam_v2.tflite.bin</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IcHDHSbjmouLOa69aB9mezYcDTzQrmAfWrAlLYOhFcc=
 			</data>
 		</dict>
 		<key>Models/smile_detector_svm.bin</key>
@@ -358,84 +391,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EDXNhEqdxBpTRXAr5jZozDwBzUF10GzP3UnntE4GRQU=
+			+wmo1ydDA/VE1GDx6skuDRGUGaost796CsX88ftqwCg=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rzZSdqsai/zXd+h8qVcO2VQe1H5gkASIFzXLB1CRj9I=
+			85fy/xbw0hQGD9b6fEToZMoCxL5TBZ1kZ5v/Liyn/9s=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OGPX5ARfQ7zWmFqiT4tKSyyu2SkXFJFAjRB7hSf4res=
+			jxYQAfzibOYiUTe6e0c5LNeAcxDACk4DyXVED3KM220=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Kn3e3xDN4Yt4ateURbwRyeQTPEZOkhcQHfQFf4OQNK4=
+			zffjyFQidmiyq3zXLS1xe6AXblbAJGiKJpMdRc+NaKg=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			l0SBHDxIabht6rp1LMcf5+nQGG9OXgWH5horpI1oJmY=
+			grFiwQuzch9ALLSEihzaP1sY3Q5tkXuRa2/5h0kJyN0=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Kn3e3xDN4Yt4ateURbwRyeQTPEZOkhcQHfQFf4OQNK4=
+			zffjyFQidmiyq3zXLS1xe6AXblbAJGiKJpMdRc+NaKg=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XAxXMPjNkIWCdjoB2REsUCx2ITxCNC6j7z3fnxXhAxM=
+			4FqlnN+Vu3TYaARD3sbukMZARoUwsbzlhazxOHav/0o=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OGPX5ARfQ7zWmFqiT4tKSyyu2SkXFJFAjRB7hSf4res=
+			jxYQAfzibOYiUTe6e0c5LNeAcxDACk4DyXVED3KM220=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gtAgolIg8Mhixr650RAUbz7kFp/GleILM4FQeUAGFvE=
+			sW/vrtmGUF8se4FTRgr6QApuXgTJ2HCgRp/ke4F8xR4=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TXHvbmJsuAHOUvNO9b+7+Q5e0AQulFgcUpuVPXS0AmM=
+			Ujujzz3ZKKbFvH6fORaYgCFvsg3p36yvXw4y8H6x1VQ=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gtAgolIg8Mhixr650RAUbz7kFp/GleILM4FQeUAGFvE=
+			sW/vrtmGUF8se4FTRgr6QApuXgTJ2HCgRp/ke4F8xR4=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TdwBRGRPjng04u6/zRZFR/7QfH8RY8JUJSqHVlw4hEQ=
+			/UB1hwQn5qH2u15wPSW5yfeuDHWys3p0tQP5yAH7PYs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -23,7 +23,7 @@ Note that old out-of-support devices will likely lack sufficient processing capa
 
 ### Manual linking
 
-- Go to the desired release page (https://github.com/ZenIDTeam/ZenID-ios/releases/latest for latest release), under Assets download "Source code (zip)" and extract the archive.
+- Clone the repo (requires [Git LFS](https://git-lfs.com/) to be installed): `git clone https://github.com/ZenIDTeam/ZenID-ios.git`
 - Copy `Libraries/ZenID.xcframework`. All required models are now bundled inside the framework.
 - If you will use MS Liveness:
   - Also include `Libraries/AzureAIVisionFaceUI.xcframework` (~140MB additional).
@@ -42,9 +42,10 @@ Required Info.plist keys:
 > 
 > That's because this repo uses Git Large File Storage (LFS) and SPM doesn't work well with Git LFS.
 > 
-> You'll have to either:
->  - Clone the repo manually and add it as a local SPM package or copy the frameworks manually. Ensure you have Git LFS support installed and enabled when cloning.
->  - Download "Source code (zip)" asset from release page, extract and copy the frameworks from `Libraries/`. This way you don't have to deal with LFS at all.
+> You'll have to clone the repo manually (with [Git LFS](https://git-lfs.com/) installed) and either add it as a local SPM package or copy the frameworks manually:
+> ```
+> git clone https://github.com/ZenIDTeam/ZenID-ios.git
+> ```
 
 - Add the package from `https://github.com/ZenIDTeam/ZenID-ios`
 - Choose package product:

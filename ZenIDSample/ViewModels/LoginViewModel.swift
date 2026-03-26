@@ -13,6 +13,7 @@ import ZenID
 @MainActor class LoginViewModel: ObservableObject {
 
     @Published var isInitializing: Bool = false
+    @Published var authorizationError: String?
 
     /// Process data from QR code and authorize with new server.
     ///
@@ -46,6 +47,7 @@ import ZenID
                 // Authorization failed, but credentials are saved for retry
                 isInitializing = false
                 OSLogger.app.error("Failed to authorize with new server: \(error)")
+                authorizationError = String(localized: "error-authorization-failed-message")
                 Haptics.shared.playError()
                 return false
             }

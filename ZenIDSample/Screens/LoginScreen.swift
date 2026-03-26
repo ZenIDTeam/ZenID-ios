@@ -45,6 +45,18 @@ struct LoginScreen: View, IdentifiableScreen {
             }
         }
         .navigationTitle("Login with QR")
+        .alert(String(localized: "error-authorization-failed-title"), isPresented: Binding(
+            get: { viewModel.authorizationError != nil },
+            set: { _ in }
+        )) {
+            Button("OK", role: .cancel) {
+                viewModel.authorizationError = nil
+            }
+        } message: {
+            if let error = viewModel.authorizationError {
+                Text(error)
+            }
+        }
     }
 }
 

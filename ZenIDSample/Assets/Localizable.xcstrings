@@ -391,6 +391,40 @@
           }
         }
       }
+    },
+    "error-authorization-failed-message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autorizace se nezdařila. Zkontrolujte prosím připojení k internetu a přihlašovací údaje."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authorization failed. Please check your internet connection and credentials."
+          }
+        }
+      }
+    },
+    "error-authorization-failed-title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autorizace selhala"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authorization Failed"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
