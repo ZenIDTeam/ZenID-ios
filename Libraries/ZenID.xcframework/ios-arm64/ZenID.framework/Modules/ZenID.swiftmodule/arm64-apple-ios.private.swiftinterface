@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
 // swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name ZenID
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=swift-6 -interface-compiler-version 6.2.4
 import AVFoundation
 import Combine
 import CommonCrypto
@@ -23,6 +23,7 @@ import _CoreNFC_UIKit
 import _StringProcessing
 import _SwiftConcurrencyShims
 @_hasMissingDesignatedInitializers @_Concurrency.MainActor public class MSLivenessCoordinator : Foundation.ObservableObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @Combine.Published @_projectedValueProperty($token) @_Concurrency.MainActor public var token: Swift.String? {
     get
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
@@ -30,12 +31,17 @@ import _SwiftConcurrencyShims
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     _modify
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var $token: Combine.Published<Swift.String?>.Publisher {
     get
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public func complete(success: Swift.Bool, error: Swift.String? = nil)
+  #endif
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
   @objc deinit
 }
@@ -60,13 +66,17 @@ extension ZenID.MsLivenessStateContainerForPublicData : ZenID.VerifierStateConta
   @_Concurrency.MainActor final public var version: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public static func getChallengeToken() -> Swift.String?
+  #endif
   @_Concurrency.MainActor public static func authorize(responseToken: Swift.String) -> Swift.Bool
   @_Concurrency.MainActor public static func reauthorize() async -> Swift.Bool
   @_Concurrency.MainActor public static func isAuthorized() -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public static var bundledModelsPath: Foundation.URL? {
     get
   }
+  #endif
   @discardableResult
   @_Concurrency.MainActor public static func initialize(backendApi: any ZenID.ZenIDBackendApi) async throws -> Swift.Bool
   @_Concurrency.MainActor public static func uploadSample(_ data: Foundation.Data) async throws -> Foundation.Data
@@ -84,9 +94,15 @@ extension ZenID.MsLivenessStateContainerForPublicData : ZenID.VerifierStateConta
   @_Concurrency.MainActor public static func getEnabledDocumentCodes() -> [ZenID.DocumentCodes]
   @_Concurrency.MainActor public static func getEnabledDocumentModels() -> [ZenID.ZenidModel]
   @_Concurrency.MainActor public static func getSdkWizardSteps() -> [ZenID.SdkWizardStep]
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public static func supportedCountries() -> [ZenID.Country]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public static func supportedDocuments(for country: ZenID.Country? = nil) -> [ZenID.DocumentRole]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public static func supportedDocumentPageCodes(for country: ZenID.Country? = nil, documentRole: ZenID.DocumentRole? = nil) -> [ZenID.PageCodes]?
+  #endif
   @_Concurrency.MainActor public static func setLogger(_ logger: any ZenID.ZenidLogger)
   @_Concurrency.MainActor public static func setLanguage(_ language: ZenID.SupportedLanguages)
   @_Concurrency.MainActor public static func getLanguage() -> Swift.String
@@ -101,7 +117,9 @@ extension ZenID.MsLivenessStateContainerForPublicData : ZenID.VerifierStateConta
   @_Concurrency.MainActor weak public static var zenIDView: ZenID.UIZenIDView?
   @_Concurrency.MainActor public static func setView(_ uiView: ZenID.UIZenIDView)
   @_Concurrency.MainActor public static func setView(_ view: ZenID.ZenIDView)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public static func setInsets(insets: UIKit.UIEdgeInsets? = nil, portraitInsets: UIKit.UIEdgeInsets? = nil, landscapeInsets: UIKit.UIEdgeInsets? = nil)
+  #endif
   @_Concurrency.MainActor public static func renderText(_ enabled: Swift.Bool)
   @_Concurrency.MainActor public static func clearVerifierCache()
   @_Concurrency.MainActor public static func unloadAllVerifiers()
@@ -127,11 +145,15 @@ extension ZenID.HologramStateContainerForPublicData : ZenID.VerifierStateContain
 }
 public struct FileModelLoader : ZenID.ModelLoader {
   public init(indexURL url: Foundation.URL) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public func provideData(for fileName: Swift.String) async -> Foundation.Data?
+  #endif
 }
 public struct ZenIDAPI {
   public struct Security {
+    #if compiler(>=5.3) && $NonescapableTypes
     public static func getChallengeToken() -> Swift.String?
+    #endif
     public static func isAuthorized() -> Swift.Bool
     public static func selectProfile(_ profile: Swift.String) -> Swift.Bool
     public static func authorize(_ token: Swift.String) -> Swift.Bool
@@ -139,7 +161,9 @@ public struct ZenIDAPI {
   }
 }
 extension UIKit.UIImage {
+  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init?(pixelBuffer: CoreVideo.CVPixelBuffer, crop: CoreFoundation.CGRect? = nil)
+  #endif
 }
 public struct ZenidModel : Swift.Codable & Swift.Sendable {
   public let documentCode: ZenID.DocumentCodes
@@ -162,7 +186,9 @@ public struct ValidatorResultInfo : Swift.Codable & Swift.Sendable {
   public var thresholdMax: Swift.Int
   public var thresholdMin: Swift.Int
   public var passedValidation: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(validatorType: ZenID.FrontendValidatorType? = nil, description: Swift.String, score: Swift.Int = 0, thresholdMax: Swift.Int = 0, thresholdMin: Swift.Int = 0, passedValidation: Swift.Bool = false)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -207,7 +233,9 @@ public struct MrzData : Swift.Codable & Swift.Sendable {
   public var birthDateParsed: Foundation.Date?
   public var expiryDateParsed: Foundation.Date?
   public var mrzDefType: ZenID.DefType
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(nfcEnabled: Swift.Bool = false, birthDate: Swift.String, birthDateVerified: Swift.Bool = false, documentNumber: Swift.String, documentNumberVerified: Swift.Bool = false, expiryDate: Swift.String, expiryDateVerified: Swift.Bool = false, givenName: Swift.String, checksumVerified: Swift.Bool = false, checksumDigit: Swift.Int = 0, lastName: Swift.String, nationality: Swift.String, sex: Swift.String, birthNumber: Swift.String, birthNumberChecksum: Swift.Int? = nil, birthNumberVerified: Swift.Bool? = nil, birthDateChecksum: Swift.Int? = nil, secondaryDocumentNumber: Swift.String, secondaryDocumentNumberChecksum: Swift.Int? = nil, secondaryDocumentNumberVerified: Swift.Bool? = nil, secondaryDocumentRole: Swift.String, documentNumChecksum: Swift.Int? = nil, expiryDateChecksum: Swift.Int? = nil, issueDate: Swift.String, additionalData: Swift.String, additionalData2: Swift.String, issuer: Swift.String, prefix: Swift.String, cardType: Swift.String, cardSubType: Swift.String, birthDateParsed: Foundation.Date? = nil, expiryDateParsed: Foundation.Date? = nil, mrzDefType: ZenID.DefType = DefType.td1Idc)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -250,7 +278,9 @@ public struct Signature : Swift.Codable & Swift.Sendable {
   public var displayOrientation: Swift.String
   public var userAgent: Swift.String
   public var logs: [Swift.String]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(hash: Swift.String, outline: [Swift.Float], timestamp: Swift.Int64 = 0, identifier: Swift.String, platformKind: ZenID.PlatformKind = PlatformKind.web, validatorData: ZenID.ValidatorBackendData, isOfflineToken: Swift.Bool = false, version: Swift.String, livenessTryNumber: Swift.Int = 0, challengeToken: Swift.String, selectedProfile: Swift.String, mrzData: ZenID.MrzData, nfcData: ZenID.NfcData, nfcStatus: ZenID.NfcStatus? = nil, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil, licensePlate: Swift.String, sampleType: ZenID.SampleType? = nil, microsoftLivenessSessionId: Swift.String, microsoftLivenessAuditLog: [Swift.String], deviceModel: Swift.String, architecture: Swift.String, deviceMemory: Swift.Int64? = nil, operatingSystem: Swift.String, operatingSystemVersion: Swift.String, browser: Swift.String, browserVersion: Swift.String, processingResolution: Swift.String, displayOrientation: Swift.String, userAgent: Swift.String, logs: [Swift.String])
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -270,7 +300,9 @@ public struct UploadReadyData : Swift.Codable & Swift.Sendable {
   public var imagePreview: Foundation.Data
   public var auxiliaryImageMetadata: [ZenID.CheckImageData]
   public var auxiliaryImages: [Foundation.Data]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(sampleID: Swift.String, sampleType: ZenID.SampleType? = nil, signedSamplePackage: Foundation.Data, imagePreview: Foundation.Data, auxiliaryImageMetadata: [ZenID.CheckImageData], auxiliaryImages: [Foundation.Data])
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -293,7 +325,9 @@ public struct DocumentFilter : Swift.Codable & Swift.Sendable {
   public var page: ZenID.PageCodes?
   public var documentCode: ZenID.DocumentCodes?
   public var modelID: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(role: ZenID.DocumentRole? = nil, country: ZenID.Country? = nil, page: ZenID.PageCodes? = nil, documentCode: ZenID.DocumentCodes? = nil, modelID: Swift.String = "")
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -311,7 +345,9 @@ public struct SdkWizardStep : Swift.Codable & Swift.Sendable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public protocol ApiResponse {
+  #if compiler(>=5.3) && $NonescapableTypes
   var errorCode: ZenID.ErrorCode? { get }
+  #endif
   var errorText: Swift.String { get }
   var processingTimeMs: Swift.Int64 { get }
   var messageType: Swift.String { get }
@@ -326,7 +362,9 @@ public struct SetupInfo : Swift.Codable & Swift.Sendable & ZenID.ApiResponse {
   public var allowedDocumentCodes: [ZenID.DocumentCodes]
   public var allowedSdkVerifiers: [ZenID.SdkVerifierType]
   public var requiredSteps: [Swift.String : [ZenID.SdkWizardStep]]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(errorCode: ZenID.ErrorCode? = nil, errorText: Swift.String, processingTimeMs: Swift.Int64, messageType: Swift.String, customerCustomizations: ZenID.CustomerCustomizations, profiles: [Swift.String], allowedDocumentCodes: [ZenID.DocumentCodes], allowedSdkVerifiers: [ZenID.SdkVerifierType], requiredSteps: [Swift.String : [ZenID.SdkWizardStep]])
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -337,7 +375,9 @@ public struct UploadSampleBasicInfo : Swift.Codable & Swift.Sendable & ZenID.Api
   public var messageType: Swift.String
   public var sampleID: Swift.String
   public var state: ZenID.ItemState
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(errorCode: ZenID.ErrorCode? = nil, errorText: Swift.String, processingTimeMs: Swift.Int64, messageType: Swift.String, sampleID: Swift.String, state: ZenID.ItemState = ItemState.notDone)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -345,7 +385,9 @@ public struct FrontendValidationResults : Swift.Codable & Swift.Sendable {
   public var resultsOfFrontendValidations: ZenID.ValidatorBackendData
   public var documentCode: ZenID.DocumentCodes?
   public var pageCode: ZenID.PageCodes?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(resultsOfFrontendValidations: ZenID.ValidatorBackendData, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -426,11 +468,21 @@ public protocol VerifierStateContainerForPublicDataBase {
   var feedback: ZenID.CommonVerifierFeedback { get }
 }
 public protocol GeneralDocumentStateContainerForPublicData {
+  #if compiler(>=5.3) && $NonescapableTypes
   var documentCode: ZenID.DocumentCodes? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var pageCode: ZenID.PageCodes? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var role: ZenID.DocumentRole? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var country: ZenID.Country? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var supportedPageCount: Swift.Int? { get }
+  #endif
   var expectedOutline: [ZenID.ZenidPointF] { get }
   var giveMePhotoResolution: Swift.Int { get }
 }
@@ -445,7 +497,9 @@ public struct HologramStateContainerForPublicData : Swift.Codable & Swift.Sendab
   public var supportedPageCount: Swift.Int?
   public var expectedOutline: [ZenID.ZenidPointF]
   public var giveMePhotoResolution: Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(state: ZenID.VerifierState, giveMeWhat: ZenID.SdkResponseType, feedback: ZenID.CommonVerifierFeedback, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil, role: ZenID.DocumentRole? = nil, country: ZenID.Country? = nil, supportedPageCount: Swift.Int? = nil, expectedOutline: [ZenID.ZenidPointF], giveMePhotoResolution: Swift.Int = 1920)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -492,7 +546,9 @@ public struct DocumentVerifierStateContainerForPublicData : Swift.Codable & Swif
   public var skipNfcAllowed: Swift.Bool
   public var validatorsData: ZenID.FrontendValidationResults
   public var nfcPreviewImage: Foundation.Data
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(state: ZenID.VerifierState, giveMeWhat: ZenID.SdkResponseType, feedback: ZenID.CommonVerifierFeedback, documentCode: ZenID.DocumentCodes? = nil, pageCode: ZenID.PageCodes? = nil, role: ZenID.DocumentRole? = nil, country: ZenID.Country? = nil, supportedPageCount: Swift.Int? = nil, expectedOutline: [ZenID.ZenidPointF], giveMePhotoResolution: Swift.Int = 1920, secondsToMaxTolerance: Swift.Float = 0, nfcKey: ZenID.NfcKey, numberOfReadingAttempts: Swift.Int = 1, skipNfcAllowed: Swift.Bool = false, validatorsData: ZenID.FrontendValidationResults, nfcPreviewImage: Foundation.Data)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -558,7 +614,9 @@ public struct DocumentVerifierSettings : Swift.Codable & Swift.Sendable & ZenID.
   public var showTimer: Swift.Bool
   public var drawOutline: Swift.Bool
   public var acceptableInput: ZenID.AcceptableInput
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(viewportHeightCm: Swift.Float? = nil, enableAimingCircle: Swift.Bool = false, showTimer: Swift.Bool = false, drawOutline: Swift.Bool = true, acceptableInput: ZenID.AcceptableInput)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -589,18 +647,26 @@ public struct MsLivenessVerifierSettings : Swift.Codable & Swift.Sendable & ZenI
     set
   }
   @_Concurrency.MainActor public var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @Combine.Published @_projectedValueProperty($state) @_Concurrency.MainActor public var state: Container? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var $state: Combine.Published<Container?>.Publisher {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @Combine.Published @_projectedValueProperty($result) @_Concurrency.MainActor public var result: ZenID.UploadReadyData? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var $result: Combine.Published<ZenID.UploadReadyData?>.Publisher {
     get
   }
+  #endif
   @_Concurrency.MainActor public var onResult: ((ZenID.UploadReadyData) -> Swift.Void)?
   @_Concurrency.MainActor public func setView(_ uiView: ZenID.UIZenIDView)
   @_Concurrency.MainActor public func setView(_ view: ZenID.ZenIDView)
@@ -620,10 +686,12 @@ extension ZenID.VerifierStateContainer {
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class UIZenIDView : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency public var areTextInstructionsEnabled: Swift.Bool
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToWindow()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public var insets: UIKit.UIEdgeInsets? {
     get
     set
   }
+  #endif
   @_Concurrency.MainActor @preconcurrency public var landscapeInsets: UIKit.UIEdgeInsets?
   @_Concurrency.MainActor @preconcurrency public var portraitInsets: UIKit.UIEdgeInsets?
   @objc deinit
@@ -645,19 +713,27 @@ extension ZenID.LicensePlateStateContainerForPublicData : ZenID.VerifierStateCon
 }
 @_Concurrency.MainActor @preconcurrency public struct ZenIDView : SwiftUI.UIViewRepresentable {
   @_Concurrency.MainActor @preconcurrency public var callback: (_ view: ZenID.ZenIDView) -> Swift.Void
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public var insets: UIKit.UIEdgeInsets? {
     get
     set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public var landscapeInsets: UIKit.UIEdgeInsets? {
     get
     set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public var portraitInsets: UIKit.UIEdgeInsets? {
     get
     set
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(callback: ((_ view: ZenID.ZenIDView) -> Swift.Void)? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency public func makeUIView(context: ZenID.ZenIDView.Context) -> ZenID.UIZenIDView
   @_Concurrency.MainActor @preconcurrency public func updateUIView(_ uiView: ZenID.UIZenIDView, context: ZenID.ZenIDView.Context)
   public typealias Body = Swift.Never
@@ -702,14 +778,20 @@ public protocol NFCDocumentModelType : Swift.Sendable {
   var documentSigningCertificateVerified: Swift.Bool { get }
   var passportDataNotTampered: Swift.Bool { get }
   var passportMRZ: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var passportImage: UIKit.UIImage? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var signatureImage: UIKit.UIImage? { get }
+  #endif
   var firstName: Swift.String { get }
   var lastName: Swift.String { get }
   var nationality: Swift.String { get }
   var gender: Swift.String { get }
   var dateOfBirth: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var personalNumber: Swift.String? { get }
+  #endif
   var documentExpiryDate: Swift.String { get }
   var documentNumber: Swift.String { get }
   var documentType: Swift.String { get }
@@ -718,8 +800,12 @@ public protocol NFCDocumentModelType : Swift.Sendable {
   var LDSVersion: Swift.String { get }
   var dataGroupsPresent: [Swift.String] { get }
   var dataGroupsAvailable: [ZenID.DGName] { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   func getDataGroupData(_ groupId: ZenID.DGName) -> [Swift.UInt8]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func getEncodedDataGroup(_ groupId: ZenID.DGName) -> Swift.String?
+  #endif
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class DataGroup7 : ZenID.DataGroup {
   public var imageData: [Swift.UInt8] {
@@ -731,7 +817,9 @@ public protocol NFCDocumentModelType : Swift.Sendable {
   public var isCancelled: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(mrzKey: Swift.String, displayMessageProvider: (any ZenID.NfcDisplayMessageProvider)? = nil)
+  #endif
   @objc deinit
   public func read() async throws -> (nfcData: ZenID.NfcData, document: any ZenID.NFCDocumentModelType)
   public func read(skipSecureElements: Swift.Bool = true, skipPACE: Swift.Bool = false) async throws -> (nfcData: ZenID.NfcData, document: any ZenID.NFCDocumentModelType)
@@ -914,18 +1002,26 @@ public class NFCDocumentModel : ZenID.NFCDocumentModelType, @unchecked Swift.Sen
   public var passportMRZ: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var placeOfBirth: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var residenceAddress: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var phoneNumber: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var personalNumber: Swift.String? {
     get
   }
+  #endif
   public var LDSVersion: Swift.String {
     get
   }
@@ -971,16 +1067,24 @@ public class NFCDocumentModel : ZenID.NFCDocumentModelType, @unchecked Swift.Sen
   public var isPACESupported: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var passportImage: UIKit.UIImage? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var signatureImage: UIKit.UIImage? {
     get
   }
+  #endif
   public init()
   public func addDataGroup(_ id: ZenID.DGName, dataGroup: ZenID.DataGroup)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getDataGroupData(_ groupId: ZenID.DGName) -> [Swift.UInt8]?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getEncodedDataGroup(_ groupId: ZenID.DGName) -> Swift.String?
+  #endif
   @objc deinit
 }
 public protocol NfcDocumentReaderProtocol {
@@ -1042,7 +1146,9 @@ public enum DocTypeEnum : Swift.String {
   case TD1
   case TD2
   case OTHER
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -1148,7 +1254,9 @@ public class BACHandler {
   public var ksenc: [Swift.UInt8]
   public var ksmac: [Swift.UInt8]
   public var kifd: [Swift.UInt8]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(tagReader: ZenID.TagReader, reader: ZenID.NfcDocumentReader? = nil)
+  #endif
   public func performBACAndGetSessionKeys(mrzKey: Swift.String) async throws
   public func sessionKeys(data: [Swift.UInt8]) throws -> ([Swift.UInt8], [Swift.UInt8], [Swift.UInt8])
   @objc deinit
@@ -1171,9 +1279,11 @@ public enum OpenSSLError : Swift.Error {
   case UnableToDecryptRSASignature(Swift.String)
 }
 extension ZenID.OpenSSLError : Foundation.LocalizedError {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
+  #endif
 }
 public enum PassiveAuthenticationError : Swift.Error {
   case UnableToParseSODHashes(Swift.String)
@@ -1181,9 +1291,11 @@ public enum PassiveAuthenticationError : Swift.Error {
   case SODMissing(Swift.String)
 }
 extension ZenID.PassiveAuthenticationError : Foundation.LocalizedError {
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
+  #endif
 }
 public enum DataType {
   case picture
@@ -1203,7 +1315,9 @@ public enum PlatformKind : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1222,7 +1336,9 @@ public enum DefType : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1252,7 +1368,9 @@ public enum DGName : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1266,7 +1384,9 @@ public enum NfcProtocol : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1289,7 +1409,9 @@ public enum FrontendValidatorType : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1305,7 +1427,9 @@ public enum NfcStatus : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1507,7 +1631,9 @@ public enum DocumentCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1521,7 +1647,9 @@ public enum PageCodes : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1541,7 +1669,9 @@ public enum SampleType : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1568,7 +1698,9 @@ public enum ErrorCode : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1587,7 +1719,9 @@ public enum SdkVerifierType : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1612,7 +1746,9 @@ public enum DocumentRole : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1823,7 +1959,9 @@ public enum Country : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1841,7 +1979,9 @@ public enum ItemState : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1973,7 +2113,9 @@ public enum FieldID : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1991,7 +2133,9 @@ public enum SdkSignatureProblem : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2010,7 +2154,9 @@ public enum SupportedLanguages : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2067,7 +2213,9 @@ public enum CommonVerifierFeedback : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2081,7 +2229,9 @@ public enum EncodedImageFormat : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2099,7 +2249,9 @@ public enum OriginalImageFormat : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2116,7 +2268,9 @@ public enum SdkResponseType : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2132,7 +2286,9 @@ public enum VerifierState : Swift.Int, Swift.Codable & Swift.Sendable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -2152,7 +2308,9 @@ public protocol ZenidLogger : Swift.Sendable {
 }
 public struct BundleModelLoader : ZenID.ModelLoader {
   public init(bundle: Foundation.Bundle) throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public func provideData(for fileName: Swift.String) async -> Foundation.Data?
+  #endif
 }
 public typealias NfcRetryPrompt = (Swift.Int, Swift.Int, any Swift.Error, Swift.Bool) async -> Swift.Bool
 @_hasMissingDesignatedInitializers @_Concurrency.MainActor public class DocumentVerifier : ZenID.BaseVerifier<ZenID.DocumentVerifierStateContainerForPublicData> {
@@ -2162,7 +2320,9 @@ public typealias NfcRetryPrompt = (Swift.Int, Swift.Int, any Swift.Error, Swift.
   @_Concurrency.MainActor public func attemptNfcRead(mrzKey: Swift.String) async throws -> (nfcData: ZenID.NfcData, document: any ZenID.NFCDocumentModelType)
   @_Concurrency.MainActor public var onNfcRequested: (ZenID.NfcKey) async throws -> ZenID.NfcData
   @_Concurrency.MainActor public static func defaultNfcHandler(nfcKey: ZenID.NfcKey) async throws -> ZenID.NfcData
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public func setupNfcWithRetry(showRetryPrompt: ZenID.NfcRetryPrompt? = nil, onDocumentRead: ((any ZenID.NFCDocumentModelType) -> Swift.Void)? = nil)
+  #endif
   @objc deinit
 }
 extension ZenID.DocumentVerifierStateContainerForPublicData : ZenID.VerifierStateContainer {
@@ -2180,7 +2340,9 @@ extension ZenID.DocumentVerifierStateContainerForPublicData : ZenID.VerifierStat
   }
 }
 public protocol ModelLoader {
+  #if compiler(>=5.3) && $NonescapableTypes
   func provideData(for fileName: Swift.String) async -> Foundation.Data?
+  #endif
 }
 extension ZenID.NfcKey {
   public var code: Swift.String {
@@ -2201,9 +2363,11 @@ public enum ZenIDBackendError : Swift.Error, Foundation.LocalizedError {
   case emptyInvestigation
   case notAuthorized
   case notInitialized
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
+  #endif
 }
 final public class ZenIDNetworkClient : @unchecked Swift.Sendable {
   public init(baseURL: Foundation.URL, apiKey: Swift.String, timeout: Foundation.TimeInterval = 600)
@@ -2221,19 +2385,6 @@ final public class ZenIDBackendApiImpl : ZenID.ZenIDBackendApi, @unchecked Swift
   final public func investigateSamples(sampleIds: [Swift.String]) async throws -> Foundation.Data
   final public func getProfiles() async throws -> Foundation.Data
   @objc deinit
-}
-public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
-  case verificationFailed(title: Swift.String, message: Swift.String)
-  case nfcAttemptsExceeded(title: Swift.String, message: Swift.String)
-  case nfcCancelled(title: Swift.String, message: Swift.String)
-  case fatalError(title: Swift.String, message: Swift.String)
-  public var title: Swift.String {
-    get
-  }
-  public var message: Swift.String {
-    get
-  }
-  public static func == (lhs: ZenID.ZenIDSdkError, rhs: ZenID.ZenIDSdkError) -> Swift.Bool
 }
 @_Concurrency.MainActor open class GenericVerifierViewModel<V> : Foundation.ObservableObject where V : ZenID.VerifierProtocol {
   @Combine.Published @_projectedValueProperty($state) @_Concurrency.MainActor public var state: ZenID.VerificationState {
@@ -2254,12 +2405,17 @@ public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
   @_Concurrency.MainActor public var result: ZenID.UploadReadyData? {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @Combine.Published @_projectedValueProperty($uploadedSampleID) @_Concurrency.MainActor public var uploadedSampleID: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var $uploadedSampleID: Combine.Published<Swift.String?>.Publisher {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @Combine.Published @_projectedValueProperty($investigationResponseData) @_Concurrency.MainActor public var investigationResponseData: Foundation.Data? {
     get
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
@@ -2267,11 +2423,14 @@ public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     _modify
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public var $investigationResponseData: Combine.Published<Foundation.Data?>.Publisher {
     get
     @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
     set
   }
+  #endif
   @_Concurrency.MainActor public init()
   @_Concurrency.MainActor open func createVerifier() throws -> V
   @_Concurrency.MainActor open func start(with cameraView: ZenID.UIZenIDView)
@@ -2284,16 +2443,42 @@ public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
   @objc deinit
   public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
 }
-@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
-  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
-  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
-  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
-  @_Concurrency.MainActor func start() throws
-  @_Concurrency.MainActor func stop()
-  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
-  @_Concurrency.MainActor func unload()
+@_Concurrency.MainActor open class DocumentViewModel : ZenID.GenericVerifierViewModel<ZenID.DocumentVerifier> {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb, onNfcRequested: ((ZenID.NfcKey) async throws -> ZenID.NfcData)? = nil)
+  #endif
+  @_Concurrency.MainActor override open func createVerifier() throws -> ZenID.DocumentVerifier
+  @objc deinit
 }
-extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
+@_Concurrency.MainActor final public class SelfieViewModel : ZenID.GenericVerifierViewModel<ZenID.SelfieVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.SelfieVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.SelfieVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class FaceLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.FaceLivenessVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.FaceLivenessVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.FaceLivenessVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class HologramViewModel : ZenID.GenericVerifierViewModel<ZenID.HologramVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.HologramVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class MSLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.MSLivenessVerifier> {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor final public var coordinator: ZenID.MSLivenessCoordinator? {
+    get
+  }
+  #endif
+  @_Concurrency.MainActor public init(settings: ZenID.MsLivenessVerifierSettings = .init())
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.MSLivenessVerifier
+  @objc deinit
+}
+@_Concurrency.MainActor final public class LicencePlateViewModel : ZenID.GenericVerifierViewModel<ZenID.LicencePlateVerifier> {
+  @_Concurrency.MainActor public init(settings: ZenID.LicensePlateVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
+  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.LicencePlateVerifier
+  @objc deinit
 }
 public enum VerificationState : Swift.Equatable {
   case setup
@@ -2316,38 +2501,35 @@ public enum VerificationError : Swift.Error, Swift.Equatable {
   }
   public static func == (a: ZenID.VerificationError, b: ZenID.VerificationError) -> Swift.Bool
 }
-@_Concurrency.MainActor open class DocumentViewModel : ZenID.GenericVerifierViewModel<ZenID.DocumentVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb, onNfcRequested: ((ZenID.NfcKey) async throws -> ZenID.NfcData)? = nil)
-  @_Concurrency.MainActor override open func createVerifier() throws -> ZenID.DocumentVerifier
-  @objc deinit
+@_Concurrency.MainActor public protocol VerifierProtocol : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor var result: ZenID.UploadReadyData? { get }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor var onResult: ((ZenID.UploadReadyData) -> Swift.Void)? { get set }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor var onFatalError: ((ZenID.ZenIDSdkError) async -> Swift.Void)? { get set }
+  #endif
+  @_Concurrency.MainActor func start() throws
+  @_Concurrency.MainActor func stop()
+  @_Concurrency.MainActor func setView(_ view: ZenID.UIZenIDView)
+  @_Concurrency.MainActor func unload()
 }
-@_Concurrency.MainActor final public class SelfieViewModel : ZenID.GenericVerifierViewModel<ZenID.SelfieVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.SelfieVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.SelfieVerifier
-  @objc deinit
+extension ZenID.BaseVerifier : ZenID.VerifierProtocol {
 }
-@_Concurrency.MainActor final public class FaceLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.FaceLivenessVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.FaceLivenessVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.FaceLivenessVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class HologramViewModel : ZenID.GenericVerifierViewModel<ZenID.HologramVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.DocumentVerifierSettings, visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.HologramVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class MSLivenessViewModel : ZenID.GenericVerifierViewModel<ZenID.MSLivenessVerifier> {
-  @_Concurrency.MainActor final public var coordinator: ZenID.MSLivenessCoordinator? {
+public enum ZenIDSdkError : Swift.Error, Swift.Equatable {
+  case verificationFailed(title: Swift.String, message: Swift.String)
+  case nfcAttemptsExceeded(title: Swift.String, message: Swift.String)
+  case nfcCancelled(title: Swift.String, message: Swift.String)
+  case fatalError(title: Swift.String, message: Swift.String)
+  public var title: Swift.String {
     get
   }
-  @_Concurrency.MainActor public init(settings: ZenID.MsLivenessVerifierSettings = .init())
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.MSLivenessVerifier
-  @objc deinit
-}
-@_Concurrency.MainActor final public class LicencePlateViewModel : ZenID.GenericVerifierViewModel<ZenID.LicencePlateVerifier> {
-  @_Concurrency.MainActor public init(settings: ZenID.LicensePlateVerifierSettings = .init(), visualiser: ZenID.Visualiser = .defaultWeb)
-  @_Concurrency.MainActor override final public func createVerifier() throws -> ZenID.LicencePlateVerifier
-  @objc deinit
+  public var message: Swift.String {
+    get
+  }
+  public static func == (lhs: ZenID.ZenIDSdkError, rhs: ZenID.ZenIDSdkError) -> Swift.Bool
 }
 extension ZenID.MSLivenessCoordinator : Swift.Sendable {}
 extension ZenID.ZenIDManager : Swift.Sendable {}
