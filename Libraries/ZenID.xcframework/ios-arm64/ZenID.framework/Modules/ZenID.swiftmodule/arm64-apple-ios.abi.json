@@ -87747,28 +87747,28 @@
     {
       "filePath": "\/Users\/admin\/Development\/actions-runner\/_work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/MSLivenessVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 7347,
+      "offset": 7471,
       "length": 5,
       "value": "\"GET\""
     },
     {
       "filePath": "\/Users\/admin\/Development\/actions-runner\/_work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/MSLivenessVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 7435,
+      "offset": 7559,
       "length": 18,
       "value": "\"application\/json\""
     },
     {
       "filePath": "\/Users\/admin\/Development\/actions-runner\/_work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/MSLivenessVerifier.swift",
       "kind": "StringLiteral",
-      "offset": 12976,
+      "offset": 13108,
       "length": 15,
       "value": "\"passiveActive\""
     },
     {
       "filePath": "\/Users\/admin\/Development\/actions-runner\/_work\/ZenID\/ZenID\/sdk\/iOS\/SDK\/Verifiers\/MSLivenessVerifier.swift",
       "kind": "BooleanLiteral",
-      "offset": 13065,
+      "offset": 13197,
       "length": 4,
       "value": "true"
     },
