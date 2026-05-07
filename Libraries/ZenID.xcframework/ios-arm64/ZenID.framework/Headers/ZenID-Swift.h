@@ -345,6 +345,7 @@ SWIFT_CLASS("_TtC5ZenID11UIZenIDView")
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+#pragma clang module import Foundation
 #pragma clang module import UIKit
 #endif
 
@@ -4317,11 +4318,6 @@ SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s
 SWIFT_EXTERN void $s5ZenID6DGNameO8rawValueACSgSi_tcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, ptrdiff_t rawValue) SWIFT_NOEXCEPT SWIFT_CALL; // init(rawValue:)
 SWIFT_EXTERN ptrdiff_t $s5ZenID6DGNameO8rawValueSivg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID6DGNameO4nameSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESDecrypt(key:message:iv:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message) SWIFT_NOEXCEPT SWIFT_CALL; // AESECBEncrypt(key:message:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESEncrypt(key:message:iv:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESDecrypt(key:message:iv:options:)
-SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESEncrypt(key:message:iv:options:)
 // Stub struct to be used to pass/return values to/from Swift functions.
 struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint64_t_8_16 {
   uint64_t _1;
@@ -4819,6 +4815,17 @@ SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s
 SWIFT_EXTERN void $s5ZenID7MrzDataV11cardSubTypeSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID7MrzDataV10mrzDefTypeAA0fG0Ovg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID7MrzDataV10mrzDefTypeAA0fG0Ovs(const void * _Nonnull value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID31MsLivenessCreateSessionResponseV9authTokenSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID31MsLivenessCreateSessionResponseV9authTokenSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID31MsLivenessCreateSessionResponseV9sessionIdSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID31MsLivenessCreateSessionResponseV9sessionIdSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID31MsLivenessCreateSessionResponseV9authToken9sessionIdACSS_SStcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 authToken, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 sessionId) SWIFT_NOEXCEPT SWIFT_CALL; // init(authToken:sessionId:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID33MsLivenessGetSessionImageResponseV11imageBase64SSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID33MsLivenessGetSessionImageResponseV11imageBase64SSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID33MsLivenessGetSessionImageResponseV11imageBase64ACSS_tcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 imageBase64) SWIFT_NOEXCEPT SWIFT_CALL; // init(imageBase64:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID34MsLivenessGetSessionResultResponseV10resultJsonSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID34MsLivenessGetSessionResultResponseV10resultJsonSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN void $s5ZenID34MsLivenessGetSessionResultResponseV10resultJsonACSS_tcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 resultJson) SWIFT_NOEXCEPT SWIFT_CALL; // init(resultJson:)
 SWIFT_EXTERN bool $s5ZenID24MsLivenessGiveMeResponseV9isSuccessSbvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID24MsLivenessGiveMeResponseV9isSuccessSbvs(bool value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID24MsLivenessGiveMeResponseV12errorMessageSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
@@ -4839,6 +4846,11 @@ SWIFT_EXTERN void $s5ZenID37MsLivenessStateContainerForPublicDataV02msD6ApiKeySS
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID37MsLivenessStateContainerForPublicDataV02msD8EndpointSSvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID37MsLivenessStateContainerForPublicDataV02msD8EndpointSSvs(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 value, SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID37MsLivenessStateContainerForPublicDataV5state10giveMeWhat8feedback02msD6ApiKey0oD8EndpointAcA08VerifierE0O_AA15SdkResponseTypeOAA06CommonS8FeedbackOS2StcfC(SWIFT_INDIRECT_RESULT void * _Nonnull, const void * _Nonnull state, const void * _Nonnull giveMeWhat, const void * _Nonnull feedback, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 msLivenessApiKey, struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 msLivenessEndpoint) SWIFT_NOEXCEPT SWIFT_CALL; // init(state:giveMeWhat:feedback:msLivenessApiKey:msLivenessEndpoint:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESDecrypt(key:message:iv:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message) SWIFT_NOEXCEPT SWIFT_CALL; // AESECBEncrypt(key:message:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv) SWIFT_NOEXCEPT SWIFT_CALL; // AESEncrypt(key:message:iv:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESDecrypt(key:message:iv:options:)
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_void_ptr_0_8 $s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(struct swift_interop_passStub_ZenID_void_ptr_0_8 key, struct swift_interop_passStub_ZenID_void_ptr_0_8 message, struct swift_interop_passStub_ZenID_void_ptr_0_8 iv, uint32_t options) SWIFT_NOEXCEPT SWIFT_CALL; // DESEncrypt(key:message:iv:options:)
 SWIFT_EXTERN void $s5ZenID26MsLivenessVerifierSettingsVACycfC(SWIFT_INDIRECT_RESULT void * _Nonnull) SWIFT_NOEXCEPT SWIFT_CALL; // init()
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID16NFCDocumentModelC12documentTypeSSvg(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID16NFCDocumentModelC12documentTypeSSvgTj(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // dispatch thunk for _
@@ -5195,7 +5207,9 @@ SWIFT_EXTERN bool $s5ZenID0A5IDAPIV8SecurityV12isAuthorizedSbyFZ(void) SWIFT_NOE
 SWIFT_EXTERN bool $s5ZenID0A5IDAPIV8SecurityV13selectProfileySbSSFZ(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 profile) SWIFT_NOEXCEPT SWIFT_CALL; // selectProfile(_:)
 SWIFT_EXTERN bool $s5ZenID0A5IDAPIV8SecurityV9authorizeySbSSFZ(struct swift_interop_passStub_ZenID_uint64_t_0_8_void_ptr_8_16 token) SWIFT_NOEXCEPT SWIFT_CALL; // authorize(_:)
 SWIFT_EXTERN void $s5ZenID0A5IDAPIV8SecurityV11unauthorizeyyFZ(void) SWIFT_NOEXCEPT SWIFT_CALL; // unauthorize()
-SWIFT_EXTERN void * _Nonnull $s5ZenID0A16IDBackendApiImplC13networkClientAA0a9IDNetworkG0Cvg(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN NSURLSession *_Nonnull $s5ZenID0A16IDBackendApiImplC10urlSessionSo12NSURLSessionCvg(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID0A16IDBackendApiImplC9apiPrefixSSvg(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
+SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_void_ptr_8_16 $s5ZenID0A16IDBackendApiImplC9apiPrefixSSvgTj(SWIFT_CONTEXT void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // dispatch thunk for _
 SWIFT_EXTERN struct swift_interop_returnStub_ZenID_uint64_t_0_8_uint64_t_8_16 $s5ZenID0A14IDBackendErrorO16errorDescriptionSSSgvg(SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID10ZenidModelV12documentCodeAA13DocumentCodesOvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
 SWIFT_EXTERN void $s5ZenID10ZenidModelV8pageCodeAA9PageCodesOvg(SWIFT_INDIRECT_RESULT void * _Nonnull, SWIFT_CONTEXT const void * _Nonnull _self) SWIFT_NOEXCEPT SWIFT_CALL; // _
@@ -9796,75 +9810,6 @@ struct implClassFor<ZenID::DGName> { using type = ZenID::_impl::_impl_DGName; };
 } // namespace swift
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
-
-/// Decrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
-/// \param key Key use to decrypt
-///
-/// \param message Message to decrypt
-///
-/// \param iv Initialisation vector
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> AESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
-  });
-}
-
-/// Decrypts a message using AES/ECB/NOPADDING with a specified key and initialisation vector
-/// \param key Key use to decrypt
-///
-/// \param message Message to decrypt
-///
-/// \param iv Initialisation vector
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> AESECBEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message) noexcept SWIFT_SYMBOL("s:5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message))));
-  });
-}
-
-/// Encrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
-/// \param key Key use to encrypt
-///
-/// \param message Message to encrypt
-///
-/// \param iv Initialisation vector
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> AESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
-  });
-}
-
-/// Decrypts a message using DES with a specified key and initialisation vector
-/// \param key Key use to decrypt
-///
-/// \param message Message to decrypt
-///
-/// \param iv Initialisation vector
-///
-/// \param options Decryption options to use
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> DESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
-  });
-}
-
-/// Encrypts a message using DES with a specified key and initialisation vector
-/// \param key Key use to encrypt
-///
-/// \param message Message to encrypt
-///
-/// \param iv Initialisation vector
-///
-/// \param options Encryption options to use
-///
-SWIFT_INLINE_THUNK swift::Array<uint8_t> DESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
-  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
-    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
-  });
-}
 
 class SWIFT_SYMBOL("s:5ZenID10DataGroup1C") DataGroup1;
 } // end namespace 
@@ -19521,6 +19466,434 @@ struct implClassFor<ZenID::MrzData> { using type = ZenID::_impl::_impl_MrzData; 
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
 
+class SWIFT_SYMBOL("s:5ZenID31MsLivenessCreateSessionResponseV") MsLivenessCreateSessionResponse;
+} // end namespace 
+
+namespace swift SWIFT_PRIVATE_ATTR {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+template<>
+inline const constexpr bool isUsableInGenericContext<ZenID::MsLivenessCreateSessionResponse> = true;
+#pragma clang diagnostic pop
+} // namespace swift
+
+namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+namespace _impl {
+
+class _impl_MsLivenessCreateSessionResponse;
+
+// Type metadata accessor for MsLivenessCreateSessionResponse
+SWIFT_EXTERN swift::_impl::MetadataResponseTy $s5ZenID31MsLivenessCreateSessionResponseVMa(swift::_impl::MetadataRequestTy) SWIFT_NOEXCEPT SWIFT_CALL;
+
+
+} // namespace _impl
+
+class SWIFT_SYMBOL("s:5ZenID31MsLivenessCreateSessionResponseV") MsLivenessCreateSessionResponse final {
+public:
+  SWIFT_INLINE_THUNK ~MsLivenessCreateSessionResponse() noexcept {
+    auto metadata = _impl::$s5ZenID31MsLivenessCreateSessionResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->destroy(_getOpaquePointer(), metadata._0);
+  }
+  SWIFT_INLINE_THUNK MsLivenessCreateSessionResponse(const MsLivenessCreateSessionResponse &other) noexcept {
+    auto metadata = _impl::$s5ZenID31MsLivenessCreateSessionResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    _storage = swift::_impl::OpaqueStorage(vwTable->size, vwTable->getAlignment());
+    vwTable->initializeWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
+  }
+  SWIFT_INLINE_THUNK MsLivenessCreateSessionResponse &operator =(const MsLivenessCreateSessionResponse &other) noexcept {
+    auto metadata = _impl::$s5ZenID31MsLivenessCreateSessionResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->assignWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
+  return *this;
+  }
+  SWIFT_INLINE_THUNK MsLivenessCreateSessionResponse &operator =(MsLivenessCreateSessionResponse &&other) = delete;
+  [[noreturn]] SWIFT_INLINE_PRIVATE_HELPER MsLivenessCreateSessionResponse(MsLivenessCreateSessionResponse &&) noexcept {
+  swift::_impl::_fatalError_Cxx_move_of_Swift_value_type_not_supported_yet();
+  swift::_impl::_swift_stdlib_reportFatalError("swift", 5, "C++ does not support moving a Swift value yet", 45, 0);
+  abort();
+  }
+  SWIFT_INLINE_THUNK swift::String getAuthToken() const SWIFT_SYMBOL("s:5ZenID31MsLivenessCreateSessionResponseV9authTokenSSvp");
+  SWIFT_INLINE_THUNK void setAuthToken(const swift::String& value) SWIFT_SYMBOL("s:5ZenID31MsLivenessCreateSessionResponseV9authTokenSSvp");
+  SWIFT_INLINE_THUNK swift::String getSessionId() const SWIFT_SYMBOL("s:5ZenID31MsLivenessCreateSessionResponseV9sessionIdSSvp");
+  SWIFT_INLINE_THUNK void setSessionId(const swift::String& value) SWIFT_SYMBOL("s:5ZenID31MsLivenessCreateSessionResponseV9sessionIdSSvp");
+  static SWIFT_INLINE_THUNK MsLivenessCreateSessionResponse init(const swift::String& authToken, const swift::String& sessionId) SWIFT_SYMBOL("s:5ZenID31MsLivenessCreateSessionResponseV9authToken9sessionIdACSS_SStcfc");
+private:
+  SWIFT_INLINE_THUNK MsLivenessCreateSessionResponse(swift::_impl::ValueWitnessTable * _Nonnull vwTable) noexcept : _storage(vwTable->size, vwTable->getAlignment()) {}
+  static SWIFT_INLINE_THUNK MsLivenessCreateSessionResponse _make() noexcept {
+    auto metadata = _impl::$s5ZenID31MsLivenessCreateSessionResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    return MsLivenessCreateSessionResponse(vwTable);
+  }
+  SWIFT_INLINE_THUNK const char * _Nonnull _getOpaquePointer() const noexcept { return _storage.getOpaquePointer(); }
+  SWIFT_INLINE_THUNK char * _Nonnull _getOpaquePointer() noexcept { return _storage.getOpaquePointer(); }
+
+  swift::_impl::OpaqueStorage _storage;
+  friend class _impl::_impl_MsLivenessCreateSessionResponse;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-identifier"
+  typedef char $s5ZenID31MsLivenessCreateSessionResponseVD;
+  static inline constexpr $s5ZenID31MsLivenessCreateSessionResponseVD __swift_mangled_name = 0;
+#pragma clang diagnostic pop
+#pragma clang diagnostic pop
+};
+
+namespace _impl {
+
+class _impl_MsLivenessCreateSessionResponse {
+public:
+  static SWIFT_INLINE_THUNK char * _Nonnull getOpaquePointer(MsLivenessCreateSessionResponse &object) { return object._getOpaquePointer(); }
+  static SWIFT_INLINE_THUNK const char * _Nonnull getOpaquePointer(const MsLivenessCreateSessionResponse &object) { return object._getOpaquePointer(); }
+  template<class T>
+  static SWIFT_INLINE_PRIVATE_HELPER MsLivenessCreateSessionResponse returnNewValue(T callable) {
+    auto result = MsLivenessCreateSessionResponse::_make();
+    callable(result._getOpaquePointer());
+    return result;
+  }
+  static SWIFT_INLINE_THUNK void initializeWithTake(char * _Nonnull destStorage, char * _Nonnull srcStorage) {
+    auto metadata = _impl::$s5ZenID31MsLivenessCreateSessionResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->initializeWithTake(destStorage, srcStorage, metadata._0);
+  }
+};
+
+} // namespace _impl
+
+} // end namespace 
+
+namespace swift SWIFT_PRIVATE_ATTR {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+template<>
+struct TypeMetadataTrait<ZenID::MsLivenessCreateSessionResponse> {
+  static SWIFT_INLINE_PRIVATE_HELPER void * _Nonnull getTypeMetadata() {
+    return ZenID::_impl::$s5ZenID31MsLivenessCreateSessionResponseVMa(0)._0;
+  }
+};
+namespace _impl{
+template<>
+inline const constexpr bool isValueType<ZenID::MsLivenessCreateSessionResponse> = true;
+template<>
+inline const constexpr bool isOpaqueLayout<ZenID::MsLivenessCreateSessionResponse> = true;
+template<>
+struct implClassFor<ZenID::MsLivenessCreateSessionResponse> { using type = ZenID::_impl::_impl_MsLivenessCreateSessionResponse; };
+} // namespace
+#pragma clang diagnostic pop
+} // namespace swift
+
+namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+
+class SWIFT_SYMBOL("s:5ZenID33MsLivenessGetSessionImageResponseV") MsLivenessGetSessionImageResponse;
+} // end namespace 
+
+namespace swift SWIFT_PRIVATE_ATTR {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+template<>
+inline const constexpr bool isUsableInGenericContext<ZenID::MsLivenessGetSessionImageResponse> = true;
+#pragma clang diagnostic pop
+} // namespace swift
+
+namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+namespace _impl {
+
+class _impl_MsLivenessGetSessionImageResponse;
+
+// Type metadata accessor for MsLivenessGetSessionImageResponse
+SWIFT_EXTERN swift::_impl::MetadataResponseTy $s5ZenID33MsLivenessGetSessionImageResponseVMa(swift::_impl::MetadataRequestTy) SWIFT_NOEXCEPT SWIFT_CALL;
+
+
+} // namespace _impl
+
+class SWIFT_SYMBOL("s:5ZenID33MsLivenessGetSessionImageResponseV") MsLivenessGetSessionImageResponse final {
+public:
+  SWIFT_INLINE_THUNK ~MsLivenessGetSessionImageResponse() noexcept {
+    auto metadata = _impl::$s5ZenID33MsLivenessGetSessionImageResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->destroy(_getOpaquePointer(), metadata._0);
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionImageResponse(const MsLivenessGetSessionImageResponse &other) noexcept {
+    auto metadata = _impl::$s5ZenID33MsLivenessGetSessionImageResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    _storage = swift::_impl::OpaqueStorage(vwTable->size, vwTable->getAlignment());
+    vwTable->initializeWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionImageResponse &operator =(const MsLivenessGetSessionImageResponse &other) noexcept {
+    auto metadata = _impl::$s5ZenID33MsLivenessGetSessionImageResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->assignWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
+  return *this;
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionImageResponse &operator =(MsLivenessGetSessionImageResponse &&other) = delete;
+  [[noreturn]] SWIFT_INLINE_PRIVATE_HELPER MsLivenessGetSessionImageResponse(MsLivenessGetSessionImageResponse &&) noexcept {
+  swift::_impl::_fatalError_Cxx_move_of_Swift_value_type_not_supported_yet();
+  swift::_impl::_swift_stdlib_reportFatalError("swift", 5, "C++ does not support moving a Swift value yet", 45, 0);
+  abort();
+  }
+  SWIFT_INLINE_THUNK swift::String getImageBase64() const SWIFT_SYMBOL("s:5ZenID33MsLivenessGetSessionImageResponseV11imageBase64SSvp");
+  SWIFT_INLINE_THUNK void setImageBase64(const swift::String& value) SWIFT_SYMBOL("s:5ZenID33MsLivenessGetSessionImageResponseV11imageBase64SSvp");
+  static SWIFT_INLINE_THUNK MsLivenessGetSessionImageResponse init(const swift::String& imageBase64) SWIFT_SYMBOL("s:5ZenID33MsLivenessGetSessionImageResponseV11imageBase64ACSS_tcfc");
+private:
+  SWIFT_INLINE_THUNK MsLivenessGetSessionImageResponse(swift::_impl::ValueWitnessTable * _Nonnull vwTable) noexcept : _storage(vwTable->size, vwTable->getAlignment()) {}
+  static SWIFT_INLINE_THUNK MsLivenessGetSessionImageResponse _make() noexcept {
+    auto metadata = _impl::$s5ZenID33MsLivenessGetSessionImageResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    return MsLivenessGetSessionImageResponse(vwTable);
+  }
+  SWIFT_INLINE_THUNK const char * _Nonnull _getOpaquePointer() const noexcept { return _storage.getOpaquePointer(); }
+  SWIFT_INLINE_THUNK char * _Nonnull _getOpaquePointer() noexcept { return _storage.getOpaquePointer(); }
+
+  swift::_impl::OpaqueStorage _storage;
+  friend class _impl::_impl_MsLivenessGetSessionImageResponse;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-identifier"
+  typedef char $s5ZenID33MsLivenessGetSessionImageResponseVD;
+  static inline constexpr $s5ZenID33MsLivenessGetSessionImageResponseVD __swift_mangled_name = 0;
+#pragma clang diagnostic pop
+#pragma clang diagnostic pop
+};
+
+namespace _impl {
+
+class _impl_MsLivenessGetSessionImageResponse {
+public:
+  static SWIFT_INLINE_THUNK char * _Nonnull getOpaquePointer(MsLivenessGetSessionImageResponse &object) { return object._getOpaquePointer(); }
+  static SWIFT_INLINE_THUNK const char * _Nonnull getOpaquePointer(const MsLivenessGetSessionImageResponse &object) { return object._getOpaquePointer(); }
+  template<class T>
+  static SWIFT_INLINE_PRIVATE_HELPER MsLivenessGetSessionImageResponse returnNewValue(T callable) {
+    auto result = MsLivenessGetSessionImageResponse::_make();
+    callable(result._getOpaquePointer());
+    return result;
+  }
+  static SWIFT_INLINE_THUNK void initializeWithTake(char * _Nonnull destStorage, char * _Nonnull srcStorage) {
+    auto metadata = _impl::$s5ZenID33MsLivenessGetSessionImageResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->initializeWithTake(destStorage, srcStorage, metadata._0);
+  }
+};
+
+} // namespace _impl
+
+} // end namespace 
+
+namespace swift SWIFT_PRIVATE_ATTR {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+template<>
+struct TypeMetadataTrait<ZenID::MsLivenessGetSessionImageResponse> {
+  static SWIFT_INLINE_PRIVATE_HELPER void * _Nonnull getTypeMetadata() {
+    return ZenID::_impl::$s5ZenID33MsLivenessGetSessionImageResponseVMa(0)._0;
+  }
+};
+namespace _impl{
+template<>
+inline const constexpr bool isValueType<ZenID::MsLivenessGetSessionImageResponse> = true;
+template<>
+inline const constexpr bool isOpaqueLayout<ZenID::MsLivenessGetSessionImageResponse> = true;
+template<>
+struct implClassFor<ZenID::MsLivenessGetSessionImageResponse> { using type = ZenID::_impl::_impl_MsLivenessGetSessionImageResponse; };
+} // namespace
+#pragma clang diagnostic pop
+} // namespace swift
+
+namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+
+class SWIFT_SYMBOL("s:5ZenID34MsLivenessGetSessionResultResponseV") MsLivenessGetSessionResultResponse;
+} // end namespace 
+
+namespace swift SWIFT_PRIVATE_ATTR {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+template<>
+inline const constexpr bool isUsableInGenericContext<ZenID::MsLivenessGetSessionResultResponse> = true;
+#pragma clang diagnostic pop
+} // namespace swift
+
+namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+namespace _impl {
+
+class _impl_MsLivenessGetSessionResultResponse;
+
+// Type metadata accessor for MsLivenessGetSessionResultResponse
+SWIFT_EXTERN swift::_impl::MetadataResponseTy $s5ZenID34MsLivenessGetSessionResultResponseVMa(swift::_impl::MetadataRequestTy) SWIFT_NOEXCEPT SWIFT_CALL;
+
+
+} // namespace _impl
+
+class SWIFT_SYMBOL("s:5ZenID34MsLivenessGetSessionResultResponseV") MsLivenessGetSessionResultResponse final {
+public:
+  SWIFT_INLINE_THUNK ~MsLivenessGetSessionResultResponse() noexcept {
+    auto metadata = _impl::$s5ZenID34MsLivenessGetSessionResultResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->destroy(_getOpaquePointer(), metadata._0);
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionResultResponse(const MsLivenessGetSessionResultResponse &other) noexcept {
+    auto metadata = _impl::$s5ZenID34MsLivenessGetSessionResultResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    _storage = swift::_impl::OpaqueStorage(vwTable->size, vwTable->getAlignment());
+    vwTable->initializeWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionResultResponse &operator =(const MsLivenessGetSessionResultResponse &other) noexcept {
+    auto metadata = _impl::$s5ZenID34MsLivenessGetSessionResultResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->assignWithCopy(_getOpaquePointer(), const_cast<char *>(other._getOpaquePointer()), metadata._0);
+  return *this;
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionResultResponse &operator =(MsLivenessGetSessionResultResponse &&other) = delete;
+  [[noreturn]] SWIFT_INLINE_PRIVATE_HELPER MsLivenessGetSessionResultResponse(MsLivenessGetSessionResultResponse &&) noexcept {
+  swift::_impl::_fatalError_Cxx_move_of_Swift_value_type_not_supported_yet();
+  swift::_impl::_swift_stdlib_reportFatalError("swift", 5, "C++ does not support moving a Swift value yet", 45, 0);
+  abort();
+  }
+  SWIFT_INLINE_THUNK swift::String getResultJson() const SWIFT_SYMBOL("s:5ZenID34MsLivenessGetSessionResultResponseV10resultJsonSSvp");
+  SWIFT_INLINE_THUNK void setResultJson(const swift::String& value) SWIFT_SYMBOL("s:5ZenID34MsLivenessGetSessionResultResponseV10resultJsonSSvp");
+  static SWIFT_INLINE_THUNK MsLivenessGetSessionResultResponse init(const swift::String& resultJson) SWIFT_SYMBOL("s:5ZenID34MsLivenessGetSessionResultResponseV10resultJsonACSS_tcfc");
+private:
+  SWIFT_INLINE_THUNK MsLivenessGetSessionResultResponse(swift::_impl::ValueWitnessTable * _Nonnull vwTable) noexcept : _storage(vwTable->size, vwTable->getAlignment()) {}
+  static SWIFT_INLINE_THUNK MsLivenessGetSessionResultResponse _make() noexcept {
+    auto metadata = _impl::$s5ZenID34MsLivenessGetSessionResultResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    return MsLivenessGetSessionResultResponse(vwTable);
+  }
+  SWIFT_INLINE_THUNK const char * _Nonnull _getOpaquePointer() const noexcept { return _storage.getOpaquePointer(); }
+  SWIFT_INLINE_THUNK char * _Nonnull _getOpaquePointer() noexcept { return _storage.getOpaquePointer(); }
+
+  swift::_impl::OpaqueStorage _storage;
+  friend class _impl::_impl_MsLivenessGetSessionResultResponse;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wreserved-identifier"
+  typedef char $s5ZenID34MsLivenessGetSessionResultResponseVD;
+  static inline constexpr $s5ZenID34MsLivenessGetSessionResultResponseVD __swift_mangled_name = 0;
+#pragma clang diagnostic pop
+#pragma clang diagnostic pop
+};
+
+namespace _impl {
+
+class _impl_MsLivenessGetSessionResultResponse {
+public:
+  static SWIFT_INLINE_THUNK char * _Nonnull getOpaquePointer(MsLivenessGetSessionResultResponse &object) { return object._getOpaquePointer(); }
+  static SWIFT_INLINE_THUNK const char * _Nonnull getOpaquePointer(const MsLivenessGetSessionResultResponse &object) { return object._getOpaquePointer(); }
+  template<class T>
+  static SWIFT_INLINE_PRIVATE_HELPER MsLivenessGetSessionResultResponse returnNewValue(T callable) {
+    auto result = MsLivenessGetSessionResultResponse::_make();
+    callable(result._getOpaquePointer());
+    return result;
+  }
+  static SWIFT_INLINE_THUNK void initializeWithTake(char * _Nonnull destStorage, char * _Nonnull srcStorage) {
+    auto metadata = _impl::$s5ZenID34MsLivenessGetSessionResultResponseVMa(0);
+    auto *vwTableAddr = reinterpret_cast<swift::_impl::ValueWitnessTable **>(metadata._0) - 1;
+#ifdef __arm64e__
+    auto *vwTable = reinterpret_cast<swift::_impl::ValueWitnessTable *>(ptrauth_auth_data(reinterpret_cast<void *>(*vwTableAddr), ptrauth_key_process_independent_data, ptrauth_blend_discriminator(vwTableAddr, 11839)));
+#else
+    auto *vwTable = *vwTableAddr;
+#endif
+    vwTable->initializeWithTake(destStorage, srcStorage, metadata._0);
+  }
+};
+
+} // namespace _impl
+
+} // end namespace 
+
+namespace swift SWIFT_PRIVATE_ATTR {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+template<>
+struct TypeMetadataTrait<ZenID::MsLivenessGetSessionResultResponse> {
+  static SWIFT_INLINE_PRIVATE_HELPER void * _Nonnull getTypeMetadata() {
+    return ZenID::_impl::$s5ZenID34MsLivenessGetSessionResultResponseVMa(0)._0;
+  }
+};
+namespace _impl{
+template<>
+inline const constexpr bool isValueType<ZenID::MsLivenessGetSessionResultResponse> = true;
+template<>
+inline const constexpr bool isOpaqueLayout<ZenID::MsLivenessGetSessionResultResponse> = true;
+template<>
+struct implClassFor<ZenID::MsLivenessGetSessionResultResponse> { using type = ZenID::_impl::_impl_MsLivenessGetSessionResultResponse; };
+} // namespace
+#pragma clang diagnostic pop
+} // namespace swift
+
+namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+
 class SWIFT_SYMBOL("s:5ZenID24MsLivenessGiveMeResponseV") MsLivenessGiveMeResponse;
 } // end namespace 
 
@@ -19818,6 +20191,75 @@ struct implClassFor<ZenID::MsLivenessStateContainerForPublicData> { using type =
 } // namespace swift
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
+
+/// Decrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
+/// \param key Key use to decrypt
+///
+/// \param message Message to decrypt
+///
+/// \param iv Initialisation vector
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> AESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESDecrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
+  });
+}
+
+/// Decrypts a message using AES/ECB/NOPADDING with a specified key and initialisation vector
+/// \param key Key use to decrypt
+///
+/// \param message Message to decrypt
+///
+/// \param iv Initialisation vector
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> AESECBEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message) noexcept SWIFT_SYMBOL("s:5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID13AESECBEncrypt3key7messageSays5UInt8VGAG_AGtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message))));
+  });
+}
+
+/// Encrypts a message using AES/CBC/NOPADDING with a specified key and initialisation vector
+/// \param key Key use to encrypt
+///
+/// \param message Message to encrypt
+///
+/// \param iv Initialisation vector
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> AESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv) noexcept SWIFT_SYMBOL("s:5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10AESEncrypt3key7message2ivSays5UInt8VGAH_A2HtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv))));
+  });
+}
+
+/// Decrypts a message using DES with a specified key and initialisation vector
+/// \param key Key use to decrypt
+///
+/// \param message Message to decrypt
+///
+/// \param iv Initialisation vector
+///
+/// \param options Decryption options to use
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> DESDecrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESDecrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
+  });
+}
+
+/// Encrypts a message using DES with a specified key and initialisation vector
+/// \param key Key use to encrypt
+///
+/// \param message Message to encrypt
+///
+/// \param iv Initialisation vector
+///
+/// \param options Encryption options to use
+///
+SWIFT_INLINE_THUNK swift::Array<uint8_t> DESEncrypt(const swift::Array<uint8_t>& key, const swift::Array<uint8_t>& message, const swift::Array<uint8_t>& iv, uint32_t options) noexcept SWIFT_SYMBOL("s:5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF") SWIFT_WARN_UNUSED_RESULT {
+  return swift::_impl::_impl_Array<uint8_t>::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_void_ptr_0_8(result, ZenID::_impl::$s5ZenID10DESEncrypt3key7message2iv7optionsSays5UInt8VGAI_A2Is6UInt32VtF(ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(key)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(message)), ZenID::_impl::swift_interop_passDirect_ZenID_void_ptr_0_8(swift::_impl::_impl_Array<uint8_t>::getOpaquePointer(iv)), options));
+  });
+}
 
 class SWIFT_SYMBOL("s:5ZenID26MsLivenessVerifierSettingsV") MsLivenessVerifierSettings;
 } // end namespace 
@@ -27170,14 +27612,29 @@ struct implClassFor<ZenID::__ZenIDAPINested::Security> { using type = ZenID::__Z
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
 
-class SWIFT_SYMBOL("s:5ZenID0A15IDNetworkClientC") ZenIDNetworkClient;
+namespace _impl {
+
+// Type metadata accessor for URLSession
+SWIFT_EXTERN swift::_impl::MetadataResponseTy $sSo12NSURLSessionCMa(swift::_impl::MetadataRequestTy) SWIFT_NOEXCEPT SWIFT_CALL;
+
+
+} // namespace _impl
+
 } // end namespace 
 
 namespace swift SWIFT_PRIVATE_ATTR {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 template<>
-inline const constexpr bool isUsableInGenericContext<ZenID::ZenIDNetworkClient> = true;
+inline const constexpr bool isUsableInGenericContext<NSURLSession*> = true;
+template<>
+struct SWIFT_AVAILABILITY(ios,introduced=7.0) TypeMetadataTrait<NSURLSession*> {
+  static SWIFT_INLINE_PRIVATE_HELPER void * _Nonnull getTypeMetadata() {
+    return ZenID::_impl::$sSo12NSURLSessionCMa(0)._0;
+  }
+};
+namespace _impl{
+} // namespace
 #pragma clang diagnostic pop
 } // namespace swift
 
@@ -27195,6 +27652,18 @@ inline const constexpr bool isUsableInGenericContext<ZenID::ZenIDBackendApiImpl>
 
 namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
 /// Default implementation of ZenIDBackendApi for standard ZenID backend.
+/// Customization points (from simplest to most advanced):
+/// <ul>
+///   <li>
+///     <code>modifyHeaders</code> — add authentication headers, tenant IDs, etc.
+///   </li>
+///   <li>
+///     <code>modifyRequest</code> — full request customization (URL rewriting, body wrapping)
+///   </li>
+///   <li>
+///     <code>get</code>/<code>post</code> — replace the HTTP transport entirely
+///   </li>
+/// </ul>
 namespace _impl {
 
 class _impl_ZenIDBackendApiImpl;
@@ -27204,11 +27673,12 @@ SWIFT_EXTERN swift::_impl::MetadataResponseTy $s5ZenID0A16IDBackendApiImplCMa(sw
 
 } // namespace _impl
 
-class SWIFT_SYMBOL("s:5ZenID0A16IDBackendApiImplC") ZenIDBackendApiImpl final : public swift::_impl::RefCountedClass {
+class SWIFT_SYMBOL("s:5ZenID0A16IDBackendApiImplC") ZenIDBackendApiImpl : public swift::_impl::RefCountedClass {
 public:
   using RefCountedClass::RefCountedClass;
   using RefCountedClass::operator=;
-  SWIFT_INLINE_THUNK ZenIDNetworkClient getNetworkClient() SWIFT_SYMBOL("s:5ZenID0A16IDBackendApiImplC13networkClientAA0a9IDNetworkG0Cvp");
+  SWIFT_INLINE_THUNK NSURLSession *_Nonnull getUrlSession() SWIFT_SYMBOL("s:5ZenID0A16IDBackendApiImplC10urlSessionSo12NSURLSessionCvp");
+  SWIFT_INLINE_THUNK swift::String getApiPrefix() SWIFT_SYMBOL("s:5ZenID0A16IDBackendApiImplC9apiPrefixSSvp");
 protected:
   SWIFT_INLINE_THUNK ZenIDBackendApiImpl(void * _Nonnull ptr) noexcept : RefCountedClass(ptr) {}
 private:
@@ -27280,6 +27750,7 @@ extern unsigned $s5ZenID0A14IDBackendErrorO15invalidResponseyA2CmFWC;
 extern unsigned $s5ZenID0A14IDBackendErrorO18emptyInvestigationyA2CmFWC;
 extern unsigned $s5ZenID0A14IDBackendErrorO13notAuthorizedyA2CmFWC;
 extern unsigned $s5ZenID0A14IDBackendErrorO14notInitializedyA2CmFWC;
+extern unsigned $s5ZenID0A14IDBackendErrorO12notSupportedyACSS_tcACmFWC;
 }
 
 } // namespace _impl
@@ -27327,6 +27798,7 @@ public:
 
   enum class cases {
     requestFailed SWIFT_SYMBOL("s:5ZenID0A14IDBackendErrorO13requestFailedyACSS_tcACmF"),
+    notSupported SWIFT_SYMBOL("s:5ZenID0A14IDBackendErrorO12notSupportedyACSS_tcACmF"),
     invalidURL SWIFT_SYMBOL("s:5ZenID0A14IDBackendErrorO10invalidURLyA2CmF"),
     invalidResponse SWIFT_SYMBOL("s:5ZenID0A14IDBackendErrorO15invalidResponseyA2CmF"),
     emptyInvestigation SWIFT_SYMBOL("s:5ZenID0A14IDBackendErrorO18emptyInvestigationyA2CmF"),
@@ -27345,6 +27817,15 @@ public:
   } requestFailed SWIFT_SYMBOL("s:5ZenID0A14IDBackendErrorO13requestFailedyACSS_tcACmF");
   SWIFT_INLINE_THUNK bool isRequestFailed() const;
   SWIFT_INLINE_THUNK swift::String getRequestFailed() const;
+
+  inline const static struct _impl_notSupported {  // impl struct for case notSupported
+    SWIFT_INLINE_THUNK constexpr operator cases() const {
+      return cases::notSupported;
+    }
+    SWIFT_INLINE_THUNK ZenIDBackendError operator()(const swift::String& val) const;
+  } notSupported SWIFT_SYMBOL("s:5ZenID0A14IDBackendErrorO12notSupportedyACSS_tcACmF");
+  SWIFT_INLINE_THUNK bool isNotSupported() const;
+  SWIFT_INLINE_THUNK swift::String getNotSupported() const;
 
   inline const static struct _impl_invalidURL {  // impl struct for case invalidURL
     SWIFT_INLINE_THUNK constexpr operator cases() const {
@@ -27397,6 +27878,7 @@ public:
   SWIFT_INLINE_THUNK operator cases() const {
     auto tag = _getEnumTag();
     if (tag == _impl::$s5ZenID0A14IDBackendErrorO13requestFailedyACSS_tcACmFWC) return cases::requestFailed;
+    if (tag == _impl::$s5ZenID0A14IDBackendErrorO12notSupportedyACSS_tcACmFWC) return cases::notSupported;
     if (tag == _impl::$s5ZenID0A14IDBackendErrorO10invalidURLyA2CmFWC) return cases::invalidURL;
     if (tag == _impl::$s5ZenID0A14IDBackendErrorO15invalidResponseyA2CmFWC) return cases::invalidResponse;
     if (tag == _impl::$s5ZenID0A14IDBackendErrorO18emptyInvestigationyA2CmFWC) return cases::emptyInvestigation;
@@ -27511,65 +27993,6 @@ template<>
 inline const constexpr bool isOpaqueLayout<ZenID::ZenIDBackendError> = true;
 template<>
 struct implClassFor<ZenID::ZenIDBackendError> { using type = ZenID::_impl::_impl_ZenIDBackendError; };
-} // namespace
-#pragma clang diagnostic pop
-} // namespace swift
-
-namespace ZenID SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("ZenID") {
-
-/// Network client for authenticated HTTP requests to ZenID backend.
-/// Provides common HTTP operations with automatic API key authentication via cookies.
-/// Used internally by <code>ZenIDBackendApiImpl</code> and can be accessed by applications for custom backend operations.
-namespace _impl {
-
-class _impl_ZenIDNetworkClient;
-// Type metadata accessor for ZenIDNetworkClient
-SWIFT_EXTERN swift::_impl::MetadataResponseTy $s5ZenID0A15IDNetworkClientCMa(swift::_impl::MetadataRequestTy) SWIFT_NOEXCEPT SWIFT_CALL;
-
-
-} // namespace _impl
-
-class SWIFT_SYMBOL("s:5ZenID0A15IDNetworkClientC") ZenIDNetworkClient final : public swift::_impl::RefCountedClass {
-public:
-  using RefCountedClass::RefCountedClass;
-  using RefCountedClass::operator=;
-protected:
-  SWIFT_INLINE_THUNK ZenIDNetworkClient(void * _Nonnull ptr) noexcept : RefCountedClass(ptr) {}
-private:
-  friend class _impl::_impl_ZenIDNetworkClient;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wreserved-identifier"
-  typedef char $s5ZenID0A15IDNetworkClientCD;
-  static inline constexpr $s5ZenID0A15IDNetworkClientCD __swift_mangled_name = 0;
-#pragma clang diagnostic pop
-#pragma clang diagnostic pop
-};
-
-namespace _impl {
-
-class _impl_ZenIDNetworkClient {
-public:
-static SWIFT_INLINE_THUNK ZenIDNetworkClient makeRetained(void * _Nonnull ptr) noexcept { return ZenIDNetworkClient(ptr); }
-};
-
-} // namespace _impl
-
-} // end namespace 
-
-namespace swift SWIFT_PRIVATE_ATTR {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-template<>
-struct TypeMetadataTrait<ZenID::ZenIDNetworkClient> {
-  static SWIFT_INLINE_PRIVATE_HELPER void * _Nonnull getTypeMetadata() {
-    return ZenID::_impl::$s5ZenID0A15IDNetworkClientCMa(0)._0;
-  }
-};
-namespace _impl{
-template<>
-struct implClassFor<ZenID::ZenIDNetworkClient> { using type = ZenID::_impl::_impl_ZenIDNetworkClient; };
 } // namespace
 #pragma clang diagnostic pop
 } // namespace swift
@@ -35264,6 +35687,77 @@ SWIFT_INLINE_THUNK swift::Array<uint8_t> xor_(const swift::Array<uint8_t>& kifd,
   swift::_impl::ConsumedValueStorageDestroyer<DefType> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
   ZenID::_impl::$s5ZenID7MrzDataV10mrzDefTypeAA0fG0Ovs(ZenID::_impl::_impl_DefType::getOpaquePointer(consumedParamCopy_value), _getOpaquePointer());
   }
+  SWIFT_INLINE_THUNK swift::String MsLivenessCreateSessionResponse::getAuthToken() const {
+  return swift::_impl::_impl_String::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_void_ptr_8_16(result, ZenID::_impl::$s5ZenID31MsLivenessCreateSessionResponseV9authTokenSSvg(_getOpaquePointer()));
+  });
+  }
+  SWIFT_INLINE_THUNK void MsLivenessCreateSessionResponse::setAuthToken(const swift::String& value) {
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_value[sizeof(swift::String)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::String(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID31MsLivenessCreateSessionResponseV9authTokenSSvs(ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_value)), _getOpaquePointer());
+  }
+  SWIFT_INLINE_THUNK swift::String MsLivenessCreateSessionResponse::getSessionId() const {
+  return swift::_impl::_impl_String::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_void_ptr_8_16(result, ZenID::_impl::$s5ZenID31MsLivenessCreateSessionResponseV9sessionIdSSvg(_getOpaquePointer()));
+  });
+  }
+  SWIFT_INLINE_THUNK void MsLivenessCreateSessionResponse::setSessionId(const swift::String& value) {
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_value[sizeof(swift::String)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::String(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID31MsLivenessCreateSessionResponseV9sessionIdSSvs(ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_value)), _getOpaquePointer());
+  }
+  SWIFT_INLINE_THUNK MsLivenessCreateSessionResponse MsLivenessCreateSessionResponse::init(const swift::String& authToken, const swift::String& sessionId) {
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_authToken[sizeof(swift::String)];
+  auto &consumedParamCopy_authToken = *(new(copyBuffer_consumedParamCopy_authToken) swift::String(authToken));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_authToken(consumedParamCopy_authToken);
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_sessionId[sizeof(swift::String)];
+  auto &consumedParamCopy_sessionId = *(new(copyBuffer_consumedParamCopy_sessionId) swift::String(sessionId));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_sessionId(consumedParamCopy_sessionId);
+  return ZenID::_impl::_impl_MsLivenessCreateSessionResponse::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::$s5ZenID31MsLivenessCreateSessionResponseV9authToken9sessionIdACSS_SStcfC(result, ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_authToken)), ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_sessionId)));
+  });
+  }
+  SWIFT_INLINE_THUNK swift::String MsLivenessGetSessionImageResponse::getImageBase64() const {
+  return swift::_impl::_impl_String::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_void_ptr_8_16(result, ZenID::_impl::$s5ZenID33MsLivenessGetSessionImageResponseV11imageBase64SSvg(_getOpaquePointer()));
+  });
+  }
+  SWIFT_INLINE_THUNK void MsLivenessGetSessionImageResponse::setImageBase64(const swift::String& value) {
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_value[sizeof(swift::String)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::String(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID33MsLivenessGetSessionImageResponseV11imageBase64SSvs(ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_value)), _getOpaquePointer());
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionImageResponse MsLivenessGetSessionImageResponse::init(const swift::String& imageBase64) {
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_imageBase64[sizeof(swift::String)];
+  auto &consumedParamCopy_imageBase64 = *(new(copyBuffer_consumedParamCopy_imageBase64) swift::String(imageBase64));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_imageBase64(consumedParamCopy_imageBase64);
+  return ZenID::_impl::_impl_MsLivenessGetSessionImageResponse::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::$s5ZenID33MsLivenessGetSessionImageResponseV11imageBase64ACSS_tcfC(result, ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_imageBase64)));
+  });
+  }
+  SWIFT_INLINE_THUNK swift::String MsLivenessGetSessionResultResponse::getResultJson() const {
+  return swift::_impl::_impl_String::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_void_ptr_8_16(result, ZenID::_impl::$s5ZenID34MsLivenessGetSessionResultResponseV10resultJsonSSvg(_getOpaquePointer()));
+  });
+  }
+  SWIFT_INLINE_THUNK void MsLivenessGetSessionResultResponse::setResultJson(const swift::String& value) {
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_value[sizeof(swift::String)];
+  auto &consumedParamCopy_value = *(new(copyBuffer_consumedParamCopy_value) swift::String(value));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_value(consumedParamCopy_value);
+  ZenID::_impl::$s5ZenID34MsLivenessGetSessionResultResponseV10resultJsonSSvs(ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_value)), _getOpaquePointer());
+  }
+  SWIFT_INLINE_THUNK MsLivenessGetSessionResultResponse MsLivenessGetSessionResultResponse::init(const swift::String& resultJson) {
+  alignas(alignof(swift::String)) char copyBuffer_consumedParamCopy_resultJson[sizeof(swift::String)];
+  auto &consumedParamCopy_resultJson = *(new(copyBuffer_consumedParamCopy_resultJson) swift::String(resultJson));
+  swift::_impl::ConsumedValueStorageDestroyer<swift::String> storageGuard_consumedParamCopy_resultJson(consumedParamCopy_resultJson);
+  return ZenID::_impl::_impl_MsLivenessGetSessionResultResponse::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::$s5ZenID34MsLivenessGetSessionResultResponseV10resultJsonACSS_tcfC(result, ZenID::_impl::swift_interop_passDirect_ZenID_uint64_t_0_8_void_ptr_8_16(swift::_impl::_impl_String::getOpaquePointer(consumedParamCopy_resultJson)));
+  });
+  }
   SWIFT_INLINE_THUNK bool MsLivenessGiveMeResponse::isSuccess() const {
   return ZenID::_impl::$s5ZenID24MsLivenessGiveMeResponseV9isSuccessSbvg(_getOpaquePointer());
   }
@@ -37837,8 +38331,13 @@ return (__bridge_transfer UIImage *)(__bridge void *)ZenID::_impl::$s5ZenID16NFC
   SWIFT_INLINE_THUNK void __ZenIDAPINested::Security::unauthorize() {
   ZenID::_impl::$s5ZenID0A5IDAPIV8SecurityV11unauthorizeyyFZ();
   }
-  SWIFT_INLINE_THUNK ZenIDNetworkClient ZenIDBackendApiImpl::getNetworkClient() {
-  return _impl::_impl_ZenIDNetworkClient::makeRetained(ZenID::_impl::$s5ZenID0A16IDBackendApiImplC13networkClientAA0a9IDNetworkG0Cvg(::swift::_impl::_impl_RefCountedClass::getOpaquePointer(*this)));
+  SWIFT_INLINE_THUNK NSURLSession *_Nonnull ZenIDBackendApiImpl::getUrlSession() {
+return (__bridge_transfer NSURLSession *)(__bridge void *)ZenID::_impl::$s5ZenID0A16IDBackendApiImplC10urlSessionSo12NSURLSessionCvg(::swift::_impl::_impl_RefCountedClass::getOpaquePointer(*this));
+  }
+  SWIFT_INLINE_THUNK swift::String ZenIDBackendApiImpl::getApiPrefix() {
+  return swift::_impl::_impl_String::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+    ZenID::_impl::swift_interop_returnDirect_ZenID_uint64_t_0_8_void_ptr_8_16(result, ZenID::_impl::$s5ZenID0A16IDBackendApiImplC9apiPrefixSSvgTj(::swift::_impl::_impl_RefCountedClass::getOpaquePointer(*this)));
+  });
   }
   SWIFT_INLINE_THUNK ZenIDBackendError ZenIDBackendError::_impl_requestFailed::operator()(const swift::String& val) const {
     auto result = ZenIDBackendError::_make();
@@ -37853,6 +38352,26 @@ return (__bridge_transfer UIImage *)(__bridge void *)ZenID::_impl::$s5ZenID16NFC
   }
   SWIFT_INLINE_THUNK swift::String ZenIDBackendError::getRequestFailed() const {
     if (!isRequestFailed()) abort();
+    alignas(ZenIDBackendError) unsigned char buffer[sizeof(ZenIDBackendError)];
+    auto *thisCopy = new(buffer) ZenIDBackendError(*this);
+    char * _Nonnull payloadFromDestruction = thisCopy->_destructiveProjectEnumData();
+    return swift::_impl::implClassFor<swift::String>::type::returnNewValue([&](char * _Nonnull result) SWIFT_INLINE_THUNK_ATTRIBUTES {
+      swift::_impl::implClassFor<swift::String>::type::initializeWithTake(result, payloadFromDestruction);
+    });
+  }
+  SWIFT_INLINE_THUNK ZenIDBackendError ZenIDBackendError::_impl_notSupported::operator()(const swift::String& val) const {
+    auto result = ZenIDBackendError::_make();
+    alignas(swift::String) unsigned char buffer[sizeof(swift::String)];
+    auto *valCopy = new(buffer) swift::String(val);
+    swift::_impl::implClassFor<swift::String>::type::initializeWithTake(result._getOpaquePointer(), swift::_impl::implClassFor<swift::String>::type::getOpaquePointer(*valCopy));
+    result._destructiveInjectEnumTag(_impl::$s5ZenID0A14IDBackendErrorO12notSupportedyACSS_tcACmFWC);
+    return result;
+  }
+  SWIFT_INLINE_THUNK  bool ZenIDBackendError::isNotSupported() const {
+    return *this == ZenIDBackendError::notSupported;
+  }
+  SWIFT_INLINE_THUNK swift::String ZenIDBackendError::getNotSupported() const {
+    if (!isNotSupported()) abort();
     alignas(ZenIDBackendError) unsigned char buffer[sizeof(ZenIDBackendError)];
     auto *thisCopy = new(buffer) ZenIDBackendError(*this);
     char * _Nonnull payloadFromDestruction = thisCopy->_destructiveProjectEnumData();

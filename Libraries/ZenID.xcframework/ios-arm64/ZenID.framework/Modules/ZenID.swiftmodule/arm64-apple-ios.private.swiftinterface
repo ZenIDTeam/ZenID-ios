@@ -52,17 +52,12 @@ import _SwiftConcurrencyShims
   }
   @_Concurrency.MainActor override public func start() throws
   @_Concurrency.MainActor override public func stop()
-  public struct MsAuthorization : Swift.Decodable, Swift.Equatable {
-    public let sessionId: Swift.String?
-    public let authToken: Swift.String?
-    public static func == (a: ZenID.MSLivenessVerifier.MsAuthorization, b: ZenID.MSLivenessVerifier.MsAuthorization) -> Swift.Bool
-    public init(from decoder: any Swift.Decoder) throws
-  }
   @objc deinit
 }
 extension ZenID.MsLivenessStateContainerForPublicData : ZenID.VerifierStateContainer {
 }
 @_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class ZenIDManager {
+  @_Concurrency.MainActor public static func setBackendApi(_ backendApi: any ZenID.ZenIDBackendApi)
   @_Concurrency.MainActor final public var version: Swift.String {
     get
   }
@@ -431,6 +426,25 @@ public struct MsLivenessGiveMeResponse : Swift.Codable & Swift.Sendable {
   public var sessionId: Swift.String
   public var data: Swift.String
   public init(isSuccess: Swift.Bool = false, errorMessage: Swift.String = "", sessionId: Swift.String = "", data: Swift.String = "")
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MsLivenessCreateSessionResponse : Swift.Codable & Swift.Sendable {
+  public var authToken: Swift.String
+  public var sessionId: Swift.String
+  public init(authToken: Swift.String = "", sessionId: Swift.String = "")
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MsLivenessGetSessionResultResponse : Swift.Codable & Swift.Sendable {
+  public var resultJson: Swift.String
+  public init(resultJson: Swift.String = "")
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct MsLivenessGetSessionImageResponse : Swift.Codable & Swift.Sendable {
+  public var imageBase64: Swift.String
+  public init(imageBase64: Swift.String = "")
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -2363,6 +2377,9 @@ public protocol ZenIDBackendApi : Swift.Sendable {
   func getSample(sampleId: Swift.String) async throws -> Foundation.Data
   func investigateSamples(sampleIds: [Swift.String]) async throws -> Foundation.Data
   func getProfiles() async throws -> Foundation.Data
+  func msLivenessCreateSession(deviceCorrelationId: Swift.String) async throws -> (authToken: Swift.String, sessionId: Swift.String)
+  func msLivenessGetSessionResult(sessionId: Swift.String) async throws -> Foundation.Data
+  func msLivenessGetSessionImage(sessionImageId: Swift.String) async throws -> Swift.String
 }
 public enum ZenIDBackendError : Swift.Error, Foundation.LocalizedError {
   case invalidURL
@@ -2371,27 +2388,42 @@ public enum ZenIDBackendError : Swift.Error, Foundation.LocalizedError {
   case emptyInvestigation
   case notAuthorized
   case notInitialized
+  case notSupported(feature: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
   #endif
 }
-final public class ZenIDNetworkClient : @unchecked Swift.Sendable {
-  public init(baseURL: Foundation.URL, apiKey: Swift.String, timeout: Foundation.TimeInterval = 600)
-  final public func get(path: Swift.String) async throws -> Foundation.Data
-  final public func get(path: Swift.String, queryItems: [Foundation.URLQueryItem]) async throws -> Foundation.Data
-  final public func post(path: Swift.String, body: Foundation.Data, contentType: Swift.String = "application/octet-stream") async throws -> Foundation.Data
-  @objc deinit
+extension ZenID.ZenIDBackendApi {
+  public func msLivenessCreateSession(deviceCorrelationId: Swift.String) async throws -> (authToken: Swift.String, sessionId: Swift.String)
+  public func msLivenessGetSessionResult(sessionId: Swift.String) async throws -> Foundation.Data
+  public func msLivenessGetSessionImage(sessionImageId: Swift.String) async throws -> Swift.String
 }
-final public class ZenIDBackendApiImpl : ZenID.ZenIDBackendApi, @unchecked Swift.Sendable {
-  final public let networkClient: ZenID.ZenIDNetworkClient
-  public init(baseURL: Foundation.URL, apiKey: Swift.String, timeout: Foundation.TimeInterval = 600)
-  final public func initSdk(challengeToken: Swift.String) async throws -> Swift.String
-  final public func uploadSample(_ data: Foundation.Data) async throws -> Foundation.Data
-  final public func getSample(sampleId: Swift.String) async throws -> Foundation.Data
-  final public func investigateSamples(sampleIds: [Swift.String]) async throws -> Foundation.Data
-  final public func getProfiles() async throws -> Foundation.Data
+open class ZenIDBackendApiImpl : ZenID.ZenIDBackendApi, @unchecked Swift.Sendable {
+  final public let baseURL: Foundation.URL
+  final public let urlSession: Foundation.URLSession
+  open var apiPrefix: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(baseURL: Foundation.URL, apiKey: Swift.String? = nil, timeout: Foundation.TimeInterval = 600)
+  #endif
+  open func modifyHeaders(_ request: inout Foundation.URLRequest)
+  open func modifyRequest(_ request: inout Foundation.URLRequest)
+  open func get(path: Swift.String, queryItems: [Foundation.URLQueryItem] = []) async throws -> Foundation.Data
+  open func post(path: Swift.String, body: Foundation.Data, contentType: Swift.String = "application/octet-stream") async throws -> Foundation.Data
+  #if compiler(>=5.3) && $NonescapableTypes
+  open func send(path: Swift.String, queryItems: [Foundation.URLQueryItem] = [], method: Swift.String, configure: ((inout Foundation.URLRequest) -> Swift.Void)? = nil) async throws -> Foundation.Data
+  #endif
+  open func initSdk(challengeToken: Swift.String) async throws -> Swift.String
+  open func uploadSample(_ data: Foundation.Data) async throws -> Foundation.Data
+  open func getSample(sampleId: Swift.String) async throws -> Foundation.Data
+  open func investigateSamples(sampleIds: [Swift.String]) async throws -> Foundation.Data
+  open func getProfiles() async throws -> Foundation.Data
+  open func msLivenessCreateSession(deviceCorrelationId: Swift.String) async throws -> (authToken: Swift.String, sessionId: Swift.String)
+  open func msLivenessGetSessionResult(sessionId: Swift.String) async throws -> Foundation.Data
+  open func msLivenessGetSessionImage(sessionImageId: Swift.String) async throws -> Swift.String
   @objc deinit
 }
 @_Concurrency.MainActor open class GenericVerifierViewModel<V> : Foundation.ObservableObject where V : ZenID.VerifierProtocol {
