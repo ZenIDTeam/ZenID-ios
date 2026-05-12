@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1v5UeoYMwX40vw/0q4BTwffQlHc=
+		JfIEvdA6GC1oQC4f1uVoJ6AxlsA=
 		</data>
 		<key>Models/[][][licenseplate]_traineddata.bin</key>
 		<data>
@@ -98,11 +98,11 @@
 		</data>
 		<key>Modules/ZenID.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		GDoiHccLlsXMzm+CaI7ea/linFE=
+		j3AMfBCY4cp/t5Mwd2nqlagVAlk=
 		</data>
 		<key>Modules/ZenID.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		WHuewxqgQYSrUPzgT2LpuZSwEaE=
+		sqZYK5zOFX0Wdm4MCLmJDTRhlkk=
 		</data>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -391,14 +391,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UOrKRC92uA+fr5wRQD4Fss8o0cymu86b7HPpBcOvfNg=
+			yyN178PAu8HXNBwtvRYFRD2ibKWjKq542eo1kKZzsxQ=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fl/PumgKVXXao8z2rNDTOYuPHbne/HS5jcDrbWNo5YI=
+			/r0Y2ADfnJjo5Fhqx2A8LWdfDQCFKCu0UawXe+jivRw=
 			</data>
 		</dict>
 		<key>Modules/ZenID.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
