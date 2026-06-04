@@ -13,13 +13,12 @@ import Combine
 @MainActor
 class MsLivenessViewModel: InvestigatingViewModel<MSLivenessVerifier> {
 
-    /// Access to coordinator for MS Liveness UI presentation
-    var coordinator: MSLivenessCoordinator? {
-        self.verifier?.coordinator
-    }
+    /// Coordinator for MS Liveness UI presentation. Owned by the view model and wired into the
+    /// verifier on creation, so SwiftUI views can observe it from body-build time.
+    let coordinator = MSLivenessCoordinator()
 
     override func createVerifier() throws -> MSLivenessVerifier {
-        try ZenIDManager.msLivenessVerifier()
+        try ZenIDManager.msLivenessVerifier(coordinator: coordinator)
     }
 
     override func setup() async {

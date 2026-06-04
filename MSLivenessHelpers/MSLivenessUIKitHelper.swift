@@ -12,53 +12,42 @@ import ZenID
 import Combine
 import AzureAIVisionFaceUI
 
-/// Protocol for view models that provide MS Liveness coordinator access
-protocol MSLivenessCoordinatorProvider: AnyObject {
-    var coordinator: MSLivenessCoordinator? { get }
-}
-
-/// Make SDK's MSLivenessViewModel conform to the protocol
-extension ZenID.MSLivenessViewModel: MSLivenessCoordinatorProvider {}
-
 /// Helper class that manages MS Liveness Azure UI presentation in UIKit.
 ///
-/// This class handles:
-/// - Adding black background to hide camera
-/// - Observing coordinator token changes
-/// - Presenting/dismissing Azure UI as a child view controller
-/// - Handling Azure liveness results
-/// - Managing retry logic
+/// Owns:
+/// - A black background to hide the dead camera view (Azure manages its own camera).
+/// - Observation of `coordinator.presentation` — each new request is treated as a distinct
+///   presentation, so retries cleanly tear down and re-host without timing hacks.
+/// - The Azure `FaceLivenessDetectorView` hosting controller and its lifecycle.
 ///
-/// Usage (in viewDidAppear):
+/// Usage:
 /// ```swift
-/// // Setup helper (adds black background and polls for coordinator)
-/// msLivenessHelper = MSLivenessUIKitHelper.setup(
-///     viewController: self,
-///     coordinatorProvider: viewModel
-/// )
+/// // Create the coordinator once (e.g. on the view controller / presenter):
+/// let coordinator = MSLivenessCoordinator()
+/// // Wire the same coordinator into the verifier:
+/// let verifier = try ZenIDManager.msLivenessVerifier(coordinator: coordinator)
 ///
-/// // Start the verifier
-/// viewModel.start(with: cameraView)
+/// // In viewDidAppear:
+/// msLivenessHelper = MSLivenessUIKitHelper.setup(viewController: self, coordinator: coordinator)
+/// try verifier.start()
 /// ```
 @MainActor
-class MSLivenessUIKitHelper {
+public class MSLivenessUIKitHelper {
     private let parentViewController: UIViewController
     private let zenIDView: UIZenIDView
-    private weak var coordinatorProvider: MSLivenessCoordinatorProvider?
+    private let coordinator: MSLivenessCoordinator
     private var cancellables = Set<AnyCancellable>()
     private var azureHost: UIHostingController<AnyView>?
-    private var livenessResult: LivenessDetectionResult?
+    private var presentedRequestID: UUID?
     private var blackBackgroundView: UIView?
-    private var isProcessingResult = false
-    private var coordinator: MSLivenessCoordinator?
-    private var coordinatorCheckTimer: Timer?
 
-    /// Simple setup method - just pass your view controller and coordinator provider
+    /// Setup the helper.
     /// - Parameters:
-    ///   - viewController: The view controller that will host the Azure UI
-    ///   - coordinatorProvider: Object that provides access to MSLivenessCoordinator (typically MSLivenessViewModel)
-    /// - Returns: Helper instance (store it to keep it alive, call cleanup() in viewWillDisappear)
-    static func setup(viewController: UIViewController, coordinatorProvider: MSLivenessCoordinatorProvider) -> MSLivenessUIKitHelper? {
+    ///   - viewController: The view controller that will host the Azure UI.
+    ///   - coordinator: The coordinator wired into the MSLivenessVerifier.
+    /// - Returns: Helper instance (store it to keep it alive, call `cleanup()` in
+    ///   `viewWillDisappear`).
+    public static func setup(viewController: UIViewController, coordinator: MSLivenessCoordinator) -> MSLivenessUIKitHelper? {
         guard let zenIDView = ZenIDManager.zenIDView as? UIZenIDView else {
             return nil
         }
@@ -66,74 +55,43 @@ class MSLivenessUIKitHelper {
         let helper = MSLivenessUIKitHelper(
             parentViewController: viewController,
             zenIDView: zenIDView,
-            coordinatorProvider: coordinatorProvider
+            coordinator: coordinator
         )
         helper.start()
         return helper
     }
 
-    /// Initialize the helper
-    /// - Parameters:
-    ///   - parentViewController: The view controller that will host the Azure UI
-    ///   - zenIDView: The UIZenIDView for camera rendering
-    ///   - coordinatorProvider: Object that provides access to MSLivenessCoordinator
-    init(parentViewController: UIViewController, zenIDView: UIZenIDView, coordinatorProvider: MSLivenessCoordinatorProvider) {
+    init(parentViewController: UIViewController, zenIDView: UIZenIDView, coordinator: MSLivenessCoordinator) {
         self.parentViewController = parentViewController
         self.zenIDView = zenIDView
-        self.coordinatorProvider = coordinatorProvider
+        self.coordinator = coordinator
     }
 
-    /// Start observing coordinator token for Azure UI presentation
+    /// Start observing the coordinator for Azure UI presentation requests.
     func start() {
-        // Add black background to hide camera (Azure handles camera)
         addBlackBackground()
 
-        // Check for coordinator immediately
-        checkForCoordinator()
-
-        // If not found, set up timer to poll for it
-        if coordinator == nil {
-            coordinatorCheckTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-                self?.checkForCoordinator()
-            }
-        }
-    }
-
-    private func checkForCoordinator() {
-        guard coordinator == nil else { return }
-
-        if let coordinator = coordinatorProvider?.coordinator {
-            coordinatorCheckTimer?.invalidate()
-            coordinatorCheckTimer = nil
-            self.coordinator = coordinator
-            observeCoordinatorToken(coordinator)
-        }
-    }
-
-    private func observeCoordinatorToken(_ coordinator: MSLivenessCoordinator) {
-        // Check if token already exists and show UI immediately
-        if let token = coordinator.token {
-            showAzureUI(token: token)
-        }
-
-        // Observe coordinator token for Azure UI presentation
-        coordinator.$token
+        // React to each presentation request by `id` — a new id means a fresh Azure session
+        // (initial run or retry), so we tear down any existing host and re-present.
+        coordinator.$presentation
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] token in
-                guard let self = self, !self.isProcessingResult else { return }
-                if let token = token {
-                    self.showAzureUI(token: token)
+            .sink { [weak self] request in
+                guard let self else { return }
+                if let request {
+                    if request.id != self.presentedRequestID {
+                        self.presentedRequestID = request.id
+                        self.showAzureUI(token: request.token)
+                    }
                 } else {
+                    self.presentedRequestID = nil
                     self.hideAzureUI()
                 }
             }
             .store(in: &cancellables)
     }
 
-    /// Clean up resources
-    func cleanup() {
-        coordinatorCheckTimer?.invalidate()
-        coordinatorCheckTimer = nil
+    /// Clean up resources.
+    public func cleanup() {
         hideAzureUI()
         removeBlackBackground()
         cancellables.removeAll()
@@ -161,28 +119,20 @@ class MSLivenessUIKitHelper {
     }
 
     private func showAzureUI(token: String) {
-        // Clean up existing host if present (for retries)
-        if let existingHost = azureHost {
-            existingHost.willMove(toParent: nil)
-            existingHost.view.removeFromSuperview()
-            existingHost.removeFromParent()
-            azureHost = nil
-        }
+        // Tear down any existing Azure host before re-presenting (handles retries cleanly).
+        hideAzureUI()
 
-        livenessResult = nil
-
-        // Create binding for Azure result
-        let binding = Binding(
-            get: { [weak self] in self?.livenessResult },
+        var livenessResult: LivenessDetectionResult?
+        let binding = Binding<LivenessDetectionResult?>(
+            get: { livenessResult },
             set: { [weak self] newValue in
-                self?.livenessResult = newValue
+                livenessResult = newValue
                 if let result = newValue {
                     self?.handleLivenessResult(result)
                 }
             }
         )
 
-        // Create Azure UI
         let azureView = FaceLivenessDetectorView(
             result: binding,
             sessionAuthorizationToken: token
@@ -192,7 +142,6 @@ class MSLivenessUIKitHelper {
         let host = UIHostingController(rootView: AnyView(azureView))
         azureHost = host
 
-        // Add as child view controller
         parentViewController.addChild(host)
         parentViewController.view.addSubview(host.view)
         host.didMove(toParent: parentViewController)
@@ -205,17 +154,16 @@ class MSLivenessUIKitHelper {
             host.view.trailingAnchor.constraint(equalTo: parentViewController.view.trailingAnchor)
         ])
 
-        // Bring to front to cover ZenID view
+        // Cover the ZenID view while Azure is in front.
         parentViewController.view.bringSubviewToFront(host.view)
     }
 
     private func hideAzureUI() {
         guard let host = azureHost else { return }
 
-        // Bring ZenID view to front to show CoreLib rendering
+        // Bring ZenID view to front so the visualizer shows the retry countdown.
         parentViewController.view.bringSubviewToFront(zenIDView)
 
-        // Remove Azure hosting controller
         host.willMove(toParent: nil)
         host.view.removeFromSuperview()
         host.removeFromParent()
@@ -223,34 +171,12 @@ class MSLivenessUIKitHelper {
     }
 
     private func handleLivenessResult(_ result: LivenessDetectionResult) {
-        Task { @MainActor in
-            guard let coordinator = self.coordinator else { return }
-
-            // Temporarily block token updates to prevent brief reappearance
-            isProcessingResult = true
-
-            // Clear token and hide Azure UI immediately
-            coordinator.token = nil
-            hideAzureUI()
-
-            // Give UI a moment to actually dismiss and show visualizer
-            try? await Task.sleep(nanoseconds: 100_000_000) // 100ms
-
-            // Submit result to coordinator
-            switch result {
-            case .success:
-                coordinator.complete(success: true, error: nil)
-            case .failure(let error):
-                coordinator.complete(success: false, error: error.localizedDescription)
-                // SDK will handle retry automatically by providing a new token
-            }
-
-            // Reset result state for next attempt
-            livenessResult = nil
-
-            // Wait for CoreLib to process and start countdown before accepting new tokens
-            try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 seconds
-            isProcessingResult = false
+        switch result {
+        case .success:
+            coordinator.complete(success: true, error: nil)
+        case .failure(let error):
+            coordinator.complete(success: false, error: String(describing: error.livenessError))
+            // SDK republishes a new presentation request (with a fresh id) for the retry.
         }
     }
 }

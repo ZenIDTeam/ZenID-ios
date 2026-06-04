@@ -1,64 +1,88 @@
-# MS Liveness Sample Code
+# MS Liveness Integration Helpers
 
-This folder contains ready-to-copy helper code for integrating MS Liveness into your app.
+SwiftUI and UIKit helper code for integrating MS Liveness into your app.
+
+**Swift Package Manager:** the helpers ship as the `ZenIDMSLiveness` module (part of the
+`ZenIDFull` product) — `import ZenIDMSLiveness`, nothing to copy.
+
+**Manual integration:** copy the relevant helper file below into your app target.
 
 ## Files Included
 
 ### `MSLivenessSwiftUIHelper.swift` (SwiftUI)
-SwiftUI view that wraps Azure's `FaceLivenessDetectorView` and integrates with ZenID's `MSLivenessCoordinator`.
+SwiftUI view that wraps Azure's `FaceLivenessDetectorView` and reports back to a
+`MSLivenessCoordinator`. Uses `.fullScreenCover(item:)` keyed on `MSLivenessPresentationRequest.id`,
+so retries cleanly dismiss-then-represent without the timing hacks earlier versions required.
 
-**Usage:** Copy this file into your SwiftUI project. Reduces integration code to ~15 lines.
+**Manual integration only:** copy this file into your SwiftUI project. (SwiftPM users skip this.)
+
+**Usage:** apply `.msLiveness(coordinator:)` once on your view; that's the entire SwiftUI integration.
 
 ### `MSLivenessUIKitHelper.swift` (UIKit)
-UIKit helper class that manages the entire MS Liveness flow including:
-- Creating and managing `MSLivenessViewModel` (with upload/investigation)
-- Observing coordinator token changes
-- Presenting/dismissing Azure UI as a child view controller
-- Handling Azure liveness results and retry logic
+UIKit helper class that:
+- Adds a black background to hide the dead camera (Azure manages its own camera).
+- Observes `coordinator.presentation` and presents/dismisses Azure UI accordingly.
+- Calls `coordinator.complete(success:error:)` with the Azure result.
 
-**Usage:** Copy this file into your UIKit project. Reduces integration code to ~15 lines.
+**Manual integration only:** copy this file into your project. (SwiftPM users skip this.)
 
-### `MsLivenessViewModel.swift` (Reference)
-This is the original SDK source code that implements MsLivenessViewModel.
+**Usage:** instantiate with `MSLivenessUIKitHelper.setup(viewController:coordinator:)`.
 
-Not needed for integration, but may be helpful for understanding how the helpers work.
+### `MSLivenessViewModel.swift` (Reference)
+Reference snippet showing the SDK's `MSLivenessViewModel`. Already compiled into the SDK — you
+don't need to copy it.
 
-**Usage:** Reference only - use the helpers above for actual integration.
+## Integration
 
-## Integration Steps
+The coordinator can be created independently of the verifier. Create it once, observe it from
+your view, and pass the same instance to the verifier.
 
-### For SwiftUI Apps
+### SwiftUI
+```swift
+import SwiftUI
+import ZenID
 
-1. **Copy `MSLivenessSwiftUIHelper.swift` into your project**
-   - Drag the file into Xcode
-   - Ensure it's added to your app target (not the SDK)
+struct MyLivenessView: View {
+    @StateObject var coordinator = MSLivenessCoordinator()
+    @State var verifier: MSLivenessVerifier?
 
-2. **Use with MSLivenessViewModel:**
-   ```swift
-   @StateObject private var viewModel = MSLivenessViewModel()
-   @State private var showLivenessSheet: MSLivenessPresentationToken?
+    var body: some View {
+        ZStack {
+            Color.black.ignoresSafeArea()   // hide dead camera
+            ZenIDView()                     // visualizer messages (retry countdown)
+        }
+        .onAppear {
+            verifier = try? ZenIDManager.msLivenessVerifier(coordinator: coordinator)
+            verifier?.onResult = { /* handle UploadReadyData */ }
+            try? verifier?.start()
+        }
+        .onDisappear { verifier?.stop() }
+        .msLiveness(coordinator: coordinator)
+    }
+}
+```
 
-   .fullScreenCover(item: $showLivenessSheet) { token in
-       if let coordinator = viewModel.verifier?.coordinator {
-           MSLivenessSwiftUIHelper(token: token.token, coordinator: coordinator)
-       }
-   }
-   ```
+You can also drop the coordinator entirely and use the closure-shaped API:
 
-### For UIKit Apps
+```swift
+verifier.onAzurePresentationRequested = { token, completion in
+    // present Azure however you want, then call completion(success, error)
+}
+```
 
-1. **Copy `MSLivenessUIKitHelper.swift` into your project**
-   - Drag the file into Xcode
-   - Ensure it's added to your app target (not the SDK)
+### UIKit
+```swift
+let coordinator = MSLivenessCoordinator()
+let verifier = try ZenIDManager.msLivenessVerifier(coordinator: coordinator)
 
-2. **Use in your view controller:**
-   ```swift
-   livenessHelper = MSLivenessUIKitHelper(
-       parentViewController: self,
-       zenIDView: zenIDView
-   )
-   livenessHelper?.start()
-   ```
+// In viewDidAppear:
+msLivenessHelper = MSLivenessUIKitHelper.setup(viewController: self, coordinator: coordinator)
+try verifier.start()
+
+// In viewWillDisappear:
+verifier.stop()
+msLivenessHelper?.cleanup()
+```
 
 ## Framework Requirements
 

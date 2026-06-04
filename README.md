@@ -11,6 +11,14 @@ Xcode 16 or newer is required.
 
 See iOS SDK Migration Guide in Feature Notes in ZenID manual.
 
+## Upgrading from an earlier 5.x release
+
+The SDK frameworks are no longer committed to this repository — they are distributed as GitHub release archives:
+
+- **SwiftPM users:** no action needed. Re-resolve packages; SwiftPM fetches the frameworks from the release automatically. Git LFS is no longer required.
+- **Manual integrators:** switch to Swift Package Manager if you can — it works now (no Git LFS required) and is the recommended way to integrate the SDK. If you really need manual integration, run `./download_frameworks.sh` after cloning to populate `Libraries/` (see *Manual linking* below).
+- **MS Liveness:** the integration helpers now ship as the `ZenIDMSLiveness` module in the `ZenIDFull` product. After updating, adopt it in two steps: **(1)** add `import ZenIDMSLiveness` to the files that use the helpers, and **(2)** delete the `MSLivenessSwiftUIHelper.swift` / `MSLivenessUIKitHelper.swift` files you previously copied into your app. The `import` only makes the module available — it does not remove your old copies, so step 2 is on you. The module's API is identical, so your existing `.msLiveness(coordinator:)` / `MSLivenessUIKitHelper` call sites need no changes. If you skip step 2, the build stops with an `ambiguous use of 'msLiveness(coordinator:)'` error naming both copies — so it can't slip through silently; just delete the copied file.
+
 
 ## iOS version compatibility
 
@@ -23,12 +31,12 @@ Note that old out-of-support devices will likely lack sufficient processing capa
 
 ### Manual linking
 
-- Clone the repo (requires [Git LFS](https://git-lfs.com/) to be installed): `git clone https://github.com/ZenIDTeam/ZenID-ios.git`
-- Copy `Libraries/ZenID.xcframework`. All required models are now bundled inside the framework.
+- Clone the repo: `git clone https://github.com/ZenIDTeam/ZenID-ios.git`
+- Run `./download_frameworks.sh` to fetch the SDK frameworks into `Libraries/`. They are distributed as GitHub release archives and verified against the checksums in `Package.swift`.
+- Add `Libraries/ZenID.xcframework` to your app's Xcode target with "Embed & Sign". All required models are bundled inside the framework — no separate model files needed.
 - If you will use MS Liveness:
-  - Also include `Libraries/AzureAIVisionFaceUI.xcframework` (~140MB additional).
-  - Then copy the MS Liveness helper files from `MSLivenessHelpers` as described in the manual.
-- Add the frameworks to your Xcode target with "Embed & Sign".
+  - Also add `Libraries/AzureAIVisionFaceUI.xcframework` (~140MB additional) with "Embed & Sign".
+  - Copy the MS Liveness helper files from `MSLivenessHelpers` into your project, as described in the manual.
 
 Required Info.plist keys:
 - NSCameraUsageDescription (camera access)
@@ -37,21 +45,15 @@ Required Info.plist keys:
 
 ### Swift Package Manager (SPM)
 
-> [!WARNING]
-> You'll probably see the following error when trying to install via SPM: `unexpectedly did not find the new dependency in the package graph: sourceControl(identity: zenid-ios, location: `.
-> 
-> That's because this repo uses Git Large File Storage (LFS) and SPM doesn't work well with Git LFS.
-> 
-> You'll have to clone the repo manually (with [Git LFS](https://git-lfs.com/) installed) and either add it as a local SPM package or copy the frameworks manually:
-> ```
-> git clone https://github.com/ZenIDTeam/ZenID-ios.git
-> ```
-
 - Add the package from `https://github.com/ZenIDTeam/ZenID-ios`
 - Choose package product:
   - **ZenID** - Lite version (recommended if you don't need MS Liveness)
   - **ZenIDFull** - Full version with MS Liveness support (includes AzureAIVisionFaceUI automatically, adds ~140MB)
 - All required models are bundled inside ZenID.xcframework - no manual model management needed.
+
+The SDK frameworks are delivered as GitHub release archives, referenced from `Package.swift` by `binaryTarget` url + checksum. SwiftPM downloads and verifies them automatically — Git LFS is not required.
+
+If you select **ZenIDFull** and use MS Liveness, `import ZenIDMSLiveness` for the integration helpers (`.msLiveness(coordinator:)` for SwiftUI, `MSLivenessUIKitHelper` for UIKit) — there are no helper files to copy.
 
 
 ### How to fix focusing problem with new iPhone Pro models.

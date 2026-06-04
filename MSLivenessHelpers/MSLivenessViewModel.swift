@@ -20,8 +20,13 @@ import Combine
 
 /// MSLivenessVerifier ViewModel
 ///
-/// This ViewModel manages MS Liveness verification. Unlike other verifiers,
-/// MS Liveness requires additional Azure UI integration via the coordinator.
+/// This ViewModel manages MS Liveness verification. Unlike other verifiers, MS Liveness needs
+/// the host app to present Azure's `FaceLivenessDetectorView`. The bridge is the
+/// ``MSLivenessCoordinator`` exposed below.
+///
+/// The coordinator is owned by the view model (created eagerly in `init`) and wired into the
+/// verifier when it is created. SwiftUI views can therefore observe it from body-build time
+/// without depending on the verifier's lifecycle.
 ///
 /// **SwiftUI Integration:**
 /// ```swift
@@ -30,12 +35,14 @@ import Combine
 ///
 ///     var body: some View {
 ///         ZStack {
-///             Color.black.edgesIgnoringSafeArea(.all)
+///             Color.black.ignoresSafeArea()
 ///             ZenIDView()
 ///         }
-///         .onAppear { viewModel.start(with: ZenIDManager.zenIDView) }
+///         .onAppear {
+///             if let view = ZenIDManager.zenIDView { viewModel.start(with: view) }
+///         }
 ///         .onDisappear { viewModel.cleanup() }
-///         .msLiveness(coordinator: viewModel.coordinator)
+///         .msLiveness(coordinator: viewModel.coordinator)   // never nil
 ///     }
 /// }
 /// ```
@@ -60,18 +67,18 @@ import Combine
 public final class MSLivenessViewModel: GenericVerifierViewModel<MSLivenessVerifier> {
     private let settings: MsLivenessVerifierSettings
 
-    /// The MS Liveness coordinator for Azure UI integration
-    /// Pass this to `.msLiveness()` modifier (SwiftUI) or `MSLivenessUIKitHelper.setup()` (UIKit)
-    public var coordinator: MSLivenessCoordinator? {
-        verifier?.coordinator
-    }
+    /// Coordinator that bridges Azure UI presentation with the verification loop. Always
+    /// non-nil; observe ``MSLivenessCoordinator/presentation`` to drive Azure UI.
+    public let coordinator: MSLivenessCoordinator
 
-    public init(settings: MsLivenessVerifierSettings = .init()) {
+    public init(settings: MsLivenessVerifierSettings = .init(),
+                coordinator: MSLivenessCoordinator = MSLivenessCoordinator()) {
         self.settings = settings
+        self.coordinator = coordinator
         super.init()
     }
 
     public override func createVerifier() throws -> MSLivenessVerifier {
-        try ZenIDManager.msLivenessVerifier(settings: settings)
+        try ZenIDManager.msLivenessVerifier(settings: settings, coordinator: coordinator)
     }
 }

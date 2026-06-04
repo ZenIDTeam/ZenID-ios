@@ -1,2 +1,0 @@
-Libraries/AzureAIVisionFaceUI.xcframework/ios-arm64_arm64e/AzureAIVisionFaceUI.framework/AzureAIVisionFaceUI filter=lfs diff=lfs merge=lfs -text
-Libraries/AzureAIVisionFaceUI.xcframework/ios-arm64_x86_64-simulator/AzureAIVisionFaceUI.framework/AzureAIVisionFaceUI filter=lfs diff=lfs merge=lfs -text

@@ -5,8 +5,9 @@
 //  Created by ZenID SDK on 08.10.2025.
 //  Copyright © 2025 ZenID s.r.o. All rights reserved.
 //
-//  This is SAMPLE CODE that customers can copy into their projects.
-//  It is NOT part of the ZenID SDK (since Azure is optional).
+//  MS Liveness SwiftUI helper. SwiftPM: `import ZenIDMSLiveness` (in the ZenIDFull product).
+//  Manual integration: copy this file. Lives outside ZenID.xcframework because it depends
+//  on AzureAIVisionFaceUI, which is optional.
 //
 
 import SwiftUI
@@ -14,107 +15,69 @@ import ZenID
 import AzureAIVisionFaceUI
 import Combine
 
-/// Complete wrapper for Azure Liveness UI that handles all coordinator interaction.
+/// SwiftUI wrapper for Azure Liveness UI driven by ``MSLivenessCoordinator``.
 ///
-/// This view handles ALL the complexity of:
-/// - Observing coordinator token changes
-/// - Presenting Azure's FaceLivenessDetectorView automatically when token is available
-/// - Dismissing UI immediately when done
-/// - Calling coordinator.complete() with the result
-/// - Managing retry flow
+/// Observes the coordinator's `presentation` request and presents Azure's
+/// `FaceLivenessDetectorView` in a `fullScreenCover` keyed on the request's id, so each retry
+/// gets a clean dismiss-then-represent transition without timing hacks.
 ///
-/// Usage (simply add to your view):
+/// Usage:
 /// ```swift
+/// @StateObject var coordinator = MSLivenessCoordinator()
+///
 /// var body: some View {
 ///     ZStack {
+///         Color.black.ignoresSafeArea()
 ///         ZenIDView()
 ///         // ... your other UI
 ///     }
-///     .msLiveness(coordinator: viewModel.coordinator)
+///     .msLiveness(coordinator: coordinator)
 /// }
 /// ```
 struct MSLivenessSwiftUIHelper: View {
-    let coordinator: MSLivenessCoordinator
-    @State private var token: String?
+    @ObservedObject var coordinator: MSLivenessCoordinator
     @State private var result: LivenessDetectionResult?
-    @State private var isProcessingResult = false
-    @State private var shouldPresent = false
 
     var body: some View {
         Color.clear
-            .onReceive(coordinator.$token) { newToken in
-                // Ignore token updates while processing result
-                guard !isProcessingResult else { return }
-                token = newToken
-            }
-            .onChange(of: token) { newToken in
-                // Ignore if processing result
-                guard !isProcessingResult else { return }
-
-                // Update presentation flag after token has been set
-                shouldPresent = (newToken != nil)
-            }
-            .fullScreenCover(isPresented: $shouldPresent) {
-                makeAzureView()
-            }
-    }
-
-    @ViewBuilder
-    private func makeAzureView() -> some View {
-        if let currentToken = token {
-            FaceLivenessDetectorView(
-                result: $result,
-                sessionAuthorizationToken: currentToken
-            )
-            .environment(\.locale, Locale(identifier: ZenIDManager.getLanguageLocale()))
-            .onChange(of: result) { result in
-                guard let result else { return }
-
-                // Dismiss UI immediately
-                shouldPresent = false
-
-                // Temporarily block token updates to prevent brief reappearance
-                isProcessingResult = true
-                token = nil
-
-                Task { @MainActor in
-                    // Give UI time to actually dismiss
-                    try? await Task.sleep(nanoseconds: 100_000_000)
-
-                    // Process result - coordinator handles the rest
-                    switch result {
+            .fullScreenCover(item: Binding(
+                get: { coordinator.presentation },
+                // Setter is a no-op: dismissal is driven by coordinator.complete(...) which
+                // clears `presentation` from the SDK side. Allowing SwiftUI to write nil here
+                // would resume the continuation incorrectly.
+                set: { _ in }
+            )) { request in
+                FaceLivenessDetectorView(
+                    result: $result,
+                    sessionAuthorizationToken: request.token
+                )
+                .environment(\.locale, Locale(identifier: ZenIDManager.getLanguageLocale()))
+                .onChange(of: result) { newResult in
+                    guard let newResult else { return }
+                    self.result = nil  // reset for next attempt
+                    switch newResult {
                     case .success:
                         coordinator.complete(success: true)
                     case .failure(let error):
                         coordinator.complete(success: false,
-                                            error: error.livenessError.localizedDescription)
+                                            error: String(describing: error.livenessError))
                     }
-
-                    // Reset result state for next attempt
-                    self.result = nil
-
-                    // Wait for CoreLib to process and start countdown before accepting new tokens
-                    try? await Task.sleep(nanoseconds: 2_000_000_000)
-                    isProcessingResult = false
                 }
             }
-        } else {
-            Color.clear
-                .onAppear {
-                    // Token is nil - dismiss immediately
-                    shouldPresent = false
-                }
-        }
     }
 }
 
 /// View extension for easy integration
 extension View {
-    /// Add Azure Liveness support to your view. Call this once with the coordinator.
-    func msLiveness(coordinator: MSLivenessCoordinator?) -> some View {
+    /// Add Azure Liveness support to your view.
+    ///
+    /// Pass the coordinator you own (typically `@StateObject`) — it does not need to come from
+    /// our `MSLivenessViewModel`. Wire the same coordinator into the verifier via
+    /// ``ZenIDManager/msLivenessVerifier(settings:coordinator:)``.
+    public func msLiveness(coordinator: MSLivenessCoordinator?) -> some View {
         ZStack {
             self
-            if let coordinator = coordinator {
+            if let coordinator {
                 MSLivenessSwiftUIHelper(coordinator: coordinator)
             }
         }

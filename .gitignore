@@ -37,6 +37,9 @@ playground.xcworkspace
 .build/
 .swiftpm/
 
+# ZenID SDK frameworks — fetched via download_frameworks.sh / SwiftPM, never committed
+Libraries/
+
 # CocoaPods
 Pods/
 
