@@ -51,7 +51,6 @@ struct MSLivenessSwiftUIHelper: View {
                     result: $result,
                     sessionAuthorizationToken: request.token
                 )
-                .environment(\.locale, Locale(identifier: ZenIDManager.getLanguageLocale()))
                 .onChange(of: result) { newResult in
                     guard let newResult else { return }
                     self.result = nil  // reset for next attempt

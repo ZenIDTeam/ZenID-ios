@@ -137,7 +137,6 @@ public class MSLivenessUIKitHelper {
             result: binding,
             sessionAuthorizationToken: token
         )
-        .environment(\.locale, Locale(identifier: ZenIDManager.getLanguageLocale()))
 
         let host = UIHostingController(rootView: AnyView(azureView))
         azureHost = host
