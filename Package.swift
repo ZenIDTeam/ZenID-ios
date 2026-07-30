@@ -27,13 +27,13 @@ let package = Package(
         // All required models are bundled inside this framework
         .binaryTarget(
             name: "ZenID",
-            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.3.11/ZenID.xcframework.zip", checksum: "8c5552893fac51570506d0a9ede6eb71c09761eff37537a5d5e3934d34917c9a"),
+            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.3.13/ZenID.xcframework.zip", checksum: "56e0a3f52da48fcd03f0d3a35ee3ee897adf8164865feba8d2276ab29701040e"),
 
         // Azure AI Vision Face UI framework (optional, only needed for MS Liveness)
         // Adds ~140MB to app size
         .binaryTarget(
             name: "AzureAIVisionFaceUI",
-            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.3.11/AzureAIVisionFaceUI.xcframework.zip", checksum: "09a5905607b7adab54f7f53f8162c858984a42f45ac7cac2d9d8ef0a1908ecaa"),
+            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.3.13/AzureAIVisionFaceUI.xcframework.zip", checksum: "8b34341e4f2fcc4f4d2efb8ad4af4338726e939b91836eefb8df0ab1fb9fdb9d"),
 
         // MS Liveness integration helpers (SwiftUI + UIKit). Source target — it depends on
         // AzureAIVisionFaceUI, so it ships only in the ZenIDFull product; the Lite ZenID
