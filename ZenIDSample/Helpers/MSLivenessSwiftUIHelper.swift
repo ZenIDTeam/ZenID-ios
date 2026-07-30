@@ -57,7 +57,7 @@ struct MSLivenessSwiftUIHelper: View {
                         coordinator.complete(success: true)
                     case .failure(let error):
                         coordinator.complete(success: false,
-                                            error: String(describing: error.livenessError))
+                                            error: MSLivenessErrorName.name(forRawValue: error.livenessError.rawValue))
                     }
                 }
             }

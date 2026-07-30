@@ -174,7 +174,7 @@ public class MSLivenessUIKitHelper {
         case .success:
             coordinator.complete(success: true, error: nil)
         case .failure(let error):
-            coordinator.complete(success: false, error: String(describing: error.livenessError))
+            coordinator.complete(success: false, error: MSLivenessErrorName.name(forRawValue: error.livenessError.rawValue))
             // SDK republishes a new presentation request (with a fresh id) for the retry.
         }
     }
