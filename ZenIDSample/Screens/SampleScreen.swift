@@ -11,9 +11,8 @@ import ZenID
 import AzureAIVisionFaceUI
 import Combine
 #if canImport(ZenIDMSLiveness)
-// SwiftPM integration (ZenID Sample target): the `.msLiveness(coordinator:)` modifier ships in
-// the ZenIDMSLiveness module (part of the ZenIDFull product). The ZenID Sample Dev target builds
-// the SDK from source and instead uses the copied Helpers/MSLivenessSwiftUIHelper.swift.
+// In the SwiftPM form `.msLiveness(coordinator:)` comes from the ZenIDMSLiveness module (in
+// ZenIDFull); the source-linked form uses the copied Helpers/MSLivenessSwiftUIHelper.swift.
 import ZenIDMSLiveness
 #endif
 

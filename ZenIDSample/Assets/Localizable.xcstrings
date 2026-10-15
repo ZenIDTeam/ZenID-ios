@@ -75,13 +75,13 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nepodporovaný formát"
+            "value" : "Nepodporovaný formát: %@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unsupported format"
+            "value" : "Unsupported format: %@"
           }
         }
       }
@@ -160,13 +160,13 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Čtu NFC data"
+            "value" : "Čtu NFC data: %@"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading NFC data"
+            "value" : "Reading NFC data: %@"
           }
         }
       }
@@ -422,6 +422,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Authorization Failed"
+          }
+        }
+      }
+    },
+    "general-Any" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechny"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Any"
           }
         }
       }

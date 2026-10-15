@@ -20,6 +20,7 @@ struct MainScreen: View, IdentifiableScreen {
     @State var isInitializing: Bool = false
     @State var lastAuthorizationTime: Date?
     @State var authorizationError: String?
+    @AppStorage(storageCustomData) var customData: String = ""
 
     // Mapping of verifier types to their UI representations
     struct VerifierOption {
@@ -51,6 +52,14 @@ struct MainScreen: View, IdentifiableScreen {
                             let currentProfile = Profile.current
                             profile = currentProfile == "" ? "Default" : currentProfile
                         }
+                    // Stored on the SDK session at initSdk, so a new value needs a new authorization.
+                    HStack {
+                        Label("CustomData", systemImage: "person.text.rectangle")
+                        TextField("None", text: $customData)
+                            .multilineTextAlignment(.trailing)
+                            .autocorrectionDisabled()
+                            .onSubmit { Task { await authorize(force: true) } }
+                    }
                 }
                 Section(header: Text("Document scanner settings")) {
                     OptionRow(title: "Country",
@@ -92,51 +101,13 @@ struct MainScreen: View, IdentifiableScreen {
             profile = currentProfile.isEmpty ? "Default" : currentProfile
 
             // Reload document configuration
-            let config = DocumentConfiguration.load(key: storageConfiguration, defaultValue: DocumentConfiguration(country: .cz))!
-            country = "\(config.country)"
+            let config = DocumentConfiguration.load(key: storageConfiguration, defaultValue: DocumentConfiguration())!
+            country = config.country.map { "\($0)" } ?? "Any"
             role = config.role == nil ? "None" : "\(config.role!)"
             page = config.page == nil ? "None" : "\(config.page!)"
         }
         .task {
-            // Initialize or reauthorize SDK if credentials exist
-            if let credentials = Credentials.load(key: storageCredentials) {
-                let now = Date()
-                let shouldReauthorize: Bool
-
-                if let lastAuth = lastAuthorizationTime {
-                    let timeSinceLastAuth = now.timeIntervalSince(lastAuth)
-                    shouldReauthorize = timeSinceLastAuth >= 300 // 5 minutes in seconds
-                } else {
-                    shouldReauthorize = true
-                }
-
-                if shouldReauthorize {
-                    isInitializing = true
-
-                    if ZenIDManager.isAuthorized() {
-                        _ = await ZenIDManager.reauthorize()
-                        OSLogger.app.info("Reauthorization completed")
-                        lastAuthorizationTime = now
-                    } else {
-                        do {
-                            let backendApi = ZenIDBackendApiImpl(baseURL: credentials.url, apiKey: credentials.key)
-                            try await ZenIDManager.initialize(backendApi: backendApi)
-                            OSLogger.app.info("Authorization completed successfully")
-                            lastAuthorizationTime = now
-                        } catch {
-                            OSLogger.app.error("Authorization failed: \(error)")
-                            authorizationError = String(localized: "error-authorization-failed-message")
-                            Haptics.shared.playError()
-                        }
-                    }
-
-                    isInitializing = false
-                } else {
-                    OSLogger.app.info("Skipping reauthorization, last authorization was less than 5 minutes ago")
-                }
-            } else {
-                OSLogger.app.info("No credentials found, skipping authorization")
-            }
+            await authorize()
 
             // Validate and reload configuration
             await validateAndReloadConfiguration()
@@ -159,19 +130,51 @@ struct MainScreen: View, IdentifiableScreen {
         enabledVerifiers = Set(allVerifierOptions.map { $0.type })
     }
 
+    /// Initialize or reauthorize the SDK if credentials exist; `force` runs a full initialize even when authorized.
+    private func authorize(force: Bool = false) async {
+        guard let credentials = Credentials.load(key: storageCredentials) else {
+            OSLogger.app.info("No credentials found, skipping authorization")
+            return
+        }
+        let now = Date()
+        if !force, let lastAuth = lastAuthorizationTime, now.timeIntervalSince(lastAuth) < 300 {
+            OSLogger.app.info("Skipping reauthorization, last authorization was less than 5 minutes ago")
+            return
+        }
+
+        isInitializing = true
+        if ZenIDManager.isAuthorized() && !force {
+            _ = await ZenIDManager.reauthorize()
+            OSLogger.app.info("Reauthorization completed")
+            lastAuthorizationTime = now
+        } else {
+            do {
+                let backendApi = ZenIDBackendApiImpl(baseURL: credentials.url, apiKey: credentials.key)
+                try await ZenIDManager.initialize(backendApi: backendApi, customData: customData.isEmpty ? nil : customData)
+                OSLogger.app.info("Authorization completed successfully")
+                lastAuthorizationTime = now
+            } catch {
+                OSLogger.app.error("Authorization failed: \(error)")
+                authorizationError = String(localized: "error-authorization-failed-message")
+                Haptics.shared.playError()
+            }
+        }
+        isInitializing = false
+    }
+
     private func validateAndReloadConfiguration() async {
         guard ZenIDManager.isAuthorized() else {
             OSLogger.app.info("SDK not authorized, skipping configuration validation")
             return
         }
-        
+
         let verifiers = ZenIDManager.getEnabledVerifiers()
         enabledVerifiers = Set(verifiers)
         print("Loaded enabled verifiers: \(verifiers)")
 
-        var config = DocumentConfiguration.load(key: storageConfiguration, defaultValue: DocumentConfiguration(country: .cz))!
+        var config = DocumentConfiguration.load(key: storageConfiguration, defaultValue: DocumentConfiguration())!
         var configChanged = false
-     
+
         // Validate and reload profile
         if let profilesData = try? await ZenIDManager.getProfiles(),
            let profilesResponse = try? ZenIDManager.decode(profilesData, as: ProfilesResponse.self) {
@@ -190,41 +193,74 @@ struct MainScreen: View, IdentifiableScreen {
         }
 
         // Validate and reload country
-        if let supportedCountries = ZenIDManager.supportedCountries() {
-            if !supportedCountries.contains(config.country) {
-                // Current country not available, reset to first available or .cz
-                config.country = supportedCountries.first ?? .cz
-                configChanged = true
-                OSLogger.app.info("Country not available, reset to \(config.country)")
+        if let selectedCountry = config.country {
+            // A specific country is selected - validate it
+            if let supportedCountries = ZenIDManager.supportedCountries() {
+                if !supportedCountries.contains(selectedCountry) {
+                    // Current country not available, reset to nil (Any)
+                    config.country = nil
+                    configChanged = true
+                    OSLogger.app.info("Country \(selectedCountry) not available, reset to Any")
+                }
             }
-            country = "\(config.country)"
         }
+        // nil country (Any) is always valid
+        country = config.country.map { "\($0)" } ?? "Any"
 
         // Validate and reload role
-        if let supportedDocuments = ZenIDManager.supportedDocuments(for: config.country) {
-            if let currentRole = config.role, !supportedDocuments.contains(currentRole) {
-                // Current role not available for this country, reset to nil
-                config.role = nil
-                config.page = nil
-                configChanged = true
-                OSLogger.app.info("Role '\(currentRole)' not available for country \(config.country), reset to None")
+        if let currentRole = config.role {
+            if let selectedCountry = config.country {
+                // Specific country: validate role is available for that country
+                if let supportedDocuments = ZenIDManager.supportedDocuments(for: selectedCountry) {
+                    if !supportedDocuments.contains(currentRole) {
+                        config.role = nil
+                        config.page = nil
+                        configChanged = true
+                        OSLogger.app.info("Role '\(currentRole)' not available for country \(selectedCountry), reset to None")
+                    }
+                }
+            } else {
+                // "Any" country: validate role is available in at least one country
+                let roleAvailable = ZenIDManager.supportedDocuments(for: nil)?.contains(currentRole) ?? false
+                if !roleAvailable {
+                    config.role = nil
+                    config.page = nil
+                    configChanged = true
+                    OSLogger.app.info("Role '\(currentRole)' not available for any country, reset to None")
+                }
             }
-            role = config.role == nil ? "None" : "\(config.role!)"
         }
+        role = config.role == nil ? "None" : "\(config.role!)"
 
         // Validate and reload page
-        if let currentRole = config.role,
-           let supportedPages = ZenIDManager.supportedDocumentPageCodes(for: config.country, documentRole: currentRole) {
-            if let currentPage = config.page, !supportedPages.contains(currentPage) {
-                // Current page not available for this role, reset to first available
-                config.page = supportedPages.sorted(by: { $0.rawValue < $1.rawValue }).first
-                configChanged = true
-                OSLogger.app.info("Page '\(currentPage)' not available for role \(currentRole), reset to \(config.page?.rawValue ?? 0)")
+        if let currentRole = config.role {
+            if let currentPage = config.page {
+                if let selectedCountry = config.country {
+                    // Specific country
+                    if let supportedPages = ZenIDManager.supportedDocumentPageCodes(for: selectedCountry, documentRole: currentRole) {
+                        if !supportedPages.contains(currentPage) {
+                            config.page = supportedPages.sorted(by: { $0.rawValue < $1.rawValue }).first
+                            configChanged = true
+                            OSLogger.app.info("Page '\(currentPage)' not available for role \(currentRole), reset to \(config.page?.rawValue ?? 0)")
+                        }
+                    }
+                } else {
+                    // "Any" country: validate page is available in at least one country
+                    if let allPages = ZenIDManager.supportedDocumentPageCodes(for: nil, documentRole: currentRole) {
+                        if !allPages.contains(currentPage) {
+                            config.page = allPages.sorted(by: { $0.rawValue < $1.rawValue }).first
+                            configChanged = true
+                            OSLogger.app.info("Page '\(currentPage)' not available for role \(currentRole) in any country, reset")
+                        }
+                    } else {
+                        config.page = nil
+                        configChanged = true
+                        OSLogger.app.info("Page '\(currentPage)' not available for role \(currentRole) in any country, reset")
+                    }
+                }
             }
-            page = config.page == nil ? "None" : "\(config.page!)"
-        } else {
-            page = config.page == nil ? "None" : "\(config.page!)"
         }
+        page = config.page == nil ? "None" : "\(config.page!)"
 
         // Save configuration if changed
         if configChanged {

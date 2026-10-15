@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7BCA11A12CFD99F00001DD07"
+               BlueprintIdentifier = "CC580B9D123D43E7BD4268F4"
                BuildableName = "ZenID Sample.app"
                BlueprintName = "ZenID Sample"
                ReferencedContainer = "container:ZenIDSample.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7BCA11A12CFD99F00001DD07"
+            BlueprintIdentifier = "CC580B9D123D43E7BD4268F4"
             BuildableName = "ZenID Sample.app"
             BlueprintName = "ZenID Sample"
             ReferencedContainer = "container:ZenIDSample.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7BCA11A12CFD99F00001DD07"
+            BlueprintIdentifier = "CC580B9D123D43E7BD4268F4"
             BuildableName = "ZenID Sample.app"
             BlueprintName = "ZenID Sample"
             ReferencedContainer = "container:ZenIDSample.xcodeproj">

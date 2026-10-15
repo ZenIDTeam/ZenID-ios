@@ -86,6 +86,12 @@ class InvestigatingViewModel<V: VerifierProtocol>: GenericVerifierViewModel<V> {
             // Don't set .error state yet - alert dismiss handler will do it
             self.errorAlert = (title: error.title, message: error.message)
         }
+
+        // Terminal: no sample is coming. Shown the same way, but separately from SDK errors.
+        verifier?.onVerificationFailed = { [weak self] title, message in
+            OSLogger.app.error("Verification failed: \(title) - \(message)")
+            self?.errorAlert = (title: title, message: message)
+        }
     }
 
     // MARK: - Override uploadData to add investigation

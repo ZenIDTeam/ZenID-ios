@@ -36,6 +36,9 @@ playground.xcworkspace
 # Swift Package Manager
 .build/
 .swiftpm/
+# Root package's resolved file — ignored by downstream consumers, so not committed.
+# (Xcode/workspace-level Package.resolved files are still tracked for build reproducibility.)
+/Package.resolved
 
 # ZenID SDK frameworks — fetched via download_frameworks.sh / SwiftPM, never committed
 Libraries/

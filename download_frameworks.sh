@@ -24,10 +24,11 @@ fi
 
 mkdir -p Libraries
 
-for fw in ZenID AzureAIVisionFaceUI; do
+for fw in ZenID AzureAIVisionFaceUI OpenSSL; do
   archive="$fw.xcframework.zip"
 
-  # The url and checksum live on the binaryTarget line referencing this archive.
+  # url + checksum live in Package.swift on the line referencing this archive — a binaryTarget
+  # for ZenID/Azure, a download_frameworks.sh comment line for OpenSSL (a transitive SwiftPM dep).
   line=$(grep -F "$archive" "$MANIFEST" || true)
   url=$(printf '%s\n' "$line" | grep -oE 'https://[^"]+' | head -n1 || true)
   checksum=$(printf '%s\n' "$line" | grep -oE 'checksum: "[a-f0-9]+"' | head -n1 | cut -d'"' -f2 || true)
@@ -57,5 +58,5 @@ for fw in ZenID AzureAIVisionFaceUI; do
 done
 
 echo
-echo "Done — ZenID.xcframework and AzureAIVisionFaceUI.xcframework are in ./Libraries."
+echo "Done — ZenID.xcframework, OpenSSL.xcframework and AzureAIVisionFaceUI.xcframework are in ./Libraries."
 echo "Add the framework(s) to your Xcode project with \"Embed & Sign\"."

@@ -12,6 +12,7 @@ import OSLog
 
 let storageCredentials = "zenid.sample.credentials"
 let storageConfiguration = "zenid.sample.configuration"
+let storageCustomData = "zenid.sample.customData"
 
 struct SampleLogger: ZenidLogger {
     func error(_ message: String) {

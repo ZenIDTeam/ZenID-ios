@@ -40,7 +40,7 @@ import ZenID
             isInitializing = true
             do {
                 let backendApi = ZenIDBackendApiImpl(baseURL: url, apiKey: String(key))
-                try await ZenIDManager.initialize(backendApi: backendApi)
+                try await ZenIDManager.initialize(backendApi: backendApi, customData: UserDefaults.standard.string(forKey: storageCustomData))
                 // Authorization successful - profiles, verifiers, and documents are now loaded
                 isInitializing = false
             } catch {

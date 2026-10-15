@@ -34,6 +34,8 @@ Note that old out-of-support devices will likely lack sufficient processing capa
 - Clone the repo: `git clone https://github.com/ZenIDTeam/ZenID-ios.git`
 - Run `./download_frameworks.sh` to fetch the SDK frameworks into `Libraries/`. They are distributed as GitHub release archives and verified against the checksums in `Package.swift`.
 - Add `Libraries/ZenID.xcframework` to your app's Xcode target with "Embed & Sign". All required models are bundled inside the framework — no separate model files needed.
+- Add `Libraries/OpenSSL.xcframework` with "Embed & Sign". ZenID's NFC reader requires it at runtime (it's distributed as a separate dynamic framework by [krzyzanowskim/OpenSSL-Package](https://github.com/krzyzanowskim/OpenSSL-Package)).
+  - **If your app already embeds its own OpenSSL:** embed only one `OpenSSL.framework` — two copies with the same install name collide at load time. You may reuse your existing copy *only* if it is the same krzyzanowskim/OpenSSL-Package distribution at a compatible version (ZenID is built against OpenSSL 3.6.x); OpenSSL has no stable ABI across versions, so a different build may crash or misbehave. When in doubt, integrate via Swift Package Manager instead — it deduplicates OpenSSL across the whole dependency graph for you.
 - If you will use MS Liveness:
   - Also add `Libraries/AzureAIVisionFaceUI.xcframework` (~140MB additional) with "Embed & Sign".
   - Copy the MS Liveness helper files from `MSLivenessHelpers` into your project, as described in the manual.
@@ -50,6 +52,7 @@ Required Info.plist keys:
   - **ZenID** - Lite version (recommended if you don't need MS Liveness)
   - **ZenIDFull** - Full version with MS Liveness support (includes AzureAIVisionFaceUI automatically, adds ~140MB)
 - All required models are bundled inside ZenID.xcframework - no manual model management needed.
+- OpenSSL.framework is pulled in transitively via SPM (no extra step needed). It's required at runtime by ZenID's NFC reader. SwiftPM resolves a single shared OpenSSL across your entire dependency graph, so even if your app or another package also depends on krzyzanowskim/OpenSSL-Package, there is no duplicate-framework conflict.
 
 The SDK frameworks are delivered as GitHub release archives, referenced from `Package.swift` by `binaryTarget` url + checksum. SwiftPM downloads and verifies them automatically — Git LFS is not required.
 

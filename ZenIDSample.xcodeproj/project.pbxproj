@@ -7,31 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B4FE1552D10437D00153472 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4FE1542D10437D00153472 /* Security.framework */; };
-		7B8375212D10C82D002513B3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7B8375202D10C82D002513B3 /* README.md */; };
-		5ED05A11000000000000FF03 /* ZenIDFull in Frameworks */ = {isa = PBXBuildFile; productRef = 5ED05A11000000000000FF02 /* ZenIDFull */; };
-		F1458524DBAB4C999F6F0BB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4FE1542D10437D00153472 /* Security.framework */; };
 		47F3424B28B6427B981ED538 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7B8375202D10C82D002513B3 /* README.md */; };
+		6309EFCBE102D045E003064F /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = 205D84CA757084C4CED54F07 /* NFCPassportReader */; };
 		CC580BA3123D43E7BD4268F4 /* ZenID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC580BA1123D43E7BD4268F4 /* ZenID.framework */; };
 		CC580BA4123D43E7BD4268F4 /* ZenID.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CC580BA1123D43E7BD4268F4 /* ZenID.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CC580BA6123D43E7BD4268F4 /* AzureAIVisionFaceUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4E63732E3CE0C6000FDDCC /* AzureAIVisionFaceUI.xcframework */; };
 		CC580BA7123D43E7BD4268F4 /* AzureAIVisionFaceUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4E63732E3CE0C6000FDDCC /* AzureAIVisionFaceUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F1458524DBAB4C999F6F0BB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4FE1542D10437D00153472 /* Security.framework */; };
+		FA11CE0000000000000000D3 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = FA11CE0000000000000000D2 /* OpenSSL */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		AD5FBE3DA65B41ADB0EB9D64 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CC580BA4123D43E7BD4268F4 /* ZenID.framework in Embed Frameworks */,
-				CC580BA7123D43E7BD4268F4 /* AzureAIVisionFaceUI.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXContainerItemProxy section */
 		CC580B9F123D43E7BD4268F4 /* PBXContainerItemProxy */ = {
@@ -50,30 +34,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AD5FBE3DA65B41ADB0EB9D64 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CC580BA4123D43E7BD4268F4 /* ZenID.framework in Embed Frameworks */,
+				CC580BA7123D43E7BD4268F4 /* AzureAIVisionFaceUI.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7B4E63732E3CE0C6000FDDCC /* AzureAIVisionFaceUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AzureAIVisionFaceUI.xcframework; path = Libraries/AzureAIVisionFaceUI.xcframework; sourceTree = "<group>"; };
 		7B4FE1542D10437D00153472 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7B8375202D10C82D002513B3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7BCA11A22CFD99F00001DD07 /* ZenID Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZenID Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC580B9E123D43E7BD4268F4 /* ZenID.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZenID.xcodeproj; path = ../iOS/ZenID.xcodeproj; sourceTree = "<group>"; };
-		D6D06AD31B87451BB74EB868 /* ZenID Sample Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZenID Sample Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D06AD31B87451BB74EB868 /* ZenID Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZenID Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7B4FE1562D1045E500153472 /* Exceptions for "ZenIDSample" folder in "ZenID Sample" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-				Helpers/MSLivenessSwiftUIHelper.swift,
-			);
-			target = 7BCA11A12CFD99F00001DD07 /* ZenID Sample */;
-		};
-		1D95F98B7DC347A9B68D9A9F /* Exceptions for "ZenIDSample" folder in "ZenID Sample Dev" target */ = {
+		1D95F98B7DC347A9B68D9A9F /* Exceptions for "ZenIDSample" folder in "ZenID Sample" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = CC580B9D123D43E7BD4268F4 /* ZenID Sample Dev */;
+			target = CC580B9D123D43E7BD4268F4 /* ZenID Sample */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -81,8 +71,7 @@
 		7BCA11A42CFD99F00001DD07 /* ZenIDSample */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				7B4FE1562D1045E500153472 /* Exceptions for "ZenIDSample" folder in "ZenID Sample" target */,
-				1D95F98B7DC347A9B68D9A9F /* Exceptions for "ZenIDSample" folder in "ZenID Sample Dev" target */,
+				1D95F98B7DC347A9B68D9A9F /* Exceptions for "ZenIDSample" folder in "ZenID Sample" target */,
 			);
 			path = ZenIDSample;
 			sourceTree = "<group>";
@@ -90,15 +79,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7BCA119F2CFD99F00001DD07 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7B4FE1552D10437D00153472 /* Security.framework in Frameworks */,
-				5ED05A11000000000000FF03 /* ZenIDFull in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D2CEE80F6FDA45E1B51F667B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,6 +86,8 @@
 				F1458524DBAB4C999F6F0BB4 /* Security.framework in Frameworks */,
 				CC580BA3123D43E7BD4268F4 /* ZenID.framework in Frameworks */,
 				CC580BA6123D43E7BD4268F4 /* AzureAIVisionFaceUI.xcframework in Frameworks */,
+				FA11CE0000000000000000D3 /* OpenSSL in Frameworks */,
+				6309EFCBE102D045E003064F /* NFCPassportReader in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +114,14 @@
 			);
 			sourceTree = "<group>";
 		};
+		7BCA11A32CFD99F00001DD07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6D06AD31B87451BB74EB868 /* ZenID Sample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CC580BA5123D43E7BD4268F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,44 +130,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7BCA11A32CFD99F00001DD07 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7BCA11A22CFD99F00001DD07 /* ZenID Sample.app */,
-				D6D06AD31B87451BB74EB868 /* ZenID Sample Dev.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7BCA11A12CFD99F00001DD07 /* ZenID Sample */ = {
+		CC580B9D123D43E7BD4268F4 /* ZenID Sample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BCA11B02CFD99F20001DD07 /* Build configuration list for PBXNativeTarget "ZenID Sample" */;
-			buildPhases = (
-				7BCA119E2CFD99F00001DD07 /* Sources */,
-				7BCA119F2CFD99F00001DD07 /* Frameworks */,
-				7BCA11A02CFD99F00001DD07 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				7BCA11A42CFD99F00001DD07 /* ZenIDSample */,
-			);
-			name = "ZenID Sample";
-			packageProductDependencies = (
-				5ED05A11000000000000FF02 /* ZenIDFull */,
-			);
-			productName = ZenIDSample;
-			productReference = 7BCA11A22CFD99F00001DD07 /* ZenID Sample.app */;
-			productType = "com.apple.product-type.application";
-		};
-		CC580B9D123D43E7BD4268F4 /* ZenID Sample Dev */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7A4EDFABA6594BA0A77A6173 /* Build configuration list for PBXNativeTarget "ZenID Sample Dev" */;
+			buildConfigurationList = 7A4EDFABA6594BA0A77A6173 /* Build configuration list for PBXNativeTarget "ZenID Sample" */;
 			buildPhases = (
 				C6C4DBEE221F4A29887127BD /* Sources */,
 				D2CEE80F6FDA45E1B51F667B /* Frameworks */,
@@ -192,11 +150,13 @@
 			fileSystemSynchronizedGroups = (
 				7BCA11A42CFD99F00001DD07 /* ZenIDSample */,
 			);
-			name = "ZenID Sample Dev";
+			name = "ZenID Sample";
 			packageProductDependencies = (
+				FA11CE0000000000000000D2 /* OpenSSL */,
+				205D84CA757084C4CED54F07 /* NFCPassportReader */,
 			);
 			productName = ZenIDSample;
-			productReference = D6D06AD31B87451BB74EB868 /* ZenID Sample Dev.app */;
+			productReference = D6D06AD31B87451BB74EB868 /* ZenID Sample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -210,9 +170,6 @@
 				LastUpgradeCheck = 1610;
 				ORGANIZATIONNAME = "ZenID s.r.o.";
 				TargetAttributes = {
-					7BCA11A12CFD99F00001DD07 = {
-						CreatedOnToolsVersion = 16.1;
-					};
 					CC580B9D123D43E7BD4268F4 = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -227,6 +184,10 @@
 			);
 			mainGroup = 7BCA11992CFD99F00001DD07;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FA11CE0000000000000000D1 /* XCRemoteSwiftPackageReference "OpenSSL-Package" */,
+				62855F169937726069F7B90B /* XCRemoteSwiftPackageReference "NFCPassportReader" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7BCA11A32CFD99F00001DD07 /* Products */;
 			projectDirPath = "";
@@ -236,13 +197,9 @@
 					ProjectRef = CC580B9E123D43E7BD4268F4 /* ZenID.xcodeproj */;
 				},
 			);
-			packageReferences = (
-				5ED05A11000000000000FF01 /* XCLocalSwiftPackageReference "." */,
-			);
 			projectRoot = "";
 			targets = (
-				7BCA11A12CFD99F00001DD07 /* ZenID Sample */,
-				CC580B9D123D43E7BD4268F4 /* ZenID Sample Dev */,
+				CC580B9D123D43E7BD4268F4 /* ZenID Sample */,
 			);
 		};
 /* End PBXProject section */
@@ -258,14 +215,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7BCA11A02CFD99F00001DD07 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7B8375212D10C82D002513B3 /* README.md in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7D77CBDC24F347D9A2EE7082 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,13 +226,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7BCA119E2CFD99F00001DD07 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C6C4DBEE221F4A29887127BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,6 +244,82 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1E18F142DBE046BF9499C928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ZenIDSample/ZenID-Sample.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Trask Solutions a.s. (FQAZ2Y87Y2)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZenIDSample/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ZenID Sample";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need for identification";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
+				MARKETING_VERSION = 5.5.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.zenid.ios-sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "ZenID Sample Distribution";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6213C67365DE4A839B89D98A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ZenIDSample/ZenID-Sample.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZenIDSample/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ZenID Sample";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need for identification";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
+				MARKETING_VERSION = 5.5.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "cz.zenid.ios-sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		7BCA11AE2CFD99F20001DD07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -435,161 +453,18 @@
 			};
 			name = Release;
 		};
-		7BCA11B12CFD99F20001DD07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ZenIDSample/ZenID-Sample.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ZenIDSample/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ZenID Sample";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Need for identification";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
-				MARKETING_VERSION = 5.4.17;
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.zenid.ios-sample";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		7BCA11B22CFD99F20001DD07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ZenIDSample/ZenID-Sample.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Trask Solutions a.s. (FQAZ2Y87Y2)";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ZenIDSample/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ZenID Sample";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Need for identification";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
-				MARKETING_VERSION = 5.4.17;
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.zenid.ios-sample";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ZenID Sample Distribution";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		6213C67365DE4A839B89D98A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ZenIDSample/ZenID-Sample.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ZenIDSample/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ZenID Sample Dev";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Need for identification";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
-				MARKETING_VERSION = 5.4.17;
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.zenid.ios-sample";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		1E18F142DBE046BF9499C928 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ZenIDSample/ZenID-Sample.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = FQAZ2Y87Y2;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ZenIDSample/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ZenID Sample Dev";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Need for identification";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LOCALIZED_STRING_SWIFTUI_SUPPORT = NO;
-				MARKETING_VERSION = 5.4.17;
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.zenid.ios-sample";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7A4EDFABA6594BA0A77A6173 /* Build configuration list for PBXNativeTarget "ZenID Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6213C67365DE4A839B89D98A /* Debug */,
+				1E18F142DBE046BF9499C928 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7BCA119D2CFD99F00001DD07 /* Build configuration list for PBXProject "ZenIDSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -599,38 +474,37 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BCA11B02CFD99F20001DD07 /* Build configuration list for PBXNativeTarget "ZenID Sample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7BCA11B12CFD99F20001DD07 /* Debug */,
-				7BCA11B22CFD99F20001DD07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7A4EDFABA6594BA0A77A6173 /* Build configuration list for PBXNativeTarget "ZenID Sample Dev" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6213C67365DE4A839B89D98A /* Debug */,
-				1E18F142DBE046BF9499C928 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		5ED05A11000000000000FF01 /* XCLocalSwiftPackageReference "." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = .;
+/* Begin XCRemoteSwiftPackageReference section */
+		62855F169937726069F7B90B /* XCRemoteSwiftPackageReference "NFCPassportReader" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndyQ/NFCPassportReader.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.3;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+		FA11CE0000000000000000D1 /* XCRemoteSwiftPackageReference "OpenSSL-Package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL-Package.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.6.5000;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5ED05A11000000000000FF02 /* ZenIDFull */ = {
+		205D84CA757084C4CED54F07 /* NFCPassportReader */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5ED05A11000000000000FF01 /* XCLocalSwiftPackageReference "." */;
-			productName = ZenIDFull;
+			package = 62855F169937726069F7B90B /* XCRemoteSwiftPackageReference "NFCPassportReader" */;
+			productName = NFCPassportReader;
+		};
+		FA11CE0000000000000000D2 /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA11CE0000000000000000D1 /* XCRemoteSwiftPackageReference "OpenSSL-Package" */;
+			productName = OpenSSL;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
