@@ -155,12 +155,6 @@ struct LazyMatImage: Codable {
     var imageHash: Hash?
 }
 
-// MARK: - ZenidShared.EyesInfo
-struct EyesInfo: Codable {
-    var boxLeftTopRel: PointF?
-    var boxRightBottomRel: PointF?
-}
-
 // MARK: - ZenidShared.Mrz
 struct Mrz: Codable {
     var birthDate: String?
@@ -284,13 +278,6 @@ struct FieldOcrResult: Codable {
 struct Hash: Codable {
     var asText: String?
     var isNull: Bool?
-}
-
-// MARK: - System.Drawing.PointF
-struct PointF: Codable {
-    var isEmpty: Bool?
-    var x: Double?
-    var y: Double?
 }
 
 // MARK: - ZenidShared.MinedText

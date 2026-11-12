@@ -51,13 +51,13 @@ let package = Package(
         // All required models are bundled inside this framework
         .binaryTarget(
             name: "ZenID",
-            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.5.15/ZenID.xcframework.zip", checksum: "ec3fada3003e586497e8565be371f28457c9bfb1200a5647d0285f3fae85beb8"),
+            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.5.17/ZenID.xcframework.zip", checksum: "5e89dbb029b85c06018735df7444394792b563eee0f02a46d496420a379b8916"),
 
         // Azure AI Vision Face UI framework (optional, only needed for MS Liveness)
         // Adds ~140MB to app size
         .binaryTarget(
             name: "AzureAIVisionFaceUI",
-            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.5.15/AzureAIVisionFaceUI.xcframework.zip", checksum: "0e285e5e4ecfb416bab988eca0bef4a6809f48862b01acee639c5cace995c806"),
+            url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.5.17/AzureAIVisionFaceUI.xcframework.zip", checksum: "0a1fe5bf690059d67ede8c17b2c3e0e577f3b2e9d223b06f8419288386458035"),
 
         // MS Liveness integration helpers (SwiftUI + UIKit). Source target — it depends on
         // AzureAIVisionFaceUI, so it ships only in the ZenIDFull product; the Lite ZenID
@@ -70,4 +70,4 @@ let package = Package(
     ]
 )
 
-// download_frameworks.sh manual-integration source: OpenSSL.xcframework.zip url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.5.15/OpenSSL.xcframework.zip", checksum: "610e4f945d6152e8b6f40c1cf0bbabc54587011f766f72ef29437d14ee9572d2"
+// download_frameworks.sh manual-integration source: OpenSSL.xcframework.zip url: "https://github.com/ZenIDTeam/ZenID-ios/releases/download/5.5.17/OpenSSL.xcframework.zip", checksum: "24fb683fd6e384e854bfaf30f856f037d1cda93d0c1c47fcd42d0955d9586744"
